@@ -20,7 +20,7 @@ await page.evaluate(([t, s]) => T.init(t, s), [timing, script]);
 await page.evaluate(() => document.fonts.ready);
 // Türkçe glif ve font yüklemesi doğrulaması: eksik font sessizce sisteme düşmesin
 const eksik = await page.evaluate(async () => {
-  const fams = ['900 100px Fraunces', '300 100px Fraunces', '400 40px "IBM Plex Mono"', '600 40px Caveat', '500 40px "IBM Plex Sans"'];
+  const fams = window.FONTS || ['900 100px Fraunces', '300 100px Fraunces', '400 40px "IBM Plex Mono"', '600 40px Caveat', '500 40px "IBM Plex Sans"'];
   await Promise.all(fams.map(f => document.fonts.load(f, 'İŞĞÜÇÖıâ')));
   return fams.filter(f => !document.fonts.check(f, 'İŞĞÜÇÖıâ'));
 });

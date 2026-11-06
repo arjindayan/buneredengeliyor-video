@@ -18,8 +18,22 @@ def spoken(t):
     return MARK.sub(lambda m: m.group(2), t)
 
 
+TAG = re.compile(r"\[[^\]]*\]\s*")  # v3 ses etiketi: [curious], [short pause]; okunmaz, ekranda görünmez
+
+
+def drop_tags(words):
+    """Hizalamadan gelen etiket 'kelimelerini' at (etiket boşluk içerebilir)."""
+    out, inside = [], False
+    for w in words:
+        if w["w"].startswith("["): inside = True
+        if not inside: out.append(w)
+        if w["w"].endswith("]"): inside = False
+    return out
+
+
 def display_tokens(t):
     """Her ekran kelimesi ve kaç sesli kelimeye karşılık geldiği."""
+    t = TAG.sub("", t)
     out = []
     for part in re.split(r"(\{[^}]+\})", t):
         m = MARK.fullmatch(part)
@@ -101,7 +115,7 @@ def main():
         # shortcut: hece başına 0,17 sn tahmini, gerçek ses gelince ElevenLabs zamanlaması ile değişir
         words, t = [], 0.3
         for i, seg in enumerate(segs):
-            for w in spoken(seg["text"]).split():
+            for w in TAG.sub("", spoken(seg["text"])).split():
                 d = max(1, len(re.findall(r"[aeıioöuüâîûAEIİOÖUÜ]", w))) * 0.17
                 words.append({"w": w, "start": round(t, 3), "end": round(t + d, 3), "seg": i})
                 t += d + (0.35 if w[-1] in ".:?!" else 0.12 if w[-1] == "," else 0.04)
@@ -114,14 +128,14 @@ def main():
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", mp3, os.path.join(topic, "voice.mp3")], check=True)
         dur = duration(os.path.join(topic, "voice.mp3")) + 0.6
     else:
-        voice = os.environ["ELEVENLABS_VOICE_ID"]
+        voice = os.environ.get("ELEVENLABS_VOICE_ID", "uKigJX6jL7ZlAQRJHPGO")  # Arjin'in klonu
         r = post(f"/text-to-speech/{voice}/with-timestamps?output_format=mp3_44100_128",
-                 {"text": text, "model_id": os.environ.get("ELEVENLABS_MODEL", "eleven_v4")})
+                 {"text": text, "model_id": s.get("model") or os.environ.get("ELEVENLABS_MODEL", "eleven_v4")})
         open(os.path.join(topic, "voice.mp3"), "wb").write(base64.b64decode(r["audio_base64"]))
         a = r["alignment"]
         words = words_from_chars(a["characters"], a["character_start_times_seconds"], a["character_end_times_seconds"], segs)
         dur = duration(os.path.join(topic, "voice.mp3")) + 0.6
-    words = merge_display(words, segs)
+    words = merge_display(drop_tags(words), segs)
     json.dump({"duration": round(dur, 3), "words": words}, open(os.path.join(topic, "timing.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     print(f"{len(words)} kelime, {dur:.1f} sn")
 

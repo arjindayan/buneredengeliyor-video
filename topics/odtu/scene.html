@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: bozkırdan ormana. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden}
+  body{font-family:'Archivo';background:#CDB37E}
+  #sahne{position:absolute;inset:0}
+  canvas{position:absolute;left:0;top:0}
+  .s{position:absolute;inset:0;visibility:hidden}
+  .abs{position:absolute;margin:0;white-space:nowrap}
+  .dev{font-weight:800;font-stretch:125%;line-height:.9;letter-spacing:-.02em}
+  .ince{font-weight:200;font-stretch:100%}
+  .dar{font-weight:700;font-stretch:62%;letter-spacing:.04em}
+  #altyazi{position:absolute;left:80px;right:80px;top:1330px;text-align:left;font:600 54px/1.22 'Archivo';font-stretch:100%}
+</style>
+</head>
+<body>
+<div id="sahne">
+  <canvas id="arazi" width="1080" height="1920"></canvas>
+
+  <div class="s" id="hook">
+    <p class="abs dar" style="left:80px;top:250px;font-size:44px">ANKARA</p>
+    <h1 class="abs dev" id="h-sayi" style="left:70px;top:310px;font-size:260px">3.000</h1>
+    <p class="abs ince" style="left:80px;top:560px;font-size:84px">hektar orman</p>
+    <p class="abs dar" id="h-yil" style="left:80px;top:700px;font-size:44px;opacity:0">YETMİŞ YIL ÖNCE: BOZKIR</p>
+  </div>
+
+  <div class="s" id="rapor">
+    <h1 class="abs dev" id="r-yil" style="left:70px;top:240px;font-size:300px">1954</h1>
+    <p class="abs dar" style="left:80px;top:540px;font-size:40px">BİRLEŞMİŞ MİLLETLER · CHARLES ABRAMS</p>
+    <p class="abs ince" id="r-oneri" style="left:80px;top:620px;font-size:70px;white-space:normal;width:900px;line-height:1.1"></p>
+  </div>
+
+  <div class="s" id="kurulus">
+    <p class="abs dar" style="left:80px;top:230px;font-size:44px">15 KASIM 1956</p>
+    <div id="k-ad" style="position:absolute;left:70px;top:300px"></div>
+  </div>
+
+  <div class="s" id="ilk">
+    <p class="abs dar" style="left:80px;top:240px;font-size:40px">İLK DERSLER</p>
+    <p class="abs ince" id="i-1" style="left:80px;top:300px;font-size:72px">Kızılay'da küçük bir bina</p>
+    <p class="abs ince" id="i-2" style="left:80px;top:400px;font-size:72px">Meclis'in arkasında barakalar</p>
+    <p class="abs dar" id="i-3l" style="left:80px;top:580px;font-size:40px">İLK BÖLÜM</p>
+    <h1 class="abs dev" id="i-3" style="left:70px;top:630px;font-size:150px">MİMARLIK</h1>
+  </div>
+
+  <div class="s" id="bozkir">
+    <h1 class="abs dev" id="b-sayi" style="left:70px;top:280px;font-size:260px">4.500</h1>
+    <p class="abs ince" style="left:80px;top:530px;font-size:84px">hektar arazi</p>
+    <p class="abs dar" id="b-tarif" style="left:80px;top:680px;font-size:44px">KURAK · RÜZGÂRLI · BOMBOŞ</p>
+  </div>
+
+  <div class="s" id="kurdas">
+    <p class="abs dar" style="left:80px;top:250px;font-size:44px">REKTÖR</p>
+    <h1 class="abs dev" style="left:70px;top:310px;font-size:150px;line-height:.95">KEMAL<br>KURDAŞ</h1>
+    <p class="abs ince" id="kd-not" style="left:80px;top:640px;font-size:68px">ilk fidanlar, el ile</p>
+  </div>
+
+  <div class="s" id="orman">
+    <h1 class="abs dev" id="o-yil" style="left:70px;top:280px;font-size:260px">1963</h1>
+    <p class="abs ince" id="o-1" style="left:80px;top:530px;font-size:72px">kendi kampüsü</p>
+    <p class="abs ince" id="o-2" style="left:80px;top:630px;font-size:72px">milyonlarca fidan</p>
+  </div>
+
+  <div class="s" id="son">
+    <h1 class="abs dev" id="s-ad" style="left:70px;top:300px;font-size:250px">ODTÜ</h1>
+    <p class="abs ince" id="s-not" style="left:80px;top:590px;font-size:72px">bozkırdan ormana</p>
+  </div>
+
+  <div id="altyazi"></div>
+</div>
+
+<script src="../../engine/lib.js"></script>
+<script>
+window.FONTS = ['800 100px Archivo', '200 100px Archivo', '600 40px Archivo'];
+const $ = id => document.getElementById(id);
+const up = s => s.toLocaleUpperCase('tr-TR');
+const SAHNELER = ['hook','rapor','kurulus','ilk','bozkir','kurdas','orman','son'];
+const kelime = (sc, onek) => { const ws = T.seg[sc].words; const i = ws.findIndex(w => w.w.toLocaleLowerCase('tr-TR').startsWith(onek)); return i < 0 ? 0 : T.wordAt(sc, i); };
+const yaz = (f, [a, b]) => lerp(f, [a, b], [0, 1], EASE.dolly);
+
+// Renk: bozkır okrundan çam yeşiline (anlam: orman büyüdükçe zemin değişir)
+const BOZKIR = { zemin: [205, 179, 126], gok: [229, 214, 178], metin: [42, 38, 24] };
+const ORMAN  = { zemin: [31, 58, 46],    gok: [52, 84, 66],    metin: [242, 237, 224] };
+const karis = (a, b, t) => a.map((x, i) => Math.round(x + (b[i] - x) * t));
+const rgb = c => `rgb(${c})`;
+
+// Ağaç alanı: seed'li 700 konum, ufuktan (y=900) öne (y=1260) perspektifle
+const UFUK = 900, ON = 1270, AGAC = [];
+let kuruldu = false;
+function kur() {
+  kuruldu = true;
+  for (let i = 0; i < 700; i++) {
+    const d = Math.pow(rastgele(i * 3 + 1), 1.6);               // 0 uzak, 1 yakın
+    AGAC.push({ x: -20 + 1120 * rastgele(i * 3 + 2), y: UFUK + 6 + d * (ON - UFUK), k: 10 + d * 46, ton: rastgele(i * 3 + 3) });
+  }
+  AGAC.sort((a, b) => a.y - b.y);                                // uzaktakiler önce çizilsin
+  // dikim sırası: yakından uzağa değil, rastgele
+  AGAC.forEach((a, i) => a.sira = rastgele(i * 7 + 11));
+  $('r-oneri').textContent = '“Mimarlık ve planlama için bir okul kurun.”';
+  const ad = ['ORTA', 'DOĞU', 'YÜKSEK', 'TEKNOLOJİ', 'ENSTİTÜSÜ'];
+  $('k-ad').innerHTML = ad.map((w, i) => `<div class="dev" style="font-size:${i > 2 ? 118 : 150}px;opacity:0;margin-bottom:6px">${w}</div>`).join('');
+}
+
+const ctx = $('arazi').getContext('2d');
+function arazi(f, oran, renk, ruzgar) {
+  // gökyüzü ve zemin
+  ctx.fillStyle = rgb(renk.zemin); ctx.fillRect(0, 0, 1080, 1920);
+  const g = ctx.createLinearGradient(0, UFUK - 260, 0, UFUK);
+  g.addColorStop(0, rgb(renk.zemin)); g.addColorStop(1, rgb(renk.gok));
+  ctx.fillStyle = g; ctx.fillRect(0, UFUK - 260, 1080, 260);
+  ctx.strokeStyle = rgb(renk.metin); ctx.globalAlpha = .5; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(0, UFUK); ctx.lineTo(1080, UFUK); ctx.stroke(); ctx.globalAlpha = 1;
+  // bozkır otları: rüzgârda eğilen kısa çizgiler
+  ctx.strokeStyle = rgb(karis(renk.metin, renk.zemin, .55)); ctx.lineWidth = 2;
+  for (let i = 0; i < 160; i++) {
+    const x = 1080 * rastgele(i * 5 + 900), y = UFUK + 12 + 360 * Math.pow(rastgele(i * 5 + 901), 1.4), h = 8 + 20 * (y - UFUK) / 360;
+    const egim = ruzgar * (6 + 6 * Math.sin(f / 9 + i));
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + egim, y - h); ctx.stroke();
+  }
+  // ağaçlar: sıra < oran olanlar görünür; yeni dikilen 20 karede büyür
+  AGAC.forEach(a => {
+    const t = klamp((oran - a.sira) * 40); if (t <= 0) return;
+    const k = a.k * EASE.dolly(t), yesil = karis([58, 96, 62], [96, 140, 80], a.ton);
+    ctx.fillStyle = rgb(karis(yesil, renk.metin, .12));
+    ctx.beginPath(); ctx.moveTo(a.x, a.y - k * 2.2); ctx.lineTo(a.x - k * .55, a.y); ctx.lineTo(a.x + k * .55, a.y); ctx.closePath(); ctx.fill();
+    ctx.fillRect(a.x - k * .06, a.y, k * .12, k * .3);
+  });
+}
+
+window.renderFrame = function (f) {
+  if (!kuruldu) kur();
+  let aktif = SAHNELER[0];
+  SAHNELER.forEach(s => { if (f >= T.seg[s].start - 4) aktif = s; });
+  SAHNELER.forEach(s => $(s).style.visibility = s === aktif ? 'visible' : 'hidden');
+  const lf = T.local(aktif, f), S = T.seg;
+
+  // Ormanın oranı: hook'ta tam orman, "Ama"da bozkıra döner; Kurdaş'ta ilk fidanlar; orman sahnesinde dolar
+  const ama = S.hook.start + kelime('hook', 'ama'), fidan = S.kurdas.start + kelime('kurdas', 'ilk');
+  let oran;
+  if (f < ama) oran = 1;
+  else if (f < fidan) oran = 0;
+  else if (f < S.orman.start) oran = lerp(f, [fidan, fidan + 60], [0, .03]);
+  else oran = lerp(f, [S.orman.start, S.son.start + 30], [.03, 1], EASE.kalem);
+  // renk: orman oranına bağlı (hook başında yeşil, sonra okr)
+  const renkT = f < ama ? 1 : klamp((oran - .1) / .8);
+  const renk = { zemin: karis(BOZKIR.zemin, ORMAN.zemin, renkT), gok: karis(BOZKIR.gok, ORMAN.gok, renkT), metin: renkT > .45 ? ORMAN.metin : BOZKIR.metin }; // metin yumuşak geçmez: ara tonda kontrast kaybolur
+  const ruzgar = aktif === 'bozkir' ? 1.6 : 1;
+  arazi(f, oran, renk, ruzgar);
+  document.querySelectorAll('.s, #altyazi').forEach(e => e.style.color = rgb(renk.metin));
+
+  if (aktif === 'hook') {
+    $('h-sayi').style.transform = `translateX(${lerp(lf, [8, 60], [-60, 0], EASE.dolly)}px)`;
+    $('h-yil').style.opacity = lerp(lf, [kelime('hook', 'ama'), kelime('hook', 'ama') + 14], [0, 1]);
+  }
+  if (aktif === 'rapor') {
+    $('r-yil').style.transform = `translateX(${lerp(lf, [4, 60], [-50, 0], EASE.dolly)}px)`;
+    const o = kelime('rapor', 'mimarlık'); $('r-oneri').style.opacity = yaz(lf, [o, o + 20]);
+  }
+  if (aktif === 'kurulus') {
+    const cue = ['orta', 'doğu', 'yüksek', 'teknoloji', 'enstitüsü'].map(k => kelime('kurulus', k));
+    [...$('k-ad').children].forEach((e, i) => { e.style.opacity = yaz(lf, [cue[i], cue[i] + 10]); e.style.transform = `translateY(${lerp(lf, [cue[i], cue[i] + 20], [24, 0], EASE.dolly)}px)`; });
+  }
+  if (aktif === 'ilk') {
+    const a = kelime('ilk', 'kızılay'), b = kelime('ilk', 'meclis'), c = kelime('ilk', 'mimarlık');
+    $('i-1').style.opacity = yaz(lf, [a, a + 14]); $('i-2').style.opacity = yaz(lf, [b, b + 14]);
+    $('i-3l').style.opacity = yaz(lf, [c - 15, c]); $('i-3').style.opacity = yaz(lf, [c, c + 12]);
+  }
+  if (aktif === 'bozkir') {
+    $('b-sayi').style.transform = `translateX(${lerp(lf, [4, 60], [-50, 0], EASE.dolly)}px)`;
+    const k = kelime('bozkir', 'kurak'); $('b-tarif').style.opacity = yaz(lf, [k, k + 14]);
+  }
+  if (aktif === 'kurdas') {
+    const k = kelime('kurdas', 'ilk'); $('kd-not').style.opacity = yaz(lf, [k, k + 20]);
+  }
+  if (aktif === 'orman') {
+    const b = kelime('orman', 'milyon'), k = kelime('orman', 'okul');
+    $('o-1').style.opacity = yaz(lf, [k, k + 14]); $('o-2').style.opacity = yaz(lf, [b, b + 14]);
+    $('o-yil').style.opacity = 1 - lerp(lf, [T.seg.orman.end - T.seg.orman.start - 30, T.seg.orman.end - T.seg.orman.start], [0, 1]);
+  }
+  if (aktif === 'son') {
+    const k = kelime('son', 'bu'); $('s-ad').style.opacity = yaz(lf, [k, k + 24]); $('s-not').style.opacity = yaz(lf, [k + 30, k + 54]);
+  }
+  const c = T.caption(f);
+  $('altyazi').innerHTML = c ? c.lines.join('<br>') : '';
+};
+</script>
+</body>
+</html>

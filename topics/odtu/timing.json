@@ -1,0 +1,797 @@
+{
+"duration": 79.046,
+"words": [
+{
+"w": "Ankara'nın",
+"start": 0.377,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "ortasında",
+"start": 0.72,
+"end": 1.44,
+"seg": 0
+},
+{
+"w": "3.000",
+"start": 1.653,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "hektarlık",
+"start": 2.4,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "bir",
+"start": 3.02,
+"end": 3.2,
+"seg": 0
+},
+{
+"w": "orman",
+"start": 3.307,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "var...",
+"start": 3.76,
+"end": 4.88,
+"seg": 0
+},
+{
+"w": "Ama",
+"start": 5.084,
+"end": 5.12,
+"seg": 0
+},
+{
+"w": "yetmiş",
+"start": 5.22,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "yıl",
+"start": 5.66,
+"end": 5.84,
+"seg": 0
+},
+{
+"w": "önce",
+"start": 5.904,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "orası,",
+"start": 6.267,
+"end": 7.0,
+"seg": 0
+},
+{
+"w": "çıplak",
+"start": 7.093,
+"end": 7.52,
+"seg": 0
+},
+{
+"w": "bir",
+"start": 7.56,
+"end": 7.68,
+"seg": 0
+},
+{
+"w": "bozkırdı.",
+"start": 7.733,
+"end": 8.4,
+"seg": 0
+},
+{
+"w": "1954.",
+"start": 8.58,
+"end": 10.4,
+"seg": 1
+},
+{
+"w": "Birleşmiş",
+"start": 10.48,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "Milletler'in",
+"start": 11.017,
+"end": 11.6,
+"seg": 1
+},
+{
+"w": "gönderdiği",
+"start": 11.657,
+"end": 12.16,
+"seg": 1
+},
+{
+"w": "bir",
+"start": 12.22,
+"end": 12.4,
+"seg": 1
+},
+{
+"w": "uzman,",
+"start": 12.48,
+"end": 12.96,
+"seg": 1
+},
+{
+"w": "Charles",
+"start": 13.03,
+"end": 13.52,
+"seg": 1
+},
+{
+"w": "Abrams,",
+"start": 13.6,
+"end": 14.16,
+"seg": 1
+},
+{
+"w": "Türkiye'yi",
+"start": 14.24,
+"end": 14.88,
+"seg": 1
+},
+{
+"w": "geziyor...",
+"start": 14.96,
+"end": 15.84,
+"seg": 1
+},
+{
+"w": "ve",
+"start": 15.867,
+"end": 15.92,
+"seg": 1
+},
+{
+"w": "raporuna",
+"start": 16.0,
+"end": 16.56,
+"seg": 1
+},
+{
+"w": "bir",
+"start": 16.6,
+"end": 16.72,
+"seg": 1
+},
+{
+"w": "öneri",
+"start": 16.8,
+"end": 17.24,
+"seg": 1
+},
+{
+"w": "yazıyor:",
+"start": 17.27,
+"end": 18.08,
+"seg": 1
+},
+{
+"w": "Mimarlık",
+"start": 18.2,
+"end": 18.72,
+"seg": 1
+},
+{
+"w": "ve",
+"start": 18.773,
+"end": 18.88,
+"seg": 1
+},
+{
+"w": "planlama",
+"start": 18.944,
+"end": 19.44,
+"seg": 1
+},
+{
+"w": "için",
+"start": 19.488,
+"end": 19.68,
+"seg": 1
+},
+{
+"w": "bir",
+"start": 19.74,
+"end": 19.92,
+"seg": 1
+},
+{
+"w": "okul",
+"start": 20.0,
+"end": 20.32,
+"seg": 1
+},
+{
+"w": "kurun.",
+"start": 20.36,
+"end": 20.72,
+"seg": 1
+},
+{
+"w": "15 Kasım 1956.",
+"start": 20.987,
+"end": 23.56,
+"seg": 2
+},
+{
+"w": "Okulun",
+"start": 23.907,
+"end": 24.16,
+"seg": 2
+},
+{
+"w": "adı:",
+"start": 24.22,
+"end": 24.8,
+"seg": 2
+},
+{
+"w": "Orta",
+"start": 24.848,
+"end": 25.04,
+"seg": 2
+},
+{
+"w": "Doğu",
+"start": 25.088,
+"end": 25.28,
+"seg": 2
+},
+{
+"w": "Yüksek",
+"start": 25.337,
+"end": 25.68,
+"seg": 2
+},
+{
+"w": "Teknoloji",
+"start": 25.76,
+"end": 26.32,
+"seg": 2
+},
+{
+"w": "Enstitüsü.",
+"start": 26.373,
+"end": 27.04,
+"seg": 2
+},
+{
+"w": "Ama",
+"start": 27.715,
+"end": 27.76,
+"seg": 3
+},
+{
+"w": "ortada",
+"start": 27.86,
+"end": 28.32,
+"seg": 3
+},
+{
+"w": "ne",
+"start": 28.4,
+"end": 28.56,
+"seg": 3
+},
+{
+"w": "kampüs",
+"start": 28.624,
+"end": 29.04,
+"seg": 3
+},
+{
+"w": "var,",
+"start": 29.1,
+"end": 29.68,
+"seg": 3
+},
+{
+"w": "ne",
+"start": 29.707,
+"end": 29.76,
+"seg": 3
+},
+{
+"w": "bina.",
+"start": 29.84,
+"end": 30.24,
+"seg": 3
+},
+{
+"w": "İlk",
+"start": 30.42,
+"end": 30.96,
+"seg": 3
+},
+{
+"w": "dersler",
+"start": 31.04,
+"end": 31.52,
+"seg": 3
+},
+{
+"w": "Kızılay'da",
+"start": 31.6,
+"end": 32.16,
+"seg": 3
+},
+{
+"w": "küçük",
+"start": 32.213,
+"end": 32.48,
+"seg": 3
+},
+{
+"w": "bir",
+"start": 32.52,
+"end": 32.64,
+"seg": 3
+},
+{
+"w": "binada...",
+"start": 32.7,
+"end": 33.6,
+"seg": 3
+},
+{
+"w": "ve",
+"start": 33.653,
+"end": 33.76,
+"seg": 3
+},
+{
+"w": "Meclis'in",
+"start": 33.84,
+"end": 34.4,
+"seg": 3
+},
+{
+"w": "arkasındaki",
+"start": 34.46,
+"end": 35.04,
+"seg": 3
+},
+{
+"w": "barakalarda",
+"start": 35.08,
+"end": 35.68,
+"seg": 3
+},
+{
+"w": "başlıyor.",
+"start": 35.74,
+"end": 36.32,
+"seg": 3
+},
+{
+"w": "İlk",
+"start": 36.52,
+"end": 37.12,
+"seg": 3
+},
+{
+"w": "bölüm:",
+"start": 37.173,
+"end": 37.52,
+"seg": 3
+},
+{
+"w": "Mimarlık.",
+"start": 37.72,
+"end": 38.48,
+"seg": 3
+},
+{
+"w": "Okula",
+"start": 38.693,
+"end": 39.36,
+"seg": 4
+},
+{
+"w": "şehrin",
+"start": 39.42,
+"end": 39.76,
+"seg": 4
+},
+{
+"w": "dışında",
+"start": 39.82,
+"end": 40.24,
+"seg": 4
+},
+{
+"w": "4.500",
+"start": 40.304,
+"end": 41.12,
+"seg": 4
+},
+{
+"w": "hektar",
+"start": 41.173,
+"end": 41.52,
+"seg": 4
+},
+{
+"w": "arazi",
+"start": 41.6,
+"end": 42.0,
+"seg": 4
+},
+{
+"w": "veriliyor.",
+"start": 42.04,
+"end": 42.64,
+"seg": 4
+},
+{
+"w": "Kurak,",
+"start": 43.244,
+"end": 43.604,
+"seg": 4
+},
+{
+"w": "rüzgârlı,",
+"start": 43.764,
+"end": 44.564,
+"seg": 4
+},
+{
+"w": "bomboş",
+"start": 44.704,
+"end": 45.364,
+"seg": 4
+},
+{
+"w": "bir",
+"start": 45.404,
+"end": 45.524,
+"seg": 4
+},
+{
+"w": "bozkır.",
+"start": 45.604,
+"end": 46.164,
+"seg": 4
+},
+{
+"w": "Sonra",
+"start": 46.324,
+"end": 47.124,
+"seg": 5
+},
+{
+"w": "yeni",
+"start": 47.188,
+"end": 47.444,
+"seg": 5
+},
+{
+"w": "rektör",
+"start": 47.497,
+"end": 47.924,
+"seg": 5
+},
+{
+"w": "Kemal",
+"start": 48.017,
+"end": 48.484,
+"seg": 5
+},
+{
+"w": "Kurdaş",
+"start": 48.564,
+"end": 48.964,
+"seg": 5
+},
+{
+"w": "geliyor.",
+"start": 49.024,
+"end": 49.524,
+"seg": 5
+},
+{
+"w": "Göreve",
+"start": 49.737,
+"end": 50.404,
+"seg": 5
+},
+{
+"w": "başlar",
+"start": 50.461,
+"end": 50.804,
+"seg": 5
+},
+{
+"w": "başlamaz",
+"start": 50.864,
+"end": 51.444,
+"seg": 5
+},
+{
+"w": "öğrencileriyle",
+"start": 51.535,
+"end": 52.484,
+"seg": 5
+},
+{
+"w": "birlikte",
+"start": 52.537,
+"end": 52.964,
+"seg": 5
+},
+{
+"w": "araziye",
+"start": 53.071,
+"end": 53.684,
+"seg": 5
+},
+{
+"w": "yürüyor...",
+"start": 53.744,
+"end": 54.564,
+"seg": 5
+},
+{
+"w": "ve",
+"start": 54.591,
+"end": 54.644,
+"seg": 5
+},
+{
+"w": "ilk",
+"start": 54.744,
+"end": 55.044,
+"seg": 5
+},
+{
+"w": "fidanları,",
+"start": 55.084,
+"end": 55.684,
+"seg": 5
+},
+{
+"w": "kendi",
+"start": 55.791,
+"end": 56.324,
+"seg": 5
+},
+{
+"w": "elleriyle",
+"start": 56.364,
+"end": 56.804,
+"seg": 5
+},
+{
+"w": "dikiyorlar.",
+"start": 56.864,
+"end": 57.764,
+"seg": 5
+},
+{
+"w": "1963'te",
+"start": 57.844,
+"end": 59.284,
+"seg": 6
+},
+{
+"w": "okul",
+"start": 59.364,
+"end": 59.684,
+"seg": 6
+},
+{
+"w": "kendi",
+"start": 59.751,
+"end": 60.084,
+"seg": 6
+},
+{
+"w": "kampüsüne",
+"start": 60.132,
+"end": 60.644,
+"seg": 6
+},
+{
+"w": "taşınıyor.",
+"start": 60.704,
+"end": 61.364,
+"seg": 6
+},
+{
+"w": "Yıllar",
+"start": 61.684,
+"end": 62.164,
+"seg": 6
+},
+{
+"w": "içinde",
+"start": 62.233,
+"end": 62.644,
+"seg": 6
+},
+{
+"w": "milyonlarca",
+"start": 62.724,
+"end": 63.524,
+"seg": 6
+},
+{
+"w": "fidan",
+"start": 63.584,
+"end": 63.844,
+"seg": 6
+},
+{
+"w": "dikiliyor,",
+"start": 63.904,
+"end": 64.844,
+"seg": 6
+},
+{
+"w": "ağaç",
+"start": 64.916,
+"end": 65.204,
+"seg": 6
+},
+{
+"w": "dikmek",
+"start": 65.264,
+"end": 65.684,
+"seg": 6
+},
+{
+"w": "bir",
+"start": 65.784,
+"end": 66.084,
+"seg": 6
+},
+{
+"w": "gelenek",
+"start": 66.144,
+"end": 66.564,
+"seg": 6
+},
+{
+"w": "oluyor...",
+"start": 66.621,
+"end": 67.364,
+"seg": 6
+},
+{
+"w": "ve",
+"start": 67.417,
+"end": 67.524,
+"seg": 6
+},
+{
+"w": "bozkır,",
+"start": 67.631,
+"end": 68.524,
+"seg": 6
+},
+{
+"w": "yavaş",
+"start": 68.584,
+"end": 68.884,
+"seg": 6
+},
+{
+"w": "yavaş",
+"start": 68.951,
+"end": 69.284,
+"seg": 6
+},
+{
+"w": "ormana",
+"start": 69.444,
+"end": 69.924,
+"seg": 6
+},
+{
+"w": "dönüşüyor.",
+"start": 69.977,
+"end": 70.644,
+"seg": 6
+},
+{
+"w": "Bir",
+"start": 71.349,
+"end": 71.364,
+"seg": 7
+},
+{
+"w": "dahaki",
+"start": 71.404,
+"end": 71.684,
+"seg": 7
+},
+{
+"w": "sefere",
+"start": 71.764,
+"end": 72.084,
+"seg": 7
+},
+{
+"w": "o",
+"start": 72.244,
+"end": 72.404,
+"seg": 7
+},
+{
+"w": "ağaçların",
+"start": 72.468,
+"end": 72.884,
+"seg": 7
+},
+{
+"w": "arasından",
+"start": 72.948,
+"end": 73.444,
+"seg": 7
+},
+{
+"w": "geçerken",
+"start": 73.524,
+"end": 74.164,
+"seg": 7
+},
+{
+"w": "hatırla:",
+"start": 74.204,
+"end": 74.644,
+"seg": 7
+},
+{
+"w": "Bu",
+"start": 74.857,
+"end": 75.284,
+"seg": 7
+},
+{
+"w": "orman...",
+"start": 75.391,
+"end": 75.844,
+"seg": 7
+},
+{
+"w": "bir",
+"start": 75.964,
+"end": 76.324,
+"seg": 7
+},
+{
+"w": "okulun",
+"start": 76.42,
+"end": 76.884,
+"seg": 7
+},
+{
+"w": "hayaliyle",
+"start": 76.944,
+"end": 77.524,
+"seg": 7
+},
+{
+"w": "başladı.",
+"start": 77.594,
+"end": 78.404,
+"seg": 7
+}
+]
+}
