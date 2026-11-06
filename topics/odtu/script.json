@@ -1,14 +1,37 @@
 {
   "title": "ODTÜ nasıl kuruldu?",
-  "model": "eleven_v3",
   "segments": [
-    {"scene": "hook",    "text": "[curious] Ankara'nın ortasında {3.000|üç bin} hektarlık bir orman var... [softly] Ama yetmiş yıl önce orası, çıplak bir bozkırdı."},
-    {"scene": "rapor",   "text": "{1954.|Bin dokuz yüz elli dört.} Birleşmiş Milletler'in gönderdiği bir uzman, Charles Abrams, Türkiye'yi geziyor... ve raporuna bir öneri yazıyor: Mimarlık ve planlama için bir okul kurun."},
-    {"scene": "kurulus", "text": "{15 Kasım 1956.|On beş Kasım, bin dokuz yüz elli altı.} [excited] Okulun adı: Orta Doğu Yüksek Teknoloji Enstitüsü."},
-    {"scene": "ilk",     "text": "[softly] Ama ortada ne kampüs var, ne bina. İlk dersler Kızılay'da küçük bir binada... ve Meclis'in arkasındaki barakalarda başlıyor. İlk bölüm: Mimarlık."},
-    {"scene": "bozkir",  "text": "Okula şehrin dışında {4.500|dört bin beş yüz} hektar arazi veriliyor. [sighs] Kurak, rüzgârlı, bomboş bir bozkır."},
-    {"scene": "kurdas",  "text": "Sonra yeni rektör Kemal Kurdaş geliyor. Göreve başlar başlamaz öğrencileriyle birlikte araziye yürüyor... ve ilk fidanları, kendi elleriyle dikiyorlar."},
-    {"scene": "orman",   "text": "{1963'te|bin dokuz yüz altmış üçte} okul kendi kampüsüne taşınıyor. Yıllar içinde milyonlarca fidan dikiliyor, ağaç dikmek bir gelenek oluyor... ve bozkır, yavaş yavaş ormana dönüşüyor."},
-    {"scene": "son",     "text": "[softly] Bir dahaki sefere o ağaçların arasından geçerken hatırla: Bu orman... bir okulun hayaliyle başladı."}
+    {
+      "scene": "hook",
+      "text": "Ankara'nın ortasında {3.000|üç bin} hektarlık bir orman var... Ama yetmiş yıl önce orası, çıplak bir bozkırdı."
+    },
+    {
+      "scene": "rapor",
+      "text": "{1954.|Bin dokuz yüz elli dört.} Birleşmiş Milletler'in gönderdiği bir uzman, Charles Abrams, Türkiye'yi geziyor... ve raporuna bir öneri yazıyor: Mimarlık ve planlama için bir okul kurun."
+    },
+    {
+      "scene": "kurulus",
+      "text": "{15 Kasım 1956.|On beş Kasım, bin dokuz yüz elli altı.} Okulun adı: Orta Doğu Yüksek Teknoloji Enstitüsü."
+    },
+    {
+      "scene": "ilk",
+      "text": "Ama ortada ne kampüs var, ne bina. İlk dersler Kızılay'da küçük bir binada... ve Meclis'in arkasındaki barakalarda başlıyor. İlk bölüm: Mimarlık."
+    },
+    {
+      "scene": "bozkir",
+      "text": "Okula şehrin dışında {4.500|dört bin beş yüz} hektar arazi veriliyor. Kurak, rüzgârlı, bomboş bir bozkır."
+    },
+    {
+      "scene": "kurdas",
+      "text": "Sonra yeni rektör Kemal Kurdaş geliyor. Göreve başlar başlamaz öğrencileriyle birlikte araziye yürüyor... ve ilk fidanları, kendi elleriyle dikiyorlar."
+    },
+    {
+      "scene": "orman",
+      "text": "{1963'te|bin dokuz yüz altmış üçte} okul kendi kampüsüne taşınıyor. Yıllar içinde milyonlarca fidan dikiliyor, ağaç dikmek bir gelenek oluyor... ve bozkır, yavaş yavaş ormana dönüşüyor."
+    },
+    {
+      "scene": "son",
+      "text": "Bir dahaki sefere o ağaçların arasından geçerken hatırla: Bu orman... bir okulun hayaliyle başladı."
+    }
   ]
 }

@@ -106,28 +106,49 @@ function kur() {
 }
 
 const ctx = $('arazi').getContext('2d');
+// uzak tepeler: seed'li yumuşak sırt çizgisi (Ankara çevresindeki alçak tepeler, şematik)
+const sirt = (x, kat) => UFUK - (18 + 26 * Math.sin(x / 210 + kat * 2) + 14 * Math.sin(x / 83 + kat * 5) + 8 * Math.sin(x / 37 + kat)) * (kat ? .6 : 1);
 function arazi(f, oran, renk, ruzgar) {
-  // gökyüzü ve zemin
+  const kamX = lerp(f, [0, T.total], [0, -40]);                  // yavaş yatay kamera kayması (paralaks)
+  // gökyüzü: üstte zemin rengi, ufka doğru açılan ışık, alçak güneş parıltısı
   ctx.fillStyle = rgb(renk.zemin); ctx.fillRect(0, 0, 1080, 1920);
-  const g = ctx.createLinearGradient(0, UFUK - 260, 0, UFUK);
+  const g = ctx.createLinearGradient(0, UFUK - 420, 0, UFUK);
   g.addColorStop(0, rgb(renk.zemin)); g.addColorStop(1, rgb(renk.gok));
-  ctx.fillStyle = g; ctx.fillRect(0, UFUK - 260, 1080, 260);
-  ctx.strokeStyle = rgb(renk.metin); ctx.globalAlpha = .5; ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(0, UFUK); ctx.lineTo(1080, UFUK); ctx.stroke(); ctx.globalAlpha = 1;
-  // bozkır otları: rüzgârda eğilen kısa çizgiler
-  ctx.strokeStyle = rgb(karis(renk.metin, renk.zemin, .55)); ctx.lineWidth = 2;
-  for (let i = 0; i < 160; i++) {
-    const x = 1080 * rastgele(i * 5 + 900), y = UFUK + 12 + 360 * Math.pow(rastgele(i * 5 + 901), 1.4), h = 8 + 20 * (y - UFUK) / 360;
-    const egim = ruzgar * (6 + 6 * Math.sin(f / 9 + i));
-    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + egim, y - h); ctx.stroke();
+  ctx.fillStyle = g; ctx.fillRect(0, UFUK - 420, 1080, 420);
+  const gun = ctx.createRadialGradient(780 + kamX * .1, UFUK - 40, 0, 780 + kamX * .1, UFUK - 40, 520);
+  gun.addColorStop(0, 'rgba(255,240,205,.55)'); gun.addColorStop(1, 'rgba(255,240,205,0)');
+  ctx.fillStyle = gun; ctx.fillRect(0, UFUK - 560, 1080, 700);
+  // iki kat uzak tepe: uzaktaki göğe daha yakın renkte (hava perspektifi)
+  [[1, .75, .15], [0, .5, .3]].forEach(([kat, sis, px]) => {
+    ctx.fillStyle = rgb(karis(renk.zemin, renk.gok, sis));
+    ctx.beginPath(); ctx.moveTo(0, UFUK + 2);
+    for (let x = 0; x <= 1080; x += 12) ctx.lineTo(x, sirt(x - kamX * px, kat));
+    ctx.lineTo(1080, UFUK + 2); ctx.closePath(); ctx.fill();
+  });
+  // zemin: ufuktan öne koyulaşan geçiş
+  const z = ctx.createLinearGradient(0, UFUK, 0, 1920);
+  z.addColorStop(0, rgb(karis(renk.zemin, renk.gok, .35))); z.addColorStop(.3, rgb(renk.zemin)); z.addColorStop(1, rgb(karis(renk.zemin, [0, 0, 0], .18)));
+  ctx.fillStyle = z; ctx.fillRect(0, UFUK, 1080, 1020);
+  // bozkır otları: rüzgârda eğilen, uzakta ince ve soluk
+  for (let i = 0; i < 260; i++) {
+    const d = Math.pow(rastgele(i * 5 + 901), 1.4), x = 1080 * rastgele(i * 5 + 900) + kamX * d, y = UFUK + 10 + 380 * d, h = 6 + 24 * d;
+    ctx.strokeStyle = rgb(karis(karis(renk.metin, renk.zemin, .55), renk.gok, (1 - d) * .5)); ctx.lineWidth = 1 + 1.5 * d;
+    const egim = ruzgar * (5 + 7 * Math.sin(f / 9 + i)) * (.5 + d);
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + egim * .3, y - h * .6, x + egim, y - h); ctx.stroke();
   }
-  // ağaçlar: sıra < oran olanlar görünür; yeni dikilen 20 karede büyür
+  // ağaçlar: katmanlı çam, sol üstten ışık, gölge; uzaktakiler sise karışır
   AGAC.forEach(a => {
     const t = klamp((oran - a.sira) * 40); if (t <= 0) return;
-    const k = a.k * EASE.dolly(t), yesil = karis([58, 96, 62], [96, 140, 80], a.ton);
-    ctx.fillStyle = rgb(karis(yesil, renk.metin, .12));
-    ctx.beginPath(); ctx.moveTo(a.x, a.y - k * 2.2); ctx.lineTo(a.x - k * .55, a.y); ctx.lineTo(a.x + k * .55, a.y); ctx.closePath(); ctx.fill();
-    ctx.fillRect(a.x - k * .06, a.y, k * .12, k * .3);
+    const d = (a.y - UFUK) / (ON - UFUK), k = a.k * EASE.dolly(t), x = a.x + kamX * d, y = a.y;
+    const yesil = karis([46, 84, 54], [86, 128, 72], a.ton), sis = (1 - d) * .45;
+    const govde = karis(karis(yesil, renk.metin, .15), renk.gok, sis), isik = karis(karis(yesil, [230, 230, 180], .25), renk.gok, sis), golge = karis(govde, [0, 0, 0], .3);
+    ctx.fillStyle = 'rgba(0,0,0,.12)'; ctx.beginPath(); ctx.ellipse(x + k * .35, y + 2, k * .75, k * .14, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = rgb(golge); ctx.fillRect(x - k * .06, y - k * .2, k * .12, k * .45);
+    for (let j = 0; j < 3; j++) {                                  // üç kat dal
+      const ust = y - k * (2.4 - j * .55), alt = y - k * (1.2 - j * .45), gen = k * (.38 + j * .14);
+      ctx.fillStyle = rgb(govde); ctx.beginPath(); ctx.moveTo(x, ust); ctx.lineTo(x - gen, alt); ctx.lineTo(x + gen, alt); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = rgb(isik); ctx.beginPath(); ctx.moveTo(x, ust); ctx.lineTo(x - gen, alt); ctx.lineTo(x - gen * .15, alt); ctx.closePath(); ctx.fill();
+    }
   });
 }
 

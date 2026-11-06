@@ -7,7 +7,7 @@ import path from 'path';
 
 const args = process.argv.slice(2), topic = path.resolve(args[0]);
 const opt = k => { const i = args.indexOf('--' + k); return i < 0 ? null : args[i + 1]; };
-const scale = +(opt('scale') || 1);
+const scale = +(opt('scale') || 2); // 2x süper örnekleme: kenarlar ve ince yazılar daha keskin
 const timing = JSON.parse(readFileSync(path.join(topic, 'timing.json'), 'utf8'));
 const script = JSON.parse(readFileSync(path.join(topic, 'script.json'), 'utf8'));
 
@@ -28,7 +28,7 @@ if (eksik.length) { console.error('Yüklenmeyen font:', eksik); process.exit(1);
 
 const total = Math.round(timing.duration * 30);
 const out = path.join(topic, 'out'); mkdirSync(out, { recursive: true });
-const shot = async (f, file) => { await page.evaluate(f => window.renderFrame(f), f); await page.screenshot({ path: file, type: file.endsWith('.png') ? 'png' : 'jpeg', quality: file.endsWith('.png') ? undefined : 92 }); };
+const shot = async (f, file) => { await page.evaluate(f => window.renderFrame(f), f); await page.screenshot({ path: file, type: file.endsWith('.png') ? 'png' : 'jpeg', quality: file.endsWith('.png') ? undefined : 95 }); };
 
 if (opt('stills')) {
   for (const f of opt('stills').split(',').map(Number)) await shot(f, path.join(out, `kare_${f}.png`));
@@ -44,7 +44,7 @@ if (opt('stills')) {
   const voice = path.join(topic, 'voice.mp3'), mp4 = path.join(out, 'video.mp4');
   const audio = existsSync(voice) ? ['-ss', String(from / 30), '-i', voice, '-c:a', 'aac', '-b:a', '192k', '-af', 'loudnorm=I=-15:TP=-1.5:LRA=11', '-shortest'] : [];
   execFileSync('ffmpeg', ['-y', '-v', 'error', '-framerate', '30', '-i', path.join(dir, '%05d.jpg'), ...audio,
-    '-vf', 'scale=1080:1920:flags=lanczos', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20', '-maxrate', '10M', '-bufsize', '20M', '-preset', 'medium', '-movflags', '+faststart', mp4]);
+    '-vf', 'scale=1080:1920:flags=lanczos', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '16', '-maxrate', '20M', '-bufsize', '40M', '-preset', 'slow', '-profile:v', 'high', '-movflags', '+faststart', mp4]);
   console.log('video:', mp4);
 }
 await browser.close();

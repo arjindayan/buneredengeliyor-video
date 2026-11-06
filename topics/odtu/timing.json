@@ -1,796 +1,796 @@
 {
-"duration": 79.046,
+"duration": 71.209,
 "words": [
 {
 "w": "Ankara'nın",
-"start": 0.377,
-"end": 0.64,
+"start": 0.0,
+"end": 0.56,
 "seg": 0
 },
 {
 "w": "ortasında",
-"start": 0.72,
-"end": 1.44,
+"start": 0.68,
+"end": 1.28,
 "seg": 0
 },
 {
 "w": "3.000",
-"start": 1.653,
-"end": 2.32,
+"start": 1.44,
+"end": 1.76,
 "seg": 0
 },
 {
 "w": "hektarlık",
-"start": 2.4,
-"end": 2.96,
+"start": 1.84,
+"end": 2.32,
 "seg": 0
 },
 {
 "w": "bir",
-"start": 3.02,
-"end": 3.2,
+"start": 2.4,
+"end": 2.48,
 "seg": 0
 },
 {
 "w": "orman",
-"start": 3.307,
-"end": 3.68,
+"start": 2.64,
+"end": 2.8,
 "seg": 0
 },
 {
 "w": "var...",
-"start": 3.76,
-"end": 4.88,
+"start": 2.88,
+"end": 3.6,
 "seg": 0
 },
 {
 "w": "Ama",
-"start": 5.084,
-"end": 5.12,
+"start": 3.64,
+"end": 3.84,
 "seg": 0
 },
 {
 "w": "yetmiş",
-"start": 5.22,
-"end": 5.6,
+"start": 4.0,
+"end": 4.32,
 "seg": 0
 },
 {
 "w": "yıl",
-"start": 5.66,
-"end": 5.84,
+"start": 4.4,
+"end": 4.56,
 "seg": 0
 },
 {
 "w": "önce",
-"start": 5.904,
-"end": 6.16,
+"start": 4.64,
+"end": 4.88,
 "seg": 0
 },
 {
 "w": "orası,",
-"start": 6.267,
-"end": 7.0,
+"start": 5.04,
+"end": 5.36,
 "seg": 0
 },
 {
 "w": "çıplak",
-"start": 7.093,
-"end": 7.52,
+"start": 5.6,
+"end": 5.92,
 "seg": 0
 },
 {
 "w": "bir",
-"start": 7.56,
-"end": 7.68,
+"start": 6.0,
+"end": 6.08,
 "seg": 0
 },
 {
 "w": "bozkırdı.",
-"start": 7.733,
-"end": 8.4,
+"start": 6.16,
+"end": 7.04,
 "seg": 0
 },
 {
 "w": "1954.",
-"start": 8.58,
-"end": 10.4,
+"start": 7.36,
+"end": 8.56,
 "seg": 1
 },
 {
 "w": "Birleşmiş",
-"start": 10.48,
-"end": 10.96,
+"start": 9.04,
+"end": 9.44,
 "seg": 1
 },
 {
 "w": "Milletler'in",
-"start": 11.017,
-"end": 11.6,
+"start": 9.52,
+"end": 10.0,
 "seg": 1
 },
 {
 "w": "gönderdiği",
-"start": 11.657,
-"end": 12.16,
+"start": 10.04,
+"end": 10.56,
 "seg": 1
 },
 {
 "w": "bir",
-"start": 12.22,
-"end": 12.4,
+"start": 10.64,
+"end": 10.72,
 "seg": 1
 },
 {
 "w": "uzman,",
-"start": 12.48,
-"end": 12.96,
+"start": 10.8,
+"end": 11.28,
 "seg": 1
 },
 {
 "w": "Charles",
-"start": 13.03,
-"end": 13.52,
+"start": 11.44,
+"end": 11.6,
 "seg": 1
 },
 {
 "w": "Abrams,",
-"start": 13.6,
-"end": 14.16,
+"start": 11.68,
+"end": 12.32,
 "seg": 1
 },
 {
 "w": "Türkiye'yi",
-"start": 14.24,
-"end": 14.88,
+"start": 12.52,
+"end": 12.8,
 "seg": 1
 },
 {
 "w": "geziyor...",
-"start": 14.96,
-"end": 15.84,
+"start": 12.88,
+"end": 13.76,
 "seg": 1
 },
 {
 "w": "ve",
-"start": 15.867,
-"end": 15.92,
+"start": 13.84,
+"end": 13.92,
 "seg": 1
 },
 {
 "w": "raporuna",
-"start": 16.0,
-"end": 16.56,
+"start": 14.0,
+"end": 14.48,
 "seg": 1
 },
 {
 "w": "bir",
-"start": 16.6,
-"end": 16.72,
+"start": 14.56,
+"end": 14.64,
 "seg": 1
 },
 {
 "w": "öneri",
-"start": 16.8,
-"end": 17.24,
+"start": 14.68,
+"end": 14.96,
 "seg": 1
 },
 {
 "w": "yazıyor:",
-"start": 17.27,
-"end": 18.08,
+"start": 15.013,
+"end": 15.84,
 "seg": 1
 },
 {
 "w": "Mimarlık",
-"start": 18.2,
-"end": 18.72,
+"start": 15.92,
+"end": 16.4,
 "seg": 1
 },
 {
 "w": "ve",
-"start": 18.773,
-"end": 18.88,
+"start": 16.44,
+"end": 16.48,
 "seg": 1
 },
 {
 "w": "planlama",
-"start": 18.944,
-"end": 19.44,
+"start": 16.56,
+"end": 17.04,
 "seg": 1
 },
 {
 "w": "için",
-"start": 19.488,
-"end": 19.68,
+"start": 17.12,
+"end": 17.36,
 "seg": 1
 },
 {
 "w": "bir",
-"start": 19.74,
-"end": 19.92,
+"start": 17.44,
+"end": 17.52,
 "seg": 1
 },
 {
 "w": "okul",
-"start": 20.0,
-"end": 20.32,
+"start": 17.6,
+"end": 17.84,
 "seg": 1
 },
 {
 "w": "kurun.",
-"start": 20.36,
-"end": 20.72,
+"start": 17.92,
+"end": 18.48,
 "seg": 1
 },
 {
 "w": "15 Kasım 1956.",
-"start": 20.987,
-"end": 23.56,
+"start": 18.8,
+"end": 20.92,
 "seg": 2
 },
 {
 "w": "Okulun",
-"start": 23.907,
-"end": 24.16,
+"start": 21.2,
+"end": 21.52,
 "seg": 2
 },
 {
 "w": "adı:",
-"start": 24.22,
-"end": 24.8,
+"start": 21.6,
+"end": 21.84,
 "seg": 2
 },
 {
 "w": "Orta",
-"start": 24.848,
-"end": 25.04,
+"start": 22.16,
+"end": 22.4,
 "seg": 2
 },
 {
 "w": "Doğu",
-"start": 25.088,
-"end": 25.28,
+"start": 22.48,
+"end": 22.64,
 "seg": 2
 },
 {
 "w": "Yüksek",
-"start": 25.337,
-"end": 25.68,
+"start": 22.72,
+"end": 23.04,
 "seg": 2
 },
 {
 "w": "Teknoloji",
-"start": 25.76,
-"end": 26.32,
+"start": 23.12,
+"end": 23.6,
 "seg": 2
 },
 {
 "w": "Enstitüsü.",
-"start": 26.373,
-"end": 27.04,
+"start": 23.68,
+"end": 24.44,
 "seg": 2
 },
 {
 "w": "Ama",
-"start": 27.715,
-"end": 27.76,
+"start": 24.64,
+"end": 24.88,
 "seg": 3
 },
 {
 "w": "ortada",
-"start": 27.86,
-"end": 28.32,
+"start": 24.96,
+"end": 25.36,
 "seg": 3
 },
 {
 "w": "ne",
-"start": 28.4,
-"end": 28.56,
+"start": 25.44,
+"end": 25.52,
 "seg": 3
 },
 {
 "w": "kampüs",
-"start": 28.624,
-"end": 29.04,
+"start": 25.6,
+"end": 26.0,
 "seg": 3
 },
 {
 "w": "var,",
-"start": 29.1,
-"end": 29.68,
+"start": 26.12,
+"end": 26.4,
 "seg": 3
 },
 {
 "w": "ne",
-"start": 29.707,
-"end": 29.76,
+"start": 26.48,
+"end": 26.56,
 "seg": 3
 },
 {
 "w": "bina.",
-"start": 29.84,
-"end": 30.24,
+"start": 26.6,
+"end": 27.16,
 "seg": 3
 },
 {
 "w": "İlk",
-"start": 30.42,
-"end": 30.96,
+"start": 27.36,
+"end": 27.52,
 "seg": 3
 },
 {
 "w": "dersler",
-"start": 31.04,
-"end": 31.52,
+"start": 27.6,
+"end": 28.08,
 "seg": 3
 },
 {
 "w": "Kızılay'da",
+"start": 28.24,
+"end": 28.72,
+"seg": 3
+},
+{
+"w": "küçük",
+"start": 28.8,
+"end": 29.04,
+"seg": 3
+},
+{
+"w": "bir",
+"start": 29.12,
+"end": 29.2,
+"seg": 3
+},
+{
+"w": "binada...",
+"start": 29.28,
+"end": 30.08,
+"seg": 3
+},
+{
+"w": "ve",
+"start": 30.16,
+"end": 30.24,
+"seg": 3
+},
+{
+"w": "Meclis'in",
+"start": 30.4,
+"end": 30.88,
+"seg": 3
+},
+{
+"w": "arkasındaki",
+"start": 30.96,
+"end": 31.52,
+"seg": 3
+},
+{
+"w": "barakalarda",
 "start": 31.6,
 "end": 32.16,
 "seg": 3
 },
 {
-"w": "küçük",
-"start": 32.213,
-"end": 32.48,
-"seg": 3
-},
-{
-"w": "bir",
-"start": 32.52,
-"end": 32.64,
-"seg": 3
-},
-{
-"w": "binada...",
-"start": 32.7,
-"end": 33.6,
-"seg": 3
-},
-{
-"w": "ve",
-"start": 33.653,
-"end": 33.76,
-"seg": 3
-},
-{
-"w": "Meclis'in",
-"start": 33.84,
-"end": 34.4,
-"seg": 3
-},
-{
-"w": "arkasındaki",
-"start": 34.46,
-"end": 35.04,
-"seg": 3
-},
-{
-"w": "barakalarda",
-"start": 35.08,
-"end": 35.68,
-"seg": 3
-},
-{
 "w": "başlıyor.",
-"start": 35.74,
-"end": 36.32,
+"start": 32.24,
+"end": 32.8,
 "seg": 3
 },
 {
 "w": "İlk",
-"start": 36.52,
-"end": 37.12,
+"start": 33.36,
+"end": 33.52,
 "seg": 3
 },
 {
 "w": "bölüm:",
-"start": 37.173,
-"end": 37.52,
+"start": 33.6,
+"end": 33.92,
 "seg": 3
 },
 {
 "w": "Mimarlık.",
-"start": 37.72,
-"end": 38.48,
+"start": 34.24,
+"end": 35.12,
 "seg": 3
 },
 {
 "w": "Okula",
-"start": 38.693,
-"end": 39.36,
+"start": 35.36,
+"end": 35.68,
 "seg": 4
 },
 {
 "w": "şehrin",
-"start": 39.42,
-"end": 39.76,
+"start": 35.76,
+"end": 36.08,
 "seg": 4
 },
 {
 "w": "dışında",
-"start": 39.82,
-"end": 40.24,
+"start": 36.12,
+"end": 36.56,
 "seg": 4
 },
 {
 "w": "4.500",
-"start": 40.304,
-"end": 41.12,
+"start": 36.72,
+"end": 37.48,
 "seg": 4
 },
 {
 "w": "hektar",
-"start": 41.173,
-"end": 41.52,
+"start": 37.52,
+"end": 37.84,
 "seg": 4
 },
 {
 "w": "arazi",
-"start": 41.6,
-"end": 42.0,
+"start": 37.92,
+"end": 38.24,
 "seg": 4
 },
 {
 "w": "veriliyor.",
-"start": 42.04,
-"end": 42.64,
+"start": 38.32,
+"end": 39.0,
 "seg": 4
 },
 {
 "w": "Kurak,",
-"start": 43.244,
-"end": 43.604,
+"start": 39.2,
+"end": 39.72,
 "seg": 4
 },
 {
 "w": "rüzgârlı,",
-"start": 43.764,
-"end": 44.564,
+"start": 39.84,
+"end": 40.6,
 "seg": 4
 },
 {
 "w": "bomboş",
-"start": 44.704,
-"end": 45.364,
+"start": 40.72,
+"end": 41.2,
 "seg": 4
 },
 {
 "w": "bir",
-"start": 45.404,
-"end": 45.524,
+"start": 41.28,
+"end": 41.36,
 "seg": 4
 },
 {
 "w": "bozkır.",
-"start": 45.604,
-"end": 46.164,
+"start": 41.44,
+"end": 42.16,
 "seg": 4
 },
 {
 "w": "Sonra",
-"start": 46.324,
-"end": 47.124,
+"start": 42.4,
+"end": 42.72,
 "seg": 5
 },
 {
 "w": "yeni",
-"start": 47.188,
-"end": 47.444,
+"start": 42.8,
+"end": 42.96,
 "seg": 5
 },
 {
 "w": "rektör",
-"start": 47.497,
-"end": 47.924,
+"start": 43.04,
+"end": 43.36,
 "seg": 5
 },
 {
 "w": "Kemal",
-"start": 48.017,
-"end": 48.484,
+"start": 43.44,
+"end": 43.68,
 "seg": 5
 },
 {
 "w": "Kurdaş",
-"start": 48.564,
-"end": 48.964,
+"start": 43.76,
+"end": 44.16,
 "seg": 5
 },
 {
 "w": "geliyor.",
-"start": 49.024,
-"end": 49.524,
+"start": 44.2,
+"end": 44.84,
 "seg": 5
 },
 {
 "w": "Göreve",
-"start": 49.737,
-"end": 50.404,
+"start": 45.04,
+"end": 45.36,
 "seg": 5
 },
 {
 "w": "başlar",
-"start": 50.461,
-"end": 50.804,
+"start": 45.44,
+"end": 45.76,
 "seg": 5
 },
 {
 "w": "başlamaz",
-"start": 50.864,
-"end": 51.444,
+"start": 45.84,
+"end": 46.4,
 "seg": 5
 },
 {
 "w": "öğrencileriyle",
-"start": 51.535,
-"end": 52.484,
+"start": 46.56,
+"end": 47.2,
 "seg": 5
 },
 {
 "w": "birlikte",
-"start": 52.537,
-"end": 52.964,
+"start": 47.28,
+"end": 47.68,
 "seg": 5
 },
 {
 "w": "araziye",
-"start": 53.071,
-"end": 53.684,
+"start": 47.76,
+"end": 48.16,
 "seg": 5
 },
 {
 "w": "yürüyor...",
-"start": 53.744,
-"end": 54.564,
+"start": 48.24,
+"end": 49.04,
 "seg": 5
 },
 {
 "w": "ve",
-"start": 54.591,
-"end": 54.644,
+"start": 49.12,
+"end": 49.2,
 "seg": 5
 },
 {
 "w": "ilk",
-"start": 54.744,
-"end": 55.044,
+"start": 49.36,
+"end": 49.52,
 "seg": 5
 },
 {
 "w": "fidanları,",
-"start": 55.084,
-"end": 55.684,
+"start": 49.6,
+"end": 50.16,
 "seg": 5
 },
 {
 "w": "kendi",
-"start": 55.791,
-"end": 56.324,
+"start": 50.4,
+"end": 50.64,
 "seg": 5
 },
 {
 "w": "elleriyle",
-"start": 56.364,
-"end": 56.804,
+"start": 50.72,
+"end": 51.12,
 "seg": 5
 },
 {
 "w": "dikiyorlar.",
-"start": 56.864,
-"end": 57.764,
+"start": 51.2,
+"end": 52.12,
 "seg": 5
 },
 {
 "w": "1963'te",
-"start": 57.844,
-"end": 59.284,
+"start": 52.4,
+"end": 53.6,
 "seg": 6
 },
 {
 "w": "okul",
-"start": 59.364,
-"end": 59.684,
+"start": 53.68,
+"end": 53.92,
 "seg": 6
 },
 {
 "w": "kendi",
-"start": 59.751,
-"end": 60.084,
+"start": 54.0,
+"end": 54.24,
 "seg": 6
 },
 {
 "w": "kampüsüne",
-"start": 60.132,
-"end": 60.644,
+"start": 54.32,
+"end": 54.8,
 "seg": 6
 },
 {
 "w": "taşınıyor.",
-"start": 60.704,
-"end": 61.364,
+"start": 54.88,
+"end": 55.64,
 "seg": 6
 },
 {
 "w": "Yıllar",
-"start": 61.684,
-"end": 62.164,
+"start": 55.84,
+"end": 56.08,
 "seg": 6
 },
 {
 "w": "içinde",
-"start": 62.233,
-"end": 62.644,
+"start": 56.16,
+"end": 56.56,
 "seg": 6
 },
 {
 "w": "milyonlarca",
-"start": 62.724,
-"end": 63.524,
+"start": 56.64,
+"end": 57.28,
 "seg": 6
 },
 {
 "w": "fidan",
-"start": 63.584,
-"end": 63.844,
+"start": 57.36,
+"end": 57.6,
 "seg": 6
 },
 {
 "w": "dikiliyor,",
-"start": 63.904,
-"end": 64.844,
+"start": 57.68,
+"end": 58.44,
 "seg": 6
 },
 {
 "w": "ağaç",
-"start": 64.916,
-"end": 65.204,
+"start": 58.64,
+"end": 58.88,
 "seg": 6
 },
 {
 "w": "dikmek",
-"start": 65.264,
-"end": 65.684,
+"start": 58.96,
+"end": 59.28,
 "seg": 6
 },
 {
 "w": "bir",
-"start": 65.784,
-"end": 66.084,
+"start": 59.36,
+"end": 59.52,
 "seg": 6
 },
 {
 "w": "gelenek",
-"start": 66.144,
-"end": 66.564,
+"start": 59.56,
+"end": 59.92,
 "seg": 6
 },
 {
 "w": "oluyor...",
-"start": 66.621,
-"end": 67.364,
+"start": 60.0,
+"end": 60.72,
 "seg": 6
 },
 {
 "w": "ve",
-"start": 67.417,
-"end": 67.524,
+"start": 60.8,
+"end": 60.96,
 "seg": 6
 },
 {
 "w": "bozkır,",
-"start": 67.631,
-"end": 68.524,
+"start": 61.04,
+"end": 61.68,
 "seg": 6
 },
 {
 "w": "yavaş",
-"start": 68.584,
-"end": 68.884,
+"start": 61.84,
+"end": 62.16,
 "seg": 6
 },
 {
 "w": "yavaş",
-"start": 68.951,
-"end": 69.284,
+"start": 62.24,
+"end": 62.56,
 "seg": 6
 },
 {
 "w": "ormana",
-"start": 69.444,
-"end": 69.924,
+"start": 62.64,
+"end": 62.96,
 "seg": 6
 },
 {
 "w": "dönüşüyor.",
-"start": 69.977,
-"end": 70.644,
+"start": 63.04,
+"end": 63.84,
 "seg": 6
 },
 {
 "w": "Bir",
-"start": 71.349,
-"end": 71.364,
+"start": 64.08,
+"end": 64.16,
 "seg": 7
 },
 {
 "w": "dahaki",
-"start": 71.404,
-"end": 71.684,
+"start": 64.24,
+"end": 64.48,
 "seg": 7
 },
 {
 "w": "sefere",
-"start": 71.764,
-"end": 72.084,
+"start": 64.56,
+"end": 64.96,
 "seg": 7
 },
 {
 "w": "o",
-"start": 72.244,
-"end": 72.404,
+"start": 65.04,
+"end": 65.12,
 "seg": 7
 },
 {
 "w": "ağaçların",
-"start": 72.468,
-"end": 72.884,
+"start": 65.24,
+"end": 65.6,
 "seg": 7
 },
 {
 "w": "arasından",
-"start": 72.948,
-"end": 73.444,
+"start": 65.68,
+"end": 66.16,
 "seg": 7
 },
 {
 "w": "geçerken",
-"start": 73.524,
-"end": 74.164,
+"start": 66.24,
+"end": 66.72,
 "seg": 7
 },
 {
 "w": "hatırla:",
-"start": 74.204,
-"end": 74.644,
+"start": 66.8,
+"end": 67.44,
 "seg": 7
 },
 {
 "w": "Bu",
-"start": 74.857,
-"end": 75.284,
+"start": 67.68,
+"end": 67.76,
 "seg": 7
 },
 {
 "w": "orman...",
-"start": 75.391,
-"end": 75.844,
+"start": 67.84,
+"end": 68.64,
 "seg": 7
 },
 {
 "w": "bir",
-"start": 75.964,
-"end": 76.324,
+"start": 68.68,
+"end": 68.72,
 "seg": 7
 },
 {
 "w": "okulun",
-"start": 76.42,
-"end": 76.884,
+"start": 68.88,
+"end": 69.2,
 "seg": 7
 },
 {
 "w": "hayaliyle",
-"start": 76.944,
-"end": 77.524,
+"start": 69.28,
+"end": 69.84,
 "seg": 7
 },
 {
 "w": "başladı.",
-"start": 77.594,
-"end": 78.404,
+"start": 69.92,
+"end": 70.64,
 "seg": 7
 }
 ]
