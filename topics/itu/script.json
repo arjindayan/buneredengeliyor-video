@@ -2,7 +2,7 @@
   "title": "İTÜ nasıl kuruldu?",
   "segments": [
     {"scene": "hook",    "text": "Türkiye'nin en eski teknik üniversitesi bir yangından doğdu. Ama doğum tarihi bile tartışmalı."},
-    {"scene": "cesme",   "text": "{1770.|Bin yedi yüz yetmiş.} Çeşme'de Rus filosu, Osmanlı donanmasını tek gecede yakıyor."},
+    {"scene": "cesme",   "text": "{1770.|Bin yedi yüz yetmiş.} Çeşme. Rus filosu, Osmanlı donanmasını tek gecede yakıyor."},
     {"scene": "ders",    "text": "İstanbul acı bir ders çıkarıyor: Gemi yapmak için usta yetmez, mühendis lazım."},
     {"scene": "hangar",  "text": "Tersanede, gemilerin çekildiği boş bir hangarda bir okul açılıyor: Mühendishane-i Bahri-i Hümayun."},
     {"scene": "tott",    "text": "İlk öğrencileri sınavla seçen, derslere de giren kişi Macar asıllı bir Fransız subayı: Baron de Tott."},
