@@ -1,14 +1,14 @@
 {
   "title": "İTÜ nasıl kuruldu?",
   "segments": [
-    {"scene": "hook",    "text": "Türkiye'nin en eski teknik üniversitesi bir yangından doğdu. Ama doğum tarihi bile tartışmalı."},
+    {"scene": "hook",    "text": "Türkiye'nin en eski teknik üniversitesi... bir yangından doğdu. Ama doğum tarihi bile tartışmalı."},
     {"scene": "cesme",   "text": "{1770.|Bin yedi yüz yetmiş.} Çeşme. Rus filosu, Osmanlı donanmasını tek gecede yakıyor."},
     {"scene": "ders",    "text": "İstanbul acı bir ders çıkarıyor: Gemi yapmak için usta yetmez, mühendis lazım."},
     {"scene": "hangar",  "text": "Tersanede, gemilerin çekildiği boş bir hangarda bir okul açılıyor: Mühendishane-i Bahri-i Hümayun."},
-    {"scene": "tott",    "text": "İlk öğrencileri sınavla seçen, derslere de giren kişi Macar asıllı bir Fransız subayı: Baron de Tott."},
+    {"scene": "tott",    "text": "İlk öğrencileri sınavla seçen, derslere de giren kişi... Macar asıllı bir Fransız subayı: Baron de Tott."},
     {"scene": "tarih",   "text": "Resmi tarih {1773|bin yedi yüz yetmiş üç} diyor, Üçüncü Mustafa dönemi. Ama Tott'un anıları ve Fransız arşivleri {1775’i|bin yedi yüz yetmiş beşi} gösteriyor. Yani Birinci Abdülhamid dönemi."},
     {"scene": "dersler", "text": "Önce matematik. Sonra geometri, harita ve gemi inşası."},
     {"scene": "son",     "text": "Okulun adı defalarca değişiyor ve {1944’te|bin dokuz yüz kırk dörtte} bugünkü adını alıyor: İstanbul Teknik Üniversitesi."},
-    {"scene": "soru",    "text": "Peki sence İTÜ kaç yaşında?"}
+    {"scene": "soru",    "text": "Peki sence... İTÜ kaç yaşında?"}
   ]
 }

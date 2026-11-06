@@ -115,8 +115,8 @@ def main():
         dur = duration(os.path.join(topic, "voice.mp3")) + 0.6
     else:
         voice = os.environ["ELEVENLABS_VOICE_ID"]
-        r = post(f"/text-to-speech/{voice}/with-timestamps?output_format=mp3_44100_192",
-                 {"text": text, "model_id": os.environ.get("ELEVENLABS_MODEL", "eleven_multilingual_v2")})
+        r = post(f"/text-to-speech/{voice}/with-timestamps?output_format=mp3_44100_128",
+                 {"text": text, "model_id": os.environ.get("ELEVENLABS_MODEL", "eleven_v4")})
         open(os.path.join(topic, "voice.mp3"), "wb").write(base64.b64decode(r["audio_base64"]))
         a = r["alignment"]
         words = words_from_chars(a["characters"], a["character_start_times_seconds"], a["character_end_times_seconds"], segs)
