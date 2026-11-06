@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: 18. yy tersane çizim kağıdı. Bkz. style.md */
+  :root { --kagit:#E8DDC4; --murekkep:#2B2118; --soluk:#8A7A62; --kirmizi:#B3361F; }
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--kagit);color:var(--murekkep)}
+  #sahne{position:absolute;inset:0}
+  .s{position:absolute;inset:0;visibility:hidden}
+  .mono{font-family:'IBM Plex Mono';font-weight:400;letter-spacing:.08em}
+  .serif{font-family:'Fraunces'}
+  .el{font-family:'Caveat';font-weight:600;color:var(--kirmizi)}
+  .abs{position:absolute;margin:0;white-space:nowrap}
+  #altyazi{position:absolute;left:90px;right:90px;top:1290px;text-align:center;font:500 54px/1.25 'IBM Plex Sans';color:var(--murekkep)}
+  #altyazi span{display:inline-block;padding:4px 14px;background:rgba(232,221,196,.86)}
+  #gren{position:absolute;inset:0;pointer-events:none}
+  svg{position:absolute;left:0;top:0}
+  .cizgi{fill:none;stroke:var(--murekkep);stroke-width:3;stroke-linecap:round}
+  .ince{stroke:var(--soluk);stroke-width:1.5}
+  .fis{position:absolute;left:110px;top:330px;width:800px;padding:56px 60px;background:#F1E8D3;border:2px solid var(--murekkep);box-shadow:8px 10px 0 rgba(43,33,24,.18)}
+  .fis p{margin:0 0 34px;font-size:50px;opacity:0}
+  .fis b{font-weight:600;color:var(--soluk);display:block;font-size:30px;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div id="sahne">
+  <!-- ateş parıltısı ve kıvılcımlar: hook + cesme -->
+  <canvas id="ates" width="1080" height="1920" style="position:absolute;inset:0"></canvas>
+
+  <div class="s" id="hook">
+    <h1 class="abs serif" id="h-itu" style="left:-40px;top:250px;font-weight:900;font-size:520px;line-height:1">İTÜ</h1>
+    <p class="abs mono" id="h-etiket" style="left:96px;top:880px;font-size:40px">KURULUŞ: <span style="color:var(--kirmizi)">????</span></p>
+  </div>
+
+  <div class="s" id="cesme">
+    <p class="abs mono" style="left:96px;top:250px;font-size:34px">ÇEŞME LİMANI · RUS BASKINI</p>
+    <h1 class="abs serif" id="c-yil" style="left:60px;top:300px;font-weight:300;font-size:400px;line-height:1">1770</h1>
+    <svg id="c-gemiler" width="1080" height="1920"></svg>
+  </div>
+
+  <div class="s" id="ders">
+    <p class="abs mono" id="d-etiket" style="left:96px;top:330px;font-size:40px">GEMİ YAPMAK İÇİN</p>
+    <h1 class="abs serif" id="d-usta" style="left:96px;top:420px;font-weight:300;font-size:200px">usta</h1>
+    <svg width="1080" height="1920"><line id="d-cizik" class="cizgi" x1="80" y1="560" x2="560" y2="530" style="stroke:var(--kirmizi);stroke-width:12"/></svg>
+    <h1 class="abs serif" id="d-muh" style="left:60px;top:720px;font-weight:900;font-size:168px">MÜHENDİS</h1>
+  </div>
+
+  <div class="s" id="hangar">
+    <svg id="g-cizim" width="1080" height="1920"></svg>
+    <p class="abs mono" id="g-ad" style="left:96px;top:1130px;font-size:34px"></p>
+  </div>
+
+  <div class="s" id="tott">
+    <div class="fis mono" id="t-fis">
+      <p><b>AD</b>Baron de Tott</p>
+      <p><b>KÖKEN</b>Macar asıllı</p>
+      <p><b>GÖREV</b>Fransız subayı</p>
+      <p><b>ROL</b>Öğrenci seçimi, ders</p>
+    </div>
+  </div>
+
+  <div class="s" id="tarih">
+    <p class="abs mono" id="r-resmi" style="left:96px;top:330px;font-size:34px">RESMİ TARİH · III. MUSTAFA</p>
+    <h1 class="abs serif" id="r-1773" style="left:70px;top:380px;font-weight:900;font-size:330px;line-height:1">1773</h1>
+    <svg width="1080" height="1920"><path id="r-cizik" class="cizgi" d="M50 590 C 300 560, 700 610, 1010 540" style="stroke:var(--kirmizi);stroke-width:16"/></svg>
+    <p class="abs el" id="r-1775" style="left:300px;top:700px;font-size:280px;line-height:1">1775</p>
+    <p class="abs el" id="r-abd" style="left:330px;top:990px;font-size:80px">I. Abdülhamid</p>
+  </div>
+
+  <div class="s" id="dersler"></div>
+
+  <div class="s" id="son">
+    <svg width="1080" height="1920"><line id="n-hat" class="cizgi" x1="120" y1="270" x2="120" y2="270"/></svg>
+    <div id="n-yillar"></div>
+  </div>
+
+  <div class="s" id="soru">
+    <h1 class="abs serif" style="left:90px;top:360px;font-weight:900;font-size:150px;line-height:1.02;white-space:normal;width:900px">İTÜ kaç yaşında?</h1>
+    <p class="abs mono" style="left:96px;top:760px;font-size:40px">1773 <span style="color:var(--soluk)">ya da</span> <span style="color:var(--kirmizi)">1775</span></p>
+  </div>
+
+  <div id="altyazi"></div>
+  <canvas id="gren" width="540" height="960" style="width:1080px;height:1920px"></canvas>
+</div>
+
+<script src="../../engine/lib.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const up = s => s.toLocaleUpperCase('tr-TR');
+const SAHNELER = ['hook','cesme','ders','hangar','tott','tarih','dersler','son','soru'];
+// Sahne içinde bir kelimenin (ilk eşleşen, önek) başladığı yerel kare
+const kelime = (sc, onek) => { const ws = T.seg[sc].words; const i = ws.findIndex(w => w.w.toLocaleLowerCase('tr-TR').startsWith(onek)); return i < 0 ? 0 : T.wordAt(sc, i); };
+const NS = 'http://www.w3.org/2000/svg';
+const yol = (svg, d, cls) => { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.setAttribute('class', cls || 'cizgi'); svg.appendChild(p); const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p._L = L; return p; };
+const ciz = (p, f, [a, b]) => p.style.strokeDashoffset = p._L * (1 - lerp(f, [a, b], [0, 1], EASE.kalem));
+
+// --- bir kerelik kurulum ---
+let kuruldu = false, gemiler = [], cizim = [], yillar = [];
+function kur() {
+  kuruldu = true;
+  // Çeşme: üç gemi silüeti (gövde + direkler), mürekkep çizgi
+  const gs = $('c-gemiler');
+  [[140, 1000, 1], [470, 1060, .8], [740, 990, .9]].forEach(([x, y, k]) => {
+    const g = document.createElementNS(NS, 'g'); g.setAttribute('transform', `translate(${x},${y}) scale(${k})`); gs.appendChild(g);
+    const govde = yol(g, 'M0 0 L260 0 L230 50 L30 50 Z');
+    const direk = yol(g, 'M70 0 V-200 M130 0 V-240 M190 0 V-180 M40 -150 H100 M95 -190 H165 M160 -140 H215');
+    const dolgu = document.createElementNS(NS, 'path'); dolgu.setAttribute('d', 'M0 0 L260 0 L230 50 L30 50 Z'); dolgu.style.fill = 'var(--kirmizi)'; dolgu.style.opacity = 0; g.insertBefore(dolgu, g.firstChild);
+    gemiler.push({ govde, direk, dolgu, g });
+  });
+  // Hangar: gemi enine kesit planı (body plan), sağ-sol yarım kesitler + su hatları
+  const cs = $('g-cizim'), cx = 540, top = 360, H = 640;
+  for (let i = 0; i <= 6; i++) cizim.push(yol(cs, `M140 ${top + i * H / 6} H940`, 'cizgi ince'));
+  cizim.push(yol(cs, `M${cx} ${top - 40} V${top + H + 40}`, 'cizgi ince'));
+  for (let i = 0; i < 6; i++) {
+    const w = 380 - i * 52, d = H * (0.95 - i * 0.07), side = i % 2 ? 1 : -1;
+    cizim.push(yol(cs, `M${cx} ${top + d} C ${cx + side * w * .55} ${top + d}, ${cx + side * w} ${top + d * .55}, ${cx + side * w} ${top}`));
+  }
+  $('g-ad').textContent = up('Mühendishane-i Bahri-i Hümayun');
+  // Dersler listesi
+  const dl = $('dersler');
+  ['Matematik', 'Geometri', 'Harita', 'Gemi inşası'].forEach((t, i) => {
+    const e = document.createElement('div'); e.className = 'abs'; e.style.cssText = `left:96px;top:${330 + i * 200}px`;
+    e.innerHTML = `<span class="mono" style="font-size:30px;color:var(--soluk);vertical-align:top">0${i + 1}</span> <span class="serif" style="font-weight:900;font-size:${i ? 120 : 150}px">${up(t)}</span>`;
+    dl.appendChild(e);
+  });
+  // Ad değişiklikleri (İTÜ tarihçesi, hst.itu.edu.tr)
+  const ny = $('n-yillar');
+  [['1773', 'Mühendishane-i Bahri-i Hümayun'], ['1795', 'Mühendishane-i Berri-i Hümayun'], ['1883', 'Hendese-i Mülkiye'], ['1909', 'Mühendis Mekteb-i Âlisi'], ['1944', 'İstanbul Teknik Üniversitesi']].forEach(([y, a], i) => {
+    const e = document.createElement('div'); e.className = 'abs'; e.style.cssText = `left:100px;top:${250 + i * 190}px;white-space:normal;width:880px`;
+    const son = i === 4;
+    e.innerHTML = `<span style="display:inline-block;width:40px;height:40px;border-radius:50%;background:var(--${son ? 'kirmizi' : 'murekkep'});vertical-align:middle"></span>
+      <span class="serif" style="font-weight:900;font-size:${son ? 96 : 72}px;margin-left:30px;vertical-align:middle">${y}</span><br>
+      <span class="${son ? 'serif' : 'mono'}" style="margin-left:72px;font-size:${son ? 50 : 30}px;display:inline-block;line-height:1.05;${son ? 'font-weight:900' : ''}">${son ? up(a) : a}</span>`;
+    ny.appendChild(e); yillar.push(e);
+  });
+}
+
+// --- doku: kağıt greni, seed = kare ---
+const gctx = $('gren').getContext('2d'), gimg = gctx.createImageData(540, 960);
+function gren(f) {
+  const d = gimg.data; let s = f * 7919;
+  for (let i = 0; i < d.length; i += 4) { const r = rastgele(s++); d[i] = d[i + 1] = d[i + 2] = r > .5 ? 255 : 20; d[i + 3] = 10 + r * 8; }
+  gctx.putImageData(gimg, 0, 0);
+}
+// --- ateş: alttan parıltı + seed'li kıvılcımlar ---
+const actx = $('ates').getContext('2d');
+function ates(f, guc) {
+  actx.clearRect(0, 0, 1080, 1920); if (guc <= 0) return;
+  const tit = .85 + .15 * rastgele(Math.floor(f / 2));
+  const gr = actx.createRadialGradient(540, 2050, 100, 540, 2050, 1300);
+  gr.addColorStop(0, `rgba(179,54,31,${.55 * guc * tit})`); gr.addColorStop(.5, `rgba(214,120,40,${.18 * guc * tit})`); gr.addColorStop(1, 'rgba(232,221,196,0)');
+  actx.fillStyle = gr; actx.fillRect(0, 0, 1080, 1920);
+  for (let i = 0; i < 46; i++) {
+    const omur = 70 + 60 * rastgele(i * 31), faz = (f + rastgele(i * 17) * omur) % omur, t = faz / omur;
+    const x = 80 + 920 * rastgele(i * 13) + 40 * Math.sin(t * 6 + i), y = 1920 - t * 1300 * (0.6 + .4 * rastgele(i * 5));
+    actx.fillStyle = `rgba(179,54,31,${(1 - t) * guc})`; actx.fillRect(x, y, 5, 5);
+  }
+}
+
+window.renderFrame = function (f) {
+  if (!kuruldu) kur();
+  // hangi sahne: segment başlangıcından bir sonrakine kadar
+  let aktif = SAHNELER[0];
+  SAHNELER.forEach(s => { if (f >= T.seg[s].start - 4) aktif = s; });
+  SAHNELER.forEach(s => $(s).style.visibility = s === aktif ? 'visible' : 'hidden');
+  const lf = T.local(aktif, f);
+
+  // ateş yalnız ilk iki sahnede, Çeşme sonunda söner
+  const cesmeSon = T.seg.cesme.end;
+  ates(f, f < cesmeSon ? lerp(f, [6, 30], [0, 1]) : lerp(f, [cesmeSon, cesmeSon + 20], [1, 0]));
+
+  if (aktif === 'hook') {
+    $('h-itu').style.transform = `translateX(${lerp(lf, [6, 60], [-90, 0], EASE.dolly)}px)`;
+    $('h-itu').style.opacity = lerp(lf, [6, 20], [0, 1]);
+    const k = kelime('hook', 'tartış');
+    $('h-etiket').style.opacity = lf >= k ? 1 : 0; // damga: sert
+  }
+  if (aktif === 'cesme') {
+    $('c-yil').style.transform = `translateX(${lerp(lf, [0, 50], [40, 0], EASE.dolly)}px)`;
+    const g0 = kelime('cesme', 'çeşme'), y = kelime('cesme', 'yakıyor');
+    gemiler.forEach((g, i) => {
+      ciz(g.govde, lf, [g0 + i * 6, g0 + 24 + i * 6]); ciz(g.direk, lf, [g0 + 10 + i * 6, g0 + 40 + i * 6]);
+      const yan = lerp(lf, [y + i * 5, y + 10 + i * 5], [0, .9]);
+      g.dolgu.style.opacity = yan * (.75 + .25 * rastgele(f + i * 99));
+      g.g.style.opacity = lerp(lf, [y + 40, y + 70], [1, .25]);
+    });
+  }
+  if (aktif === 'ders') {
+    const u = kelime('ders', 'usta'), y = kelime('ders', 'yetmez'), m = kelime('ders', 'mühendis');
+    $('d-etiket').style.opacity = lerp(lf, [6, 16], [0, 1]);
+    $('d-usta').style.opacity = lerp(lf, [u, u + 8], [0, 1]);
+    const L = 485; $('d-cizik').style.strokeDasharray = L; $('d-cizik').style.strokeDashoffset = L * (1 - lerp(lf, [y, y + 6], [0, 1]));
+    $('d-muh').style.opacity = lf >= m ? 1 : 0;
+    $('d-muh').style.transform = `scale(${lerp(lf, [m, m + 30], [1.06, 1], EASE.dolly)})`; $('d-muh').style.transformOrigin = 'left top';
+  }
+  if (aktif === 'hangar') {
+    cizim.forEach((p, i) => ciz(p, lf, [4 + i * 5, 34 + i * 5]));
+    const a = kelime('hangar', 'mühendishane');
+    $('g-ad').style.opacity = lerp(lf, [a, a + 9], [0, 1]);
+  }
+  if (aktif === 'tott') {
+    $('t-fis').style.transform = `translateY(${lerp(lf, [0, 45], [120, 0], EASE.dolly)}px) rotate(${lerp(lf, [0, 45], [-4, -1.5], EASE.dolly)}deg)`;
+    // alanlar anlatım sırasıyla dolar, isim en son (AD, KÖKEN, GÖREV, ROL)
+    const ps = $('t-fis').querySelectorAll('p'), cue = [kelime('tott', 'baron'), kelime('tott', 'macar'), kelime('tott', 'fransız'), kelime('tott', 'ilk') + 6];
+    cue.forEach((c, i) => ps[i].style.opacity = lerp(lf, [c, c + 6], [0, 1]));
+  }
+  if (aktif === 'tarih') {
+    const a = kelime('tarih', 'ama'), b = kelime('tarih', '1775'), c = kelime('tarih', 'birinci');
+    $('r-1773').style.transform = `translateX(${lerp(lf, [0, 50], [-60, 0], EASE.dolly)}px)`;
+    const p = $('r-cizik'), L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L * (1 - lerp(lf, [a, a + 8], [0, 1], EASE.kalem));
+    $('r-1773').style.color = lf >= a ? 'var(--soluk)' : 'var(--murekkep)';
+    $('r-1775').style.clipPath = `inset(0 ${100 - lerp(lf, [b, b + 18], [0, 100], EASE.kalem)}% 0 0)`;
+    $('r-abd').style.clipPath = `inset(0 ${100 - lerp(lf, [c, c + 16], [0, 100], EASE.kalem)}% 0 0)`;
+    $('r-resmi').style.opacity = lerp(lf, [4, 14], [0, 1]);
+  }
+  if (aktif === 'dersler') {
+    const cue = ['matematik', 'geometri', 'harita', 'gemi'].map(k => kelime('dersler', k));
+    [...$('dersler').children].forEach((e, i) => { e.style.opacity = lf >= cue[i] ? 1 : 0; e.style.transform = `translateX(${lerp(lf, [cue[i], cue[i] + 12], [-30, 0], EASE.dolly)}px)`; });
+  }
+  if (aktif === 'son') {
+    const D = T.seg.son.end - T.seg.son.start, i44 = kelime('son', '1944'), ist = kelime('son', 'istanbul');
+    const cue = [6, 6 + D * .12, 6 + D * .22, 6 + D * .32, i44].map(Math.round);
+    yillar.forEach((e, i) => e.style.opacity = lerp(lf, [cue[i], cue[i] + 8], [0, 1]));
+    const h = $('n-hat'); h.setAttribute('y2', lerp(lf, [6, i44], [270, 270 + 4 * 190], EASE.duz));
+    yillar[4].lastElementChild.style.opacity = lf >= ist ? 1 : 0;
+  }
+  // altyazı
+  const c = T.caption(f);
+  $('altyazi').innerHTML = c ? c.lines.map(l => `<span>${l}</span>`).join('<br>') : '';
+  gren(f);
+};
+</script>
+</body>
+</html>
