@@ -17,7 +17,12 @@ await page.addInitScript(() => { window.__RENDER__ = true; });
 page.on('pageerror', e => { console.error('Sayfa hatası:', e.message); process.exit(1); });
 await page.goto('file://' + path.join(topic, 'scene.html'));
 await page.evaluate(([t, s]) => T.init(t, s), [timing, script]);
+const shotsFile = path.join(topic, 'shots.json');
+if (existsSync(shotsFile)) await page.evaluate(d => window.kurShots(d), JSON.parse(readFileSync(shotsFile, 'utf8')));
 await page.evaluate(() => document.fonts.ready);
+// görseller yüklenmeden kare alma: eksik görsel boş kare demek
+const kotu = await page.evaluate(() => Promise.all([...document.images].map(i => i.decode().then(() => null, () => i.src))).then(r => r.filter(Boolean)));
+if (kotu.length) { console.error('Yüklenmeyen görsel:', kotu); process.exit(1); }
 // Türkçe glif ve font yüklemesi doğrulaması: eksik font sessizce sisteme düşmesin
 const eksik = await page.evaluate(async () => {
   const fams = window.FONTS || ['900 100px Fraunces', '300 100px Fraunces', '400 40px "IBM Plex Mono"', '600 40px Caveat', '500 40px "IBM Plex Sans"'];

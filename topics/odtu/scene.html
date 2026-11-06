@@ -6,7 +6,12 @@
 <style>
   /* STİL KARTI: bozkırdan ormana. Bkz. style.md */
   html,body{margin:0;width:1080px;height:1920px;overflow:hidden}
-  body{font-family:'Archivo';background:#CDB37E}
+  body{font-family:'Archivo';background:#1F3A2E;color:#F2EDE0}
+  #gorseller{position:absolute;inset:0;overflow:hidden;isolation:isolate}
+  .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 55%}
+  /* yazı okunurluğu: üstte ve altyazı bölgesinde yumuşak karartma */
+  #karartma{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,22,17,.72) 0%,rgba(14,22,17,.35) 30%,rgba(14,22,17,0) 48%,rgba(14,22,17,0) 60%,rgba(14,22,17,.55) 72%,rgba(14,22,17,.7) 100%)}
+  .s,#altyazi{text-shadow:0 2px 18px rgba(0,0,0,.45)}
   #sahne{position:absolute;inset:0}
   canvas{position:absolute;left:0;top:0}
   .s{position:absolute;inset:0;visibility:hidden}
@@ -19,7 +24,8 @@
 </head>
 <body>
 <div id="sahne">
-  <canvas id="arazi" width="1080" height="1920"></canvas>
+  <div id="gorseller"></div>
+  <div id="karartma"></div>
 
   <div class="s" id="hook">
     <p class="abs dar" style="left:80px;top:250px;font-size:44px">ANKARA</p>
@@ -82,75 +88,15 @@ const SAHNELER = ['hook','rapor','kurulus','ilk','bozkir','kurdas','orman','son'
 const kelime = (sc, onek) => { const ws = T.seg[sc].words; const i = ws.findIndex(w => w.w.toLocaleLowerCase('tr-TR').startsWith(onek)); return i < 0 ? 0 : T.wordAt(sc, i); };
 const yaz = (f, [a, b]) => lerp(f, [a, b], [0, 1], EASE.dolly);
 
-// Renk: bozkır okrundan çam yeşiline (anlam: orman büyüdükçe zemin değişir)
-const BOZKIR = { zemin: [205, 179, 126], gok: [229, 214, 178], metin: [42, 38, 24] };
-const ORMAN  = { zemin: [31, 58, 46],    gok: [52, 84, 66],    metin: [242, 237, 224] };
-const karis = (a, b, t) => a.map((x, i) => Math.round(x + (b[i] - x) * t));
-const rgb = c => `rgb(${c})`;
-
-// Ağaç alanı: seed'li 700 konum, ufuktan (y=900) öne (y=1260) perspektifle
-const UFUK = 900, ON = 1270, AGAC = [];
 let kuruldu = false;
 function kur() {
   kuruldu = true;
-  for (let i = 0; i < 700; i++) {
-    const d = Math.pow(rastgele(i * 3 + 1), 1.6);               // 0 uzak, 1 yakın
-    AGAC.push({ x: -20 + 1120 * rastgele(i * 3 + 2), y: UFUK + 6 + d * (ON - UFUK), k: 10 + d * 46, ton: rastgele(i * 3 + 3) });
-  }
-  AGAC.sort((a, b) => a.y - b.y);                                // uzaktakiler önce çizilsin
-  // dikim sırası: yakından uzağa değil, rastgele
-  AGAC.forEach((a, i) => a.sira = rastgele(i * 7 + 11));
   $('r-oneri').textContent = '“Mimarlık ve planlama için bir okul kurun.”';
   const ad = ['ORTA', 'DOĞU', 'YÜKSEK', 'TEKNOLOJİ', 'ENSTİTÜSÜ'];
   $('k-ad').innerHTML = ad.map((w, i) => `<div class="dev" style="font-size:${i > 2 ? 118 : 150}px;opacity:0;margin-bottom:6px">${w}</div>`).join('');
 }
 
-const ctx = $('arazi').getContext('2d');
-// uzak tepeler: seed'li yumuşak sırt çizgisi (Ankara çevresindeki alçak tepeler, şematik)
-const sirt = (x, kat) => UFUK - (18 + 26 * Math.sin(x / 210 + kat * 2) + 14 * Math.sin(x / 83 + kat * 5) + 8 * Math.sin(x / 37 + kat)) * (kat ? .6 : 1);
-function arazi(f, oran, renk, ruzgar) {
-  const kamX = lerp(f, [0, T.total], [0, -40]);                  // yavaş yatay kamera kayması (paralaks)
-  // gökyüzü: üstte zemin rengi, ufka doğru açılan ışık, alçak güneş parıltısı
-  ctx.fillStyle = rgb(renk.zemin); ctx.fillRect(0, 0, 1080, 1920);
-  const g = ctx.createLinearGradient(0, UFUK - 420, 0, UFUK);
-  g.addColorStop(0, rgb(renk.zemin)); g.addColorStop(1, rgb(renk.gok));
-  ctx.fillStyle = g; ctx.fillRect(0, UFUK - 420, 1080, 420);
-  const gun = ctx.createRadialGradient(780 + kamX * .1, UFUK - 40, 0, 780 + kamX * .1, UFUK - 40, 520);
-  gun.addColorStop(0, 'rgba(255,240,205,.55)'); gun.addColorStop(1, 'rgba(255,240,205,0)');
-  ctx.fillStyle = gun; ctx.fillRect(0, UFUK - 560, 1080, 700);
-  // iki kat uzak tepe: uzaktaki göğe daha yakın renkte (hava perspektifi)
-  [[1, .75, .15], [0, .5, .3]].forEach(([kat, sis, px]) => {
-    ctx.fillStyle = rgb(karis(renk.zemin, renk.gok, sis));
-    ctx.beginPath(); ctx.moveTo(0, UFUK + 2);
-    for (let x = 0; x <= 1080; x += 12) ctx.lineTo(x, sirt(x - kamX * px, kat));
-    ctx.lineTo(1080, UFUK + 2); ctx.closePath(); ctx.fill();
-  });
-  // zemin: ufuktan öne koyulaşan geçiş
-  const z = ctx.createLinearGradient(0, UFUK, 0, 1920);
-  z.addColorStop(0, rgb(karis(renk.zemin, renk.gok, .35))); z.addColorStop(.3, rgb(renk.zemin)); z.addColorStop(1, rgb(karis(renk.zemin, [0, 0, 0], .18)));
-  ctx.fillStyle = z; ctx.fillRect(0, UFUK, 1080, 1020);
-  // bozkır otları: rüzgârda eğilen, uzakta ince ve soluk
-  for (let i = 0; i < 260; i++) {
-    const d = Math.pow(rastgele(i * 5 + 901), 1.4), x = 1080 * rastgele(i * 5 + 900) + kamX * d, y = UFUK + 10 + 380 * d, h = 6 + 24 * d;
-    ctx.strokeStyle = rgb(karis(karis(renk.metin, renk.zemin, .55), renk.gok, (1 - d) * .5)); ctx.lineWidth = 1 + 1.5 * d;
-    const egim = ruzgar * (5 + 7 * Math.sin(f / 9 + i)) * (.5 + d);
-    ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + egim * .3, y - h * .6, x + egim, y - h); ctx.stroke();
-  }
-  // ağaçlar: katmanlı çam, sol üstten ışık, gölge; uzaktakiler sise karışır
-  AGAC.forEach(a => {
-    const t = klamp((oran - a.sira) * 40); if (t <= 0) return;
-    const d = (a.y - UFUK) / (ON - UFUK), k = a.k * EASE.dolly(t), x = a.x + kamX * d, y = a.y;
-    const yesil = karis([46, 84, 54], [86, 128, 72], a.ton), sis = (1 - d) * .45;
-    const govde = karis(karis(yesil, renk.metin, .15), renk.gok, sis), isik = karis(karis(yesil, [230, 230, 180], .25), renk.gok, sis), golge = karis(govde, [0, 0, 0], .3);
-    ctx.fillStyle = 'rgba(0,0,0,.12)'; ctx.beginPath(); ctx.ellipse(x + k * .35, y + 2, k * .75, k * .14, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = rgb(golge); ctx.fillRect(x - k * .06, y - k * .2, k * .12, k * .45);
-    for (let j = 0; j < 3; j++) {                                  // üç kat dal
-      const ust = y - k * (2.4 - j * .55), alt = y - k * (1.2 - j * .45), gen = k * (.38 + j * .14);
-      ctx.fillStyle = rgb(govde); ctx.beginPath(); ctx.moveTo(x, ust); ctx.lineTo(x - gen, alt); ctx.lineTo(x + gen, alt); ctx.closePath(); ctx.fill();
-      ctx.fillStyle = rgb(isik); ctx.beginPath(); ctx.moveTo(x, ust); ctx.lineTo(x - gen, alt); ctx.lineTo(x - gen * .15, alt); ctx.closePath(); ctx.fill();
-    }
-  });
-}
+window.kurShots = d => Shots.init(d, $('gorseller'));
 
 window.renderFrame = function (f) {
   if (!kuruldu) kur();
@@ -159,19 +105,7 @@ window.renderFrame = function (f) {
   SAHNELER.forEach(s => $(s).style.visibility = s === aktif ? 'visible' : 'hidden');
   const lf = T.local(aktif, f), S = T.seg;
 
-  // Ormanın oranı: hook'ta tam orman, "Ama"da bozkıra döner; Kurdaş'ta ilk fidanlar; orman sahnesinde dolar
-  const ama = S.hook.start + kelime('hook', 'ama'), fidan = S.kurdas.start + kelime('kurdas', 'ilk');
-  let oran;
-  if (f < ama) oran = 1;
-  else if (f < fidan) oran = 0;
-  else if (f < S.orman.start) oran = lerp(f, [fidan, fidan + 60], [0, .03]);
-  else oran = lerp(f, [S.orman.start, S.son.start + 30], [.03, 1], EASE.kalem);
-  // renk: orman oranına bağlı (hook başında yeşil, sonra okr)
-  const renkT = f < ama ? 1 : klamp((oran - .1) / .8);
-  const renk = { zemin: karis(BOZKIR.zemin, ORMAN.zemin, renkT), gok: karis(BOZKIR.gok, ORMAN.gok, renkT), metin: renkT > .45 ? ORMAN.metin : BOZKIR.metin }; // metin yumuşak geçmez: ara tonda kontrast kaybolur
-  const ruzgar = aktif === 'bozkir' ? 1.6 : 1;
-  arazi(f, oran, renk, ruzgar);
-  document.querySelectorAll('.s, #altyazi').forEach(e => e.style.color = rgb(renk.metin));
+  Shots.render(f);
 
   if (aktif === 'hook') {
     $('h-sayi').style.transform = `translateX(${lerp(lf, [8, 60], [-60, 0], EASE.dolly)}px)`;

@@ -1,0 +1,16 @@
+{
+  "style": "Cinematic painterly illustration, like a still from a 1950s-60s Turkish documentary film, muted warm ochre and deep pine green palette, soft natural light, subtle film grain, realistic proportions, vertical composition with calm empty sky in the upper third, no text, no letters, no logos, no watermark",
+  "shots": [
+    {"id": "A", "scene": "hook",   "cue": "",          "zoom": [1.12, 1.0], "prompt": "Aerial view of a vast dense pine forest on gentle hills at the edge of Ankara, Turkey, the city faintly visible in hazy distance, golden late afternoon"},
+    {"id": "B", "scene": "hook",   "cue": "ama",       "zoom": [1.0, 1.1],  "prompt": "The same gentle hills completely barren: a dry Central Anatolian steppe with sparse yellow grass, no trees at all, wind, 1950s, lonely and vast"},
+    {"id": "C", "scene": "rapor",  "cue": "",          "zoom": [1.08, 1.0], "prompt": "1954: a man in a 1950s suit and hat seen from behind, holding a notebook, standing on a hill looking over a small 1950s Ankara with low buildings, a United Nations style report folder under his arm"},
+    {"id": "D", "scene": "kurulus","cue": "",          "zoom": [1.0, 1.1],  "prompt": "1956 Ankara: the wooden double doors of a modest stone building swinging open, morning light pouring in, a few young students in 1950s clothes stepping inside with drawing tubes and books, hopeful mood"},
+    {"id": "E", "scene": "ilk",    "cue": "",          "zoom": [1.1, 1.0],  "prompt": "1957: a crowded small room inside a simple barracks building, young architecture students bent over wooden drafting tables with T-squares and paper, single window light, cigarette smoke haze"},
+    {"id": "B2","scene": "bozkir", "cue": "",          "zoom": [1.15, 1.02],"src": "B"},
+    {"id": "G", "scene": "kurdas", "cue": "",          "zoom": [1.0, 1.08], "prompt": "1961: a middle-aged university rector in a dark suit walking at the front of a group of young students across a barren windy steppe, students carrying shovels and small pine saplings, seen from behind and side, faces not detailed"},
+    {"id": "H", "scene": "kurdas", "cue": "ilk",       "zoom": [1.12, 1.0], "prompt": "Close-up of young hands pressing dry earth around a tiny pine sapling just planted in cracked steppe soil, a shovel beside it, warm low sun"},
+    {"id": "I", "scene": "orman",  "cue": "",          "zoom": [1.0, 1.1],  "prompt": "1963: a new modernist brutalist concrete university building with strong horizontal lines on an open steppe, rows of small young pine saplings planted in front, clear sky"},
+    {"id": "J", "scene": "orman",  "cue": "yıllar",    "zoom": [1.1, 1.0],  "prompt": "Decades later: students of different eras planting trees together on a hillside that is already turning green, young pine forest spreading across the hills, festive spring day"},
+    {"id": "A2","scene": "son",    "cue": "",          "zoom": [1.0, 1.15], "src": "A"}
+  ]
+}

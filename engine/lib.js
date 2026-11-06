@@ -72,3 +72,25 @@ async function boot() {
 }
 if (typeof module !== 'undefined') module.exports = { captionChunks, lines };
 else addEventListener('load', boot);
+
+// Görsel çekimleri (AI ya da fotoğraf): her çekim bir sahnenin başında ya da bir kelimede başlar,
+// yavaş yakınlaşma/uzaklaşma yapar, öncekiyle 12 karede çapraz geçer.
+// shots.json: {shots:[{id, scene, cue, zoom:[a,b], src?}]}, görseller img/<id ya da src>.jpg
+const Shots = {
+  init(data, katman) {
+    this.list = data.shots.map(s => ({ ...s, file: `img/${s.src || s.id}.jpg`, start: T.seg[s.scene].start + (s.cue ? kelimeKare(s.scene, s.cue) : 0) }));
+    this.list.forEach((s, i) => s.end = i + 1 < this.list.length ? this.list[i + 1].start : T.total);
+    this.imgs = this.list.map(s => { const im = new Image(); im.src = s.file; im.className = 'shot'; katman.appendChild(im); return im; });
+  },
+  render(f, XF = 12) {
+    this.list.forEach((s, i) => {
+      const im = this.imgs[i], acik = f >= s.start - XF && f < s.end + XF;
+      im.style.visibility = acik ? 'visible' : 'hidden'; if (!acik) return;
+      const z = lerp(f, [s.start - XF, s.end + XF], s.zoom || [1.06, 1]);
+      im.style.transform = `scale(${z})`;
+      im.style.opacity = i === 0 ? 1 : lerp(f, [s.start - XF, s.start], [0, 1]);
+      im.style.zIndex = i;
+    });
+  },
+};
+function kelimeKare(sc, onek) { const ws = T.seg[sc].words; const i = ws.findIndex(w => w.w.toLocaleLowerCase('tr-TR').startsWith(onek)); if (i < 0) throw new Error(`ipucu bulunamadı: ${sc}/${onek}`); return T.wordAt(sc, i); }

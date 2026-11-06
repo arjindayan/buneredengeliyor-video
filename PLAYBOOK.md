@@ -9,6 +9,7 @@ Her konu `topics/<konu>/` altında: `script.json`, `scene.html`, `style.md`, `re
 4. **Ses ve zamanlama** → `python3 engine/tts.py topics/<konu>` (ElevenLabs, `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID`).
    Ses yoksa `--dry` (tahmini zamanlama), kendi mp3'ün varsa `--mp3 dosya.mp3`.
 5. **Sahne** → `scene.html`: `engine/lib.js` yüklenir, `window.renderFrame(f)` yalnız kare numarasına bağlı. Sahne zamanları `T.seg[sahne]`, kelime ipuçları `T.wordAt`.
+5b. **Görseller (isteğe bağlı)** → `shots.json`: her çekim bir sahneye ve ipucu kelimeye bağlı; görseller `img/<id>.jpg`. Higgsfield `z_image` (ücretsiz plan, görsel başı 0,15 kredi, tek tek gönder: eşzamanlı istek 429 veriyor). Sahne `window.kurShots = d => Shots.init(d, katman)` tanımlar ve `Shots.render(f)` çağırır.
 6. **Kare kontrolü** → `node engine/render.mjs topics/<konu> --scale 0.5 --stills 30,300,900`.
 7. **Render** → `node engine/render.mjs topics/<konu>` → `topics/<konu>/out/video.mp4` (1080x1920, 30 fps, ses -15 LUFS).
 
