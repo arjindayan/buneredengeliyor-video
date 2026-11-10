@@ -1,0 +1,16 @@
+{
+  "title": "Octopuses have one heart?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Octopuses have one heart. Well, that's not exactly true. They have three."},
+    {"scene": "kalpler", "text": "Two of them pump blood through the gills. The third one pumps it to the rest of the body."},
+    {"scene": "yuzme", "text": "Here's the wild part. When an octopus swims, that third heart stops beating. Which is why they'd rather crawl. Swimming literally wears them out."},
+    {"scene": "kan", "text": "And their blood? It's blue. Instead of iron, it uses copper to carry oxygen, which works better in cold, deep water."},
+    {"scene": "beyin", "text": "That's not all. An octopus has about {500 million|five hundred million} neurons, and two thirds of them aren't in its head. They're in its arms."},
+    {"scene": "tat", "text": "Each arm can taste what it touches, and even make some decisions on its own."},
+    {"scene": "renk", "text": "In fact, they can change color in a split second, even though they're probably colorblind."},
+    {"scene": "kemik", "text": "And there are no bones. If its beak fits through a hole, the whole octopus fits through."},
+    {"scene": "son", "text": "So next time someone says octopuses have one heart, tell them it's three. And one of them hates swimming."}
+  ]
+}

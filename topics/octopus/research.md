@@ -1,0 +1,8 @@
+# Octopus facts (sources)
+- Three hearts: two branchial hearts pump blood through the gills, one systemic heart to the body. (Smithsonian Ocean; Britannica "octopus")
+- Systemic heart stops beating while swimming, a reason they prefer crawling. (Smithsonian Ocean "Absurd Creature"; Wells 1983, J. Exp. Biol.)
+- Blue blood: copper-based hemocyanin instead of iron hemoglobin; more efficient in cold, low-oxygen water. (Smithsonian Ocean; Oellermann et al. 2015, Frontiers in Zoology)
+- ~500 million neurons, about two thirds in the arms. (Godfrey-Smith, "Other Minds"; Hochner 2012, Current Biology)
+- Suckers have chemoreceptors and taste by touch; arms act semi-independently. (van Giesen et al. 2020, Cell; Hochner 2012)
+- Rapid color change via chromatophores; most octopuses have one photoreceptor type, so probably colorblind ("probably"). (Mäthger et al. 2006, Vision Research)
+- No bones; the hard beak is the limiting size for squeezing through gaps. (Smithsonian Ocean; Monterey Bay Aquarium)

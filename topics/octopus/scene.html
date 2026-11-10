@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: sevimli flat vektör, sığ deniz, tek mekan + röntgen modu. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0B2A38}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:210px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;
+    text-shadow:0 4px 0 rgba(4,20,28,.55)}
+  #altyazi .w{transition:none}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke:#0B2A38;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg id="svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="deniz" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0D3446"/><stop offset=".55" stop-color="#14566A"/><stop offset="1" stop-color="#1B6F80"/>
+    </linearGradient>
+    <linearGradient id="isik" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BFF3FF" stop-opacity=".22"/><stop offset="1" stop-color="#BFF3FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="kum" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAD3A0"/><stop offset="1" stop-color="#D2B47C"/>
+    </linearGradient>
+    <pattern id="izgara" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#3E7FB8" stroke-opacity=".28" stroke-width="2"/>
+    </pattern>
+    <radialGradient id="parilti"><stop offset="0" stop-color="#FFE27A" stop-opacity=".9"/><stop offset="1" stop-color="#FFE27A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g id="arka"></g>
+  <g id="rontgen"></g>
+  <g id="dunya"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+const $ = id => document.getElementById(id);
+const P = Math.PI, sin = Math.sin, cos = Math.cos;
+const sm = x => { x = klamp(x); return x * x * (3 - 2 * x); };
+const backOut = x => { x = klamp(x); const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+// anahtar kareler: [[kare, değer]], değer sayı ya da dizi; aralarda yumuşak geçiş
+function kf(f, list) {
+  if (f <= list[0][0]) return list[0][1];
+  for (let i = 1; i < list.length; i++) if (f < list[i][0]) {
+    const [f0, a] = list[i - 1], [f1, b] = list[i], t = sm((f - f0) / (f1 - f0));
+    return Array.isArray(a) ? a.map((v, k) => v + (b[k] - v) * t) : a + (b - a) * t;
+  }
+  return list[list.length - 1][1];
+}
+// kelime ipucu: sahnedeki n'inci eşleşen kelimenin mutlak karesi
+function cue(sc, onek, n = 0) {
+  const ws = T.seg[sc].words; let k = -1;
+  for (let i = 0; i < ws.length; i++) if (ws[i].w.toLowerCase().replace(/[^a-z0-9']/g, '').startsWith(onek) && n-- === 0) { k = i; break; }
+  if (k < 0) throw new Error(`ipucu yok: ${sc}/${onek}`);
+  return sec(ws[k].start);
+}
+const on = (f, a, d = 10) => klamp((f - a) / d);
+function hex(c) { return [1, 3, 5.0].map(i => parseInt(c.slice(i, i + 2), 16)); }
+function mix(a, b, t) { const A = hex(a), B = hex(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, '0')).join(''); }
+const f2 = n => n.toFixed(1);
+
+// ---------- karakterler ----------
+const KALP = 'M0 14 C-30 -6 -26 -34 -8 -32 C-2 -31 0 -26 0 -22 C0 -26 2 -31 8 -32 C26 -34 30 -6 0 14Z';
+function kalp(x, y, s, renk = '#FF6B7A', yuz = 0, ek = '') {
+  let g = `<g transform="translate(${f2(x)},${f2(y)}) scale(${s.toFixed(3)})"${ek}><path d="${KALP}" fill="${renk}" stroke="#7A1E33" stroke-width="3" stroke-linejoin="round"/>`;
+  if (yuz) g += `<path d="M-12 -14 l8 3 M12 -14 l-8 3 M-7 2 q7 -5 14 0" stroke="#5A1424" stroke-width="3" fill="none" stroke-linecap="round" opacity="${yuz}"/>`;
+  return g + '</g>';
+}
+
+function kol(i, o, t) {
+  const n = 18, L = o.L, side = i < 3.5 ? -1 : 1, rel = (i - 3.5) / 3.5;
+  let a0 = P / 2 - rel * o.spread * 1.25, curl = o.curl * (0.8 + 0.5 * Math.abs(rel));
+  const ph = t * 0.11 * (1 + o.walk * 1.5) + i * 1.7;
+  let x = -126 + i * 36, y = 96; const pts = [];
+  if (o.reach && i === 6) { a0 = a0 + (Math.atan2(o.reachY, o.reachX) - a0) * o.reach; curl *= 1 - o.reach; }
+  let ang = a0;
+  for (let k = 0; k <= n; k++) {
+    const u = k / n; pts.push([x, y, u]);
+    ang = a0 - side * curl * u * u * 2.4 + sin(ph + u * 5) * (0.18 + o.walk * 0.35 + o.swim * 0.25) * u;
+    x += cos(ang) * L / n; y += sin(ang) * L / n;
+  }
+  const sol = [], sag = [];
+  pts.forEach((p, k) => {
+    const q = pts[Math.min(k + 1, n)], r = pts[Math.max(k - 1, 0)];
+    const dx = q[0] - r[0], dy = q[1] - r[1], d = Math.hypot(dx, dy) || 1, w = 19 * (1 - 0.8 * p[2]);
+    sol.push([p[0] - dy / d * w, p[1] + dx / d * w]); sag.push([p[0] + dy / d * w, p[1] - dx / d * w]);
+  });
+  const d = 'M' + sol.map(p => p.map(f2).join(' ')).join('L') + 'L' + sag.reverse().map(p => p.map(f2).join(' ')).join('L') + 'Z';
+  return { d, pts, tip: pts[n] };
+}
+
+function ahtapot(o, t) {
+  // o: x,y,s,rot,color,spread,curl,swim,walk,squish,xray,blink,tired,heartStop,neurons,suck,reach...
+  const sx = 1 + 0.35 * o.squish - 0.08 * o.swim, sy = 1 - 0.55 * o.squish + 0.12 * o.swim;
+  const nefes = 1 + sin(t * 0.09) * 0.015;
+  const govde = o.color, koyu = mix(o.color, '#3A0F2A', 0.35), acik = mix(o.color, '#FFF3E6', 0.45);
+  const kollar = [0, 1, 2, 3, 4, 5, 6, 7].map(i => kol(i, o, t));
+  const MANTO = 'M-150 -40 C-150 -270 150 -270 150 -40 C150 60 112 128 0 128 C-112 128 -150 60 -150 -40Z';
+  let g = `<g transform="translate(${f2(o.x)},${f2(o.y)}) rotate(${f2(o.rot)}) scale(${(o.s * sx).toFixed(3)},${(o.s * sy * nefes).toFixed(3)})">`;
+  // normal görünüm
+  let n = `<g opacity="${(1 - o.xray).toFixed(3)}">`;
+  kollar.forEach((k, i) => { n += `<path d="${k.d}" fill="${i % 2 ? koyu : mix(govde, koyu, .35)}"/>`; });
+  // vantuzlar: ön kollarda (2..5)
+  [2, 3, 4, 5, 6].forEach(i => kollar[i].pts.forEach((p, k) => {
+    if (k % 3 || k < 3 || k > 16) return;
+    const yan = i < 3.5 ? 1 : -1, r = 7.5 * (1 - 0.65 * p[2]), parla = o.suck && i === 6 ? o.suck : 0;
+    n += `<circle cx="${f2(p[0] + yan * 7)}" cy="${f2(p[1] - 2)}" r="${f2(r + parla * 3)}" fill="${parla ? mix(acik, '#FFE27A', parla) : acik}"/>`;
+  }));
+  n += `<path d="${MANTO}" fill="${govde}"/>`;
+  n += `<path d="M-108 -112 C-92 -175 -40 -196 10 -194" stroke="${acik}" stroke-width="16" stroke-linecap="round" fill="none" opacity=".55"/>`;
+  n += `<ellipse cx="60" cy="-150" rx="20" ry="14" fill="${koyu}" opacity=".35"/><ellipse cx="95" cy="-95" rx="12" ry="9" fill="${koyu}" opacity=".35"/><ellipse cx="-70" cy="-60" rx="14" ry="10" fill="${koyu}" opacity=".3"/>`;
+  if (o.stripes) for (let k = 0; k < 4; k++) n += `<path d="M${-140 + k * 70} -200 q30 120 0 300" stroke="#FFF3B0" stroke-width="22" fill="none" opacity="${o.stripes * .7}"/>`;
+  // yüz
+  const goz = (ex) => {
+    const kapak = Math.max(o.blink, o.tired * 0.45);
+    return `<circle cx="${ex}" cy="38" r="40" fill="#FFFDF7"/><circle cx="${ex + o.look * 10}" cy="${42 + o.lookY * 8}" r="${o.surprise ? 15 : 21}" fill="#2B1B2E"/>` +
+      `<circle cx="${ex + o.look * 10 + 8}" cy="${32 + o.lookY * 8}" r="7" fill="#fff"/>` +
+      (kapak > 0.01 ? `<rect x="${ex - 42}" y="-4" width="84" height="${f2(84 * kapak)}" fill="${govde}"/><path d="M${ex - 38} ${f2(-2 + 84 * kapak)} h76" stroke="${koyu}" stroke-width="4" stroke-linecap="round"/>` : '');
+  };
+  n += goz(-62) + goz(62);
+  n += `<ellipse cx="-104" cy="84" rx="20" ry="11" fill="#FF8FA3" opacity=".55"/><ellipse cx="104" cy="84" rx="20" ry="11" fill="#FF8FA3" opacity=".55"/>`;
+  n += o.surprise ? `<ellipse cx="0" cy="98" rx="11" ry="14" fill="#5A1A33"/>` : `<path d="M-16 92 q16 ${o.tired ? -6 : 14} 32 0" stroke="#5A1A33" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+  if (o.sweat) for (let k = 0; k < 2; k++) { const yy = -150 + ((t * 1.4 + k * 40) % 80); n += `<path d="M${-170 - k * 18} ${f2(yy)} q-12 22 0 26 q12 -4 0 -26Z" fill="#BFF3FF" opacity="${o.sweat}"/>`; }
+  n += '</g>';
+  // röntgen görünümü
+  let x = '';
+  if (o.xray > 0.01) {
+    x = `<g opacity="${o.xray.toFixed(3)}" fill="rgba(120,205,255,.10)" stroke="#9BE1FF" stroke-width="3.5" stroke-linejoin="round">`;
+    kollar.forEach(k => x += `<path d="${k.d}"/>`);
+    x += `<path d="${MANTO}"/><circle cx="-62" cy="38" r="40"/><circle cx="62" cy="38" r="40"/>`;
+    // solungaçlar
+    [-1, 1].forEach(s => x += `<path d="M${s * 70} -10 q${s * 40} -40 ${s * 50} 10 q${s * -10} 40 ${s * -50} 30" stroke="#BDEBFF" fill="rgba(189,235,255,.18)"/>` +
+      [0, 1, 2.0].map(k => `<path d="M${s * (78 + k * 12)} ${-14 + k * 6} l${s * 8} 24" stroke-width="2.5"/>`).join(''));
+    x += '</g>';
+    // kalpler: iki solungaç kalbi + bir ana kalp
+    if (o.hearts > 0.01) {
+      const at = s => 1 + 0.12 * Math.max(0, sin(t * 0.45 + s));
+      const durgun = o.heartStop;
+      x += `<g opacity="${(o.xray * o.hearts).toFixed(3)}">`;
+      x += kalp(-82, 18, 0.95 * at(0), '#5FB8FF') + kalp(82, 18, 0.95 * at(0), '#5FB8FF');
+      x += kalp(0, -50, 1.5 * (durgun ? 1 : at(1.2)), mix('#4A8DFF', '#8A97A8', durgun), durgun);
+      x += '</g>';
+      // kan akışı (mavi noktalar)
+      if (o.flow) for (let k = 0; k < 10; k++) {
+        const u = ((t * 0.02 + k / 10) % 1), s = k % 2 ? 1 : -1;
+        const px = s * (82 + 40 * sin(u * P * 2)), py = 18 - 50 * sin(u * P);
+        x += `<circle cx="${f2(px)}" cy="${f2(py)}" r="6" fill="#7FD4FF" opacity="${(o.flow * o.xray).toFixed(2)}"/>`;
+      }
+    }
+    // nöronlar: üçte biri başta, üçte ikisi kollarda
+    if (o.neurons > 0.01) {
+      let ns = '';
+      for (let k = 0; k < 26; k++) { const a = rastgele(k) * P * 2, r = 30 + rastgele(k + 50) * 70; ns += `<circle cx="${f2(cos(a) * r * 1.2)}" cy="${f2(-110 + sin(a) * r * .75)}" r="6" fill="#FFE27A" opacity="${(o.neurons * (1 - 0.6 * o.armGlow)).toFixed(2)}"/>`; }
+      kollar.forEach((k, i) => k.pts.forEach((p, j) => {
+        if (j < 2 || j % 2) return;
+        const parla = 0.55 + 0.45 * o.armGlow * (0.6 + 0.4 * sin(t * 0.3 + j + i));
+        ns += `<circle cx="${f2(p[0])}" cy="${f2(p[1])}" r="${f2(7 * (1 - 0.5 * p[2]) * (1 + 0.4 * o.armGlow))}" fill="#FFE27A" opacity="${(o.neurons * parla).toFixed(2)}"/>`;
+      }));
+      x += `<g>${ns}</g>`;
+    }
+  }
+  return { svg: g + n + x + '</g>', kollar };
+}
+
+function balik(x, y, s, yon, sur, t, mutlu = 0) {
+  const p = 1 + 0.28 * sur, bob = sin(t * 0.12) * 8;
+  let g = `<g transform="translate(${f2(x)},${f2(y + bob)}) scale(${(s * yon).toFixed(3)},${s.toFixed(3)})">`;
+  g += `<path d="M-48 0 L-96 -34 Q-104 0 -96 34Z" fill="#F2A93B" stroke="#C47A1C" stroke-width="3" stroke-linejoin="round" transform="rotate(${f2(sin(t * 0.4) * 8)} -48 0)"/>`;
+  if (sur > 0.02) for (let k = 0; k < 14; k++) { const a = k / 14 * P * 2; g += `<path d="M${f2(cos(a - .12) * 52 * p)} ${f2(sin(a - .12) * 52 * p)} L${f2(cos(a) * 72 * p)} ${f2(sin(a) * 72 * p)} L${f2(cos(a + .12) * 52 * p)} ${f2(sin(a + .12) * 52 * p)}Z" fill="#E8A92E" opacity="${sur.toFixed(2)}"/>`; }
+  g += `<circle r="${f2(56 * p)}" fill="#FFCB47"/><ellipse cx="6" cy="${f2(22 * p)}" rx="${f2(40 * p)}" ry="${f2(24 * p)}" fill="#FFE7A3"/>`;
+  g += `<path d="M-6 -6 q-18 18 4 26" fill="#F2A93B" transform="rotate(${f2(sin(t * 0.5) * 14)} -6 -6)"/>`;
+  g += `<circle cx="${f2(22 * p)}" cy="${f2(-14 * p)}" r="${f2(19 + sur * 5)}" fill="#fff"/><circle cx="${f2(26 * p)}" cy="${f2(-13 * p)}" r="${f2(9 - sur * 2)}" fill="#2B1B2E"/><circle cx="${f2(29 * p)}" cy="${f2(-17 * p)}" r="3" fill="#fff"/>`;
+  g += sur > 0.5 ? `<ellipse cx="${f2(44 * p)}" cy="${f2(14 * p)}" rx="6" ry="9" fill="#7A3B0C"/>` : `<path d="M${f2(34 * p)} ${f2(12 * p)} q8 ${6 + mutlu * 6} 16 0" stroke="#7A3B0C" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+  g += `<ellipse cx="${f2(14 * p)}" cy="${f2(6 * p)}" rx="9" ry="5" fill="#FF9F80" opacity=".6"/>`;
+  return g + '</g>';
+}
+
+function etiket(txt, x, y, f, f0, f1, size = 64, renk = '#FFF3DC', anchor = 'middle') {
+  if (f < f0 || f > f1 + 8) return '';
+  const s = backOut((f - f0) / 12) * (1 - klamp((f - f1) / 8)), o = klamp((f - f0) / 4) * (1 - klamp((f - f1) / 8));
+  return `<g transform="translate(${f2(x)},${f2(y)}) scale(${s.toFixed(3)})" opacity="${o.toFixed(2)}"><text class="lbl" text-anchor="${anchor}" font-size="${size}" fill="${renk}" stroke-width="${size * 0.16}" dy="${size * 0.35}">${txt}</text></g>`;
+}
+
+// ---------- sahne düzeni ----------
+let K = null;
+function kur() {
+  const S = T.seg, c = cue, E = T.total;
+  const hS = S.hook.start, kS = S.kalpler.start, yS = S.yuzme.start, nS = S.kan.start, bS = S.beyin.start, tS = S.tat.start, rS = S.renk.start, mS = S.kemik.start, sS = S.son.start;
+  const yuz = c('yuzme', 'swims'), dur = c('yuzme', 'stops'), cr = c('yuzme', 'which'), lit = c('yuzme', 'swimming');
+  const jar = c('kemik', 'whole'), gak = c('kemik', 'beak');
+  K = {
+    // kamera: [cx, cy, s]
+    cam: [[0, [540, 1300, 1.44]], [kS - 6, [540, 1300, 1.53]], [kS + 14, [540, 1300, 2.05]], [yS - 4, [540, 1300, 2.1]], [yS + 16, [540, 1260, 1.47]], [yuz, [540, 1230, 1.42]],
+      [dur, [540, 1020, 1.53]], [cr + 8, [560, 1120, 1.47]], [lit + 10, [660, 1270, 1.53]], [nS + 14, [600, 1270, 1.44]], [bS + 14, [540, 1330, 1.36]], [tS - 2, [540, 1330, 1.36]],
+      [tS + 14, [620, 1390, 1.71]], [rS + 14, [540, 1280, 1.65]], [mS + 14, [640, 1390, 1.53]], [sS + 16, [540, 1300, 1.44]], [E, [540, 1300, 1.44]]],
+    // ahtapot konumu: [x, y]
+    pos: [[0, [540, 1330]], [yuz, [540, 1330]], [yuz + 40, [540, 990]], [cr, [560, 1000]], [cr + 30, [600, 1330]], [lit + 40, [700, 1330]], [nS + 20, [420, 1330]],
+      [bS + 20, [540, 1330]], [tS + 20, [470, 1330]], [rS + 20, [540, 1330]], [mS + 20, [420, 1330]], [gak + 10, [520, 1400]], [jar, [600, 1470]], [jar + 36, [845, 1490]],
+      [sS + 4, [845, 1490]], [sS + 30, [540, 1330]], [E, [540, 1330]]],
+    xray: [[0, 0], [kS, 0], [kS + 10, 1], [yS, 1], [yS + 12, 0], [dur - 14, 0], [dur - 4, 0.9], [cr, 0.9], [cr + 12, 0], [bS, 0], [bS + 12, 1], [tS, 1], [tS + 12, 0]],
+    swim: [[0, 0], [yuz - 4, 0], [yuz + 8, 1], [cr + 6, 1], [cr + 26, 0]],
+    walk: [[0, 0], [cr + 20, 0], [cr + 34, 1], [lit + 30, 1], [lit + 44, 0], [mS + 2, 0], [mS + 10, .8], [mS + 22, 0]],
+    squish: [[0, 0], [jar - 4, 0], [jar + 10, 1], [jar + 30, 1], [jar + 44, 0]],
+    size: [[0, 1], [jar + 14, 1], [jar + 40, 0.42], [sS + 6, 0.42], [sS + 30, 1]],
+    spread: [[0, 1], [yuz - 4, 1], [yuz + 8, 0.15], [cr + 6, 0.15], [cr + 26, 1]],
+    tired: [[0, 0], [lit - 2, 0], [lit + 8, 1], [nS, 1], [nS + 10, 0], [c('son', 'hates') - 4, 0], [c('son', 'hates') + 6, 1], [E - 18, 1], [E - 4, 0]],
+    jarOn: [[0, 0], [mS + 4, 0], [mS + 16, 1], [sS + 2, 1], [sS + 14, 0]],
+    jar, gak,
+  };
+}
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, c = cue, t = f;
+  const [cx, cy, s] = kf(f, K.cam);
+  // ----- arka plan (yarım paralaks) -----
+  const ps = 1 + (s - 1) * 0.35;
+  let a = `<rect width="1080" height="1920" fill="url(#deniz)"/>`;
+  for (let k = 0; k < 5; k++) { const x0 = 80 + k * 230 + sin(t * 0.015 + k) * 30; a += `<path d="M${f2(x0)} -20 L${f2(x0 + 110)} -20 L${f2(x0 + 260)} 1700 L${f2(x0 + 60)} 1700Z" fill="url(#isik)" opacity="${f2(0.5 + 0.5 * sin(t * 0.03 + k * 2))}"/>`; }
+  a += `<g transform="translate(540,1330) scale(${ps.toFixed(3)}) translate(${f2(-540 - (cx - 540) * .35)},${f2(-1330 - (cy - 1330) * .35)})">`;
+  a += `<path d="M-400 1500 Q-100 1380 200 1470 T800 1440 T1500 1470 V2400 H-400Z" fill="#11495A" opacity=".7"/>`;
+  // yosunlar
+  [[-30, 1620, 1.2], [80, 1610, 1.06], [990, 1600, 1.3], [1100, 1580, 1.53], [880, 1630, 0.94]].forEach(([x, y, k], i) => {
+    let d = `M${x} ${y}`; for (let j = 1; j <= 8; j++) d += ` Q${f2(x + sin(t * 0.05 + i + j) * 26 * k + (j % 2 ? 30 : -30) * k)} ${f2(y - j * 52 * k + 26 * k)} ${f2(x + sin(t * 0.05 + i + j * .7) * 20 * k)} ${f2(y - j * 52 * k)}`;
+    a += `<path d="${d}" stroke="${i % 2 ? '#2F9A6E' : '#3DB37E'}" stroke-width="${f2(22 * k)}" fill="none" stroke-linecap="round"/>`;
+  });
+  a += `<path d="M-400 1580 Q200 1540 540 1570 T1500 1560 V2400 H-400Z" fill="url(#kum)"/>`;
+  [[180, 1700, 26.0], [360, 1800, 16.0], [760, 1760, 22.0], [930, 1850, 14.0], [620, 1880, 18.0], [90, 1860, 12.0]].forEach(([x, y, r]) => a += `<ellipse cx="${x}" cy="${y}" rx="${r}" ry="${r * .45}" fill="#C9A86E" opacity=".6"/>`);
+  a += `<path d="M-60 1600 Q-30 1500 60 1510 Q140 1520 150 1600Z" fill="#5C7A8C"/><path d="M930 1600 Q960 1530 1030 1540 Q1100 1550 1120 1600Z" fill="#4F6C7E"/>`;
+  // mercan
+  a += `<g transform="translate(120 1600)" stroke="#FF8A7A" stroke-width="18" stroke-linecap="round" fill="none"><path d="M0 0 V-90 M0 -50 L-36 -110 M0 -70 L32 -130 M-36 -110 V-140"/></g>`;
+  a += '</g>';
+  for (let k = 0; k < 18; k++) { const bx = rastgele(k) * 1080, sp = 1.2 + rastgele(k + 9) * 1.8, by = 1900 - ((t * sp + rastgele(k + 20) * 1900) % 2000), r = 4 + rastgele(k + 33) * 9; a += `<circle cx="${f2(bx + sin(t * 0.04 + k) * 14)}" cy="${f2(by)}" r="${f2(r)}" fill="none" stroke="#CFF6FF" stroke-opacity=".45" stroke-width="2.5"/>`; }
+  $('arka').innerHTML = a;
+
+  const X = kf(f, K.xray);
+  $('rontgen').innerHTML = X > 0.01 ? `<g opacity="${X.toFixed(3)}"><rect width="1080" height="1920" fill="#0A1C38"/><rect width="1080" height="1920" fill="url(#izgara)"/></g>` : '';
+
+  // ----- dünya -----
+  const [ox, oy] = kf(f, K.pos);
+  const yS = S.yuzme.start, kS = S.kalpler.start;
+  const blinkF = [40, 190, 420, 700, 980, 1240, 1500, 1690].some(b => f >= b && f < b + 6) ? 1 : 0;
+  const renkF = S.renk.start;
+  const renkler = ['#F07A5F', '#2FB5A0', '#9B6BD8', '#F2C14E', '#E86A8E', '#D9B98A', '#F07A5F'];
+  const rc = c('renk', 'change'), rk = Math.floor(klamp((f - rc) / 8, 0, 6));
+  const renk = f < rc ? '#F07A5F' : f < rc + 56 ? mix(renkler[rk], renkler[Math.min(rk + 1, 6)], klamp(((f - rc) % 8) / 8)) : '#F07A5F';
+  const tasteF = c('tat', 'taste'), shellX = 790, shellY = 1650;
+  const reach = kf(f, [[0, 0], [S.tat.start + 4, 0], [tasteF - 4, 1], [S.renk.start - 4, 1], [S.renk.start + 8, 0]]);
+  const o = {
+    x: ox, y: oy, s: kf(f, K.size), rot: kf(f, K.swim) * sin(t * 0.08) * 4, color: renk,
+    spread: kf(f, K.spread), curl: 0.85 * (1 - kf(f, K.swim) * 0.7), L: 330, swim: kf(f, K.swim), walk: kf(f, K.walk), squish: kf(f, K.squish), xray: X,
+    blink: blinkF, tired: kf(f, K.tired), sweat: kf(f, [[0, 0], [c('yuzme', 'swimming'), 0], [c('yuzme', 'swimming') + 8, 1], [S.kan.start + 10, 0]]),
+    surprise: (f >= c('hook', 'three') && f < c('hook', 'three') + 24) || (f >= c('kemik', 'whole') && f < c('kemik', 'whole') + 20),
+    look: f >= S.tat.start && f < S.renk.start ? 1 : 0, lookY: f >= S.tat.start && f < S.renk.start ? 1 : 0,
+    hearts: kf(f, [[0, 0], [kS + 6, 0], [kS + 14, 1], [yS + 8, 1], [yS + 12, 0], [c('yuzme', 'third') - 6, 0], [c('yuzme', 'third'), 1], [K.pos[3][0] + 6, 1], [K.pos[3][0] + 12, 0]]),
+    heartStop: kf(f, [[0, 0], [c('yuzme', 'stops'), 0], [c('yuzme', 'stops') + 6, 1], [c('yuzme', 'which') + 10, 1], [c('yuzme', 'which') + 14, 0]]),
+    flow: kf(f, [[0, 0], [kS + 8, 0], [kS + 20, 1]]),
+    neurons: kf(f, [[0, 0], [c('beyin', '500') - 4, 0], [c('beyin', '500') + 14, 1]]), armGlow: kf(f, [[0, 0], [c('beyin', 'two') - 2, 0], [c('beyin', 'two') + 12, 1]]),
+    stripes: f >= rc + 24 && f < rc + 40 ? 1 : 0,
+    reach, reachX: shellX - ox, reachY: shellY - oy - 96, suck: kf(f, [[0, 0], [tasteF, 0], [tasteF + 8, 1], [S.renk.start - 6, 1], [S.renk.start, 0]]),
+  };
+  let w = '';
+  // kavanoz arka yüzü (ahtapotun arkasında)
+  const jarOn = kf(f, K.jarOn);
+  const JX = 850, JY = 1520;
+  if (jarOn > 0.01) w += `<g opacity="${jarOn.toFixed(2)}" transform="translate(${JX},${JY})"><rect x="-160" y="-110" width="300" height="220" rx="70" fill="#BFF3FF" fill-opacity=".14"/></g>`;
+  // istiridye kabuğu (tat sahnesi)
+  if (f > S.tat.start - 10 && f < S.renk.start + 12) {
+    const so = klamp((f - S.tat.start + 10) / 10) * (1 - klamp((f - S.renk.start) / 12));
+    w += `<g opacity="${so.toFixed(2)}" transform="translate(${shellX},${shellY})"><path d="M-60 20 Q-70 -50 0 -62 Q70 -50 60 20Z" fill="#FFB4A2" stroke="#D9776A" stroke-width="5"/>` + [-40, -20, 0, 20, 40].map(x => `<path d="M0 18 L${x} -50" stroke="#D9776A" stroke-width="4"/>`).join('') + `<rect x="-70" y="14" width="140" height="18" rx="9" fill="#E59A8B"/></g>`;
+  }
+  const A = ahtapot(o, t);
+  w += A.svg;
+  // kavanoz ön yüzü: yan yatmış, ağzı sola bakıyor
+  if (jarOn > 0.01) {
+    w += `<g opacity="${jarOn.toFixed(2)}" transform="translate(${JX},${JY})" fill="none" stroke="#DFFAFF" stroke-width="7" stroke-linejoin="round">` +
+      `<path d="M-160 -40 H-200 V40 H-160 V110 Q-160 110 -90 110 H70 Q140 110 140 40 V-40 Q140 -110 70 -110 H-90 Q-160 -110 -160 -40" fill="#BFF3FF" fill-opacity=".12"/>` +
+      `<path d="M-120 -80 Q-60 -96 20 -92" stroke-opacity=".7" stroke-width="10" stroke-linecap="round"/><rect x="-222" y="-52" width="26" height="104" rx="8" fill="#9FC3CC" stroke="#DFFAFF"/></g>`;
+  }
+  // balık (tepkici)
+  const fishX = kf(f, [[0, 790], [S.kan.start + 10, 790], [S.kan.start + 30, 880], [S.beyin.start + 10, 860], [S.tat.start + 10, 700], [S.kemik.start + 6, 700], [S.kemik.start + 26, 250], [S.son.start + 30, 790]]);
+  const fishY = kf(f, [[0, 1140], [yS + 30, 1140], [c('yuzme', 'swims') + 30, 880], [c('yuzme', 'which') + 30, 1120], [S.kan.start + 10, 1120], [S.kan.start + 30, 1420], [S.beyin.start + 10, 1140], [S.kemik.start + 26, 1420], [S.son.start + 30, 1140]]);
+  const sur = Math.max(kf(f, [[0, 0], [c('hook', 'well'), 0], [c('hook', 'well') + 6, 1], [c('hook', 'three') + 20, 1], [c('hook', 'three') + 30, 0]]),
+    kf(f, [[0, 0], [c('kan', 'blue'), 0], [c('kan', 'blue') + 6, 1], [c('kan', 'blue') + 30, 1], [c('kan', 'blue') + 40, 0]]),
+    kf(f, [[0, 0], [c('kemik', 'whole'), 0], [c('kemik', 'whole') + 6, 1], [S.son.start, 1], [S.son.start + 10, 0]]));
+  if (X < 0.98) w += `<g opacity="${(1 - X).toFixed(2)}">${balik(fishX, fishY, 0.95, -1, sur, t, 1)}</g>`;
+
+  // ----- etiketler ve sahne nesneleri -----
+  const hook1 = c('hook', 'one'), hook3 = c('hook', 'three');
+  w += etiket('1 ♥', ox + 210, oy - 260, f, hook1, c('hook', 'well') + 4, 72);
+  if (f >= hook3 - 2 && f < kS + 4) [0, 1, 2.0].forEach(k => { const p = backOut((f - hook3 - k * 5) / 12); if (p > 0) w += kalp(ox - 110 + k * 110, oy - 300 + sin(t * .1 + k) * 6, 1.7 * p); });
+  // kalpler sahnesi (röntgen, yakın çekim)
+  w += etiket('gills ×2', ox - 215, oy - 10, f, c('kalpler', 'gills'), S.kalpler.end + 4, 34, '#BDEBFF');
+  w += etiket('body', ox, oy - 145, f, c('kalpler', 'third'), S.kalpler.end + 4, 38, '#9CC4FF');
+  // yüzme: duran kalp
+  const st = c('yuzme', 'stops');
+  if (f >= st && f < c('yuzme', 'which') + 10) {
+    const p = klamp((f - st) / 14); const ex = ox + 230, ey = oy - 120;
+    w += `<g opacity="${(1 - klamp((f - c('yuzme', 'which')) / 10)).toFixed(2)}"><path d="M${ex - 120} ${ey} h${f2(60 * p)} l12 -40 l14 70 l12 -30 h${f2(80 * p)}" stroke="#FF6B7A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/></g>`;
+    w += etiket('heart #3: off', ex - 10, ey - 70, f, st + 4, c('yuzme', 'which') + 2, 46, '#FFB4BE');
+  }
+  if (o.swim > 0.2) for (let k = 0; k < 7; k++) { const u = ((t * 0.04 + k / 7) % 1); w += `<circle cx="${f2(ox + sin(k * 3 + t * .1) * 30)}" cy="${f2(oy + 160 + u * 380)}" r="${f2(10 * (1 - u) + 3)}" fill="none" stroke="#DFFAFF" stroke-width="3" opacity="${(o.swim * (1 - u)).toFixed(2)}"/>`; }
+  w += etiket('crawl > swim', 400, 1060, f, c('yuzme', 'crawl'), S.yuzme.end, 52);
+  // kan sahnesi
+  if (f >= S.kan.start - 4 && f < S.beyin.start + 8) {
+    const kn = S.kan, g0 = c('kan', 'blood'), bl = c('kan', 'blue'), ir = c('kan', 'iron'), cu = c('kan', 'copper'), ox2 = c('kan', 'oxygen'), cold = c('kan', 'cold');
+    const p = backOut((f - g0) / 14) * (1 - klamp((f - S.beyin.start) / 8)), dx = 760, dy = 1000;
+    const dolu = klamp((f - bl) / 10);
+    w += `<g transform="translate(${dx},${dy}) scale(${p.toFixed(3)})"><path d="M0 -120 C60 -40 90 10 90 50 A90 90 0 0 1 -90 50 C-90 10 -60 -40 0 -120Z" fill="${mix('#E9EEF2', '#3D7BFF', dolu)}" stroke="#123" stroke-width="6"/><ellipse cx="-34" cy="30" rx="14" ry="26" fill="#fff" opacity=".6"/></g>`;
+    w += etiket('blue!', dx, dy + 175, f, bl + 2, ir - 2, 58, '#9CC4FF');
+    const rozet = (x, y, sym, col, f0, ok) => {
+      const q = backOut((f - f0) / 12) * (1 - klamp((f - S.beyin.start) / 8)); if (q <= 0) return '';
+      let r = `<g transform="translate(${x},${y}) scale(${q.toFixed(3)})"><circle r="62" fill="${col}" stroke="#0B2A38" stroke-width="7"/><text class="lbl" text-anchor="middle" dy="20" font-size="58" fill="#fff" stroke-width="0">${sym}</text>`;
+      if (ok === 0) { const z = klamp((f - f0 - 8) / 8); r += `<path d="M-50 -50 L${f2(-50 + 100 * z)} ${f2(-50 + 100 * z)}" stroke="#FF4D5E" stroke-width="12" stroke-linecap="round"/>`; }
+      return r + '</g>';
+    };
+    w += rozet(250, 1000, 'Fe', '#9C5A4A', ir, 0) + rozet(250, 1160, 'Cu', '#D9823B', cu, 1);
+    for (let k = 0; k < 4; k++) { const u = klamp((f - ox2 - k * 6) / 50); if (u > 0 && u < 1) w += `<g opacity="${(1 - u).toFixed(2)}" transform="translate(${f2(300 + k * 40)},${f2(1100 - u * 260)})"><circle r="24" fill="none" stroke="#DFFAFF" stroke-width="4"/><text class="lbl" text-anchor="middle" dy="9" font-size="24" fill="#DFFAFF" stroke-width="0">O₂</text></g>`; }
+    w += etiket('cold + deep', 600, 1700, f, cold, S.kan.end + 6, 54, '#BFF3FF');
+  }
+  // beyin sahnesi
+  w += etiket('500,000,000 neurons', 540, 900, f, c('beyin', '500'), S.beyin.end + 4, 60, '#FFE27A');
+  if (f >= c('beyin', 'two')) {
+    const p = backOut((f - c('beyin', 'two')) / 12) * (1 - klamp((f - S.beyin.end - 4) / 8));
+    if (p > 0) w += `<g transform="translate(870,1150) scale(${p.toFixed(3)})"><circle r="70" fill="#1B3358" stroke="#FFE27A" stroke-width="5"/><path d="M0 0 L0 -70 A70 70 0 1 1 -60.6 35Z" fill="#FFE27A"/><text class="lbl" text-anchor="middle" y="125" font-size="52" fill="#FFE27A" stroke-width="8">2/3 in arms</text></g>`;
+  }
+  // tat sahnesi
+  w += etiket('taste!', shellX, shellY - 150, f, tasteF + 4, S.tat.end, 56, '#FFE27A');
+  const dec = c('tat', 'decisions');
+  if (f >= dec && f < S.renk.start + 6) [1, 6].forEach((i, k) => { const tp = A.kollar[i].tip; w += etiket(k ? '!' : '?', ox + tp[0] * o.s, oy + tp[1] * o.s - 60, f, dec + k * 6, S.renk.start, 64, '#FFF3DC'); });
+  // renk sahnesi
+  w += etiket('probably colorblind', 540, 1000, f, c('renk', 'probably'), S.renk.end + 6, 56, '#E0E0E0');
+  // kemik sahnesi
+  w += etiket('0 bones', ox, oy - 290, f, c('kemik', 'bones'), c('kemik', 'if'), 66);
+  if (f >= K.gak && f < K.jar + 10) {
+    const p = backOut((f - K.gak) / 12) * (1 - klamp((f - K.jar) / 10)); const bx = 430, by = 1010;
+    w += `<g transform="translate(${bx},${by}) scale(${p.toFixed(3)})"><circle r="78" fill="#FFF3DC" stroke="#0B2A38" stroke-width="6"/><path d="M-30 -18 Q0 -50 32 -16 Q10 -4 0 30 Q-10 -4 -30 -18Z" fill="#3A2430"/><text class="lbl" text-anchor="middle" y="128" font-size="48" fill="#FFF3DC" stroke-width="8">beak = the only hard part</text></g>`;
+  }
+  // son: üç kalp, üçüncüsü huysuz
+  const tr = c('son', 'three'), hs = c('son', 'hates');
+  if (f >= tr - 2) [0, 1, 2.0].forEach(k => { const p = backOut((f - tr - k * 5) / 12) * (1 - klamp((f - T.total + 14) / 12)); if (p > 0) w += kalp(ox - 110 + k * 110, oy - 300 + sin(t * .1 + k) * 6, 1.7 * p, '#FF6B7A', k === 2 ? klamp((f - hs) / 8) : 0); });
+
+  $('dunya').setAttribute('transform', `translate(540,1250) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  // ----- altyazı: konuşulan kelime sarı, sıradakiler soluk -----
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp) { $('altyazi').innerHTML = ''; return; }
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === T.timing.words.find(y => y.start >= cp.start - 0.01).seg);
+  let i = 0;
+  $('altyazi').innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const col = tt < x.start ? 'rgba(255,243,220,.32)' : tt < x.end + 0.05 ? '#FFC94A' : '#FFF3DC';
+    return `<span class="w" style="color:${col}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+};
+</script>
+</body>
+</html>
