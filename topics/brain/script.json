@@ -1,0 +1,14 @@
+{
+  "title": "You only use 10% of your brain?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "You only use {10%|ten percent} of your brain. Well, that's not exactly true. You use pretty much all of it."},
+    {"scene": "scan", "text": "Brain scans show activity all over. Different parts light up for seeing, moving, talking and remembering, and over a single day, almost every part gets a turn."},
+    {"scene": "energy", "text": "Here's the wild part. Your brain is only about {2%|two percent} of your body weight, but it burns around {20%|twenty percent} of your energy. If most of it did nothing, that would be a terrible deal."},
+    {"scene": "sleep", "text": "Even when you sleep, it doesn't switch off. It sorts your memories and cleans itself up."},
+    {"scene": "pain", "text": "That's not all. Your brain has no pain receptors of its own, which is why some people stay awake during brain surgery."},
+    {"scene": "speed", "text": "In fact, signals can race along your nerves at over {250 mph.|two hundred fifty miles per hour.}"},
+    {"scene": "son", "text": "So no, you don't use {10%|ten percent} of your brain. You're using all of it, right now."}
+  ]
+}

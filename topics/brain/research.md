@@ -1,0 +1,7 @@
+# Brain facts (sources)
+- 10% myth: imaging (fMRI/PET) shows activity across the whole brain; no region is permanently idle. (Scientific American "Do People Only Use 10 Percent of Their Brains?" 2008; Beyerstein 1999)
+- Different regions for vision (occipital), movement (motor cortex), speech (Broca/Wernicke), memory (hippocampus). (NIH NINDS "Brain Basics")
+- Brain ≈ 2% of body mass, ≈ 20% of resting energy use. (Raichle & Gusnard 2002, PNAS)
+- Sleep: memory consolidation and glymphatic clearance of waste. (Xie et al. 2013, Science; Diekelmann & Born 2010)
+- Brain tissue has no nociceptors; awake craniotomy is routine. (Johns Hopkins Medicine; NHS)
+- Fastest myelinated axons ≈ 120 m/s ≈ 268 mph. (Purves, Neuroscience)
