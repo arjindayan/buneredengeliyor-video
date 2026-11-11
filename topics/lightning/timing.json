@@ -1,0 +1,875 @@
+{
+"duration": 51.748,
+"words": [
+{
+"w": "Lightning",
+"start": 0.0,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "never",
+"start": 0.64,
+"end": 0.88,
+"seg": 0
+},
+{
+"w": "strikes",
+"start": 0.96,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "the",
+"start": 1.36,
+"end": 1.4,
+"seg": 0
+},
+{
+"w": "same",
+"start": 1.44,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "place",
+"start": 1.8,
+"end": 1.92,
+"seg": 0
+},
+{
+"w": "twice.",
+"start": 2.0,
+"end": 2.76,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.04,
+"end": 3.6,
+"seg": 0
+},
+{
+"w": "tell",
+"start": 3.72,
+"end": 3.84,
+"seg": 0
+},
+{
+"w": "that",
+"start": 3.92,
+"end": 4.0,
+"seg": 0
+},
+{
+"w": "to",
+"start": 4.08,
+"end": 4.12,
+"seg": 0
+},
+{
+"w": "the",
+"start": 4.16,
+"end": 4.24,
+"seg": 0
+},
+{
+"w": "Empire",
+"start": 4.36,
+"end": 4.64,
+"seg": 0
+},
+{
+"w": "State",
+"start": 4.72,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "Building.",
+"start": 5.04,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "It",
+"start": 5.76,
+"end": 5.84,
+"seg": 0
+},
+{
+"w": "gets",
+"start": 5.92,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "hit",
+"start": 6.08,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "about",
+"start": 6.24,
+"end": 6.48,
+"seg": 0
+},
+{
+"w": "20",
+"start": 6.64,
+"end": 6.8,
+"seg": 0
+},
+{
+"w": "times",
+"start": 6.88,
+"end": 7.12,
+"seg": 0
+},
+{
+"w": "a",
+"start": 7.2,
+"end": 7.28,
+"seg": 0
+},
+{
+"w": "year.",
+"start": 7.36,
+"end": 8.08,
+"seg": 0
+},
+{
+"w": "Lightning",
+"start": 8.16,
+"end": 8.64,
+"seg": 1
+},
+{
+"w": "loves",
+"start": 8.72,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "tall,",
+"start": 9.2,
+"end": 9.68,
+"seg": 1
+},
+{
+"w": "pointy",
+"start": 9.84,
+"end": 10.08,
+"seg": 1
+},
+{
+"w": "things.",
+"start": 10.16,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "That's",
+"start": 10.96,
+"end": 11.12,
+"seg": 1
+},
+{
+"w": "why",
+"start": 11.16,
+"end": 11.2,
+"seg": 1
+},
+{
+"w": "the",
+"start": 11.28,
+"end": 11.36,
+"seg": 1
+},
+{
+"w": "building",
+"start": 11.52,
+"end": 11.68,
+"seg": 1
+},
+{
+"w": "has",
+"start": 11.76,
+"end": 11.84,
+"seg": 1
+},
+{
+"w": "a",
+"start": 11.92,
+"end": 12.0,
+"seg": 1
+},
+{
+"w": "rod",
+"start": 12.12,
+"end": 12.24,
+"seg": 1
+},
+{
+"w": "on",
+"start": 12.32,
+"end": 12.4,
+"seg": 1
+},
+{
+"w": "top,",
+"start": 12.48,
+"end": 12.96,
+"seg": 1
+},
+{
+"w": "to",
+"start": 13.0,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "give",
+"start": 13.12,
+"end": 13.2,
+"seg": 1
+},
+{
+"w": "the",
+"start": 13.28,
+"end": 13.36,
+"seg": 1
+},
+{
+"w": "bolt",
+"start": 13.48,
+"end": 13.6,
+"seg": 1
+},
+{
+"w": "a",
+"start": 13.68,
+"end": 13.84,
+"seg": 1
+},
+{
+"w": "safe",
+"start": 13.96,
+"end": 14.08,
+"seg": 1
+},
+{
+"w": "path",
+"start": 14.16,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "down",
+"start": 14.6,
+"end": 14.72,
+"seg": 1
+},
+{
+"w": "to",
+"start": 14.76,
+"end": 14.8,
+"seg": 1
+},
+{
+"w": "the",
+"start": 14.84,
+"end": 14.88,
+"seg": 1
+},
+{
+"w": "ground.",
+"start": 14.96,
+"end": 15.84,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 15.92,
+"end": 16.16,
+"seg": 2
+},
+{
+"w": "the",
+"start": 16.24,
+"end": 16.4,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 16.48,
+"end": 16.8,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 16.92,
+"end": 17.44,
+"seg": 2
+},
+{
+"w": "A",
+"start": 17.56,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "bolt",
+"start": 17.84,
+"end": 18.0,
+"seg": 2
+},
+{
+"w": "is",
+"start": 18.04,
+"end": 18.08,
+"seg": 2
+},
+{
+"w": "about",
+"start": 18.16,
+"end": 18.56,
+"seg": 2
+},
+{
+"w": "five",
+"start": 18.72,
+"end": 18.88,
+"seg": 2
+},
+{
+"w": "times",
+"start": 19.04,
+"end": 19.2,
+"seg": 2
+},
+{
+"w": "hotter",
+"start": 19.28,
+"end": 19.52,
+"seg": 2
+},
+{
+"w": "than",
+"start": 19.6,
+"end": 19.68,
+"seg": 2
+},
+{
+"w": "the",
+"start": 19.76,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "surface",
+"start": 19.92,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "of",
+"start": 20.28,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "the",
+"start": 20.4,
+"end": 20.56,
+"seg": 2
+},
+{
+"w": "sun,",
+"start": 20.72,
+"end": 21.2,
+"seg": 2
+},
+{
+"w": "but",
+"start": 21.32,
+"end": 21.44,
+"seg": 2
+},
+{
+"w": "only",
+"start": 21.52,
+"end": 21.68,
+"seg": 2
+},
+{
+"w": "about",
+"start": 21.76,
+"end": 21.92,
+"seg": 2
+},
+{
+"w": "as",
+"start": 22.0,
+"end": 22.08,
+"seg": 2
+},
+{
+"w": "wide",
+"start": 22.24,
+"end": 22.48,
+"seg": 2
+},
+{
+"w": "as",
+"start": 22.52,
+"end": 22.56,
+"seg": 2
+},
+{
+"w": "your",
+"start": 22.64,
+"end": 22.8,
+"seg": 2
+},
+{
+"w": "thumb.",
+"start": 22.88,
+"end": 23.6,
+"seg": 2
+},
+{
+"w": "That",
+"start": 23.68,
+"end": 23.92,
+"seg": 3
+},
+{
+"w": "heat",
+"start": 24.08,
+"end": 24.24,
+"seg": 3
+},
+{
+"w": "makes",
+"start": 24.36,
+"end": 24.48,
+"seg": 3
+},
+{
+"w": "the",
+"start": 24.56,
+"end": 24.64,
+"seg": 3
+},
+{
+"w": "air",
+"start": 24.76,
+"end": 24.88,
+"seg": 3
+},
+{
+"w": "explode",
+"start": 25.28,
+"end": 25.68,
+"seg": 3
+},
+{
+"w": "outward.",
+"start": 25.76,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 26.68,
+"end": 26.96,
+"seg": 3
+},
+{
+"w": "thunder.",
+"start": 27.04,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "Count",
+"start": 27.92,
+"end": 28.08,
+"seg": 3
+},
+{
+"w": "the",
+"start": 28.16,
+"end": 28.2,
+"seg": 3
+},
+{
+"w": "seconds",
+"start": 28.24,
+"end": 28.56,
+"seg": 3
+},
+{
+"w": "after",
+"start": 28.64,
+"end": 28.8,
+"seg": 3
+},
+{
+"w": "the",
+"start": 28.84,
+"end": 28.88,
+"seg": 3
+},
+{
+"w": "flash,",
+"start": 28.96,
+"end": 29.6,
+"seg": 3
+},
+{
+"w": "divide",
+"start": 29.76,
+"end": 29.92,
+"seg": 3
+},
+{
+"w": "by",
+"start": 30.0,
+"end": 30.08,
+"seg": 3
+},
+{
+"w": "five,",
+"start": 30.16,
+"end": 30.72,
+"seg": 3
+},
+{
+"w": "and",
+"start": 30.8,
+"end": 30.88,
+"seg": 3
+},
+{
+"w": "you",
+"start": 30.96,
+"end": 31.04,
+"seg": 3
+},
+{
+"w": "know",
+"start": 31.12,
+"end": 31.2,
+"seg": 3
+},
+{
+"w": "how",
+"start": 31.28,
+"end": 31.44,
+"seg": 3
+},
+{
+"w": "many",
+"start": 31.52,
+"end": 31.6,
+"seg": 3
+},
+{
+"w": "miles",
+"start": 31.68,
+"end": 31.92,
+"seg": 3
+},
+{
+"w": "away",
+"start": 32.0,
+"end": 32.16,
+"seg": 3
+},
+{
+"w": "it",
+"start": 32.24,
+"end": 32.32,
+"seg": 3
+},
+{
+"w": "is.",
+"start": 32.44,
+"end": 33.04,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 33.12,
+"end": 33.36,
+"seg": 4
+},
+{
+"w": "not",
+"start": 33.44,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "all.",
+"start": 33.6,
+"end": 34.16,
+"seg": 4
+},
+{
+"w": "A",
+"start": 34.24,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "park",
+"start": 34.44,
+"end": 34.56,
+"seg": 4
+},
+{
+"w": "ranger",
+"start": 34.64,
+"end": 34.96,
+"seg": 4
+},
+{
+"w": "named",
+"start": 35.08,
+"end": 35.2,
+"seg": 4
+},
+{
+"w": "Roy",
+"start": 35.28,
+"end": 35.52,
+"seg": 4
+},
+{
+"w": "Sullivan",
+"start": 35.6,
+"end": 36.0,
+"seg": 4
+},
+{
+"w": "was",
+"start": 36.12,
+"end": 36.24,
+"seg": 4
+},
+{
+"w": "struck",
+"start": 36.32,
+"end": 36.56,
+"seg": 4
+},
+{
+"w": "by",
+"start": 36.6,
+"end": 36.64,
+"seg": 4
+},
+{
+"w": "lightning",
+"start": 36.72,
+"end": 37.2,
+"seg": 4
+},
+{
+"w": "seven",
+"start": 37.28,
+"end": 37.6,
+"seg": 4
+},
+{
+"w": "times,",
+"start": 37.68,
+"end": 38.32,
+"seg": 4
+},
+{
+"w": "and",
+"start": 38.4,
+"end": 38.48,
+"seg": 4
+},
+{
+"w": "survived",
+"start": 38.6,
+"end": 39.12,
+"seg": 4
+},
+{
+"w": "every",
+"start": 39.2,
+"end": 39.44,
+"seg": 4
+},
+{
+"w": "single",
+"start": 39.68,
+"end": 39.92,
+"seg": 4
+},
+{
+"w": "one.",
+"start": 40.08,
+"end": 40.72,
+"seg": 4
+},
+{
+"w": "In",
+"start": 40.8,
+"end": 40.88,
+"seg": 5
+},
+{
+"w": "fact,",
+"start": 40.96,
+"end": 41.52,
+"seg": 5
+},
+{
+"w": "lightning",
+"start": 41.64,
+"end": 41.84,
+"seg": 5
+},
+{
+"w": "flashes",
+"start": 41.92,
+"end": 42.32,
+"seg": 5
+},
+{
+"w": "around",
+"start": 42.48,
+"end": 42.64,
+"seg": 5
+},
+{
+"w": "44",
+"start": 42.72,
+"end": 43.2,
+"seg": 5
+},
+{
+"w": "times",
+"start": 43.28,
+"end": 43.6,
+"seg": 5
+},
+{
+"w": "every",
+"start": 43.76,
+"end": 44.0,
+"seg": 5
+},
+{
+"w": "second,",
+"start": 44.24,
+"end": 44.8,
+"seg": 5
+},
+{
+"w": "somewhere",
+"start": 44.88,
+"end": 45.2,
+"seg": 5
+},
+{
+"w": "on",
+"start": 45.28,
+"end": 45.36,
+"seg": 5
+},
+{
+"w": "Earth.",
+"start": 45.52,
+"end": 46.16,
+"seg": 5
+},
+{
+"w": "So",
+"start": 46.24,
+"end": 46.48,
+"seg": 6
+},
+{
+"w": "no,",
+"start": 46.72,
+"end": 47.28,
+"seg": 6
+},
+{
+"w": "lightning",
+"start": 47.36,
+"end": 47.76,
+"seg": 6
+},
+{
+"w": "doesn't",
+"start": 47.88,
+"end": 48.04,
+"seg": 6
+},
+{
+"w": "avoid",
+"start": 48.08,
+"end": 48.32,
+"seg": 6
+},
+{
+"w": "the",
+"start": 48.4,
+"end": 48.44,
+"seg": 6
+},
+{
+"w": "same",
+"start": 48.48,
+"end": 48.64,
+"seg": 6
+},
+{
+"w": "place",
+"start": 48.72,
+"end": 48.96,
+"seg": 6
+},
+{
+"w": "twice.",
+"start": 49.04,
+"end": 49.6,
+"seg": 6
+},
+{
+"w": "It",
+"start": 49.76,
+"end": 49.84,
+"seg": 6
+},
+{
+"w": "actually",
+"start": 49.92,
+"end": 50.24,
+"seg": 6
+},
+{
+"w": "prefers",
+"start": 50.36,
+"end": 50.72,
+"seg": 6
+},
+{
+"w": "it.",
+"start": 50.8,
+"end": 51.2,
+"seg": 6
+}
+]
+}

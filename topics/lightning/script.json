@@ -1,0 +1,14 @@
+{
+  "title": "Lightning never strikes twice?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Lightning never strikes the same place twice. Well, tell that to the Empire State Building. It gets hit about {20|twenty} times a year."},
+    {"scene": "rod", "text": "Lightning loves tall, pointy things. That's why the building has a rod on top, to give the bolt a safe path down to the ground."},
+    {"scene": "hot", "text": "Here's the wild part. A bolt is about five times hotter than the surface of the sun, but only about as wide as your thumb."},
+    {"scene": "thunder", "text": "That heat makes the air explode outward. That's thunder. Count the seconds after the flash, divide by five, and you know how many miles away it is."},
+    {"scene": "ranger", "text": "That's not all. A park ranger named Roy Sullivan was struck by lightning seven times, and survived every single one."},
+    {"scene": "earth", "text": "In fact, lightning flashes around {44|forty-four} times every second, somewhere on Earth."},
+    {"scene": "son", "text": "So no, lightning doesn't avoid the same place twice. It actually prefers it."}
+  ]
+}
