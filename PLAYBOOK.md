@@ -14,3 +14,4 @@ Her konu `topics/<konu>/` altında: `script.json`, `scene.html`, `style.md`, `re
 7. **Render** → `node engine/render.mjs topics/<konu>` → `topics/<konu>/out/video.mp4` (1080x1920, 30 fps, ses -15 LUFS).
 
 Gereken: node, ffmpeg, playwright (Chromium).
+8. **Kapanış (varsayılan)** → `engine/cta.sh <tr|en> out/final.mp4 out/final_cta.mp4`: sona 3 sn "beğen + takip et" kartı. Yeni her videoya eklenir, eskilere değil.
