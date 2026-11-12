@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: mum ışıklı kahvehane. Espresso kahvesi, bakır, köpük kremi; IBM Plex Sans + Mono; buhar kıvrımları ve fincan lekesi izleri. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#24150E}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:80px;right:80px;top:1490px;text-align:center;font:500 70px/1.18 'IBM Plex Sans';color:#EBD9B8}
+  .mono{font-family:'IBM Plex Mono';font-weight:600}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="mum" cx=".5" cy=".42" r=".7"><stop offset="0" stop-color="#5A3520"/><stop offset=".6" stop-color="#2E1B12"/><stop offset="1" stop-color="#1A0F0A"/></radialGradient>
+    <linearGradient id="bakir" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8A4A22"/><stop offset=".45" stop-color="#E09A5A"/><stop offset="1" stop-color="#8A4A22"/></linearGradient>
+  </defs>
+  <g id="zemin"></g>
+  <g id="sahne"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/tr.js"></script>
+<script>
+window.FONTS = ['500 70px "IBM Plex Sans"', '600 40px "IBM Plex Mono"'];
+window.ALT = { soluk: 'rgba(235,217,184,.3)', aktif: '#E09A5A', normal: '#EBD9B8' };
+const KAH = '#24150E', BAK = '#C27A3A', KOP = '#EBD9B8', TUR = '#3FA7A3', KIR = '#C8372D', KOY = '#3B2216';
+
+function yazi(txt, x, y, size, renk = KOP, anchor = 'middle', op = 1, ls = 0) {
+  return `<text class="mono" x="${x}" y="${y}" font-size="${size}" fill="${renk}" text-anchor="${anchor}" opacity="${f2(op)}" letter-spacing="${ls}">${txt}</text>`;
+}
+const gir = (f, f0, d = 12) => sm((f - f0) / d);
+
+function buhar(x, y, s, t, o = 1) {
+  let g = '';
+  for (let k = 0; k < 3; k++) { const u = ((t * .012) + k / 3) % 1; g += `<path d="M${x + (k - 1) * 30 * s} ${f2(y - u * 220 * s)} q${f2(26 * s)} ${f2(-40 * s)} 0 ${f2(-80 * s)} t0 ${f2(-80 * s)}" stroke="${KOP}" stroke-width="${f2(8 * s)}" fill="none" stroke-linecap="round" opacity="${f2(o * .55 * sin(u * P))}"/>`; }
+  return g;
+}
+function cezve(x, y, s, r = 0) {
+  return `<g transform="translate(${f2(x)},${f2(y)}) rotate(${f2(r)}) scale(${f2(s)})"><path d="M-90 -120 L90 -120 L70 0 C70 60 -70 60 -70 0Z" fill="url(#bakir)" stroke="${KOY}" stroke-width="6"/><path d="M-100 -130 Q-120 -150 -130 -130 L-90 -110Z" fill="#E09A5A" stroke="${KOY}" stroke-width="5"/><rect x="80" y="-110" width="240" height="22" rx="10" fill="${KOY}" transform="rotate(-12 80 -100)"/><path d="M-80 -80 H80" stroke="#F2C08A" stroke-width="5" opacity=".6"/></g>`;
+}
+function fincan(x, y, s, ust = false, telve = 0) {
+  if (ust) { // yukarıdan bakış
+    let g = `<g transform="translate(${f2(x)},${f2(y)}) scale(${f2(s)})"><circle r="170" fill="#F3EEE4" stroke="${KOY}" stroke-width="6"/><circle r="130" fill="${KOY}"/><circle r="130" fill="none" stroke="${TUR}" stroke-width="10"/>`;
+    if (telve <= 0) g += `<circle r="120" fill="#C9A87A"/>${Array.from({ length: 22 }, (_, k) => `<circle cx="${f2(cos(k * 2.4) * (20 + k * 4))}" cy="${f2(sin(k * 2.4) * (20 + k * 4))}" r="${f2(4 + (k % 3) * 2)}" fill="#E8D2AA"/>`).join('')}`;
+    return g + '</g>';
+  }
+  return `<g transform="translate(${f2(x)},${f2(y)}) scale(${f2(s)})"><ellipse cy="40" rx="150" ry="26" fill="#F3EEE4" stroke="${KOY}" stroke-width="5"/><path d="M-90 -90 H90 L70 30 Q0 50 -70 30Z" fill="#F3EEE4" stroke="${KOY}" stroke-width="6"/><path d="M-84 -60 H84" stroke="${TUR}" stroke-width="12"/><path d="M-80 -20 H80" stroke="${KIR}" stroke-width="6" stroke-dasharray="10 10"/><ellipse cy="-90" rx="90" ry="16" fill="#C9A87A" stroke="${KOY}" stroke-width="5"/><path d="M90 -70 q50 10 30 60 q-10 16 -30 10" stroke="${KOY}" stroke-width="10" fill="none"/></g>`;
+}
+function kisi(x, y, s, renk = '#8A5A3A', sapka = KIR) {
+  return `<g transform="translate(${x},${y}) scale(${s})"><rect x="-60" y="-230" width="120" height="230" rx="44" fill="${renk}"/><circle cy="-280" r="50" fill="#D9A97A"/><path d="M-56 -300 C-60 -380 60 -380 56 -300Z" fill="${sapka}"/></g>`;
+}
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = cezve(540, 1100, 1.6) + buhar(540, 880, 1.4, t);
+    const y = cue('hook', 'yasaklandı') - 2;
+    if (f >= y) { const q = backOut((f - y) / 10); g += `<g transform="translate(540,760) rotate(-12) scale(${f2(q * 1.0)})"><rect x="-300" y="-110" width="600" height="220" rx="20" fill="none" stroke="${KIR}" stroke-width="18"/><text class="mono" y="45" font-size="150" fill="${KIR}" text-anchor="middle" letter-spacing="14">YASAK</text></g>`; }
+    g += yazi('İSTANBUL · 16. YÜZYIL', 540, 470, 46, BAK, 'middle', gir(f, 6, 12), 6);
+    return g;
+  },
+  yol(f, S, t) {
+    const L = f - S.yol.start;
+    let g = yazi('TÜRK KAHVESİ', 540, 520, 110, KOP, 'middle', gir(L, cue('yol', 'türk') - S.yol.start - 4, 10), 6);
+    // harita: Yemen (alt) → İstanbul (üst)
+    const y0 = cue('yol', 'yemen') - S.yol.start, i0 = cue('yol', 'istanbul') - S.yol.start;
+    const p = klamp((L - y0) / (i0 - y0 + 10));
+    g += `<g opacity="${f2(gir(L, y0 - 8, 10))}"><path d="M640 1350 C760 1150 380 1000 560 760" stroke="${BAK}" stroke-width="8" fill="none" stroke-dasharray="8 16"/><circle cx="640" cy="1350" r="18" fill="${BAK}"/>${yazi('YEMEN', 760, 1370, 50, BAK, 'start')}</g>`;
+    // yolculuk eden çekirdek
+    const bx = (1 - p) ** 3 * 640 + 3 * (1 - p) ** 2 * p * 760 + 3 * (1 - p) * p * p * 380 + p ** 3 * 560;
+    const by = (1 - p) ** 3 * 1350 + 3 * (1 - p) ** 2 * p * 1150 + 3 * (1 - p) * p * p * 1000 + p ** 3 * 760;
+    if (L >= y0 - 4) g += `<g transform="translate(${f2(bx)},${f2(by)}) rotate(${f2(t * 2)})"><ellipse rx="34" ry="46" fill="#6A3A1E" stroke="${KOP}" stroke-width="4"/><path d="M0 -40 C-14 -10 14 10 0 40" stroke="${KOP}" stroke-width="5" fill="none"/></g>`;
+    if (L >= i0 - 6) g += `<circle cx="560" cy="760" r="22" fill="${KOP}"/>` + yazi('İSTANBUL', 560, 710, 56, KOP, 'middle', gir(L, i0 - 6, 10), 4);
+    g += yazi("1500'lerin ortası", 540, 1420, 46, BAK, 'middle', gir(L, i0, 10), 3);
+    return g;
+  },
+  ilk(f, S, t) {
+    const L = f - S.ilk.start;
+    let g = `<g opacity="${f2(gir(L, 0, 14))}"><path d="M190 1380 V860 Q190 640 540 620 Q890 640 890 860 V1380" fill="#3B2216" stroke="${BAK}" stroke-width="16"/><rect x="300" y="900" width="480" height="480" fill="#5A3520"/>`;
+    for (let k = 0; k < 3; k++) g += `<circle cx="${400 + k * 140}" cy="980" r="${f2(22 + 4 * sin(t * .2 + k))}" fill="#FFC979" opacity=".8"/>`;
+    g += '</g>';
+    const sa = cue('ilk', 'şam') - S.ilk.start;
+    const p = gir(L, sa - 4, 14);
+    g += `<g opacity="${f2(p)}">${kisi(420 - (1 - p) * 120, 1380, .9, '#6A7A3A', '#E0D2B0')}${kisi(660 + (1 - p) * 120, 1380, .9, '#7A3A4A', '#E0D2B0')}</g>`;
+    g += yazi("ŞAM'DAN İKİ TÜCCAR", 540, 520, 56, BAK, 'middle', p, 4);
+    const ta = cue('ilk', 'tahtakale') - S.ilk.start;
+    g += `<g opacity="${f2(gir(L, ta - 4, 10))}"><rect x="320" y="740" width="440" height="110" rx="10" fill="${KOP}"/>${yazi('TAHTAKALE', 540, 815, 64, KAH, 'middle', 1, 6)}</g>`;
+    g += yazi('İLK KAHVEHANE', 540, 600, 70, KOP, 'middle', gir(L, cue('ilk', 'ilk') - S.ilk.start - 4, 10), 6);
+    return g;
+  },
+  sohbet(f, S, t) {
+    const L = f - S.sohbet.start;
+    // yukarıdan masa
+    let g = `<circle cx="540" cy="1050" r="400" fill="#5A3520" stroke="${BAK}" stroke-width="12"/>`;
+    g += fincan(330, 840, .55, true) + fincan(760, 1260, .55, true);
+    const tv = cue('sohbet', 'tavla') - S.sohbet.start;
+    if (L >= tv - 4) { const q = backOut((L - tv + 4) / 12); g += `<g transform="translate(560,980) rotate(-8) scale(${f2(q)})"><rect x="-220" y="-140" width="440" height="280" rx="16" fill="#8A5A2E" stroke="${KOY}" stroke-width="8"/><rect x="-200" y="-120" width="190" height="240" fill="#E8D2AA"/><rect x="10" y="-120" width="190" height="240" fill="#E8D2AA"/>${Array.from({ length: 12 }, (_, k) => `<path d="M${-200 + (k % 6) * 32 + (k > 5 ? 210 : 0)} -120 l16 100 l16 -100Z" fill="${k % 2 ? KIR : KOY}"/>`).join('')}<circle cx="-60" cy="60" r="18" fill="#FFF"/><circle cx="80" cy="40" r="18" fill="${KOY}"/></g>`; }
+    const si = cue('sohbet', 'şiir') - S.sohbet.start;
+    if (L >= si - 4) { const q = backOut((L - si + 4) / 12); g += `<g transform="translate(320,1250) rotate(12) scale(${f2(q)})"><rect x="-120" y="-80" width="240" height="160" rx="8" fill="#F3E3C3"/>${[0, 1, 2, 3].map(k => `<path d="M-90 ${-44 + k * 30} q90 -10 180 0" stroke="#8A6A4A" stroke-width="5" fill="none"/>`).join('')}</g>`; }
+    const so = cue('sohbet', 'sohbet') - S.sohbet.start;
+    for (let k = 0; k < 3; k++) { const q = backOut((L - so - k * 6) / 12); if (q > 0) g += `<g transform="translate(${260 + k * 280},${640 + (k % 2) * 60}) scale(${f2(q)})"><path d="M-110 -60 H110 Q130 -60 130 -40 V30 Q130 50 110 50 H-30 L-60 90 L-50 50 H-110 Q-130 50 -130 30 V-40 Q-130 -60 -110 -60Z" fill="${KOP}"/><circle cx="-40" cy="-6" r="10" fill="${KAH}"/><circle cx="0" cy="-6" r="10" fill="${KAH}"/><circle cx="40" cy="-6" r="10" fill="${KAH}"/></g>`; }
+    return g;
+  },
+  yasak(f, S, t) {
+    const L = f - S.yasak.start;
+    let g = `<path d="M190 1380 V860 Q190 640 540 620 Q890 640 890 860 V1380" fill="#3B2216" stroke="${BAK}" stroke-width="16"/>`;
+    const kp = cue('yasak', 'kapatıldı') - S.yasak.start, q = gir(L, kp - 8, 16);
+    g += `<rect x="${f2(206 - (1 - q) * 330)}" y="660" width="334" height="720" fill="#6A3A1E" stroke="${KOY}" stroke-width="6"/><rect x="${f2(540 + (1 - q) * 330)}" y="660" width="334" height="720" fill="#6A3A1E" stroke="${KOY}" stroke-width="6"/>`;
+    if (q > .9) g += `<rect x="490" y="1000" width="100" height="90" rx="12" fill="#9A9A9A" stroke="${KOY}" stroke-width="6"/><path d="M510 1000 v-40 a30 30 0 0 1 60 0 v40" stroke="#9A9A9A" stroke-width="14" fill="none"/>`;
+    const de = cue('yasak', 'dedikodu') - S.yasak.start, is = cue('yasak', 'isyan') - S.yasak.start;
+    g += yazi('DEDİKODU', 330, 540, 72, KIR, 'middle', gir(L, de - 4, 10), 4) + yazi('İSYAN', 790, 540, 72, KIR, 'middle', gir(L, is - 4, 10), 4);
+    g += yazi('kapatıldı', 540, 1450, 0, KOP);
+    return g;
+  },
+  yayilma(f, S, t) {
+    const L = f - S.yayilma.start;
+    let g = `<g fill="${KOY}" stroke="${BAK}" stroke-width="6"><path d="M120 1300 V1100 H400 V1300Z"/><path d="M150 1100 A110 100 0 0 1 370 1100Z"/></g>` + yazi('SARAY', 260, 1360, 46, BAK, 'middle', 1, 4);
+    g += `<g fill="${KOY}" stroke="${BAK}" stroke-width="6"><path d="M700 1300 V1150 H940 V1300Z"/><path d="M680 1150 L820 1050 L960 1150Z"/></g>` + yazi('KÖY EVİ', 820, 1360, 46, BAK, 'middle', 1, 4);
+    for (let k = 0; k < 5; k++) { const q = backOut((L - 20 - k * 8) / 12); if (q > 0) g += fincan(260 + k * 140, 1000 - sin(k / 4 * P) * 160, .45 * q); }
+    g += yazi('YASAKLAR GEÇTİ', 540, 540, 80, KOP, 'middle', gir(L, 0, 10), 4) + yazi('KAHVE KALDI', 540, 650, 96, BAK, 'middle', gir(L, cue('yayilma', 'kahve') - S.yayilma.start - 4, 10), 6);
+    return g;
+  },
+  cezve(f, S, t) {
+    const L = f - S.cezve.start;
+    // kesit cezve
+    let g = `<g transform="translate(540,1050) scale(1.7)"><path d="M-130 -170 L130 -170 L100 0 C100 80 -100 80 -100 0Z" fill="url(#bakir)" stroke="${KOY}" stroke-width="4"/><path d="M-120 -150 L120 -150 L95 0 C95 70 -95 70 -95 0Z" fill="#3B2216"/>`;
+    const ko = gir(L, cue('cezve', 'köpüğüyle') - S.cezve.start - 4, 14);
+    g += `<path d="M-120 -150 L120 -150 L117 -130 L-117 -130Z" fill="#C9A87A" opacity="${f2(.3 + .7 * ko)}"/>`;
+    for (let k = 0; k < 40; k++) g += `<circle cx="${f2(-90 + rastgele(k) * 180)}" cy="${f2(-120 + rastgele(k + 50) * 170 + sin(t * .05 + k) * 4)}" r="${f2(1.5 + rastgele(k + 9) * 2)}" fill="#8A5A3A" opacity=".8"/>`;
+    g += `</g>`;
+    for (let k = 0; k < 4; k++) g += `<path d="M${400 + k * 90} 1240 q-20 -40 0 -80 q20 40 0 80Z" fill="#FF8A2A" opacity="${f2(.6 + .3 * sin(t * .3 + k))}"/>`;
+    g += buhar(540, 760, 1.2, t);
+    g += yazi('İNCE ÇEKİLMİŞ', 540, 500, 72, KOP, 'middle', gir(L, cue('cezve', 'ince') - S.cezve.start - 4, 10), 4);
+    g += yazi('SÜZÜLMEDEN', 540, 600, 72, BAK, 'middle', gir(L, cue('cezve', 'süzülmeden') - S.cezve.start - 4, 10), 4);
+    g += yazi('KÖPÜK', 860, 760, 60, KOP, 'middle', ko, 4);
+    return g;
+  },
+  fal(f, S, t) {
+    const L = f - S.fal.start;
+    let g = '';
+    // fincan ters çevrilir, sonra içi telve desenli
+    const tr = gir(L, 10, 20);
+    g += `<g transform="translate(540,1000) scale(1.6)"><circle r="190" fill="#F3EEE4" stroke="${KOY}" stroke-width="5"/><circle r="150" fill="#F3EEE4" stroke="${TUR}" stroke-width="8"/>`;
+    // telve desenleri: kuş ve kalp
+    const d = gir(L, cue('fal', 'falı') - S.fal.start - 10, 30);
+    g += `<g opacity="${f2(d)}" fill="#5A3520"><path d="M-80 -40 q30 -30 60 0 q30 -30 60 0 q-30 10 -60 30 q-30 -20 -60 -30Z"/><path d="M40 50 C10 20 20 -10 45 0 C70 -10 80 20 50 50 L45 56Z"/>${Array.from({ length: 30 }, (_, k) => `<circle cx="${f2(cos(k * 2.3) * (50 + (k * 3.3) % 90))}" cy="${f2(sin(k * 2.3) * (50 + (k * 3.3) % 90))}" r="${f2(3 + (k % 4))}"/>`).join('')}</g>`;
+    g += `<circle r="150" fill="#F3EEE4" opacity="${f2(1 - d)}"/></g>`;
+    g += yazi('TELVE', 540, 520, 96, BAK, 'middle', gir(L, cue('fal', 'telve') - S.fal.start - 4, 10), 8);
+    g += yazi('→ FAL', 540, 630, 96, KOP, 'middle', gir(L, cue('fal', 'falı') - S.fal.start - 4, 10), 8);
+    return g;
+  },
+  unesco(f, S, t) {
+    const L = f - S.unesco.start;
+    const q = backOut((L - 4) / 16);
+    let g = `<g transform="translate(540,1000) scale(${f2(q)}) rotate(${f2(sin(t * .02) * 2)})"><circle r="300" fill="none" stroke="${BAK}" stroke-width="14"/><circle r="270" fill="none" stroke="${BAK}" stroke-width="4" stroke-dasharray="6 10"/>`;
+    g += `<path d="M-160 60 H160 M-140 60 V-60 M-70 60 V-60 M0 60 V-60 M70 60 V-60 M140 60 V-60 M-180 -60 L0 -160 L180 -60Z" stroke="${KOP}" stroke-width="14" fill="none" stroke-linejoin="round"/>`;
+    g += `<text class="mono" y="160" font-size="70" fill="${KOP}" text-anchor="middle" letter-spacing="10">UNESCO</text></g>`;
+    g += yazi('2013', 540, 540, 140, BAK, 'middle', gir(L, 0, 10), 8);
+    g += yazi('SOMUT OLMAYAN', 540, 1420, 50, KOP, 'middle', gir(L, cue('unesco', 'somut') - S.unesco.start - 4, 10), 4);
+    return g;
+  },
+  son(f, S, t) {
+    const L = f - S.son.start;
+    let g = fincan(540, 1150, 1.8) + buhar(540, 920, 1.3, t);
+    const kr = cue('son', 'kırk') - S.son.start, ka = cue('son', 'kaç') - S.son.start;
+    g += yazi('40 YIL', 540, 600, 140, KOP, 'middle', gir(L, kr - 4, 10) * (L < ka - 4 ? 1 : 0), 6);
+    if (L >= ka - 4) { const n = Math.round(40 + (470 - 40) * sm((L - ka + 4) / 40)); g += yazi(`${n} YIL?`, 540, 600, 140, BAK, 'middle', 1, 6); }
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  const S = T.seg, t = f, adlar = Object.keys(SAHNE);
+  let z = `<rect width="1080" height="1920" fill="url(#mum)"/>`;
+  // fincan lekesi halkaları
+  for (let k = 0; k < 5; k++) z += `<circle cx="${f2(rastgele(k + 3) * 1080)}" cy="${f2(rastgele(k + 13) * 1920)}" r="${f2(90 + rastgele(k) * 60)}" fill="none" stroke="#6A3A1E" stroke-width="${f2(6 + rastgele(k + 2) * 8)}" opacity=".35" stroke-dasharray="${f2(300 + rastgele(k) * 300)} 80"/>`;
+  $('zemin').innerHTML = z;
+  let g = '';
+  adlar.forEach((ad, i) => {
+    const bas = i ? S[ad].start - 4 : 0, son = i + 1 < adlar.length ? S[adlar[i + 1]].start - 4 : T.total + 10;
+    if (f < bas - 2 || f > son + 12) return;
+    const o = (i ? klamp((f - bas) / 12) : 1) * (1 - klamp((f - son) / 12));
+    const z2 = 1 + (1 - (i ? sm((f - bas) / 16) : 1)) * .06;
+    g += `<g opacity="${f2(o)}" transform="translate(540,1000) scale(${f2(z2)}) translate(-540,-1000)">${SAHNE[ad](f, S, t)}</g>`;
+  });
+  $('sahne').innerHTML = g;
+  $('ust').innerHTML = `<path d="M60 1470 H1020" stroke="${BAK}" stroke-width="3" opacity=".7"/><path d="M60 1730 H1020" stroke="${BAK}" stroke-width="3" opacity=".7"/>`;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

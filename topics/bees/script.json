@@ -1,0 +1,14 @@
+{
+  "title": "One bee makes a lot of honey?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Bees are so busy, one bee must make tons of honey. Well, that's not exactly true. In its whole life, a worker bee makes about one twelfth of a teaspoon."},
+    {"scene": "jar", "text": "So to fill one jar, a colony visits around two million flowers. And together they fly about twice around the Earth."},
+    {"scene": "xray", "text": "Here's the wild part. Bees carry nectar in a second stomach, called a honey stomach. It's basically a tiny backpack inside their body."},
+    {"scene": "dance", "text": "In fact, bees tell each other where the flowers are by dancing. The direction of the waggle points the way, and its length tells the distance."},
+    {"scene": "buzz", "text": "That's not all. Their wings beat around {200|two hundred} times a second. That's the buzz you hear."},
+    {"scene": "tomb", "text": "And honey almost never spoils. Archaeologists have found honey in ancient Egyptian tombs, thousands of years old."},
+    {"scene": "son", "text": "So one bee makes just a tiny drop of honey. But together, they make something that lasts forever."}
+  ]
+}

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: Boğaz'da alacakaranlık, mürekkep siluetler, el yazısı defter notları (Caveat + Plex Mono). Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#1E1A3A}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:70px;right:70px;top:1480px;text-align:center;font:600 98px/1.02 'Caveat';color:#FFF1DE;text-shadow:0 3px 0 rgba(20,14,40,.55)}
+  .el{font-family:'Caveat';font-weight:600}
+  .mono{font-family:'IBM Plex Mono';font-weight:600}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E1A3A"/><stop offset=".45" stop-color="#5B3A6E"/><stop offset=".75" stop-color="#E07A5F"/><stop offset="1" stop-color="#F4B26A"/></linearGradient>
+    <linearGradient id="deniz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A3F78"/><stop offset="1" stop-color="#14183A"/></linearGradient>
+  </defs>
+  <g id="zemin"></g>
+  <g id="sahne"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/tr.js"></script>
+<script>
+window.FONTS = ['600 80px Caveat', '600 40px "IBM Plex Mono"'];
+window.ALT = { soluk: 'rgba(255,241,222,.35)', aktif: '#FFB86B', normal: '#FFF1DE' };
+const MUR = '#14122A', KRM = '#FFF1DE', TUR = '#FFB86B';
+
+function yazi(txt, x, y, size, renk = KRM, cls = 'el', anchor = 'middle', op = 1, ls = 0) {
+  return `<text class="${cls}" x="${x}" y="${y}" font-size="${size}" fill="${renk}" text-anchor="${anchor}" opacity="${f2(op)}" letter-spacing="${ls}">${txt}</text>`;
+}
+const gir = (f, f0, d = 12) => sm((f - f0) / d);
+
+function kule(x, y, s) {
+  return `<g transform="translate(${x},${y}) scale(${s})" fill="${MUR}"><path d="M-70 0 L-60 -520 L60 -520 L70 0Z"/><rect x="-80" y="-560" width="160" height="44"/><path d="M-78 -560 L0 -700 L78 -560Z"/>` +
+    `${[-400, -300, -200].map(yy => `<rect x="-14" y="${yy}" width="28" height="44" rx="14" fill="#F4B26A" opacity=".55"/>`).join('')}<rect x="-60" y="-548" width="120" height="20" fill="#F4B26A" opacity=".4"/></g>`;
+}
+function tepeler(x, y, s) {
+  return `<g transform="translate(${x},${y}) scale(${s})" fill="${MUR}"><path d="M0 0 Q120 -140 260 -90 Q360 -200 520 -110 L520 0Z"/><path d="M180 -100 A50 44 0 0 1 280 -100Z"/><rect x="160" y="-230" width="10" height="130"/><rect x="290" y="-230" width="10" height="130"/></g>`;
+}
+// kanatlı adam
+function ucan(x, y, s, r, t, kanat = 1) {
+  const k = sin(t * .25) * 10 * kanat;
+  return `<g transform="translate(${f2(x)},${f2(y)}) rotate(${f2(r)}) scale(${f2(s)})"><path d="M0 0 C-60 ${f2(-50 - k)} -160 ${f2(-60 - k)} -220 ${f2(-20 - k)} C-160 -10 -80 0 0 10Z" fill="${KRM}" stroke="${MUR}" stroke-width="5"/><path d="M0 0 C60 ${f2(-50 - k)} 160 ${f2(-60 - k)} 220 ${f2(-20 - k)} C160 -10 80 0 0 10Z" fill="${KRM}" stroke="${MUR}" stroke-width="5"/>` +
+    `${[-180, -130, -80, 80, 130, 180].map(xx => `<path d="M${xx} ${f2(-30 - k * .8)} L${xx * .9} 4" stroke="${MUR}" stroke-width="3"/>`).join('')}` +
+    `<rect x="-14" y="-10" width="28" height="80" rx="12" fill="${MUR}"/><circle cy="-30" r="20" fill="${MUR}"/><path d="M-22 -40 h44 v-14 a22 18 0 0 0 -44 0Z" fill="${TUR}"/></g>`;
+}
+function kus(x, y, s, t, k) { const a = sin(t * .3 + k) * 14; return `<path d="M${f2(x - 30 * s)} ${f2(y - a * s)} Q${f2(x - 12 * s)} ${f2(y - 14 * s)} ${f2(x)} ${f2(y)} Q${f2(x + 12 * s)} ${f2(y - 14 * s)} ${f2(x + 30 * s)} ${f2(y - a * s)}" stroke="${MUR}" stroke-width="${f2(5 * s)}" fill="none" stroke-linecap="round"/>`; }
+function panorama(t, o = 1) {
+  let g = `<g opacity="${f2(o)}"><rect y="1180" width="1080" height="740" fill="url(#deniz)"/>`;
+  for (let k = 0; k < 8; k++) g += `<path d="M${f2(((k * 160 + t * 1.2) % 1300) - 160)} ${1220 + k * 26} h${60 + (k % 3) * 30}" stroke="#F4B26A" stroke-width="4" opacity=".35" stroke-linecap="round"/>`;
+  g += `<path d="M0 1200 L0 1050 L120 1040 L200 1080 L300 1070 L380 1110 L420 1200Z" fill="${MUR}"/>` + kule(240, 1110, .62) + tepeler(620, 1200, .9) + '</g>';
+  return g;
+}
+
+const SAHNE = {
+  hook(f, S, t) {
+    const p = klamp(f / 110);
+    let g = panorama(t);
+    g += `<path d="M260 650 Q540 520 880 1060" stroke="${KRM}" stroke-width="5" fill="none" stroke-dasharray="6 18" opacity=".6"/>`;
+    const x = 260 + p * 620, y = 650 - sin(p * P) * 130 + p * p * 410;
+    g += ucan(x, y, .55, 10 + p * 18, t);
+    const yo = cue('hook', 'ya') ;
+    g += yazi('?', 540, 520, 260, TUR, 'el', 'middle', gir(f, yo, 10));
+    return g;
+  },
+  kim(f, S, t) {
+    const L = f - S.kim.start;
+    let g = '';
+    // defter sayfası
+    const p = gir(L, 0, 16);
+    g += `<g opacity="${f2(p)}" transform="rotate(-3 540 900)"><rect x="140" y="420" width="800" height="900" rx="10" fill="#F3E3C3"/>${Array.from({ length: 14 }, (_, k) => `<path d="M180 ${500 + k * 58} H900" stroke="#C9B48E" stroke-width="2"/>`).join('')}`;
+    g += `<text class="mono" x="540" y="560" font-size="40" fill="${MUR}" text-anchor="middle" letter-spacing="4">HEZARFEN</text><text class="mono" x="540" y="620" font-size="40" fill="${MUR}" text-anchor="middle" letter-spacing="4">AHMED ÇELEBİ</text>`;
+    g += `<text class="el" x="540" y="690" font-size="52" fill="#B4472F" text-anchor="middle">hezar-fen = "bin bilimli"</text>`;
+    // kanat çizimleri (eskiz)
+    const e = klamp((L - 40) / 60);
+    g += `<path d="M260 960 C340 850 480 830 560 900 C480 900 400 930 260 960Z" fill="none" stroke="${MUR}" stroke-width="4" stroke-dasharray="${f2(900 * e)} 900"/>`;
+    g += `<path d="M560 900 C640 830 780 850 860 960 C720 930 640 900 560 900Z" fill="none" stroke="${MUR}" stroke-width="4" stroke-dasharray="${f2(900 * e)} 900"/>`;
+    for (let k = 0; k < 6; k++) g += `<path d="M${300 + k * 90} ${960 - (k < 3 ? k : 5 - k) * 25} l${k < 3 ? 40 : -40} -60" stroke="${MUR}" stroke-width="3" opacity="${f2(klamp(e * 6 - k))}"/>`;
+    g += `<text class="el" x="300" y="1100" font-size="44" fill="#B4472F" opacity="${f2(e)}">kanat açısı?</text><text class="el" x="640" y="1180" font-size="44" fill="#B4472F" opacity="${f2(e)}">rüzgâr →</text></g>`;
+    // kuşlar
+    const ku = cue('kim', 'kuşların') - S.kim.start;
+    if (L >= ku - 6) for (let k = 0; k < 5; k++) { const u = ((L - ku) / 120 + k / 5) % 1; g += kus(-60 + u * 1200, 380 + k * 40 + sin(t * .05 + k) * 20, 1.2, t, k); }
+    g += yazi('17. yüzyıl', 540, 1380, 60, KRM, 'mono', 'middle', gir(L, cue('kim', 'on') - S.kim.start, 10), 3);
+    return g;
+  },
+  kule(f, S, t) {
+    const L = f - S.kule.start;
+    let g = kule(540, 1450, 1.0) + `<rect y="1440" width="1080" height="480" fill="${MUR}"/>`;
+    const ka = cue('kule', 'kanatlar') - S.kule.start, bo = cue('kule', 'boşluğa') - S.kule.start;
+    if (L >= ka - 4) {
+      const d = klamp((L - bo) / 30), o = gir(L, ka - 4, 10);
+      g += `<g opacity="${f2(o)}">${ucan(540 + d * 260, 820 + d * 220, .6, d * 25, t, d > 0 ? 1 : 0)}</g>`;
+    }
+    g += yazi('GALATA KULESİ', 540, 560, 64, KRM, 'mono', 'middle', gir(L, cue('kule', 'galata') - S.kule.start, 10), 6);
+    return g;
+  },
+  ucus(f, S, t) {
+    const L = f - S.ucus.start, D = S.ucus.end - S.ucus.start;
+    let g = panorama(t);
+    // rüzgâr çizgileri
+    for (let k = 0; k < 6; k++) { const u = ((L / 40) + k / 6) % 1; g += `<path d="M${f2(-100 + u * 1300)} ${700 + k * 60} q60 -20 120 0 t120 0" stroke="${KRM}" stroke-width="4" fill="none" opacity="${f2(.5 * sin(u * P))}"/>`; }
+    const p = klamp(L / (D + 10));
+    g += `<path d="M260 650 Q540 520 ${f2(260 + 620 * p)} ${f2(650 - sin(p * P) * 130 + p * p * 410)}" stroke="${TUR}" stroke-width="6" fill="none" stroke-dasharray="6 14"/>`;
+    g += ucan(260 + p * 620, 650 - sin(p * P) * 130 + p * p * 410, .7, 10 + p * 15, t);
+    g += yazi('Galata', 240, 1300, 56, KRM, 'el', 'middle', 1) + yazi('Üsküdar', 880, 1300, 56, TUR, 'el', 'middle', gir(L, cue('ucus', 'üsküdar') - S.ucus.start, 10));
+    g += yazi('BOĞAZ', 540, 480, 90, TUR, 'mono', 'middle', gir(L, cue('ucus', 'boğaz') - S.ucus.start, 10));
+    return g;
+  },
+  altin(f, S, t) {
+    const L = f - S.altin.start;
+    let g = '';
+    // taht/padişah sembolü: kavuk silueti
+    g += `<g opacity="${f2(gir(L, 0))}" transform="translate(540,760)"><ellipse cx="0" cy="40" rx="150" ry="60" fill="${KRM}"/><path d="M-120 30 C-130 -160 130 -160 120 30Z" fill="${KRM}"/><rect x="-140" y="30" width="280" height="40" rx="18" fill="#B4472F"/><path d="M0 -150 C-30 -190 30 -200 10 -160" fill="${TUR}"/></g>`;
+    g += yazi('IV. MURAD', 540, 960, 70, KRM, 'mono', 'middle', gir(L, 4, 10), 6);
+    const ke = cue('altin', 'kese') - S.altin.start;
+    if (L >= ke - 6) {
+      const p = backOut((L - ke + 6) / 14);
+      g += `<g transform="translate(540,1200) scale(${f2(p)})"><path d="M-110 0 C-130 -80 -60 -110 0 -110 C60 -110 130 -80 110 0 C110 80 60 100 0 100 C-60 100 -110 80 -110 0Z" fill="#8A5A2E" stroke="${MUR}" stroke-width="6"/><path d="M-60 -110 C-30 -140 30 -140 60 -110" stroke="${TUR}" stroke-width="12" fill="none"/></g>`;
+      for (let k = 0; k < 8; k++) { const u = klamp((L - ke - k * 3) / 30); if (u > 0) g += `<circle cx="${f2(540 + (k - 3.5) * 40 * u * 2)}" cy="${f2(1120 - sin(u * P) * 110 + u * 120)}" r="22" fill="#F6C343" stroke="#8A5A2E" stroke-width="4"/>`; }
+    }
+    return g;
+  },
+  surgun(f, S, t) {
+    const L = f - S.surgun.start;
+    let g = `<rect y="1050" width="1080" height="870" fill="url(#deniz)" opacity="${f2(gir(L, 0))}"/>`;
+    const ce = cue('surgun', 'cezayir') - S.surgun.start;
+    // gemi uzaklaşır
+    const p = klamp((L - ce + 10) / 120), x = 360 + p * 360, sc = 1 - p * .55;
+    g += `<g transform="translate(${f2(x)},${f2(1060 - p * 60)}) scale(${f2(sc)})"><path d="M-160 0 H160 L120 70 H-120Z" fill="${MUR}"/><path d="M0 0 V-260" stroke="${MUR}" stroke-width="10"/><path d="M6 -250 Q120 -170 6 -60Z" fill="${KRM}"/><path d="M-6 -230 Q-100 -160 -6 -80Z" fill="${KRM}" opacity=".85"/></g>`;
+    g += yazi('"Bu adam her istediğini yapabilir"', 540, 600, 76, KRM, 'el', 'middle', gir(L, 4, 10));
+    g += yazi('→ CEZAYİR', 540, 760, 92, TUR, 'mono', 'middle', gir(L, ce - 4, 10), 4);
+    return g;
+  },
+  kaynak(f, S, t) {
+    const L = f - S.kaynak.start;
+    let g = '';
+    const p = backOut(L / 16);
+    g += `<g transform="translate(540,1000) scale(${f2(p)})"><path d="M0 -260 C-120 -300 -300 -280 -380 -240 V260 C-300 220 -120 200 0 240Z" fill="#F3E3C3" stroke="${MUR}" stroke-width="6"/><path d="M0 -260 C120 -300 300 -280 380 -240 V260 C300 220 120 200 0 240Z" fill="#EAD6B0" stroke="${MUR}" stroke-width="6"/>`;
+    for (let k = 0; k < 8; k++) g += `<path d="M${-330} ${-190 + k * 50} q140 -14 290 0" stroke="#8A6A4A" stroke-width="5" fill="none" opacity=".6"/><path d="M40 ${-190 + k * 50} q140 -14 290 0" stroke="#8A6A4A" stroke-width="5" fill="none" opacity=".6"/>`;
+    g += `<rect x="-300" y="-40" width="230" height="160" rx="10" fill="none" stroke="#B4472F" stroke-width="5"/>` + ucan(-185, 50, .35, 10, t) + '</g>';
+    g += yazi('SEYAHATNAME', 540, 560, 76, KRM, 'mono', 'middle', gir(L, cue('kaynak', 'seyahatnamesi') - S.kaynak.start - 8, 10), 6);
+    g += yazi('tek kaynak', 540, 680, 110, TUR, 'el', 'middle', gir(L, cue('kaynak', 'tek') - S.kaynak.start, 10));
+    return g;
+  },
+  suphe(f, S, t) {
+    const L = f - S.suphe.start;
+    let g = `<g transform="translate(540,1000) scale(.9)"><path d="M0 -260 C-120 -300 -300 -280 -380 -240 V260 C-300 220 -120 200 0 240Z" fill="#F3E3C3" stroke="${MUR}" stroke-width="6"/><path d="M0 -260 C120 -300 300 -280 380 -240 V260 C300 220 120 200 0 240Z" fill="#EAD6B0" stroke="${MUR}" stroke-width="6"/></g>`;
+    // büyüteç kitap üzerinde gezinir
+    const mx = 540 + sin(L * .04) * 200, my = 1000 + cos(L * .05) * 120;
+    g += `<g transform="translate(${f2(mx)},${f2(my)})"><circle r="110" fill="rgba(255,241,222,.25)" stroke="${MUR}" stroke-width="16"/><path d="M80 80 L180 180" stroke="${MUR}" stroke-width="30" stroke-linecap="round"/></g>`;
+    const ab = cue('suphe', 'abartılı') - S.suphe.start;
+    if (L >= ab - 4) { const p = backOut((L - ab + 4) / 12); g += `<g transform="translate(540,1000) rotate(-14) scale(${f2(p)})"><rect x="-230" y="-70" width="460" height="140" rx="16" fill="none" stroke="#C8372D" stroke-width="12"/><text class="mono" y="26" font-size="76" fill="#C8372D" text-anchor="middle" letter-spacing="6">ABARTI?</text></g>`; }
+    const sp = cue('suphe', 'şüphe') - S.suphe.start;
+    for (let k = 0; k < 5; k++) { const u = klamp((L - sp - k * 5) / 14); if (u > 0) g += yazi('?', 180 + k * 180, 620 + (k % 2) * 60, 120, TUR, 'el', 'middle', u); }
+    return g;
+  },
+  miras(f, S, t) {
+    const L = f - S.miras.start;
+    let g = `<rect y="1200" width="1080" height="720" fill="${MUR}"/><path d="M540 1200 L380 1920 H700Z" fill="#2B2850"/>`;
+    for (let k = 0; k < 6; k++) g += `<rect x="532" y="${1240 + k * 110}" width="16" height="${50 + k * 10}" fill="${KRM}" opacity=".8"/>`;
+    // uçak kalkar
+    const p = klamp(L / 100);
+    g += `<g transform="translate(${f2(300 + p * 500)},${f2(1100 - p * 380)}) rotate(-18) scale(1.1)"><path d="M-120 0 C-120 -20 100 -24 130 0 C100 22 -120 20 -120 0Z" fill="${KRM}"/><path d="M-10 0 L-60 -90 L-30 -90 L40 0Z M-10 0 L-60 90 L-30 90 L40 0Z" fill="${KRM}"/><path d="M-110 0 L-140 -50 L-120 -50 L-90 0Z" fill="${TUR}"/></g>`;
+    g += yazi('HEZARFEN', 540, 560, 110, KRM, 'mono', 'middle', gir(L, cue('miras', 'hezarfen') - S.miras.start, 10), 10);
+    g += yazi('HAVAALANI · İSTANBUL', 540, 650, 46, TUR, 'mono', 'middle', gir(L, cue('miras', 'havaalanında') - S.miras.start, 10), 5);
+    return g;
+  },
+  son(f, S, t) {
+    const L = f - S.son.start;
+    let g = panorama(t);
+    const p = (L / 80) % 1;
+    g += ucan(260 + p * 620, 650 - sin(p * P) * 130 + p * p * 410, .55, 15, t);
+    const u = cue('son', 'uçtu') - S.son.start, e = cue('son', 'efsane') - S.son.start;
+    const kut = (txt, x, f0, renk) => { const q = backOut((L - f0) / 12); return L < f0 ? '' : `<g transform="translate(${x},560) scale(${f2(q)})"><rect x="-200" y="-70" width="400" height="140" rx="70" fill="${renk}"/><text class="mono" y="24" font-size="62" fill="${MUR}" text-anchor="middle" letter-spacing="4">${txt}</text></g>`; };
+    g += kut('UÇTU', 300, u - 2, TUR) + kut('EFSANE', 780, e - 2, KRM);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  const S = T.seg, t = f, adlar = Object.keys(SAHNE);
+  let z = `<rect width="1080" height="1920" fill="url(#gok)"/>`;
+  for (let k = 0; k < 30; k++) z += `<circle cx="${f2(rastgele(k) * 1080)}" cy="${f2(rastgele(k + 40) * 700)}" r="${f2(1.5 + rastgele(k + 9) * 2.5)}" fill="#FFF1DE" opacity="${f2(.3 + .4 * (0.5 + 0.5 * sin(t * .07 + k)))}"/>`;
+  z += `<circle cx="820" cy="380" r="70" fill="#FFE2B8" opacity=".9"/>`;
+  $('zemin').innerHTML = z;
+  let g = '';
+  adlar.forEach((ad, i) => {
+    const bas = i ? S[ad].start - 4 : 0, son = i + 1 < adlar.length ? S[adlar[i + 1]].start - 4 : T.total + 10;
+    if (f < bas - 2 || f > son + 10) return;
+    const o = (i ? klamp((f - bas) / 10) : 1) * (1 - klamp((f - son) / 10));
+    g += `<g opacity="${f2(o)}">${SAHNE[ad](f, S, t)}</g>`;
+  });
+  $('sahne').innerHTML = g;
+  // altyazı arkası: yumuşak koyu bant
+  $('ust').innerHTML = `<rect x="0" y="1420" width="1080" height="300" fill="#14122A" opacity=".45"/>`;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

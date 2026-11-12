@@ -1,0 +1,15 @@
+{
+  "title": "The toughest animal on Earth",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "The toughest animal on Earth must be huge. Well, that's not exactly true. It's about half a millimeter long."},
+    {"scene": "meet", "text": "Meet the tardigrade, also called the water bear. Eight chubby legs, tiny claws, and a face like a vacuum cleaner."},
+    {"scene": "tun", "text": "When things get bad, it dries out, pulls in its legs, and curls into a little ball called a tun. Its body almost completely stops."},
+    {"scene": "extreme", "text": "Here's the wild part. In that state, it can survive freezing close to absolute zero, heat above boiling, and radiation hundreds of times what would kill you."},
+    {"scene": "space", "text": "In fact, in {2007,|two thousand seven,} scientists sent tardigrades into space with no protection at all. Some of them survived, and even had babies."},
+    {"scene": "water", "text": "That's not all. Some dried tardigrades have come back to life after years. Just add a drop of water."},
+    {"scene": "home", "text": "They live almost everywhere: deep oceans, mountain tops, and probably in the moss outside your door."},
+    {"scene": "son", "text": "So the toughest animal on Earth isn't huge. It's tiny, and it's probably right next to you."}
+  ]
+}

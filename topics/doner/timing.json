@@ -1,0 +1,725 @@
+{
+"duration": 54.151,
+"words": [
+{
+"w": "Dünyanın",
+"start": 0.0,
+"end": 0.72,
+"seg": 0
+},
+{
+"w": "en",
+"start": 0.8,
+"end": 0.88,
+"seg": 0
+},
+{
+"w": "bilinen",
+"start": 0.96,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "Türk",
+"start": 1.44,
+"end": 1.64,
+"seg": 0
+},
+{
+"w": "yemeği",
+"start": 1.68,
+"end": 2.0,
+"seg": 0
+},
+{
+"w": "eskiden",
+"start": 2.24,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "yan",
+"start": 2.8,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "yatıyordu.",
+"start": 3.08,
+"end": 3.6,
+"seg": 0
+},
+{
+"w": "Evet,",
+"start": 3.92,
+"end": 4.4,
+"seg": 1
+},
+{
+"w": "döner.",
+"start": 4.56,
+"end": 5.16,
+"seg": 1
+},
+{
+"w": "Yüzyıllarca",
+"start": 5.36,
+"end": 6.08,
+"seg": 1
+},
+{
+"w": "Anadolu'da",
+"start": 6.16,
+"end": 6.72,
+"seg": 1
+},
+{
+"w": "et,",
+"start": 6.88,
+"end": 7.28,
+"seg": 1
+},
+{
+"w": "şişe",
+"start": 7.36,
+"end": 7.52,
+"seg": 1
+},
+{
+"w": "dizilip",
+"start": 7.6,
+"end": 8.0,
+"seg": 1
+},
+{
+"w": "ateşin",
+"start": 8.16,
+"end": 8.56,
+"seg": 1
+},
+{
+"w": "önünde",
+"start": 8.6,
+"end": 8.88,
+"seg": 1
+},
+{
+"w": "yatay",
+"start": 8.96,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "olarak",
+"start": 9.28,
+"end": 9.52,
+"seg": 1
+},
+{
+"w": "çevrildi.",
+"start": 9.6,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "Ama",
+"start": 10.36,
+"end": 10.56,
+"seg": 2
+},
+{
+"w": "yatay",
+"start": 10.64,
+"end": 10.96,
+"seg": 2
+},
+{
+"w": "pişen",
+"start": 11.04,
+"end": 11.28,
+"seg": 2
+},
+{
+"w": "et",
+"start": 11.36,
+"end": 11.52,
+"seg": 2
+},
+{
+"w": "kendi",
+"start": 11.68,
+"end": 12.0,
+"seg": 2
+},
+{
+"w": "yağında",
+"start": 12.04,
+"end": 12.32,
+"seg": 2
+},
+{
+"w": "kalıyor,",
+"start": 12.4,
+"end": 13.04,
+"seg": 2
+},
+{
+"w": "bir",
+"start": 13.08,
+"end": 13.12,
+"seg": 2
+},
+{
+"w": "tarafı",
+"start": 13.2,
+"end": 13.48,
+"seg": 2
+},
+{
+"w": "yanarken",
+"start": 13.52,
+"end": 14.0,
+"seg": 2
+},
+{
+"w": "öbür",
+"start": 14.16,
+"end": 14.32,
+"seg": 2
+},
+{
+"w": "tarafı",
+"start": 14.4,
+"end": 14.72,
+"seg": 2
+},
+{
+"w": "çiğ",
+"start": 14.8,
+"end": 14.96,
+"seg": 2
+},
+{
+"w": "kalabiliyordu.",
+"start": 15.04,
+"end": 15.84,
+"seg": 2
+},
+{
+"w": "Ailesinin",
+"start": 16.0,
+"end": 16.56,
+"seg": 3
+},
+{
+"w": "anlattığına",
+"start": 16.64,
+"end": 17.12,
+"seg": 3
+},
+{
+"w": "göre",
+"start": 17.2,
+"end": 17.44,
+"seg": 3
+},
+{
+"w": "1860'larda",
+"start": 17.6,
+"end": 18.88,
+"seg": 3
+},
+{
+"w": "Bursa'da",
+"start": 19.12,
+"end": 19.6,
+"seg": 3
+},
+{
+"w": "İskender",
+"start": 19.68,
+"end": 20.16,
+"seg": 3
+},
+{
+"w": "Efendi",
+"start": 20.24,
+"end": 20.56,
+"seg": 3
+},
+{
+"w": "adında",
+"start": 20.6,
+"end": 20.8,
+"seg": 3
+},
+{
+"w": "bir",
+"start": 20.88,
+"end": 20.96,
+"seg": 3
+},
+{
+"w": "aşçı",
+"start": 21.04,
+"end": 21.36,
+"seg": 3
+},
+{
+"w": "bir",
+"start": 21.52,
+"end": 21.6,
+"seg": 3
+},
+{
+"w": "şey",
+"start": 21.64,
+"end": 21.76,
+"seg": 3
+},
+{
+"w": "denedi:",
+"start": 21.84,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "Şişi",
+"start": 22.52,
+"end": 22.8,
+"seg": 3
+},
+{
+"w": "ayağa",
+"start": 22.88,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "kaldırdı.",
+"start": 23.2,
+"end": 23.84,
+"seg": 3
+},
+{
+"w": "Et",
+"start": 24.0,
+"end": 24.16,
+"seg": 4
+},
+{
+"w": "dikine",
+"start": 24.24,
+"end": 24.56,
+"seg": 4
+},
+{
+"w": "dönünce",
+"start": 24.64,
+"end": 25.04,
+"seg": 4
+},
+{
+"w": "yağ",
+"start": 25.28,
+"end": 25.44,
+"seg": 4
+},
+{
+"w": "aşağı",
+"start": 25.52,
+"end": 25.84,
+"seg": 4
+},
+{
+"w": "süzüldü,",
+"start": 25.92,
+"end": 26.64,
+"seg": 4
+},
+{
+"w": "ateş",
+"start": 26.76,
+"end": 27.04,
+"seg": 4
+},
+{
+"w": "eşit",
+"start": 27.08,
+"end": 27.36,
+"seg": 4
+},
+{
+"w": "vurdu",
+"start": 27.4,
+"end": 27.68,
+"seg": 4
+},
+{
+"w": "ve",
+"start": 27.92,
+"end": 28.0,
+"seg": 4
+},
+{
+"w": "bıçak",
+"start": 28.04,
+"end": 28.4,
+"seg": 4
+},
+{
+"w": "her",
+"start": 28.48,
+"end": 28.56,
+"seg": 4
+},
+{
+"w": "seferinde",
+"start": 28.64,
+"end": 29.2,
+"seg": 4
+},
+{
+"w": "ince,",
+"start": 29.36,
+"end": 29.84,
+"seg": 4
+},
+{
+"w": "çıtır",
+"start": 29.92,
+"end": 30.16,
+"seg": 4
+},
+{
+"w": "dilimler",
+"start": 30.2,
+"end": 30.56,
+"seg": 4
+},
+{
+"w": "kesti.",
+"start": 30.64,
+"end": 31.28,
+"seg": 4
+},
+{
+"w": "Adı",
+"start": 31.36,
+"end": 31.52,
+"seg": 5
+},
+{
+"w": "da",
+"start": 31.56,
+"end": 31.6,
+"seg": 5
+},
+{
+"w": "buradan",
+"start": 31.68,
+"end": 31.92,
+"seg": 5
+},
+{
+"w": "geldi:",
+"start": 32.0,
+"end": 32.64,
+"seg": 5
+},
+{
+"w": "Dönen",
+"start": 32.68,
+"end": 32.96,
+"seg": 5
+},
+{
+"w": "et,",
+"start": 33.08,
+"end": 33.44,
+"seg": 5
+},
+{
+"w": "döner.",
+"start": 33.48,
+"end": 34.12,
+"seg": 5
+},
+{
+"w": "Bursa'da",
+"start": 34.32,
+"end": 34.8,
+"seg": 6
+},
+{
+"w": "tereyağı",
+"start": 34.88,
+"end": 35.28,
+"seg": 6
+},
+{
+"w": "ve",
+"start": 35.32,
+"end": 35.36,
+"seg": 6
+},
+{
+"w": "yoğurtla",
+"start": 35.44,
+"end": 35.84,
+"seg": 6
+},
+{
+"w": "buluşunca",
+"start": 35.92,
+"end": 36.4,
+"seg": 6
+},
+{
+"w": "İskender",
+"start": 36.64,
+"end": 37.12,
+"seg": 6
+},
+{
+"w": "kebap",
+"start": 37.2,
+"end": 37.52,
+"seg": 6
+},
+{
+"w": "doğdu.",
+"start": 37.64,
+"end": 38.16,
+"seg": 6
+},
+{
+"w": "Yıllar",
+"start": 38.2,
+"end": 38.48,
+"seg": 7
+},
+{
+"w": "sonra",
+"start": 38.56,
+"end": 38.88,
+"seg": 7
+},
+{
+"w": "Almanya'ya",
+"start": 38.96,
+"end": 39.52,
+"seg": 7
+},
+{
+"w": "giden",
+"start": 39.6,
+"end": 39.76,
+"seg": 7
+},
+{
+"w": "Türk",
+"start": 39.84,
+"end": 40.04,
+"seg": 7
+},
+{
+"w": "işçiler",
+"start": 40.08,
+"end": 40.48,
+"seg": 7
+},
+{
+"w": "döneri",
+"start": 40.72,
+"end": 41.04,
+"seg": 7
+},
+{
+"w": "ekmeğin",
+"start": 41.12,
+"end": 41.44,
+"seg": 7
+},
+{
+"w": "arasına",
+"start": 41.56,
+"end": 41.84,
+"seg": 7
+},
+{
+"w": "koydu",
+"start": 41.92,
+"end": 42.24,
+"seg": 7
+},
+{
+"w": "ve",
+"start": 42.4,
+"end": 42.56,
+"seg": 7
+},
+{
+"w": "Berlin'de",
+"start": 42.64,
+"end": 43.12,
+"seg": 7
+},
+{
+"w": "bir",
+"start": 43.16,
+"end": 43.2,
+"seg": 7
+},
+{
+"w": "sokak",
+"start": 43.36,
+"end": 43.68,
+"seg": 7
+},
+{
+"w": "lezzeti",
+"start": 43.76,
+"end": 44.08,
+"seg": 7
+},
+{
+"w": "efsanesi",
+"start": 44.2,
+"end": 44.6,
+"seg": 7
+},
+{
+"w": "başladı.",
+"start": 44.64,
+"end": 45.36,
+"seg": 7
+},
+{
+"w": "Bugün",
+"start": 45.44,
+"end": 45.68,
+"seg": 8
+},
+{
+"w": "dünyanın",
+"start": 45.76,
+"end": 46.24,
+"seg": 8
+},
+{
+"w": "dört",
+"start": 46.32,
+"end": 46.48,
+"seg": 8
+},
+{
+"w": "bir",
+"start": 46.56,
+"end": 46.64,
+"seg": 8
+},
+{
+"w": "yanında",
+"start": 46.72,
+"end": 47.04,
+"seg": 8
+},
+{
+"w": "dönen",
+"start": 47.12,
+"end": 47.44,
+"seg": 8
+},
+{
+"w": "her",
+"start": 47.52,
+"end": 47.68,
+"seg": 8
+},
+{
+"w": "şiş,",
+"start": 47.76,
+"end": 48.24,
+"seg": 8
+},
+{
+"w": "Bursa'daki",
+"start": 48.32,
+"end": 48.8,
+"seg": 8
+},
+{
+"w": "o",
+"start": 48.88,
+"end": 48.96,
+"seg": 8
+},
+{
+"w": "tek",
+"start": 49.04,
+"end": 49.28,
+"seg": 8
+},
+{
+"w": "fikrin",
+"start": 49.32,
+"end": 49.6,
+"seg": 8
+},
+{
+"w": "torunu.",
+"start": 49.68,
+"end": 50.32,
+"seg": 8
+},
+{
+"w": "Sen",
+"start": 50.44,
+"end": 50.56,
+"seg": 9
+},
+{
+"w": "hangi",
+"start": 50.64,
+"end": 50.76,
+"seg": 9
+},
+{
+"w": "taraftasın:",
+"start": 50.8,
+"end": 51.68,
+"seg": 9
+},
+{
+"w": "Ekmek",
+"start": 51.72,
+"end": 52.0,
+"seg": 9
+},
+{
+"w": "arası",
+"start": 52.08,
+"end": 52.32,
+"seg": 9
+},
+{
+"w": "mı,",
+"start": 52.4,
+"end": 52.72,
+"seg": 9
+},
+{
+"w": "porsiyon",
+"start": 52.8,
+"end": 53.2,
+"seg": 9
+},
+{
+"w": "mu?",
+"start": 53.28,
+"end": 53.6,
+"seg": 9
+}
+]
+}

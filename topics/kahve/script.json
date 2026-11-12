@@ -1,0 +1,46 @@
+{
+ "title": "Türk kahvesi İstanbul'a nasıl geldi?",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Kahve İstanbul'a ilk geldiğinde... yasaklandı."
+  },
+  {
+   "scene": "yol",
+   "text": "Evet, Türk kahvesinden bahsediyoruz. Yemen'den yola çıkan kahve, {1500'lerin|bin beş yüzlerin} ortasında İstanbul'a ulaştı."
+  },
+  {
+   "scene": "ilk",
+   "text": "Şam'dan gelen iki tüccar, Tahtakale'de şehrin ilk kahvehanesini açtı."
+  },
+  {
+   "scene": "sohbet",
+   "text": "İnsanlar orada sadece kahve içmedi. Tavla oynadı, şiir okudu, saatlerce sohbet etti."
+  },
+  {
+   "scene": "yasak",
+   "text": "Ama bu sohbetler bazılarını rahatsız etti. Kahvehaneler dedikodu ve isyan yuvası sayıldı, zaman zaman kapatıldı."
+  },
+  {
+   "scene": "yayilma",
+   "text": "Yasaklar geçti, kahve kaldı. Saraydan köy evine kadar her yere yayıldı."
+  },
+  {
+   "scene": "cezve",
+   "text": "Çünkü pişirme yöntemi farklıydı: İnce çekilmiş kahve süzülmeden, cezvede, köpüğüyle pişiyordu."
+  },
+  {
+   "scene": "fal",
+   "text": "Telve fincanın dibinde kaldığı için kahve falı bile bir gelenek oldu."
+  },
+  {
+   "scene": "unesco",
+   "text": "{2013'te|iki bin on üçte} UNESCO, Türk kahvesi kültürünü insanlığın somut olmayan kültürel mirası listesine aldı."
+  },
+  {
+   "scene": "son",
+   "text": "Bir fincan kahvenin kırk yıl hatırı varsa, bu kahvenin kaç yüzyıl hatırı vardır?"
+  }
+ ]
+}

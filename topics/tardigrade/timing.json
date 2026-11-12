@@ -1,0 +1,995 @@
+{
+"duration": 61.909,
+"words": [
+{
+"w": "The",
+"start": 0.0,
+"end": 0.16,
+"seg": 0
+},
+{
+"w": "toughest",
+"start": 0.24,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "animal",
+"start": 0.72,
+"end": 1.04,
+"seg": 0
+},
+{
+"w": "on",
+"start": 1.12,
+"end": 1.2,
+"seg": 0
+},
+{
+"w": "Earth",
+"start": 1.36,
+"end": 1.6,
+"seg": 0
+},
+{
+"w": "must",
+"start": 1.68,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "be",
+"start": 1.92,
+"end": 2.0,
+"seg": 0
+},
+{
+"w": "huge.",
+"start": 2.16,
+"end": 3.0,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.28,
+"end": 3.76,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.84,
+"end": 4.0,
+"seg": 0
+},
+{
+"w": "not",
+"start": 4.08,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 4.24,
+"end": 4.8,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.88,
+"end": 5.36,
+"seg": 0
+},
+{
+"w": "It's",
+"start": 5.52,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "about",
+"start": 5.8,
+"end": 5.92,
+"seg": 0
+},
+{
+"w": "half",
+"start": 6.08,
+"end": 6.32,
+"seg": 0
+},
+{
+"w": "a",
+"start": 6.36,
+"end": 6.4,
+"seg": 0
+},
+{
+"w": "millimeter",
+"start": 6.48,
+"end": 6.96,
+"seg": 0
+},
+{
+"w": "long.",
+"start": 7.04,
+"end": 7.68,
+"seg": 0
+},
+{
+"w": "Meet",
+"start": 7.92,
+"end": 8.16,
+"seg": 1
+},
+{
+"w": "the",
+"start": 8.32,
+"end": 8.4,
+"seg": 1
+},
+{
+"w": "tardigrade,",
+"start": 8.56,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "also",
+"start": 9.6,
+"end": 9.76,
+"seg": 1
+},
+{
+"w": "called",
+"start": 9.84,
+"end": 10.08,
+"seg": 1
+},
+{
+"w": "the",
+"start": 10.24,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "water",
+"start": 10.4,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "bear.",
+"start": 10.72,
+"end": 11.04,
+"seg": 1
+},
+{
+"w": "Eight",
+"start": 11.52,
+"end": 11.68,
+"seg": 1
+},
+{
+"w": "chubby",
+"start": 11.76,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "legs,",
+"start": 12.16,
+"end": 12.72,
+"seg": 1
+},
+{
+"w": "tiny",
+"start": 12.88,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "claws,",
+"start": 13.12,
+"end": 13.68,
+"seg": 1
+},
+{
+"w": "and",
+"start": 13.72,
+"end": 13.76,
+"seg": 1
+},
+{
+"w": "a",
+"start": 13.84,
+"end": 13.96,
+"seg": 1
+},
+{
+"w": "face",
+"start": 14.08,
+"end": 14.32,
+"seg": 1
+},
+{
+"w": "like",
+"start": 14.4,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "a",
+"start": 14.52,
+"end": 14.56,
+"seg": 1
+},
+{
+"w": "vacuum",
+"start": 14.72,
+"end": 15.12,
+"seg": 1
+},
+{
+"w": "cleaner.",
+"start": 15.2,
+"end": 15.52,
+"seg": 1
+},
+{
+"w": "When",
+"start": 15.92,
+"end": 16.0,
+"seg": 2
+},
+{
+"w": "things",
+"start": 16.08,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "get",
+"start": 16.32,
+"end": 16.4,
+"seg": 2
+},
+{
+"w": "bad,",
+"start": 16.48,
+"end": 16.96,
+"seg": 2
+},
+{
+"w": "it",
+"start": 17.04,
+"end": 17.12,
+"seg": 2
+},
+{
+"w": "dries",
+"start": 17.16,
+"end": 17.44,
+"seg": 2
+},
+{
+"w": "out,",
+"start": 17.52,
+"end": 17.92,
+"seg": 2
+},
+{
+"w": "pulls",
+"start": 18.04,
+"end": 18.2,
+"seg": 2
+},
+{
+"w": "in",
+"start": 18.24,
+"end": 18.28,
+"seg": 2
+},
+{
+"w": "its",
+"start": 18.32,
+"end": 18.48,
+"seg": 2
+},
+{
+"w": "legs,",
+"start": 18.56,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "and",
+"start": 19.0,
+"end": 19.04,
+"seg": 2
+},
+{
+"w": "curls",
+"start": 19.2,
+"end": 19.52,
+"seg": 2
+},
+{
+"w": "into",
+"start": 19.6,
+"end": 19.68,
+"seg": 2
+},
+{
+"w": "a",
+"start": 19.76,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "little",
+"start": 19.92,
+"end": 20.08,
+"seg": 2
+},
+{
+"w": "ball",
+"start": 20.16,
+"end": 20.4,
+"seg": 2
+},
+{
+"w": "called",
+"start": 20.48,
+"end": 20.72,
+"seg": 2
+},
+{
+"w": "a",
+"start": 20.76,
+"end": 20.8,
+"seg": 2
+},
+{
+"w": "tun.",
+"start": 20.88,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "Its",
+"start": 21.68,
+"end": 21.84,
+"seg": 2
+},
+{
+"w": "body",
+"start": 21.92,
+"end": 22.24,
+"seg": 2
+},
+{
+"w": "almost",
+"start": 22.32,
+"end": 22.64,
+"seg": 2
+},
+{
+"w": "completely",
+"start": 22.72,
+"end": 23.36,
+"seg": 2
+},
+{
+"w": "stops.",
+"start": 23.44,
+"end": 24.16,
+"seg": 2
+},
+{
+"w": "Here's",
+"start": 24.4,
+"end": 24.6,
+"seg": 3
+},
+{
+"w": "the",
+"start": 24.64,
+"end": 24.72,
+"seg": 3
+},
+{
+"w": "wild",
+"start": 24.8,
+"end": 25.12,
+"seg": 3
+},
+{
+"w": "part.",
+"start": 25.2,
+"end": 25.52,
+"seg": 3
+},
+{
+"w": "In",
+"start": 25.84,
+"end": 25.92,
+"seg": 3
+},
+{
+"w": "that",
+"start": 26.0,
+"end": 26.16,
+"seg": 3
+},
+{
+"w": "state,",
+"start": 26.24,
+"end": 26.64,
+"seg": 3
+},
+{
+"w": "it",
+"start": 26.68,
+"end": 26.72,
+"seg": 3
+},
+{
+"w": "can",
+"start": 26.8,
+"end": 26.88,
+"seg": 3
+},
+{
+"w": "survive",
+"start": 26.96,
+"end": 27.36,
+"seg": 3
+},
+{
+"w": "freezing",
+"start": 27.44,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "close",
+"start": 27.92,
+"end": 28.16,
+"seg": 3
+},
+{
+"w": "to",
+"start": 28.28,
+"end": 28.4,
+"seg": 3
+},
+{
+"w": "absolute",
+"start": 28.68,
+"end": 28.96,
+"seg": 3
+},
+{
+"w": "zero,",
+"start": 29.12,
+"end": 29.76,
+"seg": 3
+},
+{
+"w": "heat",
+"start": 29.92,
+"end": 30.08,
+"seg": 3
+},
+{
+"w": "above",
+"start": 30.28,
+"end": 30.48,
+"seg": 3
+},
+{
+"w": "boiling,",
+"start": 30.56,
+"end": 31.2,
+"seg": 3
+},
+{
+"w": "and",
+"start": 31.24,
+"end": 31.28,
+"seg": 3
+},
+{
+"w": "radiation",
+"start": 31.36,
+"end": 32.0,
+"seg": 3
+},
+{
+"w": "hundreds",
+"start": 32.16,
+"end": 32.56,
+"seg": 3
+},
+{
+"w": "of",
+"start": 32.64,
+"end": 32.72,
+"seg": 3
+},
+{
+"w": "times",
+"start": 32.88,
+"end": 33.04,
+"seg": 3
+},
+{
+"w": "what",
+"start": 33.12,
+"end": 33.2,
+"seg": 3
+},
+{
+"w": "would",
+"start": 33.28,
+"end": 33.36,
+"seg": 3
+},
+{
+"w": "kill",
+"start": 33.44,
+"end": 33.6,
+"seg": 3
+},
+{
+"w": "you.",
+"start": 33.68,
+"end": 33.84,
+"seg": 3
+},
+{
+"w": "In",
+"start": 34.24,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "fact,",
+"start": 34.4,
+"end": 34.88,
+"seg": 4
+},
+{
+"w": "in",
+"start": 34.96,
+"end": 35.04,
+"seg": 4
+},
+{
+"w": "2007,",
+"start": 35.12,
+"end": 36.24,
+"seg": 4
+},
+{
+"w": "scientists",
+"start": 36.4,
+"end": 36.8,
+"seg": 4
+},
+{
+"w": "sent",
+"start": 36.88,
+"end": 36.96,
+"seg": 4
+},
+{
+"w": "tardigrades",
+"start": 37.04,
+"end": 37.6,
+"seg": 4
+},
+{
+"w": "into",
+"start": 37.68,
+"end": 37.76,
+"seg": 4
+},
+{
+"w": "space",
+"start": 37.92,
+"end": 38.32,
+"seg": 4
+},
+{
+"w": "with",
+"start": 38.4,
+"end": 38.48,
+"seg": 4
+},
+{
+"w": "no",
+"start": 38.64,
+"end": 38.8,
+"seg": 4
+},
+{
+"w": "protection",
+"start": 38.88,
+"end": 39.36,
+"seg": 4
+},
+{
+"w": "at",
+"start": 39.4,
+"end": 39.44,
+"seg": 4
+},
+{
+"w": "all.",
+"start": 39.52,
+"end": 40.0,
+"seg": 4
+},
+{
+"w": "Some",
+"start": 40.24,
+"end": 40.32,
+"seg": 4
+},
+{
+"w": "of",
+"start": 40.4,
+"end": 40.48,
+"seg": 4
+},
+{
+"w": "them",
+"start": 40.56,
+"end": 40.64,
+"seg": 4
+},
+{
+"w": "survived,",
+"start": 40.72,
+"end": 41.36,
+"seg": 4
+},
+{
+"w": "and",
+"start": 41.44,
+"end": 41.52,
+"seg": 4
+},
+{
+"w": "even",
+"start": 41.6,
+"end": 41.84,
+"seg": 4
+},
+{
+"w": "had",
+"start": 41.92,
+"end": 42.0,
+"seg": 4
+},
+{
+"w": "babies.",
+"start": 42.08,
+"end": 42.64,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 43.12,
+"end": 43.28,
+"seg": 5
+},
+{
+"w": "not",
+"start": 43.36,
+"end": 43.44,
+"seg": 5
+},
+{
+"w": "all.",
+"start": 43.52,
+"end": 43.76,
+"seg": 5
+},
+{
+"w": "Some",
+"start": 44.16,
+"end": 44.4,
+"seg": 5
+},
+{
+"w": "dried",
+"start": 44.48,
+"end": 44.72,
+"seg": 5
+},
+{
+"w": "tardigrades",
+"start": 44.76,
+"end": 45.28,
+"seg": 5
+},
+{
+"w": "have",
+"start": 45.36,
+"end": 45.44,
+"seg": 5
+},
+{
+"w": "come",
+"start": 45.52,
+"end": 45.6,
+"seg": 5
+},
+{
+"w": "back",
+"start": 45.68,
+"end": 45.84,
+"seg": 5
+},
+{
+"w": "to",
+"start": 45.92,
+"end": 46.0,
+"seg": 5
+},
+{
+"w": "life",
+"start": 46.16,
+"end": 46.32,
+"seg": 5
+},
+{
+"w": "after",
+"start": 46.48,
+"end": 46.64,
+"seg": 5
+},
+{
+"w": "years.",
+"start": 46.88,
+"end": 47.56,
+"seg": 5
+},
+{
+"w": "Just",
+"start": 47.76,
+"end": 47.92,
+"seg": 5
+},
+{
+"w": "add",
+"start": 48.0,
+"end": 48.08,
+"seg": 5
+},
+{
+"w": "a",
+"start": 48.12,
+"end": 48.16,
+"seg": 5
+},
+{
+"w": "drop",
+"start": 48.28,
+"end": 48.4,
+"seg": 5
+},
+{
+"w": "of",
+"start": 48.44,
+"end": 48.48,
+"seg": 5
+},
+{
+"w": "water.",
+"start": 48.56,
+"end": 49.12,
+"seg": 5
+},
+{
+"w": "They",
+"start": 49.36,
+"end": 49.44,
+"seg": 6
+},
+{
+"w": "live",
+"start": 49.52,
+"end": 49.76,
+"seg": 6
+},
+{
+"w": "almost",
+"start": 49.96,
+"end": 50.16,
+"seg": 6
+},
+{
+"w": "everywhere:",
+"start": 50.32,
+"end": 51.2,
+"seg": 6
+},
+{
+"w": "deep",
+"start": 51.28,
+"end": 51.44,
+"seg": 6
+},
+{
+"w": "oceans,",
+"start": 51.52,
+"end": 52.16,
+"seg": 6
+},
+{
+"w": "mountain",
+"start": 52.28,
+"end": 52.48,
+"seg": 6
+},
+{
+"w": "tops,",
+"start": 52.56,
+"end": 53.12,
+"seg": 6
+},
+{
+"w": "and",
+"start": 53.2,
+"end": 53.28,
+"seg": 6
+},
+{
+"w": "probably",
+"start": 53.48,
+"end": 53.68,
+"seg": 6
+},
+{
+"w": "in",
+"start": 53.72,
+"end": 53.76,
+"seg": 6
+},
+{
+"w": "the",
+"start": 53.8,
+"end": 53.84,
+"seg": 6
+},
+{
+"w": "moss",
+"start": 53.92,
+"end": 54.16,
+"seg": 6
+},
+{
+"w": "outside",
+"start": 54.24,
+"end": 54.56,
+"seg": 6
+},
+{
+"w": "your",
+"start": 54.64,
+"end": 54.72,
+"seg": 6
+},
+{
+"w": "door.",
+"start": 54.88,
+"end": 55.52,
+"seg": 6
+},
+{
+"w": "So",
+"start": 55.64,
+"end": 55.76,
+"seg": 7
+},
+{
+"w": "the",
+"start": 55.92,
+"end": 56.08,
+"seg": 7
+},
+{
+"w": "toughest",
+"start": 56.12,
+"end": 56.48,
+"seg": 7
+},
+{
+"w": "animal",
+"start": 56.56,
+"end": 56.8,
+"seg": 7
+},
+{
+"w": "on",
+"start": 56.88,
+"end": 57.04,
+"seg": 7
+},
+{
+"w": "Earth",
+"start": 57.12,
+"end": 57.44,
+"seg": 7
+},
+{
+"w": "isn't",
+"start": 57.52,
+"end": 57.76,
+"seg": 7
+},
+{
+"w": "huge.",
+"start": 57.84,
+"end": 58.56,
+"seg": 7
+},
+{
+"w": "It's",
+"start": 58.64,
+"end": 58.8,
+"seg": 7
+},
+{
+"w": "tiny,",
+"start": 58.88,
+"end": 59.6,
+"seg": 7
+},
+{
+"w": "and",
+"start": 59.64,
+"end": 59.68,
+"seg": 7
+},
+{
+"w": "it's",
+"start": 59.76,
+"end": 59.92,
+"seg": 7
+},
+{
+"w": "probably",
+"start": 60.16,
+"end": 60.4,
+"seg": 7
+},
+{
+"w": "right",
+"start": 60.48,
+"end": 60.56,
+"seg": 7
+},
+{
+"w": "next",
+"start": 60.64,
+"end": 60.8,
+"seg": 7
+},
+{
+"w": "to",
+"start": 60.88,
+"end": 60.96,
+"seg": 7
+},
+{
+"w": "you.",
+"start": 61.0,
+"end": 61.36,
+"seg": 7
+}
+]
+}

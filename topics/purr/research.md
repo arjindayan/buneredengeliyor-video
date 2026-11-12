@@ -1,0 +1,1 @@
+Kaynaklar: Remmers & Gautier 1972 (gırtlak kası, 25-150 Hz); McComb vd. 2009 Current Biology (talep mırlaması); von Muggenthaler 2001 (iyileşme hipotezi, kanıtlanmadı); yavrular birkaç günlükken mırlar.

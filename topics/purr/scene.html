@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gece salonu, sıcak abajur ışığı, turuncu kedi + yün yumağı tepkici, röntgen gırtlak. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#13243A}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:200px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 4px 0 rgba(8,16,30,.7)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="oda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13243A"/><stop offset=".6" stop-color="#1F3D52"/><stop offset="1" stop-color="#2E5A63"/></linearGradient>
+    <radialGradient id="lamba" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(860 980) scale(620)"><stop offset="0" stop-color="#FFC979" stop-opacity=".45"/><stop offset="1" stop-color="#FFC979" stop-opacity="0"/></radialGradient>
+    <pattern id="izgara" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#FF9FB4" stroke-opacity=".2" stroke-width="2"/></pattern>
+    <pattern id="duvar" width="120" height="120" patternUnits="userSpaceOnUse"><circle cx="60" cy="60" r="6" fill="#FFF3DC" opacity=".05"/><circle cx="0" cy="0" r="6" fill="#FFF3DC" opacity=".05"/></pattern>
+  </defs>
+  <g id="arka"></g>
+  <g id="tarama"></g>
+  <g id="dunya"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+
+// oturan kedi, merkez göğüs
+function kedi(o, t) {
+  // o: x y s, xr, titre (mırlama genliği), kapali (göz), sur, wink, kalp, yon
+  const xr = o.xr || 0, ti = (o.titre || 0) * sin(t * 2.4) * 3;
+  const tuy = mix('#F29B4B', '#0E1A2E', xr), tuy2 = mix('#D9772E', '#0E1A2E', xr), krem = mix('#FFE7C7', '#0E1A2E', xr), kont = xr > .5 ? '#FF9FB4' : 'none';
+  let g = `<g transform="translate(${f2(o.x + ti)},${f2(o.y)}) scale(${(o.yon || 1) * o.s},${o.s})">`;
+  // kuyruk
+  g += `<path d="M150 230 C330 230 330 40 250 ${f2(-20 + sin(t * .06) * 30)}" stroke="${tuy2}" stroke-width="44" fill="none" stroke-linecap="round"/>`;
+  // gövde
+  g += `<path d="M-170 260 C-200 60 -120 -80 0 -80 C120 -80 200 60 170 260 Z" fill="${tuy}" stroke="${kont}" stroke-width="6"/>`;
+  g += `<path d="M-80 260 C-90 120 -40 20 0 20 C40 20 90 120 80 260Z" fill="${krem}"/>`;
+  if (xr < .5) g += `<path d="M-150 120 q30 10 40 -10 M150 120 q-30 10 -40 -10 M-160 180 q30 10 40 -10 M160 180 q-30 10 -40 -10" stroke="${tuy2}" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+  g += `<ellipse cx="-70" cy="262" rx="56" ry="30" fill="${krem}" stroke="${kont}" stroke-width="5"/><ellipse cx="70" cy="262" rx="56" ry="30" fill="${krem}" stroke="${kont}" stroke-width="5"/>`;
+  // gırtlak (röntgen)
+  if (xr > .02) {
+    const v = sin(t * 2.4);
+    g += `<g opacity="${f2(xr)}"><path d="M-14 -150 V40 M14 -150 V40" stroke="#9BD8FF" stroke-width="5"/>` +
+      `<rect x="-40" y="-60" width="80" height="70" rx="20" fill="rgba(255,159,180,.25)" stroke="#FF9FB4" stroke-width="5"/>` +
+      `<path d="M-20 ${f2(-25 + v * 6)} Q0 ${f2(-25 - v * 10)} 20 ${f2(-25 + v * 6)}" stroke="#FF9FB4" stroke-width="6" fill="none"/>` +
+      `<path d="M0 40 C-60 80 -100 120 -110 200 M0 40 C60 80 100 120 110 200" stroke="#9BD8FF" stroke-width="5" fill="none"/>` +
+      `<ellipse cx="-110" cy="180" rx="70" ry="90" fill="rgba(155,216,255,.12)" stroke="#9BD8FF" stroke-width="4"/><ellipse cx="110" cy="180" rx="70" ry="90" fill="rgba(155,216,255,.12)" stroke="#9BD8FF" stroke-width="4"/></g>`;
+  }
+  // baş
+  g += `<g transform="translate(0,-170) rotate(${f2(sin(t * .04) * 3)})">`;
+  g += `<path d="M-120 -40 L-150 -170 L-50 -110Z M120 -40 L150 -170 L50 -110Z" fill="${tuy}" stroke="${kont}" stroke-width="6" stroke-linejoin="round"/>`;
+  if (xr < .5) g += `<path d="M-125 -70 L-138 -140 L-80 -105Z M125 -70 L138 -140 L80 -105Z" fill="#FFB3C1"/>`;
+  g += `<ellipse cx="0" cy="0" rx="150" ry="125" fill="${tuy}" stroke="${kont}" stroke-width="6"/>`;
+  if (xr < .5) g += `<path d="M-30 -120 q8 30 0 50 M0 -125 v50 M30 -120 q-8 30 0 50" stroke="${tuy2}" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+  g += `<ellipse cx="0" cy="45" rx="70" ry="50" fill="${krem}"/>`;
+  if (xr < .6) {
+    const goz = (x, kap) => kap ? `<path d="M${x - 24} -5 q24 18 48 0" stroke="#2A1A10" stroke-width="7" fill="none" stroke-linecap="round"/>` :
+      `<ellipse cx="${x}" cy="-8" rx="${o.sur ? 30 : 26}" ry="${o.sur ? 32 : 28}" fill="#9BE07A"/><ellipse cx="${x}" cy="-8" rx="${o.sur ? 14 : 9}" ry="${o.sur ? 24 : 22}" fill="#1B120A"/><circle cx="${x - 8}" cy="-18" r="7" fill="#fff"/>`;
+    g += goz(-62, o.kapali) + goz(62, o.kapali || o.wink);
+    g += `<path d="M-12 30 h24 l-12 14Z" fill="#E86A86"/><path d="M0 44 q-16 22 -34 10 M0 44 q16 22 34 10" stroke="#2A1A10" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+    if (o.sur) g += `<ellipse cx="0" cy="78" rx="12" ry="14" fill="#7A2F3D"/>`;
+    g += `<path d="M-80 40 h-90 M-80 55 l-85 20 M80 40 h90 M80 55 l85 20" stroke="#FFF3DC" stroke-width="4" stroke-linecap="round" opacity=".8"/>`;
+    g += `<ellipse cx="-100" cy="30" rx="20" ry="11" fill="#FF8FA3" opacity=".55"/><ellipse cx="100" cy="30" rx="20" ry="11" fill="#FF8FA3" opacity=".55"/>`;
+  }
+  g += '</g></g>';
+  return g;
+}
+
+function yavru(x, y, s, t, k) {
+  const ti = sin(t * 2.4 + k) * 1.5;
+  return `<g transform="translate(${f2(x + ti)},${f2(y)}) scale(${s})"><ellipse cx="0" cy="40" rx="80" ry="55" fill="${k % 2 ? '#B9B1A8' : '#F2B36E'}"/>` +
+    `<path d="M-60 -10 L-70 -80 L-25 -45Z M60 -10 L70 -80 L25 -45Z" fill="${k % 2 ? '#B9B1A8' : '#F2B36E'}"/><circle cx="0" cy="0" r="62" fill="${k % 2 ? '#C9C1B8' : '#F7C083'}"/>` +
+    `<path d="M-34 0 q12 10 24 0 M10 0 q12 10 24 0" stroke="#2A1A10" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M-6 18 h12 l-6 7Z" fill="#E86A86"/></g>`;
+}
+
+function yumak(x, y, s, sur, t) {
+  const b = Math.abs(sin(t * .08)) * -16;
+  let g = `<g transform="translate(${f2(x)},${f2(y + b)}) scale(${s})"><path d="M60 40 C140 60 160 120 240 110" stroke="#E86A86" stroke-width="8" fill="none" stroke-linecap="round"/><circle r="70" fill="#E86A86"/>`;
+  g += `<path d="M-60 -20 Q0 -70 60 -30 M-66 10 Q0 -40 66 0 M-50 40 Q0 0 50 40 M-30 -60 Q-60 0 -20 60" stroke="#C24E6A" stroke-width="6" fill="none"/>`;
+  g += `<circle cx="-22" cy="-6" r="${sur ? 10 : 8}" fill="#2A1A10"/><circle cx="22" cy="-6" r="${sur ? 10 : 8}" fill="#2A1A10"/>`;
+  g += sur ? `<ellipse cx="0" cy="22" rx="8" ry="10" fill="#2A1A10"/>` : `<path d="M-12 18 q12 12 24 0" stroke="#2A1A10" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  return g + '</g>';
+}
+
+function dalga(x, y, w, h, t, f0, aglama) {
+  let d = `M${x - w / 2} ${y}`;
+  for (let i = 0; i <= 80; i++) { const u = i / 80, xx = x - w / 2 + u * w; let a = sin(u * 60 + t * .5) * h * (.35 + .2 * sin(u * 9)); if (aglama && u > .45 && u < .7) a += sin(u * 140 + t) * h * .55; d += ` L${f2(xx)} ${f2(y + a)}`; }
+  return d;
+}
+
+let K = null;
+function kur() {
+  const S = T.seg, E = T.total;
+  K = {
+    cam: [[0, [540, 1250, 1]], [S.xray.start, [540, 1250, 1]], [S.xray.start + 16, [540, 1130, 1.4]], [S.breath.end, [540, 1130, 1.4]], [S.kitten.start + 14, [540, 1260, 1]],
+      [S.heal.start, [540, 1260, 1]], [S.heal.start + 14, [540, 1240, 1.1]], [S.son.start, [540, 1240, 1.1]], [S.son.start + 20, [540, 1200, 1.25]], [E, [540, 1200, 1.25]]],
+    xr: [[0, 0], [S.xray.start - 2, 0], [S.xray.start + 10, 1], [S.kitten.start - 2, 1], [S.kitten.start + 10, 0]],
+  };
+}
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, c = cue, t = f;
+  const [cx, cy, s] = kf(f, K.cam);
+  const X = kf(f, K.xr);
+
+  let a = `<rect width="1080" height="1920" fill="url(#oda)"/><rect width="1080" height="1920" fill="url(#duvar)"/>`;
+  // pencere + ay
+  a += `<rect x="90" y="760" width="300" height="400" rx="30" fill="#0C1828" stroke="#3E6A7A" stroke-width="14"/><path d="M240 760 V1160 M90 960 H390" stroke="#3E6A7A" stroke-width="10"/><circle cx="300" cy="860" r="40" fill="#FFF1C9"/><circle cx="318" cy="848" r="36" fill="#0C1828"/>`;
+  for (let k = 0; k < 8; k++) a += `<circle cx="${f2(110 + rastgele(k) * 260)}" cy="${f2(780 + rastgele(k + 9) * 360)}" r="3" fill="#FFF3DC" opacity="${f2(.3 + .5 * (0.5 + 0.5 * sin(t * .08 + k)))}"/>`;
+  // abajur
+  a += `<rect width="1080" height="1920" fill="url(#lamba)"/><path d="M860 1000 V1560" stroke="#C9A27A" stroke-width="12"/><path d="M760 1000 L960 1000 L910 860 L810 860Z" fill="#FFCF8A"/><ellipse cx="860" cy="1570" rx="80" ry="18" fill="#7A5A40"/>`;
+  // zemin + halı
+  a += `<rect y="1600" width="1080" height="320" fill="#1A3240"/><ellipse cx="520" cy="1660" rx="420" ry="80" fill="#C2577A" opacity=".85"/><ellipse cx="520" cy="1660" rx="340" ry="56" fill="none" stroke="#FFD1DC" stroke-width="6" stroke-dasharray="14 12" opacity=".6"/>`;
+  $('arka').innerHTML = a;
+  $('tarama').innerHTML = X > .01 ? `<g opacity="${X.toFixed(3)}"><rect width="1080" height="1920" fill="#0A1222"/><rect width="1080" height="1920" fill="url(#izgara)"/></g>` : '';
+
+  let w = '';
+  const blink = [90, 330, 760, 1100, 1350].some(b => f >= b && f < b + 7);
+  const sur = (f >= c('hook', 'well') && f < c('hook', 'well') + 26) || (f >= c('food', 'baby') && f < c('food', 'baby') + 24);
+  const purring = f < c('hook', 'well') || (f >= S.xray.start && f < S.kitten.start + 20) || f >= c('son', 'stay');
+  const kapali = blink || (f < c('hook', 'well') - 4 && f > 20) || f >= c('son', 'stay');
+  const kediY = 1380;
+  w += kedi({ x: 520, y: kediY, s: 1, xr: X, titre: purring ? 1 : 0, kapali, sur, wink: false }, t);
+  // mırlama titreşim çizgileri
+  if (purring && X < .5) for (let k = 0; k < 3; k++) { const u = (t * .05 + k / 3) % 1; w += `<path d="M${f2(330 - u * 80)} ${1160 + k * 40} q-20 15 0 30 q20 15 0 30" stroke="#FFE6A8" stroke-width="6" fill="none" opacity="${f2((1 - u) * .8)}"/><path d="M${f2(710 + u * 80)} ${1160 + k * 40} q20 15 0 30 q-20 15 0 30" stroke="#FFE6A8" stroke-width="6" fill="none" opacity="${f2((1 - u) * .8)}"/>`; }
+  // röntgen: hava girişi/çıkışı okları
+  if (X > .02) {
+    const ic = f < c('xray', 'out') ? 1 : 0, u = (t * .03) % 1;
+    const yon = (f >= c('xray', 'in', 1) && f < c('xray', 'out')) ? -1 : f >= c('xray', 'out') ? 1 : 0;
+    if (yon) for (let k = 0; k < 3; k++) { const v = (u + k / 3) % 1, y = yon < 0 ? 1000 + v * 300 : 1300 - v * 300; w += `<path d="M560 ${f2(y)} l20 ${yon < 0 ? -0 : 0} M545 ${f2(y + (yon < 0 ? -20 : 20))} L560 ${f2(y)} L575 ${f2(y + (yon < 0 ? -20 : 20))}" stroke="#9BD8FF" stroke-width="7" fill="none" stroke-linecap="round" opacity="${f2(X * (1 - Math.abs(v - .5) * 2))}"/>`; }
+    w += etiket('voice box', 760, 1150, f, c('xray', 'voice'), S.breath.start, 56, '#FF9FB4', 'middle', '#0A1222');
+    w += etiket('25–150 / sec', 540, 720, f, c('xray', '25'), S.breath.start, 72, '#FFE6A8', 'middle', '#0A1222');
+    w += etiket(yon < 0 ? 'in ↓' : 'out ↑', 680, 1050, f, c('xray', 'in', 1), S.breath.start, 60, '#9BD8FF', 'middle', '#0A1222');
+    w += etiket('no break', 540, 720, f, c('breath', 'without'), S.kitten.start - 2, 72, '#9BD8FF', 'middle', '#0A1222');
+  }
+  // yavrular
+  const Y = kf(f, [[0, 0], [c('kitten', 'kittens') - 4, 0], [c('kitten', 'kittens') + 10, 1], [S.food.start - 2, 1], [S.food.start + 10, 0]]);
+  if (Y > .01) for (let k = 0; k < 3; k++) { const p = backOut((f - c('kitten', 'kittens') - k * 5) / 12) * Y; if (p > 0) w += yavru(300 + k * 160, 1600 - (k === 1 ? 20 : 0), .7 * p, t, k); }
+  // yumak tepkici
+  const yO = (1 - X);
+  if (yO > .01) w += `<g opacity="${f2(yO)}">${yumak(880, 1600, .8, sur, t)}</g>`;
+  // mama kabı
+  const B = kf(f, [[0, 0], [c('food', 'feed') - 4, 0], [c('food', 'feed') + 8, 1], [S.heal.start - 2, 1], [S.heal.start + 8, 0]]);
+  if (B > .01) w += `<g opacity="${f2(B)}" transform="translate(260,1640)"><path d="M-110 -30 H110 L90 30 H-90Z" fill="#5FB8C2" stroke="#13243A" stroke-width="6"/><text class="lbl" y="14" text-anchor="middle" font-size="34" fill="#13243A">FOOD</text></g>`;
+  $('dunya').setAttribute('transform', `translate(540,1250) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  let u = '';
+  // kanca: happy = ? ruh hâli simgeleri
+  u += etiket('purr = happy?', 540, 580, f, c('hook', 'purr'), c('hook', 'also') - 2, 92, '#FFE6A8', 'middle', '#13243A');
+  if (f >= c('hook', 'well') && f < c('hook', 'also') - 2) { const p = klamp((f - c('hook', 'well')) / 10); u += `<path d="M290 580 L${f2(290 + 500 * p)} 580" stroke="#FF6F6F" stroke-width="16" stroke-linecap="round"/>`; }
+  [['scared', 'scared', 260], ['hurt', 'hurt', 540], ['birth', 'giving birth', 820]].forEach(([k, txt, x]) => u += etiket(txt, x, 620, f, c('hook', k), S.xray.start - 2, 58, '#FFF3DC', 'middle', '#13243A'));
+  // yavru: kör ve sağır simgeleri
+  u += etiket('a few days old', 540, 600, f, c('kitten', 'few'), c('kitten', 'born') - 2, 76, '#FFE6A8', 'middle', '#13243A');
+  u += etiket('can’t see · can’t hear', 540, 600, f, c('kitten', 'blind'), c('kitten', 'okay') - 2, 64, '#FFF3DC', 'middle', '#13243A');
+  u += etiket('“I’m okay”', 540, 600, f, c('kitten', 'okay'), S.food.start - 2, 92, '#9BE07A', 'middle', '#13243A');
+  // mama mırlaması: dalga içinde gizli ağlama
+  const fp = c('food', 'purr');
+  if (f >= fp - 2 && f < S.heal.start + 4) {
+    const o = klamp((f - fp + 2) / 8) * (1 - klamp((f - S.heal.start) / 6)), ag = f >= c('food', 'hidden');
+    u += `<g opacity="${f2(o)}"><rect x="140" y="520" width="800" height="220" rx="36" fill="#0E1A2E" stroke="#FFF3DC" stroke-width="6"/><path d="${dalga(540, 630, 720, 70, t, fp, ag)}" stroke="#FFC979" stroke-width="6" fill="none"/>`;
+    if (ag) u += `<rect x="${f2(540 - 360 + 720 * .45)}" y="540" width="${f2(720 * .25)}" height="180" rx="20" fill="none" stroke="#FF6F91" stroke-width="6" stroke-dasharray="12 10"/>`;
+    u += '</g>';
+    u += etiket('hidden cry', 540, 800, f, c('food', 'hidden'), S.heal.start - 2, 64, '#FF6F91', 'middle', '#13243A');
+    u += etiket('hard to ignore', 540, 900, f, c('food', 'ignore'), S.heal.start - 2, 60, '#FFF3DC', 'middle', '#13243A');
+  }
+  // iyileşme: kemik + "henüz kanıtlanmadı"
+  const hb = c('heal', 'bones');
+  if (f >= hb - 4 && f < S.son.start + 4) {
+    const p = backOut((f - hb + 4) / 12) * (1 - klamp((f - S.son.start) / 8)), sh = sin(t * 2.4) * 2;
+    u += `<g transform="translate(${f2(540 + sh)},620) scale(${f2(p)})"><path d="M-160 -14 H160 V14 H-160Z" fill="#FFF3DC"/><circle cx="-170" cy="-24" r="30" fill="#FFF3DC"/><circle cx="-170" cy="24" r="30" fill="#FFF3DC"/><circle cx="170" cy="-24" r="30" fill="#FFF3DC"/><circle cx="170" cy="24" r="30" fill="#FFF3DC"/>` +
+      `<path d="M-20 -14 l12 14 l-12 14" stroke="#C2577A" stroke-width="6" fill="none" opacity="${f2(1 - klamp((f - hb - 20) / 30))}"/></g>`;
+  }
+  u += etiket('not proven yet', 540, 780, f, c('heal', 'proven'), S.son.start - 2, 64, '#FFE6A8', 'middle', '#13243A');
+  // son: kalp
+  if (f >= c('son', 'stay') - 2) { const p = backOut((f - c('son', 'stay') + 2) / 14), b = 1 + .06 * sin(t * .25); u += `<g transform="translate(540,620) scale(${f2(p * b)})"><path d="M0 60 C-120 -20 -90 -110 -30 -100 C-10 -96 0 -80 0 -66 C0 -80 10 -96 30 -100 C90 -110 120 -20 0 60Z" fill="#FF6F91" stroke="#FFF3DC" stroke-width="8"/></g>`; }
+  $('ust').innerHTML = u;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

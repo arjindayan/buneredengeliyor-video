@@ -1,0 +1,671 @@
+{
+"duration": 58.879,
+"words": [
+{
+"w": "Kahve",
+"start": 0.0,
+"end": 0.28,
+"seg": 0
+},
+{
+"w": "İstanbul'a",
+"start": 0.32,
+"end": 0.96,
+"seg": 0
+},
+{
+"w": "ilk",
+"start": 1.04,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "geldiğinde...",
+"start": 1.36,
+"end": 2.48,
+"seg": 0
+},
+{
+"w": "yasaklandı.",
+"start": 2.6,
+"end": 3.52,
+"seg": 0
+},
+{
+"w": "Evet,",
+"start": 3.76,
+"end": 4.32,
+"seg": 1
+},
+{
+"w": "Türk",
+"start": 4.4,
+"end": 4.6,
+"seg": 1
+},
+{
+"w": "kahvesinden",
+"start": 4.64,
+"end": 5.2,
+"seg": 1
+},
+{
+"w": "bahsediyoruz.",
+"start": 5.28,
+"end": 6.2,
+"seg": 1
+},
+{
+"w": "Yemen'den",
+"start": 6.4,
+"end": 6.88,
+"seg": 1
+},
+{
+"w": "yola",
+"start": 6.92,
+"end": 7.12,
+"seg": 1
+},
+{
+"w": "çıkan",
+"start": 7.2,
+"end": 7.44,
+"seg": 1
+},
+{
+"w": "kahve,",
+"start": 7.52,
+"end": 8.16,
+"seg": 1
+},
+{
+"w": "1500'lerin",
+"start": 8.24,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "ortasında",
+"start": 9.04,
+"end": 9.6,
+"seg": 1
+},
+{
+"w": "İstanbul'a",
+"start": 9.68,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "ulaştı.",
+"start": 10.36,
+"end": 11.12,
+"seg": 1
+},
+{
+"w": "Şam'dan",
+"start": 11.16,
+"end": 11.52,
+"seg": 2
+},
+{
+"w": "gelen",
+"start": 11.6,
+"end": 11.84,
+"seg": 2
+},
+{
+"w": "iki",
+"start": 11.92,
+"end": 12.08,
+"seg": 2
+},
+{
+"w": "tüccar,",
+"start": 12.16,
+"end": 12.8,
+"seg": 2
+},
+{
+"w": "Tahtakale'de",
+"start": 12.88,
+"end": 13.52,
+"seg": 2
+},
+{
+"w": "şehrin",
+"start": 13.68,
+"end": 14.08,
+"seg": 2
+},
+{
+"w": "ilk",
+"start": 14.16,
+"end": 14.24,
+"seg": 2
+},
+{
+"w": "kahvehanesini",
+"start": 14.32,
+"end": 15.04,
+"seg": 2
+},
+{
+"w": "açtı.",
+"start": 15.12,
+"end": 15.84,
+"seg": 2
+},
+{
+"w": "İnsanlar",
+"start": 15.88,
+"end": 16.4,
+"seg": 3
+},
+{
+"w": "orada",
+"start": 16.48,
+"end": 16.72,
+"seg": 3
+},
+{
+"w": "sadece",
+"start": 16.8,
+"end": 17.2,
+"seg": 3
+},
+{
+"w": "kahve",
+"start": 17.28,
+"end": 17.52,
+"seg": 3
+},
+{
+"w": "içmedi.",
+"start": 17.56,
+"end": 18.32,
+"seg": 3
+},
+{
+"w": "Tavla",
+"start": 18.4,
+"end": 18.64,
+"seg": 3
+},
+{
+"w": "oynadı,",
+"start": 18.72,
+"end": 19.36,
+"seg": 3
+},
+{
+"w": "şiir",
+"start": 19.44,
+"end": 19.6,
+"seg": 3
+},
+{
+"w": "okudu,",
+"start": 19.68,
+"end": 20.32,
+"seg": 3
+},
+{
+"w": "saatlerce",
+"start": 20.4,
+"end": 21.04,
+"seg": 3
+},
+{
+"w": "sohbet",
+"start": 21.12,
+"end": 21.44,
+"seg": 3
+},
+{
+"w": "etti.",
+"start": 21.52,
+"end": 22.16,
+"seg": 3
+},
+{
+"w": "Ama",
+"start": 22.2,
+"end": 22.4,
+"seg": 4
+},
+{
+"w": "bu",
+"start": 22.44,
+"end": 22.48,
+"seg": 4
+},
+{
+"w": "sohbetler",
+"start": 22.56,
+"end": 23.2,
+"seg": 4
+},
+{
+"w": "bazılarını",
+"start": 23.36,
+"end": 23.92,
+"seg": 4
+},
+{
+"w": "rahatsız",
+"start": 24.0,
+"end": 24.4,
+"seg": 4
+},
+{
+"w": "etti.",
+"start": 24.56,
+"end": 25.12,
+"seg": 4
+},
+{
+"w": "Kahvehaneler",
+"start": 25.16,
+"end": 25.92,
+"seg": 4
+},
+{
+"w": "dedikodu",
+"start": 26.08,
+"end": 26.56,
+"seg": 4
+},
+{
+"w": "ve",
+"start": 26.64,
+"end": 26.72,
+"seg": 4
+},
+{
+"w": "isyan",
+"start": 26.8,
+"end": 27.12,
+"seg": 4
+},
+{
+"w": "yuvası",
+"start": 27.2,
+"end": 27.52,
+"seg": 4
+},
+{
+"w": "sayıldı,",
+"start": 27.6,
+"end": 28.32,
+"seg": 4
+},
+{
+"w": "zaman",
+"start": 28.36,
+"end": 28.64,
+"seg": 4
+},
+{
+"w": "zaman",
+"start": 28.72,
+"end": 28.96,
+"seg": 4
+},
+{
+"w": "kapatıldı.",
+"start": 29.0,
+"end": 30.0,
+"seg": 4
+},
+{
+"w": "Yasaklar",
+"start": 30.04,
+"end": 30.56,
+"seg": 5
+},
+{
+"w": "geçti,",
+"start": 30.64,
+"end": 31.28,
+"seg": 5
+},
+{
+"w": "kahve",
+"start": 31.36,
+"end": 31.68,
+"seg": 5
+},
+{
+"w": "kaldı.",
+"start": 31.76,
+"end": 32.48,
+"seg": 5
+},
+{
+"w": "Saraydan",
+"start": 32.533,
+"end": 32.96,
+"seg": 5
+},
+{
+"w": "köy",
+"start": 33.04,
+"end": 33.2,
+"seg": 5
+},
+{
+"w": "evine",
+"start": 33.28,
+"end": 33.52,
+"seg": 5
+},
+{
+"w": "kadar",
+"start": 33.6,
+"end": 33.92,
+"seg": 5
+},
+{
+"w": "her",
+"start": 34.0,
+"end": 34.16,
+"seg": 5
+},
+{
+"w": "yere",
+"start": 34.24,
+"end": 34.48,
+"seg": 5
+},
+{
+"w": "yayıldı.",
+"start": 34.52,
+"end": 35.28,
+"seg": 5
+},
+{
+"w": "Çünkü",
+"start": 35.32,
+"end": 35.6,
+"seg": 6
+},
+{
+"w": "pişirme",
+"start": 35.68,
+"end": 36.0,
+"seg": 6
+},
+{
+"w": "yöntemi",
+"start": 36.08,
+"end": 36.4,
+"seg": 6
+},
+{
+"w": "farklıydı:",
+"start": 36.48,
+"end": 37.44,
+"seg": 6
+},
+{
+"w": "İnce",
+"start": 37.48,
+"end": 37.68,
+"seg": 6
+},
+{
+"w": "çekilmiş",
+"start": 37.76,
+"end": 38.24,
+"seg": 6
+},
+{
+"w": "kahve",
+"start": 38.32,
+"end": 38.72,
+"seg": 6
+},
+{
+"w": "süzülmeden,",
+"start": 38.96,
+"end": 39.84,
+"seg": 6
+},
+{
+"w": "cezvede,",
+"start": 39.92,
+"end": 40.56,
+"seg": 6
+},
+{
+"w": "köpüğüyle",
+"start": 40.68,
+"end": 41.12,
+"seg": 6
+},
+{
+"w": "pişiyordu.",
+"start": 41.2,
+"end": 42.08,
+"seg": 6
+},
+{
+"w": "Telve",
+"start": 42.12,
+"end": 42.4,
+"seg": 7
+},
+{
+"w": "fincanın",
+"start": 42.44,
+"end": 42.8,
+"seg": 7
+},
+{
+"w": "dibinde",
+"start": 42.88,
+"end": 43.2,
+"seg": 7
+},
+{
+"w": "kaldığı",
+"start": 43.28,
+"end": 43.68,
+"seg": 7
+},
+{
+"w": "için",
+"start": 43.76,
+"end": 44.0,
+"seg": 7
+},
+{
+"w": "kahve",
+"start": 44.24,
+"end": 44.56,
+"seg": 7
+},
+{
+"w": "falı",
+"start": 44.64,
+"end": 44.8,
+"seg": 7
+},
+{
+"w": "bile",
+"start": 44.84,
+"end": 45.04,
+"seg": 7
+},
+{
+"w": "bir",
+"start": 45.08,
+"end": 45.12,
+"seg": 7
+},
+{
+"w": "gelenek",
+"start": 45.16,
+"end": 45.6,
+"seg": 7
+},
+{
+"w": "oldu.",
+"start": 45.72,
+"end": 46.32,
+"seg": 7
+},
+{
+"w": "2013'te",
+"start": 46.4,
+"end": 47.12,
+"seg": 8
+},
+{
+"w": "UNESCO,",
+"start": 47.28,
+"end": 48.0,
+"seg": 8
+},
+{
+"w": "Türk",
+"start": 48.08,
+"end": 48.24,
+"seg": 8
+},
+{
+"w": "kahvesi",
+"start": 48.32,
+"end": 48.68,
+"seg": 8
+},
+{
+"w": "kültürünü",
+"start": 48.72,
+"end": 49.28,
+"seg": 8
+},
+{
+"w": "insanlığın",
+"start": 49.36,
+"end": 50.0,
+"seg": 8
+},
+{
+"w": "somut",
+"start": 50.08,
+"end": 50.4,
+"seg": 8
+},
+{
+"w": "olmayan",
+"start": 50.48,
+"end": 50.8,
+"seg": 8
+},
+{
+"w": "kültürel",
+"start": 50.88,
+"end": 51.36,
+"seg": 8
+},
+{
+"w": "mirası",
+"start": 51.48,
+"end": 51.84,
+"seg": 8
+},
+{
+"w": "listesine",
+"start": 51.96,
+"end": 52.4,
+"seg": 8
+},
+{
+"w": "aldı.",
+"start": 52.52,
+"end": 52.96,
+"seg": 8
+},
+{
+"w": "Bir",
+"start": 53.2,
+"end": 53.28,
+"seg": 9
+},
+{
+"w": "fincan",
+"start": 53.32,
+"end": 53.68,
+"seg": 9
+},
+{
+"w": "kahvenin",
+"start": 53.76,
+"end": 54.24,
+"seg": 9
+},
+{
+"w": "kırk",
+"start": 54.32,
+"end": 54.56,
+"seg": 9
+},
+{
+"w": "yıl",
+"start": 54.64,
+"end": 54.72,
+"seg": 9
+},
+{
+"w": "hatırı",
+"start": 54.8,
+"end": 55.08,
+"seg": 9
+},
+{
+"w": "varsa,",
+"start": 55.12,
+"end": 55.84,
+"seg": 9
+},
+{
+"w": "bu",
+"start": 55.88,
+"end": 55.92,
+"seg": 9
+},
+{
+"w": "kahvenin",
+"start": 56.0,
+"end": 56.48,
+"seg": 9
+},
+{
+"w": "kaç",
+"start": 56.64,
+"end": 56.88,
+"seg": 9
+},
+{
+"w": "yüzyıl",
+"start": 56.96,
+"end": 57.28,
+"seg": 9
+},
+{
+"w": "hatırı",
+"start": 57.36,
+"end": 57.6,
+"seg": 9
+},
+{
+"w": "vardır?",
+"start": 57.76,
+"end": 58.32,
+"seg": 9
+}
+]
+}

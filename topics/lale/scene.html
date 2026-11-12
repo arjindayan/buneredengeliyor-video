@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: İznik çinisi. Krem sır, kobalt, turkuaz, domates kırmızısı; Fraunces. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#F4EEDD}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:80px;right:80px;top:1440px;text-align:center;font:900 76px/1.12 'Fraunces';color:#1B2A4A}
+  .lbl{font-weight:900;paint-order:stroke;stroke-linejoin:round}
+  .ser{font-family:'Fraunces'}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <pattern id="sir" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.2" fill="#C9BFA4" opacity=".35"/></pattern>
+  </defs>
+  <g id="zemin"></g>
+  <g id="sahne"></g>
+  <g id="cerceve"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/tr.js"></script>
+<script>
+window.FONTS = ['900 80px Fraunces', '300 80px Fraunces', '400 40px "IBM Plex Mono"'];
+window.ETIKET_FONT = 'Fraunces';
+window.ALT = { soluk: 'rgba(27,42,74,.28)', aktif: '#C8372D', normal: '#1B2A4A' };
+const KOB = '#1F4E9C', TUR = '#3FA7A3', KIR = '#C8372D', KRM = '#F4EEDD', MUR = '#1B2A4A', YES = '#3E8A5A';
+
+// çini lale: a = açılma 0..1, b = sap boyu 0..1
+function lale(x, y, s, a = 1, b = 1, renk = KIR, r = 0) {
+  const h = 260 * b;
+  let g = `<g transform="translate(${f2(x)},${f2(y)}) rotate(${f2(r)}) scale(${f2(s)})">`;
+  g += `<path d="M0 0 C-6 ${f2(-h * .4)} 6 ${f2(-h * .7)} 0 ${f2(-h)}" stroke="${YES}" stroke-width="12" fill="none" stroke-linecap="round"/>`;
+  if (b > .4) g += `<path d="M0 ${f2(-h * .25)} C-70 ${f2(-h * .35)} -110 ${f2(-h * .7)} -90 ${f2(-h * .95)} C-60 ${f2(-h * .7)} -20 ${f2(-h * .5)} 0 ${f2(-h * .35)}Z" fill="${YES}" opacity="${f2(klamp((b - .4) / .3))}"/>` +
+    `<path d="M0 ${f2(-h * .15)} C60 ${f2(-h * .25)} 100 ${f2(-h * .55)} 84 ${f2(-h * .8)} C55 ${f2(-h * .55)} 20 ${f2(-h * .4)} 0 ${f2(-h * .28)}Z" fill="${TUR}" opacity="${f2(klamp((b - .5) / .3))}"/>`;
+  if (a > .01) {
+    const k = a, yy = -h;
+    g += `<g transform="translate(0,${f2(yy)}) scale(${f2(.2 + .8 * k)})">`;
+    g += `<path d="M0 10 C-60 0 -70 -80 -54 -150 C-40 -110 -22 -90 -10 -84 C-12 -120 -4 -160 0 -180 C4 -160 12 -120 10 -84 C22 -90 40 -110 54 -150 C70 -80 60 0 0 10Z" fill="${renk}" stroke="${MUR}" stroke-width="5"/>`;
+    g += `<path d="M0 -10 C-24 -30 -26 -80 -18 -110 M0 -10 C24 -30 26 -80 18 -110" stroke="${KRM}" stroke-width="5" fill="none" opacity=".75"/>`;
+    g += '</g>';
+  }
+  return g + '</g>';
+}
+function kubbe(x, y, s, renk = KOB) {
+  return `<g transform="translate(${x},${y}) scale(${s})" fill="${renk}"><rect x="-120" y="-60" width="240" height="60"/><path d="M-100 -60 A100 90 0 0 1 100 -60Z"/><rect x="-4" y="-180" width="8" height="40"/><circle cx="0" cy="-185" r="9"/>` +
+    `<rect x="-170" y="-260" width="18" height="260"/><path d="M-176 -260 L-161 -300 L-146 -260Z"/><rect x="152" y="-260" width="18" height="260"/><path d="M146 -260 L161 -300 L176 -260Z"/>` +
+    `<path d="M-160 -30 A40 36 0 0 1 -120 -30Z M120 -30 A40 36 0 0 1 160 -30Z"/></g>`;
+}
+function degirmen(x, y, s, t, renk = KOB) {
+  const a = t * 1.2;
+  let g = `<g transform="translate(${x},${y}) scale(${s})"><path d="M-60 0 L-40 -220 L40 -220 L60 0Z" fill="${renk}"/><path d="M-50 -220 L0 -280 L50 -220Z" fill="${MUR}"/><rect x="-16" y="-60" width="32" height="60" fill="${KRM}"/>`;
+  g += `<g transform="translate(0,-210) rotate(${f2(a)})">`;
+  for (let k = 0; k < 4; k++) g += `<g transform="rotate(${k * 90})"><rect x="-6" y="-190" width="12" height="190" fill="${MUR}"/><rect x="6" y="-180" width="44" height="150" fill="${KRM}" stroke="${MUR}" stroke-width="4"/></g>`;
+  return g + `<circle r="14" fill="${MUR}"/></g></g>`;
+}
+function sogan(x, y, s, r = 0) {
+  return `<g transform="translate(${f2(x)},${f2(y)}) rotate(${f2(r)}) scale(${f2(s)})"><path d="M0 -70 C10 -40 60 -20 60 20 C60 60 30 70 0 70 C-30 70 -60 60 -60 20 C-60 -20 -10 -40 0 -70Z" fill="#D9B98A" stroke="${MUR}" stroke-width="5"/><path d="M0 -60 C-10 -20 -14 30 0 66 M0 -60 C14 -10 18 30 6 66" stroke="#A9865A" stroke-width="4" fill="none"/><path d="M-20 70 l-6 18 M0 70 v20 M20 70 l6 18" stroke="${MUR}" stroke-width="4"/></g>`;
+}
+function yazi(txt, x, y, size, renk = MUR, w = 900, anchor = 'middle', op = 1, ls = 0) {
+  return `<text class="ser" x="${x}" y="${y}" font-size="${size}" font-weight="${w}" fill="${renk}" text-anchor="${anchor}" opacity="${f2(op)}" letter-spacing="${ls}">${txt}</text>`;
+}
+const gir = (f, f0, d = 12) => sm((f - f0) / d);
+
+// sahneler: her biri yerel kareyle çizilir
+const SAHNE = {
+  hook(f, S, t) {
+    let g = '';
+    const p = gir(f, 0, 20);
+    g += `<g opacity="${f2(p)}">${kubbe(250, 1150, .9)}${degirmen(830, 1150, .85, t)}</g>`;
+    // rota yayı
+    const r = klamp((f - 20) / 50);
+    g += `<path d="M300 900 Q540 560 800 860" stroke="${KIR}" stroke-width="10" fill="none" stroke-dasharray="4 26" stroke-linecap="round" stroke-dashoffset="${f2(-t * 2)}" opacity="${f2(r)}"/>`;
+    g += lale(540 + (1 - r) * -240, 980 - sin(r * P) * 260, .9, 1, 1, KIR, -20 + r * 40);
+    g += yazi('İSTANBUL', 250, 1250, 46, KOB, 900, 'middle', p, 4) + yazi('HOLLANDA', 830, 1250, 46, KOB, 900, 'middle', p, 4);
+    g += yazi('?', 540, 520, 220, KIR, 900, 'middle', gir(f, 30));
+    return g;
+  },
+  lale(f, S, t) {
+    const L = f - S.lale.start;
+    let g = lale(540, 1340, 1.25, klamp((L - 30) / 30), klamp(L / 40));
+    g += yazi('LALE', 540, 520, 200, KIR, 900, 'middle', gir(L, 4));
+    // rota: Orta Asya → Anadolu → Osmanlı
+    const r0 = cue('lale', 'orta') - S.lale.start;
+    const yer = [['Orta Asya', 880, r0], ['Anadolu', 540, cue('lale', 'anadolu') - S.lale.start], ['Osmanlı bahçeleri', 200, cue('lale', 'osmanlı') - S.lale.start]];
+    yer.forEach(([ad, x, f0], i) => {
+      if (L < f0 - 4) return;
+      const o = gir(L, f0 - 4, 10);
+      g += `<circle cx="${x}" cy="660" r="16" fill="${KOB}" opacity="${f2(o)}"/>` + yazi(ad, x, 720, 40, KOB, 300, 'middle', o);
+      if (i) g += `<path d="M${yer[i - 1][1] - 30} 660 L${f2(yer[i - 1][1] - 30 - (yer[i - 1][1] - x - 60) * o)} 660" stroke="${KOB}" stroke-width="6" stroke-dasharray="10 10"/>`;
+    });
+    return g;
+  },
+  motif(f, S, t) {
+    const L = f - S.motif.start;
+    let g = yazi('KIYMETLİ', 540, 520, 150, KOB, 900, 'middle', gir(L, 0));
+    const kart = [['kumaş', 'Kumaş', 230], ['çini', 'Çini', 540], ['kaftan', 'Kaftan', 850]];
+    kart.forEach(([k, ad, x], i) => {
+      const f0 = cue('motif', k) - S.motif.start; if (L < f0 - 6) return;
+      const p = backOut((L - f0 + 6) / 14);
+      g += `<g transform="translate(${x},1020) scale(${f2(p)})">`;
+      if (i === 0) { g += `<rect x="-130" y="-200" width="260" height="380" rx="8" fill="${KIR}"/>`; for (let a = 0; a < 3; a++) for (let b = 0; b < 4; b++) g += lale(-80 + a * 80 + (b % 2) * 40, -110 + b * 95, .22, 1, .5, '#F2C14E'); }
+      if (i === 1) { g += `<rect x="-130" y="-200" width="260" height="380" rx="8" fill="${KRM}" stroke="${KOB}" stroke-width="14"/><rect x="-104" y="-174" width="208" height="328" fill="none" stroke="${TUR}" stroke-width="6"/>` + lale(0, 120, .9) + lale(-70, 110, .45, 1, .9, KOB, -25) + lale(70, 110, .45, 1, .9, KOB, 25); }
+      if (i === 2) { g += `<path d="M-60 -200 L60 -200 L150 -120 L120 -60 L80 -90 L100 180 L-100 180 L-80 -90 L-120 -60 L-150 -120Z" fill="${KOB}" stroke="${MUR}" stroke-width="5"/><path d="M0 -200 V180" stroke="#F2C14E" stroke-width="6"/>`; for (let b = 0; b < 3; b++) g += lale(-50, -60 + b * 90, .25, 1, .4, '#F2C14E') + lale(50, -60 + b * 90, .25, 1, .4, '#F2C14E'); }
+      g += `</g>` + yazi(ad, x, 1270, 52, MUR, 900, 'middle', klamp(p));
+    });
+    return g;
+  },
+  elci(f, S, t) {
+    const L = f - S.elci.start;
+    let g = yazi("1500'lerin ortası", 540, 500, 96, KOB, 900, 'middle', gir(L, 0));
+    // elçi silueti
+    const p = gir(L, 10, 16);
+    g += `<g transform="translate(330,1250) scale(${f2(p)})" fill="${MUR}"><rect x="-60" y="-260" width="120" height="260" rx="40"/><circle cy="-310" r="56" fill="#E8C9A0"/><rect x="-90" y="-380" width="180" height="22" rx="10"/><rect x="-55" y="-450" width="110" height="80" rx="16"/><rect x="-62" y="-270" width="124" height="40" fill="#F4EEDD"/></g>`;
+    // hayranlık: kalpler/yıldızlar ve lale
+    const h = cue('elci', 'hayran') - S.elci.start;
+    g += lale(700, 1250, 1.1, 1, 1);
+    if (L >= h) for (let k = 0; k < 4; k++) { const u = ((L - h) / 40 + k / 4) % 1; g += `<path d="M${f2(470 + k * 30)} ${f2(900 - u * 120)} l8 -16 l8 16 l16 8 l-16 8 l-8 16 l-8 -16 l-16 -8Z" fill="${KIR}" opacity="${f2(1 - u)}"/>`; }
+    // soğanlar Avrupa'ya
+    const s0 = cue('elci', 'soğan') - S.elci.start;
+    if (L >= s0) { const q = klamp((L - s0) / 50); for (let k = 0; k < 3; k++) g += sogan(560 + q * 600 + k * 70, 760 - sin(q * P) * 120 + k * 20, .55, q * 200); g += yazi('→ Avrupa', 820, 680, 54, KIR, 900, 'middle', gir(L, s0, 10)); }
+    return g;
+  },
+  tulbent(f, S, t) {
+    const L = f - S.tulbent.start;
+    let g = '';
+    const sa = cue('tulbent', 'sarığı') - S.tulbent.start;
+    // sarık
+    const p = gir(L, sa - 8, 14);
+    g += `<g transform="translate(300,1000) scale(${f2(p)})"><ellipse cx="0" cy="40" rx="150" ry="70" fill="#F7F1E4" stroke="${MUR}" stroke-width="6"/><path d="M-140 30 C-150 -120 150 -120 140 30 C80 -10 -80 -10 -140 30Z" fill="#FFFFFF" stroke="${MUR}" stroke-width="6"/><path d="M-120 0 C-40 -50 60 -60 130 -10 M-130 30 C-40 -20 60 -30 140 30" stroke="#C9BFA4" stroke-width="6" fill="none"/><path d="M0 -90 C-20 -140 30 -150 20 -110" fill="${KIR}"/></g>`;
+    g += `<path d="M480 1000 h120" stroke="${KOB}" stroke-width="10" marker-end="" opacity="${f2(p)}"/><path d="M590 980 l24 20 l-24 20" stroke="${KOB}" stroke-width="10" fill="none" opacity="${f2(p)}"/>`;
+    g += lale(800, 1180, 1.1, 1, 1);
+    // kelime zinciri
+    const tu = cue('tulbent', 'tülbent') - S.tulbent.start, tp = cue('tulbent', 'tulip') - S.tulbent.start;
+    g += yazi('tülbent', 540, 520, 130, KIR, 900, 'middle', gir(L, tu - 4, 10));
+    g += yazi('→ tulip', 540, 680, 110, KOB, 300, 'middle', gir(L, tp - 4, 10));
+    g += yazi('rivayet', 540, 1330, 44, MUR, 300, 'middle', gir(L, 0, 10) * .8, 6);
+    return g;
+  },
+  hollanda(f, S, t) {
+    const L = f - S.hollanda.start;
+    let g = '';
+    // şerit tarlalar (Delft mavisi + kırmızı)
+    const renk = [KIR, '#F2C14E', KOB, KIR, '#E87FA0', '#F2C14E'];
+    for (let k = 0; k < 6; k++) { const o = gir(L, k * 5, 14); g += `<path d="M${-200 + k * 40} ${1300 - k * 70} L1280 ${1300 - k * 70 - 160} L1280 ${1300 - k * 70 - 100} L${-200 + k * 40} ${1300 - k * 70 + 60}Z" fill="${renk[k]}" opacity="${f2(o * .85)}"/>`; }
+    g += degirmen(800, 900, .9, t);
+    const c0 = cue('hollanda', 'çılgınlığa') - S.hollanda.start;
+    g += yazi('HOLLANDA', 540, 520, 140, KOB, 900, 'middle', gir(L, 0));
+    g += yazi('ÇILGINLIK', 540, 1350, 110, KIR, 900, 'middle', gir(L, c0 - 4, 10));
+    return g;
+  },
+  cilgin(f, S, t) {
+    const L = f - S.cilgin.start;
+    let g = yazi("1630'lar", 540, 500, 110, KOB, 900, 'middle', gir(L, 0));
+    // 1 soğan = 1 ev
+    const ev = cue('cilgin', 'evin') - S.cilgin.start;
+    const p = gir(L, 10, 14);
+    g += sogan(280, 820, 1.2 * p) + yazi('=', 540, 860, 160, MUR, 900, 'middle', gir(L, ev - 6, 8));
+    if (L >= ev - 6) { const q = backOut((L - ev + 6) / 14); g += `<g transform="translate(800,860) scale(${f2(q)})"><path d="M-130 0 L0 -130 L130 0Z" fill="${KIR}"/><rect x="-100" y="0" width="200" height="160" fill="${KOB}"/><rect x="-30" y="70" width="60" height="90" fill="${KRM}"/><rect x="-80" y="20" width="40" height="40" fill="${KRM}"/><rect x="40" y="20" width="40" height="40" fill="${KRM}"/></g>`; }
+    // fiyat grafiği: yükselir, çöker
+    const co = cue('cilgin', 'çöktü') - S.cilgin.start, fi = cue('cilgin', 'fiyatlar') - S.cilgin.start;
+    if (L >= fi - 10) {
+      const o = gir(L, fi - 10, 10);
+      let d = 'M160 1330';
+      const n = 40, uc = klamp((L - fi + 10) / 40);
+      for (let i = 1; i <= n * uc; i++) { const u = i / n, y = u < .75 ? 1330 - Math.pow(u / .75, 2.4) * 260 : 1070 + (u - .75) / .25 * 270 * sm(klamp((L - co) / 14)) ; d += ` L${f2(160 + u * 760)} ${f2(y)}`; }
+      g += `<g opacity="${f2(o)}"><path d="M160 1050 V1340 H940" stroke="${MUR}" stroke-width="5" fill="none"/><path d="${d}" stroke="${KIR}" stroke-width="12" fill="none" stroke-linejoin="round" stroke-linecap="round"/></g>`;
+      g += yazi('ÇÖKÜŞ', 800, 1030, 70, KIR, 900, 'middle', gir(L, co, 8));
+    }
+    return g;
+  },
+  devri(f, S, t) {
+    const L = f - S.devri.start;
+    let g = '';
+    // köşk kemeri ve lale bahçesi
+    const p = gir(L, 0, 16);
+    g += `<g opacity="${f2(p)}"><path d="M200 1260 V820 Q200 640 540 600 Q880 640 880 820 V1260" stroke="${KOB}" stroke-width="30" fill="none"/><path d="M240 1260 V830 Q240 680 540 645 Q840 680 840 830 V1260" stroke="${TUR}" stroke-width="8" fill="none"/></g>`;
+    for (let k = 0; k < 9; k++) { const x = 270 + (k % 5) * 135 + (k > 4 ? 67 : 0), y = 1260 - (k > 4 ? 110 : 0), q = klamp((L - 8 - k * 4) / 20); g += lale(x, y, .5, q, q, k % 3 ? KIR : KOB); }
+    const ld = cue('devri', 'lale', 1) - S.devri.start;
+    g += yazi('LALE DEVRİ', 540, 520, 130, KIR, 900, 'middle', gir(L, ld - 4, 10));
+    g += yazi('1718–1730', 540, 600, 54, KOB, 300, 'middle', gir(L, ld + 6, 10), 4);
+    return g;
+  },
+  son(f, S, t) {
+    const L = f - S.son.start;
+    let g = `${kubbe(230, 1260, .8)}${degirmen(850, 1260, .8, t)}`;
+    g += `<path d="M300 1000 Q540 700 800 980" stroke="${KIR}" stroke-width="10" fill="none" stroke-dasharray="4 26" stroke-linecap="round" stroke-dashoffset="${f2(-t * 2)}"/>`;
+    g += lale(540, 1200, 1.3, 1, 1, KIR, sin(t * .04) * 4);
+    const sor = cue('son', 'sen') - S.son.start;
+    g += yazi('İstanbul', 230, 1330, 46, KOB, 900, 'middle', 1) + yazi('Hollanda', 850, 1330, 46, KOB, 900, 'middle', 1);
+    g += yazi('?', 540, 560, 220, KIR, 900, 'middle', gir(L, sor, 10));
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  const S = T.seg, t = f;
+  const adlar = Object.keys(SAHNE);
+  // zemin: sır dokusu + yavaş dönen rozet
+  let z = `<rect width="1080" height="1920" fill="${KRM}"/><rect width="1080" height="1920" fill="url(#sir)"/>`;
+  z += `<g transform="translate(540,1000) rotate(${f2(t * .05)})" opacity=".04">${Array.from({ length: 12 }, (_, k) => `<path d="M0 0 C60 -200 -60 -200 0 -420" stroke="${KOB}" stroke-width="40" fill="none" transform="rotate(${k * 30})"/>`).join('')}</g>`;
+  $('zemin').innerHTML = z;
+  // etkin sahne + önceki sahneden 10 karelik geçiş
+  let g = '';
+  adlar.forEach((ad, i) => {
+    const bas = i ? S[ad].start - 4 : 0, son = i + 1 < adlar.length ? S[adlar[i + 1]].start - 4 : T.total + 10;
+    if (f < bas - 2 || f > son + 10) return;
+    const o = (i ? klamp((f - bas) / 10) : 1) * (1 - klamp((f - son) / 10));
+    const y = (1 - (i ? sm((f - bas) / 14) : 1)) * 40;
+    g += `<g opacity="${f2(o)}" transform="translate(0,${f2(y)})">${SAHNE[ad](f, S, t)}</g>`;
+  });
+  $('sahne').innerHTML = g;
+  // çini bordür
+  let c = `<rect x="0" y="0" width="1080" height="1920" fill="none" stroke="${KOB}" stroke-width="56"/><rect x="40" y="40" width="1000" height="1840" fill="none" stroke="${TUR}" stroke-width="6"/>`;
+  for (let k = 0; k < 20; k++) { const y = 80 + k * 92; c += `<circle cx="28" cy="${y}" r="10" fill="${KRM}"/><circle cx="1052" cy="${y}" r="10" fill="${KRM}"/>`; }
+  for (let k = 0; k < 11; k++) { const x = 60 + k * 96; c += `<circle cx="${x}" cy="28" r="10" fill="${KRM}"/><circle cx="${x}" cy="1892" r="10" fill="${KRM}"/>`; }
+  // altyazı paneli
+  c += `<rect x="60" y="1400" width="960" height="250" rx="24" fill="#FBF7EC" opacity=".92" stroke="${TUR}" stroke-width="4"/>`;
+  $('cerceve').innerHTML = c;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>
