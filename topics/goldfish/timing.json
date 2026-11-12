@@ -1,0 +1,701 @@
+{
+"duration": 41.273,
+"words": [
+{
+"w": "Goldfish",
+"start": 0.0,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "have",
+"start": 0.72,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "a",
+"start": 0.88,
+"end": 0.96,
+"seg": 0
+},
+{
+"w": "three-second",
+"start": 1.08,
+"end": 1.6,
+"seg": 0
+},
+{
+"w": "memory.",
+"start": 1.68,
+"end": 2.36,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 2.64,
+"end": 3.04,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.12,
+"end": 3.36,
+"seg": 0
+},
+{
+"w": "not",
+"start": 3.44,
+"end": 3.52,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 3.6,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.24,
+"end": 4.76,
+"seg": 0
+},
+{
+"w": "They",
+"start": 4.96,
+"end": 5.04,
+"seg": 0
+},
+{
+"w": "can",
+"start": 5.08,
+"end": 5.12,
+"seg": 0
+},
+{
+"w": "remember",
+"start": 5.2,
+"end": 5.52,
+"seg": 0
+},
+{
+"w": "things",
+"start": 5.68,
+"end": 5.84,
+"seg": 0
+},
+{
+"w": "for",
+"start": 5.92,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "months.",
+"start": 6.16,
+"end": 6.84,
+"seg": 0
+},
+{
+"w": "Scientists",
+"start": 7.12,
+"end": 7.6,
+"seg": 1
+},
+{
+"w": "have",
+"start": 7.68,
+"end": 7.76,
+"seg": 1
+},
+{
+"w": "trained",
+"start": 7.92,
+"end": 8.08,
+"seg": 1
+},
+{
+"w": "goldfish",
+"start": 8.16,
+"end": 8.64,
+"seg": 1
+},
+{
+"w": "to",
+"start": 8.72,
+"end": 8.8,
+"seg": 1
+},
+{
+"w": "push",
+"start": 8.92,
+"end": 9.04,
+"seg": 1
+},
+{
+"w": "levers",
+"start": 9.12,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "for",
+"start": 9.56,
+"end": 9.68,
+"seg": 1
+},
+{
+"w": "food,",
+"start": 9.84,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "swim",
+"start": 10.4,
+"end": 10.56,
+"seg": 1
+},
+{
+"w": "through",
+"start": 10.64,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "mazes,",
+"start": 11.04,
+"end": 11.6,
+"seg": 1
+},
+{
+"w": "and",
+"start": 11.68,
+"end": 11.76,
+"seg": 1
+},
+{
+"w": "even",
+"start": 11.84,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "come",
+"start": 12.16,
+"end": 12.24,
+"seg": 1
+},
+{
+"w": "over",
+"start": 12.32,
+"end": 12.48,
+"seg": 1
+},
+{
+"w": "when",
+"start": 12.56,
+"end": 12.64,
+"seg": 1
+},
+{
+"w": "they",
+"start": 12.72,
+"end": 12.8,
+"seg": 1
+},
+{
+"w": "hear",
+"start": 12.84,
+"end": 12.88,
+"seg": 1
+},
+{
+"w": "a",
+"start": 12.96,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "certain",
+"start": 13.147,
+"end": 13.36,
+"seg": 1
+},
+{
+"w": "sound.",
+"start": 13.56,
+"end": 14.24,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 14.32,
+"end": 14.48,
+"seg": 2
+},
+{
+"w": "the",
+"start": 14.56,
+"end": 14.72,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 14.88,
+"end": 15.04,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 15.12,
+"end": 15.76,
+"seg": 2
+},
+{
+"w": "In",
+"start": 15.88,
+"end": 16.0,
+"seg": 2
+},
+{
+"w": "one",
+"start": 16.08,
+"end": 16.16,
+"seg": 2
+},
+{
+"w": "study,",
+"start": 16.24,
+"end": 16.88,
+"seg": 2
+},
+{
+"w": "goldfish",
+"start": 17.0,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "learned",
+"start": 17.44,
+"end": 17.6,
+"seg": 2
+},
+{
+"w": "to",
+"start": 17.68,
+"end": 17.76,
+"seg": 2
+},
+{
+"w": "push",
+"start": 17.84,
+"end": 17.92,
+"seg": 2
+},
+{
+"w": "a",
+"start": 18.0,
+"end": 18.08,
+"seg": 2
+},
+{
+"w": "lever",
+"start": 18.2,
+"end": 18.32,
+"seg": 2
+},
+{
+"w": "at",
+"start": 18.4,
+"end": 18.48,
+"seg": 2
+},
+{
+"w": "the",
+"start": 18.56,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "same",
+"start": 18.72,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "hour",
+"start": 19.04,
+"end": 19.36,
+"seg": 2
+},
+{
+"w": "every",
+"start": 19.44,
+"end": 19.76,
+"seg": 2
+},
+{
+"w": "day,",
+"start": 19.84,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "because",
+"start": 20.44,
+"end": 20.56,
+"seg": 2
+},
+{
+"w": "that",
+"start": 20.6,
+"end": 20.64,
+"seg": 2
+},
+{
+"w": "was",
+"start": 20.72,
+"end": 20.8,
+"seg": 2
+},
+{
+"w": "the",
+"start": 20.88,
+"end": 21.04,
+"seg": 2
+},
+{
+"w": "only",
+"start": 21.2,
+"end": 21.36,
+"seg": 2
+},
+{
+"w": "hour",
+"start": 21.44,
+"end": 21.6,
+"seg": 2
+},
+{
+"w": "it",
+"start": 21.68,
+"end": 21.76,
+"seg": 2
+},
+{
+"w": "worked.",
+"start": 21.84,
+"end": 22.64,
+"seg": 2
+},
+{
+"w": "That's",
+"start": 22.72,
+"end": 22.88,
+"seg": 3
+},
+{
+"w": "not",
+"start": 23.0,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "all.",
+"start": 23.2,
+"end": 23.84,
+"seg": 3
+},
+{
+"w": "Goldfish",
+"start": 24.0,
+"end": 24.4,
+"seg": 3
+},
+{
+"w": "see",
+"start": 24.52,
+"end": 24.64,
+"seg": 3
+},
+{
+"w": "more",
+"start": 24.76,
+"end": 24.88,
+"seg": 3
+},
+{
+"w": "colors",
+"start": 24.96,
+"end": 25.28,
+"seg": 3
+},
+{
+"w": "than",
+"start": 25.36,
+"end": 25.44,
+"seg": 3
+},
+{
+"w": "you",
+"start": 25.52,
+"end": 25.6,
+"seg": 3
+},
+{
+"w": "do,",
+"start": 25.68,
+"end": 26.0,
+"seg": 3
+},
+{
+"w": "including",
+"start": 26.28,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "ultraviolet",
+"start": 26.64,
+"end": 27.2,
+"seg": 3
+},
+{
+"w": "light.",
+"start": 27.36,
+"end": 28.0,
+"seg": 3
+},
+{
+"w": "In",
+"start": 28.08,
+"end": 28.16,
+"seg": 4
+},
+{
+"w": "fact,",
+"start": 28.32,
+"end": 28.72,
+"seg": 4
+},
+{
+"w": "with",
+"start": 28.8,
+"end": 28.88,
+"seg": 4
+},
+{
+"w": "good",
+"start": 29.0,
+"end": 29.12,
+"seg": 4
+},
+{
+"w": "care",
+"start": 29.4,
+"end": 29.68,
+"seg": 4
+},
+{
+"w": "a",
+"start": 29.76,
+"end": 29.84,
+"seg": 4
+},
+{
+"w": "goldfish",
+"start": 29.96,
+"end": 30.24,
+"seg": 4
+},
+{
+"w": "can",
+"start": 30.32,
+"end": 30.48,
+"seg": 4
+},
+{
+"w": "live",
+"start": 30.6,
+"end": 30.72,
+"seg": 4
+},
+{
+"w": "over",
+"start": 30.88,
+"end": 31.04,
+"seg": 4
+},
+{
+"w": "20",
+"start": 31.24,
+"end": 31.44,
+"seg": 4
+},
+{
+"w": "years.",
+"start": 31.52,
+"end": 32.32,
+"seg": 4
+},
+{
+"w": "The",
+"start": 32.4,
+"end": 32.48,
+"seg": 4
+},
+{
+"w": "oldest",
+"start": 32.52,
+"end": 32.8,
+"seg": 4
+},
+{
+"w": "one",
+"start": 32.88,
+"end": 32.96,
+"seg": 4
+},
+{
+"w": "on",
+"start": 33.04,
+"end": 33.12,
+"seg": 4
+},
+{
+"w": "record",
+"start": 33.2,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "made",
+"start": 33.56,
+"end": 33.6,
+"seg": 4
+},
+{
+"w": "it",
+"start": 33.68,
+"end": 33.76,
+"seg": 4
+},
+{
+"w": "to",
+"start": 33.84,
+"end": 33.92,
+"seg": 4
+},
+{
+"w": "43.",
+"start": 34.04,
+"end": 35.16,
+"seg": 4
+},
+{
+"w": "So",
+"start": 35.2,
+"end": 35.44,
+"seg": 5
+},
+{
+"w": "next",
+"start": 35.52,
+"end": 35.68,
+"seg": 5
+},
+{
+"w": "time",
+"start": 35.76,
+"end": 35.84,
+"seg": 5
+},
+{
+"w": "you",
+"start": 35.92,
+"end": 36.0,
+"seg": 5
+},
+{
+"w": "forget",
+"start": 36.16,
+"end": 36.32,
+"seg": 5
+},
+{
+"w": "something,",
+"start": 36.52,
+"end": 37.04,
+"seg": 5
+},
+{
+"w": "don't",
+"start": 37.08,
+"end": 37.28,
+"seg": 5
+},
+{
+"w": "call",
+"start": 37.36,
+"end": 37.44,
+"seg": 5
+},
+{
+"w": "it",
+"start": 37.48,
+"end": 37.52,
+"seg": 5
+},
+{
+"w": "a",
+"start": 37.6,
+"end": 37.68,
+"seg": 5
+},
+{
+"w": "goldfish",
+"start": 37.84,
+"end": 38.16,
+"seg": 5
+},
+{
+"w": "memory.",
+"start": 38.24,
+"end": 38.96,
+"seg": 5
+},
+{
+"w": "The",
+"start": 39.04,
+"end": 39.12,
+"seg": 5
+},
+{
+"w": "goldfish",
+"start": 39.24,
+"end": 39.6,
+"seg": 5
+},
+{
+"w": "might",
+"start": 39.68,
+"end": 39.76,
+"seg": 5
+},
+{
+"w": "be",
+"start": 39.84,
+"end": 39.88,
+"seg": 5
+},
+{
+"w": "insulted.",
+"start": 39.92,
+"end": 40.72,
+"seg": 5
+}
+]
+}

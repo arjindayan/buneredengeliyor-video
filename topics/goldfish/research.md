@@ -1,0 +1,5 @@
+# Goldfish (sources)
+- Memory lasts months; trained to levers, mazes, sound cues. (Plymouth Univ. lever study, Gee et al. 1994; Smithsonian "Goldfish memory myth")
+- Lever worked only one hour per day; fish learned to press at that hour. (Plymouth Univ., Phil Gee, BBC 2003)
+- Tetrachromatic incl. UV. (Neumeyer 1992, J. Comp. Physiol. A)
+- Can live 20+ years; record "Tish" 43 years. (Guinness World Records)

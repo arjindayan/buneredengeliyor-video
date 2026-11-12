@@ -1,0 +1,31 @@
+{
+ "title": "Bulls hate red?",
+ "lang": "en",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Bulls hate the color red. Well, that's not exactly true. They can't even see it properly."
+  },
+  {
+   "scene": "eyes",
+   "text": "Cattle are red-green colorblind. To a bull, a red cape looks dull, kind of a muddy gray."
+  },
+  {
+   "scene": "move",
+   "text": "Here's the wild part. What makes a bull charge is the movement. The matador whips the cape around, and the bull goes after whatever is moving."
+  },
+  {
+   "scene": "test",
+   "text": "Tests showed it: bulls charged a waving blue or white cloth just as hard as a red one, and ignored a red cape that stayed still."
+  },
+  {
+   "scene": "why",
+   "text": "So why red? Mostly tradition, and it hides the blood."
+  },
+  {
+   "scene": "son",
+   "text": "So bulls don't hate red. They hate being waved at. Honestly, same."
+  }
+ ]
+}

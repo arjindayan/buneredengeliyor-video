@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: yeşil mutfak tezgâhı, kendini beğenmiş muz + şaşkın çilek */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#17302B}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:210px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 4px 0 rgba(10,25,20,.6)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="duvar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17302B"/><stop offset=".7" stop-color="#2F5B50"/><stop offset="1" stop-color="#3F7566"/></linearGradient>
+    <pattern id="fayans" width="90" height="90" patternUnits="userSpaceOnUse"><rect width="90" height="90" fill="none" stroke="#5E9384" stroke-opacity=".35" stroke-width="3"/></pattern>
+    <clipPath id="buyutec"><circle r="210"/></clipPath>
+  </defs>
+  <g id="arka"></g>
+  <g id="dunya"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+const TEZ = 1560, MX = 370, CX = 730;
+
+function yuz(x, y, s, o, koyu) {
+  const g = (ex) => o.wink && ex > 0 ? `<path d="M${ex - 14} 0 q14 -12 28 0" stroke="${koyu}" stroke-width="6" fill="none" stroke-linecap="round"/>` : `<circle cx="${ex}" cy="0" r="${o.sur ? 17 : 14}" fill="#fff"/><circle cx="${ex + 2}" cy="2" r="${o.sur ? 7 : 9}" fill="${koyu}"/><circle cx="${ex + 5}" cy="-3" r="4" fill="#fff"/>`;
+  let r = `<g transform="translate(${x},${y}) scale(${s})">` + g(-30) + g(30);
+  r += o.sur ? `<ellipse cx="0" cy="34" rx="10" ry="13" fill="${koyu}"/>` : o.pout ? `<path d="M-14 36 q14 -10 28 0" stroke="${koyu}" stroke-width="6" fill="none" stroke-linecap="round"/>` : `<path d="M-16 28 q16 16 32 0" stroke="${koyu}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+  if (o.smug) r += `<path d="M-46 -24 l26 6 M46 -24 l-26 6" stroke="${koyu}" stroke-width="6" stroke-linecap="round"/>`;
+  return r + `<ellipse cx="-48" cy="20" rx="13" ry="8" fill="#FF8FA3" opacity=".6"/><ellipse cx="48" cy="20" rx="13" ry="8" fill="#FF8FA3" opacity=".6"/></g>`;
+}
+function muz(x, y, s, t, o) {
+  const sal = sin(t * .07) * 3;
+  let g = `<g transform="translate(${x},${y}) rotate(${f2(sal)}) scale(${s})">`;
+  g += `<path d="M-30 -230 C120 -150 140 80 20 200 C0 220 -40 215 -40 190 C40 90 40 -120 -70 -210Z" fill="#FFD84D" stroke="#C99A1E" stroke-width="7" stroke-linejoin="round"/>`;
+  g += `<path d="M-30 -230 l-14 -40 l30 -6 l6 40Z" fill="#7A5A2A"/><path d="M-40 190 l-14 20" stroke="#5A3D1A" stroke-width="12" stroke-linecap="round"/>`;
+  g += `<path d="M10 -160 C80 -90 90 50 30 140" stroke="#FFF0A6" stroke-width="14" fill="none" stroke-linecap="round" opacity=".7"/>`;
+  g += yuz(30, -20, 1, o, '#4A3410');
+  if (o.tac) g += `<path d="M-60 -250 l10 -60 l28 34 l24 -48 l24 48 l28 -34 l10 60Z" fill="#FFC93C" stroke="#A06F00" stroke-width="5" transform="rotate(-12)"/>`;
+  return g + '</g>';
+}
+function cilek(x, y, s, t, o) {
+  const b = sin(t * .09 + 1) * 6;
+  let g = `<g transform="translate(${x},${f2(y + b)}) scale(${s})">`;
+  g += `<path d="M0 170 C-120 110 -160 -20 -130 -90 C-100 -150 -40 -140 0 -120 C40 -140 100 -150 130 -90 C160 -20 120 110 0 170Z" fill="#E8394A" stroke="#A3162A" stroke-width="7"/>`;
+  for (let k = 0; k < 22; k++) { const xx = -100 + rastgele(k) * 200, yy = -90 + rastgele(k + 30) * 220; if (Math.abs(xx) > 120 - (yy + 90) * .35 || (Math.abs(xx) < 70 && yy > -40 && yy < 60)) continue; g += `<ellipse cx="${f2(xx)}" cy="${f2(yy)}" rx="${f2(6 + o.dot * 4)}" ry="${f2(9 + o.dot * 5)}" fill="${o.dot ? mix('#FFE08A', '#FFF59D', o.dot) : '#FFE08A'}" stroke="${o.dot > .5 ? '#FFF' : 'none'}" stroke-width="3"/>`; }
+  g += `<path d="M0 -125 L-90 -170 L-40 -130 L-70 -195 L-10 -140 L0 -205 L10 -140 L70 -195 L40 -130 L90 -170Z" fill="#4CAF50" stroke="#2E7D32" stroke-width="5" stroke-linejoin="round"/>`;
+  g += yuz(0, 0, 1, o, '#5A0F1A');
+  return g + '</g>';
+}
+function carpi(x, y, s, p) { return `<g transform="translate(${x},${y}) scale(${f2(s * p)}) rotate(-8)"><path d="M-80 -80 L80 80 M80 -80 L-80 80" stroke="#FF4D5E" stroke-width="30" stroke-linecap="round"/></g>`; }
+function meyve(tur, x, y, s) {
+  let g = `<g transform="translate(${x},${y}) scale(${f2(s)})">`;
+  if (tur === 'grape') { [[0, -40], [-30, -10], [30, -10], [-15, 25], [15, 25], [0, 58]].forEach(([a, b]) => g += `<circle cx="${a}" cy="${b}" r="26" fill="#8E5BD6" stroke="#4E2A8C" stroke-width="5"/>`); g += `<path d="M0 -66 v-26" stroke="#5D4037" stroke-width="8"/>`; }
+  if (tur === 'tomato') g += `<circle r="70" fill="#F4433E" stroke="#A3162A" stroke-width="6"/><path d="M0 -66 L-30 -84 L-8 -66 L-20 -96 L0 -70 L20 -96 L8 -66 L30 -84Z" fill="#43A047"/>`;
+  if (tur === 'kiwi') g += `<circle r="68" fill="#8D6E43" stroke="#5D4037" stroke-width="6"/><circle r="56" fill="#8BC34A"/><circle r="18" fill="#F1F8E9"/>` + [...Array(12)].map((_, k) => `<ellipse cx="${f2(cos(k * P / 6) * 32)}" cy="${f2(sin(k * P / 6) * 32)}" rx="4" ry="7" fill="#212121" transform="rotate(${k * 30} ${f2(cos(k * P / 6) * 32)} ${f2(sin(k * P / 6) * 32)})"/>`).join('');
+  if (tur === 'eggplant') g += `<path d="M0 -60 C60 -60 70 40 30 80 C0 105 -50 95 -55 50 C-60 0 -40 -60 0 -60Z" fill="#6A3FA0" stroke="#3D1F66" stroke-width="6"/><path d="M-20 -60 Q0 -90 25 -60 Q0 -45 -20 -60Z" fill="#43A047"/>`;
+  if (tur === 'rasp') { for (let k = 0; k < 14; k++) { const a = rastgele(k) * P * 2, r = rastgele(k + 4) * 45; g += `<circle cx="${f2(cos(a) * r)}" cy="${f2(sin(a) * r * 1.1)}" r="20" fill="#E5396B" stroke="#9C1645" stroke-width="4"/>`; } }
+  if (tur === 'black') { for (let k = 0; k < 14; k++) { const a = rastgele(k + 50) * P * 2, r = rastgele(k + 70) * 45; g += `<circle cx="${f2(cos(a) * r)}" cy="${f2(sin(a) * r * 1.1)}" r="20" fill="#3B2346" stroke="#1C0F24" stroke-width="4"/>`; } }
+  if (tur === 'pumpkin') g += [-40, 40, 0].map(dx => `<ellipse cx="${dx}" cy="0" rx="${dx ? 55 : 50}" ry="65" fill="#FF9800" stroke="#C66900" stroke-width="5"/>`).join('') + `<rect x="-8" y="-86" width="16" height="30" rx="6" fill="#6D4C41"/>`;
+  if (tur === 'melon') g += `<path d="M-90 -10 A90 90 0 0 0 90 -10Z" fill="#E53935" stroke="#2E7D32" stroke-width="14"/>` + [-40, 0, 40].map(dx => `<ellipse cx="${dx}" cy="22" rx="5" ry="8" fill="#212121"/>`).join('');
+  return g + '</g>';
+}
+
+let K = null;
+function kur() {
+  const S = T.seg, c = cue, E = T.total;
+  K = { cam: [[0, [550, 1340, 1.3]], [S.dots.start, [550, 1340, 1.3]], [S.dots.start + 18, [CX, 1360, 1.8]], [S.more.start, [CX, 1360, 1.8]], [S.more.start + 14, [550, 1340, 1.3]], [E, [550, 1340, 1.3]]] };
+}
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, c = cue, t = f;
+  const [cx, cy, s] = kf(f, K.cam);
+  let a = `<rect width="1080" height="1920" fill="url(#duvar)"/><rect y="900" width="1080" height="700" fill="url(#fayans)"/>`;
+  a += `<g transform="translate(540,1250) scale(${f2(1 + (s - 1) * .3)}) translate(-540,-1250)"><path d="M120 760 h220 M150 760 v-40 M310 760 v-40" stroke="#5E9384" stroke-width="10" stroke-linecap="round"/><rect x="760" y="720" width="160" height="40" rx="10" fill="#C9A87A"/><circle cx="800" cy="700" r="22" fill="#FF8A65"/><circle cx="850" cy="696" r="26" fill="#AED581"/></g>`;
+  a += `<rect x="-20" y="${TEZ}" width="1120" height="400" fill="#A47148"/><rect x="-20" y="${TEZ - 14}" width="1120" height="28" rx="10" fill="#C98D5E"/>`;
+  $('arka').innerHTML = a;
+
+  let w = '';
+  w += `<ellipse cx="560" cy="${TEZ + 6}" rx="420" ry="34" fill="#8A5A36"/><rect x="170" y="${TEZ - 30}" width="780" height="40" rx="18" fill="#E2B989" stroke="#B5875A" stroke-width="5"/>`;
+  const sur = (f >= c('hook', 'well') && f < c('hook', 'botanically') + 20) || (f >= c('dots', 'aren') && f < c('dots', 'aren') + 24);
+  const smug = f >= c('hook', 'bananas') || f >= S.list.start;
+  const tac = f >= c('hook', 'bananas') + 4;
+  const dot = kf(f, [[0, 0], [c('dots', 'dots') - 2, 0], [c('dots', 'dots') + 8, 1], [S.more.start, 1], [S.more.start + 8, 0]]);
+  const pout = f >= S.son.start + 10;
+  w += muz(MX, TEZ - 250, 1.15, t, { smug, tac, wink: f >= c('son', 'real') + 4 && f < T.total - 8, sur: false });
+  w += cilek(CX, TEZ - 200, 1.05, t, { sur, dot, pout });
+  // X ve etiketler
+  const xS = c('hook', 'botanically');
+  if (f >= xS && f < S.def.start + 6) w += carpi(CX, TEZ - 200, 1, backOut((f - xS) / 10) * (1 - klamp((f - S.def.start) / 6)));
+  w += etiket('berry?', CX, TEZ - 470, f, c('hook', 'berries'), xS - 2, 64, '#FFF3DC', 'middle', '#17302B');
+  w += etiket('the real berry', MX, TEZ - 560, f, c('hook', 'are', 1), S.def.start, 60, '#FFD84D', 'middle', '#17302B');
+  // nokta büyüteci
+  if (f >= c('dots', 'each') - 2 && f < S.more.start + 6) {
+    const p = backOut((f - c('dots', 'each')) / 14) * (1 - klamp((f - S.more.start) / 6));
+    w += `<g transform="translate(${CX + 110},1080) scale(${f2(p * .55)})"><circle r="220" fill="#FFF3DC" stroke="#17302B" stroke-width="16"/><g clip-path="url(#buyutec)"><ellipse cx="0" cy="10" rx="70" ry="110" fill="#FFE08A" stroke="#C9A021" stroke-width="8"/><ellipse cx="0" cy="20" rx="26" ry="44" fill="#8D6E43"/></g><path d="M150 150 L250 250" stroke="#17302B" stroke-width="30" stroke-linecap="round"/></g>`;
+    w += etiket('a tiny fruit', CX + 110, 1225, f, c('dots', 'fruit'), S.more.start, 36, '#FFE08A', 'middle', '#17302B');
+    w += etiket('seed inside', CX + 110, 1262, f, c('dots', 'seed'), S.more.start, 30, '#FFF3DC', 'middle', '#17302B');
+  }
+  w += etiket('not seeds!', CX, 1110, f, c('dots', 'aren'), c('dots', 'each') - 2, 44, '#FFE08A', 'middle', '#17302B');
+  $('dunya').setAttribute('transform', `translate(540,1250) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  // ekran katmanı
+  let u = '';
+  // tanım paneli: çiçek -> tek yumurtalık -> etli meyve
+  if (f >= S.def.start - 2 && f < S.list.start + 4) {
+    const o = klamp((f - S.def.start + 2) / 8) * (1 - klamp((f - S.list.start) / 6));
+    const p1 = backOut((f - c('def', 'flower')) / 12), p2 = backOut((f - c('def', 'ovary')) / 12), p3 = backOut((f - c('def', 'seeds')) / 12);
+    u += `<g opacity="${f2(o)}"><rect width="1080" height="1920" fill="#0E1F1B" opacity=".78"/>`;
+    u += `<g transform="translate(200,1000) scale(${f2(p1)})">` + [...Array(5)].map((_, k) => `<ellipse cx="0" cy="-55" rx="34" ry="55" fill="#FFB3C7" stroke="#C2185B" stroke-width="4" transform="rotate(${k * 72})"/>`).join('') + `<circle r="30" fill="#FFD54F"/></g>`;
+    u += `<g transform="translate(540,1000) scale(${f2(p2)})"><path d="M0 -110 v60" stroke="#43A047" stroke-width="12"/><ellipse cx="0" cy="10" rx="70" ry="80" fill="#C5E1A5" stroke="#558B2F" stroke-width="7"/><circle cx="-18" cy="0" r="10" fill="#558B2F"/><circle cx="18" cy="20" r="10" fill="#558B2F"/></g>`;
+    u += `<g transform="translate(880,1000) scale(${f2(p3)})"><circle r="100" fill="#FFCC80" stroke="#E65100" stroke-width="7"/><circle r="70" fill="#FFE0B2"/>` + [...Array(6)].map((_, k) => `<ellipse cx="${f2(cos(k * P / 3) * 40)}" cy="${f2(sin(k * P / 3) * 40)}" rx="8" ry="13" fill="#5D4037"/>`).join('') + `</g>`;
+    u += `<path d="M310 1000 h100 M650 1000 h100" stroke="#FFF3DC" stroke-width="10" stroke-linecap="round" opacity="${f2(p2 > 0 ? 1 : 0)}"/>`;
+    u += `<text class="lbl" x="200" y="1200" text-anchor="middle" font-size="46" fill="#FFF3DC" stroke="#0E1F1B" stroke-width="8" opacity="${f2(klamp(p1))}">1 flower</text><text class="lbl" x="540" y="1200" text-anchor="middle" font-size="46" fill="#FFF3DC" stroke="#0E1F1B" stroke-width="8" opacity="${f2(klamp(p2))}">1 ovary</text><text class="lbl" x="880" y="1200" text-anchor="middle" font-size="46" fill="#FFF3DC" stroke="#0E1F1B" stroke-width="8" opacity="${f2(klamp(p3))}">seeds inside</text>`;
+    u += `<text class="lbl" x="540" y="820" text-anchor="middle" font-size="70" fill="#FFD84D" stroke="#0E1F1B" stroke-width="10">berry =</text></g>`;
+  }
+  // liste: üzüm, domates, kivi, patlıcan
+  if (f >= S.list.start && f < S.dots.start + 4) {
+    const o = 1 - klamp((f - S.dots.start + 2) / 6);
+    [['grape', 'grapes'], ['tomato', 'tomatoes'], ['kiwi', 'kiwis'], ['eggplant', 'eggplants']].forEach(([tur, k], i) => {
+      const p = backOut((f - c('list', k)) / 12); if (p <= 0) return;
+      u += `<g opacity="${f2(o)}">${meyve(tur, 165 + i * 250, 760, p * 1.2)}<text class="lbl" x="${165 + i * 250}" y="900" text-anchor="middle" font-size="40" fill="#7CE0A3" stroke="#17302B" stroke-width="8">berry</text></g>`;
+    });
+  }
+  // daha fazlası: ahududu/böğürtlen değil, kabak/karpuz bir çeşit berry
+  if (f >= S.more.start && f < S.son.start + 6) {
+    const o = klamp((f - S.more.start) / 6) * (1 - klamp((f - S.son.start) / 6));
+    u += `<g opacity="${f2(o)}"><rect width="1080" height="1920" fill="#0E1F1B" opacity=".72"/>`;
+    const r = c('more', 'raspberries'), b = c('more', 'blackberries'), pm = c('more', 'pumpkins'), wm = c('more', 'watermelons');
+    [[r, 'rasp', 300, 900], [b, 'black', 780, 900], [pm, 'pumpkin', 300, 1380], [wm, 'melon', 780, 1380]].forEach(([fs, tur, x, y]) => { const p = backOut((f - fs) / 12); if (p > 0) u += meyve(tur, x, y, p * 1.6); });
+    const xx = c('more', 'aren');
+    if (f >= xx) { const p = backOut((f - xx) / 10); u += carpi(300, 900, .9, p) + carpi(780, 900, .9, p); u += `<text class="lbl" x="540" y="1120" text-anchor="middle" font-size="54" fill="#FF8A80" stroke="#0E1F1B" stroke-width="9" opacity="${f2(klamp(p))}">not true berries</text>`; }
+    const tk = c('more', 'technically');
+    if (f >= tk) u += `<text class="lbl" x="540" y="1600" text-anchor="middle" font-size="56" fill="#7CE0A3" stroke="#0E1F1B" stroke-width="9" opacity="${f2(klamp((f - tk) / 8))}">technically berries (sort of)</text>`;
+    u += '</g>';
+  }
+  $('ust').innerHTML = u;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

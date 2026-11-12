@@ -1,0 +1,641 @@
+{
+"duration": 43.362,
+"words": [
+{
+"w": "Strawberries",
+"start": 0.0,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "are",
+"start": 0.96,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "berries.",
+"start": 1.4,
+"end": 1.76,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 2.24,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 2.8,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "not",
+"start": 3.04,
+"end": 3.12,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 3.28,
+"end": 3.76,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 3.84,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "Botanically,",
+"start": 4.56,
+"end": 5.44,
+"seg": 0
+},
+{
+"w": "they're",
+"start": 5.48,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "not",
+"start": 5.68,
+"end": 5.76,
+"seg": 0
+},
+{
+"w": "berries",
+"start": 5.92,
+"end": 6.08,
+"seg": 0
+},
+{
+"w": "at",
+"start": 6.16,
+"end": 6.24,
+"seg": 0
+},
+{
+"w": "all.",
+"start": 6.4,
+"end": 6.76,
+"seg": 0
+},
+{
+"w": "But",
+"start": 6.96,
+"end": 7.04,
+"seg": 0
+},
+{
+"w": "bananas",
+"start": 7.12,
+"end": 7.68,
+"seg": 0
+},
+{
+"w": "are.",
+"start": 7.76,
+"end": 8.16,
+"seg": 0
+},
+{
+"w": "To",
+"start": 8.72,
+"end": 8.8,
+"seg": 1
+},
+{
+"w": "a",
+"start": 8.84,
+"end": 8.88,
+"seg": 1
+},
+{
+"w": "botanist,",
+"start": 8.96,
+"end": 9.68,
+"seg": 1
+},
+{
+"w": "a",
+"start": 9.72,
+"end": 9.76,
+"seg": 1
+},
+{
+"w": "berry",
+"start": 9.84,
+"end": 10.16,
+"seg": 1
+},
+{
+"w": "is",
+"start": 10.24,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "a",
+"start": 10.4,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "fruit",
+"start": 10.6,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "that",
+"start": 10.8,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "grows",
+"start": 10.96,
+"end": 11.2,
+"seg": 1
+},
+{
+"w": "from",
+"start": 11.28,
+"end": 11.44,
+"seg": 1
+},
+{
+"w": "one",
+"start": 11.52,
+"end": 11.68,
+"seg": 1
+},
+{
+"w": "flower",
+"start": 11.76,
+"end": 12.16,
+"seg": 1
+},
+{
+"w": "with",
+"start": 12.24,
+"end": 12.4,
+"seg": 1
+},
+{
+"w": "one",
+"start": 12.56,
+"end": 12.72,
+"seg": 1
+},
+{
+"w": "ovary,",
+"start": 12.8,
+"end": 13.44,
+"seg": 1
+},
+{
+"w": "with",
+"start": 13.52,
+"end": 13.6,
+"seg": 1
+},
+{
+"w": "the",
+"start": 13.64,
+"end": 13.68,
+"seg": 1
+},
+{
+"w": "seeds",
+"start": 13.84,
+"end": 14.16,
+"seg": 1
+},
+{
+"w": "inside",
+"start": 14.32,
+"end": 14.72,
+"seg": 1
+},
+{
+"w": "the",
+"start": 14.76,
+"end": 14.8,
+"seg": 1
+},
+{
+"w": "flesh.",
+"start": 14.88,
+"end": 15.36,
+"seg": 1
+},
+{
+"w": "Bananas",
+"start": 15.76,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "fit",
+"start": 16.36,
+"end": 16.48,
+"seg": 2
+},
+{
+"w": "perfectly.",
+"start": 16.68,
+"end": 17.28,
+"seg": 2
+},
+{
+"w": "So",
+"start": 17.52,
+"end": 17.6,
+"seg": 2
+},
+{
+"w": "do",
+"start": 17.68,
+"end": 17.76,
+"seg": 2
+},
+{
+"w": "grapes,",
+"start": 17.84,
+"end": 18.4,
+"seg": 2
+},
+{
+"w": "tomatoes,",
+"start": 18.52,
+"end": 19.2,
+"seg": 2
+},
+{
+"w": "kiwis,",
+"start": 19.28,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "and",
+"start": 19.88,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "even",
+"start": 20.0,
+"end": 20.16,
+"seg": 2
+},
+{
+"w": "eggplants.",
+"start": 20.24,
+"end": 20.88,
+"seg": 2
+},
+{
+"w": "Here's",
+"start": 21.44,
+"end": 21.6,
+"seg": 3
+},
+{
+"w": "the",
+"start": 21.68,
+"end": 21.76,
+"seg": 3
+},
+{
+"w": "wild",
+"start": 21.84,
+"end": 22.16,
+"seg": 3
+},
+{
+"w": "part.",
+"start": 22.28,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "Those",
+"start": 22.88,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "little",
+"start": 23.2,
+"end": 23.36,
+"seg": 3
+},
+{
+"w": "dots",
+"start": 23.44,
+"end": 23.76,
+"seg": 3
+},
+{
+"w": "on",
+"start": 23.8,
+"end": 23.84,
+"seg": 3
+},
+{
+"w": "a",
+"start": 23.92,
+"end": 23.96,
+"seg": 3
+},
+{
+"w": "strawberry",
+"start": 24.0,
+"end": 24.56,
+"seg": 3
+},
+{
+"w": "aren't",
+"start": 24.72,
+"end": 24.96,
+"seg": 3
+},
+{
+"w": "seeds.",
+"start": 25.12,
+"end": 25.8,
+"seg": 3
+},
+{
+"w": "Each",
+"start": 26.0,
+"end": 26.24,
+"seg": 3
+},
+{
+"w": "one",
+"start": 26.32,
+"end": 26.48,
+"seg": 3
+},
+{
+"w": "is",
+"start": 26.56,
+"end": 26.64,
+"seg": 3
+},
+{
+"w": "its",
+"start": 26.76,
+"end": 26.88,
+"seg": 3
+},
+{
+"w": "own",
+"start": 26.96,
+"end": 27.12,
+"seg": 3
+},
+{
+"w": "tiny",
+"start": 27.28,
+"end": 27.6,
+"seg": 3
+},
+{
+"w": "fruit,",
+"start": 27.76,
+"end": 28.24,
+"seg": 3
+},
+{
+"w": "with",
+"start": 28.28,
+"end": 28.32,
+"seg": 3
+},
+{
+"w": "a",
+"start": 28.4,
+"end": 28.48,
+"seg": 3
+},
+{
+"w": "seed",
+"start": 28.56,
+"end": 28.72,
+"seg": 3
+},
+{
+"w": "inside.",
+"start": 28.8,
+"end": 29.36,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 29.84,
+"end": 30.08,
+"seg": 4
+},
+{
+"w": "not",
+"start": 30.16,
+"end": 30.24,
+"seg": 4
+},
+{
+"w": "all.",
+"start": 30.36,
+"end": 30.56,
+"seg": 4
+},
+{
+"w": "Raspberries",
+"start": 30.96,
+"end": 31.52,
+"seg": 4
+},
+{
+"w": "and",
+"start": 31.6,
+"end": 31.68,
+"seg": 4
+},
+{
+"w": "blackberries",
+"start": 31.76,
+"end": 32.32,
+"seg": 4
+},
+{
+"w": "aren't",
+"start": 32.4,
+"end": 32.64,
+"seg": 4
+},
+{
+"w": "true",
+"start": 32.72,
+"end": 32.96,
+"seg": 4
+},
+{
+"w": "berries",
+"start": 33.04,
+"end": 33.36,
+"seg": 4
+},
+{
+"w": "either.",
+"start": 33.52,
+"end": 33.76,
+"seg": 4
+},
+{
+"w": "But",
+"start": 34.16,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "pumpkins",
+"start": 34.48,
+"end": 34.96,
+"seg": 4
+},
+{
+"w": "and",
+"start": 35.0,
+"end": 35.04,
+"seg": 4
+},
+{
+"w": "watermelons?",
+"start": 35.12,
+"end": 35.96,
+"seg": 4
+},
+{
+"w": "Technically,",
+"start": 36.16,
+"end": 36.8,
+"seg": 4
+},
+{
+"w": "a",
+"start": 36.84,
+"end": 36.88,
+"seg": 4
+},
+{
+"w": "kind",
+"start": 36.96,
+"end": 37.12,
+"seg": 4
+},
+{
+"w": "of",
+"start": 37.16,
+"end": 37.2,
+"seg": 4
+},
+{
+"w": "berry.",
+"start": 37.28,
+"end": 37.68,
+"seg": 4
+},
+{
+"w": "So",
+"start": 38.24,
+"end": 38.32,
+"seg": 5
+},
+{
+"w": "next",
+"start": 38.4,
+"end": 38.56,
+"seg": 5
+},
+{
+"w": "time",
+"start": 38.64,
+"end": 38.8,
+"seg": 5
+},
+{
+"w": "you",
+"start": 38.84,
+"end": 38.88,
+"seg": 5
+},
+{
+"w": "eat",
+"start": 38.96,
+"end": 39.04,
+"seg": 5
+},
+{
+"w": "a",
+"start": 39.08,
+"end": 39.12,
+"seg": 5
+},
+{
+"w": "strawberry,",
+"start": 39.2,
+"end": 39.84,
+"seg": 5
+},
+{
+"w": "remember:",
+"start": 40.08,
+"end": 40.72,
+"seg": 5
+},
+{
+"w": "the",
+"start": 40.76,
+"end": 40.8,
+"seg": 5
+},
+{
+"w": "banana",
+"start": 40.88,
+"end": 41.36,
+"seg": 5
+},
+{
+"w": "is",
+"start": 41.52,
+"end": 41.68,
+"seg": 5
+},
+{
+"w": "the",
+"start": 41.72,
+"end": 41.76,
+"seg": 5
+},
+{
+"w": "real",
+"start": 41.92,
+"end": 42.16,
+"seg": 5
+},
+{
+"w": "berry.",
+"start": 42.24,
+"end": 42.8,
+"seg": 5
+}
+]
+}

@@ -1,0 +1,647 @@
+{
+"duration": 38.242,
+"words": [
+{
+"w": "Bulls",
+"start": 0.0,
+"end": 0.4,
+"seg": 0
+},
+{
+"w": "hate",
+"start": 0.56,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "the",
+"start": 0.84,
+"end": 0.88,
+"seg": 0
+},
+{
+"w": "color",
+"start": 0.96,
+"end": 1.2,
+"seg": 0
+},
+{
+"w": "red.",
+"start": 1.28,
+"end": 1.88,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 2.16,
+"end": 2.56,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 2.64,
+"end": 2.8,
+"seg": 0
+},
+{
+"w": "not",
+"start": 2.88,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 3.08,
+"end": 3.52,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 3.6,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "They",
+"start": 4.24,
+"end": 4.32,
+"seg": 0
+},
+{
+"w": "can't",
+"start": 4.4,
+"end": 4.52,
+"seg": 0
+},
+{
+"w": "even",
+"start": 4.56,
+"end": 4.72,
+"seg": 0
+},
+{
+"w": "see",
+"start": 4.88,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "it",
+"start": 5.04,
+"end": 5.12,
+"seg": 0
+},
+{
+"w": "properly.",
+"start": 5.2,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "Cattle",
+"start": 6.08,
+"end": 6.4,
+"seg": 1
+},
+{
+"w": "are",
+"start": 6.48,
+"end": 6.64,
+"seg": 1
+},
+{
+"w": "red-green",
+"start": 6.72,
+"end": 7.28,
+"seg": 1
+},
+{
+"w": "colorblind.",
+"start": 7.36,
+"end": 8.08,
+"seg": 1
+},
+{
+"w": "To",
+"start": 8.4,
+"end": 8.48,
+"seg": 1
+},
+{
+"w": "a",
+"start": 8.52,
+"end": 8.56,
+"seg": 1
+},
+{
+"w": "bull,",
+"start": 8.64,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "a",
+"start": 9.16,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "red",
+"start": 9.28,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "cape",
+"start": 9.52,
+"end": 9.76,
+"seg": 1
+},
+{
+"w": "looks",
+"start": 9.88,
+"end": 10.0,
+"seg": 1
+},
+{
+"w": "dull,",
+"start": 10.08,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "kind",
+"start": 10.72,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "of",
+"start": 10.92,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "a",
+"start": 11.0,
+"end": 11.04,
+"seg": 1
+},
+{
+"w": "muddy",
+"start": 11.2,
+"end": 11.44,
+"seg": 1
+},
+{
+"w": "gray.",
+"start": 11.52,
+"end": 12.16,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 12.4,
+"end": 12.64,
+"seg": 2
+},
+{
+"w": "the",
+"start": 12.72,
+"end": 12.8,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 12.88,
+"end": 13.12,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 13.2,
+"end": 13.52,
+"seg": 2
+},
+{
+"w": "What",
+"start": 13.84,
+"end": 13.92,
+"seg": 2
+},
+{
+"w": "makes",
+"start": 14.0,
+"end": 14.16,
+"seg": 2
+},
+{
+"w": "a",
+"start": 14.2,
+"end": 14.24,
+"seg": 2
+},
+{
+"w": "bull",
+"start": 14.32,
+"end": 14.48,
+"seg": 2
+},
+{
+"w": "charge",
+"start": 14.56,
+"end": 15.04,
+"seg": 2
+},
+{
+"w": "is",
+"start": 15.12,
+"end": 15.2,
+"seg": 2
+},
+{
+"w": "the",
+"start": 15.28,
+"end": 15.36,
+"seg": 2
+},
+{
+"w": "movement.",
+"start": 15.44,
+"end": 16.0,
+"seg": 2
+},
+{
+"w": "The",
+"start": 16.32,
+"end": 16.36,
+"seg": 2
+},
+{
+"w": "matador",
+"start": 16.4,
+"end": 16.8,
+"seg": 2
+},
+{
+"w": "whips",
+"start": 16.96,
+"end": 17.2,
+"seg": 2
+},
+{
+"w": "the",
+"start": 17.24,
+"end": 17.28,
+"seg": 2
+},
+{
+"w": "cape",
+"start": 17.36,
+"end": 17.52,
+"seg": 2
+},
+{
+"w": "around,",
+"start": 17.6,
+"end": 18.0,
+"seg": 2
+},
+{
+"w": "and",
+"start": 18.04,
+"end": 18.08,
+"seg": 2
+},
+{
+"w": "the",
+"start": 18.12,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "bull",
+"start": 18.24,
+"end": 18.4,
+"seg": 2
+},
+{
+"w": "goes",
+"start": 18.48,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "after",
+"start": 18.72,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "whatever",
+"start": 19.04,
+"end": 19.36,
+"seg": 2
+},
+{
+"w": "is",
+"start": 19.44,
+"end": 19.52,
+"seg": 2
+},
+{
+"w": "moving.",
+"start": 19.6,
+"end": 20.12,
+"seg": 2
+},
+{
+"w": "Tests",
+"start": 20.32,
+"end": 20.72,
+"seg": 3
+},
+{
+"w": "showed",
+"start": 20.8,
+"end": 20.96,
+"seg": 3
+},
+{
+"w": "it:",
+"start": 21.04,
+"end": 21.44,
+"seg": 3
+},
+{
+"w": "bulls",
+"start": 21.52,
+"end": 21.84,
+"seg": 3
+},
+{
+"w": "charged",
+"start": 21.92,
+"end": 22.24,
+"seg": 3
+},
+{
+"w": "a",
+"start": 22.32,
+"end": 22.36,
+"seg": 3
+},
+{
+"w": "waving",
+"start": 22.4,
+"end": 22.72,
+"seg": 3
+},
+{
+"w": "blue",
+"start": 22.8,
+"end": 23.04,
+"seg": 3
+},
+{
+"w": "or",
+"start": 23.12,
+"end": 23.2,
+"seg": 3
+},
+{
+"w": "white",
+"start": 23.28,
+"end": 23.52,
+"seg": 3
+},
+{
+"w": "cloth",
+"start": 23.6,
+"end": 23.92,
+"seg": 3
+},
+{
+"w": "just",
+"start": 24.08,
+"end": 24.24,
+"seg": 3
+},
+{
+"w": "as",
+"start": 24.32,
+"end": 24.4,
+"seg": 3
+},
+{
+"w": "hard",
+"start": 24.48,
+"end": 24.64,
+"seg": 3
+},
+{
+"w": "as",
+"start": 24.68,
+"end": 24.72,
+"seg": 3
+},
+{
+"w": "a",
+"start": 24.76,
+"end": 24.8,
+"seg": 3
+},
+{
+"w": "red",
+"start": 24.88,
+"end": 25.04,
+"seg": 3
+},
+{
+"w": "one,",
+"start": 25.12,
+"end": 25.44,
+"seg": 3
+},
+{
+"w": "and",
+"start": 25.48,
+"end": 25.52,
+"seg": 3
+},
+{
+"w": "ignored",
+"start": 25.6,
+"end": 26.08,
+"seg": 3
+},
+{
+"w": "a",
+"start": 26.107,
+"end": 26.133,
+"seg": 3
+},
+{
+"w": "red",
+"start": 26.16,
+"end": 26.32,
+"seg": 3
+},
+{
+"w": "cape",
+"start": 26.4,
+"end": 26.64,
+"seg": 3
+},
+{
+"w": "that",
+"start": 26.68,
+"end": 26.72,
+"seg": 3
+},
+{
+"w": "stayed",
+"start": 26.8,
+"end": 27.04,
+"seg": 3
+},
+{
+"w": "still.",
+"start": 27.12,
+"end": 27.72,
+"seg": 3
+},
+{
+"w": "So",
+"start": 28.0,
+"end": 28.24,
+"seg": 4
+},
+{
+"w": "why",
+"start": 28.48,
+"end": 28.64,
+"seg": 4
+},
+{
+"w": "red?",
+"start": 28.72,
+"end": 29.28,
+"seg": 4
+},
+{
+"w": "Mostly",
+"start": 29.52,
+"end": 29.84,
+"seg": 4
+},
+{
+"w": "tradition,",
+"start": 29.96,
+"end": 30.64,
+"seg": 4
+},
+{
+"w": "and",
+"start": 30.72,
+"end": 30.96,
+"seg": 4
+},
+{
+"w": "it",
+"start": 31.12,
+"end": 31.2,
+"seg": 4
+},
+{
+"w": "hides",
+"start": 31.28,
+"end": 31.44,
+"seg": 4
+},
+{
+"w": "the",
+"start": 31.52,
+"end": 31.56,
+"seg": 4
+},
+{
+"w": "blood.",
+"start": 31.6,
+"end": 32.16,
+"seg": 4
+},
+{
+"w": "So",
+"start": 32.4,
+"end": 32.56,
+"seg": 5
+},
+{
+"w": "bulls",
+"start": 32.72,
+"end": 33.0,
+"seg": 5
+},
+{
+"w": "don't",
+"start": 33.04,
+"end": 33.28,
+"seg": 5
+},
+{
+"w": "hate",
+"start": 33.44,
+"end": 33.68,
+"seg": 5
+},
+{
+"w": "red.",
+"start": 33.76,
+"end": 34.32,
+"seg": 5
+},
+{
+"w": "They",
+"start": 34.4,
+"end": 34.48,
+"seg": 5
+},
+{
+"w": "hate",
+"start": 34.533,
+"end": 34.64,
+"seg": 5
+},
+{
+"w": "being",
+"start": 34.72,
+"end": 34.88,
+"seg": 5
+},
+{
+"w": "waved",
+"start": 35.04,
+"end": 35.36,
+"seg": 5
+},
+{
+"w": "at.",
+"start": 35.48,
+"end": 35.68,
+"seg": 5
+},
+{
+"w": "Honestly,",
+"start": 36.16,
+"end": 36.96,
+"seg": 5
+},
+{
+"w": "same.",
+"start": 37.04,
+"end": 37.68,
+"seg": 5
+}
+]
+}

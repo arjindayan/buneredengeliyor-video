@@ -1,0 +1,5 @@
+# Camels (sources)
+- Hump is fat, up to ~80 lb (36 kg); used for energy; shrinks/flops when starved. (Smithsonian National Zoo; San Diego Zoo)
+- Can drink ~30 gallons (~113 L) in ~13 minutes. (Smithsonian National Zoo)
+- Oval RBCs keep flowing when dehydrated, swell up to 240% without bursting. (San Diego Zoo; Yagil et al.)
+- Survive losing ~25% of body weight in water; most mammals die at ~15%. (Schmidt-Nielsen, "Desert Animals")

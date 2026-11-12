@@ -1,0 +1,35 @@
+{
+ "title": "Camels store water in their humps?",
+ "lang": "en",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Camels store water in their humps. Well, that's not exactly true. The hump is full of fat."
+  },
+  {
+   "scene": "fat",
+   "text": "A hump can hold up to {80|eighty} pounds of fat, which the camel burns for energy when food runs out."
+  },
+  {
+   "scene": "shrink",
+   "text": "When a camel goes hungry for a long time, the hump actually shrinks and flops over to one side."
+  },
+  {
+   "scene": "drink",
+   "text": "Here's the wild part. A thirsty camel can drink about {30|thirty} gallons of water in just {13|thirteen} minutes."
+  },
+  {
+   "scene": "blood",
+   "text": "That's not all. Its red blood cells are oval, so they keep flowing when the camel is dried out, and they can swell up without bursting."
+  },
+  {
+   "scene": "lose",
+   "text": "In fact, a camel can lose a quarter of its body weight in water and still survive. That would kill most other animals."
+  },
+  {
+   "scene": "son",
+   "text": "So the hump isn't a water bottle. It's a lunchbox."
+  }
+ ]
+}

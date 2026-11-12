@@ -1,0 +1,803 @@
+{
+"duration": 45.348,
+"words": [
+{
+"w": "Camels",
+"start": 0.0,
+"end": 0.4,
+"seg": 0
+},
+{
+"w": "store",
+"start": 0.48,
+"end": 0.72,
+"seg": 0
+},
+{
+"w": "water",
+"start": 0.8,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "in",
+"start": 1.2,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "their",
+"start": 1.36,
+"end": 1.44,
+"seg": 0
+},
+{
+"w": "humps.",
+"start": 1.52,
+"end": 2.24,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 2.56,
+"end": 3.12,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.2,
+"end": 3.44,
+"seg": 0
+},
+{
+"w": "not",
+"start": 3.56,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 3.84,
+"end": 4.32,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.4,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "The",
+"start": 5.2,
+"end": 5.28,
+"seg": 0
+},
+{
+"w": "hump",
+"start": 5.36,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "is",
+"start": 5.76,
+"end": 5.92,
+"seg": 0
+},
+{
+"w": "full",
+"start": 6.0,
+"end": 6.08,
+"seg": 0
+},
+{
+"w": "of",
+"start": 6.16,
+"end": 6.24,
+"seg": 0
+},
+{
+"w": "fat.",
+"start": 6.32,
+"end": 6.72,
+"seg": 0
+},
+{
+"w": "A",
+"start": 7.12,
+"end": 7.2,
+"seg": 1
+},
+{
+"w": "hump",
+"start": 7.28,
+"end": 7.52,
+"seg": 1
+},
+{
+"w": "can",
+"start": 7.6,
+"end": 7.68,
+"seg": 1
+},
+{
+"w": "hold",
+"start": 7.76,
+"end": 7.92,
+"seg": 1
+},
+{
+"w": "up",
+"start": 8.0,
+"end": 8.08,
+"seg": 1
+},
+{
+"w": "to",
+"start": 8.2,
+"end": 8.32,
+"seg": 1
+},
+{
+"w": "80",
+"start": 8.4,
+"end": 8.64,
+"seg": 1
+},
+{
+"w": "pounds",
+"start": 8.8,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "of",
+"start": 9.2,
+"end": 9.28,
+"seg": 1
+},
+{
+"w": "fat,",
+"start": 9.36,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "which",
+"start": 9.92,
+"end": 10.0,
+"seg": 1
+},
+{
+"w": "the",
+"start": 10.08,
+"end": 10.16,
+"seg": 1
+},
+{
+"w": "camel",
+"start": 10.32,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "burns",
+"start": 10.56,
+"end": 10.84,
+"seg": 1
+},
+{
+"w": "for",
+"start": 10.88,
+"end": 11.04,
+"seg": 1
+},
+{
+"w": "energy",
+"start": 11.24,
+"end": 11.44,
+"seg": 1
+},
+{
+"w": "when",
+"start": 11.52,
+"end": 11.6,
+"seg": 1
+},
+{
+"w": "food",
+"start": 11.68,
+"end": 11.84,
+"seg": 1
+},
+{
+"w": "runs",
+"start": 11.92,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "out.",
+"start": 12.16,
+"end": 12.64,
+"seg": 1
+},
+{
+"w": "When",
+"start": 12.88,
+"end": 12.96,
+"seg": 2
+},
+{
+"w": "a",
+"start": 13.0,
+"end": 13.04,
+"seg": 2
+},
+{
+"w": "camel",
+"start": 13.12,
+"end": 13.36,
+"seg": 2
+},
+{
+"w": "goes",
+"start": 13.44,
+"end": 13.6,
+"seg": 2
+},
+{
+"w": "hungry",
+"start": 13.68,
+"end": 13.92,
+"seg": 2
+},
+{
+"w": "for",
+"start": 14.0,
+"end": 14.08,
+"seg": 2
+},
+{
+"w": "a",
+"start": 14.16,
+"end": 14.24,
+"seg": 2
+},
+{
+"w": "long",
+"start": 14.32,
+"end": 14.56,
+"seg": 2
+},
+{
+"w": "time,",
+"start": 14.64,
+"end": 15.2,
+"seg": 2
+},
+{
+"w": "the",
+"start": 15.24,
+"end": 15.28,
+"seg": 2
+},
+{
+"w": "hump",
+"start": 15.36,
+"end": 15.6,
+"seg": 2
+},
+{
+"w": "actually",
+"start": 15.8,
+"end": 16.0,
+"seg": 2
+},
+{
+"w": "shrinks",
+"start": 16.16,
+"end": 16.64,
+"seg": 2
+},
+{
+"w": "and",
+"start": 16.72,
+"end": 16.8,
+"seg": 2
+},
+{
+"w": "flops",
+"start": 16.88,
+"end": 17.2,
+"seg": 2
+},
+{
+"w": "over",
+"start": 17.28,
+"end": 17.44,
+"seg": 2
+},
+{
+"w": "to",
+"start": 17.52,
+"end": 17.6,
+"seg": 2
+},
+{
+"w": "one",
+"start": 17.68,
+"end": 17.76,
+"seg": 2
+},
+{
+"w": "side.",
+"start": 17.84,
+"end": 18.52,
+"seg": 2
+},
+{
+"w": "Here's",
+"start": 18.8,
+"end": 19.04,
+"seg": 3
+},
+{
+"w": "the",
+"start": 19.12,
+"end": 19.2,
+"seg": 3
+},
+{
+"w": "wild",
+"start": 19.36,
+"end": 19.68,
+"seg": 3
+},
+{
+"w": "part.",
+"start": 19.76,
+"end": 20.08,
+"seg": 3
+},
+{
+"w": "A",
+"start": 20.4,
+"end": 20.48,
+"seg": 3
+},
+{
+"w": "thirsty",
+"start": 20.64,
+"end": 20.96,
+"seg": 3
+},
+{
+"w": "camel",
+"start": 21.04,
+"end": 21.36,
+"seg": 3
+},
+{
+"w": "can",
+"start": 21.44,
+"end": 21.52,
+"seg": 3
+},
+{
+"w": "drink",
+"start": 21.6,
+"end": 21.76,
+"seg": 3
+},
+{
+"w": "about",
+"start": 21.84,
+"end": 22.08,
+"seg": 3
+},
+{
+"w": "30",
+"start": 22.24,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "gallons",
+"start": 22.64,
+"end": 23.04,
+"seg": 3
+},
+{
+"w": "of",
+"start": 23.08,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "water",
+"start": 23.28,
+"end": 23.52,
+"seg": 3
+},
+{
+"w": "in",
+"start": 23.6,
+"end": 23.76,
+"seg": 3
+},
+{
+"w": "just",
+"start": 23.88,
+"end": 24.0,
+"seg": 3
+},
+{
+"w": "13",
+"start": 24.16,
+"end": 24.64,
+"seg": 3
+},
+{
+"w": "minutes.",
+"start": 24.8,
+"end": 25.44,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 25.68,
+"end": 25.88,
+"seg": 4
+},
+{
+"w": "not",
+"start": 25.92,
+"end": 26.08,
+"seg": 4
+},
+{
+"w": "all.",
+"start": 26.2,
+"end": 26.4,
+"seg": 4
+},
+{
+"w": "Its",
+"start": 26.8,
+"end": 26.96,
+"seg": 4
+},
+{
+"w": "red",
+"start": 27.04,
+"end": 27.2,
+"seg": 4
+},
+{
+"w": "blood",
+"start": 27.28,
+"end": 27.44,
+"seg": 4
+},
+{
+"w": "cells",
+"start": 27.52,
+"end": 27.76,
+"seg": 4
+},
+{
+"w": "are",
+"start": 27.88,
+"end": 28.0,
+"seg": 4
+},
+{
+"w": "oval,",
+"start": 28.2,
+"end": 28.64,
+"seg": 4
+},
+{
+"w": "so",
+"start": 28.68,
+"end": 28.72,
+"seg": 4
+},
+{
+"w": "they",
+"start": 28.8,
+"end": 28.88,
+"seg": 4
+},
+{
+"w": "keep",
+"start": 28.96,
+"end": 29.12,
+"seg": 4
+},
+{
+"w": "flowing",
+"start": 29.2,
+"end": 29.52,
+"seg": 4
+},
+{
+"w": "when",
+"start": 29.6,
+"end": 29.68,
+"seg": 4
+},
+{
+"w": "the",
+"start": 29.72,
+"end": 29.76,
+"seg": 4
+},
+{
+"w": "camel",
+"start": 29.84,
+"end": 30.08,
+"seg": 4
+},
+{
+"w": "is",
+"start": 30.16,
+"end": 30.24,
+"seg": 4
+},
+{
+"w": "dried",
+"start": 30.28,
+"end": 30.48,
+"seg": 4
+},
+{
+"w": "out,",
+"start": 30.56,
+"end": 31.12,
+"seg": 4
+},
+{
+"w": "and",
+"start": 31.2,
+"end": 31.44,
+"seg": 4
+},
+{
+"w": "they",
+"start": 31.52,
+"end": 31.6,
+"seg": 4
+},
+{
+"w": "can",
+"start": 31.72,
+"end": 31.84,
+"seg": 4
+},
+{
+"w": "swell",
+"start": 31.92,
+"end": 32.16,
+"seg": 4
+},
+{
+"w": "up",
+"start": 32.24,
+"end": 32.4,
+"seg": 4
+},
+{
+"w": "without",
+"start": 32.56,
+"end": 32.72,
+"seg": 4
+},
+{
+"w": "bursting.",
+"start": 32.8,
+"end": 33.68,
+"seg": 4
+},
+{
+"w": "In",
+"start": 33.76,
+"end": 33.84,
+"seg": 5
+},
+{
+"w": "fact,",
+"start": 33.92,
+"end": 34.48,
+"seg": 5
+},
+{
+"w": "a",
+"start": 34.56,
+"end": 34.64,
+"seg": 5
+},
+{
+"w": "camel",
+"start": 34.8,
+"end": 34.96,
+"seg": 5
+},
+{
+"w": "can",
+"start": 35.04,
+"end": 35.12,
+"seg": 5
+},
+{
+"w": "lose",
+"start": 35.2,
+"end": 35.36,
+"seg": 5
+},
+{
+"w": "a",
+"start": 35.44,
+"end": 35.52,
+"seg": 5
+},
+{
+"w": "quarter",
+"start": 35.6,
+"end": 35.92,
+"seg": 5
+},
+{
+"w": "of",
+"start": 35.96,
+"end": 36.0,
+"seg": 5
+},
+{
+"w": "its",
+"start": 36.12,
+"end": 36.24,
+"seg": 5
+},
+{
+"w": "body",
+"start": 36.36,
+"end": 36.48,
+"seg": 5
+},
+{
+"w": "weight",
+"start": 36.56,
+"end": 36.72,
+"seg": 5
+},
+{
+"w": "in",
+"start": 36.8,
+"end": 36.88,
+"seg": 5
+},
+{
+"w": "water",
+"start": 37.08,
+"end": 37.28,
+"seg": 5
+},
+{
+"w": "and",
+"start": 37.4,
+"end": 37.52,
+"seg": 5
+},
+{
+"w": "still",
+"start": 37.68,
+"end": 37.84,
+"seg": 5
+},
+{
+"w": "survive.",
+"start": 37.92,
+"end": 38.88,
+"seg": 5
+},
+{
+"w": "That",
+"start": 38.96,
+"end": 39.04,
+"seg": 5
+},
+{
+"w": "would",
+"start": 39.16,
+"end": 39.28,
+"seg": 5
+},
+{
+"w": "kill",
+"start": 39.36,
+"end": 39.6,
+"seg": 5
+},
+{
+"w": "most",
+"start": 39.68,
+"end": 39.84,
+"seg": 5
+},
+{
+"w": "other",
+"start": 39.92,
+"end": 40.08,
+"seg": 5
+},
+{
+"w": "animals.",
+"start": 40.16,
+"end": 41.12,
+"seg": 5
+},
+{
+"w": "So",
+"start": 41.28,
+"end": 41.44,
+"seg": 6
+},
+{
+"w": "the",
+"start": 41.52,
+"end": 41.6,
+"seg": 6
+},
+{
+"w": "hump",
+"start": 41.68,
+"end": 42.0,
+"seg": 6
+},
+{
+"w": "isn't",
+"start": 42.08,
+"end": 42.32,
+"seg": 6
+},
+{
+"w": "a",
+"start": 42.4,
+"end": 42.48,
+"seg": 6
+},
+{
+"w": "water",
+"start": 42.6,
+"end": 42.72,
+"seg": 6
+},
+{
+"w": "bottle.",
+"start": 42.8,
+"end": 43.52,
+"seg": 6
+},
+{
+"w": "It's",
+"start": 43.56,
+"end": 43.68,
+"seg": 6
+},
+{
+"w": "a",
+"start": 43.72,
+"end": 43.76,
+"seg": 6
+},
+{
+"w": "lunchbox.",
+"start": 43.84,
+"end": 44.8,
+"seg": 6
+}
+]
+}

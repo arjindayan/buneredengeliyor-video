@@ -1,0 +1,31 @@
+{
+ "title": "Goldfish have a 3-second memory?",
+ "lang": "en",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Goldfish have a three-second memory. Well, that's not exactly true. They can remember things for months."
+  },
+  {
+   "scene": "learn",
+   "text": "Scientists have trained goldfish to push levers for food, swim through mazes, and even come over when they hear a certain sound."
+  },
+  {
+   "scene": "clock",
+   "text": "Here's the wild part. In one study, goldfish learned to push a lever at the same hour every day, because that was the only hour it worked."
+  },
+  {
+   "scene": "color",
+   "text": "That's not all. Goldfish see more colors than you do, including ultraviolet light."
+  },
+  {
+   "scene": "age",
+   "text": "In fact, with good care a goldfish can live over {20|twenty} years. The oldest one on record made it to {43.|forty-three.}"
+  },
+  {
+   "scene": "son",
+   "text": "So next time you forget something, don't call it a goldfish memory. The goldfish might be insulted."
+  }
+ ]
+}

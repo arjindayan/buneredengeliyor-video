@@ -1,0 +1,31 @@
+{
+ "title": "Bananas are berries?",
+ "lang": "en",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Strawberries are berries. Well, that's not exactly true. Botanically, they're not berries at all. But bananas are."
+  },
+  {
+   "scene": "def",
+   "text": "To a botanist, a berry is a fruit that grows from one flower with one ovary, with the seeds inside the flesh."
+  },
+  {
+   "scene": "list",
+   "text": "Bananas fit perfectly. So do grapes, tomatoes, kiwis, and even eggplants."
+  },
+  {
+   "scene": "dots",
+   "text": "Here's the wild part. Those little dots on a strawberry aren't seeds. Each one is its own tiny fruit, with a seed inside."
+  },
+  {
+   "scene": "more",
+   "text": "That's not all. Raspberries and blackberries aren't true berries either. But pumpkins and watermelons? Technically, a kind of berry."
+  },
+  {
+   "scene": "son",
+   "text": "So next time you eat a strawberry, remember: the banana is the real berry."
+  }
+ ]
+}

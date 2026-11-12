@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gün batımında kum tepeleri, uzun kirpikli deve + kaktüs tepkici, hörgüç röntgeni */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#2B2550}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:210px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 4px 0 rgba(30,20,50,.6)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B2550"/><stop offset=".5" stop-color="#8C4A6B"/><stop offset=".8" stop-color="#F2A65A"/><stop offset="1" stop-color="#F7C978"/></linearGradient>
+    <clipPath id="humpKes"><path id="humpYol"/></clipPath>
+    <clipPath id="mikro"><circle r="170"/></clipPath>
+  </defs>
+  <g id="arka"></g>
+  <g id="dunya"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+const ZEMIN = 1620;
+
+function hump(h, flop) {
+  // h: boyut 0..1, flop: yana yatma 0..1
+  const tx = flop * 110, ty = -110 - h * 150 + flop * 60;
+  return `M-130 -80 C-120 ${f2(-110 - h * 90)} ${f2(-60 + tx)} ${f2(ty)} ${f2(tx * .9)} ${f2(ty)} C${f2(60 + tx)} ${f2(ty)} ${f2(110 + tx * .4)} ${f2(-110 - h * 60 + flop * 40)} 130 -80Z`;
+}
+function deve(x, y, s, t, o) {
+  const yuru = o.yuru || 0, a = sin(t * .3) * 14 * yuru, egil = o.egil || 0;
+  let g = `<g transform="translate(${f2(x)},${f2(y)}) scale(${s})">`;
+  [[-140, a], [-90, -a], [100, -a], [150, a]].forEach(([lx, r]) => g += `<g transform="rotate(${f2(r)} ${lx} 60)"><path d="M${lx} 60 L${lx} 170 L${lx + 4} 290" stroke="#C78A50" stroke-width="30" stroke-linecap="round" fill="none"/><ellipse cx="${lx + 10}" cy="292" rx="26" ry="12" fill="#8C5A30"/><circle cx="${lx}" cy="175" r="18" fill="#C78A50"/></g>`);
+  g += `<path d="M-200 -10 q-50 30 -40 100" stroke="#C78A50" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M-243 85 l-8 30 l16 0Z" fill="#8C5A30"/>`;
+  const hy = hump(o.h, o.flop);
+  g += `<path d="${hy}" fill="#E0A76A" stroke="#B9783E" stroke-width="6"/>`;
+  if (o.xray > .01) {
+    g += `<g opacity="${f2(o.xray)}"><path d="${hy}" fill="#2B2550" stroke="#9BE1FF" stroke-width="6"/><g clip-path="url(#humpKes)">`;
+    for (let k = 0; k < 18; k++) { const bx = -110 + rastgele(k) * 220 + o.flop * 60, by = -90 - rastgele(k + 9) * 220 * o.h + o.flop * 30, r = 22 + rastgele(k + 3) * 26; g += `<circle cx="${f2(bx)}" cy="${f2(by)}" r="${f2(r)}" fill="#FFE07A" stroke="#E0B23A" stroke-width="4"/>`; }
+    g += `</g></g>`;
+  }
+  g += `<ellipse cx="0" cy="0" rx="215" ry="115" fill="#E0A76A"/><ellipse cx="-10" cy="40" rx="150" ry="55" fill="#EBBB85"/>`;
+  // boyun + kafa
+  g += `<g transform="rotate(${f2(egil * 55)} 170 -30)">`;
+  g += `<path d="M150 -60 C200 -100 210 -180 250 -240" stroke="#E0A76A" stroke-width="92" stroke-linecap="round" fill="none"/>`;
+  g += `<g transform="translate(290,-262)"><ellipse rx="85" ry="58" fill="#E0A76A"/><ellipse cx="62" cy="14" rx="44" ry="36" fill="#EBBB85"/><ellipse cx="88" cy="4" rx="6" ry="9" fill="#7A4A26"/>`;
+  g += `<path d="M-50 -48 l-14 -34 l26 16Z" fill="#C78A50"/>`;
+  g += o.kapali ? `<path d="M-14 -12 q16 14 32 0" stroke="#3A2414" stroke-width="7" fill="none" stroke-linecap="round"/>` : `<ellipse cx="2" cy="-12" rx="${o.sur ? 22 : 18}" ry="${o.sur ? 24 : 20}" fill="#fff"/><circle cx="8" cy="-10" r="${o.sur ? 9 : 11}" fill="#3A2414"/><circle cx="12" cy="-15" r="4" fill="#fff"/>`;
+  g += `<path d="M-16 -32 l-10 -12 M-4 -36 l-4 -14 M10 -36 l2 -14" stroke="#3A2414" stroke-width="5" stroke-linecap="round"/>`;
+  g += o.sad ? `<path d="M50 44 q14 -10 28 0" stroke="#7A4A26" stroke-width="6" fill="none" stroke-linecap="round"/>` : `<path d="M48 36 q16 14 32 0" stroke="#7A4A26" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+  g += `<ellipse cx="-30" cy="16" rx="14" ry="8" fill="#FF8FA3" opacity=".6"/></g></g>`;
+  return g + '</g>';
+}
+function kaktus(x, y, s, t, sur) {
+  const sal = sin(t * .08) * 3;
+  return `<g transform="translate(${x},${y}) rotate(${f2(sal)}) scale(${s})"><path d="M-40 0 V-260 Q-40 -300 0 -300 Q40 -300 40 -260 V0Z" fill="#5BAE6A" stroke="#2E7D3E" stroke-width="6"/>` +
+    `<path d="M-40 -140 H-80 Q-100 -140 -100 -160 V-210" stroke="#5BAE6A" stroke-width="40" stroke-linecap="round" fill="none"/><path d="M40 -100 H80 Q100 -100 100 -120 V-170" stroke="#5BAE6A" stroke-width="40" stroke-linecap="round" fill="none"/>` +
+    `<circle cx="-14" cy="-220" r="${sur ? 10 : 8}" fill="#1E3A24"/><circle cx="14" cy="-220" r="${sur ? 10 : 8}" fill="#1E3A24"/>` + (sur ? `<ellipse cx="0" cy="-192" rx="8" ry="10" fill="#1E3A24"/>` : `<path d="M-10 -196 q10 10 20 0" stroke="#1E3A24" stroke-width="5" fill="none" stroke-linecap="round"/>`) +
+    `<circle cx="0" cy="-310" r="16" fill="#FF8FB1"/><rect x="-60" y="-4" width="120" height="70" rx="10" fill="#C96A3B" stroke="#8C4220" stroke-width="6"/></g>`;
+}
+
+let K = null;
+function kur() {
+  const S = T.seg, E = T.total;
+  K = { cam: [[0, [560, 1380, 1.25]], [S.drink.start, [560, 1380, 1.25]], [S.drink.start + 16, [640, 1420, 1.25]], [S.blood.start, [640, 1420, 1.25]], [S.blood.start + 14, [560, 1380, 1.25]], [E, [560, 1380, 1.25]]] };
+}
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, c = cue, t = f;
+  const [cx, cy, s] = kf(f, K.cam);
+  let a = `<rect width="1080" height="1920" fill="url(#gok)"/><circle cx="960" cy="1110" r="110" fill="#FFD98A" opacity=".9"/>`;
+  a += `<g transform="translate(540,1250) scale(${f2(1 + (s - 1) * .3)}) translate(-540,-1250)"><path d="M-100 1300 Q200 1180 480 1290 T1180 1260 V2000 H-100Z" fill="#D9925A"/><path d="M-100 1420 Q300 1320 640 1420 T1200 1400 V2000 H-100Z" fill="#E8A866"/></g>`;
+  a += `<path d="M-100 1560 Q300 1500 700 1580 T1200 1560 V2000 H-100Z" fill="#F3C07E"/>`;
+  for (let k = 0; k < 18; k++) a += `<path d="M${f2(rastgele(k) * 1080)} ${f2(1640 + rastgele(k + 4) * 260)} q20 -8 40 0" stroke="#D9A066" stroke-width="5" fill="none"/>`;
+  $('arka').innerHTML = a;
+
+  let w = '';
+  const xr = kf(f, [[0, 0], [c('hook', 'hump', 0) - 2, 0], [c('hook', 'hump', 0) + 1, 0], [c('hook', 'fat') - 4, 0], [c('hook', 'fat') + 6, 1], [S.fat.end, 1], [S.fat.end + 10, 0]]);
+  const h = kf(f, [[0, 1], [c('shrink', 'shrinks') - 2, 1], [c('shrink', 'shrinks') + 20, .45], [S.drink.start, .45], [S.drink.start + 16, 1]]);
+  const flop = kf(f, [[0, 0], [c('shrink', 'flops') - 2, 0], [c('shrink', 'flops') + 14, 1], [S.drink.start, 1], [S.drink.start + 16, 0]]);
+  const egil = kf(f, [[0, 0], [c('drink', 'drink') - 6, 0], [c('drink', 'drink') + 6, 1], [S.drink.end, 1], [S.drink.end + 10, 0]]);
+  const sur = (f >= c('hook', 'well') && f < c('hook', 'well') + 24) || (f >= c('drink', '30') && f < c('drink', '30') + 20);
+  const sad = f >= c('shrink', 'hungry') && f < S.drink.start;
+  const blink = [80, 330, 700, 1010, 1230].some(b => f >= b && f < b + 6) || egil > .5;
+  // trough
+  const trO = kf(f, [[0, 0], [S.drink.start, 0], [S.drink.start + 10, 1], [S.blood.start, 1], [S.blood.start + 10, 0]]);
+  const seviye = kf(f, [[0, 1], [c('drink', 'drink'), 1], [S.drink.end, .1]]);
+  if (trO > .01) w += `<g opacity="${f2(trO)}"><rect x="760" y="1560" width="260" height="90" rx="14" fill="#8C5A30" stroke="#5E3A1A" stroke-width="6"/><rect x="772" y="${f2(1572 + (1 - seviye) * 60)}" width="236" height="${f2(10 + seviye * 60)}" rx="8" fill="#4FC3F7"/></g>`;
+  // humpKes yolu, deve konumuyla (480, ZEMIN-290, ölçek .9)
+  document.getElementById('humpYol').setAttribute('d', hump(h, flop));
+  w += deve(480, ZEMIN - 300, .9, t, { h, flop, xray: xr, egil, sur, sad, kapali: blink });
+  const ksur = (f >= c('hook', 'well') && f < c('hook', 'well') + 24) || (f >= c('lose', 'kill') && f < c('lose', 'kill') + 30);
+  w += kaktus(930, ZEMIN + 10, .7, t, ksur);
+  // su damlası ve çarpı
+  const dS = c('hook', 'water'), xS = c('hook', 'true');
+  if (f >= dS && f < c('hook', 'fat') + 2) {
+    const p = backOut((f - dS) / 12) * (1 - klamp((f - c('hook', 'fat') + 4) / 6));
+    w += `<g transform="translate(480,980) scale(${f2(p)})"><path d="M0 -90 C40 -30 70 10 70 40 A70 70 0 0 1 -70 40 C-70 10 -40 -30 0 -90Z" fill="#4FC3F7" stroke="#0B5C86" stroke-width="7"/>` +
+      (f >= xS ? `<path d="M-70 -60 L70 90 M70 -60 L-70 90" stroke="#FF4D5E" stroke-width="22" stroke-linecap="round" transform="scale(${f2(backOut((f - xS) / 10))})"/>` : '') + `</g>`;
+  }
+  w += etiket('FAT', 480, 920, f, c('hook', 'fat'), S.fat.end, 96, '#FFE07A', 'middle', '#2B2550');
+  w += etiket('up to 80 lb', 480, 820, f, c('fat', '80'), S.fat.end, 60, '#FFF3DC', 'middle', '#2B2550');
+  w += etiket('= backup energy', 480, 1010, f, c('fat', 'energy'), S.fat.end, 50, '#FFE07A', 'middle', '#2B2550');
+  w += etiket('hungry...', 480, 900, f, c('shrink', 'hungry'), S.shrink.end, 60, '#FFF3DC', 'middle', '#2B2550');
+  // içme sayaçları
+  if (f >= c('drink', '30') && f < S.blood.start + 6) {
+    const o = 1 - klamp((f - S.blood.start) / 6), g0 = c('drink', '30'), m0 = c('drink', '13');
+    const gal = Math.round(kf(f, [[0, 0], [g0, 0], [S.drink.end, 30]])), dk = Math.round(kf(f, [[0, 0], [m0 - 10, 0], [S.drink.end, 13]]));
+    w += `<g opacity="${f2(o)}">${etiket(`${gal} gallons`, 880, 1440, f, g0, S.blood.start, 56, '#4FC3F7', 'middle', '#2B2550')}${etiket(`${dk} min`, 880, 1360, f, m0, S.blood.start, 50, '#FFF3DC', 'middle', '#2B2550')}</g>`;
+  }
+  // yemek kutusu (son)
+  const lb = c('son', 'lunchbox');
+  if (f >= lb - 2) {
+    const p = backOut((f - lb) / 12);
+    w += `<g transform="translate(480,900) scale(${f2(p)})"><rect x="-110" y="-60" width="220" height="140" rx="22" fill="#E8505B" stroke="#7A1E2A" stroke-width="8"/><path d="M-50 -60 V-100 H50 V-60" stroke="#7A1E2A" stroke-width="12" fill="none" stroke-linecap="round"/><rect x="-110" y="-10" width="220" height="16" fill="#7A1E2A" opacity=".5"/></g>`;
+  }
+  w += etiket('not a water bottle', 480, 1000, f, c('son', 'water'), lb - 2, 50, '#4FC3F7', 'middle', '#2B2550');
+  $('dunya').setAttribute('transform', `translate(540,1250) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  // ekran katmanı: kan hücreleri, su kaybı
+  let u = '';
+  if (f >= S.blood.start + 10 && f < S.lose.start + 6) {
+    const o = klamp((f - S.blood.start - 10) / 8) * (1 - klamp((f - S.lose.start) / 6)), sw = kf(f, [[0, 1], [c('blood', 'swell'), 1], [c('blood', 'swell') + 14, 1.35]]);
+    u += `<g opacity="${f2(o)}"><rect width="1080" height="1920" fill="#1E1A38" opacity=".8"/>`;
+    const panel = (x, oval, ad, akar) => {
+      let p = `<g transform="translate(${x},1000)"><circle r="170" fill="#FBE3E6" stroke="#FFF3DC" stroke-width="10"/><g clip-path="url(#mikro)">`;
+      for (let k = 0; k < 9; k++) { const px = ((rastgele(k) * 400 + t * (akar ? 3 : .6)) % 400) - 200, py = -120 + (k % 3) * 120 + rastgele(k + 5) * 30; p += oval ? `<ellipse cx="${f2(px)}" cy="${f2(py)}" rx="${f2(46 * sw)}" ry="${f2(26 * sw)}" fill="#E53950" stroke="#A3162A" stroke-width="4"/>` : `<circle cx="${f2(px)}" cy="${f2(py)}" r="38" fill="#E53950" stroke="#A3162A" stroke-width="4"/><circle cx="${f2(px)}" cy="${f2(py)}" r="14" fill="#C2283F"/>`; }
+      return p + `</g><text class="lbl" y="230" text-anchor="middle" font-size="54" fill="#FFF3DC" stroke="#1E1A38" stroke-width="9">${ad}</text></g>`;
+    };
+    u += panel(290, false, 'most animals', false) + panel(790, true, 'camel', true);
+    u += `<text class="lbl" x="540" y="760" text-anchor="middle" font-size="64" fill="#FFE07A" stroke="#1E1A38" stroke-width="10">oval blood cells</text></g>`;
+    u += etiket('swell, no burst', 540, 1360, f, c('blood', 'swell'), S.lose.start - 2, 60, '#7CE0A3', 'middle', '#1E1A38');
+  }
+  if (f >= S.lose.start && f < S.son.start + 6) {
+    const o = klamp((f - S.lose.start) / 8) * (1 - klamp((f - S.son.start) / 6)), su = kf(f, [[0, 1], [c('lose', 'quarter'), 1], [c('lose', 'quarter') + 30, .75]]);
+    u += `<g opacity="${f2(o)}" transform="translate(540,720)"><rect x="-300" y="-40" width="600" height="80" rx="40" fill="#1E1A38" stroke="#FFF3DC" stroke-width="7"/><rect x="-292" y="-32" width="${f2(584 * su)}" height="64" rx="32" fill="#4FC3F7"/><text class="lbl" y="110" text-anchor="middle" font-size="58" fill="#FFF3DC" stroke="#2B2550" stroke-width="9">body water: ${Math.round(su * 100)}%</text></g>`;
+    u += etiket('still fine', 540, 920, f, c('lose', 'survive'), S.son.start - 2, 64, '#7CE0A3', 'middle', '#2B2550');
+    u += etiket('most animals: not fine', 540, 1010, f, c('lose', 'kill'), S.son.start - 2, 48, '#FF8A80', 'middle', '#2B2550');
+  }
+  $('ust').innerHTML = u;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

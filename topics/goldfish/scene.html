@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: akşam odası, masada fanus, sevimli japon balığı + kedi tepkici */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#1D3B4A}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:210px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 4px 0 rgba(10,20,30,.6)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="duvar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17303D"/><stop offset=".7" stop-color="#2C5A6B"/><stop offset="1" stop-color="#3B7385"/></linearGradient>
+    <radialGradient id="su" cx=".45" cy=".4" r=".7"><stop offset="0" stop-color="#9FE3F0" stop-opacity=".55"/><stop offset="1" stop-color="#4DB3CF" stop-opacity=".55"/></radialGradient>
+    <clipPath id="fanusKes"><circle cx="540" cy="1260" r="330"/></clipPath>
+    <linearGradient id="tayf" x1="0" x2="1"><stop offset="0" stop-color="#7B2FF7"/><stop offset=".2" stop-color="#3D5AFE"/><stop offset=".4" stop-color="#00C853"/><stop offset=".6" stop-color="#FFEB3B"/><stop offset=".8" stop-color="#FF9800"/><stop offset="1" stop-color="#F44336"/></linearGradient>
+  </defs>
+  <g id="arka"></g>
+  <g id="dunya"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+const KX = 540, KY = 1260, KR = 330;
+
+function balik(x, y, s, yon, t, o = {}) {
+  const k = sin(t * 0.35) * 14;
+  let g = `<g transform="translate(${f2(x)},${f2(y)}) scale(${f2(s * yon)},${f2(s)})">`;
+  g += `<path d="M-70 0 C-110 -60 -170 -70 -190 -40 C-170 -10 -170 10 -190 40 C-170 70 -110 60 -70 0Z" fill="#FFB067" stroke="#E2671B" stroke-width="5" transform="rotate(${f2(k)} -70 0)"/>`;
+  g += `<path d="M-10 -55 Q20 -110 60 -60Z" fill="#FFB067" stroke="#E2671B" stroke-width="5"/>`;
+  g += `<ellipse rx="100" ry="70" fill="#FF8A3D" stroke="#E2671B" stroke-width="6"/>`;
+  g += `<path d="M-40 -60 q10 60 0 120 M-10 -68 q10 68 0 136" stroke="#FFB067" stroke-width="6" fill="none" opacity=".7"/>`;
+  g += `<path d="M10 30 q20 40 -20 50 q10 -30 20 -50Z" fill="#FFB067" stroke="#E2671B" stroke-width="4" transform="rotate(${f2(-k)} 10 30)"/>`;
+  g += `<circle cx="50" cy="-15" r="${o.sur ? 30 : 26}" fill="#fff"/><circle cx="${o.sur ? 54 : 56}" cy="-14" r="${o.sur ? 11 : 15}" fill="#2B1B2E"/><circle cx="61" cy="-21" r="5" fill="#fff"/>`;
+  if (o.huysuz) g += `<path d="M28 -48 l40 12" stroke="#2B1B2E" stroke-width="7" stroke-linecap="round"/>`;
+  g += o.sur ? `<ellipse cx="88" cy="22" rx="9" ry="12" fill="#B33A12"/>` : o.huysuz ? `<path d="M74 28 q12 -8 22 2" stroke="#B33A12" stroke-width="6" fill="none" stroke-linecap="round"/>` : `<path d="M74 22 q12 12 22 0" stroke="#B33A12" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+  g += `<ellipse cx="30" cy="20" rx="14" ry="8" fill="#FF6F61" opacity=".6"/>`;
+  if (o.taç) g += `<path d="M-30 -66 l12 -46 l22 30 l18 -40 l18 40 l22 -30 l12 46Z" fill="#FFD54F" stroke="#B8860B" stroke-width="5"/>`;
+  return g + '</g>';
+}
+function kedi(x, y, s, gul, sur, t) {
+  const b = sin(t * .06) * 4;
+  let g = `<g transform="translate(${x},${f2(y + b)}) scale(${s})">`;
+  g += `<path d="M-95 -60 L-80 -150 L-30 -95Z M95 -60 L80 -150 L30 -95Z" fill="#9AA1B5" stroke="#5E6478" stroke-width="5" stroke-linejoin="round"/>`;
+  g += `<ellipse cx="0" cy="-20" rx="110" ry="95" fill="#9AA1B5" stroke="#5E6478" stroke-width="5"/>`;
+  g += `<circle cx="-38" cy="-35" r="${sur ? 18 : 14}" fill="#2B1B2E"/><circle cx="38" cy="-35" r="${sur ? 18 : 14}" fill="#2B1B2E"/><circle cx="-33" cy="-40" r="5" fill="#fff"/><circle cx="43" cy="-40" r="5" fill="#fff"/>`;
+  g += `<path d="M-8 -8 h16 l-8 9Z" fill="#FF8FA3"/>` + (gul ? `<path d="M-30 6 q15 26 30 2 q15 24 30 -2" stroke="#2B1B2E" stroke-width="5" fill="#FF8FA3"/>` : `<path d="M-20 8 q10 10 20 0 q10 10 20 0" stroke="#2B1B2E" stroke-width="5" fill="none"/>`);
+  g += `<path d="M-60 0 h-60 M-60 12 h-55 M60 0 h60 M60 12 h55" stroke="#5E6478" stroke-width="3"/>`;
+  g += `<ellipse cx="-70" cy="78" rx="34" ry="20" fill="#B7BDCE" stroke="#5E6478" stroke-width="4"/><ellipse cx="70" cy="78" rx="34" ry="20" fill="#B7BDCE" stroke="#5E6478" stroke-width="4"/>`;
+  return g + '</g>';
+}
+
+let K = null;
+function kur() {
+  const S = T.seg, E = T.total;
+  K = { cam: [[0, [540, 1250, 1.22]], [S.learn.start, [540, 1250, 1.22]], [S.learn.start + 16, [540, 1270, 1.38]], [S.color.start, [540, 1270, 1.38]], [S.color.start + 14, [540, 1250, 1.22]], [E, [540, 1250, 1.22]]] };
+}
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, c = cue, t = f;
+  const [cx, cy, s] = kf(f, K.cam);
+  // arka plan: duvar, pencere, masa
+  let a = `<rect width="1080" height="1920" fill="url(#duvar)"/>`;
+  a += `<g opacity=".9"><rect x="90" y="560" width="250" height="330" rx="18" fill="#0F2430" stroke="#5D8C9C" stroke-width="10"/><path d="M215 560 V890 M90 725 H340" stroke="#5D8C9C" stroke-width="8"/><circle cx="280" cy="630" r="34" fill="#FFF1C9"/></g>`;
+  for (let k = 0; k < 14; k++) a += `<circle cx="${f2(110 + rastgele(k) * 220)}" cy="${f2(580 + rastgele(k + 9) * 140)}" r="2.5" fill="#fff" opacity="${f2(.3 + .5 * (0.5 + 0.5 * sin(t * .1 + k)))}"/>`;
+  a += `<rect x="-20" y="1600" width="1120" height="400" fill="#7A4E35"/><rect x="-20" y="1590" width="1120" height="26" fill="#A06A48"/>`;
+  $('arka').innerHTML = a;
+
+  let w = '';
+  // fanus
+  w += `<ellipse cx="${KX}" cy="1600" rx="260" ry="30" fill="#000" opacity=".25"/>`;
+  w += `<circle cx="${KX}" cy="${KY}" r="${KR}" fill="url(#su)"/><g clip-path="url(#fanusKes)"><rect x="200" y="${KY - KR}" width="680" height="70" fill="#1D3B4A" opacity=".55"/>`;
+  w += `<path d="M260 1540 Q400 1470 540 1520 T840 1510 V1620 H240Z" fill="#E8D3A2"/><circle cx="380" cy="1520" r="18" fill="#C9A87A"/><circle cx="700" cy="1530" r="22" fill="#A8C5A0"/>`;
+  [[330, 1530], [760, 1520]].forEach(([x, y], i) => { let d = `M${x} ${y}`; for (let j = 1; j <= 5; j++) d += ` Q${f2(x + sin(t * .05 + i + j) * 22 + (j % 2 ? 25 : -25))} ${y - j * 50 + 25} ${f2(x + sin(t * .05 + i + j * .7) * 16)} ${y - j * 50}`; w += `<path d="${d}" stroke="#4CAF7A" stroke-width="18" fill="none" stroke-linecap="round"/>`; });
+  for (let k = 0; k < 8; k++) { const u = ((t * .01 + rastgele(k)) % 1); w += `<circle cx="${f2(300 + rastgele(k + 3) * 480)}" cy="${f2(1540 - u * 560)}" r="${f2(5 + rastgele(k) * 8)}" fill="none" stroke="#E6FAFF" stroke-width="3" opacity="${f2(1 - u)}"/>`; }
+  w += '</g>';
+  // kol ve yem (öğrenme sahnesi)
+  const lev = c('learn', 'levers'), maz = c('learn', 'mazes'), ses = c('learn', 'sound'), saat = c('clock', 'lever');
+  const kolO = kf(f, [[0, 0], [lev - 4, 0], [lev + 6, 1], [maz - 2, 1], [maz + 6, 0], [saat - 6, 0], [saat + 4, 1], [S.color.start - 2, 1], [S.color.start + 6, 0]]);
+  const bas = (f >= lev + 14 && f < lev + 22) || (f >= saat + 20 && f < saat + 28) || (f >= c('clock', 'only') && f < c('clock', 'only') + 8);
+  if (kolO > .01) {
+    w += `<g opacity="${f2(kolO)}"><rect x="690" y="1310" width="70" height="40" rx="10" fill="#FFD54F" stroke="#7A5A10" stroke-width="5"/><path d="M725 1310 L${bas ? 700 : 750} 1240" stroke="#7A5A10" stroke-width="12" stroke-linecap="round"/><circle cx="${bas ? 700 : 750}" cy="1240" r="16" fill="#E8505B"/></g>`;
+    for (let k = 0; k < 5; k++) { const u = klamp((f - lev - 22 - k * 3) / 30); if (u > 0 && u < 1) w += `<circle cx="${f2(640 + k * 14)}" cy="${f2(940 + u * 360)}" r="9" fill="#C1693C" opacity="${f2(1 - u * .5)}"/>`; }
+  }
+  // labirent
+  const mzO = kf(f, [[0, 0], [maz - 2, 0], [maz + 8, 1], [ses - 2, 1], [ses + 6, 0]]);
+  if (mzO > .01) w += `<g opacity="${f2(mzO)}" fill="none" stroke="#FFF3DC" stroke-width="12" stroke-linecap="round"><path d="M300 1060 H780 M300 1060 V1460 H600 M780 1060 V1300 M440 1160 H680 V1460 M440 1160 V1360 H540 M780 1460 H700"/></g>`;
+  // balık konumu
+  let fx = KX + sin(t * 0.03) * 150, fy = KY + sin(t * 0.05) * 50, yon = cos(t * 0.03) >= 0 ? 1 : -1;
+  if (mzO > .3) { const u = klamp((f - maz) / 60); fx = 360 + u * 360; fy = 1110 + sin(u * P * 2) * 30; yon = 1; }
+  if (kolO > .3) { fx = kf(f, [[0, fx], [lev, fx], [lev + 12, 620], [maz, 620]]); if (f >= saat) fx = 620; fy = kf(f, [[0, fy], [lev, fy], [lev + 12, 1280]]); if (f >= saat) fy = 1280; yon = 1; }
+  const sesO = kf(f, [[0, 0], [ses - 2, 0], [ses + 6, 1], [S.clock.start, 1], [S.clock.start + 6, 0]]);
+  if (sesO > .01) { fx = kf(f, [[0, fx], [ses, KX], [ses + 20, 330]]); fy = 1180; yon = -1; }
+  const huysuz = f >= c('son', 'insulted') - 4;
+  const sur = (f >= c('hook', 'well') && f < c('hook', 'well') + 24) || (f >= c('son', 'forget') && f < c('son', 'forget') + 16);
+  const tac = f >= c('age', 'oldest') && f < S.son.start + 6;
+  if (huysuz || f < 30) { fx = KX; fy = KY; yon = 1; }
+  w += balik(fx, fy, 1, yon, t, { sur, huysuz, taç: tac });
+  w += `<circle cx="${KX}" cy="${KY}" r="${KR}" fill="none" stroke="#DFF7FF" stroke-width="10" opacity=".8"/><path d="M290 1050 Q340 960 440 940" stroke="#fff" stroke-width="16" fill="none" stroke-linecap="round" opacity=".55"/>`;
+  w += `<ellipse cx="${KX}" cy="${KY - KR + 6}" rx="190" ry="26" fill="none" stroke="#DFF7FF" stroke-width="10" opacity=".8"/>`;
+  // zil
+  if (sesO > .01) {
+    w += `<g opacity="${f2(sesO)}" transform="translate(120,1180) rotate(${f2(sin(t * .6) * 14)})"><path d="M-40 30 Q-40 -40 0 -46 Q40 -40 40 30Z" fill="#FFD54F" stroke="#7A5A10" stroke-width="5"/><circle cy="40" r="10" fill="#7A5A10"/></g>`;
+    for (let k = 0; k < 3; k++) { const u = ((t * .03 + k / 3) % 1); w += `<path d="M${f2(180 + u * 80)} ${f2(1130 - u * 30)} q30 50 0 100" stroke="#FFF3DC" stroke-width="7" fill="none" opacity="${f2(sesO * (1 - u))}"/>`; }
+  }
+  // kedi (tepkici)
+  const gul = f >= c('son', 'insulted');
+  w += kedi(900, 1580, .75, gul, f >= c('hook', 'well') && f < c('hook', 'well') + 24, t);
+  // etiketler
+  w += etiket('3 seconds?', 540, 840, f, c('hook', 'three'), c('hook', 'well') + 6, 76, '#FFD54F', 'middle', '#17303D');
+  w += etiket('MONTHS', 540, 840, f, c('hook', 'months'), S.learn.start + 4, 96, '#7CE0A3', 'middle', '#17303D');
+  w += etiket('levers', 730, 1400, f, lev, maz - 2, 46, '#FFD54F', 'middle', '#17303D');
+  w += etiket('mazes', 540, 980, f, maz, ses - 2, 50, '#FFF3DC', 'middle', '#17303D');
+  w += etiket('sounds', 130, 1300, f, ses, S.clock.start - 2, 46, '#FFD54F', 'middle', '#17303D');
+  $('dunya').setAttribute('transform', `translate(540,1250) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  // ekran katmanı
+  let u = '';
+  // saat: sadece bir saatte çalışan kol
+  if (f >= S.clock.start + 30 && f < S.color.start + 6) {
+    const p = backOut((f - S.clock.start - 30) / 12) * (1 - klamp((f - S.color.start) / 6)), ah = kf(f, [[0, 0], [c('clock', 'same'), 0], [c('clock', 'every'), 300], [c('clock', 'only'), 300]]);
+    u += `<g transform="translate(830,640) scale(${f2(p)})"><circle r="110" fill="#FFF3DC" stroke="#17303D" stroke-width="10"/><path d="M0 0 L${f2(sin(P / 6 * 3) * 110)} ${f2(-cos(P / 6 * 3) * 110)} A110 110 0 0 1 ${f2(sin(P / 6 * 4) * 110)} ${f2(-cos(P / 6 * 4) * 110)}Z" fill="#7CE0A3"/>` +
+      [...Array(12)].map((_, k) => `<circle cx="${f2(sin(k * P / 6) * 88)}" cy="${f2(-cos(k * P / 6) * 88)}" r="5" fill="#17303D"/>`).join('') +
+      `<path d="M0 0 V-70" stroke="#17303D" stroke-width="10" stroke-linecap="round" transform="rotate(${f2(ah * 12)})"/><path d="M0 0 V-45" stroke="#E8505B" stroke-width="10" stroke-linecap="round" transform="rotate(${f2(ah + 90)})"/><circle r="10" fill="#17303D"/></g>`;
+    u += etiket('works 1 hour a day', 830, 820, f, c('clock', 'only'), S.color.start - 2, 46, '#7CE0A3', 'middle', '#17303D');
+  }
+  // renk tayfı
+  if (f >= S.color.start && f < S.age.start + 6) {
+    const p = klamp((f - S.color.start) / 8) * (1 - klamp((f - S.age.start) / 6)), uv = klamp((f - c('color', 'ultraviolet')) / 12);
+    u += `<g opacity="${f2(p)}"><rect x="0" y="0" width="1080" height="1920" fill="#0D1A22" opacity=".8"/>`;
+    u += `<rect x="160" y="980" width="760" height="90" rx="20" fill="url(#tayf)"/><rect x="${f2(160 - 140 * uv)}" y="980" width="${f2(140 * uv + 20)}" height="90" rx="20" fill="#C77DFF" opacity="${f2(uv)}"/><rect x="${f2(160 - 140 * uv)}" y="980" width="${f2(140 * uv)}" height="90" rx="20" fill="url(#uvdesen)" opacity="0"/>`;
+    u += `<text class="lbl" x="540" y="940" text-anchor="middle" font-size="56" fill="#FFF3DC" stroke="#0D1A22" stroke-width="9">you see this much</text>`;
+    u += `<path d="M160 1110 H920" stroke="#FFF3DC" stroke-width="8" stroke-linecap="round"/>`;
+    u += `<path d="M${f2(160 - 140 * uv)} 1170 H920" stroke="#FF8A3D" stroke-width="12" stroke-linecap="round" opacity="${f2(klamp((f - c('color', 'goldfish')) / 8))}"/>`;
+    u += `</g>`;
+    u += etiket('goldfish see more', 540, 1240, f, c('color', 'goldfish'), S.age.start - 2, 64, '#FF8A3D', 'middle', '#0D1A22');
+    u += etiket('+ UV', 90, 1025, f, c('color', 'ultraviolet'), S.age.start - 2, 44, '#E3C2FF', 'middle', '#0D1A22');
+  }
+  // yaş: pasta ve rekor
+  if (f >= c('age', '20') - 2 && f < S.son.start + 6) {
+    const p = backOut((f - c('age', '20')) / 12) * (1 - klamp((f - S.son.start) / 6));
+    u += `<g transform="translate(830,700) scale(${f2(p)})"><rect x="-110" y="-30" width="220" height="110" rx="18" fill="#FFB3C7" stroke="#17303D" stroke-width="7"/><path d="M-110 10 q27 25 55 0 t55 0 t55 0 t55 0" stroke="#fff" stroke-width="10" fill="none"/>` +
+      [-60, -20, 20, 60].map(x => `<rect x="${x - 7}" y="-80" width="14" height="50" rx="5" fill="#7CC8FF"/><ellipse cx="${x}" cy="-92" rx="9" ry="14" fill="#FFD54F" transform="rotate(${f2(sin(t * .4 + x) * 10)} ${x} -84)"/>`).join('') + `</g>`;
+    u += etiket('20+ years', 830, 850, f, c('age', '20'), S.son.start - 2, 60, '#FFF3DC', 'middle', '#17303D');
+    u += etiket('record: 43', 540, 640, f, c('age', '43'), S.son.start - 2, 72, '#FFD54F', 'middle', '#17303D');
+  }
+  u += etiket('hmph.', 700, 950, f, c('son', 'insulted'), T.total, 64, '#FFF3DC', 'middle', '#17303D');
+  $('ust').innerHTML = u;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>
