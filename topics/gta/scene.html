@@ -5,9 +5,14 @@
 <link rel="stylesheet" href="../../engine/fonts/fonts.css">
 <style>
   /* STİL KARTI: gece şehri, üstten harita ızgarası; neon pembe/camgöbeği + polis çakarı; Plex Mono kod etiketleri. Bkz. style.md */
-  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0C0E1C}
+  /* v2: editoryal kâğıt düzeni (Arjin'in referans videosundan ilham): krem zemin, eğik beyaz çerçeveli kart, siyah kutulu altyazı + turuncu kelime, kalın dar başlık + turuncu vurgu */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#EFEBE3}
   svg{position:absolute;inset:0}
-  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 88px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 5px 0 rgba(4,4,14,.8)}
+  #altyazi{position:absolute;left:90px;right:90px;top:1500px;text-align:center}
+  #altyazi div{display:inline-block;background:#17171C;color:#fff;font:800 66px/1.12 Archivo;font-stretch:78%;padding:18px 34px 22px;transform:rotate(-1.2deg);box-shadow:8px 10px 0 rgba(0,0,0,.12)}
+  #baslik{position:absolute;left:80px;right:60px;top:70px;font:900 112px/1 Archivo;font-stretch:76%;color:#121218;letter-spacing:-1px}
+  #baslik i{display:block;font:italic 300 42px/1.2 Fraunces;letter-spacing:0;color:#3A3A44;margin-bottom:10px}
+  #baslik b{font-weight:900;background:linear-gradient(transparent 55%,#F5A524 55%,#F5A524 92%,transparent 92%);padding:0 6px}
   .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
   .mono{font-family:'IBM Plex Mono';font-weight:600;white-space:pre}
 </style>
@@ -25,14 +30,20 @@
     <filter id="parla" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <clipPath id="ekran"><rect x="-260" y="-210" width="520" height="380" rx="34"/></clipPath>
   </defs>
-  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+  <g id="arka"></g>
+  <g id="kart"><rect x="114" y="316" width="880" height="1080" fill="#000" opacity=".13"/><rect x="82" y="282" width="916" height="1116" fill="#fff"/>
+    <clipPath id="kartclip"><rect x="100" y="300" width="880" height="1080"/></clipPath>
+    <g clip-path="url(#kartclip)"><g transform="translate(101.5,300) scale(.812) translate(0,-520)"><g id="sehirg"></g><g id="sahne"></g><g id="ust"></g></g></g>
+    <g id="etiketg"></g></g>
+  <g id="on"></g>
 </svg>
+<div id="baslik"></div>
 <div id="altyazi"></div>
 <script src="../../engine/lib.js"></script>
 <script src="../../engine/cute.js"></script>
 <script src="../../engine/vinyet.js"></script>
 <script>
-window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka', '600 40px "IBM Plex Mono"'];
+window.FONTS = ['900 80px Archivo', '700 80px Fredoka', '600 40px "IBM Plex Mono"', 'italic 300 40px Fraunces'];
 const c = cue, INK = '#0A0A18', PINK = '#FF3D8B', CYAN = '#38E1FF', GOLD = '#FFC94A';
 const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFF3DC') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
 const kod = (txt, x, y, s, fill, anchor = 'start', o = 1) => `<text class="mono" x="${f2(x)}" y="${f2(y)}" font-size="${s}" fill="${fill}" text-anchor="${anchor}" opacity="${f2(o)}">${txt}</text>`;
@@ -284,7 +295,7 @@ function sehir(f) {
     a += `<rect x="${f2(x)}" y="${f2(y)}" width="200" height="200" rx="16" fill="${['#1C1D3A', '#211A38', '#162238'][Math.abs(id) % 3]}" stroke="${rastgele(id) > .7 ? PINK : CYAN}" stroke-width="2" stroke-opacity=".35"/>`;
     for (let w = 0; w < 4; w++) if (rastgele(id * 5 + w) > .5) a += `<rect x="${f2(x + 30 + w * 40)}" y="${f2(y + 30 + (w % 2) * 90)}" width="20" height="20" rx="4" fill="${GOLD}" opacity="${f2(.25 + .2 * sin(f * .05 + id + w))}"/>`;
   }
-  return a + `<rect width="1080" height="700" fill="url(#ustkarart)"/>`;
+  return a;
 }
 // sahne geçişlerinde kısa glitch
 function glitch(f) {
@@ -296,11 +307,53 @@ function glitch(f) {
   return u;
 }
 
+const BASLIK = {
+  hook: ['a true story', 'Born from a <b>bug</b>', 'POLICE AI'],
+  dundee: ['Dundee, Scotland, 1995', "Race'n'<b>Chase</b>", 'DMA DESIGN'],
+  dull: ['dull, unstable, bad handling', 'Almost <b>cancelled</b>', 'DEV BUILD'],
+  bug: ['a mistake in the route-finding code', 'The <b>glitch</b>', 'police_ai.c'],
+  keep: ['“That was awesome, so that stayed in.” Gary Penn', 'It <b>stayed</b>', 'THE FLIP'],
+  release: ['MS-DOS &amp; Windows, Europe', 'Free <b>publicity</b>', 'GTA 1 · 1997'],
+  six: ['almost 30 years later', 'GTA <b>VI</b>', 'NOV 19, 2026'],
+  cta: ['thanks for watching', 'Like &amp; <b>follow</b>', '@arjincookedit'],
+};
+const sahneAt = f => { let a = 'hook'; for (const k of Object.keys(BASLIK)) if (f >= T.seg[k].start - 4) a = k; return a; };
+let sonBaslik = '';
+function editoryal(f) {
+  const ad = sahneAt(f), adlar = Object.keys(BASLIK), i = adlar.indexOf(ad), f0 = i ? T.seg[ad].start - 4 : 0;
+  const [not, bas, tag] = BASLIK[ad];
+  if (sonBaslik !== ad) { $('baslik').innerHTML = `<i>${not}</i>${bas}`; sonBaslik = ad; }
+  const g = gir(f, f0, 12); $('baslik').style.opacity = g.toFixed(3); $('baslik').style.transform = `translateY(${f2((1 - g) * 30)}px)`;
+  // kart hafif eğilir, sahne değişiminde yön değiştirir
+  const aci = (i % 2 ? 1.6 : -1.6) * gir(f, f0, 14) + (i % 2 ? -1.6 : 1.6) * (1 - gir(f, f0, 14));
+  $('kart').setAttribute('transform', `translate(0,36) rotate(${f2(i ? aci : -1.6)} 540 840)`);
+  // köşe etiketi
+  const p = pop(f, f0 + 6, 12), w = tag.length * 29 + 60;
+  $('etiketg').innerHTML = `<g transform="translate(${f2(130 + w / 2)},300) scale(${p.toFixed(3)}) rotate(-2)"><rect x="${-w / 2}" y="-44" width="${w}" height="88" fill="#17171C"/><text x="0" y="20" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="54" font-stretch="78%" fill="#fff">${tag}</text></g>`;
+  // ilerleme çubuğu + maskot polis arabası
+  $('arka').innerHTML = `<rect width="1080" height="1920" fill="#EFEBE3"/><rect width="1080" height="10" fill="#DDD6CA"/><rect width="${f2(1080 * f / T.total)}" height="10" fill="#F5A524"/>`;
+  $('on').innerHTML = at(170, 1790 - Math.abs(sin(f * .12)) * 8, .36, araba(f, { polis: true, seed: 20, hiz: 0, sur: ad === 'bug' || ad === 'cta' }));
+}
+// altyazı: siyah kutu, konuşulan kelime turuncu
+function altyazi2(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = '<div>' + cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const col = tt < x.start ? 'rgba(255,255,255,.4)' : tt < x.end + 0.05 ? '#F5A524' : '#fff';
+    return `<span style="color:${col}">${x.w}</span>`;
+  }).join(' ')).join('<br>') + '</div>';
+}
+
 window.renderFrame = function (f) {
-  $('arka').innerHTML = sehir(f);
+  editoryal(f);
+  $('sehirg').innerHTML = sehir(f);
   vinyetler(f, SAHNE, $('sahne'));
   $('ust').innerHTML = glitch(f);
-  altyazi(f, $('altyazi'));
+  altyazi2(f, $('altyazi'));
 };
 </script>
 </body>
