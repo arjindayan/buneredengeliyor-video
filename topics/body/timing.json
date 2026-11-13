@@ -1,0 +1,911 @@
+{
+"duration": 49.684,
+"words": [
+{
+"w": "Every",
+"start": 0.0,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "seven",
+"start": 0.4,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "years,",
+"start": 0.8,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "you",
+"start": 1.44,
+"end": 1.52,
+"seg": 0
+},
+{
+"w": "get",
+"start": 1.56,
+"end": 1.6,
+"seg": 0
+},
+{
+"w": "a",
+"start": 1.68,
+"end": 1.76,
+"seg": 0
+},
+{
+"w": "brand",
+"start": 1.92,
+"end": 2.08,
+"seg": 0
+},
+{
+"w": "new",
+"start": 2.16,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "body.",
+"start": 2.52,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.4,
+"end": 3.76,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.84,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "not",
+"start": 4.2,
+"end": 4.32,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 4.48,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 5.04,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "Your",
+"start": 5.76,
+"end": 5.84,
+"seg": 0
+},
+{
+"w": "body",
+"start": 5.96,
+"end": 6.08,
+"seg": 0
+},
+{
+"w": "is",
+"start": 6.12,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "replacing",
+"start": 6.24,
+"end": 6.64,
+"seg": 0
+},
+{
+"w": "itself",
+"start": 6.72,
+"end": 7.12,
+"seg": 0
+},
+{
+"w": "all",
+"start": 7.24,
+"end": 7.36,
+"seg": 0
+},
+{
+"w": "the",
+"start": 7.44,
+"end": 7.52,
+"seg": 0
+},
+{
+"w": "time,",
+"start": 7.72,
+"end": 8.16,
+"seg": 0
+},
+{
+"w": "just",
+"start": 8.28,
+"end": 8.4,
+"seg": 0
+},
+{
+"w": "at",
+"start": 8.48,
+"end": 8.56,
+"seg": 0
+},
+{
+"w": "different",
+"start": 8.68,
+"end": 8.8,
+"seg": 0
+},
+{
+"w": "speeds.",
+"start": 8.88,
+"end": 9.76,
+"seg": 0
+},
+{
+"w": "Your",
+"start": 9.84,
+"end": 9.92,
+"seg": 1
+},
+{
+"w": "stomach",
+"start": 10.0,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "lining",
+"start": 10.32,
+"end": 10.56,
+"seg": 1
+},
+{
+"w": "is",
+"start": 10.64,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "the",
+"start": 10.8,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "fastest.",
+"start": 11.04,
+"end": 11.76,
+"seg": 1
+},
+{
+"w": "It",
+"start": 11.8,
+"end": 11.84,
+"seg": 1
+},
+{
+"w": "gets",
+"start": 11.92,
+"end": 12.0,
+"seg": 1
+},
+{
+"w": "replaced",
+"start": 12.08,
+"end": 12.56,
+"seg": 1
+},
+{
+"w": "every",
+"start": 12.72,
+"end": 12.88,
+"seg": 1
+},
+{
+"w": "few",
+"start": 12.96,
+"end": 13.12,
+"seg": 1
+},
+{
+"w": "days,",
+"start": 13.2,
+"end": 13.76,
+"seg": 1
+},
+{
+"w": "because",
+"start": 13.88,
+"end": 14.0,
+"seg": 1
+},
+{
+"w": "stomach",
+"start": 14.08,
+"end": 14.32,
+"seg": 1
+},
+{
+"w": "acid",
+"start": 14.4,
+"end": 14.72,
+"seg": 1
+},
+{
+"w": "keeps",
+"start": 14.76,
+"end": 14.96,
+"seg": 1
+},
+{
+"w": "wearing",
+"start": 15.04,
+"end": 15.28,
+"seg": 1
+},
+{
+"w": "it",
+"start": 15.36,
+"end": 15.44,
+"seg": 1
+},
+{
+"w": "down.",
+"start": 15.6,
+"end": 16.16,
+"seg": 1
+},
+{
+"w": "Your",
+"start": 16.24,
+"end": 16.32,
+"seg": 2
+},
+{
+"w": "outer",
+"start": 16.4,
+"end": 16.56,
+"seg": 2
+},
+{
+"w": "skin",
+"start": 16.72,
+"end": 16.96,
+"seg": 2
+},
+{
+"w": "renews",
+"start": 17.04,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "itself",
+"start": 17.44,
+"end": 17.76,
+"seg": 2
+},
+{
+"w": "every",
+"start": 17.84,
+"end": 18.08,
+"seg": 2
+},
+{
+"w": "few",
+"start": 18.16,
+"end": 18.32,
+"seg": 2
+},
+{
+"w": "weeks.",
+"start": 18.52,
+"end": 19.04,
+"seg": 2
+},
+{
+"w": "In",
+"start": 19.12,
+"end": 19.2,
+"seg": 2
+},
+{
+"w": "fact,",
+"start": 19.36,
+"end": 19.76,
+"seg": 2
+},
+{
+"w": "a",
+"start": 19.8,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "lot",
+"start": 19.92,
+"end": 20.0,
+"seg": 2
+},
+{
+"w": "of",
+"start": 20.04,
+"end": 20.08,
+"seg": 2
+},
+{
+"w": "the",
+"start": 20.2,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "dust",
+"start": 20.36,
+"end": 20.56,
+"seg": 2
+},
+{
+"w": "in",
+"start": 20.64,
+"end": 20.72,
+"seg": 2
+},
+{
+"w": "your",
+"start": 20.8,
+"end": 20.88,
+"seg": 2
+},
+{
+"w": "home",
+"start": 21.08,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "is",
+"start": 21.36,
+"end": 21.52,
+"seg": 2
+},
+{
+"w": "old",
+"start": 21.6,
+"end": 21.76,
+"seg": 2
+},
+{
+"w": "skin.",
+"start": 21.92,
+"end": 22.72,
+"seg": 2
+},
+{
+"w": "Your",
+"start": 22.8,
+"end": 22.88,
+"seg": 3
+},
+{
+"w": "red",
+"start": 22.96,
+"end": 23.04,
+"seg": 3
+},
+{
+"w": "blood",
+"start": 23.12,
+"end": 23.28,
+"seg": 3
+},
+{
+"w": "cells",
+"start": 23.36,
+"end": 23.68,
+"seg": 3
+},
+{
+"w": "live",
+"start": 23.76,
+"end": 23.84,
+"seg": 3
+},
+{
+"w": "about",
+"start": 24.04,
+"end": 24.24,
+"seg": 3
+},
+{
+"w": "four",
+"start": 24.36,
+"end": 24.48,
+"seg": 3
+},
+{
+"w": "months.",
+"start": 24.68,
+"end": 25.28,
+"seg": 3
+},
+{
+"w": "Every",
+"start": 25.36,
+"end": 25.68,
+"seg": 3
+},
+{
+"w": "second,",
+"start": 25.84,
+"end": 26.32,
+"seg": 3
+},
+{
+"w": "your",
+"start": 26.4,
+"end": 26.48,
+"seg": 3
+},
+{
+"w": "body",
+"start": 26.56,
+"end": 26.8,
+"seg": 3
+},
+{
+"w": "makes",
+"start": 26.88,
+"end": 27.2,
+"seg": 3
+},
+{
+"w": "millions",
+"start": 27.28,
+"end": 27.68,
+"seg": 3
+},
+{
+"w": "of",
+"start": 27.76,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "new",
+"start": 27.92,
+"end": 28.0,
+"seg": 3
+},
+{
+"w": "ones.",
+"start": 28.08,
+"end": 28.72,
+"seg": 3
+},
+{
+"w": "Here's",
+"start": 28.8,
+"end": 28.96,
+"seg": 4
+},
+{
+"w": "the",
+"start": 29.04,
+"end": 29.12,
+"seg": 4
+},
+{
+"w": "wild",
+"start": 29.2,
+"end": 29.52,
+"seg": 4
+},
+{
+"w": "part.",
+"start": 29.64,
+"end": 30.16,
+"seg": 4
+},
+{
+"w": "Even",
+"start": 30.28,
+"end": 30.4,
+"seg": 4
+},
+{
+"w": "your",
+"start": 30.52,
+"end": 30.64,
+"seg": 4
+},
+{
+"w": "skeleton",
+"start": 30.68,
+"end": 31.2,
+"seg": 4
+},
+{
+"w": "rebuilds",
+"start": 31.28,
+"end": 31.6,
+"seg": 4
+},
+{
+"w": "itself.",
+"start": 31.68,
+"end": 32.48,
+"seg": 4
+},
+{
+"w": "Bit",
+"start": 32.56,
+"end": 32.72,
+"seg": 4
+},
+{
+"w": "by",
+"start": 32.8,
+"end": 32.88,
+"seg": 4
+},
+{
+"w": "bit,",
+"start": 32.96,
+"end": 33.36,
+"seg": 4
+},
+{
+"w": "you",
+"start": 33.4,
+"end": 33.44,
+"seg": 4
+},
+{
+"w": "get",
+"start": 33.52,
+"end": 33.6,
+"seg": 4
+},
+{
+"w": "a",
+"start": 33.68,
+"end": 33.76,
+"seg": 4
+},
+{
+"w": "mostly",
+"start": 33.96,
+"end": 34.16,
+"seg": 4
+},
+{
+"w": "new",
+"start": 34.24,
+"end": 34.4,
+"seg": 4
+},
+{
+"w": "one",
+"start": 34.48,
+"end": 34.56,
+"seg": 4
+},
+{
+"w": "about",
+"start": 34.64,
+"end": 34.88,
+"seg": 4
+},
+{
+"w": "every",
+"start": 34.96,
+"end": 35.2,
+"seg": 4
+},
+{
+"w": "ten",
+"start": 35.28,
+"end": 35.52,
+"seg": 4
+},
+{
+"w": "years.",
+"start": 35.76,
+"end": 36.32,
+"seg": 4
+},
+{
+"w": "But",
+"start": 36.4,
+"end": 36.48,
+"seg": 5
+},
+{
+"w": "some",
+"start": 36.56,
+"end": 36.72,
+"seg": 5
+},
+{
+"w": "parts",
+"start": 36.8,
+"end": 37.04,
+"seg": 5
+},
+{
+"w": "stay",
+"start": 37.12,
+"end": 37.28,
+"seg": 5
+},
+{
+"w": "with",
+"start": 37.36,
+"end": 37.44,
+"seg": 5
+},
+{
+"w": "you",
+"start": 37.52,
+"end": 37.6,
+"seg": 5
+},
+{
+"w": "for",
+"start": 37.64,
+"end": 37.68,
+"seg": 5
+},
+{
+"w": "life.",
+"start": 37.84,
+"end": 38.64,
+"seg": 5
+},
+{
+"w": "Most",
+"start": 38.76,
+"end": 38.88,
+"seg": 5
+},
+{
+"w": "of",
+"start": 38.92,
+"end": 38.96,
+"seg": 5
+},
+{
+"w": "the",
+"start": 39.0,
+"end": 39.04,
+"seg": 5
+},
+{
+"w": "neurons",
+"start": 39.12,
+"end": 39.44,
+"seg": 5
+},
+{
+"w": "in",
+"start": 39.52,
+"end": 39.6,
+"seg": 5
+},
+{
+"w": "your",
+"start": 39.68,
+"end": 39.76,
+"seg": 5
+},
+{
+"w": "brain,",
+"start": 39.92,
+"end": 40.32,
+"seg": 5
+},
+{
+"w": "and",
+"start": 40.4,
+"end": 40.48,
+"seg": 5
+},
+{
+"w": "the",
+"start": 40.56,
+"end": 40.64,
+"seg": 5
+},
+{
+"w": "center",
+"start": 40.72,
+"end": 40.88,
+"seg": 5
+},
+{
+"w": "of",
+"start": 40.96,
+"end": 41.04,
+"seg": 5
+},
+{
+"w": "the",
+"start": 41.08,
+"end": 41.12,
+"seg": 5
+},
+{
+"w": "lenses",
+"start": 41.2,
+"end": 41.52,
+"seg": 5
+},
+{
+"w": "in",
+"start": 41.56,
+"end": 41.6,
+"seg": 5
+},
+{
+"w": "your",
+"start": 41.68,
+"end": 41.76,
+"seg": 5
+},
+{
+"w": "eyes,",
+"start": 41.84,
+"end": 42.4,
+"seg": 5
+},
+{
+"w": "are",
+"start": 42.44,
+"end": 42.48,
+"seg": 5
+},
+{
+"w": "as",
+"start": 42.56,
+"end": 42.72,
+"seg": 5
+},
+{
+"w": "old",
+"start": 42.8,
+"end": 42.96,
+"seg": 5
+},
+{
+"w": "as",
+"start": 43.04,
+"end": 43.12,
+"seg": 5
+},
+{
+"w": "you",
+"start": 43.2,
+"end": 43.28,
+"seg": 5
+},
+{
+"w": "are.",
+"start": 43.36,
+"end": 43.92,
+"seg": 5
+},
+{
+"w": "So",
+"start": 44.08,
+"end": 44.24,
+"seg": 6
+},
+{
+"w": "you",
+"start": 44.32,
+"end": 44.4,
+"seg": 6
+},
+{
+"w": "don't",
+"start": 44.44,
+"end": 44.56,
+"seg": 6
+},
+{
+"w": "get",
+"start": 44.64,
+"end": 44.72,
+"seg": 6
+},
+{
+"w": "a",
+"start": 44.76,
+"end": 44.8,
+"seg": 6
+},
+{
+"w": "new",
+"start": 44.88,
+"end": 44.96,
+"seg": 6
+},
+{
+"w": "body",
+"start": 45.04,
+"end": 45.28,
+"seg": 6
+},
+{
+"w": "every",
+"start": 45.36,
+"end": 45.6,
+"seg": 6
+},
+{
+"w": "seven",
+"start": 45.68,
+"end": 45.92,
+"seg": 6
+},
+{
+"w": "years.",
+"start": 46.0,
+"end": 46.72,
+"seg": 6
+},
+{
+"w": "You're",
+"start": 46.76,
+"end": 46.88,
+"seg": 6
+},
+{
+"w": "getting",
+"start": 47.0,
+"end": 47.12,
+"seg": 6
+},
+{
+"w": "one",
+"start": 47.2,
+"end": 47.36,
+"seg": 6
+},
+{
+"w": "every",
+"start": 47.6,
+"end": 47.92,
+"seg": 6
+},
+{
+"w": "single",
+"start": 48.08,
+"end": 48.4,
+"seg": 6
+},
+{
+"w": "day.",
+"start": 48.56,
+"end": 49.12,
+"seg": 6
+}
+]
+}

@@ -1,0 +1,779 @@
+{
+"duration": 50.154,
+"words": [
+{
+"w": "Cleopatra",
+"start": 0.0,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "lived",
+"start": 0.72,
+"end": 0.96,
+"seg": 0
+},
+{
+"w": "around",
+"start": 1.12,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "the",
+"start": 1.32,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "time",
+"start": 1.44,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "the",
+"start": 1.72,
+"end": 1.76,
+"seg": 0
+},
+{
+"w": "pyramids",
+"start": 1.84,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "were",
+"start": 2.4,
+"end": 2.48,
+"seg": 0
+},
+{
+"w": "built.",
+"start": 2.64,
+"end": 3.12,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.44,
+"end": 4.0,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 4.08,
+"end": 4.32,
+"seg": 0
+},
+{
+"w": "not",
+"start": 4.4,
+"end": 4.48,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 4.56,
+"end": 5.12,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 5.2,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "She",
+"start": 6.08,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "lived",
+"start": 6.24,
+"end": 6.4,
+"seg": 0
+},
+{
+"w": "closer",
+"start": 6.48,
+"end": 6.72,
+"seg": 0
+},
+{
+"w": "to",
+"start": 6.76,
+"end": 6.8,
+"seg": 0
+},
+{
+"w": "the",
+"start": 6.88,
+"end": 7.0,
+"seg": 0
+},
+{
+"w": "iPhone",
+"start": 7.12,
+"end": 7.6,
+"seg": 0
+},
+{
+"w": "than",
+"start": 7.68,
+"end": 7.76,
+"seg": 0
+},
+{
+"w": "to",
+"start": 7.8,
+"end": 7.84,
+"seg": 0
+},
+{
+"w": "the",
+"start": 7.92,
+"end": 7.96,
+"seg": 0
+},
+{
+"w": "pyramids.",
+"start": 8.0,
+"end": 8.64,
+"seg": 0
+},
+{
+"w": "The",
+"start": 9.12,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "Great",
+"start": 9.32,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "Pyramid",
+"start": 9.52,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "was",
+"start": 9.92,
+"end": 10.0,
+"seg": 1
+},
+{
+"w": "finished",
+"start": 10.08,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "around",
+"start": 10.4,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "2560 BC.",
+"start": 10.72,
+"end": 12.56,
+"seg": 1
+},
+{
+"w": "Cleopatra",
+"start": 13.04,
+"end": 13.6,
+"seg": 2
+},
+{
+"w": "was",
+"start": 13.68,
+"end": 13.84,
+"seg": 2
+},
+{
+"w": "born",
+"start": 13.96,
+"end": 14.08,
+"seg": 2
+},
+{
+"w": "about",
+"start": 14.24,
+"end": 14.4,
+"seg": 2
+},
+{
+"w": "two",
+"start": 14.48,
+"end": 14.56,
+"seg": 2
+},
+{
+"w": "and",
+"start": 14.6,
+"end": 14.64,
+"seg": 2
+},
+{
+"w": "a",
+"start": 14.72,
+"end": 14.76,
+"seg": 2
+},
+{
+"w": "half",
+"start": 14.8,
+"end": 14.96,
+"seg": 2
+},
+{
+"w": "thousand",
+"start": 15.2,
+"end": 15.6,
+"seg": 2
+},
+{
+"w": "years",
+"start": 15.68,
+"end": 15.92,
+"seg": 2
+},
+{
+"w": "later.",
+"start": 16.0,
+"end": 16.4,
+"seg": 2
+},
+{
+"w": "To",
+"start": 16.88,
+"end": 16.96,
+"seg": 2
+},
+{
+"w": "her,",
+"start": 17.12,
+"end": 17.44,
+"seg": 2
+},
+{
+"w": "the",
+"start": 17.48,
+"end": 17.52,
+"seg": 2
+},
+{
+"w": "pyramids",
+"start": 17.6,
+"end": 18.0,
+"seg": 2
+},
+{
+"w": "were",
+"start": 18.08,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "already",
+"start": 18.4,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "ancient",
+"start": 18.72,
+"end": 19.12,
+"seg": 2
+},
+{
+"w": "ruins.",
+"start": 19.2,
+"end": 19.68,
+"seg": 2
+},
+{
+"w": "And",
+"start": 20.24,
+"end": 20.32,
+"seg": 3
+},
+{
+"w": "from",
+"start": 20.4,
+"end": 20.48,
+"seg": 3
+},
+{
+"w": "Cleopatra",
+"start": 20.56,
+"end": 21.12,
+"seg": 3
+},
+{
+"w": "to",
+"start": 21.2,
+"end": 21.28,
+"seg": 3
+},
+{
+"w": "the",
+"start": 21.32,
+"end": 21.36,
+"seg": 3
+},
+{
+"w": "first",
+"start": 21.44,
+"end": 21.68,
+"seg": 3
+},
+{
+"w": "iPhone",
+"start": 21.84,
+"end": 22.24,
+"seg": 3
+},
+{
+"w": "in",
+"start": 22.32,
+"end": 22.4,
+"seg": 3
+},
+{
+"w": "2007,",
+"start": 22.48,
+"end": 23.68,
+"seg": 3
+},
+{
+"w": "it's",
+"start": 23.72,
+"end": 23.84,
+"seg": 3
+},
+{
+"w": "only",
+"start": 23.92,
+"end": 24.0,
+"seg": 3
+},
+{
+"w": "about",
+"start": 24.08,
+"end": 24.32,
+"seg": 3
+},
+{
+"w": "two",
+"start": 24.4,
+"end": 24.48,
+"seg": 3
+},
+{
+"w": "thousand",
+"start": 24.64,
+"end": 24.88,
+"seg": 3
+},
+{
+"w": "years.",
+"start": 25.04,
+"end": 25.44,
+"seg": 3
+},
+{
+"w": "A",
+"start": 25.68,
+"end": 25.76,
+"seg": 3
+},
+{
+"w": "shorter",
+"start": 25.84,
+"end": 26.08,
+"seg": 3
+},
+{
+"w": "gap.",
+"start": 26.16,
+"end": 26.48,
+"seg": 3
+},
+{
+"w": "Here's",
+"start": 27.2,
+"end": 27.44,
+"seg": 4
+},
+{
+"w": "the",
+"start": 27.48,
+"end": 27.52,
+"seg": 4
+},
+{
+"w": "wild",
+"start": 27.68,
+"end": 28.0,
+"seg": 4
+},
+{
+"w": "part.",
+"start": 28.08,
+"end": 28.64,
+"seg": 4
+},
+{
+"w": "When",
+"start": 28.88,
+"end": 28.96,
+"seg": 4
+},
+{
+"w": "the",
+"start": 29.0,
+"end": 29.04,
+"seg": 4
+},
+{
+"w": "pyramids",
+"start": 29.12,
+"end": 29.52,
+"seg": 4
+},
+{
+"w": "were",
+"start": 29.6,
+"end": 29.68,
+"seg": 4
+},
+{
+"w": "being",
+"start": 29.76,
+"end": 29.84,
+"seg": 4
+},
+{
+"w": "built,",
+"start": 30.0,
+"end": 30.56,
+"seg": 4
+},
+{
+"w": "woolly",
+"start": 30.64,
+"end": 30.88,
+"seg": 4
+},
+{
+"w": "mammoths",
+"start": 31.04,
+"end": 31.44,
+"seg": 4
+},
+{
+"w": "were",
+"start": 31.52,
+"end": 31.6,
+"seg": 4
+},
+{
+"w": "still",
+"start": 31.72,
+"end": 31.84,
+"seg": 4
+},
+{
+"w": "alive,",
+"start": 32.12,
+"end": 32.56,
+"seg": 4
+},
+{
+"w": "on",
+"start": 32.6,
+"end": 32.64,
+"seg": 4
+},
+{
+"w": "a",
+"start": 32.72,
+"end": 32.76,
+"seg": 4
+},
+{
+"w": "remote",
+"start": 32.8,
+"end": 33.12,
+"seg": 4
+},
+{
+"w": "island",
+"start": 33.2,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "in",
+"start": 33.56,
+"end": 33.6,
+"seg": 4
+},
+{
+"w": "the",
+"start": 33.64,
+"end": 33.68,
+"seg": 4
+},
+{
+"w": "Arctic.",
+"start": 33.76,
+"end": 34.24,
+"seg": 4
+},
+{
+"w": "In",
+"start": 34.8,
+"end": 34.88,
+"seg": 5
+},
+{
+"w": "fact,",
+"start": 34.96,
+"end": 35.52,
+"seg": 5
+},
+{
+"w": "Oxford",
+"start": 35.6,
+"end": 35.92,
+"seg": 5
+},
+{
+"w": "University",
+"start": 36.0,
+"end": 36.64,
+"seg": 5
+},
+{
+"w": "is",
+"start": 36.72,
+"end": 36.96,
+"seg": 5
+},
+{
+"w": "older",
+"start": 37.04,
+"end": 37.36,
+"seg": 5
+},
+{
+"w": "than",
+"start": 37.44,
+"end": 37.52,
+"seg": 5
+},
+{
+"w": "the",
+"start": 37.56,
+"end": 37.6,
+"seg": 5
+},
+{
+"w": "Aztec",
+"start": 37.68,
+"end": 38.08,
+"seg": 5
+},
+{
+"w": "Empire.",
+"start": 38.16,
+"end": 38.64,
+"seg": 5
+},
+{
+"w": "Students",
+"start": 39.12,
+"end": 39.52,
+"seg": 5
+},
+{
+"w": "were",
+"start": 39.6,
+"end": 39.68,
+"seg": 5
+},
+{
+"w": "studying",
+"start": 39.76,
+"end": 40.16,
+"seg": 5
+},
+{
+"w": "there",
+"start": 40.24,
+"end": 40.32,
+"seg": 5
+},
+{
+"w": "before",
+"start": 40.4,
+"end": 40.8,
+"seg": 5
+},
+{
+"w": "the",
+"start": 40.88,
+"end": 40.96,
+"seg": 5
+},
+{
+"w": "Aztecs",
+"start": 41.08,
+"end": 41.44,
+"seg": 5
+},
+{
+"w": "founded",
+"start": 41.48,
+"end": 41.76,
+"seg": 5
+},
+{
+"w": "their",
+"start": 41.84,
+"end": 41.92,
+"seg": 5
+},
+{
+"w": "capital",
+"start": 42.08,
+"end": 42.24,
+"seg": 5
+},
+{
+"w": "city.",
+"start": 42.4,
+"end": 43.28,
+"seg": 5
+},
+{
+"w": "So",
+"start": 43.4,
+"end": 43.52,
+"seg": 6
+},
+{
+"w": "history",
+"start": 43.76,
+"end": 44.16,
+"seg": 6
+},
+{
+"w": "is",
+"start": 44.24,
+"end": 44.48,
+"seg": 6
+},
+{
+"w": "much",
+"start": 44.56,
+"end": 44.72,
+"seg": 6
+},
+{
+"w": "longer",
+"start": 44.88,
+"end": 45.12,
+"seg": 6
+},
+{
+"w": "than",
+"start": 45.16,
+"end": 45.2,
+"seg": 6
+},
+{
+"w": "it",
+"start": 45.28,
+"end": 45.44,
+"seg": 6
+},
+{
+"w": "feels.",
+"start": 45.48,
+"end": 46.24,
+"seg": 6
+},
+{
+"w": "And",
+"start": 46.32,
+"end": 46.4,
+"seg": 6
+},
+{
+"w": "Cleopatra",
+"start": 46.48,
+"end": 47.12,
+"seg": 6
+},
+{
+"w": "is",
+"start": 47.2,
+"end": 47.36,
+"seg": 6
+},
+{
+"w": "closer",
+"start": 47.44,
+"end": 47.76,
+"seg": 6
+},
+{
+"w": "to",
+"start": 47.84,
+"end": 47.92,
+"seg": 6
+},
+{
+"w": "you",
+"start": 48.0,
+"end": 48.24,
+"seg": 6
+},
+{
+"w": "than",
+"start": 48.4,
+"end": 48.48,
+"seg": 6
+},
+{
+"w": "to",
+"start": 48.56,
+"end": 48.6,
+"seg": 6
+},
+{
+"w": "the",
+"start": 48.64,
+"end": 48.72,
+"seg": 6
+},
+{
+"w": "pyramids.",
+"start": 48.8,
+"end": 49.6,
+"seg": 6
+}
+]
+}

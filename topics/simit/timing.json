@@ -1,0 +1,611 @@
+{
+"duration": 48.247,
+"words": [
+{
+"w": "Beş",
+"start": 0.0,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "yüz",
+"start": 0.4,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "yıl",
+"start": 0.56,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "önce",
+"start": 0.72,
+"end": 1.04,
+"seg": 0
+},
+{
+"w": "bu",
+"start": 1.28,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "yiyeceğin",
+"start": 1.4,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "fiyatını",
+"start": 1.88,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "devlet",
+"start": 2.44,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "belirliyordu.",
+"start": 2.8,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "Evet,",
+"start": 3.92,
+"end": 4.48,
+"seg": 1
+},
+{
+"w": "simit.",
+"start": 4.56,
+"end": 5.12,
+"seg": 1
+},
+{
+"w": "İstanbul'un",
+"start": 5.28,
+"end": 5.92,
+"seg": 1
+},
+{
+"w": "en",
+"start": 6.08,
+"end": 6.24,
+"seg": 1
+},
+{
+"w": "eski",
+"start": 6.32,
+"end": 6.48,
+"seg": 1
+},
+{
+"w": "sokak",
+"start": 6.56,
+"end": 6.88,
+"seg": 1
+},
+{
+"w": "lezzeti.",
+"start": 6.96,
+"end": 7.56,
+"seg": 1
+},
+{
+"w": "Simitten",
+"start": 7.76,
+"end": 8.16,
+"seg": 2
+},
+{
+"w": "bahseden",
+"start": 8.24,
+"end": 8.72,
+"seg": 2
+},
+{
+"w": "en",
+"start": 8.8,
+"end": 8.88,
+"seg": 2
+},
+{
+"w": "eski",
+"start": 8.96,
+"end": 9.2,
+"seg": 2
+},
+{
+"w": "kayıtlardan",
+"start": 9.28,
+"end": 9.84,
+"seg": 2
+},
+{
+"w": "biri,",
+"start": 9.92,
+"end": 10.4,
+"seg": 2
+},
+{
+"w": "1525",
+"start": 10.48,
+"end": 11.36,
+"seg": 2
+},
+{
+"w": "tarihli",
+"start": 11.44,
+"end": 11.84,
+"seg": 2
+},
+{
+"w": "Üsküdar",
+"start": 12.0,
+"end": 12.4,
+"seg": 2
+},
+{
+"w": "mahkeme",
+"start": 12.48,
+"end": 12.8,
+"seg": 2
+},
+{
+"w": "defterleri.",
+"start": 12.88,
+"end": 13.76,
+"seg": 2
+},
+{
+"w": "1640'ta",
+"start": 13.84,
+"end": 14.64,
+"seg": 3
+},
+{
+"w": "çıkan",
+"start": 14.72,
+"end": 15.04,
+"seg": 3
+},
+{
+"w": "narh",
+"start": 15.12,
+"end": 15.28,
+"seg": 3
+},
+{
+"w": "kanunu,",
+"start": 15.36,
+"end": 16.0,
+"seg": 3
+},
+{
+"w": "simidin",
+"start": 16.08,
+"end": 16.48,
+"seg": 3
+},
+{
+"w": "hem",
+"start": 16.56,
+"end": 16.72,
+"seg": 3
+},
+{
+"w": "ağırlığını",
+"start": 16.8,
+"end": 17.28,
+"seg": 3
+},
+{
+"w": "hem",
+"start": 17.52,
+"end": 17.68,
+"seg": 3
+},
+{
+"w": "fiyatını",
+"start": 17.76,
+"end": 18.16,
+"seg": 3
+},
+{
+"w": "tek",
+"start": 18.32,
+"end": 18.48,
+"seg": 3
+},
+{
+"w": "tek",
+"start": 18.56,
+"end": 18.72,
+"seg": 3
+},
+{
+"w": "yazdı.",
+"start": 18.8,
+"end": 19.52,
+"seg": 3
+},
+{
+"w": "Yani",
+"start": 19.56,
+"end": 19.84,
+"seg": 4
+},
+{
+"w": "daha",
+"start": 20.0,
+"end": 20.16,
+"seg": 4
+},
+{
+"w": "hafif",
+"start": 20.24,
+"end": 20.48,
+"seg": 4
+},
+{
+"w": "bir",
+"start": 20.56,
+"end": 20.64,
+"seg": 4
+},
+{
+"w": "simit",
+"start": 20.72,
+"end": 20.96,
+"seg": 4
+},
+{
+"w": "satan",
+"start": 21.0,
+"end": 21.28,
+"seg": 4
+},
+{
+"w": "fırıncı",
+"start": 21.32,
+"end": 21.68,
+"seg": 4
+},
+{
+"w": "ceza",
+"start": 21.76,
+"end": 22.08,
+"seg": 4
+},
+{
+"w": "alıyordu.",
+"start": 22.16,
+"end": 22.64,
+"seg": 4
+},
+{
+"w": "Pekmeze",
+"start": 22.96,
+"end": 23.36,
+"seg": 5
+},
+{
+"w": "batırılıp",
+"start": 23.44,
+"end": 23.84,
+"seg": 5
+},
+{
+"w": "susama",
+"start": 23.96,
+"end": 24.24,
+"seg": 5
+},
+{
+"w": "bulanan",
+"start": 24.32,
+"end": 24.64,
+"seg": 5
+},
+{
+"w": "bu",
+"start": 24.72,
+"end": 24.8,
+"seg": 5
+},
+{
+"w": "halka,",
+"start": 24.84,
+"end": 25.44,
+"seg": 5
+},
+{
+"w": "sabahları",
+"start": 25.48,
+"end": 25.92,
+"seg": 5
+},
+{
+"w": "fırından",
+"start": 26.0,
+"end": 26.32,
+"seg": 5
+},
+{
+"w": "çıkıp",
+"start": 26.4,
+"end": 26.72,
+"seg": 5
+},
+{
+"w": "tablalarla",
+"start": 26.8,
+"end": 27.36,
+"seg": 5
+},
+{
+"w": "sokaklara",
+"start": 27.4,
+"end": 27.92,
+"seg": 5
+},
+{
+"w": "dağıldı.",
+"start": 27.96,
+"end": 28.72,
+"seg": 5
+},
+{
+"w": "Simitçinin",
+"start": 28.76,
+"end": 29.2,
+"seg": 6
+},
+{
+"w": "başındaki",
+"start": 29.28,
+"end": 29.68,
+"seg": 6
+},
+{
+"w": "tabla",
+"start": 29.76,
+"end": 30.16,
+"seg": 6
+},
+{
+"w": "ve",
+"start": 30.4,
+"end": 30.48,
+"seg": 6
+},
+{
+"w": "\"Taze",
+"start": 30.72,
+"end": 31.04,
+"seg": 6
+},
+{
+"w": "simit!\"",
+"start": 31.12,
+"end": 31.6,
+"seg": 6
+},
+{
+"w": "sesi,",
+"start": 31.72,
+"end": 32.16,
+"seg": 6
+},
+{
+"w": "yüzyıllar",
+"start": 32.24,
+"end": 32.72,
+"seg": 6
+},
+{
+"w": "boyunca",
+"start": 32.8,
+"end": 33.2,
+"seg": 6
+},
+{
+"w": "İstanbul'un",
+"start": 33.28,
+"end": 33.92,
+"seg": 6
+},
+{
+"w": "sabah",
+"start": 34.0,
+"end": 34.24,
+"seg": 6
+},
+{
+"w": "alarmı",
+"start": 34.4,
+"end": 34.64,
+"seg": 6
+},
+{
+"w": "oldu.",
+"start": 34.76,
+"end": 35.28,
+"seg": 6
+},
+{
+"w": "Vapurda",
+"start": 35.36,
+"end": 35.76,
+"seg": 7
+},
+{
+"w": "martılara",
+"start": 35.88,
+"end": 36.24,
+"seg": 7
+},
+{
+"w": "atılan,",
+"start": 36.32,
+"end": 36.88,
+"seg": 7
+},
+{
+"w": "çayın",
+"start": 36.92,
+"end": 37.2,
+"seg": 7
+},
+{
+"w": "yanına",
+"start": 37.28,
+"end": 37.52,
+"seg": 7
+},
+{
+"w": "konan",
+"start": 37.6,
+"end": 37.84,
+"seg": 7
+},
+{
+"w": "simit,",
+"start": 37.92,
+"end": 38.4,
+"seg": 7
+},
+{
+"w": "bugün",
+"start": 38.48,
+"end": 38.72,
+"seg": 7
+},
+{
+"w": "hâlâ",
+"start": 38.8,
+"end": 39.2,
+"seg": 7
+},
+{
+"w": "şehrin",
+"start": 39.28,
+"end": 39.68,
+"seg": 7
+},
+{
+"w": "en",
+"start": 39.76,
+"end": 39.84,
+"seg": 7
+},
+{
+"w": "ucuz",
+"start": 39.92,
+"end": 40.16,
+"seg": 7
+},
+{
+"w": "kahvaltısı.",
+"start": 40.24,
+"end": 41.2,
+"seg": 7
+},
+{
+"w": "Beş",
+"start": 41.28,
+"end": 41.44,
+"seg": 8
+},
+{
+"w": "yüz",
+"start": 41.52,
+"end": 41.68,
+"seg": 8
+},
+{
+"w": "yılda",
+"start": 41.76,
+"end": 42.08,
+"seg": 8
+},
+{
+"w": "tarifi",
+"start": 42.16,
+"end": 42.56,
+"seg": 8
+},
+{
+"w": "neredeyse",
+"start": 42.64,
+"end": 43.2,
+"seg": 8
+},
+{
+"w": "hiç",
+"start": 43.28,
+"end": 43.52,
+"seg": 8
+},
+{
+"w": "değişmedi.",
+"start": 43.56,
+"end": 44.48,
+"seg": 8
+},
+{
+"w": "Sen",
+"start": 44.6,
+"end": 44.72,
+"seg": 9
+},
+{
+"w": "simidi",
+"start": 44.8,
+"end": 45.04,
+"seg": 9
+},
+{
+"w": "neyle",
+"start": 45.12,
+"end": 45.28,
+"seg": 9
+},
+{
+"w": "yersin:",
+"start": 45.36,
+"end": 46.08,
+"seg": 9
+},
+{
+"w": "Peynirle",
+"start": 46.12,
+"end": 46.56,
+"seg": 9
+},
+{
+"w": "mi,",
+"start": 46.64,
+"end": 46.96,
+"seg": 9
+},
+{
+"w": "çayla",
+"start": 47.04,
+"end": 47.28,
+"seg": 9
+},
+{
+"w": "mı?",
+"start": 47.36,
+"end": 47.68,
+"seg": 9
+}
+]
+}

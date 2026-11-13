@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: planetaryum. Derin uzay petrolü + krem-hardal Venüs maskotu + küçük mavi Dünya tepkici; yörünge çizgileri, IBM Plex Mono sayaçlar. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#071A24}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 90px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 5px 0 rgba(0,0,0,.6)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+  .mono{font-family:'IBM Plex Mono';font-weight:600}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="uzay" cx=".5" cy=".55" r=".8"><stop offset="0" stop-color="#14384A"/><stop offset=".7" stop-color="#0A2230"/><stop offset="1" stop-color="#050F16"/></radialGradient>
+    <radialGradient id="venus" cx=".38" cy=".35" r=".75"><stop offset="0" stop-color="#FFF0C2"/><stop offset=".55" stop-color="#F2C46A"/><stop offset="1" stop-color="#C98A3A"/></radialGradient>
+    <radialGradient id="dunya" cx=".38" cy=".35" r=".75"><stop offset="0" stop-color="#8FD3FF"/><stop offset="1" stop-color="#2A72C8"/></radialGradient>
+    <radialGradient id="gunes" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF6C8"/><stop offset=".35" stop-color="#FFC94A"/><stop offset="1" stop-color="#FF8A3A" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ates" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FF7A3A" stop-opacity=".7"/><stop offset="1" stop-color="#FF3A3A" stop-opacity="0"/></radialGradient>
+    <clipPath id="vk"><circle r="200"/></clipPath>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka', '600 40px "IBM Plex Mono"'];
+const c = cue, INK = '#0A1A24', HAR = '#F2C46A';
+const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFE08A') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+const sayac = (x, y, txt, r = HAR, s = 64) => `<g transform="translate(${x},${y})"><rect x="-230" y="-60" width="460" height="120" rx="20" fill="#0A2230" stroke="${r}" stroke-width="5"/><text class="mono" text-anchor="middle" dy="22" font-size="${s}" fill="${r}">${txt}</text></g>`;
+
+// Venüs maskotu; rot: bulut bantları kayması (dönüş), o.sicak
+function venus(t, rot = 0, o = {}) {
+  let g = `<circle r="200" fill="url(#venus)" stroke="${INK}" stroke-width="8"/><g clip-path="url(#vk)">`;
+  for (let k = 0; k < 6; k++) { const y = -170 + k * 66, x = ((rot * (1 + k * .1)) % 600 + 600) % 600 - 300; g += `<path d="M${f2(x - 400)} ${y} q100 -24 200 0 t200 0 t200 0 t200 0" stroke="#FFF6DC" stroke-width="18" fill="none" opacity=".35" stroke-linecap="round"/>`; }
+  g += '</g>';
+  if (o.sicak) g += `<circle r="${f2(240 + sin(t * .2) * 8)}" fill="none" stroke="#FF7A3A" stroke-width="10" opacity="${f2(o.sicak * .6)}"/>`;
+  return g + yuz(0, 10, 1.1, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, cizgi: INK });
+}
+function dunya(t, o = {}) {
+  return `<circle r="90" fill="url(#dunya)" stroke="${INK}" stroke-width="6"/><path d="M-50 -40 q30 -20 50 10 q20 30 -10 40 q-30 6 -40 -50Z M30 20 q30 -10 40 20 q-10 30 -40 10Z" fill="#5CC98A"/>` + yuz(0, 6, .5, t, { seed: 5, sur: o.sur, cizgi: INK });
+}
+function gunes(x, y, s, t) { return at(x, y, s, `<circle r="200" fill="url(#gunes)"/><circle r="80" fill="#FFD24A"/>`); }
+// bayrak işaretli dönüş göstergesi: sabit bayrak + dönen işaret
+function isaret(r, a, renk) { return `<g transform="rotate(${f2(a)})"><path d="M0 ${-r} v-60" stroke="${renk}" stroke-width="8"/><path d="M0 ${-r - 60} l50 16 -50 16Z" fill="${renk}"/></g>`; }
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = at(540, 1150, 1.1, venus(t, t * 1, { seed: 1, sur: f >= c('hook', 'venus') && f < c('hook', 'venus') + 30 }));
+    g += at(870, 760, .8, dunya(t, { sur: f >= c('hook', 'longer') }));
+    // gün > yıl terazisi
+    if (f >= c('hook', 'day', 1)) {
+      const p = pop(f, c('hook', 'day', 1)), eg = -gir(f, c('hook', 'longer'), 16) * 12;
+      g += at(540, 1580, p, `<g transform="rotate(${f2(eg)})"><rect x="-300" y="-10" width="600" height="20" rx="10" fill="${HAR}"/><rect x="-330" y="-90" width="160" height="80" rx="14" fill="#0A2230" stroke="${HAR}" stroke-width="5"/><text class="lbl" x="-250" y="-35" text-anchor="middle" font-size="44" fill="${HAR}">DAY</text><rect x="170" y="-90" width="160" height="80" rx="14" fill="#0A2230" stroke="#8FD3FF" stroke-width="5"/><text class="lbl" x="250" y="-35" text-anchor="middle" font-size="44" fill="#8FD3FF">YEAR</text></g><path d="M0 0 L-40 90 H40Z" fill="${HAR}"/>`);
+    }
+    return g;
+  },
+  spin(f, S, t) {
+    let g = '';
+    const rot = (f - S.spin.start) * .25;
+    g += at(540, 1120, 1.1, `${isaret(220, rot * .12, '#FF8A6B')}${venus(t, rot, { seed: 2 })}`);
+    const gun = Math.min(243, Math.round(kf(f, [[0, 0], [c('spin', 'full'), 0], [c('spin', '243') + 20, 243]])));
+    if (f >= c('spin', 'full')) g += sayac(540, 1520, `${gun} days`, HAR, 72);
+    // salyangoz yanında: yavaş
+    if (f >= c('spin', 'slowly')) g += at(240, 760, pop(f, c('spin', 'slowly')) * .8, `<path d="M-90 40 h180 q20 0 20 -20" stroke="#FFE08A" stroke-width="12" fill="none" stroke-linecap="round"/><circle cx="10" cy="-20" r="60" fill="#E8A86A" stroke="${INK}" stroke-width="7"/><path d="M10 -20 m-30 0 a30 30 0 1 1 30 30 a18 18 0 1 1 -18 -18" stroke="${INK}" stroke-width="6" fill="none"/><path d="M80 30 q20 -60 0 -80 M96 -50 l0 -20 M66 -50 l-6 -20" stroke="#FFE08A" stroke-width="10" fill="none" stroke-linecap="round"/>`);
+    g += L('sooo slow', 240, 640, f, c('spin', 'slowly'), S.orbit.start - 2, 64);
+    return g;
+  },
+  orbit(f, S, t) {
+    let g = gunes(540, 1120, 1, t);
+    g += `<circle cx="540" cy="1120" r="360" fill="none" stroke="${HAR}" stroke-width="4" stroke-dasharray="14 14" opacity=".7"/>`;
+    // yörünge ilerlemesi (225) vs dönüş (243): yörünge tamamlanır, dönüş eksik
+    const p = klamp((f - c('orbit', 'goes')) / (S.west.start - c('orbit', 'goes') - 20));
+    const a = -P / 2 + p * 2 * P;
+    g += `<path d="M540 760 A360 360 0 ${p > .5 ? 1 : 0} 1 ${f2(540 + cos(a) * 360)} ${f2(1120 + sin(a) * 360)}" stroke="${HAR}" stroke-width="12" fill="none" stroke-linecap="round"/>`;
+    g += at(540 + cos(a) * 360, 1120 + sin(a) * 360, .45, `${isaret(220, p * 225 / 243 * 360, '#FF8A6B')}${venus(t, p * 600, { seed: 3, sur: p > .95 })}`);
+    g += sayac(540, 1640, `year ${Math.round(p * 225)} / 225`, '#8FD3FF', 54);
+    g += L('year ends first!', 540, 640, f, c('orbit', 'ends'), S.west.start - 2, 80);
+    return g;
+  },
+  west(f, S, t) {
+    let g = '';
+    // Venüs yüzeyi ufku: güneş batıdan doğar
+    g += `<path d="M-40 1500 Q540 1400 1120 1500 V1960 H-40Z" fill="#C98A3A"/><path d="M-40 1520 Q540 1430 1120 1520" stroke="#8A5A2A" stroke-width="8" fill="none"/>`;
+    for (let k = 0; k < 6; k++) g += `<ellipse cx="${f2(100 + k * 180)}" cy="${f2(1600 + (k % 2) * 80)}" rx="60" ry="16" fill="#8A5A2A" opacity=".6"/>`;
+    const u = gir(f, c('west', 'rise'), 50);
+    g += gunes(180, 1480 - u * 380, .9, t);
+    g += `<text class="lbl" x="120" y="1700" font-size="70" fill="#FFE08A" stroke="${INK}" stroke-width="10">W</text><text class="lbl" x="900" y="1700" font-size="70" fill="#FFE08A" stroke="${INK}" stroke-width="10">E</text>`;
+    // geri dönüş oku
+    const p = gir(f, c('west', 'backwards'), 16);
+    if (p > 0) g += at(540, 900, p, `<circle r="180" fill="url(#venus)" stroke="${INK}" stroke-width="7"/><path d="M150 -110 A190 190 0 1 0 190 30" stroke="#FF8A6B" stroke-width="16" fill="none" stroke-linecap="round" transform="scale(-1,1)"/><path d="M-190 30 l-30 -40 m30 40 l40 -30" stroke="#FF8A6B" stroke-width="16" stroke-linecap="round"/>` + yuz(0, 10, .9, t, { seed: 4, cizgi: INK }));
+    g += L('backwards!', 540, 640, f, c('west', 'backwards'), c('west', 'rise') - 2, 88, '#FF8A6B');
+    g += L('sunrise in the WEST', 540, 640, f, c('west', 'rise'), S.hot.start - 2, 76);
+    return g;
+  },
+  hot(f, S, t) {
+    let g = gunes(540, 600, 1.1, t);
+    const s = gir(f, c('hot', 'hottest'), 20);
+    // Merkür daha yakın ama daha soğuk
+    g += at(260, 920, .45, `<circle r="140" fill="#B9B2A8" stroke="${INK}" stroke-width="8"/>` + yuz(0, 6, .8, t, { seed: 6, sur: f >= c('hot', 'mercury'), cizgi: INK }));
+    g += L('Mercury', 260, 1030, f, c('hot', 'mercury'), S.bright.start - 2, 52, '#E0DAD0');
+    g += `<circle cx="640" cy="1250" r="${f2(330 + sin(t * .2) * 10)}" fill="url(#ates)" opacity="${f2(s)}"/>`;
+    g += at(640, 1250, 1, venus(t, t, { seed: 7, sicak: s }));
+    // battaniye bulutları
+    const b = gir(f, c('hot', 'blanket'), 20);
+    if (b > 0) g += `<path d="M380 1100 Q640 960 900 1100 Q960 1250 900 1400 Q640 1520 380 1400 Q320 1250 380 1100Z" fill="#E8B0D8" opacity="${f2(b * .55)}" stroke="#fff" stroke-width="6" stroke-dasharray="20 14"/>`;
+    if (f >= c('hot', 'hottest')) g += sayac(640, 1620, `${Math.round(kf(f, [[0, 0], [c('hot', 'hottest'), 0], [c('hot', 'hottest') + 40, 465]]))}°C`, '#FF8A6B', 80);
+    return g;
+  },
+  bright(f, S, t) {
+    let g = '';
+    // gece manzarası: ay + parlak Venüs noktası
+    g += `<path d="M-40 1600 Q300 1500 540 1560 T1120 1540 V1960 H-40Z" fill="#0A1A14"/>`;
+    g += `<path d="M300 640 a110 110 0 1 0 90 180 a92 92 0 1 1 -90 -180Z" fill="#FFF1B8"/>`;
+    const p = gir(f, c('bright', 'brightest'), 16);
+    g += `<circle cx="760" cy="1000" r="${f2(70 + 20 * p + sin(t * .3) * 6)}" fill="#FFF6C8" opacity="${f2(.25 * p)}"/>`;
+    for (let k = 0; k < 4; k++) g += `<path d="M760 1000 L${f2(760 + cos(k * P / 2 + t * .01) * 110 * p)} ${f2(1000 + sin(k * P / 2 + t * .01) * 110 * p)}" stroke="#FFF6C8" stroke-width="6" stroke-linecap="round" opacity="${f2(p)}"/>`;
+    g += `<circle cx="760" cy="1000" r="22" fill="#FFF6C8"/>`;
+    // izleyen çocuk silueti
+    g += `<g transform="translate(280,1560)"><circle cy="-170" r="50" fill="#0A1A14"/><path d="M-50 -120 h100 l20 120 h-140Z" fill="#0A1A14"/><path d="M40 -150 L200 -280" stroke="#0A1A14" stroke-width="18" stroke-linecap="round"/></g>`;
+    g += L('star? → Venus!', 760, 860, f, c('bright', 'star'), S.son.start - 2, 64);
+    return g;
+  },
+  son(f, S, t) {
+    let g = at(540, 1150, 1.1, venus(t, t * .4, { seed: 8, kapali: f > T.total - 24 }));
+    // doğum günü pastası
+    if (f >= c('son', 'birthday')) g += at(540, 1580, pop(f, c('son', 'birthday')), `<rect x="-160" y="-60" width="320" height="120" rx="20" fill="#FF9EC4" stroke="${INK}" stroke-width="7"/><rect x="-160" y="-60" width="320" height="34" rx="16" fill="#FFF3DC"/>${[-80, 0, 80].map(x => `<rect x="${x - 8}" y="-130" width="16" height="70" fill="#8FD3FF"/><path d="M${x} -160 q14 18 0 30 q-14 -12 0 -30Z" fill="#FFC94A"/>`).join('')}`);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#uzay)"/>`;
+  for (let k = 0; k < 90; k++) a += `<circle cx="${f2(rastgele(k) * 1080)}" cy="${f2(rastgele(k + 90) * 1920)}" r="${f2(1 + rastgele(k + 5) * 2.8)}" fill="#fff" opacity="${f2(.2 + .6 * Math.abs(sin(f * .02 + k * 1.7)))}"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+ "title": "Simit'in fiyatını kim belirliyordu?",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Beş yüz yıl önce bu yiyeceğin fiyatını devlet belirliyordu."
+  },
+  {
+   "scene": "s2",
+   "text": "Evet, simit. İstanbul'un en eski sokak lezzeti."
+  },
+  {
+   "scene": "s3",
+   "text": "Simitten bahseden en eski kayıtlardan biri, {1525|bin beş yüz yirmi beş} tarihli Üsküdar mahkeme defterleri."
+  },
+  {
+   "scene": "s4",
+   "text": "{1640'ta|bin altı yüz kırkta} çıkan narh kanunu, simidin hem ağırlığını hem fiyatını tek tek yazdı."
+  },
+  {
+   "scene": "s5",
+   "text": "Yani daha hafif bir simit satan fırıncı ceza alıyordu."
+  },
+  {
+   "scene": "s6",
+   "text": "Pekmeze batırılıp susama bulanan bu halka, sabahları fırından çıkıp tablalarla sokaklara dağıldı."
+  },
+  {
+   "scene": "s7",
+   "text": "Simitçinin başındaki tabla ve \"Taze simit!\" sesi, yüzyıllar boyunca İstanbul'un sabah alarmı oldu."
+  },
+  {
+   "scene": "s8",
+   "text": "Vapurda martılara atılan, çayın yanına konan simit, bugün hâlâ şehrin en ucuz kahvaltısı."
+  },
+  {
+   "scene": "s9",
+   "text": "Beş yüz yılda tarifi neredeyse hiç değişmedi."
+  },
+  {
+   "scene": "son",
+   "text": "Sen simidi neyle yersin: Peynirle mi, çayla mı?"
+  }
+ ]
+}

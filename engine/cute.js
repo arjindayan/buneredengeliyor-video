@@ -32,8 +32,8 @@ function etiket(txt, x, y, f, f0, f1, size = 64, renk = '#FFF3DC', anchor = 'mid
 // altyazı: konuşulan kelime sarı, sıradakiler soluk
 function altyazi(f, el) {
   const cp = T.caption(f), tt = f / FPS;
-  if (!cp) { el.innerHTML = ''; return; }
-  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  if (!cp) { el.innerHTML = ''; el.style.visibility = 'hidden'; return; }
+  el.style.visibility = 'visible'; const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
   const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
   let i = 0;
   el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {

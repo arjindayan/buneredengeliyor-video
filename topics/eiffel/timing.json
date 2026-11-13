@@ -1,0 +1,869 @@
+{
+"duration": 50.468,
+"words": [
+{
+"w": "The",
+"start": 0.0,
+"end": 0.16,
+"seg": 0
+},
+{
+"w": "Eiffel",
+"start": 0.2,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "Tower",
+"start": 0.56,
+"end": 0.88,
+"seg": 0
+},
+{
+"w": "is",
+"start": 0.96,
+"end": 1.2,
+"seg": 0
+},
+{
+"w": "always",
+"start": 1.28,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "the",
+"start": 1.76,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "same",
+"start": 1.92,
+"end": 2.16,
+"seg": 0
+},
+{
+"w": "height.",
+"start": 2.24,
+"end": 2.88,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.2,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.76,
+"end": 4.0,
+"seg": 0
+},
+{
+"w": "not",
+"start": 4.08,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 4.32,
+"end": 4.8,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.88,
+"end": 5.52,
+"seg": 0
+},
+{
+"w": "In",
+"start": 5.6,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "summer,",
+"start": 5.76,
+"end": 6.24,
+"seg": 0
+},
+{
+"w": "it",
+"start": 6.28,
+"end": 6.32,
+"seg": 0
+},
+{
+"w": "gets",
+"start": 6.44,
+"end": 6.56,
+"seg": 0
+},
+{
+"w": "taller.",
+"start": 6.6,
+"end": 7.44,
+"seg": 0
+},
+{
+"w": "The",
+"start": 7.52,
+"end": 7.6,
+"seg": 1
+},
+{
+"w": "tower",
+"start": 7.76,
+"end": 7.92,
+"seg": 1
+},
+{
+"w": "is",
+"start": 8.0,
+"end": 8.08,
+"seg": 1
+},
+{
+"w": "made",
+"start": 8.16,
+"end": 8.24,
+"seg": 1
+},
+{
+"w": "of",
+"start": 8.32,
+"end": 8.4,
+"seg": 1
+},
+{
+"w": "iron,",
+"start": 8.48,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "and",
+"start": 9.04,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "iron",
+"start": 9.2,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "expands",
+"start": 9.6,
+"end": 10.08,
+"seg": 1
+},
+{
+"w": "when",
+"start": 10.16,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "it",
+"start": 10.28,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "heats",
+"start": 10.4,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "up.",
+"start": 10.72,
+"end": 11.36,
+"seg": 1
+},
+{
+"w": "On",
+"start": 11.44,
+"end": 11.52,
+"seg": 1
+},
+{
+"w": "a",
+"start": 11.56,
+"end": 11.6,
+"seg": 1
+},
+{
+"w": "hot",
+"start": 11.72,
+"end": 11.84,
+"seg": 1
+},
+{
+"w": "day,",
+"start": 11.96,
+"end": 12.32,
+"seg": 1
+},
+{
+"w": "the",
+"start": 12.4,
+"end": 12.48,
+"seg": 1
+},
+{
+"w": "tower",
+"start": 12.64,
+"end": 12.8,
+"seg": 1
+},
+{
+"w": "can",
+"start": 12.88,
+"end": 12.96,
+"seg": 1
+},
+{
+"w": "grow",
+"start": 13.04,
+"end": 13.28,
+"seg": 1
+},
+{
+"w": "by",
+"start": 13.36,
+"end": 13.44,
+"seg": 1
+},
+{
+"w": "about",
+"start": 13.6,
+"end": 13.76,
+"seg": 1
+},
+{
+"w": "15 centimeters.",
+"start": 13.84,
+"end": 15.68,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 15.76,
+"end": 15.92,
+"seg": 2
+},
+{
+"w": "the",
+"start": 16.0,
+"end": 16.16,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 16.32,
+"end": 16.48,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 16.56,
+"end": 17.2,
+"seg": 2
+},
+{
+"w": "The",
+"start": 17.28,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "sun",
+"start": 17.52,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "heats",
+"start": 17.72,
+"end": 18.0,
+"seg": 2
+},
+{
+"w": "one",
+"start": 18.08,
+"end": 18.24,
+"seg": 2
+},
+{
+"w": "side",
+"start": 18.32,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "more",
+"start": 18.72,
+"end": 18.8,
+"seg": 2
+},
+{
+"w": "than",
+"start": 18.88,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "the",
+"start": 19.04,
+"end": 19.12,
+"seg": 2
+},
+{
+"w": "other,",
+"start": 19.2,
+"end": 19.68,
+"seg": 2
+},
+{
+"w": "so",
+"start": 19.72,
+"end": 19.76,
+"seg": 2
+},
+{
+"w": "the",
+"start": 19.84,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "top",
+"start": 20.0,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "slowly",
+"start": 20.4,
+"end": 20.96,
+"seg": 2
+},
+{
+"w": "leans",
+"start": 21.08,
+"end": 21.2,
+"seg": 2
+},
+{
+"w": "away",
+"start": 21.28,
+"end": 21.6,
+"seg": 2
+},
+{
+"w": "from",
+"start": 21.68,
+"end": 21.84,
+"seg": 2
+},
+{
+"w": "the",
+"start": 21.92,
+"end": 22.0,
+"seg": 2
+},
+{
+"w": "sun",
+"start": 22.12,
+"end": 22.24,
+"seg": 2
+},
+{
+"w": "during",
+"start": 22.36,
+"end": 22.48,
+"seg": 2
+},
+{
+"w": "the",
+"start": 22.52,
+"end": 22.56,
+"seg": 2
+},
+{
+"w": "day.",
+"start": 22.64,
+"end": 23.44,
+"seg": 2
+},
+{
+"w": "In",
+"start": 23.52,
+"end": 23.6,
+"seg": 3
+},
+{
+"w": "fact,",
+"start": 23.76,
+"end": 24.16,
+"seg": 3
+},
+{
+"w": "the",
+"start": 24.24,
+"end": 24.32,
+"seg": 3
+},
+{
+"w": "tower",
+"start": 24.48,
+"end": 24.64,
+"seg": 3
+},
+{
+"w": "was",
+"start": 24.76,
+"end": 24.88,
+"seg": 3
+},
+{
+"w": "never",
+"start": 24.96,
+"end": 25.2,
+"seg": 3
+},
+{
+"w": "meant",
+"start": 25.24,
+"end": 25.36,
+"seg": 3
+},
+{
+"w": "to",
+"start": 25.44,
+"end": 25.6,
+"seg": 3
+},
+{
+"w": "stay.",
+"start": 25.76,
+"end": 26.32,
+"seg": 3
+},
+{
+"w": "It",
+"start": 26.36,
+"end": 26.4,
+"seg": 3
+},
+{
+"w": "was",
+"start": 26.48,
+"end": 26.64,
+"seg": 3
+},
+{
+"w": "built",
+"start": 26.76,
+"end": 26.88,
+"seg": 3
+},
+{
+"w": "for",
+"start": 26.96,
+"end": 27.04,
+"seg": 3
+},
+{
+"w": "a",
+"start": 27.12,
+"end": 27.2,
+"seg": 3
+},
+{
+"w": "World's",
+"start": 27.32,
+"end": 27.52,
+"seg": 3
+},
+{
+"w": "Fair",
+"start": 27.6,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "in",
+"start": 27.92,
+"end": 28.0,
+"seg": 3
+},
+{
+"w": "1889,",
+"start": 28.08,
+"end": 29.12,
+"seg": 3
+},
+{
+"w": "with",
+"start": 29.16,
+"end": 29.2,
+"seg": 3
+},
+{
+"w": "a",
+"start": 29.28,
+"end": 29.36,
+"seg": 3
+},
+{
+"w": "permit",
+"start": 29.44,
+"end": 29.76,
+"seg": 3
+},
+{
+"w": "for",
+"start": 29.84,
+"end": 29.92,
+"seg": 3
+},
+{
+"w": "just",
+"start": 30.04,
+"end": 30.16,
+"seg": 3
+},
+{
+"w": "twenty",
+"start": 30.36,
+"end": 30.56,
+"seg": 3
+},
+{
+"w": "years.",
+"start": 30.76,
+"end": 31.44,
+"seg": 3
+},
+{
+"w": "It",
+"start": 31.48,
+"end": 31.52,
+"seg": 4
+},
+{
+"w": "was",
+"start": 31.6,
+"end": 31.76,
+"seg": 4
+},
+{
+"w": "saved",
+"start": 31.84,
+"end": 32.24,
+"seg": 4
+},
+{
+"w": "by",
+"start": 32.36,
+"end": 32.48,
+"seg": 4
+},
+{
+"w": "science.",
+"start": 32.56,
+"end": 33.44,
+"seg": 4
+},
+{
+"w": "Its",
+"start": 33.56,
+"end": 33.68,
+"seg": 4
+},
+{
+"w": "height",
+"start": 33.84,
+"end": 34.0,
+"seg": 4
+},
+{
+"w": "made",
+"start": 34.08,
+"end": 34.16,
+"seg": 4
+},
+{
+"w": "it",
+"start": 34.2,
+"end": 34.24,
+"seg": 4
+},
+{
+"w": "the",
+"start": 34.32,
+"end": 34.4,
+"seg": 4
+},
+{
+"w": "perfect",
+"start": 34.48,
+"end": 34.88,
+"seg": 4
+},
+{
+"w": "radio",
+"start": 34.96,
+"end": 35.28,
+"seg": 4
+},
+{
+"w": "antenna,",
+"start": 35.4,
+"end": 35.92,
+"seg": 4
+},
+{
+"w": "so",
+"start": 36.0,
+"end": 36.16,
+"seg": 4
+},
+{
+"w": "Paris",
+"start": 36.32,
+"end": 36.48,
+"seg": 4
+},
+{
+"w": "decided",
+"start": 36.56,
+"end": 36.88,
+"seg": 4
+},
+{
+"w": "to",
+"start": 36.92,
+"end": 36.96,
+"seg": 4
+},
+{
+"w": "keep",
+"start": 37.04,
+"end": 37.2,
+"seg": 4
+},
+{
+"w": "it.",
+"start": 37.28,
+"end": 37.92,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 38.0,
+"end": 38.16,
+"seg": 5
+},
+{
+"w": "not",
+"start": 38.24,
+"end": 38.32,
+"seg": 5
+},
+{
+"w": "all.",
+"start": 38.4,
+"end": 38.96,
+"seg": 5
+},
+{
+"w": "Every",
+"start": 39.04,
+"end": 39.36,
+"seg": 5
+},
+{
+"w": "seven",
+"start": 39.52,
+"end": 39.68,
+"seg": 5
+},
+{
+"w": "years",
+"start": 39.8,
+"end": 39.92,
+"seg": 5
+},
+{
+"w": "or",
+"start": 40.0,
+"end": 40.08,
+"seg": 5
+},
+{
+"w": "so,",
+"start": 40.16,
+"end": 40.48,
+"seg": 5
+},
+{
+"w": "it",
+"start": 40.56,
+"end": 40.64,
+"seg": 5
+},
+{
+"w": "gets",
+"start": 40.76,
+"end": 40.88,
+"seg": 5
+},
+{
+"w": "repainted",
+"start": 41.0,
+"end": 41.44,
+"seg": 5
+},
+{
+"w": "by",
+"start": 41.52,
+"end": 41.76,
+"seg": 5
+},
+{
+"w": "hand,",
+"start": 41.96,
+"end": 42.32,
+"seg": 5
+},
+{
+"w": "with",
+"start": 42.4,
+"end": 42.48,
+"seg": 5
+},
+{
+"w": "about",
+"start": 42.64,
+"end": 42.8,
+"seg": 5
+},
+{
+"w": "sixty",
+"start": 42.96,
+"end": 43.36,
+"seg": 5
+},
+{
+"w": "tons",
+"start": 43.56,
+"end": 43.76,
+"seg": 5
+},
+{
+"w": "of",
+"start": 43.84,
+"end": 43.92,
+"seg": 5
+},
+{
+"w": "paint.",
+"start": 44.0,
+"end": 44.88,
+"seg": 5
+},
+{
+"w": "So",
+"start": 45.12,
+"end": 45.28,
+"seg": 6
+},
+{
+"w": "the",
+"start": 45.36,
+"end": 45.4,
+"seg": 6
+},
+{
+"w": "Eiffel",
+"start": 45.44,
+"end": 45.76,
+"seg": 6
+},
+{
+"w": "Tower",
+"start": 46.08,
+"end": 46.16,
+"seg": 6
+},
+{
+"w": "isn't",
+"start": 46.24,
+"end": 46.56,
+"seg": 6
+},
+{
+"w": "always",
+"start": 46.88,
+"end": 46.96,
+"seg": 6
+},
+{
+"w": "the",
+"start": 47.04,
+"end": 47.16,
+"seg": 6
+},
+{
+"w": "same",
+"start": 47.28,
+"end": 47.44,
+"seg": 6
+},
+{
+"w": "height.",
+"start": 47.6,
+"end": 48.08,
+"seg": 6
+},
+{
+"w": "It",
+"start": 48.24,
+"end": 48.36,
+"seg": 6
+},
+{
+"w": "breathes",
+"start": 48.48,
+"end": 48.88,
+"seg": 6
+},
+{
+"w": "with",
+"start": 48.96,
+"end": 49.0,
+"seg": 6
+},
+{
+"w": "the",
+"start": 49.04,
+"end": 49.12,
+"seg": 6
+},
+{
+"w": "seasons.",
+"start": 49.52,
+"end": 49.92,
+"seg": 6
+}
+]
+}

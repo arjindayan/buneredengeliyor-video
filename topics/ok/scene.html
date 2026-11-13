@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: 1830'lar Boston gazetesi. Gazete kâğıdı + mürekkep siyahı + matbaa kırmızısı; O ve K harf maskotları, Fraunces manşetler. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#EFE4CC}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:70px;right:70px;top:170px;padding:22px 26px;border-radius:24px;background:rgba(32,24,18,.92);text-align:center;font:400 86px/1.08 'Patrick Hand';color:#FFF3DC}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+  .fr{font-family:'Fraunces';font-weight:900}
+  .frl{font-family:'Fraunces';font-weight:300}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <filter id="gren"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .22  0 0 0 0 .12  0 0 0 .18 0"/></filter>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka', '900 80px Fraunces', '300 80px Fraunces'];
+const c = cue, INK = '#201812', KIR = '#C8372D', KAG = '#EFE4CC';
+const L = (txt, x, y, f, f0, f1, s = 80, r = KIR) => etiket(txt, x, y, f, f0, f1, s, r, 'middle', KAG);
+
+// O ve K harf maskotları
+function O(t, o = {}) { return `<circle r="150" fill="none" stroke="${INK}" stroke-width="80"/><circle r="150" fill="none" stroke="${o.renk || INK}" stroke-width="64"/>` + `<g transform="translate(0,-190)">${o.sapka ? `<rect x="-70" y="-110" width="140" height="110" rx="8" fill="${INK}"/><rect x="-110" y="-10" width="220" height="24" rx="10" fill="${INK}"/>` : ''}</g>` + yuz(0, 0, .75, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, cizgi: INK }); }
+function K(t, o = {}) { const r = o.renk || INK; return `<path d="M-120 -190 V190 M-120 20 L110 -190 M-60 -30 L120 190" stroke="${r}" stroke-width="70" stroke-linecap="square" fill="none"/>` + `<circle cx="-30" cy="60" r="0"/>`; }
+function OK(t, x, y, s, o = {}) { return at(x, y, s, at(-200, 0, 1, O(t, { ...o, seed: 1 })) + at(200, 0, 1, K(t, { ...o, renk: o.renk2 || o.renk }))); }
+// gazete sayfası
+function gazete(x, y, s, r, baslik, alt, f) {
+  let g = `<rect x="-330" y="-430" width="660" height="860" fill="#F7EEDA" stroke="${INK}" stroke-width="6"/><text class="fr" text-anchor="middle" y="-340" font-size="46" fill="${INK}">${baslik}</text><path d="M-300 -310 H300 M-300 -296 H300" stroke="${INK}" stroke-width="4"/>`;
+  g += `<text class="frl" text-anchor="middle" y="-262" font-size="26" fill="${INK}">${alt}</text>`;
+  for (let col = 0; col < 3; col++) for (let k = 0; k < 18; k++) g += `<rect x="${-300 + col * 205}" y="${-220 + k * 34}" width="${f2(170 + rastgele(k + col * 30) * 20 - (k % 6 === 5 ? 70 : 0))}" height="12" fill="${INK}" opacity=".22"/>`;
+  return at(x, y, s, g, r);
+}
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = '';
+    g += OK(t, 540, 1080, 1, { sur: f >= c('hook', 'joke') && f < c('hook', 'joke') + 26 });
+    g += L('short for...?', 540, 720, f, c('hook', 'short'), c('hook', 'well') - 2, 84);
+    if (f >= c('hook', 'misspelled')) g += at(540, 1500, pop(f, c('hook', 'misspelled')), `<g transform="rotate(-5)"><rect x="-300" y="-70" width="600" height="140" rx="10" fill="none" stroke="${KIR}" stroke-width="10"/><text class="fr" text-anchor="middle" dy="30" font-size="80" fill="${KIR}">MISSPELLED</text></g>`);
+    return g;
+  },
+  fad(f, S, t) {
+    let g = '';
+    // tüy kalemli genç yazarlar: masada mürekkep hokkası; kısaltmalar uçuşur
+    g += `<rect x="120" y="1400" width="840" height="40" rx="8" fill="#7A5230" stroke="${INK}" stroke-width="6"/>`;
+    for (let k = 0; k < 3; k++) { const x = 260 + k * 280; g += at(x, 1240, .9, `<path d="M-90 160 C-100 40 -60 -40 0 -40 C60 -40 100 40 90 160Z" fill="${['#3A4A7A', '#7A3A3A', '#3A6A4A'][k]}" stroke="${INK}" stroke-width="6"/><circle cy="-110" r="80" fill="#F2D2B0" stroke="${INK}" stroke-width="6"/><rect x="-80" y="-220" width="160" height="40" rx="6" fill="${INK}"/><rect x="-50" y="-300" width="100" height="90" rx="6" fill="${INK}"/>${yuz(0, -100, .5, t, { seed: k, cizgi: INK })}`); }
+    g += `<path d="M560 1400 q80 -200 160 -260" stroke="#fff" stroke-width="8" fill="none"/><path d="M700 1140 q30 -40 60 -40 q-20 40 -60 40Z" fill="#fff" stroke="${INK}" stroke-width="4"/>`;
+    const kis = ['O.F.M.', 'N.G.', 'K.Y.', 'G.T.D.H.D.', 'O.W.', 'S.P.'];
+    kis.forEach((k, i) => { const f0 = c('fad', 'abbreviations') + i * 8; if (f < f0) return; const u = klamp((f - f0) / 80); g += at(210 + (i % 3) * 330 + sin(t * .03 + i) * 20, 980 - Math.floor(i / 3) * 170 - u * 40, pop(f, f0), `<text class="fr" text-anchor="middle" font-size="66" fill="${i % 2 ? KIR : INK}">${k}</text>`, (i % 2 ? -6 : 6)); });
+    g += L('Boston, 1830s', 540, 640, f, c('fad', 'boston'), S.oll.start - 2, 78, INK);
+    return g;
+  },
+  oll(f, S, t) {
+    let g = OK(t, 540, 940, .8);
+    // oll korrect → all correct
+    const p = pop(f, c('oll', 'oll'));
+    g += at(540, 1380, p, `<text class="fr" text-anchor="middle" font-size="110" fill="${INK}"><tspan fill="${KIR}">O</tspan>ll <tspan fill="${KIR}">K</tspan>orrect</text>`);
+    if (f >= c('oll', 'all')) g += at(540, 1540, pop(f, c('oll', 'all')), `<text class="frl" text-anchor="middle" font-size="80" fill="${INK}">= all correct ✓</text>`);
+    if (f >= c('oll', 'wrong')) g += at(820, 1260, pop(f, c('oll', 'wrong')), `<g transform="rotate(14)"><rect x="-150" y="-50" width="300" height="100" rx="10" fill="none" stroke="${KIR}" stroke-width="8"/><text class="lbl" text-anchor="middle" dy="20" font-size="52" fill="${KIR}">on purpose</text></g>`);
+    return g;
+  },
+  paper(f, S, t) {
+    let g = gazete(540, 1120, 1, -2, 'BOSTON MORNING POST', 'MARCH 23, 1839', f);
+    // makalede O.K. kırmızı daire
+    g += at(540, 1050, 1, `<text class="fr" text-anchor="middle" font-size="120" fill="${INK}">o.k.</text>`);
+    const p = gir(f, c('paper', 'printed'), 20);
+    g += `<ellipse cx="540" cy="1015" rx="${f2(150 * p)}" ry="${f2(100 * p)}" fill="none" stroke="${KIR}" stroke-width="10"/>`;
+    // diğer şakalar sönüp uçar
+    const d = gir(f, c('paper', 'died'), 30);
+    ['O.F.M.', 'N.G.', 'G.T.D.H.D.'].forEach((k, i) => { if (d > 0) g += at(260 + i * 280, 1520 + d * 200, 1, `<text class="fr" text-anchor="middle" font-size="56" fill="${INK}">${k}</text>`, i * 20 - 20, 1 - d); });
+    g += L("this one didn't die", 540, 680, f, c('paper', "didn't"), S.kinder.start - 2, 72, KIR);
+    return g;
+  },
+  kinder(f, S, t) {
+    let g = '';
+    // seçim afişi: Old Kinderhook + O.K. kulübü rozetleri
+    g += `<g transform="translate(540,1000) rotate(1)"><rect x="-340" y="-340" width="680" height="640" fill="#F7EEDA" stroke="${INK}" stroke-width="8"/><rect x="-310" y="-310" width="620" height="580" fill="none" stroke="${KIR}" stroke-width="5"/>`;
+    g += `<text class="frl" text-anchor="middle" y="-240" font-size="44" fill="${INK}">VOTE FOR</text><text class="fr" text-anchor="middle" y="-150" font-size="76" fill="${KIR}">OLD KINDERHOOK</text>`;
+    // basit portre (favorili, karikatür)
+    g += `<circle cy="20" r="120" fill="#F2D2B0" stroke="${INK}" stroke-width="7"/><path d="M-120 20 q-20 80 30 120 M120 20 q20 80 -30 120" stroke="#C9C1B5" stroke-width="40" fill="none" stroke-linecap="round"/><path d="M-90 -70 q90 -50 180 0" stroke="#C9C1B5" stroke-width="30" fill="none"/>${yuz(0, 20, .7, t, { seed: 6, cizgi: INK })}`;
+    g += `<text class="frl" text-anchor="middle" y="230" font-size="40" fill="${INK}">Martin Van Buren · 1840</text></g>`;
+    // O ve K harfleri vurgulanır
+    if (f >= c('kinder', 'old')) g += at(150, 1060, pop(f, c('kinder', 'old')), `<circle r="60" fill="${KIR}"/><text class="fr" text-anchor="middle" dy="30" font-size="84" fill="#fff">O</text>`);
+    if (f >= c('kinder', 'kinderhook')) g += at(930, 1060, pop(f, c('kinder', 'kinderhook')), `<circle r="60" fill="${KIR}"/><text class="fr" text-anchor="middle" dy="30" font-size="84" fill="#fff">K</text>`);
+    // kulüp rozetleri yağar
+    const n = Math.floor(klamp((f - c('kinder', 'clubs')) / 80) * 10);
+    for (let k = 0; k < n; k++) g += at(120 + (k % 5) * 210, 1440 + Math.floor(k / 5) * 170, pop(f, c('kinder', 'clubs') + k * 8) * .9, `<circle r="74" fill="#F7EEDA" stroke="${KIR}" stroke-width="8"/><text class="fr" text-anchor="middle" dy="22" font-size="62" fill="${INK}">O.K.</text>`, (k * 23) % 30 - 15);
+    g += L('everyone!', 540, 650, f, c('kinder', 'everyone'), S.telegraph.start - 2, 84);
+    return g;
+  },
+  telegraph(f, S, t) {
+    let g = '';
+    // telgraf direkleri ve kablo üzerinde ··· −·−
+    g += `<path d="M-40 900 Q540 1000 1120 900" stroke="${INK}" stroke-width="6" fill="none"/>`;
+    for (let k = 0; k < 3; k++) g += `<rect x="${60 + k * 470}" y="860" width="24" height="760" fill="#7A5230" stroke="${INK}" stroke-width="5"/><rect x="${20 + k * 470}" y="870" width="104" height="18" fill="#7A5230" stroke="${INK}" stroke-width="5"/>`;
+    const mors = '−−− −·−'; // O K
+    for (let i = 0; i < mors.length; i++) { const u = ((f * .01) - i * .06 + 1) % 1, x = -40 + u * 1160, y = 900 + sin(u * P) * 70 - 34; if (mors[i] !== ' ') g += mors[i] === '·' ? `<circle cx="${f2(x)}" cy="${f2(y)}" r="14" fill="${KIR}"/>` : `<rect x="${f2(x - 30)}" y="${f2(y - 10)}" width="60" height="20" rx="10" fill="${KIR}"/>`; }
+    // telgraf anahtarı
+    const bas = (Math.floor(f / 6) % 3 === 0) ? 12 : 0;
+    g += at(540, 1420, 1.1, `<rect x="-260" y="40" width="520" height="70" rx="12" fill="#7A5230" stroke="${INK}" stroke-width="7"/><path d="M-180 ${f2(30 + bas)} L160 ${f2(-10 + bas)}" stroke="#C9A06A" stroke-width="30" stroke-linecap="round"/><circle cx="170" cy="${f2(-14 + bas)}" r="40" fill="${INK}"/><rect x="-200" y="10" width="40" height="40" fill="#C9A06A" stroke="${INK}" stroke-width="5"/>`);
+    g += L('2 letters', 540, 680, f, c('telegraph', 'two'), c('telegraph', 'impossible') - 2, 84);
+    g += L('impossible to misread', 540, 680, f, c('telegraph', 'impossible'), S.son.start - 2, 70);
+    return g;
+  },
+  son(f, S, t) {
+    let g = '';
+    // dünya baloncukları: OK her yerde
+    for (let k = 0; k < 8; k++) { const a = k * P / 4 + t * .004; const x = 540 + cos(a) * 400, y = 1150 + sin(a) * 420; g += at(x, y, pop(f, S.son.start + k * 6) * .8, `<path d="M-90 -50 h180 v90 h-110 l-40 34 v-34 h-30Z" fill="#F7EEDA" stroke="${INK}" stroke-width="6"/><text class="fr" text-anchor="middle" y="18" font-size="54" fill="${k % 2 ? KIR : INK}">OK</text>`); }
+    g += OK(t, 540, 1150, .62, { kapali: f > T.total - 24, sur: f >= c('son', 'joke') && f < c('son', 'joke') + 20 });
+    if (f >= c('son', "that's")) g += at(540, 1660, pop(f, c('son', "that's")), `<rect x="-250" y="-70" width="500" height="140" rx="70" fill="${KIR}"/><text class="fr" text-anchor="middle" dy="30" font-size="80" fill="#fff">and that's OK</text>`);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="${KAG}"/><rect width="1080" height="1920" filter="url(#gren)"/>`;
+  a += `<rect x="30" y="30" width="1020" height="1860" fill="none" stroke="${INK}" stroke-width="4" opacity=".5"/><rect x="44" y="44" width="992" height="1832" fill="none" stroke="${INK}" stroke-width="2" opacity=".4"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

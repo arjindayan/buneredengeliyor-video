@@ -1,0 +1,713 @@
+{
+"duration": 57.756,
+"words": [
+{
+"w": "Misafire",
+"start": 0.0,
+"end": 0.56,
+"seg": 0
+},
+{
+"w": "ikram",
+"start": 0.64,
+"end": 0.88,
+"seg": 0
+},
+{
+"w": "ettiğimiz",
+"start": 0.96,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "bu",
+"start": 1.44,
+"end": 1.52,
+"seg": 0
+},
+{
+"w": "şişe,",
+"start": 1.6,
+"end": 2.08,
+"seg": 0
+},
+{
+"w": "aslında",
+"start": 2.2,
+"end": 2.56,
+"seg": 0
+},
+{
+"w": "bir",
+"start": 2.68,
+"end": 2.8,
+"seg": 0
+},
+{
+"w": "Alman",
+"start": 2.88,
+"end": 3.12,
+"seg": 0
+},
+{
+"w": "şehrinin",
+"start": 3.2,
+"end": 3.6,
+"seg": 0
+},
+{
+"w": "adını",
+"start": 3.68,
+"end": 3.92,
+"seg": 0
+},
+{
+"w": "taşıyor.",
+"start": 4.0,
+"end": 4.68,
+"seg": 0
+},
+{
+"w": "Evet,",
+"start": 4.88,
+"end": 5.28,
+"seg": 1
+},
+{
+"w": "kolonya.",
+"start": 5.52,
+"end": 6.2,
+"seg": 1
+},
+{
+"w": "Adı",
+"start": 6.4,
+"end": 6.72,
+"seg": 1
+},
+{
+"w": "Almanya'daki",
+"start": 6.88,
+"end": 7.6,
+"seg": 1
+},
+{
+"w": "Köln",
+"start": 7.68,
+"end": 7.92,
+"seg": 1
+},
+{
+"w": "şehrinden,",
+"start": 8.0,
+"end": 8.8,
+"seg": 1
+},
+{
+"w": "Fransızca",
+"start": 8.88,
+"end": 9.36,
+"seg": 1
+},
+{
+"w": "söylenişiyle",
+"start": 9.4,
+"end": 10.08,
+"seg": 1
+},
+{
+"w": "\"Cologne\"dan",
+"start": 10.24,
+"end": 10.8,
+"seg": 1
+},
+{
+"w": "geliyor.",
+"start": 10.88,
+"end": 11.48,
+"seg": 1
+},
+{
+"w": "1709'da",
+"start": 11.68,
+"end": 12.72,
+"seg": 2
+},
+{
+"w": "Köln'e",
+"start": 12.8,
+"end": 13.16,
+"seg": 2
+},
+{
+"w": "yerleşen",
+"start": 13.2,
+"end": 13.68,
+"seg": 2
+},
+{
+"w": "İtalyan",
+"start": 13.76,
+"end": 14.16,
+"seg": 2
+},
+{
+"w": "bir",
+"start": 14.2,
+"end": 14.24,
+"seg": 2
+},
+{
+"w": "parfümcü,",
+"start": 14.32,
+"end": 15.2,
+"seg": 2
+},
+{
+"w": "limon",
+"start": 15.32,
+"end": 15.52,
+"seg": 2
+},
+{
+"w": "ve",
+"start": 15.6,
+"end": 15.68,
+"seg": 2
+},
+{
+"w": "bergamotlu",
+"start": 15.76,
+"end": 16.4,
+"seg": 2
+},
+{
+"w": "ferah",
+"start": 16.48,
+"end": 16.72,
+"seg": 2
+},
+{
+"w": "bir",
+"start": 16.8,
+"end": 16.88,
+"seg": 2
+},
+{
+"w": "koku",
+"start": 16.96,
+"end": 17.2,
+"seg": 2
+},
+{
+"w": "üretti",
+"start": 17.24,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "ve",
+"start": 17.92,
+"end": 18.08,
+"seg": 2
+},
+{
+"w": "ona",
+"start": 18.16,
+"end": 18.4,
+"seg": 2
+},
+{
+"w": "şehrin",
+"start": 18.48,
+"end": 18.8,
+"seg": 2
+},
+{
+"w": "adını",
+"start": 18.88,
+"end": 19.12,
+"seg": 2
+},
+{
+"w": "verdi:",
+"start": 19.24,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "Eau",
+"start": 19.973,
+"end": 20.08,
+"seg": 2
+},
+{
+"w": "de",
+"start": 20.16,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "Cologne.",
+"start": 20.32,
+"end": 20.96,
+"seg": 2
+},
+{
+"w": "Osmanlı'da",
+"start": 21.2,
+"end": 21.76,
+"seg": 3
+},
+{
+"w": "ise",
+"start": 21.92,
+"end": 22.08,
+"seg": 3
+},
+{
+"w": "uzun",
+"start": 22.24,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "süre",
+"start": 22.56,
+"end": 22.8,
+"seg": 3
+},
+{
+"w": "misafire",
+"start": 22.92,
+"end": 23.36,
+"seg": 3
+},
+{
+"w": "gül",
+"start": 23.44,
+"end": 23.6,
+"seg": 3
+},
+{
+"w": "suyu",
+"start": 23.68,
+"end": 23.88,
+"seg": 3
+},
+{
+"w": "serpilirdi.",
+"start": 23.92,
+"end": 24.76,
+"seg": 3
+},
+{
+"w": "Rivayete",
+"start": 24.96,
+"end": 25.44,
+"seg": 4
+},
+{
+"w": "göre",
+"start": 25.48,
+"end": 25.76,
+"seg": 4
+},
+{
+"w": "1800'lerin",
+"start": 25.84,
+"end": 26.72,
+"seg": 4
+},
+{
+"w": "sonunda",
+"start": 26.8,
+"end": 27.2,
+"seg": 4
+},
+{
+"w": "Sultan",
+"start": 27.36,
+"end": 27.68,
+"seg": 4
+},
+{
+"w": "İkinci",
+"start": 27.76,
+"end": 28.08,
+"seg": 4
+},
+{
+"w": "Abdülhamid",
+"start": 28.16,
+"end": 28.72,
+"seg": 4
+},
+{
+"w": "bu",
+"start": 28.8,
+"end": 28.88,
+"seg": 4
+},
+{
+"w": "yeni",
+"start": 28.96,
+"end": 29.12,
+"seg": 4
+},
+{
+"w": "kokuyu",
+"start": 29.2,
+"end": 29.52,
+"seg": 4
+},
+{
+"w": "çok",
+"start": 29.6,
+"end": 29.76,
+"seg": 4
+},
+{
+"w": "sevdi",
+"start": 29.84,
+"end": 30.16,
+"seg": 4
+},
+{
+"w": "ve",
+"start": 30.48,
+"end": 30.64,
+"seg": 4
+},
+{
+"w": "yerli",
+"start": 30.72,
+"end": 30.96,
+"seg": 4
+},
+{
+"w": "kolonya",
+"start": 31.04,
+"end": 31.44,
+"seg": 4
+},
+{
+"w": "üretilmesini",
+"start": 31.48,
+"end": 32.08,
+"seg": 4
+},
+{
+"w": "istedi.",
+"start": 32.24,
+"end": 32.68,
+"seg": 4
+},
+{
+"w": "Böylece",
+"start": 32.88,
+"end": 33.36,
+"seg": 5
+},
+{
+"w": "Avrupa'nın",
+"start": 33.52,
+"end": 34.0,
+"seg": 5
+},
+{
+"w": "parfümü,",
+"start": 34.08,
+"end": 34.72,
+"seg": 5
+},
+{
+"w": "Türk",
+"start": 34.8,
+"end": 34.96,
+"seg": 5
+},
+{
+"w": "evlerinin",
+"start": 35.04,
+"end": 35.44,
+"seg": 5
+},
+{
+"w": "ikramına",
+"start": 35.52,
+"end": 36.0,
+"seg": 5
+},
+{
+"w": "dönüştü.",
+"start": 36.04,
+"end": 36.68,
+"seg": 5
+},
+{
+"w": "Cumhuriyet'in",
+"start": 36.88,
+"end": 37.52,
+"seg": 6
+},
+{
+"w": "ilk",
+"start": 37.6,
+"end": 37.76,
+"seg": 6
+},
+{
+"w": "yıllarında",
+"start": 37.84,
+"end": 38.4,
+"seg": 6
+},
+{
+"w": "yerli",
+"start": 38.48,
+"end": 38.72,
+"seg": 6
+},
+{
+"w": "markalar",
+"start": 38.8,
+"end": 39.2,
+"seg": 6
+},
+{
+"w": "çoğaldı",
+"start": 39.28,
+"end": 39.84,
+"seg": 6
+},
+{
+"w": "ve",
+"start": 40.0,
+"end": 40.08,
+"seg": 6
+},
+{
+"w": "limon",
+"start": 40.16,
+"end": 40.4,
+"seg": 6
+},
+{
+"w": "kolonyası",
+"start": 40.48,
+"end": 41.12,
+"seg": 6
+},
+{
+"w": "her",
+"start": 41.2,
+"end": 41.36,
+"seg": 6
+},
+{
+"w": "evin",
+"start": 41.44,
+"end": 41.6,
+"seg": 6
+},
+{
+"w": "vazgeçilmezi",
+"start": 41.68,
+"end": 42.32,
+"seg": 6
+},
+{
+"w": "oldu.",
+"start": 42.4,
+"end": 42.72,
+"seg": 6
+},
+{
+"w": "Bayram",
+"start": 43.04,
+"end": 43.36,
+"seg": 7
+},
+{
+"w": "ziyaretinde,",
+"start": 43.44,
+"end": 44.32,
+"seg": 7
+},
+{
+"w": "otobüs",
+"start": 44.4,
+"end": 44.72,
+"seg": 7
+},
+{
+"w": "yolculuğunda,",
+"start": 44.8,
+"end": 45.6,
+"seg": 7
+},
+{
+"w": "hastane",
+"start": 45.68,
+"end": 46.16,
+"seg": 7
+},
+{
+"w": "odasında...",
+"start": 46.24,
+"end": 47.12,
+"seg": 7
+},
+{
+"w": "Hep",
+"start": 47.2,
+"end": 47.36,
+"seg": 7
+},
+{
+"w": "o",
+"start": 47.44,
+"end": 47.52,
+"seg": 7
+},
+{
+"w": "iki",
+"start": 47.6,
+"end": 47.76,
+"seg": 7
+},
+{
+"w": "damla.",
+"start": 47.88,
+"end": 48.56,
+"seg": 7
+},
+{
+"w": "2020'de",
+"start": 48.64,
+"end": 49.28,
+"seg": 8
+},
+{
+"w": "pandemi",
+"start": 49.36,
+"end": 49.68,
+"seg": 8
+},
+{
+"w": "gelince,",
+"start": 49.76,
+"end": 50.4,
+"seg": 8
+},
+{
+"w": "kolonya",
+"start": 50.48,
+"end": 50.88,
+"seg": 8
+},
+{
+"w": "bir",
+"start": 50.96,
+"end": 51.12,
+"seg": 8
+},
+{
+"w": "anda",
+"start": 51.28,
+"end": 51.44,
+"seg": 8
+},
+{
+"w": "yeniden",
+"start": 51.52,
+"end": 51.92,
+"seg": 8
+},
+{
+"w": "rafların",
+"start": 52.0,
+"end": 52.56,
+"seg": 8
+},
+{
+"w": "en",
+"start": 52.64,
+"end": 52.72,
+"seg": 8
+},
+{
+"w": "aranan",
+"start": 52.84,
+"end": 53.04,
+"seg": 8
+},
+{
+"w": "şişesi",
+"start": 53.12,
+"end": 53.52,
+"seg": 8
+},
+{
+"w": "oldu.",
+"start": 53.64,
+"end": 54.24,
+"seg": 8
+},
+{
+"w": "Sen",
+"start": 54.36,
+"end": 54.48,
+"seg": 9
+},
+{
+"w": "limon",
+"start": 54.56,
+"end": 54.72,
+"seg": 9
+},
+{
+"w": "mu",
+"start": 54.8,
+"end": 54.88,
+"seg": 9
+},
+{
+"w": "seversin,",
+"start": 54.96,
+"end": 55.68,
+"seg": 9
+},
+{
+"w": "yoksa",
+"start": 55.72,
+"end": 56.08,
+"seg": 9
+},
+{
+"w": "başka",
+"start": 56.24,
+"end": 56.48,
+"seg": 9
+},
+{
+"w": "bir",
+"start": 56.56,
+"end": 56.6,
+"seg": 9
+},
+{
+"w": "koku",
+"start": 56.64,
+"end": 56.88,
+"seg": 9
+},
+{
+"w": "mu?",
+"start": 56.92,
+"end": 57.2,
+"seg": 9
+}
+]
+}

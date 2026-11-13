@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gökyüzü laboratuvarı. Gün mavisi → gün batımı şeftalisi → Mars karamelası; güneş maskotu + küçük hava molekülü tepkicisi. Fredoka altyazı. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#3A8EE0}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:70px;right:70px;top:170px;padding:22px 26px;border-radius:44px;background:rgba(16,34,70,.42);text-align:center;font:600 80px/1.1 'Fredoka';color:#FFFFFF;text-shadow:0 5px 0 rgba(10,30,70,.45)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop id="g1" offset="0"/><stop id="g2" offset=".6"/><stop id="g3" offset="1"/></linearGradient>
+    <radialGradient id="hale" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF4B8" stop-opacity=".8"/><stop offset="1" stop-color="#FFF4B8" stop-opacity="0"/></radialGradient>
+    <linearGradient id="deniz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E6FB8"/><stop offset="1" stop-color="#0D3A6E"/></linearGradient>
+    <linearGradient id="prizma" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9F6FF" stop-opacity=".9"/><stop offset="1" stop-color="#A9D8FF" stop-opacity=".6"/></linearGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['600 80px Fredoka', '700 80px Fredoka'];
+const c = cue, INK = '#14284B';
+const RENK = ['#FF4D4D', '#FF9A3C', '#FFE14D', '#4CD17A', '#3D8BFF', '#9B5BFF'];
+const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFFFFF') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+
+function gunes(t, o = {}) {
+  let g = `<circle r="230" fill="url(#hale)"/>`;
+  for (let k = 0; k < 12; k++) { const a = k * P / 6 + t * .006; g += `<path d="M${f2(cos(a) * 150)} ${f2(sin(a) * 150)} L${f2(cos(a) * 195)} ${f2(sin(a) * 195)}" stroke="${o.renk || '#FFD84A'}" stroke-width="16" stroke-linecap="round"/>`; }
+  g += `<circle r="130" fill="${o.renk || '#FFD84A'}" stroke="${INK}" stroke-width="8"/>`;
+  return g + yuz(0, 10, .9, t, { seed: 1, sur: o.sur, kapali: o.kapali, cizgi: INK });
+}
+// hava molekülü (N₂): iki top
+function molekul(x, y, s, t, o = {}) {
+  const r = sin(t * .05 + x) * 20;
+  return at(x, y, s, `<g transform="rotate(${f2(r)})"><circle cx="-34" r="42" fill="#DDEBFF" stroke="${INK}" stroke-width="6"/><circle cx="34" r="42" fill="#DDEBFF" stroke="${INK}" stroke-width="6"/>${o.yuz ? yuz(0, 0, .45, t, { seed: 4, sur: o.sur, cizgi: INK }) : ''}</g>`);
+}
+// renkli ışın: dalgalı çizgi, dalga boyu renge göre
+function isin(x0, y0, x1, y1, renk, dalga, p, t, kal = 10) {
+  const L2 = Math.hypot(x1 - x0, y1 - y0) * p, a = Math.atan2(y1 - y0, x1 - x0);
+  let d = 'M0 0'; for (let s = 0; s <= L2; s += 6) d += ` L${s} ${f2(sin(s / dalga * 2 * P - t * .3) * 14)}`;
+  return `<g transform="translate(${x0},${y0}) rotate(${f2(a * 180 / P)})"><path d="${d}" stroke="${renk}" stroke-width="${kal}" fill="none" stroke-linecap="round"/></g>`;
+}
+
+let gokRenk = ['#2B7BD8', '#6FB6F2', '#BFE3FF'];
+const SAHNE = {
+  hook(f, S, t) {
+    let g = `<rect y="1250" width="1080" height="700" fill="url(#deniz)"/>`;
+    for (let k = 0; k < 6; k++) g += `<path d="M${-100 + (t * 2 + k * 180) % 1300} ${1300 + k * 90} q40 -20 80 0 t80 0" stroke="#BFE3FF" stroke-width="8" fill="none" opacity=".6" stroke-linecap="round"/>`;
+    g += at(540, 820, .9, gunes(t, { sur: f >= c('hook', 'nothing') }));
+    // ayna oku: okyanus → gök, sonra çarpı
+    const p = gir(f, c('hook', 'reflects'), 14);
+    if (p > 0) {
+      g += `<path d="M300 1380 C200 1200 200 1000 260 ${f2(1380 - p * 600)}" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-dasharray="20 16" opacity="${f2(p)}"/>`;
+      g += L('mirror?', 260, 700, f, c('hook', 'ocean'), S.white.start - 2, 72);
+    }
+    if (f >= c('hook', 'nothing')) g += at(260, 1080, pop(f, c('hook', 'nothing')), `<path d="M-90 -90 L90 90 M90 -90 L-90 90" stroke="#FF4D4D" stroke-width="26" stroke-linecap="round"/>`);
+    return g;
+  },
+  white(f, S, t) {
+    let g = at(220, 900, .55, gunes(t));
+    // prizma: beyaz ışın girer, gökkuşağına ayrılır
+    const p0 = gir(f, S.white.start + 10, 20);
+    g += `<line x1="300" y1="930" x2="${f2(300 + 230 * p0)}" y2="${f2(930 + 70 * p0)}" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round"/>`;
+    g += `<path d="M640 760 L800 1080 L480 1080Z" fill="url(#prizma)" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/>`;
+    const p = gir(f, c('white', 'every'), 30);
+    RENK.forEach((r, k) => { g += isin(640, 1000 + k * 6, 1000, 1130 + k * 60, r, 40 + k * 4, p, t, 14); });
+    const ad = ['red', 'orange', 'yellow', 'green', 'blue', 'violet'];
+    RENK.forEach((r, k) => { g += etiket(ad[k], 900, 1500 + k * 0, f, c('white', ad[k]), S.scatter.start - 2, 80, r, 'middle', INK); });
+    return g;
+  },
+  scatter(f, S, t) {
+    let g = '';
+    // molekül alanı; mavi ışık pinpon topu gibi seker, kırmızı dümdüz geçer
+    for (let k = 0; k < 14; k++) g += molekul(140 + (k % 4) * 270 + (Math.floor(k / 4) % 2) * 130, 760 + Math.floor(k / 4) * 230, .7, t, { yuz: k === 5, sur: k === 5 && f > c('scatter', 'bounces') });
+    const p = gir(f, c('scatter', 'red'), 40);
+    g += isin(-20, 1180, 1100, 1180, '#FF4D4D', 70, p, t, 14);
+    // mavi: zikzak
+    const q = klamp((f - c('scatter', 'blue')) / 70);
+    if (q > 0) {
+      const pts = [[-20, 900], [300, 1050], [180, 1350], [560, 1460], [700, 900], [980, 1160], [860, 780]];
+      let d = `M${pts[0]}`; const n = q * (pts.length - 1);
+      for (let i = 1; i <= Math.ceil(n); i++) { const a = pts[i - 1], b = pts[i], u = Math.min(1, n - i + 1); d += ` L${f2(a[0] + (b[0] - a[0]) * u)} ${f2(a[1] + (b[1] - a[1]) * u)}`; }
+      g += `<path d="${d}" stroke="#3D8BFF" stroke-width="16" fill="none" stroke-linejoin="round" stroke-linecap="round"/>`;
+    }
+    // mavi saçılım: tüm ekrana mavi noktalar
+    const s = gir(f, c('scatter', 'scattered'), 30);
+    for (let k = 0; k < 40 * s; k++) g += `<circle cx="${f2(rastgele(k) * 1080)}" cy="${f2(650 + rastgele(k + 50) * 1100)}" r="${f2(8 + rastgele(k + 9) * 8)}" fill="#3D8BFF" opacity=".7"/>`;
+    g += L('blue bounces more', 540, 640, f, c('scatter', 'bounces'), S.violet.start - 2, 74, '#BFE3FF');
+    return g;
+  },
+  violet(f, S, t) {
+    let g = '';
+    // çubuk grafik: mor en çok saçılır, ama güneş az gönderir, göz maviye duyarlı
+    const bars = [['violet', '#9B5BFF', 1, .45, .4], ['blue', '#3D8BFF', .8, .8, 1]];
+    bars.forEach(([ad, r, sac, gon, goz], k) => {
+      const x = 330 + k * 420, h1 = 420 * sac * gir(f, S.violet.start + 6, 20), h2 = 420 * gon * gir(f, c('violet', 'less'), 20), h3 = 420 * goz * gir(f, c('violet', 'eyes'), 20);
+      g += `<rect x="${x - 150}" y="${f2(1500 - h1)}" width="90" height="${f2(h1)}" rx="16" fill="${r}"/>`;
+      g += `<rect x="${x - 45}" y="${f2(1500 - h2)}" width="90" height="${f2(h2)}" rx="16" fill="${r}" opacity=".7"/>`;
+      g += `<rect x="${x + 60}" y="${f2(1500 - h3)}" width="90" height="${f2(h3)}" rx="16" fill="${r}" opacity=".45"/>`;
+      g += `<text class="lbl" x="${x}" y="1590" text-anchor="middle" font-size="64" fill="${r}" stroke="${INK}" stroke-width="10">${ad}</text>`;
+    });
+    g += `<path d="M120 1500 H960" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>`;
+    g += etiket('scatter', 220, 960, f, S.violet.start + 6, S.sunset.start, 48, '#FFFFFF', 'middle', INK);
+    g += etiket('sun sends', 330, 1020, f, c('violet', 'less'), S.sunset.start, 48, '#FFFFFF', 'middle', INK);
+    // göz
+    if (f >= c('violet', 'eyes')) g += at(800, 820, pop(f, c('violet', 'eyes')), `<path d="M-130 0 Q0 -100 130 0 Q0 100 -130 0Z" fill="#fff" stroke="${INK}" stroke-width="8"/><circle r="50" fill="#3D8BFF"/><circle r="22" fill="${INK}"/><circle cx="-12" cy="-14" r="9" fill="#fff"/>`);
+    return g;
+  },
+  sunset(f, S, t) {
+    let g = '';
+    // dünya kesiti: öğlen kısa yol, akşam uzun yol
+    const R = 900, cx = 540, cy = 2480;
+    g += `<circle cx="${cx}" cy="${cy}" r="${R + 220}" fill="#7CC3FF" opacity=".25"/><circle cx="${cx}" cy="${cy}" r="${R}" fill="#3C9A5F" stroke="${INK}" stroke-width="8"/>`;
+    const kisi = at(540, cy - R - 30, 1, `<circle cy="-60" r="26" fill="${INK}"/><rect x="-14" y="-36" width="28" height="60" rx="12" fill="${INK}"/>`);
+    g += kisi;
+    const uz = gir(f, c('sunset', 'travel'), 30);
+    const sx = 540 + uz * 360, sy = 640 + uz * 560;
+    g += at(sx, sy, .45, gunes(t, { renk: mix('#FFD84A', '#FF7A3C', uz) }));
+    const n = 60, p = gir(f, c('sunset', 'travel') + 10, 30);
+    g += isin(sx - 40 * uz, sy + 30, 560, cy - R - 90, mix('#FFFFFF', '#FF7A3C', uz), 50, p, t, 12);
+    g += L('more air', 820, 1180, f, c('sunset', 'more'), S.mars.start - 2, 70, '#FFE14D');
+    // mavi dökülür
+    if (f >= c('sunset', 'blue')) for (let k = 0; k < 14; k++) { const u = klamp((f - c('sunset', 'blue') - k * 2) / 40); g += `<circle cx="${f2(sx - 100 + k * 30 + u * (k % 2 ? 140 : -140))}" cy="${f2(sy + 200 + k * 20 - u * 240)}" r="12" fill="#3D8BFF" opacity="${f2(1 - u)}"/>`; }
+    return g;
+  },
+  mars(f, S, t) {
+    let g = `<rect y="1350" width="1080" height="600" fill="#B4532A"/><path d="M0 1350 Q200 1290 400 1350 T800 1340 T1080 1350" fill="#C86A3A"/>`;
+    for (let k = 0; k < 8; k++) g += `<ellipse cx="${f2(rastgele(k) * 1080)}" cy="${f2(1420 + rastgele(k + 4) * 400)}" rx="${f2(30 + rastgele(k + 2) * 40)}" ry="12" fill="#8A3A1C" opacity=".6"/>`;
+    // gezgin robot
+    g += at(260, 1330, 1, `<rect x="-90" y="-80" width="180" height="70" rx="14" fill="#E6E6E6" stroke="${INK}" stroke-width="6"/><circle cx="-60" cy="0" r="30" fill="${INK}"/><circle cx="60" cy="0" r="30" fill="${INK}"/><rect x="-8" y="-160" width="16" height="80" fill="${INK}"/><rect x="-50" y="-200" width="100" height="50" rx="12" fill="#E6E6E6" stroke="${INK}" stroke-width="6"/>${yuz(0, -176, .35, t, { seed: 6, sur: f > c('mars', 'blue'), cizgi: INK })}`);
+    // gün batımında mavi hale
+    const gb = gir(f, c('mars', 'sunsets'), 30);
+    g += `<circle cx="780" cy="${f2(900 + gb * 380)}" r="${f2(260)}" fill="#7FB8FF" opacity="${f2(gb * .55)}"/>`;
+    g += at(780, 900 + gb * 380, .35, gunes(t, { renk: mix('#FFE7B0', '#CFE6FF', gb) }));
+    g += L('butterscotch', 540, 700, f, c('mars', 'butterscotch'), c('mars', 'sunsets') - 2, 84, '#FFD59A');
+    g += L('blue sunsets!', 540, 700, f, c('mars', 'blue'), S.son.start - 2, 90, '#BFE3FF');
+    return g;
+  },
+  son(f, S, t) {
+    let g = `<rect y="1450" width="1080" height="500" fill="url(#deniz)"/>`;
+    for (let k = 0; k < 12; k++) g += molekul(100 + (k % 4) * 290, 720 + Math.floor(k / 4) * 220, .55, t, { yuz: k === 6, sur: false });
+    g += at(540, 1300, .7, gunes(t, { kapali: f > T.total - 30 }));
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  const S = T.seg;
+  // gökyüzü rengi sahneye göre: gün → batım → Mars → gün
+  const batim = kf(f, [[0, 0], [S.sunset.start, 0], [c('sunset', 'reds'), 1], [S.mars.start, 1], [S.mars.start + 16, 0]]);
+  const mars = kf(f, [[0, 0], [S.mars.start, 0], [S.mars.start + 16, 1], [c('mars', 'sunsets'), 1], [c('mars', 'sunsets') + 30, 2], [S.son.start, 2], [S.son.start + 16, 0]]);
+  const gun = ['#2B7BD8', '#6FB6F2', '#BFE3FF'], bat = ['#3A2A7A', '#FF7A5C', '#FFC46B'], ma1 = ['#C98A5A', '#E7B37E', '#F2CFA0'], ma2 = ['#2A3A6E', '#5E86C2', '#B9765A'];
+  const col = gun.map((g, i) => { let x = mix(g, bat[i], batim); if (mars > 0) x = mars <= 1 ? mix(x, ma1[i], mars) : mix(ma1[i], ma2[i], mars - 1); return x; });
+  ['g1', 'g2', 'g3'].forEach((id, i) => $(id).setAttribute('stop-color', col[i]));
+  let a = `<rect width="1080" height="1920" fill="url(#gok)"/>`;
+  for (let k = 0; k < 4; k++) { const x = ((rastgele(k) * 1400 + f * (0.4 + k * .1)) % 1500) - 300, y = 520 + k * 300; a += `<g opacity=".5" transform="translate(${f2(x)},${y})"><ellipse rx="140" ry="44" fill="#fff"/><ellipse cx="-60" cy="-30" rx="70" ry="50" fill="#fff"/><ellipse cx="50" cy="-40" rx="80" ry="56" fill="#fff"/></g>`; }
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "title": "Where does OK come from?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "OK is short for a real phrase. Well, that's not exactly true. It started as a joke, and a misspelled one."},
+    {"scene": "fad", "text": "In the {1830s,|eighteen thirties,} young writers in Boston had a funny trend. They made up abbreviations for misspelled phrases."},
+    {"scene": "oll", "text": "One of them was O K, for oll korrect. Basically, all correct, spelled wrong on purpose."},
+    {"scene": "paper", "text": "In {1839,|eighteen thirty nine,} a Boston newspaper printed it. Most of these jokes died fast, but this one didn't."},
+    {"scene": "kinder", "text": "Here's the wild part. A year later, president Martin Van Buren ran for reelection. His nickname was Old Kinderhook, and his fans formed O K clubs. Suddenly, everyone was saying it."},
+    {"scene": "telegraph", "text": "In fact, telegraph operators loved it too. Two letters, quick to send, impossible to misread."},
+    {"scene": "son", "text": "So the most used word on the planet started as a joke. And that's OK."}
+  ]
+}

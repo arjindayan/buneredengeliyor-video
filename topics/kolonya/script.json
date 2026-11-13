@@ -1,0 +1,46 @@
+{
+ "title": "Kolonya nereden geliyor?",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Misafire ikram ettiğimiz bu şişe, aslında bir Alman şehrinin adını taşıyor."
+  },
+  {
+   "scene": "s2",
+   "text": "Evet, kolonya. Adı Almanya'daki Köln şehrinden, Fransızca söylenişiyle \"Cologne\"dan geliyor."
+  },
+  {
+   "scene": "s3",
+   "text": "{1709'da|bin yedi yüz dokuzda} Köln'e yerleşen İtalyan bir parfümcü, limon ve bergamotlu ferah bir koku üretti ve ona şehrin adını verdi: Eau de Cologne."
+  },
+  {
+   "scene": "s4",
+   "text": "Osmanlı'da ise uzun süre misafire gül suyu serpilirdi."
+  },
+  {
+   "scene": "s5",
+   "text": "Rivayete göre {1800'lerin|bin sekiz yüzlerin} sonunda Sultan İkinci Abdülhamid bu yeni kokuyu çok sevdi ve yerli kolonya üretilmesini istedi."
+  },
+  {
+   "scene": "s6",
+   "text": "Böylece Avrupa'nın parfümü, Türk evlerinin ikramına dönüştü."
+  },
+  {
+   "scene": "s7",
+   "text": "Cumhuriyet'in ilk yıllarında yerli markalar çoğaldı ve limon kolonyası her evin vazgeçilmezi oldu."
+  },
+  {
+   "scene": "s8",
+   "text": "Bayram ziyaretinde, otobüs yolculuğunda, hastane odasında... Hep o iki damla."
+  },
+  {
+   "scene": "s9",
+   "text": "{2020'de|iki bin yirmide} pandemi gelince, kolonya bir anda yeniden rafların en aranan şişesi oldu."
+  },
+  {
+   "scene": "son",
+   "text": "Sen limon mu seversin, yoksa başka bir koku mu?"
+  }
+ ]
+}

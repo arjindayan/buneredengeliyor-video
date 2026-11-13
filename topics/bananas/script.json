@@ -1,0 +1,14 @@
+{
+  "title": "All bananas are different?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Every banana you've ever eaten is a different plant. Well, that's not exactly true. Almost all of them are clones."},
+    {"scene": "clone", "text": "The banana in your kitchen is a Cavendish. It has no real seeds, so farmers grow new plants from cuttings of old ones. Same plant, copied millions of times."},
+    {"scene": "gros", "text": "Here's the wild part. Your grandparents ate a different banana, the Gros Michel. In the {1950s,|nineteen fifties,} a fungus wiped it out, because every plant had the same weak spot."},
+    {"scene": "herb", "text": "In fact, a banana plant isn't even a tree. It's a giant herb, and its trunk is just rolled up leaves."},
+    {"scene": "curve", "text": "That's not all. Bananas curve because they grow upward, bending toward the sun."},
+    {"scene": "glow", "text": "And bananas are a tiny bit radioactive, thanks to their potassium. Don't worry, you'd need millions at once for it to matter."},
+    {"scene": "son", "text": "So next time you grab a banana, remember. You're eating a copy of a copy of a copy."}
+  ]
+}

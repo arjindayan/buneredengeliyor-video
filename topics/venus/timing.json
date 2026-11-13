@@ -1,0 +1,851 @@
+{
+"duration": 51.591,
+"words": [
+{
+"w": "A",
+"start": 0.0,
+"end": 0.08,
+"seg": 0
+},
+{
+"w": "day",
+"start": 0.16,
+"end": 0.453,
+"seg": 0
+},
+{
+"w": "is",
+"start": 0.56,
+"end": 0.76,
+"seg": 0
+},
+{
+"w": "always",
+"start": 0.88,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "shorter",
+"start": 1.52,
+"end": 1.76,
+"seg": 0
+},
+{
+"w": "than",
+"start": 1.84,
+"end": 1.92,
+"seg": 0
+},
+{
+"w": "a",
+"start": 1.96,
+"end": 2.0,
+"seg": 0
+},
+{
+"w": "year.",
+"start": 2.08,
+"end": 2.48,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.04,
+"end": 3.52,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.6,
+"end": 3.84,
+"seg": 0
+},
+{
+"w": "not",
+"start": 3.96,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 4.2,
+"end": 4.64,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.72,
+"end": 5.24,
+"seg": 0
+},
+{
+"w": "On",
+"start": 5.44,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "Venus,",
+"start": 5.68,
+"end": 6.32,
+"seg": 0
+},
+{
+"w": "a",
+"start": 6.36,
+"end": 6.4,
+"seg": 0
+},
+{
+"w": "day",
+"start": 6.48,
+"end": 6.72,
+"seg": 0
+},
+{
+"w": "is",
+"start": 6.8,
+"end": 6.96,
+"seg": 0
+},
+{
+"w": "longer",
+"start": 7.04,
+"end": 7.44,
+"seg": 0
+},
+{
+"w": "than",
+"start": 7.52,
+"end": 7.6,
+"seg": 0
+},
+{
+"w": "its",
+"start": 7.68,
+"end": 7.76,
+"seg": 0
+},
+{
+"w": "year.",
+"start": 7.84,
+"end": 8.36,
+"seg": 0
+},
+{
+"w": "Venus",
+"start": 8.64,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "spins",
+"start": 9.04,
+"end": 9.36,
+"seg": 1
+},
+{
+"w": "incredibly",
+"start": 9.44,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "slowly.",
+"start": 10.32,
+"end": 10.8,
+"seg": 1
+},
+{
+"w": "One",
+"start": 11.2,
+"end": 11.36,
+"seg": 1
+},
+{
+"w": "full",
+"start": 11.52,
+"end": 11.68,
+"seg": 1
+},
+{
+"w": "turn",
+"start": 11.76,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "takes",
+"start": 12.16,
+"end": 12.32,
+"seg": 1
+},
+{
+"w": "about",
+"start": 12.4,
+"end": 12.64,
+"seg": 1
+},
+{
+"w": "243",
+"start": 12.72,
+"end": 13.84,
+"seg": 1
+},
+{
+"w": "Earth",
+"start": 14.0,
+"end": 14.24,
+"seg": 1
+},
+{
+"w": "days.",
+"start": 14.32,
+"end": 14.72,
+"seg": 1
+},
+{
+"w": "But",
+"start": 15.12,
+"end": 15.16,
+"seg": 2
+},
+{
+"w": "it",
+"start": 15.2,
+"end": 15.28,
+"seg": 2
+},
+{
+"w": "goes",
+"start": 15.32,
+"end": 15.44,
+"seg": 2
+},
+{
+"w": "around",
+"start": 15.52,
+"end": 15.68,
+"seg": 2
+},
+{
+"w": "the",
+"start": 15.76,
+"end": 15.84,
+"seg": 2
+},
+{
+"w": "sun",
+"start": 15.92,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "in",
+"start": 16.32,
+"end": 16.4,
+"seg": 2
+},
+{
+"w": "only",
+"start": 16.52,
+"end": 16.64,
+"seg": 2
+},
+{
+"w": "225",
+"start": 16.72,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "days.",
+"start": 17.84,
+"end": 18.48,
+"seg": 2
+},
+{
+"w": "So",
+"start": 18.6,
+"end": 18.72,
+"seg": 2
+},
+{
+"w": "its",
+"start": 18.88,
+"end": 19.04,
+"seg": 2
+},
+{
+"w": "year",
+"start": 19.2,
+"end": 19.44,
+"seg": 2
+},
+{
+"w": "ends",
+"start": 19.6,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "before",
+"start": 20.0,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "a",
+"start": 20.28,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "single",
+"start": 20.48,
+"end": 20.72,
+"seg": 2
+},
+{
+"w": "spin",
+"start": 20.8,
+"end": 21.12,
+"seg": 2
+},
+{
+"w": "is",
+"start": 21.2,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "done.",
+"start": 21.4,
+"end": 21.6,
+"seg": 2
+},
+{
+"w": "Here's",
+"start": 22.08,
+"end": 22.32,
+"seg": 3
+},
+{
+"w": "the",
+"start": 22.4,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "wild",
+"start": 22.56,
+"end": 22.88,
+"seg": 3
+},
+{
+"w": "part.",
+"start": 22.96,
+"end": 23.28,
+"seg": 3
+},
+{
+"w": "Venus",
+"start": 23.76,
+"end": 24.16,
+"seg": 3
+},
+{
+"w": "spins",
+"start": 24.24,
+"end": 24.56,
+"seg": 3
+},
+{
+"w": "backwards.",
+"start": 24.72,
+"end": 25.56,
+"seg": 3
+},
+{
+"w": "If",
+"start": 25.76,
+"end": 25.84,
+"seg": 3
+},
+{
+"w": "you",
+"start": 25.92,
+"end": 26.08,
+"seg": 3
+},
+{
+"w": "stood",
+"start": 26.2,
+"end": 26.32,
+"seg": 3
+},
+{
+"w": "there,",
+"start": 26.44,
+"end": 26.8,
+"seg": 3
+},
+{
+"w": "the",
+"start": 26.84,
+"end": 26.88,
+"seg": 3
+},
+{
+"w": "sun",
+"start": 27.04,
+"end": 27.2,
+"seg": 3
+},
+{
+"w": "would",
+"start": 27.28,
+"end": 27.44,
+"seg": 3
+},
+{
+"w": "rise",
+"start": 27.52,
+"end": 27.76,
+"seg": 3
+},
+{
+"w": "in",
+"start": 27.8,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "the",
+"start": 27.88,
+"end": 27.92,
+"seg": 3
+},
+{
+"w": "west",
+"start": 28.0,
+"end": 28.4,
+"seg": 3
+},
+{
+"w": "and",
+"start": 28.56,
+"end": 28.64,
+"seg": 3
+},
+{
+"w": "set",
+"start": 28.8,
+"end": 29.04,
+"seg": 3
+},
+{
+"w": "in",
+"start": 29.12,
+"end": 29.2,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.24,
+"end": 29.28,
+"seg": 3
+},
+{
+"w": "east.",
+"start": 29.36,
+"end": 29.76,
+"seg": 3
+},
+{
+"w": "In",
+"start": 30.24,
+"end": 30.32,
+"seg": 4
+},
+{
+"w": "fact,",
+"start": 30.4,
+"end": 30.96,
+"seg": 4
+},
+{
+"w": "Venus",
+"start": 31.12,
+"end": 31.44,
+"seg": 4
+},
+{
+"w": "is",
+"start": 31.52,
+"end": 31.6,
+"seg": 4
+},
+{
+"w": "the",
+"start": 31.68,
+"end": 31.84,
+"seg": 4
+},
+{
+"w": "hottest",
+"start": 31.88,
+"end": 32.24,
+"seg": 4
+},
+{
+"w": "planet,",
+"start": 32.32,
+"end": 32.96,
+"seg": 4
+},
+{
+"w": "even",
+"start": 33.08,
+"end": 33.2,
+"seg": 4
+},
+{
+"w": "hotter",
+"start": 33.28,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "than",
+"start": 33.6,
+"end": 33.68,
+"seg": 4
+},
+{
+"w": "Mercury,",
+"start": 33.76,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "which",
+"start": 34.4,
+"end": 34.48,
+"seg": 4
+},
+{
+"w": "is",
+"start": 34.56,
+"end": 34.64,
+"seg": 4
+},
+{
+"w": "closer",
+"start": 34.72,
+"end": 35.04,
+"seg": 4
+},
+{
+"w": "to",
+"start": 35.08,
+"end": 35.12,
+"seg": 4
+},
+{
+"w": "the",
+"start": 35.2,
+"end": 35.24,
+"seg": 4
+},
+{
+"w": "sun.",
+"start": 35.28,
+"end": 35.84,
+"seg": 4
+},
+{
+"w": "Its",
+"start": 36.08,
+"end": 36.32,
+"seg": 4
+},
+{
+"w": "thick",
+"start": 36.4,
+"end": 36.56,
+"seg": 4
+},
+{
+"w": "clouds",
+"start": 36.64,
+"end": 37.12,
+"seg": 4
+},
+{
+"w": "trap",
+"start": 37.2,
+"end": 37.52,
+"seg": 4
+},
+{
+"w": "the",
+"start": 37.56,
+"end": 37.6,
+"seg": 4
+},
+{
+"w": "heat",
+"start": 37.76,
+"end": 37.92,
+"seg": 4
+},
+{
+"w": "like",
+"start": 38.0,
+"end": 38.08,
+"seg": 4
+},
+{
+"w": "a",
+"start": 38.16,
+"end": 38.24,
+"seg": 4
+},
+{
+"w": "blanket.",
+"start": 38.32,
+"end": 39.2,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 39.28,
+"end": 39.52,
+"seg": 5
+},
+{
+"w": "not",
+"start": 39.6,
+"end": 39.68,
+"seg": 5
+},
+{
+"w": "all.",
+"start": 39.76,
+"end": 40.2,
+"seg": 5
+},
+{
+"w": "After",
+"start": 40.4,
+"end": 40.64,
+"seg": 5
+},
+{
+"w": "the",
+"start": 40.72,
+"end": 40.8,
+"seg": 5
+},
+{
+"w": "moon,",
+"start": 40.88,
+"end": 41.44,
+"seg": 5
+},
+{
+"w": "Venus",
+"start": 41.52,
+"end": 41.84,
+"seg": 5
+},
+{
+"w": "is",
+"start": 41.92,
+"end": 42.0,
+"seg": 5
+},
+{
+"w": "the",
+"start": 42.08,
+"end": 42.24,
+"seg": 5
+},
+{
+"w": "brightest",
+"start": 42.36,
+"end": 42.64,
+"seg": 5
+},
+{
+"w": "thing",
+"start": 42.72,
+"end": 42.88,
+"seg": 5
+},
+{
+"w": "in",
+"start": 42.96,
+"end": 43.0,
+"seg": 5
+},
+{
+"w": "our",
+"start": 43.04,
+"end": 43.12,
+"seg": 5
+},
+{
+"w": "night",
+"start": 43.2,
+"end": 43.36,
+"seg": 5
+},
+{
+"w": "sky.",
+"start": 43.44,
+"end": 44.24,
+"seg": 5
+},
+{
+"w": "You've",
+"start": 44.28,
+"end": 44.48,
+"seg": 5
+},
+{
+"w": "probably",
+"start": 44.68,
+"end": 44.88,
+"seg": 5
+},
+{
+"w": "seen",
+"start": 44.96,
+"end": 45.12,
+"seg": 5
+},
+{
+"w": "it",
+"start": 45.2,
+"end": 45.28,
+"seg": 5
+},
+{
+"w": "and",
+"start": 45.36,
+"end": 45.44,
+"seg": 5
+},
+{
+"w": "thought",
+"start": 45.52,
+"end": 45.6,
+"seg": 5
+},
+{
+"w": "it",
+"start": 45.64,
+"end": 45.68,
+"seg": 5
+},
+{
+"w": "was",
+"start": 45.72,
+"end": 45.76,
+"seg": 5
+},
+{
+"w": "a",
+"start": 45.84,
+"end": 45.92,
+"seg": 5
+},
+{
+"w": "star.",
+"start": 46.12,
+"end": 46.88,
+"seg": 5
+},
+{
+"w": "So",
+"start": 47.0,
+"end": 47.12,
+"seg": 6
+},
+{
+"w": "on",
+"start": 47.28,
+"end": 47.36,
+"seg": 6
+},
+{
+"w": "Venus,",
+"start": 47.44,
+"end": 48.08,
+"seg": 6
+},
+{
+"w": "you'd",
+"start": 48.16,
+"end": 48.32,
+"seg": 6
+},
+{
+"w": "celebrate",
+"start": 48.44,
+"end": 48.72,
+"seg": 6
+},
+{
+"w": "your",
+"start": 48.8,
+"end": 48.88,
+"seg": 6
+},
+{
+"w": "birthday",
+"start": 49.12,
+"end": 49.36,
+"seg": 6
+},
+{
+"w": "before",
+"start": 49.52,
+"end": 49.68,
+"seg": 6
+},
+{
+"w": "the",
+"start": 49.76,
+"end": 49.84,
+"seg": 6
+},
+{
+"w": "day",
+"start": 49.92,
+"end": 50.0,
+"seg": 6
+},
+{
+"w": "was",
+"start": 50.08,
+"end": 50.16,
+"seg": 6
+},
+{
+"w": "even",
+"start": 50.24,
+"end": 50.4,
+"seg": 6
+},
+{
+"w": "over.",
+"start": 50.48,
+"end": 51.04,
+"seg": 6
+}
+]
+}

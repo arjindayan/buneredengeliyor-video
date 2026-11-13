@@ -1,0 +1,14 @@
+{
+  "title": "A new body every 7 years?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Every seven years, you get a brand new body. Well, that's not exactly true. Your body is replacing itself all the time, just at different speeds."},
+    {"scene": "stomach", "text": "Your stomach lining is the fastest. It gets replaced every few days, because stomach acid keeps wearing it down."},
+    {"scene": "skin", "text": "Your outer skin renews itself every few weeks. In fact, a lot of the dust in your home is old skin."},
+    {"scene": "blood", "text": "Your red blood cells live about four months. Every second, your body makes millions of new ones."},
+    {"scene": "bone", "text": "Here's the wild part. Even your skeleton rebuilds itself. Bit by bit, you get a mostly new one about every ten years."},
+    {"scene": "keep", "text": "But some parts stay with you for life. Most of the neurons in your brain, and the center of the lenses in your eyes, are as old as you are."},
+    {"scene": "son", "text": "So you don't get a new body every seven years. You're getting one every single day."}
+  ]
+}

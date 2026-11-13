@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gece yarısı yatak odası. Mürdüm-lacivert + lavanta + uyku sarısı; yuvarlak "blob" insanlar esner, ay tepkici. Caveat vurgular. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#1C1640}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 90px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 5px 0 rgba(8,4,26,.7)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gece" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#120E2E"/><stop offset=".6" stop-color="#2A1F5C"/><stop offset="1" stop-color="#4A3A8A"/></linearGradient>
+    <radialGradient id="ayhale" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF1B8" stop-opacity=".45"/><stop offset="1" stop-color="#FFF1B8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="rahim" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#FFB8C8"/><stop offset="1" stop-color="#C85A82"/></radialGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka'];
+const c = cue, INK = '#1A1033';
+const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFE27A') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', '#120E2E');
+// esneme eğrisi: f0'da başlar ~50 karede açılıp kapanır
+const esne = (f, f0, d = 50) => f < f0 || f > f0 + d ? 0 : sin(P * (f - f0) / d) ** 1.4;
+
+// blob insan
+function blob(t, renk, o = {}) {
+  const e = o.esne || 0, ger = e * .08;
+  let g = `<g transform="scale(${f2(1 - ger * .5)},${f2(1 + ger)})"><path d="M-170 160 C-190 -40 -120 -200 0 -200 C120 -200 190 -40 170 160 C120 200 -120 200 -170 160Z" fill="${renk}" stroke="${INK}" stroke-width="8"/>`;
+  if (e > .2) g += `<path d="M-170 0 C-240 -60 -250 -150 -230 ${f2(-150 - e * 40)} M170 0 C240 -60 250 -150 230 ${f2(-150 - e * 40)}" stroke="${renk}" stroke-width="40" fill="none" stroke-linecap="round"/>`;
+  g += yuz(0, -40, 1, t, { seed: o.seed || 0, kapali: e > .3 || o.kapali, esne: e > .15 ? e : 0, sur: o.sur, cizgi: INK });
+  if (e > .5) g += `<path d="M-60 -60 q-14 -10 -26 0 M86 -60 q-14 -10 -26 0" stroke="#7FD3FF" stroke-width="6" fill="none" opacity=".8"/>`;
+  return g + '</g>';
+}
+const Z = (x, y, f, f0) => { if (f < f0) return ''; let g = ''; for (let k = 0; k < 3; k++) { const u = ((f - f0) * .015 + k / 3) % 1; g += `<text class="lbl" x="${f2(x + u * 80 + k * 10)}" y="${f2(y - u * 160)}" font-size="${50 + k * 14}" fill="#C9B8FF" opacity="${f2(sin(u * P))}">z</text>`; } return g; };
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = golge(540, 1560, 260, .35);
+    const o2 = gir(f, c('hook', 'gave'), 16);
+    // oksijen tüpü
+    if (o2 > 0) g += at(820, 1250, o2, `<rect x="-70" y="-240" width="140" height="420" rx="60" fill="#7FD3FF" stroke="${INK}" stroke-width="8"/><rect x="-40" y="-290" width="80" height="60" rx="14" fill="#C9D3E0" stroke="${INK}" stroke-width="8"/><text class="lbl" text-anchor="middle" y="0" font-size="80" fill="#fff" stroke="${INK}" stroke-width="10">O₂</text><path d="M-40 -260 C-200 -300 -320 -200 -320 -60" stroke="#C9D3E0" stroke-width="16" fill="none"/>`);
+    g += at(470, 1360, 1.15, blob(t, '#FFB86B', { seed: 1, esne: esne(f, 30) + esne(f, c('hook', 'kept') - 10, 60) }));
+    g += L('need O₂?', 540, 760, f, c('hook', 'oxygen'), c('hook', 'well') + 10, 84, '#7FD3FF');
+    if (f >= c('hook', 'well') && f < c('hook', 'gave')) g += at(540, 760, pop(f, c('hook', 'well')), `<path d="M-200 -80 L200 80 M200 -80 L-200 80" stroke="#FF6F8A" stroke-width="20" stroke-linecap="round"/>`);
+    g += L('still yawning', 470, 880, f, c('hook', 'kept'), S.cool.start - 2, 76);
+    return g;
+  },
+  cool(f, S, t) {
+    let g = '';
+    // kesit kafa: beyin ısısı kırmızıdan maviye
+    const so = gir(f, c('cool', 'gulp'), 50);
+    g += `<circle cx="540" cy="1080" r="330" fill="#FFCFA6" stroke="${INK}" stroke-width="10"/>`;
+    g += `<path d="M330 1000 C300 860 420 760 540 780 C660 760 780 860 750 1000 C760 1080 680 1110 540 1100 C400 1110 320 1080 330 1000Z" fill="${mix('#FF7A6B', '#7FC6FF', so)}" stroke="${INK}" stroke-width="8"/>`;
+    g += `<path d="M400 930 q40 -40 80 0 t80 0 t80 0 M420 1020 q40 -30 80 0 t80 0 t80 0" stroke="${INK}" stroke-width="6" fill="none" opacity=".4"/>`;
+    // ağız ve hava akışı
+    const e = esne(f, c('cool', 'gulp') - 6, 70);
+    g += `<ellipse cx="540" cy="1260" rx="${f2(50 + e * 40)}" ry="${f2(10 + e * 70)}" fill="#5A2230" stroke="${INK}" stroke-width="7"/>`;
+    for (let k = 0; k < 5; k++) { const u = ((f * .03) + k / 5) % 1; if (e > .2) g += `<path d="M${470 + k * 30} ${f2(1400 - u * 300)} q20 -30 0 -60" stroke="#BFE8FF" stroke-width="10" fill="none" opacity="${f2(sin(u * P) * e)}" stroke-linecap="round"/>`; }
+    // termometre
+    g += at(900, 900, 1, `<rect x="-30" y="-200" width="60" height="320" rx="30" fill="#fff" stroke="${INK}" stroke-width="7"/><circle cy="150" r="54" fill="${mix('#FF6F6F', '#5CB8FF', so)}" stroke="${INK}" stroke-width="7"/><rect x="-14" y="${f2(-170 + so * 160)}" width="28" height="${f2(330 - so * 160)}" rx="14" fill="${mix('#FF6F6F', '#5CB8FF', so)}"/>`);
+    g += L('brain cooler', 540, 720, f, c('cool', 'cools'), S.womb.start - 2, 84, '#7FC6FF');
+    g += L('fresh blood', 540, 1520, f, c('cool', 'fresh'), S.womb.start - 2, 70, '#FF9EB0');
+    return g;
+  },
+  womb(f, S, t) {
+    let g = `<circle cx="540" cy="1100" r="400" fill="url(#rahim)" stroke="${INK}" stroke-width="10"/>`;
+    for (let k = 0; k < 10; k++) { const u = ((f * .006) + k / 10) % 1; g += `<circle cx="${f2(260 + rastgele(k) * 560)}" cy="${f2(1400 - u * 600)}" r="${f2(8 + rastgele(k + 3) * 8)}" fill="#fff" opacity="${f2(.4 * sin(u * P))}"/>`; }
+    // bebek: kıvrılmış
+    const e = esne(f, c('womb', 'yawning') - 4, 70);
+    g += at(540, 1120, 1, `<g transform="rotate(-18)"><ellipse cx="40" cy="80" rx="190" ry="150" fill="#FFD3B8" stroke="${INK}" stroke-width="8"/><circle cx="-90" cy="-60" r="150" fill="#FFD3B8" stroke="${INK}" stroke-width="8"/>${yuz(-90, -50, .8, t, { seed: 9, kapali: true, esne: e > .15 ? e : 0, cizgi: INK })}<path d="M-40 150 q60 50 120 10" stroke="${INK}" stroke-width="6" fill="none"/></g>`);
+    g += L('yawning before birth', 540, 600, f, c('womb', 'before'), S.contagious.start - 2, 70);
+    return g;
+  },
+  contagious(f, S, t) {
+    let g = '';
+    // dört blob: yayılan esneme dalgası
+    const renk = ['#FFB86B', '#8FD6A8', '#9EC1FF', '#FF9EC4'];
+    for (let k = 0; k < 4; k++) {
+      const x = 270 + (k % 2) * 540, y = 960 + Math.floor(k / 2) * 520;
+      g += golge(x, y + 190, 180, .3) + at(x, y, .85, blob(t, renk[k], { seed: k, esne: esne(f, c('contagious', 'contagious') + k * 18, 56) + esne(f, c('contagious', 'reading') + k * 10, 50) }));
+    }
+    // kitap
+    if (f >= c('contagious', 'reading')) g += at(540, 1220, pop(f, c('contagious', 'reading')), `<path d="M0 -20 C-60 -60 -140 -60 -180 -40 V100 C-140 80 -60 80 0 120 C60 80 140 80 180 100 V-40 C140 -60 60 -60 0 -20Z" fill="#FFF3DC" stroke="${INK}" stroke-width="8"/><path d="M0 -20 V120" stroke="${INK}" stroke-width="6"/><text class="lbl" x="-90" y="40" text-anchor="middle" font-size="38" fill="${INK}">yawn</text>`);
+    g += L('contagious!', 540, 700, f, c('contagious', 'contagious'), S.close.start - 2, 92, '#FFE27A');
+    return g;
+  },
+  close(f, S, t) {
+    let g = '';
+    // aile/yabancı: kalp bağları
+    const fam = [[330, 1080, '#FFB86B'], [750, 1080, '#8FD6A8'], [540, 1460, '#9EC1FF']];
+    fam.forEach(([x, y, r], k) => { g += golge(x, y + 170, 160, .3) + at(x, y, .75, blob(t, r, { seed: k + 2, esne: esne(f, c('close', 'close') + k * 12, 56) })); });
+    g += at(930, 1500, .6, blob(t, '#8A8AA8', { seed: 9 }), 0, .6);
+    const p = gir(f, c('close', 'family'), 20);
+    if (p > 0) for (let k = 0; k < 3; k++) { const a = fam[k], b = fam[(k + 1) % 3]; g += `<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="#FF8FB1" stroke-width="10" stroke-dasharray="18 14" opacity="${f2(p)}"/><path d="M0 8 C-18 -8 -26 -20 -14 -30 C-6 -36 0 -30 0 -24 C0 -30 6 -36 14 -30 C26 -20 18 -8 0 8Z" fill="#FF8FB1" transform="translate(${(a[0] + b[0]) / 2},${(a[1] + b[1]) / 2}) scale(${f2(1.6 * p)})"/>`; }
+    g += L('family & friends', 540, 720, f, c('close', 'family'), S.dog.start - 2, 80);
+    return g;
+  },
+  dog(f, S, t) {
+    let g = golge(540, 1560, 360, .3);
+    g += at(330, 1260, .9, blob(t, '#FFB86B', { seed: 4, esne: esne(f, S.dog.start + 4, 56) }));
+    // köpek
+    const e = esne(f, c('dog', 'yawns') + 6, 60);
+    const kopek = `<ellipse cx="0" cy="120" rx="180" ry="110" fill="#E8B07A" stroke="${INK}" stroke-width="8"/><circle cy="-40" r="140" fill="#E8B07A" stroke="${INK}" stroke-width="8"/><path d="M-130 -110 C-200 -60 -190 60 -130 40 Z M130 -110 C200 -60 190 60 130 40Z" fill="#9A6A40" stroke="${INK}" stroke-width="7"/><ellipse cx="0" cy="10" rx="70" ry="54" fill="#FFF0DC"/><ellipse cx="0" cy="-10" rx="22" ry="16" fill="${INK}"/>${yuz(0, -60, .7, t, { seed: 7, kapali: e > .3, cizgi: INK }).replace(/<path d="M-20 26[^>]*>|<ellipse cx="0" cy="34"[^>]*>/, '')}${e > .1 ? `<ellipse cx="0" cy="50" rx="${f2(26 + e * 20)}" ry="${f2(6 + e * 40)}" fill="#5A2230"/><path d="M-10 ${f2(60 + e * 30)} q10 ${f2(20 * e)} 20 0" fill="#FF7A8A"/>` : ''}`;
+    g += at(770, 1330, .85, kopek);
+    g += L('dogs too!', 540, 760, f, c('dog', 'dogs'), S.son.start - 2, 92);
+    return g;
+  },
+  son(f, S, t) {
+    let g = golge(540, 1600, 300, .35);
+    g += at(540, 1350, 1.2, blob(t, '#9EC1FF', { seed: 6, esne: esne(f, c('son', 'yawn') - 4, 60), kapali: f > T.total - 20 }));
+    if (f >= c('son', 'comments')) g += at(540, 760, pop(f, c('son', 'comments')), `<path d="M-280 -80 h560 v150 h-380 l-60 50 v-50 h-120Z" fill="#FFF3DC" stroke="${INK}" stroke-width="8"/><text class="lbl" text-anchor="middle" y="20" font-size="60" fill="${INK}">did you yawn? 🥱</text>`.replace(' 🥱', ''));
+    g += Z(760, 1100, f, S.son.start + 20);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#gece)"/>`;
+  for (let k = 0; k < 50; k++) a += `<circle cx="${f2(rastgele(k) * 1080)}" cy="${f2(rastgele(k + 70) * 1300)}" r="${f2(1.5 + rastgele(k + 5) * 3)}" fill="#fff" opacity="${f2(.3 + .5 * Math.abs(sin(f * .03 + k)))}"/>`;
+  a += `<circle cx="880" cy="560" r="200" fill="url(#ayhale)"/><path d="M880 470 a90 90 0 1 0 70 150 a76 76 0 1 1 -70 -150Z" fill="#FFF1B8"/>`;
+  a += `<rect y="1680" width="1080" height="240" fill="#3A2C70"/><rect y="1680" width="1080" height="14" fill="#5A4AA0"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

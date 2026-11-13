@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: kış penceresi. Buz mavisi + kızılcık + bal sarısı; deri kesiti "mikroskop yuvarlağı", kabaran kedi tepkici. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#2B3F6B}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 90px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 5px 0 rgba(10,18,40,.7)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E2C52"/><stop offset=".7" stop-color="#3C5590"/><stop offset="1" stop-color="#6F86C2"/></linearGradient>
+    <radialGradient id="mercek" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#FFE7DA"/><stop offset="1" stop-color="#F7C9B4"/></radialGradient>
+    <clipPath id="yuv"><circle cx="540" cy="1100" r="400"/></clipPath>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka'];
+const c = cue, INK = '#16203D', KIZ = '#E5486A', BUZ = '#BFE6FF';
+const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFE08A') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+
+// deri kesiti: kıl + kas; kalk 0..1 kıl dikilmesi, tumsek
+function kesit(t, kalk, o = {}) {
+  let g = `<g clip-path="url(#yuv)"><rect x="100" y="660" width="900" height="900" fill="${o.ust || '#9FD0FF'}"/>`;
+  const yuzey = x => 1000 - kalk * 60 * Math.exp(-((x - 540) ** 2) / 9000);
+  let d = 'M120 1600 V1000'; for (let x = 120; x <= 960; x += 20) d += ` L${x} ${f2(yuzey(x))}`; d += ' V1600Z';
+  g += `<path d="${d}" fill="url(#mercek)" stroke="${INK}" stroke-width="8"/>`;
+  g += `<path d="M120 1160 H960" stroke="#F2A894" stroke-width="6" opacity=".7"/><path d="M120 1300 H960" stroke="#F2A894" stroke-width="4" opacity=".5"/>`;
+  // folikül
+  g += `<path d="M500 ${f2(yuzey(500))} C500 1150 480 1300 510 1380 H570 C600 1300 580 1150 580 ${f2(yuzey(580))}" fill="#F2B8A2" stroke="${INK}" stroke-width="6"/><ellipse cx="540" cy="1390" rx="50" ry="36" fill="#E59A86" stroke="${INK}" stroke-width="6"/>`;
+  // kıl: dikilme açısı
+  const a = -60 + kalk * 55, hx = 540 + cos(a * P / 180) * 300, hy = yuzey(540) + sin(a * P / 180) * 300;
+  g += `<path d="M540 1380 L540 ${f2(yuzey(540))} L${f2(hx)} ${f2(hy)}" stroke="#5A3A2A" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+  // kas (arrector pili): kasılınca kalınlaşır
+  const k = 14 + kalk * 16;
+  g += `<path d="M570 1300 C650 1240 720 1180 760 ${f2(1020 + kalk * 20)}" stroke="${KIZ}" stroke-width="${f2(k)}" fill="none" stroke-linecap="round"/>`;
+  if (o.sinir) { const p = o.sinir; g += `<path d="M960 1500 C800 1480 760 1400 620 1340" stroke="#FFE08A" stroke-width="10" fill="none" stroke-dasharray="${f2(600 * p)} 600"/>`; }
+  if (o.kok) for (let i = 0; i < 6; i++) { const u = ((t * .02) + i / 6) % 1; g += `<circle cx="${f2(540 + cos(i) * 40)}" cy="${f2(1390 + sin(i * 2) * 20)}" r="${f2(10 + 10 * sin(u * P))}" fill="#9BF0B0" opacity="${f2(o.kok * sin(u * P))}"/>`; }
+  g += '</g>';
+  g += `<circle cx="540" cy="1100" r="400" fill="none" stroke="${INK}" stroke-width="16"/><circle cx="540" cy="1100" r="420" fill="none" stroke="#DCE6F7" stroke-width="20"/>`;
+  return g;
+}
+// kedi; kabar 0..1
+function kedi(t, kabar, o = {}) {
+  const s = 1 + kabar * .25;
+  let g = `<path d="M150 40 C260 ${f2(-60 - kabar * 140)} 300 ${f2(-200 - kabar * 60)} 260 -260" stroke="#F2A24A" stroke-width="${f2(40 + kabar * 70)}" fill="none" stroke-linecap="round"/>`;
+  if (kabar > .2) for (let i = 0; i < 18; i++) { const u = i / 17; g += `<path d="M${f2(150 + u * 110 + (i % 2 ? -1 : 1) * (40 + kabar * 30))} ${f2(40 - u * 300)} l${(i % 2 ? -1 : 1) * 30} -10" stroke="#F2A24A" stroke-width="10" stroke-linecap="round"/>`; }
+  g += `<g transform="scale(${f2(s)})"><ellipse cx="0" cy="60" rx="200" ry="130" fill="#F2A24A" stroke="${INK}" stroke-width="8"/>`;
+  if (kabar > .2) for (let i = 0; i < 20; i++) { const an = -P + i * P / 19; g += `<path d="M${f2(cos(an) * 200)} ${f2(60 + sin(an) * 130)} l${f2(cos(an) * 30 * kabar)} ${f2(sin(an) * 30 * kabar)}" stroke="#F2A24A" stroke-width="12" stroke-linecap="round"/>`; }
+  g += `<circle cx="-150" cy="-60" r="110" fill="#F2A24A" stroke="${INK}" stroke-width="8"/><path d="M-240 -110 L-230 -210 L-170 -150Z M-60 -110 L-70 -210 L-130 -150Z" fill="#F2A24A" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>`;
+  g += `<path d="M-200 -90 l20 6 M-200 -60 l20 -6" stroke="${INK}" stroke-width="5"/>` + yuz(-150, -50, .7, t, { seed: 3, sur: kabar > .5, cizgi: INK }) + '</g>';
+  return g;
+}
+// maymunsu tüylü ata
+function ata(t, o = {}) {
+  let g = `<ellipse cx="0" cy="80" rx="190" ry="220" fill="#8A5A3A" stroke="${INK}" stroke-width="8"/>`;
+  for (let i = 0; i < 26; i++) { const an = -P + i * 2 * P / 26; g += `<path d="M${f2(cos(an) * 180)} ${f2(80 + sin(an) * 210)} l${f2(cos(an) * 34 * (o.kabar || 0))} ${f2(sin(an) * 34 * (o.kabar || 0))}" stroke="#8A5A3A" stroke-width="16" stroke-linecap="round"/>`; }
+  g += `<circle cy="-180" r="130" fill="#8A5A3A" stroke="${INK}" stroke-width="8"/><ellipse cy="-160" rx="90" ry="80" fill="#E8C49A"/>`;
+  return g + yuz(0, -170, .75, t, { seed: 6, cizgi: INK, sur: o.sur });
+}
+function kar(t) { let g = ''; for (let k = 0; k < 40; k++) { const u = ((t * .004) + rastgele(k)) % 1; g += `<circle cx="${f2(rastgele(k + 5) * 1080 + sin(t * .02 + k) * 30)}" cy="${f2(-20 + u * 1960)}" r="${f2(3 + rastgele(k + 9) * 6)}" fill="#fff" opacity=".8"/>`; } return g; }
+
+const SAHNE = {
+  hook(f, S, t) {
+    // kol: tüyler diken diken
+    const p = gir(f, c('hook', 'well'), 30);
+    let g = `<path d="M-60 1250 C300 1150 700 1180 1140 1300 L1140 1520 C700 1420 300 1420 -60 1520Z" fill="#F7C9B4" stroke="${INK}" stroke-width="9"/>`;
+    for (let k = 0; k < 26; k++) { const x = 20 + k * 42, y = 1240 + sin(x / 300) * 40 - (x > 540 ? (x - 540) * .1 : 0) + 30; g += `<circle cx="${x}" cy="${f2(y)}" r="${f2(6 + p * 6)}" fill="#F2A894" stroke="${INK}" stroke-width="3"/><path d="M${x} ${f2(y)} l${f2(14 - p * 14)} ${f2(-14 - p * 20)}" stroke="#5A3A2A" stroke-width="5" stroke-linecap="round"/>`; }
+    g += L('useless?', 540, 760, f, c('hook', 'useless'), c('hook', 'well') - 2, 96);
+    // tüylü ata belirir
+    if (f >= c('hook', 'ancestors')) g += at(540, 940, pop(f, c('hook', 'ancestors')) * .7, ata(t, { kabar: .5, sur: true }));
+    return g;
+  },
+  muscle(f, S, t) {
+    const kalk = gir(f, c('muscle', 'pull'), 20);
+    let g = kesit(t, kalk);
+    g += L('tiny muscle', 760, 900, f, c('muscle', 'tiny'), c('muscle', 'cold') - 2, 64, KIZ);
+    g += L('PULL', 820, 1000, f, c('muscle', 'pull'), S.fur.start - 2, 76, KIZ);
+    // termometre: soğuk
+    if (f >= c('muscle', 'cold')) g += at(170, 760, pop(f, c('muscle', 'cold')) * .8, `<rect x="-30" y="-180" width="60" height="300" rx="30" fill="#fff" stroke="${INK}" stroke-width="7"/><circle cy="140" r="50" fill="#5CB8FF" stroke="${INK}" stroke-width="7"/><rect x="-14" y="20" width="28" height="110" rx="14" fill="#5CB8FF"/>`);
+    return g;
+  },
+  fur(f, S, t) {
+    // tüy katmanı + sıcak hava kabarcıkları + mont
+    const p = gir(f, c('fur', 'raised'), 20);
+    let g = `<rect x="80" y="1300" width="920" height="300" rx="30" fill="#F7C9B4" stroke="${INK}" stroke-width="8"/>`;
+    for (let k = 0; k < 22; k++) { const x = 120 + k * 40, a = -150 + p * 60; g += `<path d="M${x} 1300 l${f2(cos(a * P / 180) * 220)} ${f2(sin(a * P / 180) * 220)}" stroke="#8A5A3A" stroke-width="14" stroke-linecap="round"/>`; }
+    const h = gir(f, c('fur', 'traps'), 20);
+    if (h > 0) for (let k = 0; k < 10; k++) { const u = ((t * .01) + k / 10) % 1; g += `<circle cx="${f2(140 + k * 85)}" cy="${f2(1230 - sin(u * P * 2) * 30)}" r="${f2(26 * h)}" fill="#FFB86B" opacity=".55"/>`; }
+    g += L('trapped warm air', 540, 1040, f, c('fur', 'traps'), c('fur', 'puffy') - 2, 72, '#FFB86B');
+    if (f >= c('fur', 'puffy')) g += at(540, 900, pop(f, c('fur', 'puffy')), `<path d="M-160 -120 C-200 -60 -210 120 -180 200 H180 C210 120 200 -60 160 -120 C100 -160 -100 -160 -160 -120Z" fill="${KIZ}" stroke="${INK}" stroke-width="8"/>${[0, 1, 2, 3].map(i => `<path d="M-180 ${-60 + i * 66} Q0 ${-30 + i * 66} 180 ${-60 + i * 66}" stroke="${INK}" stroke-width="5" fill="none" opacity=".5"/>`).join('')}<path d="M0 -140 V200" stroke="${INK}" stroke-width="6"/>`);
+    return g;
+  },
+  scare(f, S, t) {
+    const kabar = gir(f, c('scare', 'scared'), 14);
+    let g = golge(540, 1600, 300, .3);
+    g += at(560, 1380, 1, kedi(t, Math.max(gir(f, c('scare', 'bigger'), 20) * .7, kabar)));
+    // düşman: kızgın vakum süpürgesi?
+    if (f >= c('scare', 'scared') - 10) g += at(170, 1450, pop(f, c('scare', 'scared') - 10) * .7, `<rect x="-90" y="-60" width="180" height="140" rx="30" fill="#8A9AC2" stroke="${INK}" stroke-width="7"/><circle cx="-50" cy="90" r="24" fill="${INK}"/><circle cx="50" cy="90" r="24" fill="${INK}"/><path d="M60 -60 C80 -180 0 -260 -60 -280" stroke="${INK}" stroke-width="14" fill="none"/>` + yuz(0, 0, .5, t, { seed: 4, cizgi: INK }));
+    g += L('look BIGGER', 540, 760, f, c('scare', 'bigger'), S.music.start - 2, 92, '#FFE08A');
+    return g;
+  },
+  music(f, S, t) {
+    let g = golge(540, 1620, 280, .3);
+    // kulaklıklı kişi + notalar; kolu ürperir
+    g += `<g transform="translate(540,1250)"><path d="M-170 380 C-190 160 -130 80 0 80 C130 80 190 160 170 380Z" fill="#7FA8FF" stroke="${INK}" stroke-width="8"/><circle cy="-80" r="160" fill="#F7C9B4" stroke="${INK}" stroke-width="8"/><path d="M-150 -170 C-120 -280 120 -280 150 -170 C100 -220 -100 -230 -150 -170Z" fill="#4A3426"/>`;
+    g += `<path d="M-170 -80 C-170 -300 170 -300 170 -80" stroke="${INK}" stroke-width="22" fill="none"/><rect x="-200" y="-130" width="60" height="110" rx="24" fill="${KIZ}" stroke="${INK}" stroke-width="7"/><rect x="140" y="-130" width="60" height="110" rx="24" fill="${KIZ}" stroke="${INK}" stroke-width="7"/>`;
+    g += yuz(0, -70, .9, t, { seed: 5, kapali: f > c('music', 'song'), cizgi: INK }) + '</g>';
+    for (let k = 0; k < 6; k++) { const u = ((t * .012) + k / 6) % 1; g += `<text class="lbl" x="${f2(200 + k * 130 + sin(u * 6) * 20)}" y="${f2(1100 - u * 400)}" font-size="${60 + (k % 2) * 20}" fill="#FFE08A" opacity="${f2(sin(u * P))}">${k % 2 ? '♪' : '♫'}</text>`; }
+    // ürperme şimşekleri
+    const ch = gir(f, c('music', 'chills'), 10);
+    if (ch > 0) for (let k = 0; k < 6; k++) { const a = k * P / 3 + .3; g += `<path d="M${f2(540 + cos(a) * 260)} ${f2(1300 + sin(a) * 260)} l${f2(cos(a) * 40)} ${f2(sin(a) * 40)} l-14 10 l${f2(cos(a) * 40)} ${f2(sin(a) * 40)}" stroke="${BUZ}" stroke-width="10" fill="none" stroke-linecap="round" opacity="${f2(ch * (.5 + .5 * sin(t * .5 + k)))}"/>`; }
+    g += L('chills!', 540, 760, f, c('music', 'chills'), S.hair.start - 2, 96, BUZ);
+    g += L('same alarm system', 540, 760, f, c('music', 'alarm'), c('music', 'chills') - 6, 74, '#FFE08A');
+    return g;
+  },
+  hair(f, S, t) {
+    const p = gir(f, c('hair', 'nerve'), 40), k = gir(f, c('hair', 'wake'), 20);
+    let g = kesit(t, .4, { sinir: p, kok: k });
+    g += L('nerve', 860, 1560, f, c('hair', 'nerve'), S.son.start - 2, 64, '#FFE08A');
+    g += L('wake up hair cells', 540, 600, f, c('hair', 'wake'), S.son.start - 2, 72, '#9BF0B0');
+    return g;
+  },
+  son(f, S, t) {
+    let g = golge(540, 1620, 280, .3);
+    // atkılı kişi, içinde hayalet tüylü ata
+    g += at(540, 1260, 1.05, ata(t, { kabar: .3 }), 0, .25);
+    g += `<g transform="translate(540,1300)"><path d="M-170 330 C-190 140 -130 60 0 60 C130 60 190 140 170 330Z" fill="${KIZ}" stroke="${INK}" stroke-width="8"/><circle cy="-80" r="150" fill="#F7C9B4" stroke="${INK}" stroke-width="8"/><path d="M-140 -170 C-110 -270 110 -270 140 -170 C90 -210 -90 -220 -140 -170Z" fill="#4A3426"/><path d="M-130 60 Q0 120 130 60 L120 110 Q0 170 -120 110Z" fill="#FFE08A" stroke="${INK}" stroke-width="6"/>${yuz(0, -70, .85, t, { seed: 6, kapali: f > T.total - 24, cizgi: INK })}</g>`;
+    g += L('inner fur', 540, 900, f, c('son', 'inner'), T.total, 90, '#FFB86B');
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#bg)"/>`;
+  a += kar(f);
+  // buzlu pencere köşeleri
+  a += `<path d="M0 0 h220 q-60 40 -90 100 q-40 -20 -130 10Z M1080 0 h-220 q60 40 90 100 q40 -20 130 10Z" fill="#fff" opacity=".22"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

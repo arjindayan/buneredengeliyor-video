@@ -1,0 +1,14 @@
+{
+  "title": "The Eiffel Tower grows?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "The Eiffel Tower is always the same height. Well, that's not exactly true. In summer, it gets taller."},
+    {"scene": "heat", "text": "The tower is made of iron, and iron expands when it heats up. On a hot day, the tower can grow by about {15 centimeters.|fifteen centimeters.}"},
+    {"scene": "lean", "text": "Here's the wild part. The sun heats one side more than the other, so the top slowly leans away from the sun during the day."},
+    {"scene": "temp", "text": "In fact, the tower was never meant to stay. It was built for a World's Fair in {1889,|eighteen eighty nine,} with a permit for just twenty years."},
+    {"scene": "radio", "text": "It was saved by science. Its height made it the perfect radio antenna, so Paris decided to keep it."},
+    {"scene": "paint", "text": "That's not all. Every seven years or so, it gets repainted by hand, with about sixty tons of paint."},
+    {"scene": "son", "text": "So the Eiffel Tower isn't always the same height. It breathes with the seasons."}
+  ]
+}

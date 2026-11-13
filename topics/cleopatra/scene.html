@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: zaman tüneli. Lapis mavisi + firavun altını + kum; dikey zaman şeridi kayar, karakterler şerit üstünde "durak". Archivo sayılar. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#13275C}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 88px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 5px 0 rgba(6,12,36,.7)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+  .ar{font-family:'Archivo';font-weight:800}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1D48"/><stop offset="1" stop-color="#1F3C80"/></linearGradient>
+    <linearGradient id="altin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE29A"/><stop offset=".5" stop-color="#E8B54A"/><stop offset="1" stop-color="#B07E22"/></linearGradient>
+    <linearGradient id="kum" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2CE8A"/><stop offset="1" stop-color="#D9A55A"/></linearGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka', '800 80px Archivo'];
+const c = cue, INK = '#0B1433', GOLD = '#E8B54A';
+const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFE29A') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+
+function piramit(t, o = {}) { let g = `<path d="M0 -300 L340 120 H-340Z" fill="url(#kum)" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/><path d="M0 -300 L340 120 H120Z" fill="#B88442" opacity=".55"/>`; for (let k = 1; k < 7; k++) { const y = -300 + k * 60, w = 340 * (k * 60) / 420; g += `<path d="M${f2(-w)} ${y} H${f2(w)}" stroke="${INK}" stroke-width="3" opacity=".25"/>`; } return g + (o.yuz === false ? '' : yuz(-40, 0, .8, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, cizgi: INK })); }
+function kleopatra(t, o = {}) {
+  let g = `<path d="M-150 120 C-160 300 -120 380 -80 400 H80 C120 380 160 300 150 120Z" fill="#F7F0E2" stroke="${INK}" stroke-width="7"/>`;
+  g += `<path d="M-130 140 Q0 220 130 140" stroke="url(#altin)" stroke-width="34" fill="none"/>`;
+  g += `<path d="M-170 -120 C-200 60 -170 140 -150 180 H150 C170 140 200 60 170 -120 C140 -220 -140 -220 -170 -120Z" fill="#1A1A2E" stroke="${INK}" stroke-width="7"/>`;
+  g += `<ellipse cy="10" rx="120" ry="140" fill="#D9A27A" stroke="${INK}" stroke-width="7"/>`;
+  g += `<path d="M-130 -60 Q0 -150 130 -60 L130 -20 Q0 -90 -130 -20Z" fill="#1A1A2E"/>`;
+  g += `<path d="M-130 -96 Q0 -170 130 -96" stroke="url(#altin)" stroke-width="16" fill="none"/><path d="M0 -150 c-20 -10 -20 -40 0 -50 c20 10 20 40 0 50Z" fill="${GOLD}" stroke="${INK}" stroke-width="4"/>`;
+  g += `<path d="M-74 0 h-30 M74 0 h30" stroke="${INK}" stroke-width="6" stroke-linecap="round"/>`;
+  return g + yuz(0, 10, .85, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, cizgi: INK });
+}
+function telefon(t, o = {}) { return `<rect x="-120" y="-220" width="240" height="440" rx="40" fill="#1A1A2E" stroke="${INK}" stroke-width="7"/><rect x="-104" y="-190" width="208" height="370" rx="14" fill="#6FB6F2"/><circle cy="196" r="14" fill="#3A3A50"/>` + yuz(0, -10, .7, t, { seed: o.seed || 2, sur: o.sur, cizgi: INK }); }
+function mamut(t, o = {}) {
+  let g = `<ellipse cx="0" cy="40" rx="220" ry="160" fill="#8A5A3A" stroke="${INK}" stroke-width="8"/>`;
+  for (let k = 0; k < 12; k++) g += `<path d="M${-200 + k * 36} ${150 + (k % 2) * 10} q6 30 -6 50" stroke="#6A3E24" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+  g += `<rect x="-160" y="140" width="70" height="130" rx="24" fill="#7A4A2E" stroke="${INK}" stroke-width="7"/><rect x="90" y="140" width="70" height="130" rx="24" fill="#7A4A2E" stroke="${INK}" stroke-width="7"/>`;
+  g += `<circle cx="-200" cy="-60" r="130" fill="#8A5A3A" stroke="${INK}" stroke-width="8"/><path d="M-250 20 C-290 120 -260 200 -200 220" stroke="#8A5A3A" stroke-width="56" fill="none" stroke-linecap="round"/><path d="M-250 20 C-290 120 -260 200 -200 220" stroke="${INK}" stroke-width="4" fill="none" opacity=".3"/>`;
+  g += `<path d="M-160 20 C-80 100 -20 40 -40 -20" stroke="#FFF6E2" stroke-width="22" fill="none" stroke-linecap="round"/><path d="M-280 10 C-360 90 -400 30 -380 -20" stroke="#FFF6E2" stroke-width="22" fill="none" stroke-linecap="round"/>`;
+  return g + yuz(-210, -70, .7, t, { seed: 7, sur: o.sur, cizgi: INK });
+}
+// zaman şeridi: yıl → y; görünür pencere [y0, y1] yıllar
+function serit(y0, y1, isaret) {
+  const Y = yil => 520 + (yil - y0) / (y1 - y0) * 1260;
+  let g = `<rect x="140" y="480" width="16" height="1340" rx="8" fill="${GOLD}" opacity=".5"/>`;
+  const adim = (y1 - y0) > 3000 ? 500 : 250;
+  for (let yil = Math.ceil(y0 / adim) * adim; yil <= y1; yil += adim) { const y = Y(yil); g += `<path d="M126 ${f2(y)} h44" stroke="${GOLD}" stroke-width="6"/><text class="ar" x="186" y="${f2(y + 12)}" font-size="34" fill="#FFE29A" opacity=".85">${yil < 0 ? -yil + ' BC' : yil === 0 ? 'BC | AD' : yil + (yil < 1000 ? ' AD' : '')}</text>`; }
+  isaret.forEach(([yil, renk]) => { const y = Y(yil); g += `<circle cx="148" cy="${f2(y)}" r="22" fill="${renk}" stroke="${INK}" stroke-width="6"/>`; });
+  return { g, Y };
+}
+const ACIK = ['-2560', '-69', '2007'];
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = '';
+    const p = gir(f, c('hook', 'closer'), 30);
+    g += at(320 - p * 60, 1300, .85, piramit(t, { sur: p > .5 }));
+    g += at(760 + p * 60, 1180, .75, kleopatra(t, { seed: 1, sur: f >= c('hook', 'iphone') && f < c('hook', 'iphone') + 30 }));
+    if (p > 0) g += at(860, 1560, pop(f, c('hook', 'iphone')) * .55, telefon(t, { sur: true }));
+    g += L('same era?', 540, 720, f, c('hook', 'around'), c('hook', 'well') + 4, 84);
+    return g;
+  },
+  pyramid(f, S, t) {
+    const { g: sg, Y } = serit(-3000, -2000, [[-2560, GOLD]]);
+    let g = sg + at(600, Y(-2560) + 60, .9, piramit(t, { seed: 2 }));
+    if (f >= c('pyramid', '2560')) g += at(600, Y(-2560) - 380, pop(f, c('pyramid', '2560')), `<rect x="-220" y="-70" width="440" height="140" rx="20" fill="url(#altin)" stroke="${INK}" stroke-width="7"/><text class="ar" text-anchor="middle" dy="26" font-size="78" fill="${INK}">2560 BC</text>`);
+    return g;
+  },
+  cleo(f, S, t) {
+    // şerit büyür: piramitten Kleopatra'ya kayan pencere
+    const u = gir(f, S.cleo.start, 60);
+    const { g: sg, Y } = serit(-2700, -2700 + 900 + u * 2200, [[-2560, GOLD], [-69, '#FF8FA3']]);
+    let g = sg;
+    g += at(620, Y(-2560) + 40, .45, piramit(t, { seed: 3, yuz: false }));
+    const ky = Y(-69);
+    if (ky < 1850) {
+      g += at(640, ky - 60, .7, kleopatra(t, { seed: 4 }));
+      // aradaki mesafe oku
+      g += `<path d="M900 ${f2(Y(-2560))} V${f2(ky - 40)}" stroke="#FF8FA3" stroke-width="10" stroke-dasharray="20 14"/>`;
+    }
+    g += L('~2,500 years later', 600, 1100, f, c('cleo', 'thousand'), c('cleo', 'ruins') - 2, 76);
+    g += L('ANCIENT ruins (to her!)', 600, 1100, f, c('cleo', 'ruins'), S.phone.start - 2, 66, '#FF8FA3');
+    return g;
+  },
+  phone(f, S, t) {
+    // iki çubuk karşılaştırması: piramit→Kleopatra vs Kleopatra→iPhone
+    let g = '';
+    const a = gir(f, S.phone.start + 4, 30), b = gir(f, c('phone', 'only'), 30);
+    const W = 820 / 2491;
+    g += at(540, 900, 1, `<text class="lbl" x="-410" y="-40" font-size="44" fill="#FFE29A">pyramids → Cleopatra</text><rect x="-410" y="0" width="${f2(820 * a)}" height="90" rx="20" fill="url(#altin)" stroke="${INK}" stroke-width="6"/><text class="ar" x="${f2(-410 + 820 * a - 20)}" y="62" text-anchor="end" font-size="48" fill="${INK}" opacity="${f2(a)}">~2,490 yrs</text>`);
+    g += at(540, 1180, 1, `<text class="lbl" x="-410" y="-40" font-size="44" fill="#9FD0FF">Cleopatra → iPhone</text><rect x="-410" y="0" width="${f2(2076 * W * b)}" height="90" rx="20" fill="#6FB6F2" stroke="${INK}" stroke-width="6"/><text class="ar" x="${f2(-410 + 2076 * W * b - 20)}" y="62" text-anchor="end" font-size="48" fill="${INK}" opacity="${f2(b)}">~2,040 yrs</text>`);
+    g += at(300, 1560, .55, kleopatra(t, { seed: 5 }));
+    g += at(780, 1560, .6, telefon(t, { sur: f >= c('phone', 'shorter') }));
+    g += L('shorter!', 540, 1370, f, c('phone', 'shorter'), S.mammoth.start - 2, 84, '#9FD0FF');
+    return g;
+  },
+  mammoth(f, S, t) {
+    let g = '';
+    // bölünmüş ekran: üstte piramit inşaatı, altta karlı ada + mamut
+    g += `<rect x="60" y="560" width="960" height="520" rx="30" fill="url(#kum)" stroke="${INK}" stroke-width="8"/>`;
+    g += at(540, 960, .6, piramit(t, { seed: 6, yuz: false }));
+    for (let k = 0; k < 3; k++) g += at(220 + k * 300 + sin(t * .05 + k) * 10, 1010, .4, `<rect x="-60" y="-30" width="120" height="60" fill="#D9A55A" stroke="${INK}" stroke-width="7"/>`);
+    g += `<text class="ar" x="100" y="630" font-size="40" fill="${INK}">EGYPT · ~2500 BC</text>`;
+    g += `<rect x="60" y="1120" width="960" height="560" rx="30" fill="#CFE8F7" stroke="${INK}" stroke-width="8"/><path d="M60 1560 Q300 1500 540 1540 T1020 1520 V1650 a30 30 0 0 1 -30 30 H90 a30 30 0 0 1 -30 -30Z" fill="#FFFFFF"/>`;
+    for (let k = 0; k < 20; k++) { const u = ((f * .006) + rastgele(k)) % 1; g += `<circle cx="${f2(80 + rastgele(k + 3) * 920)}" cy="${f2(1140 + u * 520)}" r="5" fill="#fff"/>`; }
+    const p = gir(f, c('mammoth', 'mammoths'), 20);
+    g += at(620 - (1 - p) * 300, 1430, .75, mamut(t, { sur: p > .5 && f < c('mammoth', 'remote') }), 0, p);
+    g += `<text class="ar" x="100" y="1190" font-size="40" fill="${INK}">ARCTIC ISLAND</text>`;
+    g += L('same time!', 540, 1100, f, c('mammoth', 'woolly'), S.oxford.start - 2, 84);
+    return g;
+  },
+  oxford(f, S, t) {
+    let g = '';
+    // Oxford kulesi vs Aztek tapınağı, yıl rozetleri
+    g += at(320, 1300, 1, `<rect x="-140" y="-200" width="280" height="420" fill="#D9C7A0" stroke="${INK}" stroke-width="8"/><path d="M-140 -200 L0 -420 L140 -200Z" fill="#B8A57A" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/>${[0, 1, 2].map(i => `<path d="M${-90 + i * 70} 40 v-90 a25 25 0 0 1 50 0 v90Z" fill="#3A4A7A" stroke="${INK}" stroke-width="5"/>`).join('')}<rect x="-40" y="120" width="80" height="100" rx="40" fill="#5A3A20"/>` + yuz(0, -120, .6, t, { seed: 8, cizgi: INK }));
+    const p = gir(f, c('oxford', 'aztecs'), 20);
+    g += at(780, 1340, 1, `<path d="M-180 180 H180 L130 60 H-130Z M-130 60 H130 L90 -60 H-90Z M-90 -60 H90 L60 -160 H-60Z" fill="#8FB86A" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/><rect x="-40" y="-230" width="80" height="70" fill="#C85A3A" stroke="${INK}" stroke-width="6"/><path d="M-14 180 V-160 M14 180 V-160" stroke="${INK}" stroke-width="5" opacity=".4"/>` + yuz(0, 0, .5, t, { seed: 9, cizgi: INK }), 0, .35 + p * .65);
+    if (f >= c('oxford', 'oxford')) g += at(320, 900, pop(f, c('oxford', 'oxford')), `<rect x="-150" y="-60" width="300" height="120" rx="20" fill="url(#altin)" stroke="${INK}" stroke-width="6"/><text class="ar" text-anchor="middle" dy="22" font-size="64" fill="${INK}">1096</text>`);
+    if (f >= c('oxford', 'aztecs')) g += at(780, 900, pop(f, c('oxford', 'aztecs')), `<rect x="-150" y="-60" width="300" height="120" rx="20" fill="#8FB86A" stroke="${INK}" stroke-width="6"/><text class="ar" text-anchor="middle" dy="22" font-size="64" fill="${INK}">1325</text>`);
+    g += L('older!', 320, 760, f, c('oxford', 'older'), S.son.start - 2, 76);
+    return g;
+  },
+  son(f, S, t) {
+    const { g: sg, Y } = serit(-3000, 2100, [[-2560, GOLD], [-69, '#FF8FA3'], [2007, '#6FB6F2']]);
+    let g = sg;
+    g += at(620, Y(-2560) + 60, .4, piramit(t, { seed: 1, yuz: false }));
+    g += at(620, Y(-69) - 10, .42, kleopatra(t, { seed: 2, kapali: f > T.total - 24 }));
+    g += at(620, Y(2007) - 40, .4, telefon(t));
+    // "sen buradasın"
+    if (f >= c('son', 'you')) g += at(860, Y(2026) - 60, pop(f, c('son', 'you')), `<path d="M-110 -60 h220 v90 h-90 l-20 30 -20 -30 h-90Z" fill="#FFE29A" stroke="${INK}" stroke-width="6"/><text class="lbl" text-anchor="middle" y="0" font-size="48" fill="${INK}">YOU</text>`);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#bg)"/>`;
+  for (let k = 0; k < 12; k++) { const x = rastgele(k) * 1080, y = rastgele(k + 40) * 1920; a += `<g transform="translate(${f2(x)},${f2(y)}) rotate(${f2(f * .2 + k * 30)})" opacity=".12"><path d="M0 -30 L8 -8 30 0 8 8 0 30 -8 8 -30 0 -8 -8Z" fill="${GOLD}"/></g>`; }
+  // kum saati kenar süsü
+  a += `<rect x="0" y="1860" width="1080" height="60" fill="${GOLD}" opacity=".25"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>
