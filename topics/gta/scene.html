@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gece şehri, üstten harita ızgarası; neon pembe/camgöbeği + polis çakarı; Plex Mono kod etiketleri. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0C0E1C}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 88px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 5px 0 rgba(4,4,14,.8)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+  .mono{font-family:'IBM Plex Mono';font-weight:600;white-space:pre}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#090A16"/><stop offset="1" stop-color="#18183A"/></linearGradient>
+    <linearGradient id="ustkarart" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05050E" stop-opacity=".9"/><stop offset="1" stop-color="#05050E" stop-opacity="0"/></linearGradient>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A0B3A"/><stop offset=".45" stop-color="#7A1E6E"/><stop offset=".8" stop-color="#FF4F7B"/><stop offset="1" stop-color="#FFA24A"/></linearGradient>
+    <linearGradient id="gunes" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE45C"/><stop offset="1" stop-color="#FF3D8B"/></linearGradient>
+    <linearGradient id="deniz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B1D5E"/><stop offset="1" stop-color="#0E0B26"/></linearGradient>
+    <radialGradient id="kirmizi"><stop offset="0" stop-color="#FF2D4A" stop-opacity=".75"/><stop offset="1" stop-color="#FF2D4A" stop-opacity="0"/></radialGradient>
+    <radialGradient id="mavi"><stop offset="0" stop-color="#2D7BFF" stop-opacity=".75"/><stop offset="1" stop-color="#2D7BFF" stop-opacity="0"/></radialGradient>
+    <filter id="parla" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="ekran"><rect x="-260" y="-210" width="520" height="380" rx="34"/></clipPath>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka', '600 40px "IBM Plex Mono"'];
+const c = cue, INK = '#0A0A18', PINK = '#FF3D8B', CYAN = '#38E1FF', GOLD = '#FFC94A';
+const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFF3DC') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+const kod = (txt, x, y, s, fill, anchor = 'start', o = 1) => `<text class="mono" x="${f2(x)}" y="${f2(y)}" font-size="${s}" fill="${fill}" text-anchor="${anchor}" opacity="${f2(o)}">${txt}</text>`;
+
+// yandan sevimli araba (sağa bakar). o.polis: çakarlı polis arabası
+function araba(t, o = {}) {
+  const pol = o.polis, govde = pol ? '#F4F4F8' : (o.renk || PINK), tek = t * (o.hiz ?? 8);
+  let g = golge(0, 112, 210, .35);
+  if (pol) { const ph = Math.floor(t / 5) % 2; g += `<ellipse cx="-10" cy="-110" rx="200" ry="120" fill="url(#${ph ? 'kirmizi' : 'mavi'})"/><ellipse cx="50" cy="-110" rx="200" ry="120" fill="url(#${ph ? 'mavi' : 'kirmizi'})"/>`; }
+  g += `<path d="M-200 40 Q-205 -10 -170 -20 L-110 -30 Q-80 -95 -10 -100 L60 -100 Q110 -98 140 -30 L185 -20 Q210 -10 205 40 Q205 70 180 70 L-180 70 Q-200 70 -200 40Z" fill="${govde}" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/>`;
+  if (pol) g += `<path d="M-200 30 H205 V40 Q205 70 180 70 H-180 Q-200 70 -200 40Z" fill="#1C2A6B"/><text class="mono" x="-60" y="22" font-size="30" fill="#1C2A6B" text-anchor="middle">POLICE</text>`;
+  g += `<path d="M-90 -32 Q-66 -84 -14 -86 L50 -86 Q92 -84 118 -32Z" fill="#9FE7FF" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/><path d="M20 -86 V-32" stroke="${INK}" stroke-width="6"/>`;
+  g += `<rect x="186" y="-4" width="20" height="22" rx="6" fill="#FFE45C" stroke="${INK}" stroke-width="4"/><rect x="-204" y="-4" width="16" height="22" rx="6" fill="#FF2D4A" stroke="${INK}" stroke-width="4"/>`;
+  if (pol) { const ph = Math.floor(t / 5) % 2; g += `<rect x="-30" y="-122" width="56" height="24" rx="8" fill="#FF2D4A" opacity="${ph ? 1 : .35}" stroke="${INK}" stroke-width="5" ${ph ? 'filter="url(#parla)"' : ''}/><rect x="26" y="-122" width="56" height="24" rx="8" fill="#2D7BFF" opacity="${ph ? .35 : 1}" stroke="${INK}" stroke-width="5" ${ph ? '' : 'filter="url(#parla)"'}/>`; }
+  [-120, 120].forEach(x => { g += `<circle cx="${x}" cy="70" r="44" fill="#22223A" stroke="${INK}" stroke-width="7"/><circle cx="${x}" cy="70" r="18" fill="#B8B8D0"/><path d="M${x} 70 l${f2(cos(tek) * 30)} ${f2(sin(tek) * 30)}" stroke="#B8B8D0" stroke-width="6"/>`; });
+  return g + yuz(o.yuzX ?? 120, 10, .5, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, uzgun: o.uzgun, cizgi: INK, yanak: pol ? '#7AA8FF' : '#FFB0C8' });
+}
+// yatay yol, kesik şerit çizgileri akar
+function yol(f, y, hiz = 14) {
+  let g = `<rect x="-20" y="${y}" width="1120" height="250" fill="#24243E"/><rect x="-20" y="${y}" width="1120" height="12" fill="#3C3C60"/><rect x="-20" y="${y + 238}" width="1120" height="12" fill="#3C3C60"/>`;
+  const o = (f * hiz) % 180;
+  for (let x = -180; x < 1260; x += 180) g += `<rect x="${f2(x - o)}" y="${y + 118}" width="100" height="14" rx="7" fill="${GOLD}" opacity=".8"/>`;
+  return g;
+}
+// eski tüp monitör; ic: ekran koordinatlarında (-260..260, -210..170) içerik
+function monitor(ic, t) {
+  let g = `<rect x="-310" y="-260" width="620" height="490" rx="56" fill="#D8D2C2" stroke="${INK}" stroke-width="9"/><rect x="-80" y="230" width="160" height="60" fill="#B8B2A2" stroke="${INK}" stroke-width="8"/><rect x="-170" y="286" width="340" height="40" rx="14" fill="#D8D2C2" stroke="${INK}" stroke-width="8"/>`;
+  g += `<rect x="-260" y="-210" width="520" height="380" rx="34" fill="#071710" stroke="${INK}" stroke-width="7"/><g clip-path="url(#ekran)">${ic}`;
+  for (let y = -210; y < 170; y += 8) g += `<rect x="-260" y="${y}" width="520" height="3" fill="#000" opacity=".22"/>`;
+  return g + `</g><circle cx="240" cy="200" r="10" fill="#4CFF8A" opacity="${.6 + .4 * sin(t * .2)}"/>`;
+}
+// ekranda mini oyun: üstten pist, polis soyguncuyu kovalar
+function miniOyun(t, o = {}) {
+  let g = `<ellipse rx="190" ry="120" cy="-20" fill="none" stroke="#2A5C40" stroke-width="54"/><ellipse rx="190" ry="120" cy="-20" fill="none" stroke="#4CFF8A" stroke-width="3" stroke-dasharray="16 16" opacity=".6"/>`;
+  const u = t * .05, nok = a => [cos(a) * 190, -20 + sin(a) * 120, a * 180 / P + 90];
+  const [x1, y1, r1] = nok(u), [x2, y2, r2] = nok(u - (o.yakin ? .35 : .9));
+  g += `<g transform="translate(${f2(x1)},${f2(y1)}) rotate(${f2(r1)})"><rect x="-14" y="-24" width="28" height="48" rx="7" fill="${PINK}"/></g>`;
+  g += `<g transform="translate(${f2(x2)},${f2(y2)}) rotate(${f2(r2)})"><rect x="-14" y="-24" width="28" height="48" rx="7" fill="#F4F4F8"/><rect x="-12" y="-6" width="24" height="10" fill="${Math.floor(t / 5) % 2 ? '#FF2D4A' : '#2D7BFF'}"/></g>`;
+  if (o.baslik) g += kod(o.baslik, 0, 150, 34, '#4CFF8A', 'middle');
+  return g;
+}
+function hataPencere(txt) {
+  return `<rect x="-230" y="-100" width="460" height="200" rx="14" fill="#E8E6F0" stroke="${INK}" stroke-width="7"/><rect x="-230" y="-100" width="460" height="54" rx="14" fill="#2D3FBF"/><rect x="-230" y="-60" width="460" height="14" fill="#2D3FBF"/>` +
+    kod('ERROR', -205, -61, 30, '#fff') + `<rect x="168" y="-90" width="40" height="34" rx="6" fill="#FF2D4A" stroke="${INK}" stroke-width="4"/><path d="M178 -82 l20 18 M198 -82 l-20 18" stroke="#fff" stroke-width="5"/>` +
+    `<circle cx="-160" cy="25" r="34" fill="#FF2D4A" stroke="${INK}" stroke-width="5"/><path d="M-160 5 v24 M-160 40 v4" stroke="#fff" stroke-width="9" stroke-linecap="round"/>` + kod(txt, -100, 38, 36, INK);
+}
+function damga(txt, renk, w = 620) {
+  return `<g transform="rotate(-10)"><rect x="${-w / 2}" y="-80" width="${w}" height="160" rx="22" fill="none" stroke="${renk}" stroke-width="14"/><rect x="${-w / 2 + 16}" y="-64" width="${w - 32}" height="128" rx="12" fill="none" stroke="${renk}" stroke-width="5"/>${kod(txt, 0, 26, 80, renk, 'middle')}</g>`;
+}
+const damgaBas = (f, f0) => f < f0 ? 0 : 1 + 0.7 * (1 - sm((f - f0) / 8));
+// geliştirici: yuvarlak gövdeli sevimli karakter, kulaklıklı
+function gelistirici(t, renk, o = {}) {
+  return `<ellipse cy="40" rx="130" ry="150" fill="${renk}" stroke="${INK}" stroke-width="8"/><path d="M-120 -40 Q0 -190 120 -40" stroke="#22223A" stroke-width="18" fill="none"/><rect x="-142" y="-60" width="40" height="70" rx="16" fill="#22223A"/><rect x="102" y="-60" width="40" height="70" rx="16" fill="#22223A"/>` + yuz(0, 0, .8, t, { seed: o.seed, sur: o.sur, kapali: o.kapali, cizgi: INK });
+}
+// polis yıldızı (6 köşe)
+function rozet() {
+  let p = ''; for (let k = 0; k < 12; k++) { const a = k * P / 6 - P / 2, r = k % 2 ? 105 : 190; p += `${k ? 'L' : 'M'}${f2(cos(a) * r)} ${f2(sin(a) * r)}`; }
+  let g = `<path d="${p}Z" fill="${GOLD}" stroke="${INK}" stroke-width="9" stroke-linejoin="round"/>`;
+  for (let k = 0; k < 6; k++) { const a = k * P / 3 - P / 2; g += `<circle cx="${f2(cos(a) * 190)}" cy="${f2(sin(a) * 190)}" r="18" fill="${GOLD}" stroke="${INK}" stroke-width="6"/>`; }
+  return g + `<circle r="80" fill="#FFE08A" stroke="${INK}" stroke-width="6"/>` + kod('COP', 0, 16, 52, INK, 'middle');
+}
+function maske(t) {
+  return `<path d="M-200 -40 Q-200 -100 -110 -90 Q-40 -80 0 -50 Q40 -80 110 -90 Q200 -100 200 -40 Q200 60 110 60 Q40 60 0 20 Q-40 60 -110 60 Q-200 60 -200 -40Z" fill="#14142A" stroke="${INK}" stroke-width="8"/>` +
+    `<ellipse cx="-95" cy="-15" rx="50" ry="34" fill="#F2E6D8"/><ellipse cx="95" cy="-15" rx="50" ry="34" fill="#F2E6D8"/><circle cx="${f2(-95 + sin(t * .1) * 10)}" cy="-12" r="16" fill="${INK}"/><circle cx="${f2(95 + sin(t * .1) * 10)}" cy="-12" r="16" fill="${INK}"/>` +
+    `<path d="M200 -40 q60 -30 90 10 M200 -30 q50 20 70 60" stroke="#14142A" stroke-width="18" fill="none" stroke-linecap="round"/>`;
+}
+function oyunKutusu(t) {
+  return `<rect x="-200" y="-260" width="400" height="520" rx="18" fill="#14142A" stroke="${INK}" stroke-width="9"/><rect x="-176" y="-236" width="352" height="472" rx="10" fill="none" stroke="${PINK}" stroke-width="5" filter="url(#parla)"/>` +
+    `<text class="lbl" x="0" y="-150" font-size="54" fill="${GOLD}" text-anchor="middle">GRAND THEFT</text><text class="lbl" x="0" y="-92" font-size="54" fill="${GOLD}" text-anchor="middle">AUTO</text>` +
+    `<g transform="translate(0,60) scale(.62)">${araba(t, { sur: true, seed: 3 })}</g>` + kod('1997 · PC', 0, 210, 40, CYAN, 'middle');
+}
+function gazete(baslik, renk) {
+  let g = `<rect x="-190" y="-240" width="380" height="480" fill="#F2EBDD" stroke="${INK}" stroke-width="7"/><rect x="-160" y="-215" width="320" height="16" fill="${INK}" opacity=".8"/>`;
+  g += `<text class="lbl" x="0" y="-120" font-size="62" fill="${renk}" text-anchor="middle">${baslik}</text>`;
+  for (let k = 0; k < 8; k++) g += `<rect x="-160" y="${-60 + k * 34}" width="${k % 3 === 2 ? 200 : 320}" height="14" rx="7" fill="${INK}" opacity=".18"/>`;
+  return g;
+}
+function palmiye(x, y, s, t) {
+  let g = `<path d="M0 0 C10 -120 -20 -260 30 -380" stroke="#120826" stroke-width="26" fill="none" stroke-linecap="round"/>`;
+  for (let k = 0; k < 6; k++) { const a = -150 + k * 60 + sin(t * .04 + k) * 4; g += `<g transform="translate(30,-380) rotate(${f2(a)})"><path d="M0 0 Q90 -40 190 20 Q90 -10 0 0Z" fill="#120826"/></g>`; }
+  return `<g transform="translate(${x},${y}) scale(${s})">${g}</g>`;
+}
+// cıvıl kalp
+const kalp = (renk = '#FF4D6D') => `<path d="M0 30 C-60 -10 -60 -60 -25 -60 C-10 -60 0 -48 0 -38 C0 -48 10 -60 25 -60 C60 -60 60 -10 0 30Z" fill="${renk}" stroke="${INK}" stroke-width="5"/>`;
+// dokunma halkası
+const dokun = (f, f0) => f < f0 || f > f0 + 18 ? '' : `<circle r="${f2(20 + (f - f0) * 5)}" fill="none" stroke="#fff" stroke-width="${f2(8 * (1 - (f - f0) / 18))}" opacity="${f2(1 - (f - f0) / 18)}"/><circle r="22" fill="#fff" opacity="${f2(.7 * (1 - (f - f0) / 18))}"/>`;
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = yol(f, 1300, 18);
+    const k = c('hook', 'bug');
+    g += at(700 + sin(t * .07) * 30, 1430 + sin(t * .9) * 3, .9, araba(t, { sur: f >= k, seed: 1, hiz: 14 }));
+    g += at(250 + sin(t * .07 + 1) * 40, 1435 + sin(t * .8) * 3, .8, araba(t, { polis: true, seed: 2, hiz: 14 }));
+    // böcek belirir
+    if (f >= k) g += at(820, 1020 + sin(t * .3) * 10, pop(f, k) * .9, `<ellipse rx="70" ry="90" fill="#4CFF8A" stroke="${INK}" stroke-width="7"/><path d="M0 -90 V90" stroke="${INK}" stroke-width="5"/><circle cy="-110" r="40" fill="#2A5C40" stroke="${INK}" stroke-width="7"/>${[-1, 1].map(s => `<path d="M${s * 60} -30 l${s * 50} -20 M${s * 66} 10 l${s * 56} 0 M${s * 60} 50 l${s * 50} 24 M${s * 16} -146 l${s * 20} -40" stroke="${INK}" stroke-width="7" stroke-linecap="round"/>`).join('')}` + yuz(0, -112, .45, t, { seed: 4, cizgi: '#fff' }));
+    g += L('BUG', 820, 860, f, k + 4, c('hook', 'that') - 2, 80, '#4CFF8A');
+    const b = c('hook', 'grand');
+    if (f >= b) g += at(540, 820, pop(f, b, 14), `<rect x="-420" y="-120" width="840" height="240" rx="34" fill="#14142A" stroke="${PINK}" stroke-width="8" filter="url(#parla)"/><text class="lbl" x="0" y="-12" font-size="96" fill="${GOLD}" text-anchor="middle">GRAND THEFT</text><text class="lbl" x="0" y="84" font-size="96" fill="${GOLD}" text-anchor="middle">AUTO</text>`);
+    return g;
+  },
+  dundee(f, S, t) {
+    let g = '';
+    // yağmurlu gece, küçük stüdyo binası
+    for (let k = 0; k < 60; k++) { const u = (rastgele(k) + t * .03) % 1; g += `<path d="M${f2(rastgele(k + 9) * 1080 - u * 60)} ${f2(500 + u * 1400)} l-12 40" stroke="${CYAN}" stroke-width="3" opacity=".35"/>`; }
+    const m = c('dundee', 'race');
+    const p = gir(f, m - 10, 24);
+    // bina geri çekilir, monitör öne gelir
+    let bina = `<rect x="-300" y="-260" width="600" height="520" fill="#5A3A3A" stroke="${INK}" stroke-width="9"/><path d="M-330 -260 H330 L280 -330 H-280Z" fill="#3A2630" stroke="${INK}" stroke-width="9" stroke-linejoin="round"/>`;
+    for (let r = 0; r < 2; r++) for (let k = 0; k < 3; k++) bina += `<rect x="${-230 + k * 170}" y="${-200 + r * 170}" width="120" height="110" rx="8" fill="${(k + r) % 2 ? '#FFD86A' : '#FFE9A8'}" stroke="${INK}" stroke-width="6" opacity="${.7 + .3 * sin(t * .05 + k + r)}"/>`;
+    bina += `<rect x="-60" y="130" width="120" height="130" fill="#2A1A1A" stroke="${INK}" stroke-width="6"/><rect x="-200" y="-410" width="400" height="76" rx="14" fill="#14142A" stroke="${PINK}" stroke-width="5" filter="url(#parla)"/>` + kod('DMA DESIGN', 0, -358, 42, PINK, 'middle');
+    g += at(540, 1300 - p * 120, 1 - p * .45, bina, 0, 1 - p * .6);
+    g += L('DUNDEE, SCOTLAND', 540, 700, f, c('dundee', 'dundee'), m - 6, 70, CYAN);
+    if (f >= c('dundee', '1995') && f < m) g += at(540, 1680, pop(f, c('dundee', '1995')), kod('1995', 0, 30, 110, GOLD, 'middle'));
+    if (f >= m) {
+      g += at(540, 1200, .3 + p * .9, monitor(miniOyun(t, { baslik: "RACE'N'CHASE" }), t));
+      const cp = c('dundee', 'cop');
+      if (f >= cp) g += at(540, 1700, pop(f, cp) * .9, `<rect x="-260" y="-60" width="520" height="120" rx="60" fill="#1C2A6B" stroke="${INK}" stroke-width="7"/>` + kod('YOU = COP', 0, 22, 60, '#fff', 'middle'));
+    }
+    return g;
+  },
+  dull(f, S, t) {
+    let g = '';
+    const z = c('dull', 'dull');
+    // sıkıcı: monitör esner
+    const esne = f >= z && f < z + 40 ? sin(klamp((f - z) / 40) * P) : 0;
+    g += at(540, 1150, 1.05, monitor(miniOyun(t * .4, {}) + `<rect x="-260" y="-210" width="520" height="380" fill="#071710" opacity=".55"/>` + yuz(0, -40, 1.1, t, { seed: 5, esne, kapali: esne > .3, cizgi: '#4CFF8A' }), t));
+    g += L('zzz...', 820, 760, f, z + 4, c('dull', 'game') - 2, 70, CYAN);
+    // çökme pencereleri
+    const cr = c('dull', 'crashing');
+    for (let k = 0; k < 4; k++) { const f0 = cr + k * 5; if (f >= f0) g += at(380 + k * 70, 820 + k * 70, pop(f, f0, 8) * .85, hataPencere(['CRASH!', 'CRASH!!', 'FATAL', 'CRASH!!!'][k])); }
+    // dönen araba
+    const h = c('dull', 'cars');
+    if (f >= h) g += at(540, 1680, .55, araba(t, { uzgun: true, seed: 6 }), sin((f - h) * .25) * 25);
+    const ca = c('dull', 'cancelled');
+    if (f >= ca) g += at(540, 1250, damgaBas(f, ca), damga('CANCEL?', '#FF2D4A'));
+    return g;
+  },
+  bug(f, S, t) {
+    let g = '';
+    // kod paneli
+    const gl = c('bug', 'glitch'), ag = c('bug', 'aggressive');
+    g += `<rect x="70" y="560" width="940" height="470" rx="30" fill="#0B1A12" stroke="#4CFF8A" stroke-width="5"/><circle cx="110" cy="600" r="11" fill="#FF2D4A"/><circle cx="145" cy="600" r="11" fill="${GOLD}"/><circle cx="180" cy="600" r="11" fill="#4CFF8A"/>`;
+    g += kod('police_ai.c', 980, 610, 30, '#4CFF8A', 'end', .6);
+    const satir = ['<tspan fill="#C084FF">function</tspan> copCar() {', '  target = player;', '  speed  = <tspan fill="' + GOLD + '">MAX</tspan>;', null, '}'];
+    satir.forEach((s, i) => { if (s) g += kod(s, 110, 690 + i * 70, 46, '#DFFFE8'); });
+    const bozuk = f >= ag;
+    const titr = f >= gl && f < ag + 10 && Math.floor(f / 2) % 2;
+    g += kod(`  mode   = <tspan fill="${bozuk ? '#FF2D4A' : CYAN}">"${bozuk ? 'RAM!!' : 'BLOCK'}"</tspan>;`, 110 + (titr ? 8 : 0), 900, 46, '#DFFFE8');
+    if (bozuk) g += at(860, 880, pop(f, ag) * .8, kod('?!', 0, 20, 90, '#FF2D4A', 'middle'));
+    // altta çarpışma
+    g += yol(f, 1380, 16);
+    const ram = c('bug', 'rammed');
+    const vur = klamp((f - ram) / 10);
+    const sx = 600 + (f >= ram ? kf(f, [[ram, 0], [ram + 12, 260], [ram + 40, 520]]) : 0), dn = f >= ram ? kf(f, [[ram + 6, 0], [ram + 40, 160]]) : 0;
+    g += at(sx, 1510 - dn * 1.2 + sin(t * .9) * 3, .75, araba(t, { sur: f >= ram, seed: 7, hiz: 14 }), dn * .5);
+    const px = 200 + kf(f, [[S.bug.start, 0], [c('bug', 'instead'), 60], [ram - 2, 120], [ram + 8, 420], [ram + 40, 460]]);
+    g += at(px, 1515 + sin(t * .8) * 3, .8, araba(t, { polis: true, seed: 8, hiz: 14, sur: f >= ram - 10 }));
+    if (f >= ram + 8 && f < ram + 40) g += at(sx - 120, 1400, pop(f, ram + 8, 8), `<path d="M0 -110 L30 -40 L110 -60 L50 0 L110 60 L30 40 L0 110 L-30 40 L-110 60 L-50 0 L-110 -60 L-30 -40Z" fill="${GOLD}" stroke="${INK}" stroke-width="7"/>` + kod('BAM', 0, 16, 46, INK, 'middle'));
+    return g;
+  },
+  keep(f, S, t) {
+    let g = '';
+    const fl = c('keep', 'and');
+    if (f < fl + 10) {
+      const o = 1 - klamp((f - fl) / 10);
+      ['#7AA8FF', '#FFB86B', '#B48CFF'].forEach((r, i) => { const z = (i * 9 + f) % 26 < 13; g += at(240 + i * 300, 1380 - Math.abs(sin(t * .25 + i)) * 40, .8, gelistirici(t, r, { seed: i + 10, sur: z, kapali: !z }), 0, o); });
+      g += L('LOL', 240, 1110, f, S.keep.start + 6, fl, 64, GOLD) + L('HAHA', 840, 1100, f, S.keep.start + 14, fl, 64, GOLD);
+      const st = c('keep', 'stayed');
+      if (f >= st) g += at(540, 860, damgaBas(f, st), damga('KEEP IT', '#4CFF8A'), 0, o);
+    }
+    if (f >= fl) {
+      const p = sm((f - fl - 4) / 16), sx = cos(p * P);
+      g += at(540, 1150, 1, `<g transform="scale(${Math.abs(sx).toFixed(3)},1)">${sx > 0 ? rozet() : maske(t)}</g>`);
+      g += L('NOBODY wants to be the cop', 540, 780, f, c('keep', 'nobody'), c('keep', 'you') - 2, 60);
+      const y = c('keep', 'you');
+      if (f >= y) g += at(540, 1580, pop(f, y), `<rect x="-330" y="-66" width="660" height="132" rx="66" fill="${PINK}" stroke="${INK}" stroke-width="7"/>` + kod('YOU = CRIMINAL', 0, 22, 58, '#fff', 'middle'));
+    }
+    return g;
+  },
+  release(f, S, t) {
+    let g = '';
+    const v = c('release', 'its');
+    const ok = 1 - klamp((f - v) / 12);
+    g += at(540, 1200 + (1 - ok) * 120, (.4 + .6 * gir(f, S.release.start, 16)) * (1 - (1 - ok) * .35), oyunKutusu(t), sin(t * .05) * 2, .35 + .65 * ok);
+    g += L('1997', 540, 780, f, c('release', '1997'), v, 120, CYAN);
+    // gazeteler uçar
+    const bas = [['BAN IT!', '#FF2D4A', 280, 1050, -12], ['OUTRAGE', INK, 800, 1130, 9], ['SHOCKING', '#B0128A', 520, 1420, -4]];
+    bas.forEach(([b, r, x, y, a], i) => { const f0 = c('release', 'violence') + i * 8; if (f >= f0) g += at(x + (1 - sm((f - f0) / 14)) * (i % 2 ? 700 : -700), y, .82, gazete(b, r), a + sin(t * .06 + i) * 2); });
+    const fr = c('release', 'free');
+    if (f >= fr) g += at(540, 1730, pop(f, fr), `<rect x="-380" y="-70" width="760" height="140" rx="70" fill="${GOLD}" stroke="${INK}" stroke-width="7"/>` + kod('= FREE ADS', 0, 24, 66, INK, 'middle'));
+    return g;
+  },
+  six(f, S, t) {
+    // gün batımı neon sahil
+    let g = `<rect width="1080" height="1300" fill="url(#gok)"/><rect y="1300" width="1080" height="620" fill="url(#deniz)"/>`;
+    const gy = 1180 - gir(f, S.six.start, 60) * 60;
+    g += `<circle cx="540" cy="${f2(gy)}" r="250" fill="url(#gunes)"/>`;
+    for (let k = 0; k < 6; k++) g += `<rect x="280" y="${f2(gy + 30 + k * 36 + (t * .6 % 36))}" width="520" height="${8 + k * 2}" fill="#7A1E6E"/>`;
+    g += `<rect y="1300" width="1080" height="10" fill="${PINK}" opacity=".8"/>`;
+    for (let k = 0; k < 9; k++) g += `<rect x="${f2(540 - 220 + k * 20 + sin(t * .05 + k) * 30 - k * 10)}" y="${1330 + k * 26}" width="${f2(440 - k * 30)}" height="6" rx="3" fill="${GOLD}" opacity="${f2(.5 - k * .05)}"/>`;
+    g += palmiye(60, 1320, 1.1, t) + `<g transform="translate(1020,0) scale(-1,1)">${palmiye(0, 1320, 1.2, t + 40)}</g>`;
+    // yıl sayacı
+    const th = c('six', 'thirty'), gr = c('six', 'grand');
+    if (f >= th && f < gr + 8) { const yil = Math.round(1997 + 29 * sm((f - th) / 36)), o = 1 - klamp((f - gr) / 8); g += at(540, 780, pop(f, th) , `<rect x="-330" y="-90" width="660" height="180" rx="30" fill="#14142A" stroke="${CYAN}" stroke-width="6" filter="url(#parla)"/>` + kod(`1997 – ${yil}`, 0, 30, 84, '#fff', 'middle'), 0, o); }
+    // bilet kartı
+    if (f >= gr) g += at(540, 800, pop(f, gr, 14), `<rect x="-380" y="-160" width="760" height="320" rx="36" fill="#14142A" stroke="${PINK}" stroke-width="7" filter="url(#parla)"/>` +
+      kod('GRAND THEFT AUTO VI', 0, -70, 54, GOLD, 'middle') + `<path d="M-320 -30 H320" stroke="${PINK}" stroke-width="4" stroke-dasharray="14 10"/>` +
+      (f >= c('six', 'november') ? kod('NOV 19 · 2026', 0, 80, 92, '#fff', 'middle', klamp((f - c('six', 'november')) / 8)) : ''));
+    // sahil yolunda kovalamaca
+    g += yol(f, 1580, 20);
+    const ch = c('six', 'all');
+    const x0 = kf(f, [[ch - 6, -500], [ch + 50, 300]]);
+    g += at(x0 + 420, 1712, .62, araba(t, { sur: true, seed: 9, hiz: 16 }));
+    g += at(x0, 1716, .66, araba(t, { polis: true, seed: 10, hiz: 16 }));
+    return g;
+  },
+  cta(f, S, t) {
+    let g = '';
+    for (let k = 0; k < 10; k++) { const u = (rastgele(k + 3) + t * .006) % 1; g += at(rastgele(k + 30) * 1000 + 40, 1900 - u * 1500, .5 + rastgele(k) * .4, kalp(k % 2 ? PINK : '#FF4D6D'), sin(t * .05 + k) * 15, .25 * sin(u * P)); }
+    const b0 = S.cta.start;
+    g += yol(f, 1500, kf(f, [[b0, 18], [b0 + 30, 0]]));
+    const gel = sm((f - b0 + 6) / 30);
+    g += at(-300 + gel * 980, 1630, .62, araba(t, { sur: true, seed: 11, hiz: 16 * (1 - gel) }));
+    g += at(-650 + gel * 900, 1634, .66, araba(t, { polis: true, seed: 12, hiz: 16 * (1 - gel) }));
+    g += at(540, 720, pop(f, c('cta', 'enjoyed'), 14), `<text class="lbl" font-size="104" fill="${GOLD}" text-anchor="middle" stroke="${INK}" stroke-width="16" dy="30">Enjoyed this?</text>`);
+    // beğen
+    const lk = c('cta', 'like'), tl = lk + 10;
+    const basik = f >= tl && f < tl + 6 ? .92 : 1;
+    g += at(540, 960, pop(f, lk) * basik, `<rect x="-300" y="-80" width="600" height="160" rx="80" fill="${f >= tl ? '#FF4D6D' : '#3A2230'}" stroke="${INK}" stroke-width="8"/><g transform="translate(-170,6) scale(1.15)">${kalp(f >= tl ? '#fff' : '#FF4D6D')}</g>` + `<text class="lbl" x="50" y="26" font-size="76" fill="#fff" text-anchor="middle">LIKE</text>`);
+    if (f >= tl) { g += at(540, 960, 1, dokun(f, tl)); for (let k = 0; k < 7; k++) { const u = klamp((f - tl) / 34); if (u < 1) g += at(540 + (k - 3) * 70 + sin(k) * 30, 900 - u * 380, .6, kalp(), (k - 3) * 10, 1 - u); } }
+    // takip et
+    const fo = c('cta', 'follow'), tf = fo + 10;
+    const takip = f >= tf;
+    if (f >= fo) g += at(540, 1190, pop(f, fo) * (f >= tf && f < tf + 6 ? .92 : 1), `<rect x="-300" y="-80" width="600" height="160" rx="80" fill="${takip ? GOLD : '#3A3320'}" stroke="${INK}" stroke-width="8"/>` +
+      (takip ? `<path d="M-245 0 l26 26 l48 -52" stroke="${INK}" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text class="lbl" x="40" y="22" font-size="60" fill="${INK}" text-anchor="middle">FOLLOWING</text>`
+        : `<circle cx="-190" cy="-14" r="24" fill="${GOLD}"/><path d="M-236 40 q46 -50 92 0" fill="${GOLD}"/><text class="lbl" x="50" y="26" font-size="76" fill="#fff" text-anchor="middle">FOLLOW</text>`));
+    if (takip) g += at(540, 1190, 1, dokun(f, tf));
+    if (f >= tf + 6) g += at(540, 1345, 1, kod('@arjincookedit', 0, 14, 46, CYAN, 'middle', klamp((f - tf - 6) / 10)));
+    return g;
+  },
+};
+
+// üstten gece şehri haritası, yavaş kayar
+function sehir(f) {
+  let a = `<rect width="1080" height="1920" fill="url(#bg)"/>`;
+  const H = 300, oy = (f * 1.1) % H, ox = (f * .4) % H;
+  for (let r = -1; r < 8; r++) for (let k = -1; k < 5; k++) {
+    const id = (r + Math.floor(f * 1.1 / H)) * 7 + k, x = k * H + 50 - ox, y = r * H + 50 + oy;
+    a += `<rect x="${f2(x)}" y="${f2(y)}" width="200" height="200" rx="16" fill="${['#1C1D3A', '#211A38', '#162238'][Math.abs(id) % 3]}" stroke="${rastgele(id) > .7 ? PINK : CYAN}" stroke-width="2" stroke-opacity=".35"/>`;
+    for (let w = 0; w < 4; w++) if (rastgele(id * 5 + w) > .5) a += `<rect x="${f2(x + 30 + w * 40)}" y="${f2(y + 30 + (w % 2) * 90)}" width="20" height="20" rx="4" fill="${GOLD}" opacity="${f2(.25 + .2 * sin(f * .05 + id + w))}"/>`;
+  }
+  return a + `<rect width="1080" height="700" fill="url(#ustkarart)"/>`;
+}
+// sahne geçişlerinde kısa glitch
+function glitch(f) {
+  let u = '';
+  const anlar = [c('hook', 'bug'), c('bug', 'glitch'), c('bug', 'aggressive'), c('keep', 'and')];
+  let jx = 0;
+  anlar.forEach(f0 => { if (f >= f0 && f < f0 + 8) { jx = (rastgele(f) - .5) * 24; for (let k = 0; k < 6; k++) u += `<rect x="0" y="${f2(rastgele(f * 13 + k) * 1920)}" width="1080" height="${f2(6 + rastgele(f + k) * 30)}" fill="${k % 2 ? PINK : CYAN}" opacity=".35"/>`; } });
+  $('sahne').setAttribute('transform', `translate(${f2(jx)},0)`);
+  return u;
+}
+
+window.renderFrame = function (f) {
+  $('arka').innerHTML = sehir(f);
+  vinyetler(f, SAHNE, $('sahne'));
+  $('ust').innerHTML = glitch(f);
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

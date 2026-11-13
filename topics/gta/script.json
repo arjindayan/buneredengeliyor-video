@@ -1,0 +1,15 @@
+{
+  "title": "GTA was born from a bug",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "One of the biggest video game series ever made only exists because of a bug. That series is Grand Theft Auto."},
+    {"scene": "dundee", "text": "In {1995,|nineteen ninety five,} a small studio in Dundee, Scotland, started a game called {Race'n'Chase.|Race and Chase.} You played as a cop, chasing criminals."},
+    {"scene": "dull", "text": "But it was dull. The game kept crashing, the cars handled terribly, and it was almost cancelled."},
+    {"scene": "bug", "text": "Then a glitch in the police code made the cop cars way too aggressive. Instead of blocking you, they rammed you off the road."},
+    {"scene": "keep", "text": "The team loved it, so the bug stayed. And the idea flipped. Nobody wanted to be the cop. You became the criminal."},
+    {"scene": "release", "text": "Grand Theft Auto came out in {1997.|nineteen ninety seven.} Its violence caused so much outrage that the controversy became free advertising."},
+    {"scene": "six", "text": "And now, almost thirty years later, Grand Theft Auto {VI|Six} arrives on November {19th.|nineteenth.} All because some cops wouldn't stop chasing."},
+    {"scene": "cta", "text": "If you enjoyed this, don't forget to like and follow."}
+  ]
+}
