@@ -1,0 +1,12 @@
+{"shots": [
+ {"id":"A","scene":"hook","cue":"","zoom":[1.12,1.0]},
+ {"id":"B","scene":"s3","cue":"","zoom":[1.0,1.1]},
+ {"id":"D","scene":"s5","cue":"","zoom":[1.1,1.0]},
+ {"id":"C","scene":"s6","cue":"","zoom":[1.0,1.1]},
+ {"id":"E","scene":"s7","cue":"","zoom":[1.1,1.0]},
+ {"id":"H","scene":"s8","cue":"","zoom":[1.0,1.12]},
+ {"id":"F","scene":"s9","cue":"","zoom":[1.1,1.0]},
+ {"id":"G","scene":"s10","cue":"","zoom":[1.0,1.1]},
+ {"id":"E2","scene":"s11","cue":"","zoom":[1.12,1.0],"src":"E"},
+ {"id":"A2","scene":"son","cue":"","zoom":[1.0,1.15],"src":"A"}
+]}

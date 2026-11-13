@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden}
+  body{font-family:'Archivo';background:#1b1208;color:#FFF6E6}
+  #gorseller{position:absolute;inset:0;overflow:hidden;isolation:isolate}
+  .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 55%}
+  #karartma{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,9,4,.62) 0%,rgba(15,9,4,.25) 26%,rgba(15,9,4,0) 42%,rgba(15,9,4,0) 62%,rgba(15,9,4,.55) 76%,rgba(15,9,4,.72) 100%)}
+  .t{position:absolute;left:70px;right:70px;margin:0;text-shadow:0 2px 22px rgba(0,0,0,.5)}
+  #buyuk{top:250px;font-weight:800;font-stretch:125%;line-height:.92;letter-spacing:-.02em}
+  #alt{top:0;font-weight:700;font-stretch:62%;letter-spacing:.06em;font-size:46px}
+  #altyazi{position:absolute;left:80px;right:80px;top:1360px;font:600 56px/1.22 'Archivo';text-shadow:0 2px 16px rgba(0,0,0,.7)}
+</style></head>
+<body>
+<div id="gorseller"></div><div id="karartma"></div>
+<p class="t" id="buyuk"></p><p class="t" id="alt"></p>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/tr.js"></script>
+<script>
+window.FONTS = ['800 100px Archivo', '700 40px Archivo', '600 40px Archivo'];
+window.ALT = { soluk: 'rgba(255,246,230,.55)', aktif: '#FFC94A', normal: '#FFF6E6' };
+// sahne: [büyük yazı, boyut, alt etiket, ipucu kelime]
+const L = {
+  hook: ['1987', 300, 'ÖNCESİ BOMBOŞ', '1987'], s2: ['KAPADOKYA', 112, 'BALONLARIN HİKÂYESİ', 'balonları'],
+  s3: ['1987', 300, 'TANITIM UÇUŞU · TEK BALON', 'tek'], s4: ['5', 420, 'KİŞİ', 'beş'],
+  s5: ['1990', 300, 'İLK TURİSTLER · FRANSIZ ŞİRKET', 'fransız'], s6: ['İTHAL', 230, 'YABANCI PİLOTLAR', 'ithaldi'],
+  s7: ['YERLİ', 250, 'ŞİRKETLER · PİLOT OKULLARI', 'yerel'], s8: ['ÜRGÜP<br>ORTAHİSAR', 130, 'YERLİ ÜRETİM · İHRACAT', 'ürgüp'],
+  s9: ['27', 420, 'ŞİRKET · 632 PİLOT', 'yirmi'], s10: ['160', 380, 'BALON · HER SABAH', 'yüz'],
+  s11: ['BALON<br>BAŞKENTİ', 150, 'KAPADOKYA', 'balon'], son: ['', 100, '', 'sence'],
+};
+const SAHNELER = Object.keys(L);
+window.kurShots = d => Shots.init(d, $('gorseller'));
+window.renderFrame = function (f) {
+  let a = SAHNELER[0]; SAHNELER.forEach(s => { if (f >= T.seg[s].start - 4) a = s; });
+  const [yaz, boyut, alt, ip] = L[a], lf = f - T.seg[a].start, g = T.seg[a].end - T.seg[a].start;
+  Shots.render(f);
+  const b = $('buyuk'), e = $('alt');
+  b.innerHTML = yaz; b.style.fontSize = boyut + 'px';
+  const k = yaz ? cue(a, ip) - T.seg[a].start : 0;
+  b.style.opacity = klamp((lf - Math.max(0, k - 4)) / 12) * (1 - klamp((lf - (g + 6)) / 8));
+  b.style.transform = `translateX(${lerp(lf, [Math.max(0, k - 4), k + 30], [-50, 0], EASE.dolly)}px)`;
+  e.textContent = alt; e.style.top = (250 + b.offsetHeight + 22) + 'px';
+  e.style.opacity = alt ? klamp((lf - k - 10) / 12) * (1 - klamp((lf - (g + 6)) / 8)) : 0;
+  altyazi(f, $('altyazi'));
+};
+</script></body></html>

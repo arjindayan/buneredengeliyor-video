@@ -1,0 +1,587 @@
+{
+"duration": 48.482,
+"words": [
+{
+"w": "Dünyanın",
+"start": 0.0,
+"end": 0.6,
+"seg": 0
+},
+{
+"w": "en",
+"start": 0.72,
+"end": 0.9,
+"seg": 0
+},
+{
+"w": "renkli",
+"start": 0.96,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "gökyüzlerinden",
+"start": 1.32,
+"end": 2.16,
+"seg": 0
+},
+{
+"w": "biri,",
+"start": 2.24,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "1987'ye",
+"start": 2.8,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "kadar",
+"start": 4.16,
+"end": 4.48,
+"seg": 0
+},
+{
+"w": "bomboştu.",
+"start": 4.64,
+"end": 5.56,
+"seg": 0
+},
+{
+"w": "Kapadokya'nın",
+"start": 5.84,
+"end": 6.48,
+"seg": 1
+},
+{
+"w": "balonları.",
+"start": 6.56,
+"end": 7.4,
+"seg": 1
+},
+{
+"w": "1987",
+"start": 7.68,
+"end": 8.8,
+"seg": 2
+},
+{
+"w": "yazında",
+"start": 8.88,
+"end": 9.36,
+"seg": 2
+},
+{
+"w": "yabancı",
+"start": 9.44,
+"end": 9.88,
+"seg": 2
+},
+{
+"w": "bir",
+"start": 9.92,
+"end": 10.0,
+"seg": 2
+},
+{
+"w": "firma,",
+"start": 10.08,
+"end": 10.64,
+"seg": 2
+},
+{
+"w": "tanıtım",
+"start": 10.72,
+"end": 11.04,
+"seg": 2
+},
+{
+"w": "için",
+"start": 11.08,
+"end": 11.28,
+"seg": 2
+},
+{
+"w": "tek",
+"start": 11.44,
+"end": 11.6,
+"seg": 2
+},
+{
+"w": "bir",
+"start": 11.68,
+"end": 11.76,
+"seg": 2
+},
+{
+"w": "balonu",
+"start": 11.84,
+"end": 12.16,
+"seg": 2
+},
+{
+"w": "peribacalarının",
+"start": 12.24,
+"end": 12.96,
+"seg": 2
+},
+{
+"w": "üstüne",
+"start": 13.04,
+"end": 13.36,
+"seg": 2
+},
+{
+"w": "kaldırdı.",
+"start": 13.44,
+"end": 14.12,
+"seg": 2
+},
+{
+"w": "İçinde",
+"start": 14.32,
+"end": 14.72,
+"seg": 3
+},
+{
+"w": "sadece",
+"start": 14.8,
+"end": 15.36,
+"seg": 3
+},
+{
+"w": "beş",
+"start": 15.52,
+"end": 15.68,
+"seg": 3
+},
+{
+"w": "kişi",
+"start": 15.76,
+"end": 15.92,
+"seg": 3
+},
+{
+"w": "vardı.",
+"start": 16.0,
+"end": 16.72,
+"seg": 3
+},
+{
+"w": "Üç",
+"start": 16.76,
+"end": 16.88,
+"seg": 4
+},
+{
+"w": "yıl",
+"start": 16.96,
+"end": 17.04,
+"seg": 4
+},
+{
+"w": "sonra",
+"start": 17.12,
+"end": 17.52,
+"seg": 4
+},
+{
+"w": "bir",
+"start": 17.6,
+"end": 17.68,
+"seg": 4
+},
+{
+"w": "Fransız",
+"start": 17.76,
+"end": 18.16,
+"seg": 4
+},
+{
+"w": "şirketi,",
+"start": 18.24,
+"end": 18.88,
+"seg": 4
+},
+{
+"w": "ilk",
+"start": 18.96,
+"end": 19.04,
+"seg": 4
+},
+{
+"w": "turistleri",
+"start": 19.12,
+"end": 19.52,
+"seg": 4
+},
+{
+"w": "uçurmaya",
+"start": 19.6,
+"end": 20.0,
+"seg": 4
+},
+{
+"w": "başladı.",
+"start": 20.08,
+"end": 20.56,
+"seg": 4
+},
+{
+"w": "Pilotlar",
+"start": 20.88,
+"end": 21.28,
+"seg": 5
+},
+{
+"w": "yabancıydı,",
+"start": 21.36,
+"end": 22.24,
+"seg": 5
+},
+{
+"w": "balonlar",
+"start": 22.32,
+"end": 22.72,
+"seg": 5
+},
+{
+"w": "bile",
+"start": 22.8,
+"end": 22.96,
+"seg": 5
+},
+{
+"w": "ithaldi.",
+"start": 23.08,
+"end": 23.92,
+"seg": 5
+},
+{
+"w": "Sonra",
+"start": 24.04,
+"end": 24.32,
+"seg": 6
+},
+{
+"w": "yerel",
+"start": 24.4,
+"end": 24.64,
+"seg": 6
+},
+{
+"w": "girişimciler",
+"start": 24.72,
+"end": 25.36,
+"seg": 6
+},
+{
+"w": "kendi",
+"start": 25.44,
+"end": 25.68,
+"seg": 6
+},
+{
+"w": "şirketlerini",
+"start": 25.76,
+"end": 26.32,
+"seg": 6
+},
+{
+"w": "kurdu,",
+"start": 26.4,
+"end": 26.96,
+"seg": 6
+},
+{
+"w": "pilot",
+"start": 27.0,
+"end": 27.2,
+"seg": 6
+},
+{
+"w": "okulları",
+"start": 27.28,
+"end": 27.68,
+"seg": 6
+},
+{
+"w": "açıldı.",
+"start": 27.72,
+"end": 28.16,
+"seg": 6
+},
+{
+"w": "Bugün",
+"start": 28.56,
+"end": 28.88,
+"seg": 7
+},
+{
+"w": "Ürgüp",
+"start": 29.04,
+"end": 29.44,
+"seg": 7
+},
+{
+"w": "ve",
+"start": 29.48,
+"end": 29.52,
+"seg": 7
+},
+{
+"w": "Ortahisar'da",
+"start": 29.6,
+"end": 30.4,
+"seg": 7
+},
+{
+"w": "balon",
+"start": 30.48,
+"end": 30.72,
+"seg": 7
+},
+{
+"w": "üretilip",
+"start": 30.8,
+"end": 31.2,
+"seg": 7
+},
+{
+"w": "yurt",
+"start": 31.28,
+"end": 31.44,
+"seg": 7
+},
+{
+"w": "dışına",
+"start": 31.52,
+"end": 31.76,
+"seg": 7
+},
+{
+"w": "satılıyor.",
+"start": 31.84,
+"end": 32.64,
+"seg": 7
+},
+{
+"w": "Yirmi",
+"start": 32.68,
+"end": 32.92,
+"seg": 8
+},
+{
+"w": "yedi",
+"start": 32.96,
+"end": 33.12,
+"seg": 8
+},
+{
+"w": "şirket,",
+"start": 33.2,
+"end": 33.92,
+"seg": 8
+},
+{
+"w": "altı",
+"start": 34.04,
+"end": 34.16,
+"seg": 8
+},
+{
+"w": "yüzü",
+"start": 34.24,
+"end": 34.48,
+"seg": 8
+},
+{
+"w": "aşkın",
+"start": 34.52,
+"end": 34.8,
+"seg": 8
+},
+{
+"w": "pilot.",
+"start": 34.88,
+"end": 35.6,
+"seg": 8
+},
+{
+"w": "Ve",
+"start": 35.64,
+"end": 35.68,
+"seg": 9
+},
+{
+"w": "her",
+"start": 35.76,
+"end": 35.92,
+"seg": 9
+},
+{
+"w": "sabah",
+"start": 36.0,
+"end": 36.24,
+"seg": 9
+},
+{
+"w": "gün",
+"start": 36.32,
+"end": 36.48,
+"seg": 9
+},
+{
+"w": "doğarken,",
+"start": 36.56,
+"end": 37.28,
+"seg": 9
+},
+{
+"w": "yüz",
+"start": 37.36,
+"end": 37.44,
+"seg": 9
+},
+{
+"w": "altmışa",
+"start": 37.52,
+"end": 37.92,
+"seg": 9
+},
+{
+"w": "yakın",
+"start": 37.96,
+"end": 38.24,
+"seg": 9
+},
+{
+"w": "balon",
+"start": 38.32,
+"end": 38.56,
+"seg": 9
+},
+{
+"w": "havalanıyor.",
+"start": 38.64,
+"end": 39.6,
+"seg": 9
+},
+{
+"w": "Beş",
+"start": 39.68,
+"end": 39.8,
+"seg": 10
+},
+{
+"w": "kişilik",
+"start": 39.84,
+"end": 40.24,
+"seg": 10
+},
+{
+"w": "bir",
+"start": 40.32,
+"end": 40.4,
+"seg": 10
+},
+{
+"w": "tanıtım",
+"start": 40.48,
+"end": 40.72,
+"seg": 10
+},
+{
+"w": "uçuşu,",
+"start": 40.76,
+"end": 41.36,
+"seg": 10
+},
+{
+"w": "Kapadokya'yı",
+"start": 41.4,
+"end": 42.08,
+"seg": 10
+},
+{
+"w": "dünyanın",
+"start": 42.16,
+"end": 42.64,
+"seg": 10
+},
+{
+"w": "balon",
+"start": 42.8,
+"end": 43.04,
+"seg": 10
+},
+{
+"w": "başkenti",
+"start": 43.12,
+"end": 43.6,
+"seg": 10
+},
+{
+"w": "yaptı.",
+"start": 43.68,
+"end": 44.4,
+"seg": 10
+},
+{
+"w": "Sence",
+"start": 44.44,
+"end": 44.88,
+"seg": 11
+},
+{
+"w": "ilk",
+"start": 45.0,
+"end": 45.12,
+"seg": 11
+},
+{
+"w": "balondaki",
+"start": 45.2,
+"end": 45.68,
+"seg": 11
+},
+{
+"w": "beş",
+"start": 45.76,
+"end": 45.92,
+"seg": 11
+},
+{
+"w": "kişi",
+"start": 46.0,
+"end": 46.32,
+"seg": 11
+},
+{
+"w": "bunu",
+"start": 46.48,
+"end": 46.64,
+"seg": 11
+},
+{
+"w": "hayal",
+"start": 46.72,
+"end": 46.96,
+"seg": 11
+},
+{
+"w": "edebilir",
+"start": 47.04,
+"end": 47.36,
+"seg": 11
+},
+{
+"w": "miydi?",
+"start": 47.44,
+"end": 47.92,
+"seg": 11
+}
+]
+}
