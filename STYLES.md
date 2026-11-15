@@ -15,3 +15,5 @@
 | Yoğurt | Bozkır keçesi motifleri | Fraunces | gül kurusu/safran/çivit | dillerde kelime balonları |
 | Karagöz | Gölge oyunu perdesi | Caveat | kehribar perde/boyalı deri | yarı saydam figürler |
 | Kolonya | Limon fayans mutfak | Fredoka | nane/limon | kolonya şişesi maskotu, iki damla |
+| Hello (EN) | 1870'ler telefon santrali, damask duvar kâğıdı | Fraunces + Caveat | petrol/pirinç/krem | şamdan telefon maskotu, AHOY vs HELLO kupası |
+| Emoji (EN) | 1999 piksel sanatı, kapaklı telefon | Archivo + IBM Plex Mono + 絵文字 | krem/pembe/sarı/turkuaz | 12×12 emojiler kare kare dolar |

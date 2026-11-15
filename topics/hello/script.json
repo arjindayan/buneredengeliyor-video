@@ -1,0 +1,14 @@
+{
+  "title": "Where does hello come from?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Hello has always been how we greet people. Well, not really. Before the telephone, almost nobody said it."},
+    {"scene": "once", "text": "Back then, people said good day, or how do you do. Hello was a shout, to get someone's attention."},
+    {"scene": "phone", "text": "Then, in {1876,|eighteen seventy six,} Alexander Graham Bell got the first telephone patent. But there was a problem. What do you say when you pick it up?"},
+    {"scene": "ahoy", "text": "Bell had an answer. Ahoy! Like a sailor."},
+    {"scene": "edison", "text": "Here's the wild part. His rival, Thomas Edison, had a different idea. In {1877,|eighteen seventy seven,} he wrote that hello was perfect, because it could be heard ten to twenty feet away."},
+    {"scene": "girls", "text": "In fact, it caught on so fast that telephone operators got a nickname. The hello girls."},
+    {"scene": "son", "text": "Ahoy lost. Hello won. So every time you answer the phone, you're quoting Edison. Hello, by the way."}
+  ]
+}
