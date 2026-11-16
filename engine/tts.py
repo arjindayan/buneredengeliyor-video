@@ -4,7 +4,10 @@ Kullanım:
   python3 engine/tts.py topics/<konu>          # ElevenLabs ile voice.mp3 + timing.json
   python3 engine/tts.py topics/<konu> --dry    # ses yok, hece sayısından tahmini timing.json (önizleme için)
   python3 engine/tts.py topics/<konu> --mp3 x.mp3  # kendi mp3'ün: ElevenLabs forced alignment ile hizala
-Ortam: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID (isteğe bağlı ELEVENLABS_MODEL)
+Motor: TTS_ENGINE=xtts (varsayılan) | elevenlabs
+  xtts: XTTS_PYTHON (coqui-tts kurulu python), XTTS_SPEAKER_WAV (kendi sesin, 10-20 sn temiz kayıt).
+        Kurulu değilse ElevenLabs'e düşer. Dil: script.json "lang" (varsayılan tr).
+  elevenlabs: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID (isteğe bağlı ELEVENLABS_MODEL)
 """
 import base64, json, os, re, subprocess, sys, urllib.request
 
@@ -107,6 +110,26 @@ def duration(mp3):
     return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp3]))
 
 
+def xtts_ready():
+    if os.environ.get("TTS_ENGINE", "xtts") != "xtts": return False
+    py, ref = os.environ.get("XTTS_PYTHON"), os.environ.get("XTTS_SPEAKER_WAV")
+    if py and ref and os.path.exists(py) and os.path.exists(ref): return True
+    print("uyarı: XTTS_PYTHON / XTTS_SPEAKER_WAV yok, ElevenLabs kullanılıyor", file=sys.stderr)
+    return False
+
+
+def xtts(topic, s, segs):
+    import tempfile
+    seg_words = [(i, w) for i, seg in enumerate(segs) for w in spoken(TAG.sub("", seg["text"])).split()]
+    d = tempfile.mkdtemp()
+    job, wav, wj = (os.path.join(d, n) for n in ("job.json", "voice.wav", "words.json"))
+    json.dump({"text": " ".join(w for _, w in seg_words), "lang": s.get("lang", "tr"),
+               "speaker_wav": os.environ["XTTS_SPEAKER_WAV"]}, open(job, "w", encoding="utf-8"), ensure_ascii=False)
+    subprocess.run([os.environ["XTTS_PYTHON"], os.path.join(os.path.dirname(__file__), "xtts.py"), job, wav, wj], check=True)
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", wav, "-b:a", "128k", os.path.join(topic, "voice.mp3")], check=True)
+    return [dict(w, seg=i) for (i, _), w in zip(seg_words, json.load(open(wj, encoding="utf-8")))]
+
+
 def main():
     topic = sys.argv[1]
     s, text = load(topic)
@@ -126,6 +149,9 @@ def main():
         chars = r["characters"]
         words = words_from_chars([c["text"] for c in chars], [c["start"] for c in chars], [c["end"] for c in chars], segs)
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", mp3, os.path.join(topic, "voice.mp3")], check=True)
+        dur = duration(os.path.join(topic, "voice.mp3")) + 0.6
+    elif xtts_ready():
+        words = xtts(topic, s, segs)
         dur = duration(os.path.join(topic, "voice.mp3")) + 0.6
     else:
         voice = os.environ.get("ELEVENLABS_VOICE_ID", "uKigJX6jL7ZlAQRJHPGO")  # Arjin'in klonu
