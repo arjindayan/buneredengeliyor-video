@@ -9,6 +9,8 @@ Her konu `topics/<konu>/` altında: `script.json`, `scene.html`, `style.md`, `re
 4. **Ses ve zamanlama** → `python3 engine/tts.py topics/<konu>`.
    Varsayılan motor XTTS-v2 (kendi ses klonun, yerel): `XTTS_PYTHON` = coqui-tts kurulu ortamın python'u
    (`python3 -m venv ~/xtts-env && ~/xtts-env/bin/pip install coqui-tts`), `XTTS_SPEAKER_WAV` = 10-20 sn temiz ses kaydın.
+   `XTTS_SPEAKER_WAV` bir klasör de olabilir (içindeki bütün wav'lar referans). İnce ayarlı model: `XTTS_MODEL_DIR`
+   (`finetune/xtts_finetune_colab.ipynb` ile ücretsiz Colab'da eğitilir). `XTTS_TEMPERATURE` varsayılan 0.6.
    Kelime zamanlaması torchaudio MMS forced alignment ile çıkar. Dil `script.json` içinde `"lang": "en"` (varsayılan tr).
    XTTS kurulu değilse ya da `TTS_ENGINE=elevenlabs` ise ElevenLabs (`ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID`).
    XTTS-v2 ağırlıkları CPML lisanslı: ticari olmayan kullanım.

@@ -2,7 +2,9 @@
 
 tts.py, TTS_ENGINE=xtts iken bunu XTTS_PYTHON (coqui-tts kurulu ortam) ile çağırır:
   python engine/xtts.py <metin.json> <cikti.wav> <kelimeler.json>
-metin.json: {"text": "...", "lang": "tr", "speaker_wav": "ref.wav"}
+metin.json: {"text": "...", "lang": "tr", "speaker_wav": "ref.wav" ya da wav klasörü (hepsi referans olur)}
+Ortam: XTTS_MODEL_DIR = ince ayarlı model klasörü (model.pth, config.json, vocab.json); yoksa hazır XTTS-v2.
+       XTTS_TEMPERATURE (varsayılan 0.6; düşük = daha sabit, tekdüze ses)
 kelimeler.json: text.split() sırasıyla [{"w","start","end"}]
 """
 import json, os, sys
@@ -20,10 +22,19 @@ def norm(w):
     return "".join(c for c in w if "a" <= c <= "z")
 
 
+def refs(path):
+    if os.path.isdir(path):
+        return sorted(os.path.join(path, f) for f in os.listdir(path) if f.lower().endswith(".wav"))
+    return path
+
+
 def synth(text, lang, speaker_wav, out_wav):
     from TTS.api import TTS
-    tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to("cuda" if torch.cuda.is_available() else "cpu")
-    tts.tts_to_file(text=text, speaker_wav=speaker_wav, language=lang, file_path=out_wav)
+    d = os.environ.get("XTTS_MODEL_DIR")
+    tts = TTS(model_path=d, config_path=os.path.join(d, "config.json")) if d else TTS("tts_models/multilingual/multi-dataset/xtts_v2")
+    tts.to("cuda" if torch.cuda.is_available() else "cpu")
+    tts.tts_to_file(text=text, speaker_wav=refs(speaker_wav), language=lang, file_path=out_wav,
+                    temperature=float(os.environ.get("XTTS_TEMPERATURE", "0.6")))
 
 
 def align(wav_path, words):
