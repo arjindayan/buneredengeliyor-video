@@ -1,0 +1,16 @@
+{
+  "title": "Why does an hour have 60 minutes?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Why does an hour have {60|sixty} minutes, and not a nice round hundred? Blame the Babylonians, and a counting habit over {4,000|four thousand} years old."},
+    {"scene": "clay", "text": "In ancient Mesopotamia, people counted in sixties, not tens. They pressed their numbers into wet clay with a reed."},
+    {"scene": "split", "text": "Why sixty? Because it splits beautifully. By two, three, four, five, six, ten, twelve, fifteen, twenty and thirty. A hundred can't even be split into three."},
+    {"scene": "hand", "text": "One popular theory: use your thumb to count the twelve finger bones on one hand. Then keep track of each dozen on the five fingers of the other. Twelve times five? Sixty."},
+    {"scene": "egypt", "text": "The twenty four hours came from Egypt. Twelve for the day, twelve for the night. But their hours stretched and shrank with the seasons."},
+    {"scene": "greek", "text": "Greek astronomers made every hour equal, and used Babylon's sixties to slice them up."},
+    {"scene": "latin", "text": "Here's the wild part. In medieval Latin, one sixtieth was the pars minuta prima, the first small part. That became the minute. Split it again, and you get the pars minuta secunda, the second small part. That's literally why it's called a second."},
+    {"scene": "france", "text": "In {1793,|seventeen ninety three,} revolutionary France tried decimal time. Ten hours a day, a hundred minutes an hour. People hated it. It was dropped in {1795.|seventeen ninety five.}"},
+    {"scene": "son", "text": "So every time you check the clock, you're reading Babylonian math."}
+  ]
+}

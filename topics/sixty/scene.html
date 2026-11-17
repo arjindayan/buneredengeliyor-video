@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: ıslak kil tablet + kamış kalem. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#2B1D14}
+  #kil{position:absolute;inset:0;width:1080px;height:1920px}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:80px;right:80px;top:130px;font:700 64px/1.18 'Spectral';color:#3A2416;letter-spacing:-.5px}
+  .ci{font-family:'Cinzel'}
+  .sp{font-family:'Spectral';font-weight:700}
+  .it{font-family:'Spectral';font-style:italic;font-weight:500}
+</style>
+</head>
+<body>
+<img id="kil" src="img/clay.jpg">
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <!-- kazıma: oyuğun alt-sağ duvarı ışık alır -->
+    <filter id="kazi" x="-5%" y="-5%" width="110%" height="110%"><feOffset in="SourceAlpha" dx="2.5" dy="3.5" result="o"/><feFlood flood-color="#F6DDB6" flood-opacity=".85"/><feComposite in2="o" operator="in" result="isik"/><feOffset in="SourceAlpha" dx="-1.5" dy="-2" result="o2"/><feFlood flood-color="#3B2213" flood-opacity=".55"/><feComposite in2="o2" operator="in" result="gol"/><feMerge><feMergeNode in="isik"/><feMergeNode in="gol"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="bulanik"><feGaussianBlur stdDeviation="9"/></filter>
+    <g id="clips"></g>
+  </defs>
+  <g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['800 60px Cinzel', '700 60px Spectral', 'italic 500 60px Spectral'];
+const c = cue, OY = '#6B4428', KOYU = '#4A2C18', LAJ = '#2B4C9B', ACIK = '#E9CDA4';
+let EV = []; // kalem vuruşları: [kare, x, y]
+
+// kalemin bastığı iz: f0'da sert belirir (kesme, yumuşatma yok)
+const bas = (f, f0, x, y, ic) => { EV.push([f0, x, y]); return f >= f0 ? ic : ''; };
+const kaz = ic => `<g filter="url(#kazi)">${ic}</g>`;
+const yazi = (txt, x, y, s, o = {}) => `<text x="${x}" y="${y}" class="${o.cls || 'ci'}" font-size="${s}" font-weight="${o.w || 800}" fill="${o.renk || OY}" text-anchor="${o.a || 'middle'}" letter-spacing="${o.ls || 0}" opacity="${o.op ?? 1}">${txt}</text>`;
+// çivi yazısı: dikey çivi (1) ve köşe çivisi (10)
+const civi = (x, y, s = 1, r = 0, renk = OY) => at(x, y, s, `<path d="M-17 0 L17 0 L2 14 L1.5 70 L-1.5 70 L-2 14Z" fill="${renk}"/>`, r);
+const kose = (x, y, s = 1, renk = OY) => at(x, y, s, `<path d="M26 -26 L26 26 L12 4 L-26 1 L-26 -1 L12 -4Z" fill="${renk}"/>`, 0);
+const cizgi = (d, f, f0, dur = 18, o = {}) => {
+  if (f < f0) return '';
+  const u = EASE.kalem((f - f0) / dur);
+  return `<path d="${d}" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${(1 - u).toFixed(3)}" fill="none" stroke="${o.renk || OY}" stroke-width="${o.w || 9}" stroke-linecap="round" stroke-linejoin="round"/>`;
+};
+const solar = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
+
+// 60 çentikli kadran (hook ve son)
+function kadran(f, t0, dt, cx = 540, cy = 1020, r = 340, akrep = 1.2) {
+  let g = cizgi(`M${cx} ${cy - r} A${r} ${r} 0 1 1 ${cx - .1} ${cy - r}`, f, t0 - 20, 22, { w: 8 });
+  for (let k = 0; k < 60; k++) {
+    const a = k * 6, t = t0 + k * dt;
+    const uz = k % 5 === 0, rr = r - (uz ? 30 : 22);
+    const x = cx + rr * sin(a * P / 180), y = cy - rr * cos(a * P / 180);
+    g += bas(f, t, x, y, at(x, y, uz ? .9 : .5, `<path d="M-17 -18 L17 -18 L2 -4 L0 40 L-2 -4Z" fill="${OY}"/>`, a));
+  }
+  const a = f * akrep;
+  g += `<g transform="translate(${cx},${cy}) rotate(${f2(a)})"><path d="M0 18 V${-r + 70}" stroke="${LAJ}" stroke-width="12" stroke-linecap="round"/></g><circle cx="${cx}" cy="${cy}" r="18" fill="${LAJ}"/>`;
+  return g;
+}
+
+const BASLIK = {
+  hook: ['TABLET I', 'The hour'], clay: ['TABLET II', 'Mesopotamia'], split: ['TABLET III', 'Why sixty'],
+  hand: ['TABLET IV', 'A theory'], egypt: ['TABLET V', 'Egypt'], greek: ['TABLET VI', 'The Greeks'],
+  latin: ['TABLET VII', 'Latin'], france: ['TABLET VIII', 'Paris, 1793'], son: ['TABLET IX', 'Your clock'], cta: ['', ''],
+};
+const SIRA = Object.keys(BASLIK);
+
+const SAHNE = {
+  hook(f) {
+    const n60 = c('hook', '60'), yuz = c('hook', 'hundred'), bl = c('hook', 'blame'), bab = c('hook', 'babylonians');
+    let g = kaz(kadran(f, n60 - 8, .45));
+    g += kaz(bas(f, n60, 540, 1020, yazi('60', 540, 1120, 280, { w: 900 })));
+    const o100 = 1 - solar(f, bab - 6, 8);
+    if (o100 > 0) g += `<g opacity="${f2(o100)}">${kaz(bas(f, yuz, 540, 1500, yazi('100', 540, 1545, 150, { w: 700 })))}${cizgi('M390 1500 L700 1488', f, bl, 8, { renk: LAJ, w: 14 })}</g>`;
+    g += kaz(bas(f, bab, 540, 1490, yazi('BABYLON', 540, 1520, 110, { w: 900, ls: 6 })));
+    g += kaz(bas(f, c('hook', '4000'), 540, 1600, yazi('4,000 YEARS', 540, 1610, 62, { w: 700, ls: 8, renk: LAJ })));
+    return g;
+  },
+  clay(f) {
+    const m = c('clay', 'mesopotamia') - 6;
+    let g = kaz(cizgi('M880 600 C820 700 760 720 700 800 S600 920 560 1010', f, m, 26, { w: 10 }) + cizgi('M240 600 C320 700 350 760 410 830 S490 940 520 1010', f, m + 6, 26, { w: 10 }) + cizgi('M520 1010 C540 1030 560 1030 580 1020', f, m + 26, 6, { w: 10 }));
+    g += yazi('Tigris', 860, 850, 44, { cls: 'it', w: 500, op: solar(f, m + 12) }) + yazi('Euphrates', 250, 850, 44, { cls: 'it', w: 500, op: solar(f, m + 16) });
+    g += kaz(bas(f, m + 22, 600, 880, yazi('MESOPOTAMIA', 560, 1100, 60, { w: 800, ls: 4 })));
+    // on değil altmış
+    const ten = c('clay', 'tens');
+    g += kaz(bas(f, c('clay', 'sixties'), 720, 1250, yazi('60', 720, 1290, 150, { w: 900, renk: LAJ })));
+    g += kaz(bas(f, c('clay', 'not'), 340, 1250, yazi('10', 340, 1290, 120, { w: 700 }))) + cizgi('M250 1240 L430 1228', f, ten + 2, 6, { renk: LAJ, w: 12 });
+    // kamışla basılan 59: 5 köşe + 9 dikey
+    const p0 = c('clay', 'pressed');
+    const yer = [];
+    for (let k = 0; k < 5; k++) yer.push(['k', 230 + (k % 3) * 80, 1420 + Math.floor(k / 3) * 90]);
+    for (let k = 0; k < 9; k++) yer.push(['d', 530 + (k % 3) * 64, 1370 + Math.floor(k / 3) * 88]);
+    let ci = '';
+    yer.forEach(([t, x, y], i) => ci += bas(f, p0 + i * 3, x, y, t === 'k' ? kose(x, y, 1.4) : civi(x, y - 30, 1.08)));
+    g += kaz(ci);
+    g += yazi('= 59', 860, 1500, 70, { cls: 'it', w: 500, renk: LAJ, op: solar(f, c('clay', 'reed')) });
+    return g;
+  },
+  split(f) {
+    const f0 = T.seg.split.start, yuz = c('split', 'hundred');
+    const BOL = [2, 3, 4, 5, 6, 10, 12, 15, 20, 30], AD = ['two', 'three', 'four', 'five', 'six', 'ten', 'twelve', 'fifteen', 'twenty', 'thirty'];
+    const kare = AD.map(a => c('split', a));
+    let n = 0; kare.forEach((k, i) => { if (f >= k) n = BOL[i]; });
+    const sol = f >= yuz ? 1 - .6 * solar(f, yuz, 10) : 1;
+    let g = `<g opacity="${f2(sol)}">`, cuk = '';
+    for (let i = 0; i < 60; i++) {
+      const x = 198 + (i % 10) * 76, y = 640 + Math.floor(i / 10) * 76;
+      const grup = n ? Math.floor(i / (60 / n)) : 0, dolu = n && grup % 2 === 1;
+      cuk += bas(f, f0 + 2 + i * .5, x, y, `<circle cx="${x}" cy="${y}" r="24" fill="${dolu ? LAJ : OY}"/>`);
+    }
+    g += kaz(cuk);
+    if (n && f < yuz) g += kaz(yazi(`60 ÷ ${n} = ${60 / n}`, 540, 1200, 110, { w: 800 }));
+    g += '</g>';
+    // söylenen bölenler alt sırada birikir
+    let liste = '';
+    let lx = 150; BOL.forEach((b, i) => { const w = b < 10 ? 64 : 104, x = lx + w / 2 - 32; lx += w; liste += bas(f, kare[i], x, 1340, yazi(b, x, 1360, 64, { w: 800, renk: LAJ })); });
+    g += kaz(liste);
+    if (f >= yuz) {
+      g += kaz(bas(f, yuz, 540, 1170, yazi('100 ÷ 3 = 33.33…', 540, 1200, 96, { w: 800 })));
+      g += cizgi('M150 1166 L930 1150', f, c('split', 'three', 1) + 4, 8, { renk: LAJ, w: 12 });
+    }
+    return g;
+  },
+  hand(f) {
+    const f0 = T.seg.hand.start;
+    // el: avuç + 4 parmak (her biri 3 boğum) + başparmak
+    const el = (x0, sag) => {
+      const P4 = [[-112, 250], [-37, 300], [38, 290], [113, 230]];
+      let d = `M-150 0 Q-150 230 0 240 Q150 230 150 0`;
+      P4.forEach(([px, h]) => d += ` M${px - 33} 0 V${-h + 33} A33 33 0 0 1 ${px + 33} ${-h + 33} V0`);
+      d += sag ? ' M150 90 L250 -20 A30 30 0 0 1 290 20 L170 170' : ' M-150 90 L-250 -20 A30 30 0 0 0 -290 20 L-170 170';
+      return { d, P4 };
+    };
+    const L = el(0, false), R = el(0, true);
+    let g = kaz(at(300, 1080, .78, cizgi(L.d, f, f0 + 2, 26, { w: 10 })) + at(790, 1080, .78, cizgi(R.d, f, f0 + 8, 26, { w: 10 })));
+    // sol el: 12 boğum, başparmakla sayılır
+    const t0 = c('hand', 'count'), t1 = c('hand', 'hand'), boğum = [];
+    L.P4.forEach(([px, h]) => { for (let k = 0; k < 3; k++) boğum.push([px, -h + h / 6 + k * h / 3]); });
+    let cuk = '';
+    boğum.forEach(([px, py], i) => {
+      const x = 300 + px * .78, y = 1080 + py * .78, t = t0 + i * (t1 - t0) / 12;
+      cuk += bas(f, t, x, y, `<circle cx="${f2(x)}" cy="${f2(y)}" r="15" fill="${LAJ}"/>`);
+      if (f >= t) cuk += yazi(i + 1, x, y + 8, 20, { cls: 'sp', w: 700, renk: ACIK });
+    });
+    // sağ el: her düzine bir parmak
+    const d0 = c('hand', 'dozen'), d1 = c('hand', 'other');
+    [...R.P4.map(([px, h]) => [px, -h + 40]), [255, -5]].forEach(([px, py], i) => {
+      const x = 790 + px * .78, y = 1080 + py * .78;
+      cuk += bas(f, d0 + i * (d1 - d0) / 5, x, y, `<circle cx="${f2(x)}" cy="${f2(y)}" r="18" fill="${LAJ}"/>`);
+    });
+    g += kaz(cuk);
+    g += kaz(bas(f, c('hand', 'twelve', 1), 540, 1450, yazi('12 × 5 =', 470, 1480, 110, { w: 800 })));
+    g += kaz(bas(f, c('hand', 'sixty'), 820, 1450, yazi('60', 840, 1480, 130, { w: 900, renk: LAJ })));
+    const th = c('hand', 'theory');
+    if (f >= th) g += at(800, 660, 1, `<rect x="-150" y="-50" width="300" height="88" rx="6" fill="none" stroke="${LAJ}" stroke-width="6"/>${yazi('THEORY', 0, 14, 52, { w: 900, renk: LAJ, ls: 5 })}`, -7);
+    EV.push([th, 800, 660]);
+    return g;
+  },
+  egypt(f) {
+    const f0 = T.seg.egypt.start, st = c('egypt', 'stretched');
+    let p = .5; if (f >= st) p = .5 + .17 * sin((f - st) * .1) * klamp((f - st) / 10);
+    let g = kaz(bas(f, c('egypt', 'twenty'), 540, 720, yazi('24 HOURS', 540, 740, 100, { w: 900, ls: 4 })));
+    g += kaz(cizgi('M400 1580 L540 1460 L680 1580 Z M470 1520 H610', f, c('egypt', 'egypt') - 4, 14, { w: 8 }));
+    g += bar(f, p, c('egypt', 'twelve'), c('egypt', 'twelve', 1));
+    if (f >= st) {
+      const yaz = sin((f - st) * .1) > 0;
+      g += yazi(yaz ? 'summer: long day hours' : 'winter: short day hours', 540, 1370, 54, { cls: 'it', w: 500, renk: LAJ });
+    }
+    return g;
+  },
+  greek(f) {
+    const f0 = T.seg.greek.start, eq = c('greek', 'equal');
+    let g = bar(f, .5, f0 - 100, f0 - 100, f < eq ? null : 1);
+    g += kaz(bas(f, eq, 540, 740, yazi('24 EQUAL HOURS', 540, 760, 76, { w: 900, ls: 3 })));
+    const s0 = c('greek', 'sixties');
+    if (f >= s0 - 4) {
+      // bir saati dışarı çek: 60 parçalı halka
+      g += `<path d="M${120 + 840 / 24 * 13} 1160 L470 1290 M${120 + 840 / 24 * 14} 1160 L610 1290" stroke="${LAJ}" stroke-width="4" stroke-dasharray="8 8" opacity="${f2(solar(f, s0 - 4))}"/>`;
+      let h = cizgi('M540 1310 A140 140 0 1 1 539.9 1310', f, s0, 16, { w: 7 });
+      for (let k = 0; k < 60; k++) { const a = k * 6 * P / 180, x = 540 + 120 * sin(a), y = 1450 - 120 * cos(a); h += bas(f, s0 + 4 + k * .4, x, y, `<path d="M${f2(540 + 108 * sin(a))} ${f2(1450 - 108 * cos(a))} L${f2(540 + (k % 5 ? 128 : 136) * sin(a))} ${f2(1450 - (k % 5 ? 128 : 136) * cos(a))}" stroke="${OY}" stroke-width="5"/>`); }
+      g += kaz(h) + yazi('60', 540, 1475, 70, { w: 900, renk: LAJ, op: solar(f, c('greek', 'slice')) });
+    }
+    return g;
+  },
+  latin(f) {
+    const p1 = c('latin', 'pars'), p2 = c('latin', 'pars', 1), mn = c('latin', 'minute'), sc = c('latin', 'second', 1);
+    const satir = (y, son, f0, f1, vurgu) => {
+      const kel = ['PARS', 'MINUTA', son], gx = [250, 470, son.length > 5 ? 770 : 740];
+      let s = ''; kel.forEach((k, i) => { const t = f0 + i * (f1 - f0) / 3; bas(f, t, gx[i], y - 20, ''); s += `<tspan fill="${vurgu === i ? LAJ : OY}" fill-opacity="${f >= t ? 1 : 0}">${k}</tspan> `; });
+      return kaz(`<text x="540" y="${y}" class="ci" font-size="60" font-weight="800" text-anchor="middle" letter-spacing="2">${s}</text>`);
+    };
+    let g = satir(700, 'PRIMA', p1, c('latin', 'prima') + 6, f >= mn ? 1 : -1);
+    g += yazi('the first small part · 1/60', 540, 790, 48, { cls: 'it', w: 500, op: solar(f, c('latin', 'first')) });
+    if (f >= mn - 4) g += cizgi('M540 820 V880', f, mn - 4, 6, { renk: LAJ, w: 7 });
+    g += kaz(bas(f, mn, 540, 960, yazi('MINUTE', 540, 990, 130, { w: 900, renk: LAJ, ls: 6 })));
+    g += satir(1170, 'SECUNDA', p2, c('latin', 'secunda') + 6, f >= sc ? 2 : -1);
+    g += yazi('the second small part · 1/3600', 540, 1260, 48, { cls: 'it', w: 500, op: solar(f, c('latin', 'second')) });
+    if (f >= sc - 4) g += cizgi('M540 1290 V1350', f, sc - 4, 6, { renk: LAJ, w: 7 });
+    g += kaz(bas(f, sc, 540, 1430, yazi('SECOND', 540, 1460, 130, { w: 900, renk: LAJ, ls: 6 })));
+    return g;
+  },
+  france(f) {
+    const f0 = T.seg.france.start, h = c('france', 'hated'), dr = c('france', 'dropped');
+    let g = cizgi('M540 640 A320 320 0 1 1 539.9 640', f, f0 + 4, 20, { w: 8 }), rak = '';
+    for (let k = 1; k <= 10; k++) { const a = k * 36 * P / 180, x = 540 + 255 * sin(a), y = 960 - 255 * cos(a) + 22; rak += bas(f, c('france', 'decimal') + k * 1.5, x, y - 20, yazi(k, x, y, 62, { w: 800 })); }
+    g = kaz(g + rak);
+    g += yazi('10 hours a day', 540, 920, 44, { cls: 'it', w: 500, op: solar(f, c('france', 'ten')) }) + yazi('100 minutes an hour', 540, 1030, 44, { cls: 'it', w: 500, op: solar(f, c('france', 'hundred')) });
+    const a = 36 * 10 * (f - f0) / 300; // ondalık akrep
+    g += `<g transform="translate(540,960) rotate(${f2(a)})"><path d="M0 16 V-200" stroke="${LAJ}" stroke-width="12" stroke-linecap="round"/></g><circle cx="540" cy="960" r="16" fill="${LAJ}"/>`;
+    g += cizgi('M250 760 L380 840 L340 900 L520 980 L480 1050 L700 1120 L660 1180 L830 1240', f, h, 8, { renk: KOYU, w: 11 });
+    g += kaz(bas(f, c('france', '1793'), 330, 1440, yazi('1793', 330, 1480, 120, { w: 900 })));
+    g += kaz(bas(f, dr + 6, 760, 1440, yazi('1795', 760, 1480, 120, { w: 900, renk: LAJ })));
+    if (f >= dr) g += cizgi('M470 1440 L610 1440 M580 1415 L612 1440 L580 1465', f, dr, 6, { renk: LAJ, w: 8 });
+    return g;
+  },
+  son(f) {
+    const f0 = T.seg.son.start;
+    let g = kaz(kadran(f, f0 - 60, 0, 540, 1000, 340, 6) + yazi('60', 540, 1100, 280, { w: 900 }));
+    g += kaz(bas(f, c('son', 'babylonian'), 540, 1500, yazi('BABYLONIAN MATH', 540, 1530, 80, { w: 900, ls: 4, renk: LAJ })));
+    return g;
+  },
+  cta(f) {
+    const f0 = sec(T.timing.voice_end) - 4;
+    let g = yazi('Enjoyed this?', 540, 780, 104, { w: 800, op: solar(f, f0) });
+    const muhur = (y, txt, t) => bas(f, t, 540, y, `<rect x="290" y="${y - 80}" width="500" height="150" rx="14" fill="none" stroke="${LAJ}" stroke-width="10"/>` + yazi(txt, 540, y + 22, 92, { w: 900, renk: LAJ, ls: 8 }));
+    g += kaz(muhur(1000, 'LIKE', f0 + 12) + muhur(1200, 'FOLLOW', f0 + 28));
+    g += yazi('for more origins of everyday things', 540, 1380, 46, { cls: 'it', w: 500, op: solar(f, f0 + 40) });
+    return g;
+  },
+};
+
+// 24 saatlik çubuk: gündüz payı p; t1/t2 gündüz/gece çentiklerinin basıldığı kare; esit=1 ise 24 eşit
+function bar(f, p, t1, t2) {
+  const x0 = 120, W = 840, y = 1100, gw = W * p;
+  let g = `<rect x="${x0}" y="${y - 50}" width="${W}" height="100" rx="12" fill="none" stroke="${OY}" stroke-width="8"/>`;
+  g += `<rect x="${x0 + gw}" y="${y - 46}" width="${f2(W - gw - 4)}" height="92" rx="10" fill="${KOYU}" opacity=".55"/>`;
+  let ct = '';
+  for (let k = 1; k < 24; k++) {
+    const x = k < 12 ? x0 + gw * k / 12 : k === 12 ? x0 + gw : x0 + gw + (W - gw) * (k - 12) / 12;
+    ct += bas(f, k <= 12 ? t1 + k * .8 : t2 + (k - 12) * .8, x, y, `<path d="M${f2(x)} ${y - 40} V${y + 40}" stroke="${k === 12 ? LAJ : OY}" stroke-width="${k === 12 ? 8 : 5}"/>`);
+  }
+  // güneş ve ay
+  const gx = x0 + gw / 2, ax = x0 + gw + (W - gw) / 2;
+  let ik = `<circle cx="${f2(gx)}" cy="${y - 130}" r="34" fill="none" stroke="${OY}" stroke-width="8"/>`;
+  for (let k = 0; k < 8; k++) { const a = k * P / 4; ik += `<path d="M${f2(gx + 46 * cos(a))} ${f2(y - 130 + 46 * sin(a))} L${f2(gx + 62 * cos(a))} ${f2(y - 130 + 62 * sin(a))}" stroke="${OY}" stroke-width="7" stroke-linecap="round"/>`; }
+  ik += `<path d="M${f2(ax + 10)} ${y - 166} A38 38 0 1 0 ${f2(ax + 10)} ${y - 94} A28 28 0 1 1 ${f2(ax + 10)} ${y - 166}Z" fill="${OY}"/>`;
+  g += `<g opacity="${f2(solar(f, t1 - 8))}">${ik}</g>`;
+  g += yazi('12 day', gx, y + 120, 50, { cls: 'sp', w: 700, op: solar(f, t1) }) + yazi('12 night', ax, y + 120, 50, { cls: 'sp', w: 700, op: solar(f, t2) });
+  return kaz(g + ct);
+}
+
+function aralik(ad) {
+  const i = SIRA.indexOf(ad), sonraki = SIRA[i + 1];
+  const b = a => a === 'hook' ? 0 : a === 'cta' ? sec(T.timing.voice_end) - 4 - 14 : T.seg[a].start - 10;
+  return [b(ad), sonraki ? b(sonraki) : T.total + 30];
+}
+
+// kamış kalem (imza öğe): her basılan izi o anda basar, ardışık izler arasında sekerek gider
+function kalem(f) {
+  const ev = EV.slice().sort((a, b) => a[0] - b[0]);
+  if (!ev.length) return '';
+  let i = -1; ev.forEach((e, k) => { if (e[0] <= f) i = k; });
+  let x, y, kalk, o = 1;
+  if (i < 0) { const e = ev[0], u = klamp((e[0] - f) / 10); if (u >= 1) return ''; [x, y] = [e[1], e[2]]; kalk = EASE.dolly(u); o = 1 - u; }
+  else {
+    const e = ev[i], n = ev[i + 1];
+    if (n && n[0] - e[0] <= 14) { const u = klamp((f - e[0]) / (n[0] - e[0])); x = e[1] + (n[1] - e[1]) * sm(u); y = e[2] + (n[2] - e[2]) * sm(u); kalk = .25 * sin(u * P); }
+    else if (n && n[0] - f < 10) { const u = klamp((n[0] - f) / 10); [x, y] = [n[1], n[2]]; kalk = EASE.dolly(u); o = 1 - u; }
+    else { const u = klamp((f - e[0] - 2) / 10); if (u >= 1) return ''; [x, y] = [e[1], e[2]]; kalk = EASE.dolly(u); o = 1 - u; }
+  }
+  const dx = 70 * kalk, dy = -170 * kalk;
+  const govde = `<path d="M0 0 L-12 -44 L-14 -520 L14 -520 L12 -44Z" fill="#D9BC8A" stroke="${KOYU}" stroke-width="4"/><path d="M-14 -200 H14 M-14 -380 H14" stroke="${KOYU}" stroke-width="4"/><path d="M-12 -44 L0 0 L4 -44Z" fill="#A9814F"/>`;
+  return `<ellipse cx="${f2(x + 40 + dx * 1.6)}" cy="${f2(y + 6 - dy * .2)}" rx="60" ry="16" fill="#2B1D14" opacity="${f2(.3 * o * (1 - kalk * .6))}" filter="url(#bulanik)"/>` + at(x + dx, y + dy, 1, govde, 26, o);
+}
+
+window.renderFrame = function (f) {
+  EV = [];
+  let g = '', clip = '';
+  SIRA.forEach((ad, i) => {
+    const [b, s] = aralik(ad);
+    if (f < b || f > s + 14) return;
+    // geçiş: spatula yukarıdan aşağı kili düzler; eski sahne silinir, yeni sahne açılır
+    const ust = i ? -60 + 2040 * EASE.dolly(klamp((f - b) / 14)) : 2000;
+    const alt = -60 + 2040 * EASE.dolly(klamp((f - s) / 14));
+    clip += `<clipPath id="c${i}"><rect x="0" y="${f2(alt)}" width="1080" height="${f2(Math.max(0, ust - alt))}"/></clipPath>`;
+    const [no, ad2] = BASLIK[ad];
+    const h = no ? kaz(yazi(no, 80, 500, 34, { a: 'start', renk: LAJ, ls: 6 }) + yazi(ad2, 1000, 500, 52, { a: 'end', w: 800 })) + `<path d="M80 528 H1000" stroke="${OY}" stroke-width="3" opacity=".6"/>` : '';
+    g += `<g clip-path="url(#c${i})">${h}${SAHNE[ad](f)}</g>`;
+  });
+  $('clips').innerHTML = clip;
+  $('sahne').innerHTML = g;
+  // spatula
+  let sp = '';
+  SIRA.forEach((ad, i) => { if (!i) return; const [b] = aralik(ad), u = (f - b) / 14; if (u > 0 && u < 1) { const y = -60 + 2040 * EASE.dolly(u); sp += `<rect x="-20" y="${f2(y - 14)}" width="1120" height="28" rx="6" fill="#B8925E" stroke="${KOYU}" stroke-width="4"/><rect x="-20" y="${f2(y - 38)}" width="1120" height="16" fill="#2B1D14" opacity=".18" filter="url(#bulanik)"/>`; } });
+  $('ust').innerHTML = kalem(f) + sp;
+  altyazi3(f, $('alt'));
+};
+
+// altyazı: koyu kahve dolgu, konturu yok; söylenen kelime lacivert sır rengi, gelecek kelimeler soluk
+function altyazi3(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || f >= sec(T.timing.voice_end) - 4) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.3' : tt < x.end + 0.05 ? `color:${LAJ}` : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>

@@ -17,3 +17,4 @@
 | Kolonya | Limon fayans mutfak | Fredoka | nane/limon | kolonya şişesi maskotu, iki damla |
 | Hello (EN) | 1870'ler telefon santrali, damask duvar kâğıdı | Fraunces + Caveat | petrol/pirinç/krem | şamdan telefon maskotu, AHOY vs HELLO kupası |
 | Emoji (EN) | 1999 piksel sanatı, kapaklı telefon | Archivo + IBM Plex Mono + 絵文字 | krem/pembe/sarı/turkuaz | 12×12 emojiler kare kare dolar |
+| Sixty (EN) | Islak kil tablet, kamışla basılan sayılar | Cinzel + Spectral | kil/oyuk kahvesi/lacivert sır | kamış kalem her sayıyı basar, spatula geçişi |
