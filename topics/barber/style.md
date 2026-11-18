@@ -1,0 +1,11 @@
+# Stil kartı: barber (ozansihay-motion)
+- Tez: Berber direği, berber-cerrahların kan aldırma reklamıdır.
+- Yöntem: Mekanizma çiz + karşılaştır; direğin her parçası (değnek, şeritler, leğen) bir cümleyle ortaya çıkar.
+- Malzeme: berber dükkânı camına varak yaldız tabela boyası (altın degrade + koyu gölge), şişe yeşili cam ve yavaş kayan yansımalar.
+- Kadraj: tek dev nesne (direk) ve yanında etiketler; pano ızgarası yalnız berber-cerrah sahnesinde.
+- Zaman: 30 fps; öğeler fırça darbesi gibi kısa yükselir (10 kare dolly); geçiş = kırmızı-beyaz direk şeridi aşağıdan yukarı süpürür (16 kare).
+- Font: Playfair Display 900 (tabela harfleri) + Playfair italik (el yazısı tabela notu), Alegreya Sans 800 (altyazı). İlk kez kullanıldı.
+- Palet: şişe yeşili #11392D, varak altın degrade #FBE6A0→#9A6A1E, berber kırmızısı #C3262D, krem #F3EEE2, ABD için lacivert #2D4E8C.
+- İmza öğe: dönen kırmızı-beyaz spiral; direk, geçiş bandı ve altyazıdaki aktif kelimenin altındaki şerit.
+- Ses: Arjin klon sesi (eleven_v4) + bgpad -26 dB; sonda yaldız LIKE/FOLLOW plakaları ve iki küçük dönen direk.
+- Kullanılmayanlar: maskot yüzleri, sarı karaoke, kil/oyma dokusu (önceki video), ortalanmış kart ızgarası (bir sahne hariç).
