@@ -1,0 +1,16 @@
+{
+  "title": "Why do pilots say Mayday?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "In {1923,|nineteen twenty three,} a radio officer at a London airport had to invent a way to scream for help. His answer was one word. Mayday."},
+    {"scene": "radio", "text": "His name was Frederick Mockford, at Croydon Airport. Pilots were moving from Morse code to talking over voice radio."},
+    {"scene": "sos", "text": "The old distress signal was SOS. But spoken over a crackly radio, the S could easily sound like an F."},
+    {"scene": "paris", "text": "Most of his flights went between London and Paris. So he borrowed from French. {M'aider.|Meh-day.} Help me."},
+    {"scene": "spell", "text": "Spelled the English way, it became Mayday. Nothing to do with the month of May."},
+    {"scene": "three", "text": "Pilots say it three times. Mayday, Mayday, Mayday. So nobody mistakes it for someone just talking about one."},
+    {"scene": "world", "text": "By {1927,|nineteen twenty seven,} it was the official distress call around the world."},
+    {"scene": "pan", "text": "It even has a little brother. Pan-pan, from the French panne, a breakdown. Serious, but not deadly yet."},
+    {"scene": "son", "text": "So every Mayday you hear in the movies is really someone shouting help me, in French."}
+  ]
+}
