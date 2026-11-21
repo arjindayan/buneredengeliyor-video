@@ -2,6 +2,8 @@
 
   python finetune/train_local.py <kayit_klasoru> <calisma_klasoru> [--epochs 6] [--prep-only]
 kayit_klasoru: kayit-tr*.m4a/wav, kayit-en*.m4a/wav. Çıktı: <calisma_klasoru>/xtts-arjin (XTTS_MODEL_DIR olarak kullan).
+Takılmalar: FT_SCRIPT=metin1.md,metin2.md verilirse yalnız okuma metnindeki bir (ya da art arda iki) satırla
+  neredeyse birebir eşleşen parçalar tutulur ve metin olarak doğru yazımı kullanılır; yarım kalan/tekrarlanan okumalar elenir.
 Devam eğitimi: FT_INIT=<önceki xtts-arjin/model.pth> (yoksa hazır XTTS-v2), FT_LANGS=tr (yalnız bu diller).
 """
 import glob, os, re, shutil, subprocess, sys
@@ -26,10 +28,31 @@ def wav(src, dst, a=None, b=None):
         torchaudio.save(dst, x, 22050)
 
 
+def norm(t):
+    t = t.replace("I", "ı").replace("İ", "i").lower()
+    return " ".join(re.sub(r"[^\w\s]", " ", t).split())
+
+
+def script_lines():
+    out = []
+    for f in filter(None, os.environ.get("FT_SCRIPT", "").split(",")):
+        lines = [l.strip() for l in open(f, encoding="utf-8")]
+        lines = [l for l in lines if l and not l.startswith(("#", "-", "`", "Kayıt", "Dosya", "Videoda"))]
+        out += lines + [a + " " + b for a, b in zip(lines, lines[1:])]
+    return {norm(l): l for l in out}
+
+
+def match(text, ref, cut=0.9):
+    import difflib
+    if not ref: return text
+    best = difflib.get_close_matches(norm(text), list(ref), n=1, cutoff=cut)
+    return ref[best[0]] if best else None
+
+
 def prep():
     import whisper
     asr = whisper.load_model(os.environ.get("WHISPER_MODEL", "turbo"))
-    veri = {}
+    veri, ref, atilan = {}, script_lines(), 0
     for k in sorted(glob.glob(SRC + "/kayit-*")):
         lang = re.search(r"-(tr|en)", os.path.basename(k)).group(1)
         root = f"{WORK}/data-{lang}"; os.makedirs(root + "/wavs", exist_ok=True)
@@ -49,11 +72,14 @@ def prep():
             if (w["word"].strip()[-1:] in ".?!" and dur > 1.5) or dur > 10:
                 text = "".join(x["word"] for x in cur).strip()
                 a, b = max(0, cur[0]["start"] - 0.1), cur[-1]["end"] + 0.15
-                if 1.5 <= b - a <= 11.5 and not re.search(r"\d", text):
+                text = match(text, ref) if lang == "tr" else text
+                atilan += text is None
+                if text and 1.5 <= b - a <= 11.5 and not re.search(r"\d", text):
                     i = f"{lang}_{len(veri.get(lang, [])):04d}"
                     wav(full, f"{root}/wavs/{i}.wav", a, b)
                     veri.setdefault(lang, []).append((i, text, b - a))
                 cur = []
+    print("metinle eşleşmediği için atılan parça:", atilan)
     for lang, rows in veri.items():
         with open(f"{WORK}/data-{lang}/metadata.csv", "w", encoding="utf-8") as f:
             f.writelines(f"{i}|{t}|{t}\n" for i, t, _ in rows)
