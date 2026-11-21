@@ -1,0 +1,14 @@
+{
+  "title": "Where does goodbye come from?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Say goodbye out loud. Congratulations, you just said a blessing that's over four hundred years old."},
+    {"scene": "orig", "text": "In Shakespeare's time, people didn't say goodbye. They said God be with you. Or, the old way, God be with ye."},
+    {"scene": "squeeze", "text": "Say that fast enough, a few million times, and it gets squeezed. God be {wi'|wee} ye. God {b'wye.|bwye.} {Godbwye.|God-bwye.}"},
+    {"scene": "letter", "text": "One of the oldest written examples is from {1573.|fifteen seventy three.} A scholar named Gabriel Harvey joked about sending a whole gallon of godbwyes."},
+    {"scene": "good", "text": "Then God turned into good. Why? People already said good morning, good day and good night. Goodbye just fit right in."},
+    {"scene": "others", "text": "And English isn't alone. French adieu and Spanish adiós both literally mean, to God."},
+    {"scene": "son", "text": "So every goodbye is a tiny blessing, worn down by centuries of people in a hurry."}
+  ]
+}
