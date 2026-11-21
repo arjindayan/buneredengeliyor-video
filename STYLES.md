@@ -21,3 +21,4 @@
 | Barber (EN) | Berber camı varak yaldız tabela | Playfair Display + Alegreya Sans | şişe yeşili/altın/berber kırmızısı | dönen direk spirali, şerit geçişi |
 | Mayday (EN) | 1920'ler Art Deco havayolu afişi | Limelight + Josefin Sans | lacivert/krem/sinyal turuncusu/altın | telsiz halkaları, parazitli kesme, biniş kartı kapanışı |
 | Goodbye (EN) | 1570'ler matbaası, kurşun harf blokları | IM Fell English + EB Garamond | kâğıt/mürekkep/rubrik kırmızısı | düşen harf blokları, baskı tablası geçişi |
+| Cheers (EN) | Linol baskı meyhane afişi (Arjin paleti) | Alfa Slab One + Bitter | #28301C/#323D25/#9A7E3B/#D2CF9A + beyaz | tokuşan kadehler, merdane geçişi |

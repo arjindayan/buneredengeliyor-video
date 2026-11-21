@@ -1,0 +1,972 @@
+{
+"duration": 59.17,
+"words": [
+{
+"w": "You've",
+"start": 0.0,
+"end": 0.24,
+"seg": 0
+},
+{
+"w": "heard",
+"start": 0.32,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "that",
+"start": 0.56,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "we",
+"start": 0.72,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "clink",
+"start": 0.88,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "glasses",
+"start": 1.16,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "to",
+"start": 1.76,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "slosh",
+"start": 1.92,
+"end": 2.24,
+"seg": 0
+},
+{
+"w": "our",
+"start": 2.32,
+"end": 2.4,
+"seg": 0
+},
+{
+"w": "drinks",
+"start": 2.48,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "together",
+"start": 2.8,
+"end": 3.12,
+"seg": 0
+},
+{
+"w": "and",
+"start": 3.2,
+"end": 3.36,
+"seg": 0
+},
+{
+"w": "prove",
+"start": 3.52,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "there's",
+"start": 3.76,
+"end": 3.92,
+"seg": 0
+},
+{
+"w": "no",
+"start": 4.0,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "poison.",
+"start": 4.16,
+"end": 4.72,
+"seg": 0
+},
+{
+"w": "Nice",
+"start": 5.2,
+"end": 5.44,
+"seg": 0
+},
+{
+"w": "story.",
+"start": 5.64,
+"end": 5.92,
+"seg": 0
+},
+{
+"w": "Zero",
+"start": 6.4,
+"end": 6.72,
+"seg": 0
+},
+{
+"w": "evidence.",
+"start": 6.88,
+"end": 7.56,
+"seg": 0
+},
+{
+"w": "Try",
+"start": 7.76,
+"end": 7.92,
+"seg": 1
+},
+{
+"w": "it.",
+"start": 8.0,
+"end": 8.24,
+"seg": 1
+},
+{
+"w": "A",
+"start": 8.56,
+"end": 8.6,
+"seg": 1
+},
+{
+"w": "polite",
+"start": 8.64,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "clink",
+"start": 9.04,
+"end": 9.36,
+"seg": 1
+},
+{
+"w": "doesn't",
+"start": 9.52,
+"end": 9.76,
+"seg": 1
+},
+{
+"w": "swap",
+"start": 9.84,
+"end": 10.08,
+"seg": 1
+},
+{
+"w": "a",
+"start": 10.16,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "single",
+"start": 10.4,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "drop.",
+"start": 10.72,
+"end": 11.2,
+"seg": 1
+},
+{
+"w": "And",
+"start": 11.52,
+"end": 11.6,
+"seg": 1
+},
+{
+"w": "historians",
+"start": 11.68,
+"end": 12.24,
+"seg": 1
+},
+{
+"w": "have",
+"start": 12.32,
+"end": 12.4,
+"seg": 1
+},
+{
+"w": "never",
+"start": 12.48,
+"end": 12.72,
+"seg": 1
+},
+{
+"w": "found",
+"start": 12.88,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "an",
+"start": 13.12,
+"end": 13.2,
+"seg": 1
+},
+{
+"w": "old",
+"start": 13.28,
+"end": 13.44,
+"seg": 1
+},
+{
+"w": "source",
+"start": 13.52,
+"end": 13.84,
+"seg": 1
+},
+{
+"w": "for",
+"start": 13.88,
+"end": 13.92,
+"seg": 1
+},
+{
+"w": "the",
+"start": 14.0,
+"end": 14.04,
+"seg": 1
+},
+{
+"w": "poison",
+"start": 14.08,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "tale.",
+"start": 14.56,
+"end": 14.88,
+"seg": 1
+},
+{
+"w": "But",
+"start": 15.36,
+"end": 15.44,
+"seg": 2
+},
+{
+"w": "the",
+"start": 15.52,
+"end": 15.56,
+"seg": 2
+},
+{
+"w": "word",
+"start": 15.6,
+"end": 15.76,
+"seg": 2
+},
+{
+"w": "toast?",
+"start": 15.92,
+"end": 16.6,
+"seg": 2
+},
+{
+"w": "That",
+"start": 16.8,
+"end": 16.96,
+"seg": 2
+},
+{
+"w": "part",
+"start": 17.04,
+"end": 17.2,
+"seg": 2
+},
+{
+"w": "is",
+"start": 17.24,
+"end": 17.28,
+"seg": 2
+},
+{
+"w": "real.",
+"start": 17.36,
+"end": 17.88,
+"seg": 2
+},
+{
+"w": "In",
+"start": 18.08,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "the",
+"start": 18.2,
+"end": 18.24,
+"seg": 2
+},
+{
+"w": "1600s,",
+"start": 18.32,
+"end": 19.28,
+"seg": 2
+},
+{
+"w": "people",
+"start": 19.44,
+"end": 19.6,
+"seg": 2
+},
+{
+"w": "dropped",
+"start": 19.68,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "a",
+"start": 19.96,
+"end": 20.0,
+"seg": 2
+},
+{
+"w": "piece",
+"start": 20.12,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "of",
+"start": 20.28,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "spiced",
+"start": 20.48,
+"end": 20.88,
+"seg": 2
+},
+{
+"w": "toasted",
+"start": 21.04,
+"end": 21.44,
+"seg": 2
+},
+{
+"w": "bread",
+"start": 21.52,
+"end": 21.84,
+"seg": 2
+},
+{
+"w": "into",
+"start": 21.92,
+"end": 22.08,
+"seg": 2
+},
+{
+"w": "their",
+"start": 22.16,
+"end": 22.24,
+"seg": 2
+},
+{
+"w": "wine",
+"start": 22.32,
+"end": 22.64,
+"seg": 2
+},
+{
+"w": "or",
+"start": 22.68,
+"end": 22.72,
+"seg": 2
+},
+{
+"w": "ale,",
+"start": 22.8,
+"end": 23.28,
+"seg": 2
+},
+{
+"w": "for",
+"start": 23.32,
+"end": 23.36,
+"seg": 2
+},
+{
+"w": "flavor.",
+"start": 23.44,
+"end": 24.08,
+"seg": 2
+},
+{
+"w": "Soon",
+"start": 24.32,
+"end": 24.64,
+"seg": 3
+},
+{
+"w": "the",
+"start": 24.72,
+"end": 24.8,
+"seg": 3
+},
+{
+"w": "person",
+"start": 24.96,
+"end": 25.12,
+"seg": 3
+},
+{
+"w": "you",
+"start": 25.2,
+"end": 25.28,
+"seg": 3
+},
+{
+"w": "drank",
+"start": 25.32,
+"end": 25.52,
+"seg": 3
+},
+{
+"w": "to",
+"start": 25.6,
+"end": 25.84,
+"seg": 3
+},
+{
+"w": "was",
+"start": 25.92,
+"end": 26.0,
+"seg": 3
+},
+{
+"w": "called",
+"start": 26.08,
+"end": 26.32,
+"seg": 3
+},
+{
+"w": "the",
+"start": 26.36,
+"end": 26.4,
+"seg": 3
+},
+{
+"w": "toast,",
+"start": 26.56,
+"end": 27.2,
+"seg": 3
+},
+{
+"w": "as",
+"start": 27.28,
+"end": 27.36,
+"seg": 3
+},
+{
+"w": "if",
+"start": 27.4,
+"end": 27.44,
+"seg": 3
+},
+{
+"w": "they",
+"start": 27.52,
+"end": 27.6,
+"seg": 3
+},
+{
+"w": "flavored",
+"start": 27.76,
+"end": 28.08,
+"seg": 3
+},
+{
+"w": "the",
+"start": 28.16,
+"end": 28.24,
+"seg": 3
+},
+{
+"w": "drink.",
+"start": 28.44,
+"end": 28.84,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 29.04,
+"end": 29.253,
+"seg": 3
+},
+{
+"w": "where",
+"start": 29.307,
+"end": 29.36,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.44,
+"end": 29.52,
+"seg": 3
+},
+{
+"w": "toast",
+"start": 29.68,
+"end": 29.92,
+"seg": 3
+},
+{
+"w": "of",
+"start": 30.0,
+"end": 30.08,
+"seg": 3
+},
+{
+"w": "the",
+"start": 30.12,
+"end": 30.16,
+"seg": 3
+},
+{
+"w": "town",
+"start": 30.24,
+"end": 30.56,
+"seg": 3
+},
+{
+"w": "comes",
+"start": 30.64,
+"end": 30.88,
+"seg": 3
+},
+{
+"w": "from.",
+"start": 31.0,
+"end": 31.4,
+"seg": 3
+},
+{
+"w": "So",
+"start": 31.68,
+"end": 31.84,
+"seg": 4
+},
+{
+"w": "why",
+"start": 32.0,
+"end": 32.16,
+"seg": 4
+},
+{
+"w": "the",
+"start": 32.2,
+"end": 32.24,
+"seg": 4
+},
+{
+"w": "clink?",
+"start": 32.32,
+"end": 32.72,
+"seg": 4
+},
+{
+"w": "Nobody",
+"start": 33.2,
+"end": 33.44,
+"seg": 4
+},
+{
+"w": "knows",
+"start": 33.52,
+"end": 33.72,
+"seg": 4
+},
+{
+"w": "for",
+"start": 33.76,
+"end": 33.84,
+"seg": 4
+},
+{
+"w": "sure.",
+"start": 33.92,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "The",
+"start": 34.72,
+"end": 34.76,
+"seg": 4
+},
+{
+"w": "favorite",
+"start": 34.8,
+"end": 35.12,
+"seg": 4
+},
+{
+"w": "theory:",
+"start": 35.2,
+"end": 35.92,
+"seg": 4
+},
+{
+"w": "a",
+"start": 35.96,
+"end": 36.0,
+"seg": 4
+},
+{
+"w": "drink",
+"start": 36.08,
+"end": 36.4,
+"seg": 4
+},
+{
+"w": "already",
+"start": 36.6,
+"end": 36.8,
+"seg": 4
+},
+{
+"w": "pleases",
+"start": 36.88,
+"end": 37.28,
+"seg": 4
+},
+{
+"w": "your",
+"start": 37.36,
+"end": 37.44,
+"seg": 4
+},
+{
+"w": "eyes,",
+"start": 37.52,
+"end": 38.08,
+"seg": 4
+},
+{
+"w": "your",
+"start": 38.12,
+"end": 38.16,
+"seg": 4
+},
+{
+"w": "nose,",
+"start": 38.32,
+"end": 38.8,
+"seg": 4
+},
+{
+"w": "your",
+"start": 38.84,
+"end": 38.88,
+"seg": 4
+},
+{
+"w": "tongue",
+"start": 39.04,
+"end": 39.36,
+"seg": 4
+},
+{
+"w": "and",
+"start": 39.44,
+"end": 39.6,
+"seg": 4
+},
+{
+"w": "your",
+"start": 39.68,
+"end": 39.76,
+"seg": 4
+},
+{
+"w": "hand.",
+"start": 39.84,
+"end": 40.4,
+"seg": 4
+},
+{
+"w": "The",
+"start": 40.56,
+"end": 40.64,
+"seg": 4
+},
+{
+"w": "clink",
+"start": 40.72,
+"end": 41.04,
+"seg": 4
+},
+{
+"w": "adds",
+"start": 41.2,
+"end": 41.36,
+"seg": 4
+},
+{
+"w": "your",
+"start": 41.44,
+"end": 41.52,
+"seg": 4
+},
+{
+"w": "ears.",
+"start": 41.6,
+"end": 42.16,
+"seg": 4
+},
+{
+"w": "All",
+"start": 42.32,
+"end": 42.56,
+"seg": 4
+},
+{
+"w": "five",
+"start": 42.72,
+"end": 42.96,
+"seg": 4
+},
+{
+"w": "senses.",
+"start": 43.04,
+"end": 43.84,
+"seg": 4
+},
+{
+"w": "Or",
+"start": 44.08,
+"end": 44.24,
+"seg": 5
+},
+{
+"w": "maybe",
+"start": 44.32,
+"end": 44.56,
+"seg": 5
+},
+{
+"w": "it's",
+"start": 44.6,
+"end": 44.72,
+"seg": 5
+},
+{
+"w": "simpler.",
+"start": 44.76,
+"end": 45.2,
+"seg": 5
+},
+{
+"w": "Glasses",
+"start": 45.6,
+"end": 46.0,
+"seg": 5
+},
+{
+"w": "touching",
+"start": 46.08,
+"end": 46.48,
+"seg": 5
+},
+{
+"w": "is",
+"start": 46.56,
+"end": 46.64,
+"seg": 5
+},
+{
+"w": "the",
+"start": 46.68,
+"end": 46.72,
+"seg": 5
+},
+{
+"w": "closest",
+"start": 46.8,
+"end": 47.28,
+"seg": 5
+},
+{
+"w": "a",
+"start": 47.36,
+"end": 47.44,
+"seg": 5
+},
+{
+"w": "whole",
+"start": 47.52,
+"end": 47.68,
+"seg": 5
+},
+{
+"w": "table",
+"start": 47.76,
+"end": 48.08,
+"seg": 5
+},
+{
+"w": "can",
+"start": 48.16,
+"end": 48.32,
+"seg": 5
+},
+{
+"w": "get",
+"start": 48.44,
+"end": 48.56,
+"seg": 5
+},
+{
+"w": "to",
+"start": 48.64,
+"end": 48.72,
+"seg": 5
+},
+{
+"w": "a",
+"start": 48.76,
+"end": 48.8,
+"seg": 5
+},
+{
+"w": "group",
+"start": 48.88,
+"end": 49.12,
+"seg": 5
+},
+{
+"w": "hug.",
+"start": 49.2,
+"end": 49.92,
+"seg": 5
+},
+{
+"w": "So",
+"start": 50.04,
+"end": 50.16,
+"seg": 6
+},
+{
+"w": "next",
+"start": 50.24,
+"end": 50.4,
+"seg": 6
+},
+{
+"w": "time",
+"start": 50.48,
+"end": 50.64,
+"seg": 6
+},
+{
+"w": "someone",
+"start": 50.72,
+"end": 50.96,
+"seg": 6
+},
+{
+"w": "tells",
+"start": 51.0,
+"end": 51.2,
+"seg": 6
+},
+{
+"w": "you",
+"start": 51.28,
+"end": 51.32,
+"seg": 6
+},
+{
+"w": "the",
+"start": 51.36,
+"end": 51.44,
+"seg": 6
+},
+{
+"w": "poison",
+"start": 51.52,
+"end": 51.84,
+"seg": 6
+},
+{
+"w": "story,",
+"start": 51.92,
+"end": 52.56,
+"seg": 6
+},
+{
+"w": "clink",
+"start": 52.6,
+"end": 52.8,
+"seg": 6
+},
+{
+"w": "their",
+"start": 52.88,
+"end": 52.96,
+"seg": 6
+},
+{
+"w": "glass,",
+"start": 53.16,
+"end": 53.68,
+"seg": 6
+},
+{
+"w": "and",
+"start": 53.76,
+"end": 53.84,
+"seg": 6
+},
+{
+"w": "tell",
+"start": 53.92,
+"end": 54.0,
+"seg": 6
+},
+{
+"w": "them",
+"start": 54.08,
+"end": 54.16,
+"seg": 6
+},
+{
+"w": "the",
+"start": 54.24,
+"end": 54.32,
+"seg": 6
+},
+{
+"w": "real",
+"start": 54.4,
+"end": 54.64,
+"seg": 6
+},
+{
+"w": "one.",
+"start": 54.72,
+"end": 55.2,
+"seg": 6
+}
+],
+"voice_end": 55.35
+}
