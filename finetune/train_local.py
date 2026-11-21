@@ -2,6 +2,7 @@
 
   python finetune/train_local.py <kayit_klasoru> <calisma_klasoru> [--epochs 6] [--prep-only]
 kayit_klasoru: kayit-tr*.m4a/wav, kayit-en*.m4a/wav. Çıktı: <calisma_klasoru>/xtts-arjin (XTTS_MODEL_DIR olarak kullan).
+Devam eğitimi: FT_INIT=<önceki xtts-arjin/model.pth> (yoksa hazır XTTS-v2), FT_LANGS=tr (yalnız bu diller).
 """
 import glob, os, re, shutil, subprocess, sys
 
@@ -78,7 +79,7 @@ def train(langs, B):
     out = f"{WORK}/run"
     ds = [BaseDatasetConfig(formatter="ljspeech", dataset_name=f"arjin-{l}", path=f"{WORK}/data-{l}", meta_file_train="metadata.csv", language=l) for l in langs]
     args = GPTArgs(max_conditioning_length=132300, min_conditioning_length=66150, max_wav_length=255995, max_text_length=200,
-                   mel_norm_file=f"{B}/mel_stats.pth", dvae_checkpoint=f"{B}/dvae.pth", xtts_checkpoint=f"{B}/model.pth", tokenizer_file=f"{B}/vocab.json",
+                   mel_norm_file=f"{B}/mel_stats.pth", dvae_checkpoint=f"{B}/dvae.pth", xtts_checkpoint=os.environ.get("FT_INIT", f"{B}/model.pth"), tokenizer_file=f"{B}/vocab.json",
                    gpt_num_audio_tokens=1026, gpt_start_audio_token=1024, gpt_stop_audio_token=1025,
                    gpt_use_masking_gt_prompt_approach=True, gpt_use_perceiver_resampler=True)
     bs = int(os.environ.get("BATCH", "2"))
@@ -113,6 +114,7 @@ def package(out, B, langs):
 
 if __name__ == "__main__":
     langs = [l for l in ("tr", "en") if os.path.exists(f"{WORK}/data-{l}/metadata.csv")] or prep()
+    langs = [l for l in langs if l in os.environ.get("FT_LANGS", "tr,en").split(",")]
     if "--prep-only" in sys.argv: sys.exit()
     B = base()
     package(train(langs, B), B, langs)
