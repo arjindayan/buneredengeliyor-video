@@ -23,3 +23,4 @@
 | Goodbye (EN) | 1570'ler matbaası, kurşun harf blokları | IM Fell English + EB Garamond | kâğıt/mürekkep/rubrik kırmızısı | düşen harf blokları, baskı tablası geçişi |
 | Cheers (EN) | Linol baskı meyhane afişi (Arjin paleti) | Alfa Slab One + Bitter | #28301C/#323D25/#9A7E3B/#D2CF9A + beyaz | tokuşan kadehler, merdane geçişi |
 | Clockwise (EN) | Pirinç usturlap gravürü, kadran dilim geçişi | Cormorant Garamond + Marcellus | Arjin paleti (koyu zemin) | gölge saat ibresine dönüşür |
+| Bless (EN) | ECG monitörü / fosfor CRT, tarama çubuğu geçişi | VT323 + IBM Plex Mono | Arjin paleti (koyu zemin) | kalp atışı izi, hapşırmada düzleşme |

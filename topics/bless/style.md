@@ -1,0 +1,11 @@
+# Stil kartı: bless — ECG monitörü / fosfor CRT (Arjin paleti)
+- Tez: Kalp durmaz; "bless you" ruhu koruyan eski bir kalkan, bugün nezaket.
+- Yöntem: efsane çürütme (soru kancası) + mekanizma (basınç → geç gelen vuruş).
+- Malzeme: koyu yeşil CRT ekran, fosfor haki iz, ızgara, tarama çizgileri, hafif parıltı.
+- Kadraj: ortada monitör çerçevesi; üstte altyazı, altta durum satırı (BPM, YIL).
+- Zaman: 30 fps; geçiş = tarama çubuğu yukarıdan aşağı süpürür, arkada yeni sahne açılır (14 kare).
+- Font: VT323 (ekran), IBM Plex Mono 600 (etiket/altyazı). VT323 ilk kez.
+- Palet: #28301C, #323D25, #9A7E3B, #D2CF9A + beyaz.
+- İmza öğe: kalp atışı izi; hapşırmada çizgi bir an düzleşir, sonra devam eder.
+- Altyazı: haki, kontur yok; söylenen kelime haki kutuda koyu yeşil.
+- Kullanılmayanlar: kâğıt/pirinç dokusu, romen rakamı kadran, maskot yüzü.
