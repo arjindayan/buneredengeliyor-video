@@ -1,0 +1,1044 @@
+{
+"duration": 66.387,
+"words": [
+{
+"w": "Every",
+"start": 0.0,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "clock",
+"start": 0.4,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "you've",
+"start": 0.68,
+"end": 0.96,
+"seg": 0
+},
+{
+"w": "ever",
+"start": 1.08,
+"end": 1.2,
+"seg": 0
+},
+{
+"w": "looked",
+"start": 1.28,
+"end": 1.52,
+"seg": 0
+},
+{
+"w": "at",
+"start": 1.64,
+"end": 1.76,
+"seg": 0
+},
+{
+"w": "is",
+"start": 1.84,
+"end": 2.0,
+"seg": 0
+},
+{
+"w": "secretly",
+"start": 2.08,
+"end": 2.56,
+"seg": 0
+},
+{
+"w": "copying",
+"start": 2.64,
+"end": 3.04,
+"seg": 0
+},
+{
+"w": "a",
+"start": 3.12,
+"end": 3.2,
+"seg": 0
+},
+{
+"w": "shadow.",
+"start": 3.28,
+"end": 3.76,
+"seg": 0
+},
+{
+"w": "That's",
+"start": 4.24,
+"end": 4.44,
+"seg": 0
+},
+{
+"w": "why",
+"start": 4.48,
+"end": 4.56,
+"seg": 0
+},
+{
+"w": "clock",
+"start": 4.72,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "hands",
+"start": 5.12,
+"end": 5.28,
+"seg": 0
+},
+{
+"w": "turn",
+"start": 5.36,
+"end": 5.52,
+"seg": 0
+},
+{
+"w": "the",
+"start": 5.56,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "way",
+"start": 5.68,
+"end": 5.76,
+"seg": 0
+},
+{
+"w": "they",
+"start": 5.84,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "do.",
+"start": 6.12,
+"end": 6.32,
+"seg": 0
+},
+{
+"w": "Push",
+"start": 6.8,
+"end": 6.96,
+"seg": 1
+},
+{
+"w": "a",
+"start": 7.0,
+"end": 7.04,
+"seg": 1
+},
+{
+"w": "stick",
+"start": 7.12,
+"end": 7.36,
+"seg": 1
+},
+{
+"w": "into",
+"start": 7.44,
+"end": 7.6,
+"seg": 1
+},
+{
+"w": "the",
+"start": 7.64,
+"end": 7.68,
+"seg": 1
+},
+{
+"w": "ground",
+"start": 7.76,
+"end": 8.16,
+"seg": 1
+},
+{
+"w": "anywhere",
+"start": 8.24,
+"end": 8.72,
+"seg": 1
+},
+{
+"w": "north",
+"start": 8.84,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "of",
+"start": 9.04,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "the",
+"start": 9.16,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "equator.",
+"start": 9.28,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "The",
+"start": 10.32,
+"end": 10.4,
+"seg": 1
+},
+{
+"w": "sun",
+"start": 10.48,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "rises",
+"start": 10.8,
+"end": 11.12,
+"seg": 1
+},
+{
+"w": "in",
+"start": 11.2,
+"end": 11.28,
+"seg": 1
+},
+{
+"w": "the",
+"start": 11.32,
+"end": 11.36,
+"seg": 1
+},
+{
+"w": "east,",
+"start": 11.44,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "swings",
+"start": 12.16,
+"end": 12.4,
+"seg": 1
+},
+{
+"w": "across",
+"start": 12.48,
+"end": 12.72,
+"seg": 1
+},
+{
+"w": "the",
+"start": 12.8,
+"end": 12.88,
+"seg": 1
+},
+{
+"w": "southern",
+"start": 12.96,
+"end": 13.2,
+"seg": 1
+},
+{
+"w": "sky,",
+"start": 13.28,
+"end": 13.92,
+"seg": 1
+},
+{
+"w": "and",
+"start": 14.0,
+"end": 14.08,
+"seg": 1
+},
+{
+"w": "sets",
+"start": 14.16,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "in",
+"start": 14.56,
+"end": 14.64,
+"seg": 1
+},
+{
+"w": "the",
+"start": 14.68,
+"end": 14.72,
+"seg": 1
+},
+{
+"w": "west.",
+"start": 14.8,
+"end": 15.2,
+"seg": 1
+},
+{
+"w": "So",
+"start": 15.68,
+"end": 15.76,
+"seg": 2
+},
+{
+"w": "the",
+"start": 15.8,
+"end": 15.84,
+"seg": 2
+},
+{
+"w": "stick's",
+"start": 15.92,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "shadow",
+"start": 16.32,
+"end": 16.64,
+"seg": 2
+},
+{
+"w": "sweeps",
+"start": 16.8,
+"end": 17.2,
+"seg": 2
+},
+{
+"w": "the",
+"start": 17.24,
+"end": 17.28,
+"seg": 2
+},
+{
+"w": "opposite",
+"start": 17.36,
+"end": 17.76,
+"seg": 2
+},
+{
+"w": "way.",
+"start": 17.84,
+"end": 18.08,
+"seg": 2
+},
+{
+"w": "West",
+"start": 18.56,
+"end": 18.8,
+"seg": 2
+},
+{
+"w": "in",
+"start": 18.88,
+"end": 18.92,
+"seg": 2
+},
+{
+"w": "the",
+"start": 18.96,
+"end": 19.0,
+"seg": 2
+},
+{
+"w": "morning,",
+"start": 19.04,
+"end": 19.76,
+"seg": 2
+},
+{
+"w": "north",
+"start": 19.84,
+"end": 20.08,
+"seg": 2
+},
+{
+"w": "at",
+"start": 20.16,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "noon,",
+"start": 20.32,
+"end": 20.96,
+"seg": 2
+},
+{
+"w": "east",
+"start": 21.12,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "by",
+"start": 21.36,
+"end": 21.44,
+"seg": 2
+},
+{
+"w": "evening.",
+"start": 21.6,
+"end": 22.0,
+"seg": 2
+},
+{
+"w": "Left,",
+"start": 22.4,
+"end": 22.96,
+"seg": 2
+},
+{
+"w": "top,",
+"start": 23.04,
+"end": 23.6,
+"seg": 2
+},
+{
+"w": "right.",
+"start": 23.68,
+"end": 24.08,
+"seg": 2
+},
+{
+"w": "Clockwise.",
+"start": 24.4,
+"end": 25.32,
+"seg": 2
+},
+{
+"w": "For",
+"start": 25.52,
+"end": 25.68,
+"seg": 3
+},
+{
+"w": "thousands",
+"start": 25.76,
+"end": 26.24,
+"seg": 3
+},
+{
+"w": "of",
+"start": 26.32,
+"end": 26.4,
+"seg": 3
+},
+{
+"w": "years,",
+"start": 26.48,
+"end": 26.96,
+"seg": 3
+},
+{
+"w": "sundials",
+"start": 27.04,
+"end": 27.68,
+"seg": 3
+},
+{
+"w": "were",
+"start": 27.84,
+"end": 28.08,
+"seg": 3
+},
+{
+"w": "the",
+"start": 28.12,
+"end": 28.16,
+"seg": 3
+},
+{
+"w": "clock.",
+"start": 28.24,
+"end": 28.64,
+"seg": 3
+},
+{
+"w": "So",
+"start": 29.04,
+"end": 29.12,
+"seg": 3
+},
+{
+"w": "when",
+"start": 29.2,
+"end": 29.28,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.36,
+"end": 29.44,
+"seg": 3
+},
+{
+"w": "first",
+"start": 29.56,
+"end": 29.68,
+"seg": 3
+},
+{
+"w": "mechanical",
+"start": 29.76,
+"end": 30.24,
+"seg": 3
+},
+{
+"w": "clocks",
+"start": 30.32,
+"end": 30.64,
+"seg": 3
+},
+{
+"w": "rose",
+"start": 30.76,
+"end": 30.88,
+"seg": 3
+},
+{
+"w": "in",
+"start": 30.96,
+"end": 31.04,
+"seg": 3
+},
+{
+"w": "European",
+"start": 31.28,
+"end": 31.52,
+"seg": 3
+},
+{
+"w": "towers",
+"start": 31.6,
+"end": 31.92,
+"seg": 3
+},
+{
+"w": "in",
+"start": 32.0,
+"end": 32.04,
+"seg": 3
+},
+{
+"w": "the",
+"start": 32.08,
+"end": 32.16,
+"seg": 3
+},
+{
+"w": "1300s,",
+"start": 32.24,
+"end": 33.44,
+"seg": 3
+},
+{
+"w": "their",
+"start": 33.52,
+"end": 33.6,
+"seg": 3
+},
+{
+"w": "makers",
+"start": 33.68,
+"end": 34.16,
+"seg": 3
+},
+{
+"w": "simply",
+"start": 34.28,
+"end": 34.56,
+"seg": 3
+},
+{
+"w": "copied",
+"start": 34.64,
+"end": 34.96,
+"seg": 3
+},
+{
+"w": "the",
+"start": 35.0,
+"end": 35.04,
+"seg": 3
+},
+{
+"w": "shadow.",
+"start": 35.12,
+"end": 35.76,
+"seg": 3
+},
+{
+"w": "Here's",
+"start": 36.0,
+"end": 36.24,
+"seg": 4
+},
+{
+"w": "the",
+"start": 36.28,
+"end": 36.32,
+"seg": 4
+},
+{
+"w": "twist.",
+"start": 36.4,
+"end": 36.96,
+"seg": 4
+},
+{
+"w": "Build",
+"start": 37.36,
+"end": 37.52,
+"seg": 4
+},
+{
+"w": "that",
+"start": 37.6,
+"end": 37.76,
+"seg": 4
+},
+{
+"w": "sundial",
+"start": 37.84,
+"end": 38.24,
+"seg": 4
+},
+{
+"w": "in",
+"start": 38.32,
+"end": 38.4,
+"seg": 4
+},
+{
+"w": "Australia,",
+"start": 38.76,
+"end": 39.36,
+"seg": 4
+},
+{
+"w": "and",
+"start": 39.4,
+"end": 39.44,
+"seg": 4
+},
+{
+"w": "the",
+"start": 39.52,
+"end": 39.6,
+"seg": 4
+},
+{
+"w": "shadow",
+"start": 39.68,
+"end": 40.0,
+"seg": 4
+},
+{
+"w": "turns",
+"start": 40.08,
+"end": 40.36,
+"seg": 4
+},
+{
+"w": "the",
+"start": 40.4,
+"end": 40.48,
+"seg": 4
+},
+{
+"w": "other",
+"start": 40.56,
+"end": 40.8,
+"seg": 4
+},
+{
+"w": "way.",
+"start": 40.88,
+"end": 41.12,
+"seg": 4
+},
+{
+"w": "If",
+"start": 41.6,
+"end": 41.68,
+"seg": 4
+},
+{
+"w": "clocks",
+"start": 41.76,
+"end": 42.0,
+"seg": 4
+},
+{
+"w": "had",
+"start": 42.08,
+"end": 42.16,
+"seg": 4
+},
+{
+"w": "been",
+"start": 42.2,
+"end": 42.24,
+"seg": 4
+},
+{
+"w": "invented",
+"start": 42.32,
+"end": 42.72,
+"seg": 4
+},
+{
+"w": "down",
+"start": 42.8,
+"end": 42.96,
+"seg": 4
+},
+{
+"w": "south,",
+"start": 43.12,
+"end": 43.76,
+"seg": 4
+},
+{
+"w": "clockwise",
+"start": 43.84,
+"end": 44.4,
+"seg": 4
+},
+{
+"w": "would",
+"start": 44.48,
+"end": 44.56,
+"seg": 4
+},
+{
+"w": "mean",
+"start": 44.64,
+"end": 44.72,
+"seg": 4
+},
+{
+"w": "the",
+"start": 44.76,
+"end": 44.8,
+"seg": 4
+},
+{
+"w": "opposite.",
+"start": 44.88,
+"end": 45.56,
+"seg": 4
+},
+{
+"w": "And",
+"start": 45.76,
+"end": 45.84,
+"seg": 5
+},
+{
+"w": "a",
+"start": 45.92,
+"end": 46.0,
+"seg": 5
+},
+{
+"w": "few",
+"start": 46.08,
+"end": 46.16,
+"seg": 5
+},
+{
+"w": "clocks",
+"start": 46.24,
+"end": 46.56,
+"seg": 5
+},
+{
+"w": "still",
+"start": 46.64,
+"end": 46.96,
+"seg": 5
+},
+{
+"w": "rebel.",
+"start": 47.04,
+"end": 47.52,
+"seg": 5
+},
+{
+"w": "The",
+"start": 47.84,
+"end": 47.92,
+"seg": 5
+},
+{
+"w": "clock",
+"start": 48.0,
+"end": 48.24,
+"seg": 5
+},
+{
+"w": "Paolo",
+"start": 48.32,
+"end": 48.64,
+"seg": 5
+},
+{
+"w": "Uccello",
+"start": 48.72,
+"end": 49.2,
+"seg": 5
+},
+{
+"w": "painted",
+"start": 49.24,
+"end": 49.6,
+"seg": 5
+},
+{
+"w": "for",
+"start": 49.68,
+"end": 49.76,
+"seg": 5
+},
+{
+"w": "Florence",
+"start": 49.84,
+"end": 50.16,
+"seg": 5
+},
+{
+"w": "Cathedral",
+"start": 50.2,
+"end": 50.72,
+"seg": 5
+},
+{
+"w": "in",
+"start": 50.8,
+"end": 50.88,
+"seg": 5
+},
+{
+"w": "1443",
+"start": 50.96,
+"end": 52.0,
+"seg": 5
+},
+{
+"w": "runs",
+"start": 52.32,
+"end": 52.56,
+"seg": 5
+},
+{
+"w": "backwards.",
+"start": 52.72,
+"end": 53.52,
+"seg": 5
+},
+{
+"w": "So",
+"start": 53.76,
+"end": 53.92,
+"seg": 5
+},
+{
+"w": "does",
+"start": 54.0,
+"end": 54.08,
+"seg": 5
+},
+{
+"w": "the",
+"start": 54.16,
+"end": 54.24,
+"seg": 5
+},
+{
+"w": "Hebrew",
+"start": 54.32,
+"end": 54.56,
+"seg": 5
+},
+{
+"w": "clock",
+"start": 54.64,
+"end": 54.88,
+"seg": 5
+},
+{
+"w": "on",
+"start": 54.96,
+"end": 55.04,
+"seg": 5
+},
+{
+"w": "Prague's",
+"start": 55.12,
+"end": 55.52,
+"seg": 5
+},
+{
+"w": "Jewish",
+"start": 55.56,
+"end": 55.84,
+"seg": 5
+},
+{
+"w": "Town",
+"start": 55.92,
+"end": 56.08,
+"seg": 5
+},
+{
+"w": "Hall.",
+"start": 56.16,
+"end": 56.8,
+"seg": 5
+},
+{
+"w": "So",
+"start": 56.88,
+"end": 56.96,
+"seg": 6
+},
+{
+"w": "next",
+"start": 57.08,
+"end": 57.2,
+"seg": 6
+},
+{
+"w": "time",
+"start": 57.28,
+"end": 57.36,
+"seg": 6
+},
+{
+"w": "you",
+"start": 57.44,
+"end": 57.52,
+"seg": 6
+},
+{
+"w": "check",
+"start": 57.6,
+"end": 57.68,
+"seg": 6
+},
+{
+"w": "the",
+"start": 57.76,
+"end": 57.84,
+"seg": 6
+},
+{
+"w": "time,",
+"start": 58.0,
+"end": 58.4,
+"seg": 6
+},
+{
+"w": "remember:",
+"start": 58.64,
+"end": 59.28,
+"seg": 6
+},
+{
+"w": "you're",
+"start": 59.36,
+"end": 59.6,
+"seg": 6
+},
+{
+"w": "really",
+"start": 59.8,
+"end": 60.0,
+"seg": 6
+},
+{
+"w": "reading",
+"start": 60.08,
+"end": 60.32,
+"seg": 6
+},
+{
+"w": "a",
+"start": 60.4,
+"end": 60.48,
+"seg": 6
+},
+{
+"w": "shadow.",
+"start": 60.56,
+"end": 61.52,
+"seg": 6
+},
+{
+"w": "If",
+"start": 61.6,
+"end": 61.68,
+"seg": 6
+},
+{
+"w": "you",
+"start": 61.72,
+"end": 61.76,
+"seg": 6
+},
+{
+"w": "enjoyed",
+"start": 61.84,
+"end": 62.16,
+"seg": 6
+},
+{
+"w": "this,",
+"start": 62.24,
+"end": 62.72,
+"seg": 6
+},
+{
+"w": "like",
+"start": 62.8,
+"end": 63.04,
+"seg": 6
+},
+{
+"w": "and",
+"start": 63.2,
+"end": 63.36,
+"seg": 6
+},
+{
+"w": "follow",
+"start": 63.52,
+"end": 63.68,
+"seg": 6
+},
+{
+"w": "for",
+"start": 63.72,
+"end": 63.76,
+"seg": 6
+},
+{
+"w": "more.",
+"start": 63.84,
+"end": 64.32,
+"seg": 6
+}
+],
+"voice_end": 64.287
+}
