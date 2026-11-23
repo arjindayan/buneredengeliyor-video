@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gemi seyir defteri, haki sayfa + mürekkep; yalnız Arjin paleti + beyaz. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#D2CF9A}
+  #kagit{position:absolute;inset:0;width:1080px;height:1920px}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:70px;right:70px;top:110px;font:400 54px/1.3 'Special Elite';color:#28301C;text-align:center}
+  #alt span{padding:0 6px;border-radius:4px}
+  .ka{font-family:'Kalam';font-weight:700}
+  .se{font-family:'Special Elite'}
+</style>
+</head>
+<body>
+<img id="kagit" src="img/page.jpg">
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs><g id="clips"></g></defs>
+  <g id="cizgi"></g>
+  <g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['700 60px Kalam', '400 60px "Special Elite"'];
+const INK = '#28301C', GREEN = '#323D25', GOLD = '#9A7E3B', KHAKI = '#D2CF9A', WHITE = '#FFFFFF';
+const c = cue, ac = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
+let CID = 0;
+const yazi = (txt, x, y, s, o = {}) => `<text x="${f2(x)}" y="${f2(y)}" class="${o.cls || 'ka'}" font-size="${s}" fill="${o.renk || INK}" text-anchor="${o.a || 'middle'}" letter-spacing="${o.ls || 0}" opacity="${f2(o.op ?? 1)}" ${o.rot ? `transform="rotate(${o.rot} ${x} ${y})"` : ''}>${txt}</text>`;
+const kazi = (f, f0, ic, x = 540, y = 960, d = 8) => f < f0 ? '' : `<g opacity="${f2(ac(f, f0, d * .6))}" transform="translate(${x},${y}) scale(${(1 + .05 * (1 - EASE.dolly(ac(f, f0, d)))).toFixed(3)}) translate(${-x},${-y})">${ic}</g>`;
+const kutu = (f, f0, txt, x, y, s = 64, renk = GREEN, yr = WHITE, rot = 0) => f < f0 ? '' : kazi(f, f0, `<g transform="rotate(${rot} ${x} ${y})"><rect x="${f2(x - txt.length * s * .3 - 36)}" y="${f2(y - s * .78)}" width="${f2(txt.length * s * .6 + 72)}" height="${f2(s * 1.2)}" rx="8" fill="${renk}"/>${yazi(txt, x, y + s * .12, s, { renk: yr })}</g>`, x, y);
+// bükümlü ip: altın gövde + mürekkep dash ile büküm; yol d, kalınlık w
+const ip = (d, w = 22) => `<path d="${d}" fill="none" stroke="${GOLD}" stroke-width="${w}" stroke-linecap="round"/><path d="${d}" fill="none" stroke="${INK}" stroke-width="${w * .8}" stroke-dasharray="4 ${w * .55}" opacity=".75" stroke-linecap="butt"/><path d="${d}" fill="none" stroke="${INK}" stroke-width="2.5" opacity=".6" transform="translate(0,${-w / 2 - 1})"/>`;
+const dugum = (x, y, r = 24) => `<circle cx="${f2(x)}" cy="${f2(y)}" r="${r}" fill="${GOLD}" stroke="${INK}" stroke-width="5"/><path d="M${f2(x - r * .6)} ${f2(y - r * .1)} q${r * .6} -${r * .7} ${r * 1.2} 0" fill="none" stroke="${WHITE}" stroke-width="4" opacity=".7"/>`;
+// kum saati: p = akış (0..1)
+function kumsaati(cx, cy, s, p) {
+  const id = 'ks' + (CID++), gl = 'M-60 -110 L60 -110 L8 0 L60 110 L-60 110 L-8 0Z';
+  let g = `<clipPath id="${id}"><path d="${gl}"/></clipPath>`;
+  g += `<g clip-path="url(#${id})"><rect x="-70" y="${f2(-110 + 110 * p)}" width="140" height="${f2(110 - 110 * p)}" fill="${GOLD}"/><rect x="-70" y="${f2(110 - 108 * p)}" width="140" height="${f2(108 * p + 2)}" fill="${GOLD}"/>${p > 0 && p < 1 ? `<rect x="-3" y="0" width="6" height="${f2(110 - 108 * p)}" fill="${GOLD}"/>` : ''}</g>`;
+  g += `<path d="${gl}" fill="${WHITE}" fill-opacity=".25" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/><rect x="-82" y="-124" width="164" height="18" rx="6" fill="${GREEN}"/><rect x="-82" y="106" width="164" height="18" rx="6" fill="${GREEN}"/><path d="M-70 -106 V106 M70 -106 V106" stroke="${INK}" stroke-width="5"/>`;
+  return at(cx, cy, s, g);
+}
+const dalga = (y, off, renk, op, h = 14) => { let d = `M-100 ${y}`; for (let x = -100; x <= 1180; x += 20) d += ` L${x} ${f2(y + h * sin((x + off) / 55))}`; return `<path d="${d} V1920 H-100Z" fill="${renk}" fill-opacity="${op}"/><path d="${d}" fill="none" stroke="${INK}" stroke-width="5"/>`; };
+const vaf = (txt, x, y, s = 52) => yazi(txt, x, y, s);
+
+const SAHNE = {
+  hook(f) {
+    const ft = c('hook', '47'), kn = c('hook', 'knots'), co = c('hook', 'count');
+    const u = EASE.dolly(ac(f, 2, 20)), ox = -300 * (1 - u);
+    let g = `<g transform="translate(${f2(ox)},0)">` + ip('M-60 1080 Q270 1130 540 1080 T1140 1080', 26);
+    [180, 540, 900].forEach(x => g += dugum(x, 1090 + (x === 540 ? -1 : 6), 30));
+    g += '</g>';
+    if (f >= ft) { const p = EASE.dolly(ac(f, ft, 12)); g += `<g opacity="${f2(p)}"><path d="M180 1010 V950 H540 V1010" fill="none" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>${yazi('47 ft', 360, 920, 120)}</g>`; }
+    g += kazi(f, kn, yazi('KNOTS', 540, 640, 200, { ls: 8 }), 540, 580);
+    g += kutu(f, co, 'ships still count in knots', 540, 1400, 56, GREEN, WHITE, -3);
+    return g;
+  },
+  chip(f) {
+    const to = c('chip', 'tossed'), bo = c('chip', 'board'), ro = c('chip', 'rope'), st = c('chip', 'stayed'), sa = c('chip', 'sailed'), pu = c('chip', 'pulled');
+    const WY = 1180, ship = EASE.kalem(ac(f, sa, 150)), off = ship * 900;
+    const rx = 590, ry = 1010;
+    // tahta: stern'den suya atılır, sonra yerinde kalır (gemi uzaklaşır)
+    const at0 = EASE.dolly(ac(f, to, 22)), cx = 540 - at0 * 40 - 420 * ship, cy = at0 < 1 ? ry - 40 + (WY - 10 - ry + 40) * at0 - 120 * sin(P * at0) : WY - 6 + 4 * sin(f * .2);
+    let g = dalga(WY + 30, f * 3.2, GREEN, .25) + dalga(WY + 90, f * 2 + 90, GREEN, .18, 10);
+    // gemi (sabit), kıç solda
+    g += `<path d="M520 1000 H1100 V1150 H640 Q540 1110 520 1000Z" fill="${GREEN}" stroke="${INK}" stroke-width="7"/><rect x="540" y="880" width="260" height="120" fill="${KHAKI}" stroke="${INK}" stroke-width="7"/><path d="M570 910 H770 M570 950 H770" stroke="${INK}" stroke-width="4"/><circle cx="${rx}" cy="${ry - 20}" r="26" fill="${GOLD}" stroke="${INK}" stroke-width="6"/>`;
+    g += dalga(WY + 30, f * 3.2, GREEN, 0) ;
+    if (f >= to - 4) { const sag = 40 + 30 * (1 - ship); g += ip(`M${rx} ${ry - 20} Q${f2((rx + cx) / 2)} ${f2(Math.max(ry, cy) + sag)} ${f2(cx)} ${f2(cy)}`, 14); }
+    g += `<g transform="translate(${f2(cx)},${f2(cy)})"><path d="M-48 0 H48 L0 62Z" fill="${GOLD}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/><rect x="-16" y="46" width="32" height="14" fill="${INK}"/></g>`;
+    g += kazi(f, bo, yazi('log chip', 230, 1330, 60, { rot: -4 }), 230, 1330) + kazi(f, ro, yazi('rope', 700, 840, 60, { rot: 3 }), 700, 840);
+    g += kazi(f, st, kutu(f, st, 'board stays put', 540, 1560, 58, GREEN, WHITE, -2), 540, 1560);
+    g += kazi(f, pu, `<path d="M600 1700 H1000" stroke="${INK}" stroke-width="8"/><path d="M1000 1700 l-34 -22 v44Z" fill="${INK}"/>` + yazi('ship moves away', 780, 1670, 52), 780, 1690);
+    return g;
+  },
+  glass(f) {
+    const sg = c('glass', 'sand'), ha = c('glass', 'half'), kn = c('glass', 'knots'), ev = c('glass', 'evenly'), co = c('glass', 'counted'), ou = c('glass', 'out');
+    const p = klamp((f - sg) / (ou - sg));
+    let g = kazi(f, sg, kumsaati(540, 740, 2.1, p), 540, 740) + kazi(f, ha, yazi('~ 30 sec', 540, 1110, 70), 540, 1100);
+    const v = 6, fc = co, FY = 1360;
+    // ip sola kayar; yumruk düğümleri sayar
+    let d = `M-100 ${FY} H1180`;
+    g += `<path d="${d}" stroke="${GOLD}" stroke-width="26" stroke-linecap="round"/><path d="${d}" stroke="${INK}" stroke-width="21" stroke-dasharray="4 12" opacity=".75"/>`;
+    for (let k = -3; k < 8; k++) { const x = 540 + 220 * k - v * (f - fc); if (x > -60 && x < 1140 && f >= kn - 6) g += dugum(x, FY, 30); }
+    g += `<rect x="446" y="${FY - 86}" width="188" height="172" rx="64" fill="${KHAKI}" stroke="${INK}" stroke-width="8"/><path d="M470 ${FY - 40} H610 M470 ${FY} H610 M470 ${FY + 40} H610" stroke="${INK}" stroke-width="5" opacity=".6"/>`;
+    const n = f < fc ? 0 : Math.min(7, Math.floor(v * (f - fc) / 220) + 1);
+    g += kazi(f, co - 10, yazi('KNOTS COUNTED', 540, 1580, 62, { cls: 'se' }), 540, 1570);
+    let tal = ''; for (let k = 0; k < n; k++) tal += k < 4 ? `<path d="M${330 + k * 34} 1620 v70" stroke="${INK}" stroke-width="9" stroke-linecap="round"/>` : `<path d="M${330 + (k - 4) * 34} 1700 v70" stroke="${INK}" stroke-width="9" stroke-linecap="round"/>`;
+    g += tal + yazi(String(n), 760, 1740, 170);
+    g += kazi(f, ev, yazi('evenly spaced', 540, 1180, 56, { rot: -2 }), 540, 1170);
+    return g;
+  },
+  math(f) {
+    const ga = c('math', 'gaps'), na = c('math', 'nautical'), sa = c('math', 'sand'), sp = c('math', 'speed');
+    const row = (y, ic, tx) => `<rect x="130" y="${y - 90}" width="820" height="180" rx="16" fill="${WHITE}" fill-opacity=".35" stroke="${INK}" stroke-width="6"/>${ic}${yazi(tx, 700, y + 24, 70)}`;
+    const mini = `<path d="M190 0 H310" stroke="${GOLD}" stroke-width="22" stroke-linecap="round"/>`;
+    let g = kazi(f, ga, row(760, `<path d="M180 760 H380" stroke="${GOLD}" stroke-width="22" stroke-linecap="round"/>${dugum(180, 760, 26)}${dugum(380, 760, 26)}`, '47 ft apart'), 540, 760);
+    g += kazi(f, na, row(1000, `<path d="M180 1000 H380" stroke="${GOLD}" stroke-width="10" stroke-dasharray="14 12"/><circle cx="280" cy="1000" r="46" fill="${KHAKI}" stroke="${INK}" stroke-width="6"/><path d="M280 960 V1040 M240 1000 H320" stroke="${INK}" stroke-width="5"/>`, '1 nautical mile'), 540, 1000);
+    g += kazi(f, sa, row(1240, kumsaati(280, 1240, .7, .4), '~ 30 sec glass'), 540, 1240);
+    g += kazi(f, sp, `<path d="M540 1360 V1440" stroke="${INK}" stroke-width="10"/><path d="M540 1470 l-30 -44 h60Z" fill="${INK}"/>` + kutu(f, sp, 'knots = speed in knots', 540, 1580, 66, GREEN, WHITE, -2) + yazi('(nautical miles per hour)', 540, 1690, 50, { cls: 'se' }), 540, 1560);
+    return g;
+  },
+  book(f) {
+    const ea = c('book', 'earliest'), wi = c('book', 'william'), yr = c('book', '1574'), bk = c('book', 'book');
+    let g = kazi(f, ea, `<rect x="230" y="560" width="620" height="860" rx="16" fill="${GREEN}" stroke="${INK}" stroke-width="10"/><rect x="258" y="590" width="564" height="800" rx="8" fill="none" stroke="${GOLD}" stroke-width="5"/><path d="M270 560 V1420" stroke="${INK}" stroke-width="12"/>` + yazi('A REGIMENT', 556, 760, 78, { renk: KHAKI, cls: 'se' }) + yazi('FOR THE SEA', 556, 860, 78, { renk: KHAKI, cls: 'se' }) + `<path d="M380 920 H730" stroke="${GOLD}" stroke-width="6"/>` + `<path d="M556 960 l50 90 h-100Z M556 1000 V1220 M470 1180 Q556 1280 642 1180" fill="none" stroke="${GOLD}" stroke-width="8" stroke-linejoin="round"/>`, 540, 990, 14);
+    g += kazi(f, wi, kutu(f, wi, 'William Bourne', 540, 1520, 66, GREEN, WHITE, -2), 540, 1520);
+    g += kazi(f, yr, yazi('1574', 540, 480, 190), 540, 440);
+    return g;
+  },
+  dial(f) {
+    const to = c('dial', 'today'), kn = c('dial', 'knot'), ex = c('dial', 'exactly'), km = c('dial', '1852');
+    const cx = 540, cy = 1060, R = 330, pt = (a, r) => [cx + r * cos(a), cy + r * sin(a)];
+    let g = `<path d="M${cx - R} ${cy} A${R} ${R} 0 0 1 ${cx + R} ${cy}Z" fill="${WHITE}" fill-opacity=".35" stroke="${INK}" stroke-width="9"/>`;
+    for (let k = 0; k <= 30; k++) { const a = P + P * k / 30, big = k % 5 === 0, [x1, y1] = pt(a, R - 8), [x2, y2] = pt(a, R - (big ? 50 : 28)); g += `<path d="M${f2(x1)} ${f2(y1)} L${f2(x2)} ${f2(y2)}" stroke="${INK}" stroke-width="${big ? 7 : 3}"/>`; if (big) { const [tx, ty] = pt(a, R - 90); g += yazi(String(k), tx, ty + 14, 46, { cls: 'se' }); } }
+    const sw = EASE.dolly(ac(f, kn - 4, 40)), ang = P + P * (20 / 30) * sw + (sw >= 1 ? .03 * sin(f * .3) : 0), [nx, ny] = pt(ang, R - 70);
+    g += `<path d="M${cx} ${cy} L${f2(nx)} ${f2(ny)}" stroke="${GREEN}" stroke-width="14" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="30" fill="${GOLD}" stroke="${INK}" stroke-width="7"/>`;
+    g += yazi('KNOTS', cx, cy + 130, 100, { ls: 6 });
+    g += kazi(f, to, yazi('TODAY', 540, 580, 120, { ls: 6 }), 540, 560);
+    g += kutu(f, ex, '1 knot = 1 nautical mile / hour', 540, 1420, 52, GREEN, WHITE, -2);
+    g += kutu(f, km, '= 1.852 km/h', 540, 1560, 74, GOLD, INK, 2);
+    return g;
+  },
+  never(f) {
+    const ne = c('never', 'never'), al = c('never', 'already');
+    const k = EASE.dolly(ac(f, ne + 18, 14));
+    let g = kazi(f, ne - 6, yazi('"KNOTS PER HOUR"', 540, 960, 112, { cls: 'ka' }), 540, 940);
+    if (k > 0) g += `<path d="M110 ${f2(930 + 10 * k)} L${f2(110 + 860 * k)} ${f2(930 - 40 * k + 10)}" stroke="${GREEN}" stroke-width="16" stroke-linecap="round"/>`;
+    g += kazi(f, al, kutu(f, al, 'a knot = per hour already', 540, 1260, 64, GREEN, WHITE, -2), 540, 1260);
+    return g;
+  },
+  son(f) {
+    const sa = c('son', 'sailor'), li = c('son', 'like'), fo = c('son', 'follow');
+    let g = kazi(f, c('son', 'twenty'), yazi('20 knots', 540, 600, 190), 540, 560) + kumsaati(540, 1000, 1.5, ((f - sa) / 300) % 1 * 0.9);
+    g += kutu(f, li, 'LIKE', 540, 1400, 96, GREEN, WHITE, -2) + kutu(f, fo, 'FOLLOW', 540, 1640, 96, GOLD, INK, 2);
+    return g;
+  },
+};
+const SIRA = Object.keys(SAHNE);
+const aralik = ad => { const i = SIRA.indexOf(ad), b = a => a === 'hook' ? 0 : T.seg[a].start - 10; return [b(ad), SIRA[i + 1] ? b(SIRA[i + 1]) : T.total + 30]; };
+const W = 16;
+// defter çizgileri (her sayfada sabit)
+(function () { })();
+window.renderFrame = function (f) {
+  CID = 0;
+  let cz = '';
+  for (let y = 300; y < 1920; y += 70) cz += `<path d="M0 ${y} H1080" stroke="${INK}" stroke-width="2" opacity=".14"/>`;
+  cz += `<path d="M90 0 V1920" stroke="${GOLD}" stroke-width="4" opacity=".5"/>`;
+  $('cizgi').innerHTML = cz;
+  let g = '', clip = '', ust = '';
+  SIRA.forEach((ad, i) => {
+    const [b, s] = aralik(ad);
+    if (f < b || f > s + W) return;
+    // geçiş: ip soldan sağa çekilir, arkasında yeni sayfa kalır
+    const ui = i ? EASE.dolly(klamp((f - b) / W)) : 1, uo = EASE.dolly(klamp((f - s) / W));
+    if (ui - uo <= 0) return;
+    clip += `<clipPath id="c${i}"><rect x="${f2(-60 + 1200 * uo)}" y="0" width="${f2(Math.max(0, 1200 * (ui - uo)))}" height="1920"/></clipPath>`;
+    g += `<g clip-path="url(#c${i})">${SAHNE[ad](f)}</g>`;
+    if (i && ui > 0 && ui < 1) { const x = -60 + 1200 * ui; let r = ip(`M${f2(x)} -20 V1940`, 26); for (let y = 100; y < 1920; y += 190) r += dugum(x, y, 26); ust += r; }
+  });
+  $('clips').innerHTML = clip; $('sahne').innerHTML = g; $('ust').innerHTML = ust;
+  altyazi10(f, $('alt'));
+};
+function altyazi10(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || tt > T.timing.voice_end + .3) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.4' : tt < x.end + 0.05 ? `background:${GREEN};color:${WHITE}` : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "title": "Why do ships measure speed in knots?",
+  "lang": "en",
+  "voice": "RbbSAVnSGc0BCqjPNM8i",
+  "segments": [
+    {"scene": "hook", "text": "{47|Forty-seven} feet. That's the gap between the knots on the rope sailors used to measure speed. And it's why ships still count in knots."},
+    {"scene": "chip", "text": "Here's how it worked. A sailor tossed a small wooden board, tied to a rope, off the back of the ship. The board stayed almost in place, so the ship sailed away from it and pulled the rope out."},
+    {"scene": "glass", "text": "Another sailor flipped a sand glass that ran for about half a minute. The rope had knots tied along it, evenly spaced, and he counted every knot that slipped through his hands before the sand ran out."},
+    {"scene": "math", "text": "Those gaps weren't random. They were matched to the nautical mile and to the sand glass. So the number of knots he counted was the speed in nautical miles per hour."},
+    {"scene": "book", "text": "The earliest description in print comes from William Bourne, in {1574,|fifteen seventy-four,} in a book about navigating at sea."},
+    {"scene": "dial", "text": "Today ships use electronic instruments, but the unit survived. One knot is exactly one nautical mile per hour, or {1.852|one point eight five two} kilometers per hour."},
+    {"scene": "never", "text": "And never say knots per hour. A knot already means per hour."},
+    {"scene": "son", "text": "So next time you hear twenty knots, picture a sailor, a sand glass, and a rope full of knots. If you enjoyed this, like and follow for more."}
+  ]
+}
