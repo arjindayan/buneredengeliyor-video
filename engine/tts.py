@@ -128,7 +128,7 @@ def main():
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", mp3, os.path.join(topic, "voice.mp3")], check=True)
         dur = duration(os.path.join(topic, "voice.mp3")) + 0.6
     else:
-        voice = os.environ.get("ELEVENLABS_VOICE_ID", "uKigJX6jL7ZlAQRJHPGO")  # Arjin'in klonu
+        voice = s.get("voice") or os.environ.get("ELEVENLABS_VOICE_ID", "uKigJX6jL7ZlAQRJHPGO")  # varsayılan: Arjin'in klonu
         r = post(f"/text-to-speech/{voice}/with-timestamps?output_format=mp3_44100_128",
                  {"text": text, "model_id": s.get("model") or os.environ.get("ELEVENLABS_MODEL", "eleven_v4")})
         open(os.path.join(topic, "voice.mp3"), "wb").write(base64.b64decode(r["audio_base64"]))

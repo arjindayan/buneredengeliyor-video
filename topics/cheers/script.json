@@ -1,0 +1,14 @@
+{
+  "title": "Why do we clink glasses?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "You've heard that we clink glasses to slosh our drinks together and prove there's no poison. Nice story. Zero evidence."},
+    {"scene": "physics", "text": "Try it. A polite clink doesn't swap a single drop. And historians have never found an old source for the poison tale."},
+    {"scene": "toast", "text": "But the word toast? That part is real. In the {1600s,|sixteen hundreds,} people dropped a piece of spiced toasted bread into their wine or ale, for flavor."},
+    {"scene": "lady", "text": "Soon the person you drank to was called the toast, as if they flavored the drink. That's where the toast of the town comes from."},
+    {"scene": "senses", "text": "So why the clink? Nobody knows for sure. The favorite theory: a drink already pleases your eyes, your nose, your tongue and your hand. The clink adds your ears. All five senses."},
+    {"scene": "table", "text": "Or maybe it's simpler. Glasses touching is the closest a whole table can get to a group hug."},
+    {"scene": "son", "text": "So next time someone tells you the poison story, clink their glass, and tell them the real one."}
+  ]
+}

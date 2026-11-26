@@ -1,0 +1,917 @@
+{
+"duration": 53.838,
+"words": [
+{
+"w": "The",
+"start": 0.0,
+"end": 0.16,
+"seg": 0
+},
+{
+"w": "sky",
+"start": 0.32,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "is",
+"start": 0.56,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "blue",
+"start": 0.72,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "because",
+"start": 1.2,
+"end": 1.44,
+"seg": 0
+},
+{
+"w": "it",
+"start": 1.48,
+"end": 1.52,
+"seg": 0
+},
+{
+"w": "reflects",
+"start": 1.6,
+"end": 2.0,
+"seg": 0
+},
+{
+"w": "the",
+"start": 2.04,
+"end": 2.08,
+"seg": 0
+},
+{
+"w": "ocean.",
+"start": 2.16,
+"end": 2.64,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.12,
+"end": 3.6,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.68,
+"end": 3.92,
+"seg": 0
+},
+{
+"w": "not",
+"start": 4.0,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 4.28,
+"end": 4.72,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.88,
+"end": 5.2,
+"seg": 0
+},
+{
+"w": "The",
+"start": 5.52,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "ocean",
+"start": 5.68,
+"end": 5.92,
+"seg": 0
+},
+{
+"w": "has",
+"start": 6.0,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "nothing",
+"start": 6.32,
+"end": 6.56,
+"seg": 0
+},
+{
+"w": "to",
+"start": 6.64,
+"end": 6.72,
+"seg": 0
+},
+{
+"w": "do",
+"start": 6.76,
+"end": 6.8,
+"seg": 0
+},
+{
+"w": "with",
+"start": 6.88,
+"end": 6.96,
+"seg": 0
+},
+{
+"w": "it.",
+"start": 7.04,
+"end": 7.48,
+"seg": 0
+},
+{
+"w": "Sunlight",
+"start": 7.76,
+"end": 8.16,
+"seg": 1
+},
+{
+"w": "looks",
+"start": 8.32,
+"end": 8.56,
+"seg": 1
+},
+{
+"w": "white,",
+"start": 8.64,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "but",
+"start": 9.16,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "it's",
+"start": 9.24,
+"end": 9.36,
+"seg": 1
+},
+{
+"w": "actually",
+"start": 9.44,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "every",
+"start": 10.0,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "color",
+"start": 10.4,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "mixed",
+"start": 10.72,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "together.",
+"start": 11.04,
+"end": 11.68,
+"seg": 1
+},
+{
+"w": "Red,",
+"start": 11.92,
+"end": 12.32,
+"seg": 1
+},
+{
+"w": "orange,",
+"start": 12.56,
+"end": 13.2,
+"seg": 1
+},
+{
+"w": "yellow,",
+"start": 13.4,
+"end": 13.84,
+"seg": 1
+},
+{
+"w": "green,",
+"start": 14.04,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "blue",
+"start": 14.64,
+"end": 14.8,
+"seg": 1
+},
+{
+"w": "and",
+"start": 14.96,
+"end": 15.04,
+"seg": 1
+},
+{
+"w": "violet.",
+"start": 15.12,
+"end": 15.8,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 16.0,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "the",
+"start": 16.32,
+"end": 16.4,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 16.48,
+"end": 16.8,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 16.88,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "When",
+"start": 17.52,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "sunlight",
+"start": 17.76,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "hits",
+"start": 18.24,
+"end": 18.48,
+"seg": 2
+},
+{
+"w": "the",
+"start": 18.56,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "tiny",
+"start": 18.8,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "gas",
+"start": 19.04,
+"end": 19.28,
+"seg": 2
+},
+{
+"w": "molecules",
+"start": 19.36,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "in",
+"start": 19.88,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "our",
+"start": 20.0,
+"end": 20.08,
+"seg": 2
+},
+{
+"w": "air,",
+"start": 20.16,
+"end": 20.72,
+"seg": 2
+},
+{
+"w": "blue",
+"start": 20.8,
+"end": 21.04,
+"seg": 2
+},
+{
+"w": "light",
+"start": 21.12,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "bounces",
+"start": 21.36,
+"end": 21.68,
+"seg": 2
+},
+{
+"w": "around",
+"start": 21.76,
+"end": 22.16,
+"seg": 2
+},
+{
+"w": "way",
+"start": 22.32,
+"end": 22.56,
+"seg": 2
+},
+{
+"w": "more",
+"start": 22.64,
+"end": 22.72,
+"seg": 2
+},
+{
+"w": "than",
+"start": 22.8,
+"end": 22.96,
+"seg": 2
+},
+{
+"w": "red.",
+"start": 23.04,
+"end": 23.68,
+"seg": 2
+},
+{
+"w": "So",
+"start": 23.8,
+"end": 23.92,
+"seg": 2
+},
+{
+"w": "blue",
+"start": 24.08,
+"end": 24.32,
+"seg": 2
+},
+{
+"w": "gets",
+"start": 24.4,
+"end": 24.56,
+"seg": 2
+},
+{
+"w": "scattered",
+"start": 24.64,
+"end": 25.04,
+"seg": 2
+},
+{
+"w": "all",
+"start": 25.16,
+"end": 25.28,
+"seg": 2
+},
+{
+"w": "over",
+"start": 25.36,
+"end": 25.52,
+"seg": 2
+},
+{
+"w": "the",
+"start": 25.56,
+"end": 25.6,
+"seg": 2
+},
+{
+"w": "sky.",
+"start": 25.68,
+"end": 26.4,
+"seg": 2
+},
+{
+"w": "In",
+"start": 26.48,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "fact,",
+"start": 26.64,
+"end": 27.12,
+"seg": 3
+},
+{
+"w": "violet",
+"start": 27.28,
+"end": 27.68,
+"seg": 3
+},
+{
+"w": "scatters",
+"start": 27.76,
+"end": 28.16,
+"seg": 3
+},
+{
+"w": "even",
+"start": 28.28,
+"end": 28.4,
+"seg": 3
+},
+{
+"w": "more.",
+"start": 28.48,
+"end": 29.2,
+"seg": 3
+},
+{
+"w": "But",
+"start": 29.24,
+"end": 29.28,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.36,
+"end": 29.44,
+"seg": 3
+},
+{
+"w": "sun",
+"start": 29.52,
+"end": 29.76,
+"seg": 3
+},
+{
+"w": "sends",
+"start": 29.84,
+"end": 30.08,
+"seg": 3
+},
+{
+"w": "us",
+"start": 30.16,
+"end": 30.24,
+"seg": 3
+},
+{
+"w": "less",
+"start": 30.32,
+"end": 30.48,
+"seg": 3
+},
+{
+"w": "of",
+"start": 30.56,
+"end": 30.64,
+"seg": 3
+},
+{
+"w": "it,",
+"start": 30.72,
+"end": 30.96,
+"seg": 3
+},
+{
+"w": "and",
+"start": 31.0,
+"end": 31.04,
+"seg": 3
+},
+{
+"w": "our",
+"start": 31.12,
+"end": 31.2,
+"seg": 3
+},
+{
+"w": "eyes",
+"start": 31.28,
+"end": 31.52,
+"seg": 3
+},
+{
+"w": "are",
+"start": 31.6,
+"end": 31.68,
+"seg": 3
+},
+{
+"w": "better",
+"start": 31.8,
+"end": 31.92,
+"seg": 3
+},
+{
+"w": "at",
+"start": 32.0,
+"end": 32.08,
+"seg": 3
+},
+{
+"w": "seeing",
+"start": 32.16,
+"end": 32.32,
+"seg": 3
+},
+{
+"w": "blue.",
+"start": 32.4,
+"end": 33.12,
+"seg": 3
+},
+{
+"w": "At",
+"start": 33.2,
+"end": 33.28,
+"seg": 4
+},
+{
+"w": "sunset,",
+"start": 33.36,
+"end": 34.08,
+"seg": 4
+},
+{
+"w": "light",
+"start": 34.16,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "has",
+"start": 34.4,
+"end": 34.48,
+"seg": 4
+},
+{
+"w": "to",
+"start": 34.56,
+"end": 34.64,
+"seg": 4
+},
+{
+"w": "travel",
+"start": 34.72,
+"end": 34.96,
+"seg": 4
+},
+{
+"w": "through",
+"start": 35.04,
+"end": 35.36,
+"seg": 4
+},
+{
+"w": "much",
+"start": 35.48,
+"end": 35.6,
+"seg": 4
+},
+{
+"w": "more",
+"start": 35.68,
+"end": 35.84,
+"seg": 4
+},
+{
+"w": "air",
+"start": 35.92,
+"end": 36.16,
+"seg": 4
+},
+{
+"w": "to",
+"start": 36.24,
+"end": 36.32,
+"seg": 4
+},
+{
+"w": "reach",
+"start": 36.44,
+"end": 36.56,
+"seg": 4
+},
+{
+"w": "you.",
+"start": 36.64,
+"end": 37.12,
+"seg": 4
+},
+{
+"w": "Most",
+"start": 37.2,
+"end": 37.36,
+"seg": 4
+},
+{
+"w": "of",
+"start": 37.44,
+"end": 37.52,
+"seg": 4
+},
+{
+"w": "the",
+"start": 37.547,
+"end": 37.573,
+"seg": 4
+},
+{
+"w": "blue",
+"start": 37.6,
+"end": 37.84,
+"seg": 4
+},
+{
+"w": "gets",
+"start": 37.92,
+"end": 38.08,
+"seg": 4
+},
+{
+"w": "scattered",
+"start": 38.12,
+"end": 38.4,
+"seg": 4
+},
+{
+"w": "away,",
+"start": 38.48,
+"end": 38.96,
+"seg": 4
+},
+{
+"w": "and",
+"start": 39.04,
+"end": 39.12,
+"seg": 4
+},
+{
+"w": "only",
+"start": 39.2,
+"end": 39.36,
+"seg": 4
+},
+{
+"w": "the",
+"start": 39.4,
+"end": 39.44,
+"seg": 4
+},
+{
+"w": "reds",
+"start": 39.6,
+"end": 39.84,
+"seg": 4
+},
+{
+"w": "and",
+"start": 39.92,
+"end": 40.0,
+"seg": 4
+},
+{
+"w": "oranges",
+"start": 40.08,
+"end": 40.48,
+"seg": 4
+},
+{
+"w": "make",
+"start": 40.56,
+"end": 40.64,
+"seg": 4
+},
+{
+"w": "it",
+"start": 40.72,
+"end": 40.8,
+"seg": 4
+},
+{
+"w": "through.",
+"start": 40.88,
+"end": 41.52,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 41.6,
+"end": 41.84,
+"seg": 5
+},
+{
+"w": "not",
+"start": 41.92,
+"end": 42.0,
+"seg": 5
+},
+{
+"w": "all.",
+"start": 42.08,
+"end": 42.64,
+"seg": 5
+},
+{
+"w": "On",
+"start": 42.72,
+"end": 42.8,
+"seg": 5
+},
+{
+"w": "Mars,",
+"start": 42.88,
+"end": 43.44,
+"seg": 5
+},
+{
+"w": "it's",
+"start": 43.48,
+"end": 43.6,
+"seg": 5
+},
+{
+"w": "the",
+"start": 43.68,
+"end": 43.76,
+"seg": 5
+},
+{
+"w": "opposite.",
+"start": 43.84,
+"end": 44.64,
+"seg": 5
+},
+{
+"w": "The",
+"start": 44.72,
+"end": 44.8,
+"seg": 5
+},
+{
+"w": "daytime",
+"start": 44.92,
+"end": 45.28,
+"seg": 5
+},
+{
+"w": "sky",
+"start": 45.36,
+"end": 45.68,
+"seg": 5
+},
+{
+"w": "is",
+"start": 45.76,
+"end": 45.92,
+"seg": 5
+},
+{
+"w": "butterscotch,",
+"start": 46.0,
+"end": 46.8,
+"seg": 5
+},
+{
+"w": "and",
+"start": 46.92,
+"end": 47.04,
+"seg": 5
+},
+{
+"w": "sunsets",
+"start": 47.16,
+"end": 47.6,
+"seg": 5
+},
+{
+"w": "are",
+"start": 47.68,
+"end": 47.76,
+"seg": 5
+},
+{
+"w": "blue.",
+"start": 47.92,
+"end": 48.48,
+"seg": 5
+},
+{
+"w": "So",
+"start": 48.56,
+"end": 48.64,
+"seg": 6
+},
+{
+"w": "the",
+"start": 48.693,
+"end": 48.747,
+"seg": 6
+},
+{
+"w": "sky",
+"start": 48.8,
+"end": 49.12,
+"seg": 6
+},
+{
+"w": "isn't",
+"start": 49.2,
+"end": 49.36,
+"seg": 6
+},
+{
+"w": "reflecting",
+"start": 49.56,
+"end": 49.84,
+"seg": 6
+},
+{
+"w": "the",
+"start": 49.92,
+"end": 50.0,
+"seg": 6
+},
+{
+"w": "ocean.",
+"start": 50.04,
+"end": 50.72,
+"seg": 6
+},
+{
+"w": "It's",
+"start": 50.76,
+"end": 50.96,
+"seg": 6
+},
+{
+"w": "sunlight",
+"start": 51.08,
+"end": 51.52,
+"seg": 6
+},
+{
+"w": "bouncing",
+"start": 51.627,
+"end": 51.84,
+"seg": 6
+},
+{
+"w": "off",
+"start": 51.92,
+"end": 52.08,
+"seg": 6
+},
+{
+"w": "the",
+"start": 52.16,
+"end": 52.24,
+"seg": 6
+},
+{
+"w": "air",
+"start": 52.32,
+"end": 52.4,
+"seg": 6
+},
+{
+"w": "around",
+"start": 52.48,
+"end": 52.8,
+"seg": 6
+},
+{
+"w": "you.",
+"start": 52.88,
+"end": 53.28,
+"seg": 6
+}
+]
+}

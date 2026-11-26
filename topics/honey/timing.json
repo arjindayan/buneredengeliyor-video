@@ -1,0 +1,851 @@
+{
+"duration": 48.718,
+"words": [
+{
+"w": "Honey",
+"start": 0.0,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "never",
+"start": 0.48,
+"end": 0.72,
+"seg": 0
+},
+{
+"w": "goes",
+"start": 0.8,
+"end": 1.04,
+"seg": 0
+},
+{
+"w": "bad.",
+"start": 1.12,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 1.92,
+"end": 2.4,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 2.48,
+"end": 2.8,
+"seg": 0
+},
+{
+"w": "almost",
+"start": 2.88,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 3.44,
+"end": 3.84,
+"seg": 0
+},
+{
+"w": "Sealed",
+"start": 4.08,
+"end": 4.4,
+"seg": 0
+},
+{
+"w": "honey",
+"start": 4.48,
+"end": 4.72,
+"seg": 0
+},
+{
+"w": "can",
+"start": 4.8,
+"end": 4.88,
+"seg": 0
+},
+{
+"w": "last",
+"start": 5.0,
+"end": 5.12,
+"seg": 0
+},
+{
+"w": "for",
+"start": 5.2,
+"end": 5.44,
+"seg": 0
+},
+{
+"w": "thousands",
+"start": 5.52,
+"end": 5.92,
+"seg": 0
+},
+{
+"w": "of",
+"start": 5.96,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "years,",
+"start": 6.08,
+"end": 6.8,
+"seg": 0
+},
+{
+"w": "but",
+"start": 6.88,
+"end": 6.96,
+"seg": 0
+},
+{
+"w": "there's",
+"start": 7.0,
+"end": 7.28,
+"seg": 0
+},
+{
+"w": "one",
+"start": 7.36,
+"end": 7.52,
+"seg": 0
+},
+{
+"w": "way",
+"start": 7.6,
+"end": 7.76,
+"seg": 0
+},
+{
+"w": "to",
+"start": 7.84,
+"end": 7.92,
+"seg": 0
+},
+{
+"w": "ruin",
+"start": 8.0,
+"end": 8.16,
+"seg": 0
+},
+{
+"w": "it.",
+"start": 8.24,
+"end": 8.72,
+"seg": 0
+},
+{
+"w": "Honey",
+"start": 8.8,
+"end": 9.04,
+"seg": 1
+},
+{
+"w": "is",
+"start": 9.16,
+"end": 9.28,
+"seg": 1
+},
+{
+"w": "mostly",
+"start": 9.48,
+"end": 9.68,
+"seg": 1
+},
+{
+"w": "sugar",
+"start": 9.84,
+"end": 10.16,
+"seg": 1
+},
+{
+"w": "and",
+"start": 10.28,
+"end": 10.4,
+"seg": 1
+},
+{
+"w": "very",
+"start": 10.48,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "little",
+"start": 10.8,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "water.",
+"start": 11.04,
+"end": 11.76,
+"seg": 1
+},
+{
+"w": "Germs",
+"start": 11.84,
+"end": 12.24,
+"seg": 1
+},
+{
+"w": "need",
+"start": 12.36,
+"end": 12.48,
+"seg": 1
+},
+{
+"w": "water",
+"start": 12.64,
+"end": 12.8,
+"seg": 1
+},
+{
+"w": "to",
+"start": 12.88,
+"end": 12.96,
+"seg": 1
+},
+{
+"w": "survive,",
+"start": 13.04,
+"end": 13.68,
+"seg": 1
+},
+{
+"w": "so",
+"start": 13.76,
+"end": 13.92,
+"seg": 1
+},
+{
+"w": "honey",
+"start": 13.96,
+"end": 14.24,
+"seg": 1
+},
+{
+"w": "actually",
+"start": 14.32,
+"end": 14.72,
+"seg": 1
+},
+{
+"w": "pulls",
+"start": 14.8,
+"end": 15.04,
+"seg": 1
+},
+{
+"w": "the",
+"start": 15.12,
+"end": 15.2,
+"seg": 1
+},
+{
+"w": "water",
+"start": 15.4,
+"end": 15.6,
+"seg": 1
+},
+{
+"w": "right",
+"start": 15.72,
+"end": 15.84,
+"seg": 1
+},
+{
+"w": "out",
+"start": 15.92,
+"end": 16.0,
+"seg": 1
+},
+{
+"w": "of",
+"start": 16.04,
+"end": 16.08,
+"seg": 1
+},
+{
+"w": "them.",
+"start": 16.16,
+"end": 16.693,
+"seg": 1
+},
+{
+"w": "In",
+"start": 16.747,
+"end": 16.8,
+"seg": 2
+},
+{
+"w": "fact,",
+"start": 16.96,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "honey",
+"start": 17.4,
+"end": 17.6,
+"seg": 2
+},
+{
+"w": "is",
+"start": 17.72,
+"end": 17.84,
+"seg": 2
+},
+{
+"w": "also",
+"start": 18.0,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "acidic,",
+"start": 18.36,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "about",
+"start": 19.08,
+"end": 19.2,
+"seg": 2
+},
+{
+"w": "as",
+"start": 19.28,
+"end": 19.36,
+"seg": 2
+},
+{
+"w": "sour",
+"start": 19.4,
+"end": 19.68,
+"seg": 2
+},
+{
+"w": "as",
+"start": 19.76,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "orange",
+"start": 19.92,
+"end": 20.16,
+"seg": 2
+},
+{
+"w": "juice.",
+"start": 20.24,
+"end": 20.96,
+"seg": 2
+},
+{
+"w": "Most",
+"start": 21.08,
+"end": 21.2,
+"seg": 2
+},
+{
+"w": "bacteria",
+"start": 21.413,
+"end": 21.84,
+"seg": 2
+},
+{
+"w": "simply",
+"start": 21.96,
+"end": 22.32,
+"seg": 2
+},
+{
+"w": "can't",
+"start": 22.4,
+"end": 22.64,
+"seg": 2
+},
+{
+"w": "live",
+"start": 22.72,
+"end": 22.8,
+"seg": 2
+},
+{
+"w": "there.",
+"start": 22.92,
+"end": 23.52,
+"seg": 2
+},
+{
+"w": "Here's",
+"start": 23.6,
+"end": 23.76,
+"seg": 3
+},
+{
+"w": "the",
+"start": 23.84,
+"end": 24.0,
+"seg": 3
+},
+{
+"w": "wild",
+"start": 24.08,
+"end": 24.4,
+"seg": 3
+},
+{
+"w": "part.",
+"start": 24.52,
+"end": 25.04,
+"seg": 3
+},
+{
+"w": "Bees",
+"start": 25.12,
+"end": 25.44,
+"seg": 3
+},
+{
+"w": "add",
+"start": 25.52,
+"end": 25.6,
+"seg": 3
+},
+{
+"w": "an",
+"start": 25.68,
+"end": 25.76,
+"seg": 3
+},
+{
+"w": "enzyme",
+"start": 25.84,
+"end": 26.32,
+"seg": 3
+},
+{
+"w": "that",
+"start": 26.44,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "slowly",
+"start": 26.72,
+"end": 27.04,
+"seg": 3
+},
+{
+"w": "makes",
+"start": 27.16,
+"end": 27.28,
+"seg": 3
+},
+{
+"w": "hydrogen",
+"start": 27.36,
+"end": 27.76,
+"seg": 3
+},
+{
+"w": "peroxide.",
+"start": 27.84,
+"end": 28.88,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 28.96,
+"end": 29.08,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.12,
+"end": 29.28,
+"seg": 3
+},
+{
+"w": "same",
+"start": 29.4,
+"end": 29.52,
+"seg": 3
+},
+{
+"w": "stuff",
+"start": 29.6,
+"end": 29.92,
+"seg": 3
+},
+{
+"w": "used",
+"start": 30.0,
+"end": 30.08,
+"seg": 3
+},
+{
+"w": "to",
+"start": 30.16,
+"end": 30.24,
+"seg": 3
+},
+{
+"w": "clean",
+"start": 30.36,
+"end": 30.48,
+"seg": 3
+},
+{
+"w": "cuts.",
+"start": 30.56,
+"end": 31.28,
+"seg": 3
+},
+{
+"w": "And",
+"start": 31.32,
+"end": 31.36,
+"seg": 4
+},
+{
+"w": "if",
+"start": 31.44,
+"end": 31.52,
+"seg": 4
+},
+{
+"w": "your",
+"start": 31.6,
+"end": 31.68,
+"seg": 4
+},
+{
+"w": "honey",
+"start": 31.72,
+"end": 31.92,
+"seg": 4
+},
+{
+"w": "turns",
+"start": 32.08,
+"end": 32.28,
+"seg": 4
+},
+{
+"w": "hard",
+"start": 32.32,
+"end": 32.56,
+"seg": 4
+},
+{
+"w": "and",
+"start": 32.64,
+"end": 32.72,
+"seg": 4
+},
+{
+"w": "cloudy,",
+"start": 32.88,
+"end": 33.36,
+"seg": 4
+},
+{
+"w": "it",
+"start": 33.44,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "hasn't",
+"start": 33.6,
+"end": 33.84,
+"seg": 4
+},
+{
+"w": "spoiled.",
+"start": 33.96,
+"end": 34.56,
+"seg": 4
+},
+{
+"w": "It",
+"start": 34.6,
+"end": 34.64,
+"seg": 4
+},
+{
+"w": "just",
+"start": 34.72,
+"end": 34.88,
+"seg": 4
+},
+{
+"w": "crystallized.",
+"start": 34.92,
+"end": 35.92,
+"seg": 4
+},
+{
+"w": "Warm",
+"start": 36.0,
+"end": 36.24,
+"seg": 4
+},
+{
+"w": "the",
+"start": 36.28,
+"end": 36.32,
+"seg": 4
+},
+{
+"w": "jar",
+"start": 36.4,
+"end": 36.64,
+"seg": 4
+},
+{
+"w": "gently",
+"start": 36.68,
+"end": 37.12,
+"seg": 4
+},
+{
+"w": "and",
+"start": 37.16,
+"end": 37.2,
+"seg": 4
+},
+{
+"w": "it",
+"start": 37.28,
+"end": 37.36,
+"seg": 4
+},
+{
+"w": "turns",
+"start": 37.48,
+"end": 37.64,
+"seg": 4
+},
+{
+"w": "liquid",
+"start": 37.68,
+"end": 37.92,
+"seg": 4
+},
+{
+"w": "again.",
+"start": 38.08,
+"end": 38.72,
+"seg": 4
+},
+{
+"w": "The",
+"start": 38.8,
+"end": 38.88,
+"seg": 5
+},
+{
+"w": "one",
+"start": 38.96,
+"end": 39.04,
+"seg": 5
+},
+{
+"w": "way",
+"start": 39.12,
+"end": 39.2,
+"seg": 5
+},
+{
+"w": "to",
+"start": 39.28,
+"end": 39.36,
+"seg": 5
+},
+{
+"w": "ruin",
+"start": 39.4,
+"end": 39.52,
+"seg": 5
+},
+{
+"w": "it?",
+"start": 39.6,
+"end": 40.08,
+"seg": 5
+},
+{
+"w": "Add",
+"start": 40.24,
+"end": 40.4,
+"seg": 5
+},
+{
+"w": "water.",
+"start": 40.56,
+"end": 41.28,
+"seg": 5
+},
+{
+"w": "Leave",
+"start": 41.4,
+"end": 41.52,
+"seg": 5
+},
+{
+"w": "the",
+"start": 41.6,
+"end": 41.68,
+"seg": 5
+},
+{
+"w": "lid",
+"start": 41.76,
+"end": 41.84,
+"seg": 5
+},
+{
+"w": "open",
+"start": 41.92,
+"end": 42.16,
+"seg": 5
+},
+{
+"w": "in",
+"start": 42.24,
+"end": 42.28,
+"seg": 5
+},
+{
+"w": "a",
+"start": 42.32,
+"end": 42.4,
+"seg": 5
+},
+{
+"w": "humid",
+"start": 42.48,
+"end": 42.72,
+"seg": 5
+},
+{
+"w": "kitchen,",
+"start": 42.8,
+"end": 43.28,
+"seg": 5
+},
+{
+"w": "and",
+"start": 43.36,
+"end": 43.44,
+"seg": 5
+},
+{
+"w": "honey",
+"start": 43.48,
+"end": 43.76,
+"seg": 5
+},
+{
+"w": "can",
+"start": 43.84,
+"end": 43.92,
+"seg": 5
+},
+{
+"w": "start",
+"start": 44.04,
+"end": 44.16,
+"seg": 5
+},
+{
+"w": "to",
+"start": 44.24,
+"end": 44.32,
+"seg": 5
+},
+{
+"w": "ferment.",
+"start": 44.4,
+"end": 45.2,
+"seg": 5
+},
+{
+"w": "So",
+"start": 45.36,
+"end": 45.52,
+"seg": 6
+},
+{
+"w": "keep",
+"start": 45.6,
+"end": 45.76,
+"seg": 6
+},
+{
+"w": "the",
+"start": 45.8,
+"end": 45.84,
+"seg": 6
+},
+{
+"w": "lid",
+"start": 45.92,
+"end": 46.0,
+"seg": 6
+},
+{
+"w": "on,",
+"start": 46.08,
+"end": 46.533,
+"seg": 6
+},
+{
+"w": "and",
+"start": 46.587,
+"end": 46.64,
+"seg": 6
+},
+{
+"w": "your",
+"start": 46.72,
+"end": 46.8,
+"seg": 6
+},
+{
+"w": "honey",
+"start": 46.84,
+"end": 47.12,
+"seg": 6
+},
+{
+"w": "might",
+"start": 47.2,
+"end": 47.36,
+"seg": 6
+},
+{
+"w": "outlive",
+"start": 47.48,
+"end": 47.76,
+"seg": 6
+},
+{
+"w": "you.",
+"start": 47.84,
+"end": 48.16,
+"seg": 6
+}
+]
+}

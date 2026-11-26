@@ -1,0 +1,16 @@
+{
+  "title": "The barber pole is an ad for bloodletting",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "The red and white barber pole is really an ad for bloodletting. And once you know the story, you can't unsee it."},
+    {"scene": "surgeon", "text": "For centuries in Europe, your barber didn't just cut hair. Barbers pulled teeth, set bones, and drained blood."},
+    {"scene": "theory", "text": "Doctors believed sickness came from too much blood. So the cure was to let some out."},
+    {"scene": "staff", "text": "The patient squeezed a wooden staff to make the veins pop. That staff became the pole."},
+    {"scene": "colors", "text": "Red for the blood. White for the bandages. The story goes that they were washed and hung outside to dry, twisting around the pole in the wind."},
+    {"scene": "basin", "text": "Older poles even had a brass basin on top. That's where the blood went."},
+    {"scene": "split", "text": "In {1745,|seventeen forty five,} British surgeons finally split from the barbers and started their own company. But the barbers kept the pole."},
+    {"scene": "blue", "text": "And the blue stripe in America? Most likely just a nod to the flag."},
+    {"scene": "son", "text": "So next time you get a haircut, be glad that's all you're getting."}
+  ]
+}

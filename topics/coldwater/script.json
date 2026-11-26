@@ -1,0 +1,14 @@
+{
+  "title": "Why does cold water taste sweet on a hot day?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Why does ice cold water taste almost sweet on a hot day? There's no sugar in it. So what's going on?"},
+    {"scene": "twist", "text": "Here's the twist. Cold actually makes things taste less sweet."},
+    {"scene": "sensor", "text": "Your sweet sensor is a tiny channel called {TRPM5.|T R P M five.} It fires harder when it's warm, and slows down when it's cold. That's why melted ice cream tastes way too sweet."},
+    {"scene": "pleasure", "text": "So the sweetness is in your brain. In {1971,|nineteen seventy one,} a scientist named Michel Cabanac showed that the same feeling can be lovely or awful, depending on what your body needs. Overheated? Cold feels amazing."},
+    {"scene": "thirst", "text": "Here's the wild part. Water takes tens of minutes to reach your blood. But your brain doesn't wait. Sensors in your mouth switch off your thirst neurons almost instantly."},
+    {"scene": "mice", "text": "In mice, cold water did it with fewer sips."},
+    {"scene": "son", "text": "So that sweet sip isn't sugar. It's your brain saying thank you."}
+  ]
+}

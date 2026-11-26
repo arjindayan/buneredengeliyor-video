@@ -1,0 +1,12 @@
+# Stil kartı: mayday (ozansihay-motion)
+- Tez: "Mayday" Fransızca "m'aider" (yardım edin), 1923'te Croydon'da bir telsiz memuru seçti.
+- Yöntem: Sözcüğü olay yap + yol ve mekân (Londra–Paris rotası, biplan).
+- Malzeme: saf vektör, 1920'ler Art Deco havayolu afişi (çift altın çerçeve, köşe basamakları, aşağıdan yelpaze ışınları).
+- Kadraj: afiş düzeni, ortalı dev tipografi; harita sahnesinde çapraz rota.
+- Zaman: 30 fps; öğeler yatay deco kaymasıyla girer (9 kare dolly); sahne geçişi = sert kesme + 6 karelik telsiz paraziti (yatay şeritler, kadraj sarsıntısı).
+- Font: Limelight (deco manşet), Josefin Sans 700 (altyazı + etiket). İlk kez kullanıldı.
+- Palet: gece laciverti #14213D, krem #F2E8CF, sinyal turuncusu #E86A33, gök mavisi #6BA3BE, deco altın #D9B44A.
+- İmza öğe: telsiz halkaları; her kelimede alttaki antenden yayılır, "Mayday" kelimelerinde turuncu.
+- Altyazı: krem, kontur yok; söylenen kelime turuncu kutuda lacivert.
+- Ses: Arjin klon sesi (eleven_v4) + bgpad -26 dB; kapanışta LIKE/FOLLOW biniş kartları.
+- Kullanılmayanlar: maskot, kil/yaldız dokusu (önceki iki video), sarı karaoke, gradyan parıltı.

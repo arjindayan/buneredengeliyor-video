@@ -1,0 +1,14 @@
+{
+  "title": "Where does emoji come from?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Emoji comes from the word emotion. Nope. That's a total coincidence."},
+    {"scene": "jp", "text": "Emoji is Japanese. E means picture, and moji means character. Picture character."},
+    {"scene": "kurita", "text": "In {1999,|nineteen ninety nine,} a designer named Shigetaka Kurita drew a famous early set for Japanese phones. {176|One hundred seventy six} tiny icons, each just twelve by twelve pixels."},
+    {"scene": "emoticon", "text": "Here's the wild part. The word you're thinking of is emoticon, the sideways smiley. That one really is emotion plus icon. Emoji just sounds the same."},
+    {"scene": "moma", "text": "In fact, Kurita's tiny icons are now in the Museum of Modern Art in New York."},
+    {"scene": "word", "text": "And in {2015,|twenty fifteen,} Oxford's word of the year wasn't even a word. It was the face with tears of joy."},
+    {"scene": "son", "text": "So emoji has nothing to do with emotion. Funny, because now it's how we show all of them."}
+  ]
+}

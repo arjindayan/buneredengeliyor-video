@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: tropik meyve tezgâhı. Muz sarısı + derin yeşil + mercan; Fredoka etiketler, Patrick Hand altyazı. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0F3B2E}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 90px/1.08 'Patrick Hand';color:#FFF6D6;text-shadow:0 5px 0 rgba(5,30,22,.6)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".55" r=".75"><stop offset="0" stop-color="#2F7A55"/><stop offset=".6" stop-color="#174D39"/><stop offset="1" stop-color="#0B2E23"/></radialGradient>
+    <linearGradient id="kabuk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE873"/><stop offset=".55" stop-color="#FFD23F"/><stop offset="1" stop-color="#E7A91C"/></linearGradient>
+    <linearGradient id="gmkabuk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF09A"/><stop offset="1" stop-color="#E9C24A"/></linearGradient>
+    <linearGradient id="yesil" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E8B4E"/><stop offset=".5" stop-color="#5BC274"/><stop offset="1" stop-color="#2E8B4E"/></linearGradient>
+    <radialGradient id="isik" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF6C8" stop-opacity=".55"/><stop offset="1" stop-color="#FFF6C8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="radyo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#B6FF6A" stop-opacity=".7"/><stop offset="1" stop-color="#B6FF6A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+const c = cue, IN = '#3B2A12';
+const L = (txt, x, y, f, f0, f1, s = 76, r = '#FFE873') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', '#0B2E23');
+
+// muz karakteri: (0,0) merkez, uzunluk ~360
+function muz(t, o = {}) {
+  const k = o.kabuk || 'url(#kabuk)', sw = 7;
+  let g = `<path d="M-170 -40 C-120 170 120 190 175 -30 C150 20 -110 30 -170 -40Z" fill="${k}" stroke="${IN}" stroke-width="${sw}" stroke-linejoin="round"/>`;
+  g += `<path d="M-150 -10 C-80 70 90 80 150 0" stroke="#FFF6C8" stroke-width="10" fill="none" opacity=".55" stroke-linecap="round"/>`;
+  g += `<path d="M172 -30 l26 -40 l14 8 l-22 42Z" fill="#7A9A2E" stroke="${IN}" stroke-width="6" stroke-linejoin="round"/>`;
+  g += `<ellipse cx="-172" cy="-40" rx="12" ry="10" fill="#4A3418"/>`;
+  if (o.lekeler) for (let k = 0; k < 6; k++) g += `<circle cx="${-110 + k * 42}" cy="${30 + (k % 2) * 18}" r="${6 + (k % 3) * 3}" fill="#6B4A1C" opacity="${f2(o.lekeler)}"/>`;
+  if (!o.yuzsuz) g += yuz(0, 30, .62, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, uzgun: o.uzgun, cizgi: IN });
+  return g;
+}
+// muz salkımı (yukarı kıvrık)
+function salkim(t, n = 5, s = .5) {
+  let g = '';
+  for (let k = 0; k < n; k++) { const a = -40 + k * 20; g += at(0, 0, s, `<g transform="rotate(${a}) translate(0,-230) rotate(-90)">${muz(t, { yuzsuz: true })}</g>`); }
+  return g + `<rect x="-26" y="-60" width="52" height="140" rx="20" fill="#6E8A2C" stroke="${IN}" stroke-width="6"/>`;
+}
+// muz bitkisi (dev ot): yaprak kılıfı gövde + büyük yapraklar
+function bitki(t, x, y, s, xr = 0) {
+  let g = `<g transform="translate(${x},${y}) scale(${s})">`;
+  for (let k = 0; k < 6; k++) {
+    const a = -150 + k * 60 + sin(t * .03 + k) * 4;
+    g += `<g transform="translate(0,-640) rotate(${f2(a)})"><path d="M0 0 C80 -60 330 -70 430 0 C330 70 80 60 0 0Z" fill="url(#yesil)" stroke="#1C5A33" stroke-width="6"/><path d="M0 0 H420" stroke="#1C5A33" stroke-width="5"/>${[1, 2, 3, 4, 5, 6].map(i => `<path d="M${i * 60} 0 l30 ${i % 2 ? -40 : 40}" stroke="#1C5A33" stroke-width="3" opacity=".6"/>`).join('')}</g>`;
+  }
+  // gövde: sarılmış yapraklar; röntgende katmanlar açılır
+  for (let k = 0; k < 5; k++) {
+    const w = 120 - k * 18, dx = xr * (k - 2) * 46;
+    g += `<rect x="${f2(-w / 2 + dx)}" y="-640" width="${w}" height="640" rx="${w / 2}" fill="${mix('#6FA64B', '#C9E58A', k / 5)}" stroke="#2C5E2A" stroke-width="5" opacity="${f2(1 - xr * .25)}"/>`;
+  }
+  g += at(-90, -520, 1, salkim(t, 5, .42));
+  return g + '</g>';
+}
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = golge(540, 1400, 420);
+    // farklı mı? üç muz yan yana, sonra hepsi aynı damga
+    const ayni = gir(f, c('hook', 'clones'), 10);
+    for (let k = 0; k < 3; k++) {
+      const x = 200 + k * 340, y = 1180 + sin(t * .08 + k) * 12;
+      g += at(x, y, .9, muz(t, { seed: k, sur: ayni > .5 }), -12 + k * 12);
+      g += L(['#1', '#2', '#3'][k], x, 1000, f, c('hook', 'different') + k * 4, c('hook', 'well') - 2, 70, '#FFF6D6');
+      if (ayni > 0) g += at(x, 990, ayni, `<g transform="rotate(-8)"><rect x="-120" y="-44" width="240" height="88" rx="18" fill="none" stroke="#FF6B6B" stroke-width="9"/><text class="lbl" text-anchor="middle" dy="22" font-size="64" fill="#FF6B6B">CLONE</text></g>`);
+    }
+    return g;
+  },
+  clone(f, S, t) {
+    let g = '';
+    // fotokopi makinesi gibi: ortada ana muz, yanlardan kopyalar çoğalır
+    const n = Math.min(24, Math.floor(klamp((f - c('clone', 'same')) / 50) * 24));
+    for (let k = 0; k < n; k++) { const col = k % 6, row = Math.floor(k / 6); g += at(150 + col * 156, 1460 + row * 90 - row * 6, .28, muz(t, { seed: k }), -8 + (k % 3) * 8, .9); }
+    g += golge(540, 1300, 260);
+    g += at(540, 1080 + sin(t * .07) * 10, 1.45, muz(t, { seed: 5 }));
+    g += L('Cavendish', 540, 860, f, c('clone', 'cavendish'), S.gros.start - 2, 90);
+    // tohum yok: kesit
+    if (f >= c('clone', 'seeds')) {
+      const p = pop(f, c('clone', 'seeds')) * (1 - klamp((f - c('clone', 'cuttings')) / 8));
+      g += at(820, 1480, p, `<circle r="110" fill="#FFF4D2" stroke="${IN}" stroke-width="7"/><circle r="60" fill="none" stroke="#E8D7A0" stroke-width="6"/>${[0, 1, 2].map(i => `<circle cx="${f2(cos(i * 2.1) * 26)}" cy="${f2(sin(i * 2.1) * 26)}" r="7" fill="#9A7A3A" opacity=".5"/>`).join('')}<path d="M-120 120 L120 -120" stroke="#FF6B6B" stroke-width="12" stroke-linecap="round"/><text class="lbl" y="170" text-anchor="middle" font-size="52" fill="#FFF6D6" stroke="#0B2E23" stroke-width="9">no seeds</text>`);
+    }
+    // filiz kesimi: anne bitkiden yavru
+    if (f >= c('clone', 'cuttings')) {
+      const p = pop(f, c('clone', 'cuttings')) * (1 - klamp((f - c('clone', 'same') - 10) / 8));
+      g += at(220, 820, p, `<path d="M0 60 C-10 0 10 -60 0 -110" stroke="#4FA35A" stroke-width="26" fill="none" stroke-linecap="round"/><path d="M0 -100 C60 -150 110 -140 130 -110 C90 -100 40 -90 0 -100Z" fill="#6CC36A"/><path d="M0 -70 C-60 -120 -110 -110 -126 -80 C-86 -74 -40 -64 0 -70Z" fill="#5BB060"/><path d="M-70 60 h140" stroke="#7A5530" stroke-width="18" stroke-linecap="round"/><path d="M-70 -20 l140 -40" stroke="#FFF6D6" stroke-width="6" stroke-dasharray="14 10"/>`);
+    }
+    g += L('× millions', 540, 1360, f, c('clone', 'millions'), S.gros.start - 2, 84, '#FFF6D6');
+    return g;
+  },
+  gros(f, S, t) {
+    let g = '';
+    // nostaljik çerçeve: dede-nine fotoğrafı tonunda Gros Michel
+    const sepya = 1 - gir(f, c('gros', 'fungus'), 30) * 0;
+    g += `<g transform="translate(540,1000) rotate(${f2(-3 + sin(t * .02) * 1)})"><rect x="-330" y="-300" width="660" height="560" rx="18" fill="#F4E4BE" stroke="#8A6A3A" stroke-width="12"/><rect x="-290" y="-260" width="580" height="420" fill="#E9D3A0"/>`;
+    const sol = gir(f, c('gros', 'wiped'), 40);
+    g += at(0, -40, 1.25, muz(t, { kabuk: 'url(#gmkabuk)', seed: 2, uzgun: sol > .3, lekeler: sol }), 0, 1 - sol * .55);
+    g += `<text class="lbl" y="225" text-anchor="middle" font-size="60" fill="#6B4A1C">Gros Michel</text></g>`;
+    // mantar sporları: yeşilimsi duman
+    if (f >= c('gros', 'fungus')) for (let k = 0; k < 16; k++) { const u = ((f - c('gros', 'fungus')) * .012 + k / 16) % 1; g += `<circle cx="${f2(200 + rastgele(k) * 680 + sin(t * .05 + k) * 20)}" cy="${f2(1400 - u * 700)}" r="${f2(14 + rastgele(k + 3) * 22)}" fill="#7B6FA8" opacity="${f2(.45 * sin(u * P) * gir(f, c('gros', 'fungus')))}"/>`; }
+    g += L('1950s', 540, 640, f, c('gros', '1950s'), S.herb.start - 2, 96, '#FFE873');
+    g += L('same weak spot', 540, 1430, f, c('gros', 'weak'), S.herb.start - 2, 70, '#FF9E9E');
+    return g;
+  },
+  herb(f, S, t) {
+    const xr = gir(f, c('herb', 'trunk'), 18);
+    let g = golge(540, 1650, 300, .3);
+    g += bitki(t, 540, 1640, 1, xr);
+    g += L('not a tree', 540, 640, f, c('herb', 'tree'), c('herb', 'giant') - 2, 90, '#FF9E9E');
+    g += L('giant herb', 540, 640, f, c('herb', 'giant'), S.curve.start - 2, 90);
+    g += L('rolled-up leaves', 540, 1500, f, c('herb', 'rolled'), S.curve.start - 2, 64, '#FFF6D6');
+    return g;
+  },
+  curve(f, S, t) {
+    let g = `<circle cx="860" cy="560" r="240" fill="url(#isik)"/><circle cx="860" cy="560" r="80" fill="#FFE873"/>`;
+    for (let k = 0; k < 10; k++) { const a = k * P / 5 + t * .01; g += `<path d="M${f2(860 + cos(a) * 110)} ${f2(560 + sin(a) * 110)} L${f2(860 + cos(a) * 150)} ${f2(560 + sin(a) * 150)}" stroke="#FFE873" stroke-width="12" stroke-linecap="round"/>`; }
+    // muzlar aşağı başlar, yukarı (güneşe) kıvrılır
+    const bend = gir(f, c('curve', 'upward'), 40);
+    g += `<rect x="440" y="850" width="44" height="700" rx="20" fill="#6E8A2C"/>`;
+    for (let k = 0; k < 4; k++) {
+      const a = 90 - bend * 130 + k * 14;
+      g += `<g transform="translate(462,${1000 + k * 120}) rotate(${f2(a)}) translate(230,0) scale(.62)">${muz(t, { seed: k, yuzsuz: k > 0 })}</g>`;
+    }
+    g += L('grows UP', 680, 880, f, c('curve', 'upward'), S.glow.start - 2, 80);
+    return g;
+  },
+  glow(f, S, t) {
+    const p = gir(f, c('glow', 'radioactive'), 16);
+    let g = `<circle cx="540" cy="1100" r="${f2(380 + sin(t * .2) * 20)}" fill="url(#radyo)" opacity="${f2(p)}"/>`;
+    g += golge(540, 1330, 230);
+    g += at(540, 1100 + sin(t * .1) * 8, 1.5, muz(t, { seed: 4, sur: f > c('glow', 'radioactive') && f < c('glow', 'potassium') }));
+    // K atomu
+    if (f >= c('glow', 'potassium')) {
+      const q = pop(f, c('glow', 'potassium'));
+      let a = `<circle r="70" fill="#B6FF6A" stroke="#0B2E23" stroke-width="7"/><text class="lbl" text-anchor="middle" dy="26" font-size="74" fill="#0B2E23">K</text>`;
+      for (let k = 0; k < 3; k++) a += `<ellipse rx="150" ry="50" fill="none" stroke="#B6FF6A" stroke-width="5" transform="rotate(${k * 60 + t})"/><circle cx="${f2(cos(t * .1 + k * 2) * 150)}" cy="${f2(sin(t * .1 + k * 2) * 50)}" r="12" fill="#FFF6D6" transform="rotate(${k * 60 + t})"/>`;
+      g += at(830, 720, q * .9, a);
+    }
+    if (f >= c('glow', "don't")) {
+      const q = pop(f, c('glow', "don't"));
+      const n = Math.min(60, Math.floor((f - c('glow', 'millions')) / 2));
+      for (let k = 0; k < Math.max(0, n); k++) g += at(80 + (k % 12) * 84, 1500 + Math.floor(k / 12) * 60, .16, muz(t, { yuzsuz: true }), (k * 37) % 40 - 20);
+      g += at(250, 760, q, `<path d="M-120 -90 h240 v130 h-160 l-50 40 v-40 h-30Z" fill="#FFF6D6" stroke="#0B2E23" stroke-width="7"/><text class="lbl" text-anchor="middle" y="-10" font-size="56" fill="#2F7A55">safe ✓</text>`);
+    }
+    return g;
+  },
+  son(f, S, t) {
+    let g = '';
+    const n = Math.min(3, 1 + Math.floor(klamp((f - c('son', 'copy')) / 60) * 3));
+    for (let k = 0; k < n; k++) {
+      const p = pop(f, k ? c('son', 'copy', k) : 0);
+      g += `<g transform="translate(${540 + (k - (n - 1) / 2) * 60},${1060 + k * 30})">${at(0, 0, 1.3 * p, `<rect x="-280" y="-200" width="560" height="400" rx="24" fill="#FFF6D6" stroke="#0B2E23" stroke-width="8" opacity="${f2(1 - k * .15)}"/>` + at(0, 0, .8, muz(t, { seed: k, kapali: k === 2 && f > T.total - 40 })), (k - 1) * 4)}</g>`;
+    }
+    g += L('copy × copy × copy', 540, 1460, f, c('son', 'copy'), T.total, 70, '#FFE873');
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#bg)"/>`;
+  for (let k = 0; k < 7; k++) a += `<g transform="translate(${f2(rastgele(k + 2) * 1080)},${f2(rastgele(k + 9) * 1920)}) rotate(${f2(rastgele(k) * 360 + sin(f * .01 + k) * 6)})"><path d="M0 0 C80 -60 330 -70 430 0 C330 70 80 60 0 0Z" fill="#0E3A2B" opacity=".55"/></g>`;
+  a += parcacik(f, 18, '#FFF6C8', .35);
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

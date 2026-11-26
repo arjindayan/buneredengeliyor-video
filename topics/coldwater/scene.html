@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: sıcak yaz öğleden sonrası. Şeftali gökyüzü + kum + buz mavisi; bardak maskotu "Glassy", güneş tepkici. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#FFC98A}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:70px;right:70px;top:170px;padding:22px 26px;border-radius:30px;background:rgba(43,30,52,.88);text-align:center;font:400 86px/1.08 'Patrick Hand';color:#FFF3DC}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+  .fd{font-family:'Fredoka';font-weight:700}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9E6B"/><stop offset=".6" stop-color="#FFD39A"/><stop offset="1" stop-color="#FFE7B8"/></linearGradient>
+    <radialGradient id="sicak" cx="80%" cy="18%" r="55%"><stop offset="0" stop-color="#FFF4C2" stop-opacity=".9"/><stop offset="1" stop-color="#FFF4C2" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka'];
+const c = cue, INK = '#2B1E34', SU = '#7CC6EE', SUK = '#3E8FC4', KIR = '#E8455A', SAR = '#FFC94A', KRM = '#FFF6E6';
+const L = (txt, x, y, f, f0, f1, s = 92, r = KRM) => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+
+// Glassy: buzlu su bardağı maskotu
+function glassy(t, o = {}) {
+  const ter = o.ter ?? 1;
+  let g = golge(0, 300, 190, .2);
+  g += `<path d="M-160 -270 L-125 260 Q-120 295 -85 295 H85 Q120 295 125 260 L160 -270Z" fill="#E9F7FF" opacity=".75" stroke="${INK}" stroke-width="9"/>`;
+  g += `<path d="M-150 -170 Q-75 ${f2(-185 + 6 * sin(t * .15))} 0 -170 T150 -170 L122 255 Q118 282 85 282 H-85 Q-118 282 -122 255Z" fill="${SU}"/>`;
+  g += at(-55, -150, 1, `<rect x="-55" y="-55" width="110" height="110" rx="18" fill="#fff" stroke="${INK}" stroke-width="6" opacity=".95"/>`, -12 + 4 * sin(t * .07));
+  g += at(65, -130, 1, `<rect x="-50" y="-50" width="100" height="100" rx="18" fill="#fff" stroke="${INK}" stroke-width="6" opacity=".95"/>`, 14 + 4 * sin(t * .06 + 1));
+  g += yuz(0, 60, 1.1, t, { seed: 1, sur: o.sur, kapali: o.kapali, cizgi: INK, yanak: '#FF9FB1' });
+  for (let k = 0; k < 6 * ter; k++) { const u = ((t * .01 + rastgele(k)) % 1); g += `<path d="M${k % 2 ? 150 - u * 30 : -150 + u * 30} ${f2(-200 + u * 420)} q-9 16 0 22 q9 -6 0 -22Z" fill="${SUK}" opacity="${f2(.8 * sin(u * P))}"/>`; }
+  if (o.kollar) g += `<path d="M-150 40 C-230 20 -260 -40 -250 -100" stroke="${INK}" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M150 40 C230 20 260 -40 250 -100" stroke="${INK}" stroke-width="12" fill="none" stroke-linecap="round"/>`;
+  return g;
+}
+// güneş tepkici
+function gunes(t, o = {}) {
+  let g = '';
+  for (let k = 0; k < 12; k++) { const a = k * P / 6 + t * .01; g += `<path d="M${f2(130 * cos(a))} ${f2(130 * sin(a))} L${f2(175 * cos(a))} ${f2(175 * sin(a))}" stroke="#FFB020" stroke-width="18" stroke-linecap="round"/>`; }
+  g += `<circle r="110" fill="#FFD23F" stroke="${INK}" stroke-width="7"/>` + yuz(0, 0, .9, t, { seed: 5, sur: o.sur, kapali: o.kapali, cizgi: INK });
+  return g;
+}
+function beyin(t, o = {}) {
+  let g = `<path d="M-170 40 C-215 -50 -170 -160 -70 -170 C-25 -225 90 -215 125 -150 C215 -125 225 -10 180 45 C190 115 115 160 45 135 C0 180 -100 170 -125 115 C-180 115 -195 80 -170 40Z" fill="#FFB3C7" stroke="${INK}" stroke-width="8"/>`;
+  g += `<path d="M-45 -160 C-70 -90 0 -70 -12 -15 M70 -170 C45 -100 115 -70 92 0" stroke="#E07A98" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+  g += yuz(0, 30, 1, t, { seed: 9, sur: o.sur, kapali: o.kapali, cizgi: INK });
+  if (o.ter) for (let k = 0; k < 3; k++) g += `<path d="M${150 + k * 20} ${-120 + k * 50} q-12 22 0 30 q12 -8 0 -30Z" fill="${SUK}"/>`;
+  return g;
+}
+function termo(x, y, s, deger, renk) {
+  return at(x, y, s, `<rect x="-34" y="-260" width="68" height="420" rx="34" fill="#fff" stroke="${INK}" stroke-width="8"/><circle cy="190" r="62" fill="${renk}" stroke="${INK}" stroke-width="8"/><rect x="-16" y="${f2(170 - 380 * deger)}" width="32" height="${f2(380 * deger + 10)}" rx="16" fill="${renk}"/>`);
+}
+const carpi = (x, y, s, f0, f) => f < f0 ? '' : at(x, y, s * pop(f, f0), `<path d="M-120 -120 L120 120 M120 -120 L-120 120" stroke="${KIR}" stroke-width="34" stroke-linecap="round"/>`);
+const seker = (x, y, s, r = 0) => at(x, y, s, `<rect x="-70" y="-70" width="140" height="140" rx="14" fill="#fff" stroke="${INK}" stroke-width="8"/><path d="M-70 -70 L-40 -100 H100 L70 -70 M70 -70 L100 -100 V40 L70 70" fill="#F1ECE6" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>`, r);
+// dondurma külahı (erimiş)
+function dondurma(t, eri) {
+  let g = `<path d="M-90 -20 L0 260 L90 -20Z" fill="#E6A75C" stroke="${INK}" stroke-width="8"/><path d="M-60 40 L40 -10 M-40 110 L60 30 M-70 10 L30 130" stroke="#B9783A" stroke-width="6"/>`;
+  g += `<path d="M-120 -20 C-140 -150 -40 -210 0 -185 C60 -225 150 -150 120 -20 C120 ${f2(40 + 140 * eri)} 100 ${f2(60 + 160 * eri)} 90 ${f2(20 + 120 * eri)} C80 0 -60 0 -80 20 C-90 ${f2(60 + 150 * eri)} -110 ${f2(70 + 150 * eri)} -120 -20Z" fill="#FFB8C9" stroke="${INK}" stroke-width="8"/>`;
+  return g + yuz(0, -100, .8, t, { seed: 4, sur: 1, cizgi: INK });
+}
+function fare(t, yalama) {
+  return `<ellipse cx="0" cy="40" rx="190" ry="120" fill="#C9C2D6" stroke="${INK}" stroke-width="8"/><circle cx="-110" cy="-70" r="60" fill="#C9C2D6" stroke="${INK}" stroke-width="8"/><circle cx="-110" cy="-70" r="32" fill="#FFB3C7"/><path d="M170 30 C230 20 ${f2(250 + 10 * yalama)} 40 ${f2(255 + 10 * yalama)} 60 C230 80 190 80 170 70" fill="#C9C2D6" stroke="${INK}" stroke-width="8"/><circle cx="${f2(258 + 10 * yalama)}" cy="58" r="12" fill="#FF8FA3"/>${yuz(120, 20, .6, t, { seed: 6, cizgi: INK })}<path d="M-190 60 C-280 80 -300 160 -240 200" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/>`;
+}
+const sayac = (x, y, n, renk) => Array.from({ length: n }, (_, k) => `<path d="M${x + k * 30} ${y} v56" stroke="${renk}" stroke-width="12" stroke-linecap="round"/>`).join('');
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = at(880, 640, .9, gunes(t, { sur: f >= c('hook', 'hot') }));
+    g += at(580, 1230, 1.15, glassy(t, { sur: f >= c('hook', 'what') }));
+    g += L('sweet?!', 270, 760, f, c('hook', 'sweet'), c('hook', 'there') - 2, 110, SAR);
+    if (f >= c('hook', 'sugar')) g += seker(210, 700, pop(f, c('hook', 'sugar')), -8) + carpi(210, 700, .8, c('hook', 'sugar') + 6, f);
+    g += L('0 sugar', 210, 850, f, c('hook', 'sugar') + 6, c('hook', 'what') - 2, 84);
+    if (f >= c('hook', 'what')) g += at(840, 1000, pop(f, c('hook', 'what')), `<text class="fd" text-anchor="middle" font-size="260" fill="${KRM}" stroke="${INK}" stroke-width="10" paint-order="stroke">?</text>`, 10 * sin(t * .1));
+    return g;
+  },
+  twist(f, S, t) {
+    const u = gir(f, c('twist', 'cold'), 24);
+    let g = termo(250, 1180, 1.1, .85 - .65 * u, u > .5 ? SUK : KIR);
+    // tatlılık metresi: şeker küpleri sönüyor
+    g += `<rect x="440" y="760" width="520" height="560" rx="40" fill="${KRM}" stroke="${INK}" stroke-width="8"/><text class="fd" x="700" y="840" text-anchor="middle" font-size="58" fill="${INK}">sweetness</text>`;
+    for (let k = 0; k < 4; k++) { const yan = (k + 1) / 4 <= 1 - .7 * gir(f, c('twist', 'less'), 20) + .01; g += yan ? seker(560 + (k % 2) * 260, 1000 + Math.floor(k / 2) * 200, .8) : at(560 + (k % 2) * 260, 1000 + Math.floor(k / 2) * 200, .8, `<rect x="-70" y="-70" width="140" height="140" rx="14" fill="none" stroke="${INK}" stroke-width="6" stroke-dasharray="14 12" opacity=".4"/>`); }
+    g += L('cold', 250, 1440, f, c('twist', 'cold'), S.sensor.start - 2, 90, SU);
+    g += L('LESS sweet', 700, 1440, f, c('twist', 'less'), S.sensor.start - 2, 100, SAR);
+    return g;
+  },
+  sensor(f, S, t) {
+    const mel = c('sensor', 'melted'), sol = 1 - klamp((f - mel) / 10);
+    let g = '';
+    if (sol > 0) {
+      let k = `<path d="M180 1500 C120 1100 230 700 540 680 C850 700 960 1100 900 1500Z" fill="#FF8FA3" stroke="${INK}" stroke-width="9"/><path d="M540 760 V1300" stroke="#E0607A" stroke-width="8" stroke-linecap="round"/>`;
+      for (let i = 0; i < 18; i++) k += `<circle cx="${f2(300 + rastgele(i) * 480)}" cy="${f2(820 + rastgele(i + 40) * 560)}" r="${f2(10 + rastgele(i + 9) * 10)}" fill="#F77C95"/>`;
+      // TRPM5 kanalı: büyüteç içinde
+      const p = pop(f, c('sensor', 'channel'));
+      if (p > 0) {
+        let b = `<circle r="230" fill="${KRM}" stroke="${INK}" stroke-width="10"/><rect x="-200" y="-14" width="400" height="28" fill="#F4B6A8"/><rect x="-60" y="-80" width="42" height="160" rx="18" fill="#7E5BD6" stroke="${INK}" stroke-width="6"/><rect x="18" y="-80" width="42" height="160" rx="18" fill="#7E5BD6" stroke="${INK}" stroke-width="6"/>`;
+        const yavas = f >= c('sensor', 'slows'), hiz = yavas ? 1.6 : 8;
+        if (f >= c('sensor', 'fires')) for (let i = 0; i < (yavas ? 3 : 8); i++) { const y = -200 + ((f * hiz + i * 50) % 400); b += `<circle cx="${f2(6 * sin(y * .05 + i))}" cy="${f2(y)}" r="14" fill="${yavas ? SUK : KIR}"/>`; }
+        if (f >= c('sensor', 'slows')) b += `<path d="M-200 -200 l40 40 M200 -200 l-40 40 M-200 200 l40 -40 M200 200 l-40 -40" stroke="${SU}" stroke-width="14" stroke-linecap="round"/>`;
+        k += at(540, 1050, p, b) + `<path d="M710 1210 L820 1340" stroke="${INK}" stroke-width="28" stroke-linecap="round" opacity="${f2(p)}"/>`;
+      }
+      k += L('TRPM5', 540, 610, f, c('sensor', 'trpm5'), mel - 2, 100, SAR);
+      k += L('warm = fast', 540, 1400, f, c('sensor', 'fires'), c('sensor', 'slows') - 2, 88, KIR);
+      k += L('cold = slow', 540, 1400, f, c('sensor', 'slows'), mel - 2, 88, SU);
+      g += `<g opacity="${f2(sol)}">${k}</g>`;
+    }
+    if (f >= mel) {
+      g += at(540, 1080, pop(f, mel) * 1.5, dondurma(t, gir(f, mel, 60)));
+      g += L('melted = way too sweet', 540, 1560, f, c('sensor', 'too'), S.pleasure.start - 2, 84, SAR);
+    }
+    return g;
+  },
+  pleasure(f, S, t) {
+    let g = at(330, 900, .95 * pop(f, S.pleasure.start), beyin(t, { ter: f >= c('pleasure', 'overheated'), sur: f >= c('pleasure', 'amazing') }));
+    if (f >= c('pleasure', '1971')) g += at(780, 860, pop(f, c('pleasure', '1971')), `<rect x="-200" y="-150" width="400" height="300" rx="20" fill="${KRM}" stroke="${INK}" stroke-width="8"/><text class="fd" text-anchor="middle" y="-40" font-size="100" fill="${KIR}">1971</text><text class="fd" text-anchor="middle" y="50" font-size="50" fill="${INK}">Michel</text><text class="fd" text-anchor="middle" y="110" font-size="50" fill="${INK}">Cabanac</text>`, 5);
+    // keyif metresi
+    const m0 = c('pleasure', 'same');
+    if (f >= m0) {
+      let a = -90 + 50 * sin((f - m0) * .12) * (f < c('pleasure', 'overheated') ? 1 : 0);
+      a = lerp(f, [c('pleasure', 'amazing'), c('pleasure', 'amazing') + 14], [a, 65], EASE.dolly);
+      g += at(540, 1500, pop(f, m0), `<path d="M-300 0 A300 300 0 0 1 300 0Z" fill="${KRM}" stroke="${INK}" stroke-width="8"/><path d="M-300 0 A300 300 0 0 1 -150 -260 L0 0Z" fill="#9AA6C8"/><path d="M300 0 A300 300 0 0 0 150 -260 L0 0Z" fill="#FF9FB1"/><text class="fd" x="-200" y="70" text-anchor="middle" font-size="56" fill="${INK}">awful</text><text class="fd" x="200" y="70" text-anchor="middle" font-size="56" fill="${INK}">lovely</text><g transform="rotate(${f2(a)})"><path d="M0 0 V-250" stroke="${INK}" stroke-width="14" stroke-linecap="round"/></g><circle r="24" fill="${INK}"/>`);
+    }
+    g += L('overheated 🥵', 330, 1150, f, c('pleasure', 'overheated'), c('pleasure', 'amazing') - 2, 80, KIR);
+    g += L('cold = amazing!', 540, 1150, f, c('pleasure', 'amazing'), S.thirst.start - 2, 92, SU);
+    return g;
+  },
+  thirst(f, S, t) {
+    // yavaş yol: salyangoz su damlasını taşıyor
+    const w0 = c('thirst', 'water'), u = klamp((f - w0) / 300);
+    let g = `<path d="M120 1560 H960" stroke="${INK}" stroke-width="8" stroke-dasharray="20 18" opacity="${f2(gir(f, w0))}"/>`;
+    if (f >= w0) g += at(170 + 500 * u, 1500, .8, `<ellipse cx="0" cy="50" rx="110" ry="30" fill="#C9C2D6" stroke="${INK}" stroke-width="7"/><circle cx="-10" cy="-10" r="70" fill="#E6A75C" stroke="${INK}" stroke-width="7"/><path d="M-10 -10 m-40 0 a40 40 0 1 0 40 -40" stroke="${INK}" stroke-width="6" fill="none"/><path d="M60 -110 q-30 50 0 64 q30 -14 0 -64Z" fill="${SU}" stroke="${INK}" stroke-width="5"/>`);
+    g += L('blood: tens of minutes 🐌', 540, 1700, f, c('thirst', 'tens'), S.mice.start - 2, 72);
+    // susuzluk tabelası + hızlı sinyal
+    const kapali = f >= c('thirst', 'switch') + 3;
+    g += at(620, 900, pop(f, c('thirst', 'brain')) * .9, beyin(t, { kapali }));
+    if (f >= c('thirst', 'brain')) g += at(620, 610, 1, `<rect x="-200" y="-60" width="400" height="120" rx="24" fill="${kapali ? '#5B4E66' : KIR}" stroke="${INK}" stroke-width="7"/><text class="fd" text-anchor="middle" dy="22" font-size="64" fill="${kapali ? '#9C91A6' : KRM}">THIRSTY!</text>`, 0, gir(f, c('thirst', 'brain')));
+    if (f >= c('thirst', 'sensors')) {
+      g += at(200, 1240, pop(f, c('thirst', 'sensors')), `<path d="M-110 -40 Q0 -100 110 -40 Q0 120 -110 -40Z" fill="#E0607A" stroke="${INK}" stroke-width="8"/><path d="M-80 -30 Q0 20 80 -30" fill="#fff"/>`);
+      const p = gir(f, c('thirst', 'mouth'), 8);
+      g += `<path d="M260 1180 L360 1060 L330 1050 L440 920" stroke="${SAR}" stroke-width="22" fill="none" stroke-linejoin="round" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${f2(1 - p)}"/>`;
+      g += L('seconds ⚡', 260, 960, f, c('thirst', 'mouth'), S.mice.start - 2, 84, SAR);
+    }
+    g += L('OFF', 860, 760, f, c('thirst', 'switch') + 3, S.mice.start - 2, 100, KRM);
+    return g;
+  },
+  mice(f, S, t) {
+    let g = at(600, 990, 1, `<rect x="-60" y="-220" width="120" height="300" rx="20" fill="#E9F7FF" stroke="${INK}" stroke-width="8"/><rect x="-52" y="-120" width="104" height="192" rx="14" fill="${SU}"/><path d="M-14 80 V200 H14 V80" fill="#B9C3CF" stroke="${INK}" stroke-width="6"/>`);
+    g += at(330, 1180, 1, fare(t, Math.floor(t / 5) % 2));
+    g += `<rect x="120" y="1400" width="840" height="300" rx="30" fill="${KRM}" stroke="${INK}" stroke-width="8"/>`;
+    g += `<text class="fd" x="160" y="1500" font-size="54" fill="${INK}">room temp</text>` + sayac(480, 1455, Math.min(11, Math.floor(t / 2)), INK);
+    if (f >= c('mice', 'cold')) g += `<text class="fd" x="160" y="1630" font-size="54" fill="${SUK}">cold</text>` + sayac(480, 1585, Math.min(5, Math.floor((f - c('mice', 'cold')) / 2)), SUK);
+    g += L('fewer sips!', 760, 1640, f, c('mice', 'fewer') + 6, S.son.start + 30, 84, SAR);
+    g += L('mice study, 2016 (schematic)', 540, 1780, f, S.mice.start + 6, S.son.start - 2, 50, KRM);
+    return g;
+  },
+  son(f, S, t) {
+    let g = at(880, 640, .8, gunes(t, { kapali: f >= c('son', 'thank') }));
+    g += at(360, 1240, .95, glassy(t, { kollar: f >= c('son', 'thank') }));
+    g += at(770, 1180, .75 * pop(f, c('son', 'brain')), beyin(t, { sur: f < c('son', 'thank') }));
+    if (f >= c('son', 'sugar')) g += seker(330, 760, .6 * pop(f, c('son', 'sugar'))) + carpi(330, 760, .55, c('son', 'sugar') + 4, f);
+    g += L('thank you! 💙', 600, 900, f, c('son', 'thank'), T.total + 20, 100, SAR);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  const t = f;
+  let a = `<rect width="1080" height="1920" fill="url(#gok)"/><rect width="1080" height="1920" fill="url(#sicak)"/>`;
+  for (let k = 0; k < 4; k++) a += `<path d="M-40 ${560 + k * 230} ${Array.from({ length: 10 }, (_, i) => `q60 ${f2(-14 + 4 * sin(t * .06 + i + k))} 120 0`).join(' ')}" stroke="#FFF1D6" stroke-width="6" fill="none" opacity=".35"/>`;
+  a += `<path d="M0 1700 Q540 1640 1080 1700 V1920 H0Z" fill="#F7D79A"/><path d="M0 1760 Q540 1710 1080 1760" stroke="#EBC27A" stroke-width="6" fill="none"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

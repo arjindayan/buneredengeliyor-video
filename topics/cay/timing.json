@@ -1,0 +1,671 @@
+{
+"duration": 53.524,
+"words": [
+{
+"w": "Yüz",
+"start": 0.0,
+"end": 0.24,
+"seg": 0
+},
+{
+"w": "yıl",
+"start": 0.32,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "önce",
+"start": 0.52,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "bu",
+"start": 0.96,
+"end": 1.04,
+"seg": 0
+},
+{
+"w": "ülkede",
+"start": 1.12,
+"end": 1.44,
+"seg": 0
+},
+{
+"w": "neredeyse",
+"start": 1.6,
+"end": 2.08,
+"seg": 0
+},
+{
+"w": "kimse",
+"start": 2.24,
+"end": 2.56,
+"seg": 0
+},
+{
+"w": "içmiyordu.",
+"start": 2.6,
+"end": 3.4,
+"seg": 0
+},
+{
+"w": "Bugün",
+"start": 3.6,
+"end": 3.84,
+"seg": 0
+},
+{
+"w": "ise",
+"start": 3.92,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "günde",
+"start": 4.32,
+"end": 4.64,
+"seg": 0
+},
+{
+"w": "yüz",
+"start": 4.72,
+"end": 4.88,
+"seg": 0
+},
+{
+"w": "milyonlarca",
+"start": 4.96,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "bardak",
+"start": 5.8,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "içiliyor.",
+"start": 6.08,
+"end": 6.76,
+"seg": 0
+},
+{
+"w": "Evet,",
+"start": 6.96,
+"end": 7.4,
+"seg": 1
+},
+{
+"w": "çay.",
+"start": 7.52,
+"end": 8.08,
+"seg": 1
+},
+{
+"w": "Osmanlı'nın",
+"start": 8.32,
+"end": 8.88,
+"seg": 1
+},
+{
+"w": "içeceği",
+"start": 8.92,
+"end": 9.36,
+"seg": 1
+},
+{
+"w": "aslında",
+"start": 9.44,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "kahveydi.",
+"start": 9.92,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "Ama",
+"start": 10.72,
+"end": 10.96,
+"seg": 2
+},
+{
+"w": "Birinci",
+"start": 11.04,
+"end": 11.36,
+"seg": 2
+},
+{
+"w": "Dünya",
+"start": 11.44,
+"end": 11.68,
+"seg": 2
+},
+{
+"w": "Savaşı'ndan",
+"start": 11.76,
+"end": 12.24,
+"seg": 2
+},
+{
+"w": "sonra",
+"start": 12.32,
+"end": 12.64,
+"seg": 2
+},
+{
+"w": "Yemen",
+"start": 12.8,
+"end": 13.12,
+"seg": 2
+},
+{
+"w": "elden",
+"start": 13.2,
+"end": 13.44,
+"seg": 2
+},
+{
+"w": "çıktı",
+"start": 13.52,
+"end": 13.92,
+"seg": 2
+},
+{
+"w": "ve",
+"start": 14.16,
+"end": 14.24,
+"seg": 2
+},
+{
+"w": "kahve",
+"start": 14.4,
+"end": 14.72,
+"seg": 2
+},
+{
+"w": "birden",
+"start": 14.8,
+"end": 15.2,
+"seg": 2
+},
+{
+"w": "pahalı,",
+"start": 15.28,
+"end": 15.8,
+"seg": 2
+},
+{
+"w": "bulunmaz",
+"start": 15.92,
+"end": 16.32,
+"seg": 2
+},
+{
+"w": "bir",
+"start": 16.4,
+"end": 16.48,
+"seg": 2
+},
+{
+"w": "şeye",
+"start": 16.56,
+"end": 16.72,
+"seg": 2
+},
+{
+"w": "dönüştü.",
+"start": 16.8,
+"end": 17.52,
+"seg": 2
+},
+{
+"w": "Ucuz",
+"start": 17.6,
+"end": 17.92,
+"seg": 3
+},
+{
+"w": "ve",
+"start": 18.0,
+"end": 18.08,
+"seg": 3
+},
+{
+"w": "yerli",
+"start": 18.16,
+"end": 18.4,
+"seg": 3
+},
+{
+"w": "bir",
+"start": 18.48,
+"end": 18.56,
+"seg": 3
+},
+{
+"w": "içecek",
+"start": 18.6,
+"end": 18.96,
+"seg": 3
+},
+{
+"w": "lazımdı.",
+"start": 19.0,
+"end": 19.52,
+"seg": 3
+},
+{
+"w": "Gözler",
+"start": 19.84,
+"end": 20.32,
+"seg": 3
+},
+{
+"w": "Karadeniz'in",
+"start": 20.48,
+"end": 21.12,
+"seg": 3
+},
+{
+"w": "yağmurlu",
+"start": 21.2,
+"end": 21.6,
+"seg": 3
+},
+{
+"w": "yamaçlarına",
+"start": 21.64,
+"end": 22.16,
+"seg": 3
+},
+{
+"w": "çevrildi.",
+"start": 22.32,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "1924'te",
+"start": 23.16,
+"end": 24.24,
+"seg": 4
+},
+{
+"w": "çıkan",
+"start": 24.32,
+"end": 24.56,
+"seg": 4
+},
+{
+"w": "bir",
+"start": 24.64,
+"end": 24.72,
+"seg": 4
+},
+{
+"w": "kanunla",
+"start": 24.8,
+"end": 25.36,
+"seg": 4
+},
+{
+"w": "Rize'de",
+"start": 25.6,
+"end": 26.0,
+"seg": 4
+},
+{
+"w": "çay",
+"start": 26.08,
+"end": 26.24,
+"seg": 4
+},
+{
+"w": "tarımı",
+"start": 26.32,
+"end": 26.64,
+"seg": 4
+},
+{
+"w": "resmen",
+"start": 26.72,
+"end": 27.12,
+"seg": 4
+},
+{
+"w": "başladı.",
+"start": 27.2,
+"end": 28.0,
+"seg": 4
+},
+{
+"w": "1930'ların",
+"start": 28.04,
+"end": 29.04,
+"seg": 5
+},
+{
+"w": "sonunda",
+"start": 29.12,
+"end": 29.52,
+"seg": 5
+},
+{
+"w": "ziraatçi",
+"start": 29.68,
+"end": 30.16,
+"seg": 5
+},
+{
+"w": "Zihni",
+"start": 30.24,
+"end": 30.56,
+"seg": 5
+},
+{
+"w": "Derin,",
+"start": 30.64,
+"end": 31.0,
+"seg": 5
+},
+{
+"w": "Batum'dan",
+"start": 31.12,
+"end": 31.6,
+"seg": 5
+},
+{
+"w": "tonlarca",
+"start": 31.76,
+"end": 32.24,
+"seg": 5
+},
+{
+"w": "çay",
+"start": 32.32,
+"end": 32.48,
+"seg": 5
+},
+{
+"w": "tohumu",
+"start": 32.56,
+"end": 32.84,
+"seg": 5
+},
+{
+"w": "getirtti",
+"start": 32.88,
+"end": 33.36,
+"seg": 5
+},
+{
+"w": "ve",
+"start": 33.44,
+"end": 33.6,
+"seg": 5
+},
+{
+"w": "köylüye",
+"start": 33.68,
+"end": 34.08,
+"seg": 5
+},
+{
+"w": "dağıttı.",
+"start": 34.12,
+"end": 34.76,
+"seg": 5
+},
+{
+"w": "Başta",
+"start": 34.96,
+"end": 35.28,
+"seg": 6
+},
+{
+"w": "kimse",
+"start": 35.4,
+"end": 35.6,
+"seg": 6
+},
+{
+"w": "inanmadı.",
+"start": 35.76,
+"end": 36.28,
+"seg": 6
+},
+{
+"w": "Ama",
+"start": 36.4,
+"end": 36.56,
+"seg": 6
+},
+{
+"w": "1947'de",
+"start": 36.64,
+"end": 37.84,
+"seg": 6
+},
+{
+"w": "Rize'de",
+"start": 38.0,
+"end": 38.48,
+"seg": 6
+},
+{
+"w": "ilk",
+"start": 38.6,
+"end": 38.72,
+"seg": 6
+},
+{
+"w": "çay",
+"start": 38.8,
+"end": 38.96,
+"seg": 6
+},
+{
+"w": "fabrikası",
+"start": 39.04,
+"end": 39.44,
+"seg": 6
+},
+{
+"w": "açıldı",
+"start": 39.52,
+"end": 39.92,
+"seg": 6
+},
+{
+"w": "ve",
+"start": 40.16,
+"end": 40.24,
+"seg": 6
+},
+{
+"w": "her",
+"start": 40.4,
+"end": 40.56,
+"seg": 6
+},
+{
+"w": "şey",
+"start": 40.64,
+"end": 40.8,
+"seg": 6
+},
+{
+"w": "değişti.",
+"start": 40.88,
+"end": 41.68,
+"seg": 6
+},
+{
+"w": "İnce",
+"start": 41.76,
+"end": 42.0,
+"seg": 7
+},
+{
+"w": "belli",
+"start": 42.08,
+"end": 42.32,
+"seg": 7
+},
+{
+"w": "bardak,",
+"start": 42.48,
+"end": 43.04,
+"seg": 7
+},
+{
+"w": "demlik,",
+"start": 43.16,
+"end": 43.76,
+"seg": 7
+},
+{
+"w": "çaydanlık...",
+"start": 43.8,
+"end": 44.72,
+"seg": 7
+},
+{
+"w": "Kısa",
+"start": 44.76,
+"end": 44.96,
+"seg": 7
+},
+{
+"w": "sürede",
+"start": 45.04,
+"end": 45.36,
+"seg": 7
+},
+{
+"w": "çay",
+"start": 45.44,
+"end": 45.68,
+"seg": 7
+},
+{
+"w": "bu",
+"start": 45.84,
+"end": 45.92,
+"seg": 7
+},
+{
+"w": "ülkenin",
+"start": 46.0,
+"end": 46.4,
+"seg": 7
+},
+{
+"w": "günlük",
+"start": 46.48,
+"end": 46.8,
+"seg": 7
+},
+{
+"w": "ritmi",
+"start": 46.88,
+"end": 47.12,
+"seg": 7
+},
+{
+"w": "oldu.",
+"start": 47.24,
+"end": 47.76,
+"seg": 7
+},
+{
+"w": "Bugün",
+"start": 47.84,
+"end": 48.08,
+"seg": 8
+},
+{
+"w": "Türkiye,",
+"start": 48.16,
+"end": 48.72,
+"seg": 8
+},
+{
+"w": "kişi",
+"start": 48.8,
+"end": 48.96,
+"seg": 8
+},
+{
+"w": "başına",
+"start": 49.04,
+"end": 49.44,
+"seg": 8
+},
+{
+"w": "en",
+"start": 49.52,
+"end": 49.68,
+"seg": 8
+},
+{
+"w": "çok",
+"start": 49.76,
+"end": 49.92,
+"seg": 8
+},
+{
+"w": "çay",
+"start": 50.0,
+"end": 50.16,
+"seg": 8
+},
+{
+"w": "içen",
+"start": 50.2,
+"end": 50.4,
+"seg": 8
+},
+{
+"w": "ülke.",
+"start": 50.48,
+"end": 51.12,
+"seg": 8
+},
+{
+"w": "Sen",
+"start": 51.24,
+"end": 51.36,
+"seg": 9
+},
+{
+"w": "günde",
+"start": 51.4,
+"end": 51.6,
+"seg": 9
+},
+{
+"w": "kaç",
+"start": 51.68,
+"end": 51.84,
+"seg": 9
+},
+{
+"w": "bardak",
+"start": 51.92,
+"end": 52.16,
+"seg": 9
+},
+{
+"w": "içiyorsun?",
+"start": 52.24,
+"end": 52.96,
+"seg": 9
+}
+]
+}

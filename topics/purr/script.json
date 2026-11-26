@@ -1,0 +1,14 @@
+{
+  "title": "Cats purr because they're happy?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Cats purr because they're happy. Well, that's not exactly true. They also purr when they're scared, hurt, or even giving birth."},
+    {"scene": "xray", "text": "The purr starts in the voice box. Tiny muscles there twitch {25|twenty-five} to {150|one hundred fifty} times a second, and the air buzzes on the way in and on the way out."},
+    {"scene": "breath", "text": "That's why a cat can purr without stopping to breathe."},
+    {"scene": "kitten", "text": "Here's the wild part. Kittens can purr when they're just a few days old. They're born blind and deaf, so the purr tells mom: I'm okay."},
+    {"scene": "food", "text": "In fact, some cats have a special feed me purr, with a hidden cry inside it. It sounds a bit like a baby, and humans find it really hard to ignore."},
+    {"scene": "heal", "text": "That's not all. Some scientists think those low vibrations might even help bones heal. It's not proven yet, but it's a cool idea."},
+    {"scene": "son", "text": "So cats don't just purr because they're happy. Sometimes a purr means: stay close."}
+  ]
+}

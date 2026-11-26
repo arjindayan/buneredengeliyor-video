@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: 1999 Japon cep telefonu piksel sanatı. Krem + piksel ızgara, pembe/sarı/turkuaz; 12×12 emojiler. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#FFF7EC}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:70px;right:70px;top:170px;padding:22px 26px;border-radius:8px;background:#1B1B2F;box-shadow:12px 12px 0 #FF4F8B;text-align:center;font:400 86px/1.08 'Patrick Hand';color:#FFF3DC}
+  .lbl{font-family:'IBM Plex Mono';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+  .ar{font-family:'Archivo';font-weight:900}
+  .jp{font-family:'WenQuanYi Zen Hei'}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <pattern id="izgara" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="#1B1B2F" stroke-opacity=".06" stroke-width="2"/></pattern>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px "IBM Plex Mono"', '900 80px Archivo'];
+const c = cue, INK = '#1B1B2F', PEM = '#FF4F8B', SAR = '#FFC93C', TUR = '#2EC4B6', KRM = '#FFF7EC';
+const L = (txt, x, y, f, f0, f1, s = 76, r = INK) => etiket(txt, x, y, f, f0, f1, s, r, 'middle', KRM);
+const RENK = { Y: SAR, K: INK, R: PEM, B: '#4DA3FF', W: '#fff', T: TUR };
+const ICON = {
+  smile: ['...YYYYYY...', '..YYYYYYYY..', '.YYYYYYYYYY.', 'YYYKYYYYKYYY', 'YYYKYYYYKYYY', 'YYYYYYYYYYYY', 'YKYYYYYYYYKY', 'YYKYYYYYYKYY', '.YYKKKKKKYY.', '.YYYYYYYYYY.', '..YYYYYYYY..', '...YYYYYY...'],
+  wink: ['...YYYYYY...', '..YYYYYYYY..', '.YYYYYYYYYY.', 'YYYKYYYYYYYY', 'YYYKYYYKKKYY', 'YYYYYYYYYYYY', 'YKYYYYYYYYKY', 'YYKYYYYYYKYY', '.YYKKKKKKYY.', '.YYYYYYYYYY.', '..YYYYYYYY..', '...YYYYYY...'],
+  heart: ['............', '.RRR....RRR.', 'RRRRR..RRRRR', 'RRRRRRRRRRRR', 'RRRRRRRRRRRR', 'RRRRRRRRRRRR', '.RRRRRRRRRR.', '..RRRRRRRR..', '...RRRRRR...', '....RRRR....', '.....RR.....', '............'],
+  sun: ['............', '.Y...YY...Y.', '..Y......Y..', '....YYYY....', '...YYYYYY...', 'YY.YYYYYY.YY', 'YY.YYYYYY.YY', '...YYYYYY...', '....YYYY....', '..Y......Y..', '.Y...YY...Y.', '............'],
+  joy: ['...YYYYYY...', '..YYYYYYYY..', '.YYYYYYYYYY.', 'YYYKYYYYKYYY', 'YYKYKYYKYKYY', 'BYYYYYYYYYYB', 'BBKKKKKKKKBB', 'BBKWWWWWWKBB', '.YKRRRRRRKY.', '.YYKKKKKKYY.', '..YYYYYYYY..', '...YYYYYY...'],
+  drop: ['.....T......', '....TT......', '....TTT.....', '...TTTT.....', '...TTTTT....', '..TTTTTTT...', '..TTWTTTT...', '..TWTTTTT...', '..TTTTTTT...', '...TTTTT....', '....TTT.....', '............'],
+};
+// piksel emoji: n hücrelik sırayla dolma (u 0..1), s hücre boyu
+function px(ad, x, y, s, u = 1) {
+  const m = ICON[ad]; let g = '', i = 0; const top = 144;
+  for (let r = 0; r < 12; r++) for (let k = 0; k < 12; k++) { const ch = m[r][k]; if (ch === '.') continue; const sira = rastgele(r * 12 + k) * .6 + (r / 12) * .4; if (sira > u) continue; g += `<rect x="${f2(x + (k - 6) * s)}" y="${f2(y + (r - 6) * s)}" width="${f2(s + .5)}" height="${f2(s + .5)}" fill="${RENK[ch]}"/>`; }
+  return g;
+}
+const kutu = (txt, x, y, s, renk = PEM, yz = '#fff', r = 0, fs = 90) => at(x, y, s, `<rect x="${-txt.length * fs * .34 - 40}" y="-${fs * .8}" width="${txt.length * fs * .68 + 80}" height="${fs * 1.6}" fill="${renk}" stroke="${INK}" stroke-width="8"/><text class="ar" text-anchor="middle" dy="${fs * .35}" font-size="${fs}" fill="${yz}">${txt}</text>`, r);
+const ciz = (x1, y, x2, f, f0) => f < f0 ? '' : `<path d="M${x1} ${y} L${f2(x1 + (x2 - x1) * gir(f, f0, 8))} ${y - 10}" stroke="${PEM}" stroke-width="20" stroke-linecap="square"/>`;
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = px('smile', 540, 1150, 46, gir(f, 0, 30)) ;
+    g += kutu('emoji', 540, 760, pop(f, c('hook', 'emoji')), INK, SAR);
+    if (f >= c('hook', 'emotion')) g += at(540, 1620, pop(f, c('hook', 'emotion')), `<text class="ar" text-anchor="middle" font-size="110" fill="${INK}">= emotion?</text>`);
+    g += ciz(280, 1585, 820, f, c('hook', 'nope'));
+    g += L('total coincidence', 540, 1760, f, c('hook', 'coincidence'), S.jp.start - 2, 72, PEM);
+    return g;
+  },
+  jp(f, S, t) {
+    let g = at(540, 820, pop(f, c('jp', 'japanese')), `<rect x="-120" y="-60" width="240" height="120" fill="#fff" stroke="${INK}" stroke-width="8"/><circle r="40" fill="#E0233B"/>`, -3);
+    // 絵 + 文字
+    if (f >= c('jp', 'e', 1)) g += at(250, 1150, pop(f, c('jp', 'e', 1)), `<rect x="-160" y="-170" width="320" height="340" fill="${SAR}" stroke="${INK}" stroke-width="8"/><text class="jp" text-anchor="middle" dy="80" font-size="230" fill="${INK}">絵</text><text class="lbl" text-anchor="middle" y="250" font-size="50" fill="${INK}">e = picture</text>`, -4);
+    if (f >= c('jp', 'moji')) g += at(790, 1150, pop(f, c('jp', 'moji')), `<rect x="-220" y="-170" width="440" height="340" fill="${TUR}" stroke="${INK}" stroke-width="8"/><text class="jp" text-anchor="middle" dy="80" font-size="210" fill="${INK}">文字</text><text class="lbl" text-anchor="middle" y="250" font-size="50" fill="${INK}">moji = character</text>`, 3);
+    if (f >= c('jp', 'picture', 1)) g += kutu('picture character', 540, 1650, pop(f, c('jp', 'picture', 1)), PEM, '#fff', -2, 76);
+    return g;
+  },
+  kurita(f, S, t) {
+    let g = '';
+    // 1999 kapaklı telefon
+    g += at(540, 1120, 1, `<rect x="-230" y="-520" width="460" height="560" rx="60" fill="#C9CCD6" stroke="${INK}" stroke-width="9"/><rect x="-180" y="-460" width="360" height="400" rx="10" fill="#B9D3A0" stroke="${INK}" stroke-width="7"/><rect x="-230" y="40" width="460" height="560" rx="60" fill="#A9ADB9" stroke="${INK}" stroke-width="9"/>${Array.from({ length: 12 }, (_, k) => `<rect x="${-150 + (k % 3) * 110}" y="${120 + Math.floor(k / 3) * 110}" width="80" height="70" rx="20" fill="${KRM}" stroke="${INK}" stroke-width="5"/>`).join('')}<text class="lbl" text-anchor="middle" y="-440" font-size="30" fill="${INK}" opacity=".6">i-mode</text>`);
+    const ekran = (ic) => `<g>${ic}</g>`;
+    if (f < c('kurita', '176')) g += px('heart', 540, 860, 22, gir(f, c('kurita', 'drew'), 40));
+    else { const u = gir(f, c('kurita', '176'), 40), n = Math.floor(u * 176); let s = ''; for (let i = 0; i < n; i++) { const k = i % 16, r = Math.floor(i / 16); s += `<rect x="${380 + k * 20}" y="${740 + r * 21}" width="15" height="15" fill="${[PEM, SAR, TUR, INK, '#4DA3FF'][Math.floor(rastgele(i) * 5)]}"/>`; } g += s; }
+    g += L('Shigetaka Kurita · 1999', 540, 1780, f, c('kurita', 'shigetaka'), c('kurita', '176') - 2, 62);
+    g += L('176 icons', 540, 1780, f, c('kurita', '176'), c('kurita', 'twelve') - 2, 80, PEM);
+    if (f >= c('kurita', 'twelve')) { const p = pop(f, c('kurita', 'twelve')); let s = ''; for (let i = 0; i <= 12; i++) s += `<path d="M${-240 + i * 40} -240 V240 M-240 ${-240 + i * 40} H240" stroke="${INK}" stroke-width="2" opacity=".4"/>`; g += `<rect width="1080" height="1920" fill="${KRM}" opacity="${f2(.85 * p)}"/>` + at(540, 1120, p, px('smile', 0, 0, 40) + s) + L('12 × 12 pixels', 540, 1500, f, c('kurita', 'twelve'), S.emoticon.start + 6, 84, PEM); }
+    return g;
+  },
+  emoticon(f, S, t) {
+    let g = '';
+    const d = 90 * gir(f, c('emoticon', 'sideways'), 20);
+    g += at(540, 1020, 1, `<text class="ar" text-anchor="middle" dy="80" font-size="300" fill="${INK}">:-)</text>`, d);
+    g += kutu('emoticon', 540, 700, pop(f, c('emoticon', 'emoticon')), SAR, INK, -2, 96);
+    if (f >= c('emoticon', 'emotion')) g += at(540, 1430, pop(f, c('emoticon', 'emotion')), `<text class="ar" text-anchor="middle" font-size="84" fill="${INK}">emotion <tspan fill="${PEM}">+</tspan> icon</text>`);
+    if (f >= c('emoticon', 'emoji')) g += at(540, 1650, pop(f, c('emoticon', 'emoji')), `<rect x="-310" y="-80" width="620" height="160" fill="${TUR}" stroke="${INK}" stroke-width="8"/><text class="ar" text-anchor="middle" dy="30" font-size="84" fill="${INK}">emoji ≠ emoticon</text>`, 2);
+    return g;
+  },
+  moma(f, S, t) {
+    let g = `<rect x="0" y="1460" width="1080" height="460" fill="#E8DCC8"/><path d="M0 1460 H1080" stroke="${INK}" stroke-width="6"/>`;
+    // çerçeve içinde ikon ızgarası
+    g += `<rect x="190" y="700" width="700" height="620" fill="#fff" stroke="${INK}" stroke-width="14"/><rect x="220" y="730" width="640" height="560" fill="#FAFAF5" stroke="${INK}" stroke-width="3"/>`;
+    const ad = ['smile', 'heart', 'sun', 'drop', 'wink', 'joy'];
+    ad.forEach((a, i) => { g += px(a, 330 + (i % 3) * 210, 880 + Math.floor(i / 3) * 250, 11, gir(f, S.moma.start + i * 6, 20)); });
+    g += `<path d="M540 640 L540 700" stroke="${INK}" stroke-width="4"/><path d="M380 1500 h320 v30 h-320Z M400 1530 v80 M680 1530 v80" stroke="${INK}" stroke-width="10" fill="#8A5A34"/>`;
+    g += at(540, 1690, pop(f, c('moma', 'museum')), `<rect x="-300" y="-70" width="600" height="140" fill="${INK}"/><text class="ar" text-anchor="middle" dy="28" font-size="76" fill="#fff">MoMA · New York</text>`);
+    return g;
+  },
+  word(f, S, t) {
+    let g = '';
+    // açık sözlük
+    g += `<g transform="translate(540,1130)"><path d="M0 -330 C-150 -380 -330 -360 -440 -320 V380 C-330 340 -150 330 0 380Z" fill="#fff" stroke="${INK}" stroke-width="8"/><path d="M0 -330 C150 -380 330 -360 440 -320 V380 C330 340 150 330 0 380Z" fill="#fff" stroke="${INK}" stroke-width="8"/>`;
+    for (let k = 0; k < 10; k++) g += `<path d="M-390 ${-230 + k * 56} H${f2(-60 - rastgele(k) * 60)}" stroke="${INK}" stroke-width="8" opacity=".18"/>`;
+    g += `<text class="lbl" text-anchor="middle" x="220" y="-250" font-size="40" fill="${INK}">WORD OF</text><text class="lbl" text-anchor="middle" x="220" y="-200" font-size="40" fill="${INK}">THE YEAR</text><text class="ar" text-anchor="middle" x="220" y="-110" font-size="90" fill="${PEM}">2015</text></g>`;
+    g += px('joy', 760, 1240, 22, gir(f, c('word', 'tears'), 24));
+    g += L('not even a word!', 540, 640, f, c('word', 'wasn'), S.son.start - 2, 80, PEM);
+    return g;
+  },
+  son(f, S, t) {
+    let g = '';
+    const ad = ['heart', 'sun', 'joy', 'drop', 'smile', 'heart', 'joy', 'sun'];
+    for (let k = 0; k < 8; k++) { const a = k * P / 4 + t * .006, x = 540 + cos(a) * 380, y = 1150 + sin(a) * 400; g += at(x, y, pop(f, S.son.start + k * 5), px(ad[k], 0, 0, 10)); }
+    g += px(f > c('son', 'all') ? 'wink' : 'smile', 540, 1150, 30, 1);
+    if (f >= c('son', 'nothing')) g += L('emoji ≠ emotion', 540, 640, f, c('son', 'nothing'), c('son', 'funny') - 2, 80, INK);
+    if (f >= c('son', 'funny')) g += kutu('but it shows them all', 540, 1720, pop(f, c('son', 'funny')), PEM, '#fff', -2, 64);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="${KRM}"/><rect width="1080" height="1920" fill="url(#izgara)"/>`;
+  for (let k = 0; k < 14; k++) { const x = (rastgele(k) * 1080 + f * (.3 + rastgele(k + 9))) % 1120 - 20, y = rastgele(k + 3) * 1920; a += `<rect x="${f2(x)}" y="${f2(y)}" width="20" height="20" fill="${[PEM, SAR, TUR][k % 3]}" opacity=".35"/>`; }
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

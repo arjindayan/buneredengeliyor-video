@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: petrol mavisi mutfak fayansı + kehribar bal kavanozu maskotu, mikrop tepkiciler. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#123B46}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 90px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 5px 0 rgba(4,22,28,.7)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <pattern id="fayans" width="120" height="120" patternUnits="userSpaceOnUse"><rect width="120" height="120" fill="#16505E"/><rect x="4" y="4" width="112" height="112" rx="10" fill="#1A5D6C"/><path d="M60 30 l8 22 22 8 -22 8 -8 22 -8 -22 -22 -8 22 -8Z" fill="#20707F" opacity=".7"/></pattern>
+    <linearGradient id="bal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD15C"/><stop offset=".6" stop-color="#F2A21B"/><stop offset="1" stop-color="#C9700C"/></linearGradient>
+    <linearGradient id="cam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".2" stop-color="#fff" stop-opacity=".05"/><stop offset=".85" stop-color="#fff" stop-opacity=".0"/><stop offset="1" stop-color="#fff" stop-opacity=".2"/></linearGradient>
+    <linearGradient id="tezgah" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8D3B0"/><stop offset="1" stop-color="#C9A97E"/></linearGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka'];
+const c = cue, INK = '#2A1A0C', BAL = '#F2A21B';
+const L = (txt, x, y, f, f0, f1, s = 80, r = '#FFE08A') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', '#0B2A32');
+
+// bal kavanozu maskotu; o.krem 0..1 kristalleşme, o.kopuk 0..1 fermantasyon, o.kapak açık mı
+function kavanoz(t, o = {}) {
+  const k = o.krem || 0, fer = o.kopuk || 0;
+  let g = `<rect x="-200" y="-230" width="400" height="460" rx="80" fill="${k > 0 ? mix('#F2A21B', '#F7E2B0', k) : 'url(#bal)'}" stroke="${INK}" stroke-width="9"/>`;
+  if (k > 0) for (let i = 0; i < 40 * k; i++) g += `<circle cx="${f2(-170 + rastgele(i) * 340)}" cy="${f2(-200 + rastgele(i + 40) * 400)}" r="${f2(4 + rastgele(i + 3) * 5)}" fill="#fff" opacity=".55"/>`;
+  if (fer > 0) for (let i = 0; i < 10; i++) { const u = ((t * .02) + i / 10) % 1; g += `<circle cx="${f2(-150 + rastgele(i) * 300)}" cy="${f2(200 - u * 400)}" r="${f2(8 + rastgele(i + 2) * 12)}" fill="none" stroke="#fff" stroke-width="4" opacity="${f2(fer * sin(u * P))}"/>`; }
+  g += `<rect x="-200" y="-230" width="400" height="460" rx="80" fill="url(#cam)"/>`;
+  g += `<path d="M-150 -170 C-160 -60 -160 60 -140 150" stroke="#fff" stroke-width="16" fill="none" opacity=".4" stroke-linecap="round"/>`;
+  g += `<rect x="-130" y="-40" width="260" height="140" rx="20" fill="#FFF6E2" stroke="${INK}" stroke-width="6"/>`;
+  g += yuz(0, 10, .85, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, uzgun: o.uzgun, cizgi: INK });
+  const ka = o.kapak || 0;
+  g += `<g transform="translate(${f2(ka * 160)},${f2(-262 - ka * 140)}) rotate(${f2(ka * 30)})"><rect x="-190" y="-40" width="380" height="80" rx="26" fill="#E24E3A" stroke="${INK}" stroke-width="9"/>${[0, 1, 2, 3, 4, 5].map(i => `<path d="M${-150 + i * 60} -30 v60" stroke="${INK}" stroke-width="5" opacity=".35"/>`).join('')}</g>`;
+  // damlayan bal kenarı
+  if (!ka) g += `<path d="M-190 -226 h380 v30 c-20 0 -20 40 -40 40 s-20 -40 -40 -40 h-120 c-20 0 -20 60 -40 60 s-20 -60 -40 -60 h-100Z" fill="${k > 0 ? mix('#F2A21B', '#F7E2B0', k) : BAL}"/>`;
+  return g;
+}
+// mikrop tepkici
+function mikrop(x, y, s, t, o = {}) {
+  let g = '';
+  for (let i = 0; i < 8; i++) { const a = i * P / 4 + sin(t * .1 + i) * .1; g += `<path d="M${f2(cos(a) * 60)} ${f2(sin(a) * 60)} L${f2(cos(a) * 90)} ${f2(sin(a) * 90)}" stroke="${o.renk || '#7BD88F'}" stroke-width="12" stroke-linecap="round"/><circle cx="${f2(cos(a) * 92)}" cy="${f2(sin(a) * 92)}" r="10" fill="${o.renk || '#7BD88F'}"/>`; }
+  const kur = o.kuru || 0, rx = 70 * (1 - kur * .45), ry = 70 * (1 - kur * .2);
+  g += `<ellipse rx="${f2(rx)}" ry="${f2(ry)}" fill="${o.renk || '#7BD88F'}" stroke="#0B2A32" stroke-width="7"/>`;
+  g += yuz(0, -6, .55, t, { seed: o.seed || 3, sur: o.sur, uzgun: o.uzgun, kapali: o.kapali, cizgi: '#0B2A32' });
+  return at(x, y, s, g, sin(t * .08 + x) * 8);
+}
+const tezgah = () => `<rect y="1500" width="1080" height="420" fill="url(#tezgah)"/><rect y="1490" width="1080" height="24" fill="#B48A58"/>`;
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = tezgah() + golge(540, 1500, 260, .3);
+    g += at(540, 1260 + sin(t * .06) * 6, 1, kavanoz(t, { seed: 1, sur: f >= c('hook', 'almost') && f < c('hook', 'almost') + 24 }));
+    // yaş sayacı
+    const yil = Math.round(kf(f, [[0, 0], [c('hook', 'thousands'), 0], [c('hook', 'thousands') + 40, 3000]]));
+    if (f >= c('hook', 'sealed')) g += at(540, 760, pop(f, c('hook', 'sealed')), `<rect x="-240" y="-70" width="480" height="140" rx="30" fill="#0B2A32" stroke="#FFE08A" stroke-width="6"/><text class="lbl" text-anchor="middle" dy="26" font-size="76" fill="#FFE08A">${yil.toLocaleString('en')} yrs</text>`);
+    g += L('one way to ruin it', 540, 920, f, c('hook', 'ruin'), S.sugar.start - 2, 66, '#FF9E8A');
+    return g;
+  },
+  sugar(f, S, t) {
+    let g = '';
+    // dev bal damlası içinde mikrop: su damlaları dışarı çekilir, mikrop büzülür
+    g += `<path d="M540 640 C700 900 860 1060 860 1260 C860 1460 720 1580 540 1580 C360 1580 220 1460 220 1260 C220 1060 380 900 540 640Z" fill="url(#bal)" stroke="${INK}" stroke-width="10"/>`;
+    g += `<path d="M330 1200 C320 1100 380 1000 430 950" stroke="#fff" stroke-width="18" fill="none" opacity=".45" stroke-linecap="round"/>`;
+    const kur = gir(f, c('sugar', 'pulls'), 40);
+    g += mikrop(540, 1250, 1.1, t, { kuru: kur, uzgun: kur > .4, sur: f >= c('sugar', 'germs') && kur < .4, seed: 4 });
+    for (let k = 0; k < 6; k++) { const u = klamp((f - c('sugar', 'pulls') - k * 6) / 40), a = k * P / 3; g += `<path d="M0 -26 C16 0 20 10 20 18 a20 20 0 0 1 -40 0 c0 -8 4 -18 20 -44Z" fill="#7FD3FF" stroke="#0B2A32" stroke-width="5" transform="translate(${f2(540 + cos(a) * (60 + u * 380))},${f2(1250 + sin(a) * (60 + u * 380))}) scale(${f2(1.2 * (u > 0 ? 1 : 0))})" opacity="${f2(1 - u * .6)}"/>`; }
+    g += L('~17% water', 540, 1700, f, c('sugar', 'little'), S.acid.start - 2, 76);
+    return g;
+  },
+  acid(f, S, t) {
+    let g = '';
+    // pH cetveli + portakal; ok 3.9'a gider
+    const cols = ['#E5394B', '#F2622E', '#F59B23', '#F7C824', '#C9D82C', '#7BD88F', '#3BB98F', '#2AA1B9', '#3B7BD8', '#5B5BD8', '#7B4FC9', '#9B3FB9', '#7A2F8F', '#5A2470'];
+    cols.forEach((r, i) => { g += `<rect x="${90 + i * 64}" y="1180" width="62" height="110" rx="10" fill="${r}"/>`; g += i % 2 ? '' : `<text class="lbl" x="${121 + i * 64}" y="1350" text-anchor="middle" font-size="40" fill="#FFF3DC" stroke="#0B2A32" stroke-width="7">${i}</text>`; });
+    const px = kf(f, [[0, 7], [c('acid', 'acidic'), 7], [c('acid', 'acidic') + 30, 3.9]]);
+    g += at(90 + px * 64, 1150, 1, `<path d="M0 0 L-30 -50 H30Z" fill="#FFF3DC" stroke="#0B2A32" stroke-width="6"/><text class="lbl" y="-70" text-anchor="middle" font-size="56" fill="#FFE08A" stroke="#0B2A32" stroke-width="9">pH ${px.toFixed(1)}</text>`);
+    g += at(330, 820, .9, kavanoz(t, { seed: 2 }).replace(/^/, '') , 0, 1);
+    if (f >= c('acid', 'orange')) g += at(780, 820, pop(f, c('acid', 'orange')) * .9, `<circle r="180" fill="#FF9A2E" stroke="${INK}" stroke-width="9"/><circle r="140" fill="#FFC04D"/>${[0, 1, 2, 3, 4, 5, 6, 7].map(i => `<path d="M0 0 L${f2(cos(i * P / 4) * 136)} ${f2(sin(i * P / 4) * 136)}" stroke="#FFE6A0" stroke-width="8"/>`).join('')}` + yuz(0, 0, .8, t, { seed: 5, sur: true, cizgi: INK }));
+    if (f >= c('acid', 'bacteria')) g += mikrop(540, 1560, .8, t, { kapali: true, uzgun: true, renk: '#9AA8A0' });
+    return at(0, 0, 1, g);
+  },
+  peroxide(f, S, t) {
+    let g = '';
+    // arı + enzim (makas gibi minik) → H2O2 kabarcıkları
+    const ari = `<ellipse cx="-50" cy="-70" rx="60" ry="40" fill="#E8F7FF" opacity=".8" transform="rotate(${f2(-20 + sin(t * 2.4) * 20)})"/><ellipse rx="110" ry="80" fill="#FFC93C" stroke="${INK}" stroke-width="8"/><path d="M-30 -76 v152 M30 -76 v152" stroke="${INK}" stroke-width="22"/><circle cx="-110" cy="-10" r="56" fill="#FFC93C" stroke="${INK}" stroke-width="8"/>` + yuz(-110, -10, .55, t, { seed: 8, cizgi: INK });
+    g += at(320 + sin(t * .05) * 20, 900 + sin(t * .09) * 20, 1, ari);
+    const p = gir(f, c('peroxide', 'enzyme'), 16);
+    if (p > 0) g += at(560, 1080, p, `<rect x="-90" y="-50" width="180" height="100" rx="50" fill="#B98CFF" stroke="${INK}" stroke-width="7"/><text class="lbl" text-anchor="middle" dy="18" font-size="48" fill="#fff">enzyme</text>`);
+    if (f >= c('peroxide', 'hydrogen')) for (let k = 0; k < 12; k++) { const u = ((f - c('peroxide', 'hydrogen')) * .012 + k / 12) % 1; g += `<g transform="translate(${f2(540 + (k / 11 - .5) * 760 + sin(t * .05 + k) * 30)},${f2(1600 - u * 520)}) scale(1.5)" opacity="${f2(sin(u * P))}"><circle r="46" fill="#DDF6FF" stroke="#0B2A32" stroke-width="5"/><text class="lbl" text-anchor="middle" dy="12" font-size="30" fill="#0B2A32">H₂O₂</text></g>`; }
+    if (f >= c('peroxide', 'cuts')) g += at(820, 760, pop(f, c('peroxide', 'cuts')), `<g transform="rotate(30)"><rect x="-150" y="-50" width="300" height="100" rx="40" fill="#F7D9B5" stroke="${INK}" stroke-width="7"/><rect x="-50" y="-50" width="100" height="100" fill="#F2C49A"/>${[0, 1, 2, 3].map(i => `<circle cx="${-30 + (i % 2) * 60}" cy="${-20 + Math.floor(i / 2) * 40}" r="6" fill="#C99A70"/>`).join('')}</g>`);
+    g += L('H₂O₂', 540, 700, f, c('peroxide', 'hydrogen'), S.crystal.start - 2, 100, '#DDF6FF');
+    return g;
+  },
+  crystal(f, S, t) {
+    let g = tezgah() + golge(540, 1500, 260, .3);
+    const k = kf(f, [[0, 0], [c('crystal', 'hard'), 0], [c('crystal', 'hard') + 20, 1], [c('crystal', 'warm'), 1], [c('crystal', 'liquid'), 0]]);
+    // ılık su kabı
+    const kap = gir(f, c('crystal', 'warm'), 14);
+    if (kap > 0) { g += `<path d="M190 ${f2(1500 - 280 * kap)} H890 L850 1500 H230Z" fill="#7FD3FF" opacity=".55" stroke="#0B2A32" stroke-width="7"/>`; for (let i = 0; i < 3; i++) { const u = ((t * .015) + i / 3) % 1; g += `<path d="M${400 + i * 140} ${f2(1180 - u * 160)} q20 -30 0 -60 t0 -60" stroke="#fff" stroke-width="10" fill="none" opacity="${f2(kap * sin(u * P) * .8)}" stroke-linecap="round"/>`; } }
+    g += at(540, 1260, 1, kavanoz(t, { seed: 3, krem: k, sur: k > .5 && f < c('crystal', 'spoiled') + 30 }));
+    g += L('not spoiled ✓', 540, 760, f, c('crystal', 'spoiled'), c('crystal', 'crystallized') - 2, 80, '#9BF0B0');
+    g += L('crystallized', 540, 760, f, c('crystal', 'crystallized'), c('crystal', 'warm') - 2, 84, '#FFF3DC');
+    g += L('warm it gently', 540, 760, f, c('crystal', 'warm'), S.water.start - 2, 80, '#FFE08A');
+    return g;
+  },
+  water(f, S, t) {
+    let g = tezgah() + golge(540, 1500, 260, .3);
+    const ac = gir(f, c('water', 'lid'), 14), fer = gir(f, c('water', 'ferment'), 30);
+    g += at(540, 1260, 1, kavanoz(t, { seed: 4, kapak: ac, kopuk: fer, uzgun: fer > .3, sur: f >= c('water', 'water') && f < c('water', 'water') + 24 }));
+    // nem bulutu + damlalar
+    const nem = gir(f, c('water', 'humid'), 20);
+    g += `<g opacity="${f2(nem * .85)}"><ellipse cx="540" cy="760" rx="300" ry="110" fill="#CFEFFF"/><ellipse cx="420" cy="720" rx="140" ry="100" fill="#CFEFFF"/><ellipse cx="670" cy="710" rx="160" ry="110" fill="#CFEFFF"/></g>`;
+    for (let k = 0; k < 8; k++) { const u = ((t * .03) + k / 8) % 1; g += `<path d="M0 -20 C12 0 14 8 14 14 a14 14 0 0 1 -28 0 c0 -6 2 -14 14 -34Z" fill="#7FD3FF" transform="translate(${f2(360 + k * 50)},${f2(840 + u * 160)})" opacity="${f2(nem * (1 - u))}"/>`; }
+    if (fer > 0) for (let k = 0; k < 3; k++) g += mikrop([250, 830, 300][k], [1100, 1000, 1400][k], .55 * fer, t, { seed: k, sur: false });
+    g += L('+ water = ✗', 540, 960, f, c('water', 'add'), c('water', 'leave') - 2, 84, '#FF9E8A');
+    g += L('ferment', 540, 960, f, c('water', 'ferment'), S.son.start - 2, 90, '#FF9E8A');
+    return g;
+  },
+  son(f, S, t) {
+    let g = tezgah() + golge(540, 1500, 260, .3);
+    const kp = 1 - gir(f, S.son.start + 4, 16);
+    g += at(540, 1260, 1, kavanoz(t, { seed: 5, kapak: kp, kapali: f > T.total - 24 }));
+    if (f >= c('son', 'outlive')) g += at(540, 780, pop(f, c('son', 'outlive')), `<rect x="-260" y="-70" width="520" height="140" rx="70" fill="#FFE08A" stroke="#0B2A32" stroke-width="8"/><text class="lbl" text-anchor="middle" dy="26" font-size="72" fill="#0B2A32">∞ shelf life</text>`);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#fayans)"/><rect width="1080" height="1920" fill="#0B2A32" opacity=".25"/>`;
+  a += parcacik(f, 14, '#FFE08A', .3);
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

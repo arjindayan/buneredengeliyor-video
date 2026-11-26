@@ -1,0 +1,14 @@
+{
+  "title": "Why are school buses yellow?",
+  "lang": "en",
+  "voice": "Xb7hH8MSUJpSbSDYk0k2",
+  "segments": [
+    {"scene": "hook", "text": "Why are the school buses in every movie and TV show always yellow? It's not a coincidence. It's a decision."},
+    {"scene": "wagon", "text": "Early school buses were often just farm wagons with benches, and America had no national standard for how they should look."},
+    {"scene": "meeting", "text": "Then, in April {1939,|nineteen thirty-nine,} a professor named Frank Cyr gathered officials from all forty-eight states, bus builders, and paint experts at Columbia University for a week."},
+    {"scene": "rules", "text": "They agreed on forty-four national standards. One of them was the color: a yellow-orange called National School Bus Chrome."},
+    {"scene": "why", "text": "The reason given? Black lettering stands out best on yellow, even in the half-dark of dawn and dusk. Right when children are waiting at the roadside."},
+    {"scene": "today", "text": "Today that color has an official name, National School Bus Glossy Yellow, and a federal color number: {13432.|one three four three two.}"},
+    {"scene": "son", "text": "So the yellow bus in your favorite movie isn't a director's choice. It's the legacy of one week-long meeting in {1939.|nineteen thirty-nine.} If you enjoyed this, like and follow for more."}
+  ]
+}

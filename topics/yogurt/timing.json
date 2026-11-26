@@ -1,0 +1,617 @@
+{
+"duration": 54.804,
+"words": [
+{
+"w": "Bu",
+"start": 0.0,
+"end": 0.16,
+"seg": 0
+},
+{
+"w": "kelimeyi",
+"start": 0.24,
+"end": 0.72,
+"seg": 0
+},
+{
+"w": "dünyanın",
+"start": 0.88,
+"end": 1.44,
+"seg": 0
+},
+{
+"w": "dört",
+"start": 1.48,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "bir",
+"start": 1.76,
+"end": 1.92,
+"seg": 0
+},
+{
+"w": "yanında",
+"start": 2.0,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "Türkçe",
+"start": 2.4,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "söylüyorlar.",
+"start": 2.8,
+"end": 3.6,
+"seg": 0
+},
+{
+"w": "Evet,",
+"start": 3.76,
+"end": 4.24,
+"seg": 1
+},
+{
+"w": "yoğurt.",
+"start": 4.4,
+"end": 5.08,
+"seg": 1
+},
+{
+"w": "İngilizcede",
+"start": 5.28,
+"end": 6.0,
+"seg": 1
+},
+{
+"w": "yogurt,",
+"start": 6.16,
+"end": 6.96,
+"seg": 1
+},
+{
+"w": "Fransızcada",
+"start": 7.04,
+"end": 7.76,
+"seg": 1
+},
+{
+"w": "yaourt,",
+"start": 8.0,
+"end": 8.64,
+"seg": 1
+},
+{
+"w": "ama",
+"start": 8.8,
+"end": 9.04,
+"seg": 1
+},
+{
+"w": "hepsinin",
+"start": 9.12,
+"end": 9.6,
+"seg": 1
+},
+{
+"w": "kökü",
+"start": 9.68,
+"end": 9.92,
+"seg": 1
+},
+{
+"w": "aynı.",
+"start": 10.0,
+"end": 10.52,
+"seg": 1
+},
+{
+"w": "Kelime,",
+"start": 10.72,
+"end": 11.24,
+"seg": 2
+},
+{
+"w": "Türkçedeki",
+"start": 11.36,
+"end": 12.0,
+"seg": 2
+},
+{
+"w": "\"yoğurmak\",",
+"start": 12.16,
+"end": 12.96,
+"seg": 2
+},
+{
+"w": "yani",
+"start": 13.0,
+"end": 13.28,
+"seg": 2
+},
+{
+"w": "koyulaştırmak",
+"start": 13.44,
+"end": 14.16,
+"seg": 2
+},
+{
+"w": "fiilinden",
+"start": 14.24,
+"end": 14.72,
+"seg": 2
+},
+{
+"w": "geliyor.",
+"start": 14.8,
+"end": 15.2,
+"seg": 2
+},
+{
+"w": "Bin",
+"start": 15.6,
+"end": 15.76,
+"seg": 3
+},
+{
+"w": "yıl",
+"start": 15.84,
+"end": 15.92,
+"seg": 3
+},
+{
+"w": "önce",
+"start": 16.0,
+"end": 16.32,
+"seg": 3
+},
+{
+"w": "Kaşgarlı",
+"start": 16.48,
+"end": 17.04,
+"seg": 3
+},
+{
+"w": "Mahmud,",
+"start": 17.16,
+"end": 17.68,
+"seg": 3
+},
+{
+"w": "Divanü",
+"start": 17.8,
+"end": 18.16,
+"seg": 3
+},
+{
+"w": "Lügati't-Türk'te",
+"start": 18.2,
+"end": 19.12,
+"seg": 3
+},
+{
+"w": "bu",
+"start": 19.28,
+"end": 19.36,
+"seg": 3
+},
+{
+"w": "kelimeyi",
+"start": 19.44,
+"end": 19.84,
+"seg": 3
+},
+{
+"w": "çoktan",
+"start": 19.92,
+"end": 20.32,
+"seg": 3
+},
+{
+"w": "yazmıştı.",
+"start": 20.4,
+"end": 20.96,
+"seg": 3
+},
+{
+"w": "Bozkırda",
+"start": 21.36,
+"end": 21.84,
+"seg": 4
+},
+{
+"w": "göçebeler",
+"start": 21.92,
+"end": 22.48,
+"seg": 4
+},
+{
+"w": "sütü",
+"start": 22.64,
+"end": 22.88,
+"seg": 4
+},
+{
+"w": "bozulmadan",
+"start": 22.96,
+"end": 23.44,
+"seg": 4
+},
+{
+"w": "saklamanın",
+"start": 23.52,
+"end": 24.08,
+"seg": 4
+},
+{
+"w": "yolunu",
+"start": 24.12,
+"end": 24.4,
+"seg": 4
+},
+{
+"w": "bulmuştu:",
+"start": 24.48,
+"end": 25.28,
+"seg": 4
+},
+{
+"w": "Mayalamak.",
+"start": 25.36,
+"end": 26.2,
+"seg": 4
+},
+{
+"w": "Rivayete",
+"start": 26.4,
+"end": 26.88,
+"seg": 5
+},
+{
+"w": "göre",
+"start": 26.92,
+"end": 27.2,
+"seg": 5
+},
+{
+"w": "1500'lerde",
+"start": 27.36,
+"end": 28.16,
+"seg": 5
+},
+{
+"w": "hastalanan",
+"start": 28.2,
+"end": 28.72,
+"seg": 5
+},
+{
+"w": "Fransa",
+"start": 28.8,
+"end": 29.2,
+"seg": 5
+},
+{
+"w": "kralına",
+"start": 29.24,
+"end": 29.68,
+"seg": 5
+},
+{
+"w": "Kanuni",
+"start": 29.92,
+"end": 30.4,
+"seg": 5
+},
+{
+"w": "bir",
+"start": 30.48,
+"end": 30.56,
+"seg": 5
+},
+{
+"w": "hekim",
+"start": 30.64,
+"end": 30.88,
+"seg": 5
+},
+{
+"w": "gönderdi.",
+"start": 30.96,
+"end": 31.64,
+"seg": 5
+},
+{
+"w": "Hekim",
+"start": 31.84,
+"end": 32.16,
+"seg": 5
+},
+{
+"w": "kralı",
+"start": 32.32,
+"end": 32.64,
+"seg": 5
+},
+{
+"w": "yoğurtla",
+"start": 32.72,
+"end": 33.12,
+"seg": 5
+},
+{
+"w": "iyileştirdi.",
+"start": 33.2,
+"end": 33.96,
+"seg": 5
+},
+{
+"w": "Asıl",
+"start": 34.16,
+"end": 34.4,
+"seg": 6
+},
+{
+"w": "büyük",
+"start": 34.48,
+"end": 34.72,
+"seg": 6
+},
+{
+"w": "patlama",
+"start": 34.8,
+"end": 35.12,
+"seg": 6
+},
+{
+"w": "ise",
+"start": 35.28,
+"end": 35.44,
+"seg": 6
+},
+{
+"w": "1900'lerin",
+"start": 35.6,
+"end": 36.4,
+"seg": 6
+},
+{
+"w": "başında",
+"start": 36.48,
+"end": 36.88,
+"seg": 6
+},
+{
+"w": "geldi.",
+"start": 36.92,
+"end": 37.6,
+"seg": 6
+},
+{
+"w": "Bir",
+"start": 37.653,
+"end": 37.76,
+"seg": 6
+},
+{
+"w": "bilim",
+"start": 37.84,
+"end": 38.0,
+"seg": 6
+},
+{
+"w": "insanı",
+"start": 38.08,
+"end": 38.48,
+"seg": 6
+},
+{
+"w": "uzun",
+"start": 38.72,
+"end": 38.96,
+"seg": 6
+},
+{
+"w": "ömrün",
+"start": 39.0,
+"end": 39.28,
+"seg": 6
+},
+{
+"w": "sırrının",
+"start": 39.36,
+"end": 39.76,
+"seg": 6
+},
+{
+"w": "yoğurtta",
+"start": 39.84,
+"end": 40.32,
+"seg": 6
+},
+{
+"w": "olduğunu",
+"start": 40.4,
+"end": 40.64,
+"seg": 6
+},
+{
+"w": "ileri",
+"start": 40.72,
+"end": 40.96,
+"seg": 6
+},
+{
+"w": "sürdü.",
+"start": 41.0,
+"end": 41.68,
+"seg": 6
+},
+{
+"w": "Kısa",
+"start": 41.707,
+"end": 41.84,
+"seg": 7
+},
+{
+"w": "süre",
+"start": 41.92,
+"end": 42.16,
+"seg": 7
+},
+{
+"w": "sonra",
+"start": 42.28,
+"end": 42.56,
+"seg": 7
+},
+{
+"w": "Avrupa'da",
+"start": 42.72,
+"end": 43.2,
+"seg": 7
+},
+{
+"w": "yoğurt",
+"start": 43.28,
+"end": 43.52,
+"seg": 7
+},
+{
+"w": "fabrikaları",
+"start": 43.6,
+"end": 44.12,
+"seg": 7
+},
+{
+"w": "açıldı",
+"start": 44.16,
+"end": 44.56,
+"seg": 7
+},
+{
+"w": "ve",
+"start": 44.8,
+"end": 44.88,
+"seg": 7
+},
+{
+"w": "kelime",
+"start": 44.96,
+"end": 45.36,
+"seg": 7
+},
+{
+"w": "marketlerin",
+"start": 45.52,
+"end": 46.16,
+"seg": 7
+},
+{
+"w": "raflarına",
+"start": 46.2,
+"end": 46.64,
+"seg": 7
+},
+{
+"w": "girdi.",
+"start": 46.72,
+"end": 47.36,
+"seg": 7
+},
+{
+"w": "Bugün",
+"start": 47.44,
+"end": 47.68,
+"seg": 8
+},
+{
+"w": "dünyanın",
+"start": 47.76,
+"end": 48.24,
+"seg": 8
+},
+{
+"w": "her",
+"start": 48.32,
+"end": 48.48,
+"seg": 8
+},
+{
+"w": "yerinde,",
+"start": 48.56,
+"end": 49.12,
+"seg": 8
+},
+{
+"w": "bozkırdan",
+"start": 49.2,
+"end": 49.68,
+"seg": 8
+},
+{
+"w": "kalma",
+"start": 49.76,
+"end": 50.08,
+"seg": 8
+},
+{
+"w": "bir",
+"start": 50.16,
+"end": 50.24,
+"seg": 8
+},
+{
+"w": "Türkçe",
+"start": 50.32,
+"end": 50.64,
+"seg": 8
+},
+{
+"w": "kelimeyi",
+"start": 50.72,
+"end": 51.04,
+"seg": 8
+},
+{
+"w": "kaşıkla",
+"start": 51.12,
+"end": 51.52,
+"seg": 8
+},
+{
+"w": "yiyorlar.",
+"start": 51.6,
+"end": 52.28,
+"seg": 8
+},
+{
+"w": "Sen",
+"start": 52.48,
+"end": 52.72,
+"seg": 9
+},
+{
+"w": "yoğurdu",
+"start": 52.8,
+"end": 53.12,
+"seg": 9
+},
+{
+"w": "neyle",
+"start": 53.2,
+"end": 53.44,
+"seg": 9
+},
+{
+"w": "seversin?",
+"start": 53.52,
+"end": 54.24,
+"seg": 9
+}
+]
+}

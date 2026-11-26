@@ -1,0 +1,599 @@
+{
+"duration": 47.281,
+"words": [
+{
+"w": "Bu",
+"start": 0.0,
+"end": 0.16,
+"seg": 0
+},
+{
+"w": "ülkede",
+"start": 0.24,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "hafta",
+"start": 0.72,
+"end": 1.04,
+"seg": 0
+},
+{
+"w": "sonu",
+"start": 1.12,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "eskiden",
+"start": 1.36,
+"end": 1.76,
+"seg": 0
+},
+{
+"w": "cumartesi",
+"start": 1.84,
+"end": 2.4,
+"seg": 0
+},
+{
+"w": "ve",
+"start": 2.44,
+"end": 2.48,
+"seg": 0
+},
+{
+"w": "pazar",
+"start": 2.56,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "değildi.",
+"start": 3.04,
+"end": 3.64,
+"seg": 0
+},
+{
+"w": "Evet,",
+"start": 3.84,
+"end": 4.4,
+"seg": 1
+},
+{
+"w": "hafta",
+"start": 4.52,
+"end": 4.68,
+"seg": 1
+},
+{
+"w": "tatili.",
+"start": 4.72,
+"end": 5.4,
+"seg": 1
+},
+{
+"w": "1924'te",
+"start": 5.6,
+"end": 6.72,
+"seg": 1
+},
+{
+"w": "çıkan",
+"start": 6.8,
+"end": 7.12,
+"seg": 1
+},
+{
+"w": "kanunla",
+"start": 7.24,
+"end": 7.68,
+"seg": 1
+},
+{
+"w": "Türkiye'de",
+"start": 7.84,
+"end": 8.32,
+"seg": 1
+},
+{
+"w": "resmi",
+"start": 8.4,
+"end": 8.8,
+"seg": 1
+},
+{
+"w": "tatil",
+"start": 8.96,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "günü",
+"start": 9.28,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "cumaydı.",
+"start": 9.52,
+"end": 10.16,
+"seg": 1
+},
+{
+"w": "Ama",
+"start": 10.32,
+"end": 10.48,
+"seg": 2
+},
+{
+"w": "dünyanın",
+"start": 10.56,
+"end": 11.04,
+"seg": 2
+},
+{
+"w": "geri",
+"start": 11.12,
+"end": 11.28,
+"seg": 2
+},
+{
+"w": "kalanı",
+"start": 11.32,
+"end": 11.68,
+"seg": 2
+},
+{
+"w": "pazar",
+"start": 11.76,
+"end": 12.08,
+"seg": 2
+},
+{
+"w": "günü",
+"start": 12.16,
+"end": 12.24,
+"seg": 2
+},
+{
+"w": "kapanıyordu.",
+"start": 12.32,
+"end": 13.16,
+"seg": 2
+},
+{
+"w": "Bankalar,",
+"start": 13.36,
+"end": 14.08,
+"seg": 3
+},
+{
+"w": "limanlar",
+"start": 14.2,
+"end": 14.64,
+"seg": 3
+},
+{
+"w": "ve",
+"start": 14.68,
+"end": 14.72,
+"seg": 3
+},
+{
+"w": "ticaret",
+"start": 14.88,
+"end": 15.28,
+"seg": 3
+},
+{
+"w": "ortakları",
+"start": 15.36,
+"end": 15.84,
+"seg": 3
+},
+{
+"w": "Avrupa'ydı.",
+"start": 15.92,
+"end": 16.76,
+"seg": 3
+},
+{
+"w": "Türkiye",
+"start": 16.96,
+"end": 17.36,
+"seg": 3
+},
+{
+"w": "cuma",
+"start": 17.44,
+"end": 17.68,
+"seg": 3
+},
+{
+"w": "tatil",
+"start": 17.76,
+"end": 18.08,
+"seg": 3
+},
+{
+"w": "yapınca,",
+"start": 18.12,
+"end": 18.72,
+"seg": 3
+},
+{
+"w": "haftanın",
+"start": 18.84,
+"end": 19.28,
+"seg": 3
+},
+{
+"w": "iki",
+"start": 19.36,
+"end": 19.44,
+"seg": 3
+},
+{
+"w": "günü",
+"start": 19.52,
+"end": 19.76,
+"seg": 3
+},
+{
+"w": "dünyayla",
+"start": 19.84,
+"end": 20.32,
+"seg": 3
+},
+{
+"w": "bağı",
+"start": 20.4,
+"end": 20.56,
+"seg": 3
+},
+{
+"w": "kopuyordu.",
+"start": 20.64,
+"end": 21.4,
+"seg": 3
+},
+{
+"w": "1935'te",
+"start": 21.6,
+"end": 22.72,
+"seg": 4
+},
+{
+"w": "yeni",
+"start": 22.88,
+"end": 23.04,
+"seg": 4
+},
+{
+"w": "bir",
+"start": 23.12,
+"end": 23.2,
+"seg": 4
+},
+{
+"w": "kanun",
+"start": 23.32,
+"end": 23.52,
+"seg": 4
+},
+{
+"w": "çıktı:",
+"start": 23.6,
+"end": 24.24,
+"seg": 4
+},
+{
+"w": "Hafta",
+"start": 24.32,
+"end": 24.56,
+"seg": 4
+},
+{
+"w": "tatili",
+"start": 24.64,
+"end": 25.04,
+"seg": 4
+},
+{
+"w": "artık",
+"start": 25.2,
+"end": 25.52,
+"seg": 4
+},
+{
+"w": "pazardı.",
+"start": 25.6,
+"end": 26.4,
+"seg": 4
+},
+{
+"w": "Üstelik",
+"start": 26.44,
+"end": 26.8,
+"seg": 5
+},
+{
+"w": "cumartesi",
+"start": 26.88,
+"end": 27.44,
+"seg": 5
+},
+{
+"w": "öğleden",
+"start": 27.52,
+"end": 27.84,
+"seg": 5
+},
+{
+"w": "sonrası",
+"start": 27.92,
+"end": 28.28,
+"seg": 5
+},
+{
+"w": "da",
+"start": 28.32,
+"end": 28.4,
+"seg": 5
+},
+{
+"w": "tatil",
+"start": 28.52,
+"end": 28.8,
+"seg": 5
+},
+{
+"w": "sayıldı.",
+"start": 28.88,
+"end": 29.52,
+"seg": 5
+},
+{
+"w": "Bu",
+"start": 29.6,
+"end": 29.68,
+"seg": 6
+},
+{
+"w": "karar",
+"start": 29.76,
+"end": 30.08,
+"seg": 6
+},
+{
+"w": "o",
+"start": 30.24,
+"end": 30.28,
+"seg": 6
+},
+{
+"w": "dönem",
+"start": 30.32,
+"end": 30.56,
+"seg": 6
+},
+{
+"w": "tartışma",
+"start": 30.64,
+"end": 31.12,
+"seg": 6
+},
+{
+"w": "yarattı,",
+"start": 31.2,
+"end": 31.84,
+"seg": 6
+},
+{
+"w": "ama",
+"start": 31.96,
+"end": 32.08,
+"seg": 6
+},
+{
+"w": "ekonomiyi",
+"start": 32.16,
+"end": 32.72,
+"seg": 6
+},
+{
+"w": "dünyayla",
+"start": 32.8,
+"end": 33.44,
+"seg": 6
+},
+{
+"w": "aynı",
+"start": 33.52,
+"end": 33.68,
+"seg": 6
+},
+{
+"w": "takvime",
+"start": 33.76,
+"end": 34.16,
+"seg": 6
+},
+{
+"w": "soktu.",
+"start": 34.2,
+"end": 34.76,
+"seg": 6
+},
+{
+"w": "Zamanla",
+"start": 34.96,
+"end": 35.44,
+"seg": 7
+},
+{
+"w": "cumartesi",
+"start": 35.52,
+"end": 36.0,
+"seg": 7
+},
+{
+"w": "de",
+"start": 36.08,
+"end": 36.16,
+"seg": 7
+},
+{
+"w": "tamamen",
+"start": 36.24,
+"end": 36.72,
+"seg": 7
+},
+{
+"w": "tatil",
+"start": 36.84,
+"end": 37.12,
+"seg": 7
+},
+{
+"w": "oldu",
+"start": 37.24,
+"end": 37.44,
+"seg": 7
+},
+{
+"w": "ve",
+"start": 37.6,
+"end": 37.68,
+"seg": 7
+},
+{
+"w": "bugünkü",
+"start": 37.84,
+"end": 38.24,
+"seg": 7
+},
+{
+"w": "hafta",
+"start": 38.36,
+"end": 38.56,
+"seg": 7
+},
+{
+"w": "sonu",
+"start": 38.64,
+"end": 38.8,
+"seg": 7
+},
+{
+"w": "doğdu.",
+"start": 38.88,
+"end": 39.36,
+"seg": 7
+},
+{
+"w": "Yani",
+"start": 39.52,
+"end": 39.84,
+"seg": 8
+},
+{
+"w": "pazar",
+"start": 39.92,
+"end": 40.24,
+"seg": 8
+},
+{
+"w": "keyfinin",
+"start": 40.32,
+"end": 40.72,
+"seg": 8
+},
+{
+"w": "arkasında,",
+"start": 40.8,
+"end": 41.52,
+"seg": 8
+},
+{
+"w": "bir",
+"start": 41.6,
+"end": 41.68,
+"seg": 8
+},
+{
+"w": "ticaret",
+"start": 41.76,
+"end": 42.16,
+"seg": 8
+},
+{
+"w": "takvimi",
+"start": 42.24,
+"end": 42.64,
+"seg": 8
+},
+{
+"w": "hesabı",
+"start": 42.72,
+"end": 43.04,
+"seg": 8
+},
+{
+"w": "var.",
+"start": 43.16,
+"end": 43.36,
+"seg": 8
+},
+{
+"w": "Sen",
+"start": 43.76,
+"end": 44.0,
+"seg": 9
+},
+{
+"w": "hafta",
+"start": 44.16,
+"end": 44.4,
+"seg": 9
+},
+{
+"w": "sonunun",
+"start": 44.48,
+"end": 44.88,
+"seg": 9
+},
+{
+"w": "en",
+"start": 44.96,
+"end": 45.04,
+"seg": 9
+},
+{
+"w": "çok",
+"start": 45.12,
+"end": 45.28,
+"seg": 9
+},
+{
+"w": "hangi",
+"start": 45.36,
+"end": 45.6,
+"seg": 9
+},
+{
+"w": "gününü",
+"start": 45.68,
+"end": 45.92,
+"seg": 9
+},
+{
+"w": "seversin?",
+"start": 46.0,
+"end": 46.72,
+"seg": 9
+}
+]
+}

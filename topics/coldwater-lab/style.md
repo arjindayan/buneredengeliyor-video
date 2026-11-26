@@ -1,0 +1,12 @@
+# Stil kartı: coldwater-lab (ozansihay-motion)
+- Tez: Soğuk su tatlı değil; ısınmış ve susamış beyin onu ödüllendiriyor.
+- Yöntem: Mekanizma çiz + veriyi sahneye dök; 1971 fizyoloji laboratuvarı şerit kaydedicisi × araştırmacı figür sayfası.
+- Malzeme: saf çizgi çizim, yeşil ızgaralı kaydedici kağıdı (gren dokusu).
+- Kadraj: sabit çalışma sayfası, sola yaslı FIG. başlıkları, altta sürekli kayıt şeridi.
+- Zaman: 30 fps; çizgiler kalem eğrisiyle çizilir, sahne değişimi = kağıt beslemesi (14 kare dolly sola akış); her figürde tutuş.
+- Font: Courier Prime (daktilo etiket + altyazı), Instrument Serif (figür başlığı, el notu italik). Hello/emoji/GTA'dan farklı.
+- Palet: kaydedici kağıdı #EEF0E2, ızgara yeşili #86AA92, kırmızı kaydedici mürekkebi #C8252C, mavi-siyah mürekkep #1E2B4A, buz mavisi #8FBCD9 (yalnız su).
+- İmza öğe: tüm video boyunca çizen kırmızı kaydedici kalemi; anlatılan şeyi ölçer (sıcaklık, tatlılık, TRPM5, haz, susuzluk nöronu → "switch off"ta düz çizgi).
+- Altyazı: daktilo, söylenen kelimenin altı kırmızı mürekkep çizgisi (sarı karaoke yok).
+- Ses: Arjin klon sesi + bgpad sakin ped -26 dB; sonda kayıt "END OF RECORD" kapanışı (stilde çizilmiş Like/Follow kutuları).
+- Kullanılmayanlar: maskot yüzleri, sarı aktif kelime, pop/bounce girişleri, gradyan, ortalanmış kart ızgarası.

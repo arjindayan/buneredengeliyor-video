@@ -1,0 +1,954 @@
+{
+"duration": 66.04,
+"words": [
+{
+"w": "In",
+"start": 0.0,
+"end": 0.16,
+"seg": 0
+},
+{
+"w": "1923,",
+"start": 0.24,
+"end": 1.6,
+"seg": 0
+},
+{
+"w": "a",
+"start": 1.64,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "radio",
+"start": 1.76,
+"end": 2.08,
+"seg": 0
+},
+{
+"w": "officer",
+"start": 2.16,
+"end": 2.56,
+"seg": 0
+},
+{
+"w": "at",
+"start": 2.6,
+"end": 2.64,
+"seg": 0
+},
+{
+"w": "a",
+"start": 2.72,
+"end": 2.8,
+"seg": 0
+},
+{
+"w": "London",
+"start": 2.96,
+"end": 3.12,
+"seg": 0
+},
+{
+"w": "airport",
+"start": 3.2,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "had",
+"start": 3.92,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "to",
+"start": 4.12,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "invent",
+"start": 4.24,
+"end": 4.64,
+"seg": 0
+},
+{
+"w": "a",
+"start": 4.68,
+"end": 4.72,
+"seg": 0
+},
+{
+"w": "way",
+"start": 4.84,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "to",
+"start": 5.08,
+"end": 5.2,
+"seg": 0
+},
+{
+"w": "scream",
+"start": 5.24,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "for",
+"start": 5.76,
+"end": 5.84,
+"seg": 0
+},
+{
+"w": "help.",
+"start": 5.92,
+"end": 6.52,
+"seg": 0
+},
+{
+"w": "His",
+"start": 6.8,
+"end": 6.96,
+"seg": 0
+},
+{
+"w": "answer",
+"start": 7.16,
+"end": 7.36,
+"seg": 0
+},
+{
+"w": "was",
+"start": 7.52,
+"end": 7.76,
+"seg": 0
+},
+{
+"w": "one",
+"start": 7.84,
+"end": 8.0,
+"seg": 0
+},
+{
+"w": "word.",
+"start": 8.08,
+"end": 8.48,
+"seg": 0
+},
+{
+"w": "Mayday.",
+"start": 8.96,
+"end": 9.84,
+"seg": 0
+},
+{
+"w": "His",
+"start": 10.16,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "name",
+"start": 10.4,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "was",
+"start": 10.8,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "Frederick",
+"start": 11.04,
+"end": 11.36,
+"seg": 1
+},
+{
+"w": "Mockford,",
+"start": 11.44,
+"end": 12.0,
+"seg": 1
+},
+{
+"w": "at",
+"start": 12.08,
+"end": 12.16,
+"seg": 1
+},
+{
+"w": "Croydon",
+"start": 12.24,
+"end": 12.56,
+"seg": 1
+},
+{
+"w": "Airport.",
+"start": 12.8,
+"end": 13.32,
+"seg": 1
+},
+{
+"w": "Pilots",
+"start": 13.6,
+"end": 14.0,
+"seg": 1
+},
+{
+"w": "were",
+"start": 14.08,
+"end": 14.16,
+"seg": 1
+},
+{
+"w": "moving",
+"start": 14.32,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "from",
+"start": 14.56,
+"end": 14.64,
+"seg": 1
+},
+{
+"w": "Morse",
+"start": 14.72,
+"end": 14.96,
+"seg": 1
+},
+{
+"w": "code",
+"start": 15.04,
+"end": 15.36,
+"seg": 1
+},
+{
+"w": "to",
+"start": 15.44,
+"end": 15.52,
+"seg": 1
+},
+{
+"w": "talking",
+"start": 15.6,
+"end": 15.92,
+"seg": 1
+},
+{
+"w": "over",
+"start": 16.0,
+"end": 16.16,
+"seg": 1
+},
+{
+"w": "voice",
+"start": 16.24,
+"end": 16.48,
+"seg": 1
+},
+{
+"w": "radio.",
+"start": 16.56,
+"end": 16.96,
+"seg": 1
+},
+{
+"w": "The",
+"start": 17.44,
+"end": 17.52,
+"seg": 2
+},
+{
+"w": "old",
+"start": 17.6,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "distress",
+"start": 17.8,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "signal",
+"start": 18.32,
+"end": 18.48,
+"seg": 2
+},
+{
+"w": "was",
+"start": 18.56,
+"end": 18.8,
+"seg": 2
+},
+{
+"w": "SOS.",
+"start": 19.04,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "But",
+"start": 20.56,
+"end": 20.64,
+"seg": 2
+},
+{
+"w": "spoken",
+"start": 20.72,
+"end": 21.04,
+"seg": 2
+},
+{
+"w": "over",
+"start": 21.12,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "a",
+"start": 21.32,
+"end": 21.36,
+"seg": 2
+},
+{
+"w": "crackly",
+"start": 21.44,
+"end": 21.84,
+"seg": 2
+},
+{
+"w": "radio,",
+"start": 22.08,
+"end": 22.56,
+"seg": 2
+},
+{
+"w": "the",
+"start": 22.6,
+"end": 22.64,
+"seg": 2
+},
+{
+"w": "S",
+"start": 22.8,
+"end": 23.2,
+"seg": 2
+},
+{
+"w": "could",
+"start": 23.32,
+"end": 23.44,
+"seg": 2
+},
+{
+"w": "easily",
+"start": 23.52,
+"end": 23.84,
+"seg": 2
+},
+{
+"w": "sound",
+"start": 23.92,
+"end": 24.08,
+"seg": 2
+},
+{
+"w": "like",
+"start": 24.16,
+"end": 24.24,
+"seg": 2
+},
+{
+"w": "an",
+"start": 24.32,
+"end": 24.48,
+"seg": 2
+},
+{
+"w": "F.",
+"start": 24.56,
+"end": 25.2,
+"seg": 2
+},
+{
+"w": "Most",
+"start": 25.52,
+"end": 25.76,
+"seg": 3
+},
+{
+"w": "of",
+"start": 25.8,
+"end": 25.84,
+"seg": 3
+},
+{
+"w": "his",
+"start": 25.92,
+"end": 26.0,
+"seg": 3
+},
+{
+"w": "flights",
+"start": 26.08,
+"end": 26.4,
+"seg": 3
+},
+{
+"w": "went",
+"start": 26.48,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "between",
+"start": 26.72,
+"end": 26.88,
+"seg": 3
+},
+{
+"w": "London",
+"start": 26.96,
+"end": 27.28,
+"seg": 3
+},
+{
+"w": "and",
+"start": 27.32,
+"end": 27.36,
+"seg": 3
+},
+{
+"w": "Paris.",
+"start": 27.52,
+"end": 28.0,
+"seg": 3
+},
+{
+"w": "So",
+"start": 28.32,
+"end": 28.56,
+"seg": 3
+},
+{
+"w": "he",
+"start": 28.72,
+"end": 28.88,
+"seg": 3
+},
+{
+"w": "borrowed",
+"start": 29.0,
+"end": 29.2,
+"seg": 3
+},
+{
+"w": "from",
+"start": 29.28,
+"end": 29.36,
+"seg": 3
+},
+{
+"w": "French.",
+"start": 29.44,
+"end": 30.12,
+"seg": 3
+},
+{
+"w": "M'aider.",
+"start": 30.4,
+"end": 31.12,
+"seg": 3
+},
+{
+"w": "Help",
+"start": 31.36,
+"end": 31.6,
+"seg": 3
+},
+{
+"w": "me.",
+"start": 31.68,
+"end": 31.92,
+"seg": 3
+},
+{
+"w": "Spelled",
+"start": 32.4,
+"end": 32.64,
+"seg": 4
+},
+{
+"w": "the",
+"start": 32.72,
+"end": 32.76,
+"seg": 4
+},
+{
+"w": "English",
+"start": 32.8,
+"end": 33.12,
+"seg": 4
+},
+{
+"w": "way,",
+"start": 33.24,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "it",
+"start": 33.56,
+"end": 33.6,
+"seg": 4
+},
+{
+"w": "became",
+"start": 33.68,
+"end": 34.08,
+"seg": 4
+},
+{
+"w": "Mayday.",
+"start": 34.32,
+"end": 35.04,
+"seg": 4
+},
+{
+"w": "Nothing",
+"start": 35.28,
+"end": 35.52,
+"seg": 4
+},
+{
+"w": "to",
+"start": 35.56,
+"end": 35.6,
+"seg": 4
+},
+{
+"w": "do",
+"start": 35.68,
+"end": 35.76,
+"seg": 4
+},
+{
+"w": "with",
+"start": 35.84,
+"end": 35.92,
+"seg": 4
+},
+{
+"w": "the",
+"start": 35.96,
+"end": 36.0,
+"seg": 4
+},
+{
+"w": "month",
+"start": 36.08,
+"end": 36.32,
+"seg": 4
+},
+{
+"w": "of",
+"start": 36.36,
+"end": 36.4,
+"seg": 4
+},
+{
+"w": "May.",
+"start": 36.48,
+"end": 37.0,
+"seg": 4
+},
+{
+"w": "Pilots",
+"start": 37.28,
+"end": 37.68,
+"seg": 5
+},
+{
+"w": "say",
+"start": 37.76,
+"end": 37.84,
+"seg": 5
+},
+{
+"w": "it",
+"start": 37.92,
+"end": 38.0,
+"seg": 5
+},
+{
+"w": "three",
+"start": 38.08,
+"end": 38.32,
+"seg": 5
+},
+{
+"w": "times.",
+"start": 38.4,
+"end": 39.08,
+"seg": 5
+},
+{
+"w": "Mayday,",
+"start": 39.28,
+"end": 39.92,
+"seg": 5
+},
+{
+"w": "Mayday,",
+"start": 40.0,
+"end": 40.64,
+"seg": 5
+},
+{
+"w": "Mayday.",
+"start": 40.76,
+"end": 41.32,
+"seg": 5
+},
+{
+"w": "So",
+"start": 41.52,
+"end": 41.6,
+"seg": 5
+},
+{
+"w": "nobody",
+"start": 41.76,
+"end": 42.0,
+"seg": 5
+},
+{
+"w": "mistakes",
+"start": 42.08,
+"end": 42.4,
+"seg": 5
+},
+{
+"w": "it",
+"start": 42.48,
+"end": 42.56,
+"seg": 5
+},
+{
+"w": "for",
+"start": 42.6,
+"end": 42.64,
+"seg": 5
+},
+{
+"w": "someone",
+"start": 42.72,
+"end": 42.96,
+"seg": 5
+},
+{
+"w": "just",
+"start": 43.04,
+"end": 43.2,
+"seg": 5
+},
+{
+"w": "talking",
+"start": 43.24,
+"end": 43.52,
+"seg": 5
+},
+{
+"w": "about",
+"start": 43.6,
+"end": 43.84,
+"seg": 5
+},
+{
+"w": "one.",
+"start": 43.96,
+"end": 44.64,
+"seg": 5
+},
+{
+"w": "By",
+"start": 44.72,
+"end": 44.8,
+"seg": 6
+},
+{
+"w": "1927,",
+"start": 44.88,
+"end": 46.08,
+"seg": 6
+},
+{
+"w": "it",
+"start": 46.12,
+"end": 46.16,
+"seg": 6
+},
+{
+"w": "was",
+"start": 46.24,
+"end": 46.32,
+"seg": 6
+},
+{
+"w": "the",
+"start": 46.4,
+"end": 46.56,
+"seg": 6
+},
+{
+"w": "official",
+"start": 46.72,
+"end": 46.88,
+"seg": 6
+},
+{
+"w": "distress",
+"start": 47.0,
+"end": 47.36,
+"seg": 6
+},
+{
+"w": "call",
+"start": 47.44,
+"end": 47.68,
+"seg": 6
+},
+{
+"w": "around",
+"start": 47.88,
+"end": 48.08,
+"seg": 6
+},
+{
+"w": "the",
+"start": 48.12,
+"end": 48.16,
+"seg": 6
+},
+{
+"w": "world.",
+"start": 48.24,
+"end": 49.04,
+"seg": 6
+},
+{
+"w": "It",
+"start": 49.08,
+"end": 49.12,
+"seg": 7
+},
+{
+"w": "even",
+"start": 49.2,
+"end": 49.36,
+"seg": 7
+},
+{
+"w": "has",
+"start": 49.44,
+"end": 49.52,
+"seg": 7
+},
+{
+"w": "a",
+"start": 49.6,
+"end": 49.64,
+"seg": 7
+},
+{
+"w": "little",
+"start": 49.68,
+"end": 49.84,
+"seg": 7
+},
+{
+"w": "brother.",
+"start": 49.92,
+"end": 50.48,
+"seg": 7
+},
+{
+"w": "Pan-pan,",
+"start": 50.72,
+"end": 51.52,
+"seg": 7
+},
+{
+"w": "from",
+"start": 51.6,
+"end": 51.68,
+"seg": 7
+},
+{
+"w": "the",
+"start": 51.76,
+"end": 51.84,
+"seg": 7
+},
+{
+"w": "French",
+"start": 52.0,
+"end": 52.16,
+"seg": 7
+},
+{
+"w": "panne,",
+"start": 52.4,
+"end": 53.04,
+"seg": 7
+},
+{
+"w": "a",
+"start": 53.08,
+"end": 53.12,
+"seg": 7
+},
+{
+"w": "breakdown.",
+"start": 53.2,
+"end": 54.16,
+"seg": 7
+},
+{
+"w": "Serious,",
+"start": 54.28,
+"end": 54.88,
+"seg": 7
+},
+{
+"w": "but",
+"start": 54.96,
+"end": 55.04,
+"seg": 7
+},
+{
+"w": "not",
+"start": 55.12,
+"end": 55.28,
+"seg": 7
+},
+{
+"w": "deadly",
+"start": 55.4,
+"end": 55.84,
+"seg": 7
+},
+{
+"w": "yet.",
+"start": 55.96,
+"end": 56.64,
+"seg": 7
+},
+{
+"w": "So",
+"start": 56.76,
+"end": 56.88,
+"seg": 8
+},
+{
+"w": "every",
+"start": 56.96,
+"end": 57.2,
+"seg": 8
+},
+{
+"w": "Mayday",
+"start": 57.28,
+"end": 57.6,
+"seg": 8
+},
+{
+"w": "you",
+"start": 57.72,
+"end": 57.84,
+"seg": 8
+},
+{
+"w": "hear",
+"start": 57.92,
+"end": 58.0,
+"seg": 8
+},
+{
+"w": "in",
+"start": 58.04,
+"end": 58.08,
+"seg": 8
+},
+{
+"w": "the",
+"start": 58.16,
+"end": 58.24,
+"seg": 8
+},
+{
+"w": "movies",
+"start": 58.52,
+"end": 58.8,
+"seg": 8
+},
+{
+"w": "is",
+"start": 58.92,
+"end": 59.04,
+"seg": 8
+},
+{
+"w": "really",
+"start": 59.2,
+"end": 59.36,
+"seg": 8
+},
+{
+"w": "someone",
+"start": 59.52,
+"end": 59.68,
+"seg": 8
+},
+{
+"w": "shouting",
+"start": 59.76,
+"end": 60.16,
+"seg": 8
+},
+{
+"w": "help",
+"start": 60.4,
+"end": 60.64,
+"seg": 8
+},
+{
+"w": "me,",
+"start": 60.72,
+"end": 61.2,
+"seg": 8
+},
+{
+"w": "in",
+"start": 61.32,
+"end": 61.44,
+"seg": 8
+},
+{
+"w": "French.",
+"start": 61.64,
+"end": 62.08,
+"seg": 8
+}
+],
+"voice_end": 62.23
+}

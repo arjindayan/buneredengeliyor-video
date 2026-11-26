@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: mikroskop merceği, nane-turkuaz damla dünyası, tombul su ayısı + su damlası tepkici, uzay anı. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#101820}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:200px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 4px 0 rgba(6,12,18,.75)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="mercek" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#BFF5E6"/><stop offset=".7" stop-color="#6CCFC0"/><stop offset="1" stop-color="#2E8C8A"/></radialGradient>
+    <radialGradient id="uzay" cx=".5" cy=".5" r=".7"><stop offset="0" stop-color="#22234A"/><stop offset="1" stop-color="#07081A"/></radialGradient>
+    <clipPath id="lens"><circle cx="540" cy="1180" r="470"/></clipPath>
+  </defs>
+  <g id="arka"></g>
+  <g clip-path="url(#lens)"><g id="dunya"></g></g>
+  <g id="cerceve"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+
+// su ayısı: yana bakan tombul gövde, 8 bacak (yandan 4+4 görünür)
+function ayi(o, t) {
+  // o: x y s, tun (0..1 top olma), kuru (renk), blink, sur, wink, yuru, r
+  const tun = o.tun || 0, kuru = o.kuru || 0;
+  const ten = mix('#F7D9C4', '#B8895A', kuru), ten2 = mix('#E8B9A0', '#94683E', kuru), kont = mix('#8A5A4A', '#5A3A1E', kuru);
+  const sx = 1 - tun * .45, sy = 1 + tun * .15;
+  let g = `<g transform="translate(${f2(o.x)},${f2(o.y)}) rotate(${f2(o.r || 0)}) scale(${o.s})">`;
+  // bacaklar (tun olunca içeri çekilir)
+  const L = 1 - tun;
+  if (L > .02) for (let k = 0; k < 4; k++) {
+    const x = -150 + k * 100, ad = o.yuru ? sin(t * .25 + k * 1.6) * 16 : 0;
+    const bacak = (dx, op) => `<g opacity="${op}"><path d="M${x + dx} 60 q${f2(ad)} ${f2(50 * L)} ${f2(ad * 1.3)} ${f2(90 * L)}" stroke="${op < 1 ? ten2 : ten}" stroke-width="44" fill="none" stroke-linecap="round"/>` +
+      `<path d="M${f2(x + dx + ad * 1.3 - 18)} ${f2(60 + 100 * L)} l-8 ${f2(18 * L)} M${f2(x + dx + ad * 1.3)} ${f2(60 + 104 * L)} v${f2(20 * L)} M${f2(x + dx + ad * 1.3 + 18)} ${f2(60 + 100 * L)} l8 ${f2(18 * L)}" stroke="#5A3A2E" stroke-width="7" stroke-linecap="round"/></g>`;
+    g += bacak(24, .7);
+  }
+  // gövde
+  g += `<g transform="scale(${f2(sx)},${f2(sy)})"><path d="M-230 20 C-230 -90 -120 -130 0 -130 C140 -130 230 -90 230 20 C230 100 150 120 0 120 C-150 120 -230 100 -230 20Z" fill="${ten}" stroke="${kont}" stroke-width="7"/>`;
+  for (let k = 0; k < 4; k++) g += `<path d="M${-120 + k * 80} -122 q-16 120 0 236" stroke="${ten2}" stroke-width="7" fill="none" opacity=".7"/>`;
+  g += '</g>';
+  if (L > .02) for (let k = 0; k < 4; k++) {
+    const x = -150 + k * 100, ad = o.yuru ? sin(t * .25 + k * 1.6 + P) * 16 : 0;
+    g += `<path d="M${x} 70 q${f2(ad)} ${f2(50 * L)} ${f2(ad * 1.3)} ${f2(90 * L)}" stroke="${ten}" stroke-width="46" fill="none" stroke-linecap="round"/>` +
+      `<path d="M${f2(x + ad * 1.3 - 18)} ${f2(70 + 100 * L)} l-8 ${f2(18 * L)} M${f2(x + ad * 1.3)} ${f2(70 + 104 * L)} v${f2(20 * L)} M${f2(x + ad * 1.3 + 18)} ${f2(70 + 100 * L)} l8 ${f2(18 * L)}" stroke="#5A3A2E" stroke-width="7" stroke-linecap="round"/>`;
+  }
+  // yüz (sol uç): hortum ağız
+  const fx = -230 * sx + 40 * tun;
+  g += `<g transform="translate(${f2(fx)},0)">`;
+  if (tun < .7) {
+    g += `<ellipse cx="-28" cy="10" rx="${f2(30 * (1 - tun))}" ry="26" fill="${ten2}" stroke="${kont}" stroke-width="6"/><ellipse cx="-44" cy="10" rx="${f2(10 * (1 - tun))}" ry="14" fill="#7A3A3A"/>`;
+  }
+  const goz = (x, kap) => kap ? `<path d="M${x - 12} -40 q12 9 24 0" stroke="#2A1A14" stroke-width="6" fill="none" stroke-linecap="round"/>` :
+    `<circle cx="${x}" cy="-40" r="${o.sur ? 17 : 14}" fill="#2A1A14"/><circle cx="${x - 4}" cy="-45" r="5" fill="#fff"/>`;
+  g += goz(30, o.blink || tun > .5) + goz(90, o.blink || o.wink || tun > .5);
+  g += `<ellipse cx="20" cy="-6" rx="16" ry="9" fill="#FF8FA3" opacity=".6"/><ellipse cx="104" cy="-6" rx="16" ry="9" fill="#FF8FA3" opacity=".6"/>`;
+  if (tun > .5) g += `<path d="M48 -10 q12 8 24 0" stroke="#2A1A14" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  return g + '</g></g>';
+}
+
+function damla(x, y, s, sur, t) {
+  const b = sin(t * .07) * 10;
+  let g = `<g transform="translate(${f2(x)},${f2(y + b)}) scale(${s})"><path d="M0 -90 C30 -40 60 -10 60 30 C60 70 30 90 0 90 C-30 90 -60 70 -60 30 C-60 -10 -30 -40 0 -90Z" fill="#7FD8F2" stroke="#2E7FA6" stroke-width="6"/><ellipse cx="-24" cy="0" rx="10" ry="18" fill="#fff" opacity=".7"/>`;
+  g += `<circle cx="-14" cy="30" r="${sur ? 9 : 7}" fill="#12324A"/><circle cx="18" cy="30" r="${sur ? 9 : 7}" fill="#12324A"/>`;
+  g += sur ? `<ellipse cx="2" cy="56" rx="7" ry="9" fill="#12324A"/>` : `<path d="M-8 50 q10 10 20 0" stroke="#12324A" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  return g + '</g>';
+}
+
+function ikon(tip, x, y, p, t) {
+  let g = `<g transform="translate(${x},${y}) scale(${f2(p)})"><circle r="95" fill="#13202B" stroke="#FFF3DC" stroke-width="6"/>`;
+  if (tip === 'buz') g += `<path d="M0 -60 V60 M-52 -30 L52 30 M-52 30 L52 -30" stroke="#BFE9FF" stroke-width="12" stroke-linecap="round"/>`;
+  if (tip === 'ates') g += `<path d="M0 -60 C40 -20 50 10 40 40 C30 70 -30 70 -40 40 C-50 10 -20 -10 -10 -40 C0 -10 10 0 0 -60Z" fill="#FF8A3D"/><path d="M0 0 C16 16 20 30 12 46 C0 60 -20 50 -16 34 C-12 20 0 14 0 0Z" fill="#FFE27A"/>`;
+  if (tip === 'rad') { g += `<circle r="14" fill="#FFE27A"/>`; for (let k = 0; k < 3; k++) g += `<path d="M0 0 L${f2(cos(k * 2.094 - 1.57 - .5) * 62)} ${f2(sin(k * 2.094 - 1.57 - .5) * 62)} A62 62 0 0 1 ${f2(cos(k * 2.094 - 1.57 + .5) * 62)} ${f2(sin(k * 2.094 - 1.57 + .5) * 62)}Z" fill="#FFE27A" transform="rotate(${f2(t * .5)})"/>`; }
+  if (tip === 'deniz') g += `<path d="M-60 0 q15 -20 30 0 t30 0 t30 0 t30 0 M-60 30 q15 -20 30 0 t30 0 t30 0 t30 0" stroke="#7FD8F2" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+  if (tip === 'dag') g += `<path d="M-65 45 L-15 -45 L20 15 L35 -10 L70 45Z" fill="#9FB4C8"/><path d="M-15 -45 L-30 -18 L0 -18Z" fill="#fff"/>`;
+  if (tip === 'yosun') for (let k = 0; k < 7; k++) g += `<path d="M${-48 + k * 16} 50 q${k % 2 ? 10 : -10} -40 0 -${50 + (k % 3) * 18}" stroke="#7BC86C" stroke-width="12" fill="none" stroke-linecap="round"/>`;
+  return g + '</g>';
+}
+
+let K = null;
+function kur() {
+  const S = T.seg, E = T.total;
+  K = {
+    cam: [[0, [540, 1180, 1]], [S.meet.start, [540, 1180, 1]], [S.meet.start + 16, [540, 1200, 1.2]], [S.tun.start, [540, 1200, 1.2]], [S.tun.start + 20, [540, 1200, 1.5]],
+      [S.space.start, [540, 1200, 1.5]], [S.space.start + 16, [540, 1180, 1]], [S.water.start, [540, 1180, 1]], [S.water.start + 16, [540, 1200, 1.3]], [S.home.start, [540, 1200, 1.3]], [S.home.start + 16, [540, 1180, 1]], [E, [540, 1180, 1]]],
+    tun: [[0, 0], [c('tun', 'curls') - 6, 0], [c('tun', 'curls') + 16, 1], [c('water', 'drop') + 10, 1], [c('water', 'drop') + 36, 0]],
+    kuru: [[0, 0], [c('tun', 'dries'), 0], [c('tun', 'dries') + 20, 1], [c('water', 'drop') + 6, 1], [c('water', 'drop') + 30, 0]],
+    uz: [[0, 0], [S.space.start - 2, 0], [S.space.start + 14, 1], [S.water.start - 2, 1], [S.water.start + 12, 0]],
+  };
+}
+const c = (...a) => cue(...a);
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, t = f;
+  const [cx, cy, s] = kf(f, K.cam);
+  const U = kf(f, K.uz), tun = kf(f, K.tun), kuru = kf(f, K.kuru);
+
+  // ----- dış: laboratuvar masası -----
+  let a = `<rect width="1080" height="1920" fill="#101820"/>`;
+  for (let k = 0; k < 14; k++) a += `<circle cx="${f2(rastgele(k) * 1080)}" cy="${f2(rastgele(k + 20) * 1920)}" r="${f2(40 + rastgele(k + 5) * 90)}" fill="#1A2A36" opacity=".6"/>`;
+  $('arka').innerHTML = a;
+
+  // ----- mercek içi -----
+  let w = `<rect width="1080" height="1920" fill="url(#mercek)"/>`;
+  if (U > .01) { w += `<rect width="1080" height="1920" fill="url(#uzay)" opacity="${f2(U)}"/>`; for (let k = 0; k < 40; k++) w += `<circle cx="${f2(rastgele(k + 50) * 1080)}" cy="${f2(700 + rastgele(k + 90) * 960)}" r="${f2(2 + rastgele(k) * 3)}" fill="#fff" opacity="${f2(U * (.4 + .5 * (0.5 + 0.5 * sin(t * .1 + k))))}"/>`; w += `<g opacity="${f2(U)}"><circle cx="300" cy="1560" r="200" fill="#3E8ED0"/><path d="M180 1480 q60 -40 110 10 q40 40 -10 80 M330 1420 q60 20 50 80" fill="#6CC36A"/></g>`; }
+  // yüzen partiküller
+  if (U < .99) for (let k = 0; k < 22; k++) { const u = (rastgele(k + 3) + t * .0012) % 1; w += `<circle cx="${f2(80 + rastgele(k + 7) * 920 + sin(t * .015 + k) * 30)}" cy="${f2(1660 - u * 960)}" r="${f2(6 + rastgele(k) * 14)}" fill="#E9FFF8" opacity="${f2((1 - U) * .35)}"/>`; }
+  // yosun tabanı
+  w += `<g opacity="${f2(1 - U)}">` + Array.from({ length: 16 }, (_, k) => `<path d="M${60 + k * 62} 1680 q${f2(sin(t * .03 + k) * 14)} -70 ${k % 2 ? 8 : -8} -${110 + (k % 4) * 30}" stroke="${k % 2 ? '#3E9C6A' : '#5FB87A'}" stroke-width="22" fill="none" stroke-linecap="round"/>`).join('') + '</g>';
+  // su ayısı konumu
+  const blink = [90, 400, 820, 1300, 1600].some(b => f >= b && f < b + 7);
+  const sur = (f >= c('hook', 'well') && f < c('hook', 'well') + 26) || (f >= c('space', 'survived') && f < c('space', 'survived') + 24);
+  const yuru = f >= S.meet.start && f < c('tun', 'curls');
+  let ax = 540 + (yuru ? sin((f - S.meet.start) * .01) * 60 : 0), ay = 1250 + sin(t * .05) * 8, ar = 0;
+  if (U > .01) { ax = 540 + (1 - U) * 0 + sin(t * .02) * 40; ay = 1150 + sin(t * .03) * 30; ar = t * .6 * U; }
+  const hookS = kf(f, [[0, 0], [c('hook', 'half') - 4, 0], [c('hook', 'half') + 12, 1]]);
+  const as = f < c('hook', 'half') + 12 ? .15 + hookS * .85 : 1;
+  w += ayi({ x: ax, y: ay, s: as * .95, tun, kuru, blink, sur, wink: f >= c('son', 'next'), yuru, r: ar }, t);
+  // bebekler (uzay)
+  if (f >= c('space', 'babies') - 2 && U > .3) for (let k = 0; k < 3; k++) { const p = backOut((f - c('space', 'babies') - k * 5) / 12); if (p > 0) w += ayi({ x: 780 + k * 70 + sin(t * .04 + k) * 20, y: 1380 + k * 50, s: .22 * p, blink: false, r: sin(t * .05 + k) * 20 }, t); }
+  // damla düşer
+  const dr = c('water', 'drop');
+  if (f >= dr - 30 && f < dr + 12) { const p = klamp((f - dr + 30) / 30); w += damla(540, 760 + p * 380, .6, false, 0); }
+  if (f >= dr && f < dr + 40) { const u = (f - dr) / 40; w += `<ellipse cx="540" cy="1200" rx="${f2(80 + u * 260)}" ry="${f2(20 + u * 60)}" fill="none" stroke="#E9FFF8" stroke-width="8" opacity="${f2(1 - u)}"/>`; }
+  // damla tepkici (uzay hariç)
+  const dO = (1 - U) * (f < dr - 34 || f >= dr + 20 ? 1 : 0);
+  if (dO > .01) w += `<g opacity="${f2(dO)}">${damla(820, 900, .7, sur, t)}</g>`;
+  // anatomik etiketler
+  w += etiket('8 legs', 380, 1480, f, c('meet', 'eight'), c('meet', 'face') - 2, 62, '#FFF3DC', 'middle', '#1D4F55');
+  w += etiket('tiny claws', 700, 1480, f, c('meet', 'claws'), S.tun.start - 2, 62, '#FFF3DC', 'middle', '#1D4F55');
+  w += etiket('vacuum face', 330, 1000, f, c('meet', 'vacuum'), S.tun.start - 2, 58, '#FFE27A', 'middle', '#1D4F55');
+  w += etiket('“tun”', 540, 1000, f, c('tun', 'tun'), S.extreme.start - 2, 92, '#FFE27A', 'middle', '#1D4F55');
+  w += etiket('almost stopped', 540, 1420, f, c('tun', 'stops'), S.extreme.start - 2, 58, '#FFF3DC', 'middle', '#1D4F55');
+  $('dunya').setAttribute('transform', `translate(540,1180) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  // mercek çerçevesi
+  $('cerceve').innerHTML = `<circle cx="540" cy="1180" r="470" fill="none" stroke="#2A3A46" stroke-width="40"/><circle cx="540" cy="1180" r="492" fill="none" stroke="#5A6E7C" stroke-width="8"/><path d="M220 860 A450 450 0 0 1 420 740" stroke="#fff" stroke-width="14" fill="none" opacity=".35" stroke-linecap="round"/>`;
+
+  let u = '';
+  // kanca: dev mi? cetvel 0.5 mm
+  u += etiket('huge?', 540, 590, f, c('hook', 'huge'), c('hook', 'half') - 2, 110, '#FFE27A', 'middle', '#101820');
+  if (f >= c('hook', 'well') && f < c('hook', 'half') - 2) { const p = klamp((f - c('hook', 'well')) / 10); u += `<path d="M390 590 L${f2(390 + 300 * p)} 590" stroke="#FF6F6F" stroke-width="16" stroke-linecap="round"/>`; }
+  if (f >= c('hook', 'half') - 2 && f < S.meet.start + 20) {
+    const p = backOut((f - c('hook', 'half') + 2) / 12) * (1 - klamp((f - S.meet.start - 12) / 8));
+    u += `<g transform="translate(540,600) scale(${f2(p)})"><rect x="-260" y="-40" width="520" height="80" rx="12" fill="#FFE27A" stroke="#101820" stroke-width="6"/>${Array.from({ length: 11 }, (_, k) => `<path d="M${-240 + k * 48} -40 v${k % 5 ? 26 : 44}" stroke="#101820" stroke-width="5"/>`).join('')}<text class="lbl" y="120" text-anchor="middle" font-size="76" fill="#FFF3DC" stroke="#101820" stroke-width="12">0.5 mm</text></g>`;
+  }
+  u += etiket('water bear', 540, 600, f, c('meet', 'water'), c('meet', 'eight') - 2, 96, '#BFF5E6', 'middle', '#101820');
+  // aşırı koşullar: üç ikon
+  [['freezing', 'buz', '≈ −273°C', 220], ['heat', 'ates', '> 100°C', 540], ['radiation', 'rad', '×100s', 860]].forEach(([k, tip, txt, x]) => {
+    const f0 = c('extreme', k);
+    if (f >= f0 - 2 && f < S.space.start + 4) { const p = backOut((f - f0 + 2) / 12) * (1 - klamp((f - S.space.start) / 8)); u += ikon(tip, x, 560, p, t) + `<text class="lbl" x="${x}" y="720" text-anchor="middle" font-size="52" fill="#FFF3DC" stroke="#101820" stroke-width="10" opacity="${f2(klamp(p))}">${txt}</text>`; }
+  });
+  u += etiket('2007 · space', 540, 600, f, c('space', '2007'), c('space', 'survived') - 2, 92, '#C9D4FF', 'middle', '#101820');
+  u += etiket('survived!', 540, 600, f, c('space', 'survived'), S.water.start - 2, 100, '#9BE07A', 'middle', '#101820');
+  u += etiket('years later…', 540, 600, f, c('water', 'years'), c('water', 'just') - 2, 88, '#FFF3DC', 'middle', '#101820');
+  u += etiket('+ water = alive', 540, 600, f, c('water', 'just'), S.home.start - 2, 84, '#7FD8F2', 'middle', '#101820');
+  [['deep', 'deniz', 220], ['mountain', 'dag', 540], ['moss', 'yosun', 860]].forEach(([k, tip, x]) => {
+    const f0 = c('home', k);
+    if (f >= f0 - 2 && f < S.son.start + 4) { const p = backOut((f - f0 + 2) / 12) * (1 - klamp((f - S.son.start) / 8)); u += ikon(tip, x, 580, p, t); }
+  });
+  u += etiket('right next to you', 540, 600, f, c('son', 'next'), T.total - 4, 80, '#FFE27A', 'middle', '#101820');
+  $('ust').innerHTML = u;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

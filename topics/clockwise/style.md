@@ -1,0 +1,11 @@
+# Stil kartı: clockwise — pirinç usturlap / gravürlü bilim aleti (Arjin paleti)
+- Tez: Saat yönü, kuzey yarımküredeki güneş saati gölgesinin kopyası.
+- Yöntem: mekanizma (gölge = akrep) + karşılaştırma (kuzey / güney); gizem + konu kancası.
+- Malzeme: koyu yeşil zeminde gravürlü pirinç çizgiler (ince tarama, derece çentikleri), aletin kazınmış yazıları; hafif metal parıltı.
+- Kadraj: her sahnede merkezde dairesel kadran; yazılar halka boyunca kavisli.
+- Zaman: 30 fps; geçiş = kadran halkası saat yönünde döner ve yeni sahneyi pasta dilimi gibi açar (16 kare).
+- Font: Cormorant Garamond 700 (kazıma başlık), Marcellus (altyazı + etiket). İlk kez.
+- Palet: #28301C zemin, #323D25 ikinci yüzey, #9A7E3B pirinç, #D2CF9A parlak pirinç/metin + beyaz (güneş parıltısı).
+- İmza öğe: çubuğun gölgesi saat ibresine dönüşür; gölge süpürmesi.
+- Altyazı: haki metin, kontur yok; söylenen kelime haki kutuda koyu yeşil.
+- Kullanılmayanlar: kâğıt dokusu (önceki video), linol pürüzü, maskot yüzü.

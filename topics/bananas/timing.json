@@ -1,0 +1,917 @@
+{
+"duration": 52.401,
+"words": [
+{
+"w": "Every",
+"start": 0.0,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "banana",
+"start": 0.4,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "you've",
+"start": 0.88,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "ever",
+"start": 1.24,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "eaten",
+"start": 1.52,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "is",
+"start": 1.92,
+"end": 2.0,
+"seg": 0
+},
+{
+"w": "a",
+"start": 2.08,
+"end": 2.16,
+"seg": 0
+},
+{
+"w": "different",
+"start": 2.24,
+"end": 2.48,
+"seg": 0
+},
+{
+"w": "plant.",
+"start": 2.56,
+"end": 3.24,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 3.52,
+"end": 4.0,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 4.08,
+"end": 4.24,
+"seg": 0
+},
+{
+"w": "not",
+"start": 4.32,
+"end": 4.4,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 4.52,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 5.04,
+"end": 5.48,
+"seg": 0
+},
+{
+"w": "Almost",
+"start": 5.68,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "all",
+"start": 6.08,
+"end": 6.24,
+"seg": 0
+},
+{
+"w": "of",
+"start": 6.28,
+"end": 6.32,
+"seg": 0
+},
+{
+"w": "them",
+"start": 6.4,
+"end": 6.48,
+"seg": 0
+},
+{
+"w": "are",
+"start": 6.56,
+"end": 6.64,
+"seg": 0
+},
+{
+"w": "clones.",
+"start": 6.72,
+"end": 7.4,
+"seg": 0
+},
+{
+"w": "The",
+"start": 7.6,
+"end": 7.68,
+"seg": 1
+},
+{
+"w": "banana",
+"start": 7.88,
+"end": 8.08,
+"seg": 1
+},
+{
+"w": "in",
+"start": 8.12,
+"end": 8.16,
+"seg": 1
+},
+{
+"w": "your",
+"start": 8.24,
+"end": 8.32,
+"seg": 1
+},
+{
+"w": "kitchen",
+"start": 8.4,
+"end": 8.72,
+"seg": 1
+},
+{
+"w": "is",
+"start": 8.8,
+"end": 8.88,
+"seg": 1
+},
+{
+"w": "a",
+"start": 8.92,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "Cavendish.",
+"start": 9.04,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "It",
+"start": 10.0,
+"end": 10.08,
+"seg": 1
+},
+{
+"w": "has",
+"start": 10.16,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "no",
+"start": 10.4,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "real",
+"start": 10.56,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "seeds,",
+"start": 10.88,
+"end": 11.44,
+"seg": 1
+},
+{
+"w": "so",
+"start": 11.52,
+"end": 11.6,
+"seg": 1
+},
+{
+"w": "farmers",
+"start": 11.68,
+"end": 12.0,
+"seg": 1
+},
+{
+"w": "grow",
+"start": 12.08,
+"end": 12.24,
+"seg": 1
+},
+{
+"w": "new",
+"start": 12.32,
+"end": 12.48,
+"seg": 1
+},
+{
+"w": "plants",
+"start": 12.56,
+"end": 12.88,
+"seg": 1
+},
+{
+"w": "from",
+"start": 12.96,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "cuttings",
+"start": 13.12,
+"end": 13.44,
+"seg": 1
+},
+{
+"w": "of",
+"start": 13.52,
+"end": 13.6,
+"seg": 1
+},
+{
+"w": "old",
+"start": 13.68,
+"end": 13.76,
+"seg": 1
+},
+{
+"w": "ones.",
+"start": 13.84,
+"end": 14.36,
+"seg": 1
+},
+{
+"w": "Same",
+"start": 14.56,
+"end": 14.8,
+"seg": 1
+},
+{
+"w": "plant,",
+"start": 14.88,
+"end": 15.44,
+"seg": 1
+},
+{
+"w": "copied",
+"start": 15.52,
+"end": 15.84,
+"seg": 1
+},
+{
+"w": "millions",
+"start": 16.0,
+"end": 16.32,
+"seg": 1
+},
+{
+"w": "of",
+"start": 16.4,
+"end": 16.48,
+"seg": 1
+},
+{
+"w": "times.",
+"start": 16.56,
+"end": 17.2,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 17.44,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "the",
+"start": 17.76,
+"end": 17.84,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 17.92,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 18.24,
+"end": 18.56,
+"seg": 2
+},
+{
+"w": "Your",
+"start": 18.88,
+"end": 19.04,
+"seg": 2
+},
+{
+"w": "grandparents",
+"start": 19.2,
+"end": 19.68,
+"seg": 2
+},
+{
+"w": "ate",
+"start": 19.76,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "a",
+"start": 19.88,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "different",
+"start": 20.0,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "banana,",
+"start": 20.32,
+"end": 20.96,
+"seg": 2
+},
+{
+"w": "the",
+"start": 21.0,
+"end": 21.04,
+"seg": 2
+},
+{
+"w": "Gros",
+"start": 21.12,
+"end": 21.36,
+"seg": 2
+},
+{
+"w": "Michel.",
+"start": 21.48,
+"end": 21.92,
+"seg": 2
+},
+{
+"w": "In",
+"start": 22.32,
+"end": 22.36,
+"seg": 2
+},
+{
+"w": "the",
+"start": 22.4,
+"end": 22.44,
+"seg": 2
+},
+{
+"w": "1950s,",
+"start": 22.48,
+"end": 23.44,
+"seg": 2
+},
+{
+"w": "a",
+"start": 23.48,
+"end": 23.52,
+"seg": 2
+},
+{
+"w": "fungus",
+"start": 23.68,
+"end": 24.0,
+"seg": 2
+},
+{
+"w": "wiped",
+"start": 24.16,
+"end": 24.4,
+"seg": 2
+},
+{
+"w": "it",
+"start": 24.44,
+"end": 24.48,
+"seg": 2
+},
+{
+"w": "out,",
+"start": 24.56,
+"end": 24.88,
+"seg": 2
+},
+{
+"w": "because",
+"start": 25.04,
+"end": 25.2,
+"seg": 2
+},
+{
+"w": "every",
+"start": 25.28,
+"end": 25.52,
+"seg": 2
+},
+{
+"w": "plant",
+"start": 25.6,
+"end": 25.84,
+"seg": 2
+},
+{
+"w": "had",
+"start": 25.92,
+"end": 26.0,
+"seg": 2
+},
+{
+"w": "the",
+"start": 26.08,
+"end": 26.24,
+"seg": 2
+},
+{
+"w": "same",
+"start": 26.4,
+"end": 26.56,
+"seg": 2
+},
+{
+"w": "weak",
+"start": 26.64,
+"end": 26.8,
+"seg": 2
+},
+{
+"w": "spot.",
+"start": 27.0,
+"end": 27.44,
+"seg": 2
+},
+{
+"w": "In",
+"start": 27.68,
+"end": 27.76,
+"seg": 3
+},
+{
+"w": "fact,",
+"start": 27.84,
+"end": 28.32,
+"seg": 3
+},
+{
+"w": "a",
+"start": 28.36,
+"end": 28.4,
+"seg": 3
+},
+{
+"w": "banana",
+"start": 28.56,
+"end": 28.72,
+"seg": 3
+},
+{
+"w": "plant",
+"start": 28.8,
+"end": 29.04,
+"seg": 3
+},
+{
+"w": "isn't",
+"start": 29.12,
+"end": 29.32,
+"seg": 3
+},
+{
+"w": "even",
+"start": 29.36,
+"end": 29.52,
+"seg": 3
+},
+{
+"w": "a",
+"start": 29.56,
+"end": 29.6,
+"seg": 3
+},
+{
+"w": "tree.",
+"start": 29.68,
+"end": 30.08,
+"seg": 3
+},
+{
+"w": "It's",
+"start": 30.4,
+"end": 30.48,
+"seg": 3
+},
+{
+"w": "a",
+"start": 30.56,
+"end": 30.64,
+"seg": 3
+},
+{
+"w": "giant",
+"start": 30.72,
+"end": 31.04,
+"seg": 3
+},
+{
+"w": "herb,",
+"start": 31.12,
+"end": 31.68,
+"seg": 3
+},
+{
+"w": "and",
+"start": 31.72,
+"end": 31.76,
+"seg": 3
+},
+{
+"w": "its",
+"start": 31.88,
+"end": 32.0,
+"seg": 3
+},
+{
+"w": "trunk",
+"start": 32.08,
+"end": 32.32,
+"seg": 3
+},
+{
+"w": "is",
+"start": 32.4,
+"end": 32.48,
+"seg": 3
+},
+{
+"w": "just",
+"start": 32.56,
+"end": 32.64,
+"seg": 3
+},
+{
+"w": "rolled",
+"start": 32.72,
+"end": 32.96,
+"seg": 3
+},
+{
+"w": "up",
+"start": 33.04,
+"end": 33.12,
+"seg": 3
+},
+{
+"w": "leaves.",
+"start": 33.2,
+"end": 33.84,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 34.08,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "not",
+"start": 34.4,
+"end": 34.48,
+"seg": 4
+},
+{
+"w": "all.",
+"start": 34.56,
+"end": 35.12,
+"seg": 4
+},
+{
+"w": "Bananas",
+"start": 35.2,
+"end": 35.6,
+"seg": 4
+},
+{
+"w": "curve",
+"start": 35.84,
+"end": 36.08,
+"seg": 4
+},
+{
+"w": "because",
+"start": 36.2,
+"end": 36.32,
+"seg": 4
+},
+{
+"w": "they",
+"start": 36.4,
+"end": 36.48,
+"seg": 4
+},
+{
+"w": "grow",
+"start": 36.64,
+"end": 36.8,
+"seg": 4
+},
+{
+"w": "upward,",
+"start": 36.88,
+"end": 37.44,
+"seg": 4
+},
+{
+"w": "bending",
+"start": 37.52,
+"end": 37.84,
+"seg": 4
+},
+{
+"w": "toward",
+"start": 37.92,
+"end": 38.16,
+"seg": 4
+},
+{
+"w": "the",
+"start": 38.24,
+"end": 38.32,
+"seg": 4
+},
+{
+"w": "sun.",
+"start": 38.48,
+"end": 39.04,
+"seg": 4
+},
+{
+"w": "And",
+"start": 39.2,
+"end": 39.36,
+"seg": 5
+},
+{
+"w": "bananas",
+"start": 39.52,
+"end": 39.92,
+"seg": 5
+},
+{
+"w": "are",
+"start": 40.0,
+"end": 40.08,
+"seg": 5
+},
+{
+"w": "a",
+"start": 40.24,
+"end": 40.373,
+"seg": 5
+},
+{
+"w": "tiny",
+"start": 40.507,
+"end": 40.64,
+"seg": 5
+},
+{
+"w": "bit",
+"start": 40.72,
+"end": 40.88,
+"seg": 5
+},
+{
+"w": "radioactive,",
+"start": 41.08,
+"end": 41.84,
+"seg": 5
+},
+{
+"w": "thanks",
+"start": 41.92,
+"end": 42.0,
+"seg": 5
+},
+{
+"w": "to",
+"start": 42.08,
+"end": 42.133,
+"seg": 5
+},
+{
+"w": "their",
+"start": 42.187,
+"end": 42.24,
+"seg": 5
+},
+{
+"w": "potassium.",
+"start": 42.36,
+"end": 43.28,
+"seg": 5
+},
+{
+"w": "Don't",
+"start": 43.32,
+"end": 43.44,
+"seg": 5
+},
+{
+"w": "worry,",
+"start": 43.52,
+"end": 43.92,
+"seg": 5
+},
+{
+"w": "you'd",
+"start": 44.0,
+"end": 44.08,
+"seg": 5
+},
+{
+"w": "need",
+"start": 44.16,
+"end": 44.4,
+"seg": 5
+},
+{
+"w": "millions",
+"start": 44.48,
+"end": 44.88,
+"seg": 5
+},
+{
+"w": "at",
+"start": 44.96,
+"end": 45.04,
+"seg": 5
+},
+{
+"w": "once",
+"start": 45.12,
+"end": 45.28,
+"seg": 5
+},
+{
+"w": "for",
+"start": 45.32,
+"end": 45.36,
+"seg": 5
+},
+{
+"w": "it",
+"start": 45.4,
+"end": 45.44,
+"seg": 5
+},
+{
+"w": "to",
+"start": 45.52,
+"end": 45.6,
+"seg": 5
+},
+{
+"w": "matter.",
+"start": 45.68,
+"end": 46.4,
+"seg": 5
+},
+{
+"w": "So",
+"start": 46.6,
+"end": 46.8,
+"seg": 6
+},
+{
+"w": "next",
+"start": 46.88,
+"end": 47.04,
+"seg": 6
+},
+{
+"w": "time",
+"start": 47.12,
+"end": 47.2,
+"seg": 6
+},
+{
+"w": "you",
+"start": 47.28,
+"end": 47.36,
+"seg": 6
+},
+{
+"w": "grab",
+"start": 47.44,
+"end": 47.52,
+"seg": 6
+},
+{
+"w": "a",
+"start": 47.56,
+"end": 47.6,
+"seg": 6
+},
+{
+"w": "banana,",
+"start": 47.8,
+"end": 48.24,
+"seg": 6
+},
+{
+"w": "remember.",
+"start": 48.32,
+"end": 49.04,
+"seg": 6
+},
+{
+"w": "You're",
+"start": 49.08,
+"end": 49.28,
+"seg": 6
+},
+{
+"w": "eating",
+"start": 49.4,
+"end": 49.52,
+"seg": 6
+},
+{
+"w": "a",
+"start": 49.6,
+"end": 49.68,
+"seg": 6
+},
+{
+"w": "copy",
+"start": 49.76,
+"end": 50.16,
+"seg": 6
+},
+{
+"w": "of",
+"start": 50.2,
+"end": 50.24,
+"seg": 6
+},
+{
+"w": "a",
+"start": 50.32,
+"end": 50.4,
+"seg": 6
+},
+{
+"w": "copy",
+"start": 50.48,
+"end": 50.96,
+"seg": 6
+},
+{
+"w": "of",
+"start": 51.0,
+"end": 51.04,
+"seg": 6
+},
+{
+"w": "a",
+"start": 51.12,
+"end": 51.2,
+"seg": 6
+},
+{
+"w": "copy.",
+"start": 51.28,
+"end": 51.84,
+"seg": 6
+}
+]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Why is the sky blue?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "The sky is blue because it reflects the ocean. Well, that's not exactly true. The ocean has nothing to do with it."},
+    {"scene": "white", "text": "Sunlight looks white, but it's actually every color mixed together. Red, orange, yellow, green, blue and violet."},
+    {"scene": "scatter", "text": "Here's the wild part. When sunlight hits the tiny gas molecules in our air, blue light bounces around way more than red. So blue gets scattered all over the sky."},
+    {"scene": "violet", "text": "In fact, violet scatters even more. But the sun sends us less of it, and our eyes are better at seeing blue."},
+    {"scene": "sunset", "text": "At sunset, light has to travel through much more air to reach you. Most of the blue gets scattered away, and only the reds and oranges make it through."},
+    {"scene": "mars", "text": "That's not all. On Mars, it's the opposite. The daytime sky is butterscotch, and sunsets are blue."},
+    {"scene": "son", "text": "So the sky isn't reflecting the ocean. It's sunlight bouncing off the air around you."}
+  ]
+}

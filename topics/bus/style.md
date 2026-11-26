@@ -1,0 +1,12 @@
+# Stil kartı: bus — 1939 trafik güvenliği afişi (düz şekil, yarım ton noktalar)
+- Tez: Sarı otobüs tesadüf değil, 1939'da bir haftalık toplantıda alınmış karar.
+- Yöntem: tarihçe + gerekçe (siyah yazı / sarı zemin kontrastı); soru kancası.
+- Malzeme: koyu zemin, büyük düz şekiller, yarım ton nokta dokusu, tehlike şeridi (çapraz çizgi) geçişi.
+- Kadraj: otobüs yan görünüş büyük (altın = otobüs sarısı); başlıklar üstte Bebas Neue.
+- Zaman: 30 fps; geçiş = çapraz tehlike şeridi soldan sağa süpürür (14 kare).
+- Font: Bebas Neue (başlık), Libre Franklin 700 (etiket/altyazı). İlk kez.
+- Palet: #28301C, #323D25, #9A7E3B (otobüs sarısı), #D2CF9A, beyaz.
+- İmza öğe: altın otobüs silüeti, üstünde siyah (mürekkep) "SCHOOL BUS" yazısı.
+- Altyazı: haki, kontur yok; söylenen kelime altın kutuda mürekkep.
+- Ses: ElevenLabs Alice (hazır ses, Arjin'in sesi değil; kullanıcı isteği 2026-11-26).
+- Kullanılmayanlar: ECG, defter sayfası, kadran, maskot.

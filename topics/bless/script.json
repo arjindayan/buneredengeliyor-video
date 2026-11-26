@@ -1,0 +1,14 @@
+{
+  "title": "Why do we say bless you?",
+  "lang": "en",
+  "voice": "RbbSAVnSGc0BCqjPNM8i",
+  "segments": [
+    {"scene": "hook", "text": "Does your heart really stop when you sneeze? That's the old story behind saying bless you."},
+    {"scene": "beat", "text": "It doesn't. Your heart keeps beating. A sneeze just changes the pressure in your chest, so one beat can land a little late, and the next one thumps harder. That's the skip you feel."},
+    {"scene": "pope", "text": "So where did the blessing come from? A famous story says Pope Gregory ordered it during a plague in {590,|five ninety,} but historians doubt that story."},
+    {"scene": "soul", "text": "What we do know: by around {750|seven fifty} AD, saying it was already a custom. Many people believed the soul was a breath of air, and a sneeze could throw it out, or let something evil in."},
+    {"scene": "shield", "text": "So bless you was a tiny shield, said in less than a second."},
+    {"scene": "today", "text": "Nobody believes that anymore, but we still say it. Old fears turn into good manners."},
+    {"scene": "son", "text": "So next time someone sneezes, you're not saving their heart. You're keeping a thousand-year-old habit alive. If you enjoyed this, like and follow for more."}
+  ]
+}

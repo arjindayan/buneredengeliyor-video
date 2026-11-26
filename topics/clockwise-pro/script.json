@@ -1,0 +1,14 @@
+{
+  "title": "Why do clocks go clockwise?",
+  "lang": "en",
+  "voice": "RbbSAVnSGc0BCqjPNM8i",
+  "segments": [
+    {"scene": "hook", "text": "Every clock you've ever looked at is secretly copying a shadow. That's why clock hands turn the way they do."},
+    {"scene": "sun", "text": "Push a stick into the ground anywhere north of the equator. The sun rises in the east, swings across the southern sky, and sets in the west."},
+    {"scene": "dial", "text": "So the stick's shadow sweeps the opposite way. West in the morning, north at noon, east by evening. Left, top, right. Clockwise."},
+    {"scene": "tower", "text": "For thousands of years, sundials were the clock. So when the first mechanical clocks rose in European towers in the {1300s,|thirteen hundreds,} their makers simply copied the shadow."},
+    {"scene": "south", "text": "Here's the twist. Build that sundial in Australia, and the shadow turns the other way. If clocks had been invented down south, clockwise would mean the opposite."},
+    {"scene": "rebel", "text": "And a few clocks still rebel. The clock Paolo Uccello painted for Florence Cathedral in {1443|fourteen forty-three} runs backwards. So does the Hebrew clock on Prague's Jewish Town Hall."},
+    {"scene": "son", "text": "So next time you check the time, remember: you're really reading a shadow. If you enjoyed this, like and follow for more."}
+  ]
+}

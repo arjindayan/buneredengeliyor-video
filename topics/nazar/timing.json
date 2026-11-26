@@ -1,0 +1,665 @@
+{
+"duration": 53.524,
+"words": [
+{
+"w": "Bu",
+"start": 0.0,
+"end": 0.16,
+"seg": 0
+},
+{
+"w": "rengin",
+"start": 0.2,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "seçilmesi",
+"start": 0.56,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "tesadüf",
+"start": 1.2,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "değil.",
+"start": 1.76,
+"end": 2.16,
+"seg": 0
+},
+{
+"w": "Nazar",
+"start": 2.56,
+"end": 2.88,
+"seg": 1
+},
+{
+"w": "boncuğu",
+"start": 2.96,
+"end": 3.36,
+"seg": 1
+},
+{
+"w": "neden",
+"start": 3.44,
+"end": 3.76,
+"seg": 1
+},
+{
+"w": "mavi?",
+"start": 3.84,
+"end": 4.52,
+"seg": 1
+},
+{
+"w": "Cevap,",
+"start": 4.8,
+"end": 5.6,
+"seg": 1
+},
+{
+"w": "Anadolu'da",
+"start": 5.68,
+"end": 6.16,
+"seg": 1
+},
+{
+"w": "nadir",
+"start": 6.24,
+"end": 6.56,
+"seg": 1
+},
+{
+"w": "görülen",
+"start": 6.64,
+"end": 6.96,
+"seg": 1
+},
+{
+"w": "bir",
+"start": 7.04,
+"end": 7.2,
+"seg": 1
+},
+{
+"w": "şeyde",
+"start": 7.24,
+"end": 7.52,
+"seg": 1
+},
+{
+"w": "saklı:",
+"start": 7.6,
+"end": 8.4,
+"seg": 1
+},
+{
+"w": "mavi",
+"start": 8.48,
+"end": 8.72,
+"seg": 1
+},
+{
+"w": "göz.",
+"start": 8.8,
+"end": 9.48,
+"seg": 1
+},
+{
+"w": "Eskiden,",
+"start": 9.76,
+"end": 10.36,
+"seg": 2
+},
+{
+"w": "nadir",
+"start": 10.48,
+"end": 10.8,
+"seg": 2
+},
+{
+"w": "olan",
+"start": 10.92,
+"end": 11.04,
+"seg": 2
+},
+{
+"w": "mavi",
+"start": 11.12,
+"end": 11.36,
+"seg": 2
+},
+{
+"w": "gözlerin",
+"start": 11.44,
+"end": 11.92,
+"seg": 2
+},
+{
+"w": "en",
+"start": 12.16,
+"end": 12.32,
+"seg": 2
+},
+{
+"w": "güçlü",
+"start": 12.4,
+"end": 12.64,
+"seg": 2
+},
+{
+"w": "nazarı",
+"start": 12.72,
+"end": 13.04,
+"seg": 2
+},
+{
+"w": "değdirdiğine",
+"start": 13.12,
+"end": 13.68,
+"seg": 2
+},
+{
+"w": "inanılıyordu.",
+"start": 13.8,
+"end": 14.48,
+"seg": 2
+},
+{
+"w": "Çare",
+"start": 14.88,
+"end": 15.2,
+"seg": 3
+},
+{
+"w": "de",
+"start": 15.24,
+"end": 15.28,
+"seg": 3
+},
+{
+"w": "basitti:",
+"start": 15.36,
+"end": 16.24,
+"seg": 3
+},
+{
+"w": "Göz",
+"start": 16.32,
+"end": 16.56,
+"seg": 3
+},
+{
+"w": "gözü",
+"start": 16.6,
+"end": 16.8,
+"seg": 3
+},
+{
+"w": "keser.",
+"start": 16.88,
+"end": 17.44,
+"seg": 3
+},
+{
+"w": "Mavi",
+"start": 17.6,
+"end": 17.92,
+"seg": 3
+},
+{
+"w": "bir",
+"start": 18.0,
+"end": 18.08,
+"seg": 3
+},
+{
+"w": "göz,",
+"start": 18.16,
+"end": 18.64,
+"seg": 3
+},
+{
+"w": "mavi",
+"start": 18.72,
+"end": 18.96,
+"seg": 3
+},
+{
+"w": "bir",
+"start": 19.04,
+"end": 19.12,
+"seg": 3
+},
+{
+"w": "gözü",
+"start": 19.2,
+"end": 19.4,
+"seg": 3
+},
+{
+"w": "yener.",
+"start": 19.44,
+"end": 20.12,
+"seg": 3
+},
+{
+"w": "Bu",
+"start": 20.4,
+"end": 20.48,
+"seg": 4
+},
+{
+"w": "inanç",
+"start": 20.56,
+"end": 20.88,
+"seg": 4
+},
+{
+"w": "çok",
+"start": 20.96,
+"end": 21.12,
+"seg": 4
+},
+{
+"w": "eski.",
+"start": 21.2,
+"end": 21.92,
+"seg": 4
+},
+{
+"w": "Üç",
+"start": 22.0,
+"end": 22.08,
+"seg": 4
+},
+{
+"w": "bin",
+"start": 22.16,
+"end": 22.32,
+"seg": 4
+},
+{
+"w": "yıldan",
+"start": 22.4,
+"end": 22.72,
+"seg": 4
+},
+{
+"w": "fazla",
+"start": 22.76,
+"end": 23.12,
+"seg": 4
+},
+{
+"w": "önce",
+"start": 23.16,
+"end": 23.44,
+"seg": 4
+},
+{
+"w": "Akdeniz'de",
+"start": 23.68,
+"end": 24.4,
+"seg": 4
+},
+{
+"w": "camdan",
+"start": 24.48,
+"end": 24.88,
+"seg": 4
+},
+{
+"w": "göz",
+"start": 24.96,
+"end": 25.12,
+"seg": 4
+},
+{
+"w": "boncukları",
+"start": 25.2,
+"end": 25.68,
+"seg": 4
+},
+{
+"w": "yapılıyordu.",
+"start": 25.72,
+"end": 26.8,
+"seg": 4
+},
+{
+"w": "Gök",
+"start": 26.88,
+"end": 27.04,
+"seg": 5
+},
+{
+"w": "Tanrı'ya",
+"start": 27.12,
+"end": 27.52,
+"seg": 5
+},
+{
+"w": "inanan",
+"start": 27.6,
+"end": 27.92,
+"seg": 5
+},
+{
+"w": "eski",
+"start": 28.0,
+"end": 28.24,
+"seg": 5
+},
+{
+"w": "Türkler",
+"start": 28.32,
+"end": 28.64,
+"seg": 5
+},
+{
+"w": "için",
+"start": 28.68,
+"end": 28.88,
+"seg": 5
+},
+{
+"w": "de",
+"start": 28.96,
+"end": 29.12,
+"seg": 5
+},
+{
+"w": "gökyüzünün",
+"start": 29.36,
+"end": 29.92,
+"seg": 5
+},
+{
+"w": "mavisi",
+"start": 30.0,
+"end": 30.48,
+"seg": 5
+},
+{
+"w": "koruyucu",
+"start": 30.64,
+"end": 31.04,
+"seg": 5
+},
+{
+"w": "bir",
+"start": 31.12,
+"end": 31.2,
+"seg": 5
+},
+{
+"w": "renkti.",
+"start": 31.28,
+"end": 32.16,
+"seg": 5
+},
+{
+"w": "Cam",
+"start": 32.28,
+"end": 32.4,
+"seg": 6
+},
+{
+"w": "ustaları",
+"start": 32.52,
+"end": 32.96,
+"seg": 6
+},
+{
+"w": "kobalt",
+"start": 33.12,
+"end": 33.52,
+"seg": 6
+},
+{
+"w": "ve",
+"start": 33.6,
+"end": 33.68,
+"seg": 6
+},
+{
+"w": "bakırla",
+"start": 33.76,
+"end": 34.24,
+"seg": 6
+},
+{
+"w": "bu",
+"start": 34.32,
+"end": 34.4,
+"seg": 6
+},
+{
+"w": "derin",
+"start": 34.48,
+"end": 34.72,
+"seg": 6
+},
+{
+"w": "maviyi",
+"start": 34.8,
+"end": 35.2,
+"seg": 6
+},
+{
+"w": "elde",
+"start": 35.28,
+"end": 35.52,
+"seg": 6
+},
+{
+"w": "etti,",
+"start": 35.68,
+"end": 36.16,
+"seg": 6
+},
+{
+"w": "ortasına",
+"start": 36.24,
+"end": 36.8,
+"seg": 6
+},
+{
+"w": "beyaz",
+"start": 36.88,
+"end": 37.28,
+"seg": 6
+},
+{
+"w": "ve",
+"start": 37.32,
+"end": 37.36,
+"seg": 6
+},
+{
+"w": "siyah",
+"start": 37.52,
+"end": 37.76,
+"seg": 6
+},
+{
+"w": "bir",
+"start": 37.84,
+"end": 37.92,
+"seg": 6
+},
+{
+"w": "göz",
+"start": 38.0,
+"end": 38.24,
+"seg": 6
+},
+{
+"w": "bebeği",
+"start": 38.32,
+"end": 38.56,
+"seg": 6
+},
+{
+"w": "koydu.",
+"start": 38.64,
+"end": 39.44,
+"seg": 6
+},
+{
+"w": "Bugün",
+"start": 39.52,
+"end": 39.76,
+"seg": 7
+},
+{
+"w": "bile",
+"start": 39.8,
+"end": 40.08,
+"seg": 7
+},
+{
+"w": "İzmir'in",
+"start": 40.16,
+"end": 40.64,
+"seg": 7
+},
+{
+"w": "Nazarköy'ünde",
+"start": 40.72,
+"end": 41.52,
+"seg": 7
+},
+{
+"w": "boncuklar",
+"start": 41.68,
+"end": 42.24,
+"seg": 7
+},
+{
+"w": "hâlâ",
+"start": 42.32,
+"end": 42.72,
+"seg": 7
+},
+{
+"w": "ateşte,",
+"start": 42.84,
+"end": 43.44,
+"seg": 7
+},
+{
+"w": "elle",
+"start": 43.6,
+"end": 43.76,
+"seg": 7
+},
+{
+"w": "şekilleniyor.",
+"start": 43.88,
+"end": 44.76,
+"seg": 7
+},
+{
+"w": "Kapının",
+"start": 44.96,
+"end": 45.36,
+"seg": 8
+},
+{
+"w": "üstünde,",
+"start": 45.48,
+"end": 46.04,
+"seg": 8
+},
+{
+"w": "bebeğin",
+"start": 46.16,
+"end": 46.56,
+"seg": 8
+},
+{
+"w": "yakasında,",
+"start": 46.6,
+"end": 47.28,
+"seg": 8
+},
+{
+"w": "arabanın",
+"start": 47.52,
+"end": 47.92,
+"seg": 8
+},
+{
+"w": "aynasında...",
+"start": 48.0,
+"end": 49.04,
+"seg": 8
+},
+{
+"w": "O",
+"start": 49.08,
+"end": 49.12,
+"seg": 8
+},
+{
+"w": "mavi",
+"start": 49.2,
+"end": 49.52,
+"seg": 8
+},
+{
+"w": "göz",
+"start": 49.6,
+"end": 49.84,
+"seg": 8
+},
+{
+"w": "hep",
+"start": 50.0,
+"end": 50.24,
+"seg": 8
+},
+{
+"w": "nöbette.",
+"start": 50.28,
+"end": 51.04,
+"seg": 8
+},
+{
+"w": "Senin",
+"start": 51.28,
+"end": 51.52,
+"seg": 9
+},
+{
+"w": "evinde",
+"start": 51.64,
+"end": 51.84,
+"seg": 9
+},
+{
+"w": "kaç",
+"start": 51.92,
+"end": 52.08,
+"seg": 9
+},
+{
+"w": "tane",
+"start": 52.16,
+"end": 52.4,
+"seg": 9
+},
+{
+"w": "var?",
+"start": 52.56,
+"end": 52.96,
+"seg": 9
+}
+]
+}

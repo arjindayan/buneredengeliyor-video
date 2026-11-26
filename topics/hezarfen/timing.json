@@ -1,0 +1,683 @@
+{
+"duration": 52.087,
+"words": [
+{
+"w": "İstanbul'da",
+"start": 0.0,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "bir",
+"start": 0.72,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "adam",
+"start": 0.88,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "Boğaz'ı",
+"start": 1.28,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "uçarak",
+"start": 1.76,
+"end": 2.16,
+"seg": 0
+},
+{
+"w": "geçti.",
+"start": 2.24,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "Ya",
+"start": 3.04,
+"end": 3.12,
+"seg": 0
+},
+{
+"w": "da",
+"start": 3.2,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "geçmedi.",
+"start": 3.36,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "Bu",
+"start": 4.32,
+"end": 4.4,
+"seg": 1
+},
+{
+"w": "adam",
+"start": 4.48,
+"end": 4.8,
+"seg": 1
+},
+{
+"w": "Hezarfen",
+"start": 4.96,
+"end": 5.44,
+"seg": 1
+},
+{
+"w": "Ahmed",
+"start": 5.52,
+"end": 5.84,
+"seg": 1
+},
+{
+"w": "Çelebi.",
+"start": 5.92,
+"end": 6.32,
+"seg": 1
+},
+{
+"w": "Hikâyeye",
+"start": 6.72,
+"end": 7.28,
+"seg": 1
+},
+{
+"w": "göre",
+"start": 7.36,
+"end": 7.6,
+"seg": 1
+},
+{
+"w": "on",
+"start": 7.76,
+"end": 7.84,
+"seg": 1
+},
+{
+"w": "yedinci",
+"start": 7.92,
+"end": 8.24,
+"seg": 1
+},
+{
+"w": "yüzyılda",
+"start": 8.32,
+"end": 8.72,
+"seg": 1
+},
+{
+"w": "yaşamış",
+"start": 8.8,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "bu",
+"start": 9.2,
+"end": 9.28,
+"seg": 1
+},
+{
+"w": "bilgin,",
+"start": 9.36,
+"end": 9.76,
+"seg": 1
+},
+{
+"w": "kuşların",
+"start": 10.0,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "uçuşunu",
+"start": 10.52,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "yıllarca",
+"start": 11.04,
+"end": 11.6,
+"seg": 1
+},
+{
+"w": "inceledi.",
+"start": 11.72,
+"end": 12.16,
+"seg": 1
+},
+{
+"w": "Kendine",
+"start": 12.56,
+"end": 12.88,
+"seg": 2
+},
+{
+"w": "kanatlar",
+"start": 12.96,
+"end": 13.44,
+"seg": 2
+},
+{
+"w": "yaptı,",
+"start": 13.547,
+"end": 14.16,
+"seg": 2
+},
+{
+"w": "Galata",
+"start": 14.24,
+"end": 14.48,
+"seg": 2
+},
+{
+"w": "Kulesi'nin",
+"start": 14.56,
+"end": 14.96,
+"seg": 2
+},
+{
+"w": "tepesine",
+"start": 15.04,
+"end": 15.44,
+"seg": 2
+},
+{
+"w": "çıktı",
+"start": 15.52,
+"end": 15.84,
+"seg": 2
+},
+{
+"w": "ve",
+"start": 16.08,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "kendini",
+"start": 16.28,
+"end": 16.64,
+"seg": 2
+},
+{
+"w": "boşluğa",
+"start": 16.72,
+"end": 17.12,
+"seg": 2
+},
+{
+"w": "bıraktı.",
+"start": 17.173,
+"end": 17.6,
+"seg": 2
+},
+{
+"w": "Rüzgârı",
+"start": 18.0,
+"end": 18.4,
+"seg": 3
+},
+{
+"w": "arkasına",
+"start": 18.48,
+"end": 18.96,
+"seg": 3
+},
+{
+"w": "aldı,",
+"start": 19.04,
+"end": 19.68,
+"seg": 3
+},
+{
+"w": "Boğaz'ın",
+"start": 19.72,
+"end": 20.08,
+"seg": 3
+},
+{
+"w": "üstünden",
+"start": 20.16,
+"end": 20.56,
+"seg": 3
+},
+{
+"w": "süzüldü",
+"start": 20.64,
+"end": 21.12,
+"seg": 3
+},
+{
+"w": "ve",
+"start": 21.36,
+"end": 21.52,
+"seg": 3
+},
+{
+"w": "karşı",
+"start": 21.6,
+"end": 21.92,
+"seg": 3
+},
+{
+"w": "yakada,",
+"start": 21.96,
+"end": 22.4,
+"seg": 3
+},
+{
+"w": "Üsküdar'a",
+"start": 22.56,
+"end": 23.013,
+"seg": 3
+},
+{
+"w": "indi.",
+"start": 23.04,
+"end": 23.36,
+"seg": 3
+},
+{
+"w": "Padişah",
+"start": 23.76,
+"end": 24.24,
+"seg": 4
+},
+{
+"w": "Dördüncü",
+"start": 24.32,
+"end": 24.72,
+"seg": 4
+},
+{
+"w": "Murad",
+"start": 24.8,
+"end": 25.04,
+"seg": 4
+},
+{
+"w": "onu",
+"start": 25.2,
+"end": 25.36,
+"seg": 4
+},
+{
+"w": "bir",
+"start": 25.44,
+"end": 25.6,
+"seg": 4
+},
+{
+"w": "kese",
+"start": 25.64,
+"end": 25.84,
+"seg": 4
+},
+{
+"w": "altınla",
+"start": 25.92,
+"end": 26.32,
+"seg": 4
+},
+{
+"w": "ödüllendirdi.",
+"start": 26.4,
+"end": 27.32,
+"seg": 4
+},
+{
+"w": "Ama",
+"start": 27.52,
+"end": 27.68,
+"seg": 5
+},
+{
+"w": "sonra,",
+"start": 27.76,
+"end": 28.24,
+"seg": 5
+},
+{
+"w": "bu",
+"start": 28.56,
+"end": 28.64,
+"seg": 5
+},
+{
+"w": "adam",
+"start": 28.72,
+"end": 28.96,
+"seg": 5
+},
+{
+"w": "her",
+"start": 29.04,
+"end": 29.2,
+"seg": 5
+},
+{
+"w": "istediğini",
+"start": 29.36,
+"end": 29.68,
+"seg": 5
+},
+{
+"w": "yapabilir",
+"start": 29.76,
+"end": 30.16,
+"seg": 5
+},
+{
+"w": "diyerek",
+"start": 30.24,
+"end": 30.64,
+"seg": 5
+},
+{
+"w": "Cezayir'e",
+"start": 30.8,
+"end": 31.32,
+"seg": 5
+},
+{
+"w": "sürgün",
+"start": 31.36,
+"end": 31.6,
+"seg": 5
+},
+{
+"w": "etti.",
+"start": 31.68,
+"end": 32.0,
+"seg": 5
+},
+{
+"w": "İşin",
+"start": 32.4,
+"end": 32.64,
+"seg": 6
+},
+{
+"w": "garip",
+"start": 32.72,
+"end": 32.88,
+"seg": 6
+},
+{
+"w": "tarafı",
+"start": 32.96,
+"end": 33.28,
+"seg": 6
+},
+{
+"w": "şu:",
+"start": 33.36,
+"end": 33.72,
+"seg": 6
+},
+{
+"w": "Bu",
+"start": 33.92,
+"end": 34.0,
+"seg": 6
+},
+{
+"w": "olayı",
+"start": 34.08,
+"end": 34.32,
+"seg": 6
+},
+{
+"w": "anlatan",
+"start": 34.4,
+"end": 34.72,
+"seg": 6
+},
+{
+"w": "tek",
+"start": 34.88,
+"end": 35.04,
+"seg": 6
+},
+{
+"w": "bir",
+"start": 35.08,
+"end": 35.12,
+"seg": 6
+},
+{
+"w": "kaynak",
+"start": 35.2,
+"end": 35.52,
+"seg": 6
+},
+{
+"w": "var,",
+"start": 35.6,
+"end": 36.08,
+"seg": 6
+},
+{
+"w": "Evliya",
+"start": 36.16,
+"end": 36.48,
+"seg": 6
+},
+{
+"w": "Çelebi'nin",
+"start": 36.56,
+"end": 36.96,
+"seg": 6
+},
+{
+"w": "Seyahatnamesi.",
+"start": 37.04,
+"end": 37.92,
+"seg": 6
+},
+{
+"w": "Evliya",
+"start": 38.32,
+"end": 38.64,
+"seg": 7
+},
+{
+"w": "Çelebi",
+"start": 38.72,
+"end": 39.04,
+"seg": 7
+},
+{
+"w": "de",
+"start": 39.12,
+"end": 39.2,
+"seg": 7
+},
+{
+"w": "abartılı",
+"start": 39.28,
+"end": 39.76,
+"seg": 7
+},
+{
+"w": "hikâyeleriyle",
+"start": 39.8,
+"end": 40.56,
+"seg": 7
+},
+{
+"w": "tanınıyordu.",
+"start": 40.64,
+"end": 41.52,
+"seg": 7
+},
+{
+"w": "Bu",
+"start": 41.56,
+"end": 41.6,
+"seg": 7
+},
+{
+"w": "yüzden",
+"start": 41.68,
+"end": 42.0,
+"seg": 7
+},
+{
+"w": "pek",
+"start": 42.08,
+"end": 42.24,
+"seg": 7
+},
+{
+"w": "çok",
+"start": 42.32,
+"end": 42.48,
+"seg": 7
+},
+{
+"w": "tarihçi",
+"start": 42.52,
+"end": 43.04,
+"seg": 7
+},
+{
+"w": "bu",
+"start": 43.12,
+"end": 43.2,
+"seg": 7
+},
+{
+"w": "uçuştan",
+"start": 43.24,
+"end": 43.68,
+"seg": 7
+},
+{
+"w": "şüphe",
+"start": 43.76,
+"end": 44.0,
+"seg": 7
+},
+{
+"w": "ediyor.",
+"start": 44.08,
+"end": 44.6,
+"seg": 7
+},
+{
+"w": "Yine",
+"start": 44.8,
+"end": 45.04,
+"seg": 8
+},
+{
+"w": "de",
+"start": 45.12,
+"end": 45.2,
+"seg": 8
+},
+{
+"w": "Hezarfen'in",
+"start": 45.28,
+"end": 45.84,
+"seg": 8
+},
+{
+"w": "adı",
+"start": 45.92,
+"end": 46.08,
+"seg": 8
+},
+{
+"w": "bugün",
+"start": 46.24,
+"end": 46.56,
+"seg": 8
+},
+{
+"w": "İstanbul'da",
+"start": 46.6,
+"end": 47.2,
+"seg": 8
+},
+{
+"w": "bir",
+"start": 47.24,
+"end": 47.28,
+"seg": 8
+},
+{
+"w": "havaalanında",
+"start": 47.36,
+"end": 48.0,
+"seg": 8
+},
+{
+"w": "yaşıyor.",
+"start": 48.08,
+"end": 48.68,
+"seg": 8
+},
+{
+"w": "Sence",
+"start": 48.88,
+"end": 49.2,
+"seg": 9
+},
+{
+"w": "uçtu",
+"start": 49.28,
+"end": 49.6,
+"seg": 9
+},
+{
+"w": "mu,",
+"start": 49.68,
+"end": 50.0,
+"seg": 9
+},
+{
+"w": "yoksa",
+"start": 50.053,
+"end": 50.32,
+"seg": 9
+},
+{
+"w": "bu",
+"start": 50.4,
+"end": 50.48,
+"seg": 9
+},
+{
+"w": "bir",
+"start": 50.56,
+"end": 50.64,
+"seg": 9
+},
+{
+"w": "efsane",
+"start": 50.76,
+"end": 51.12,
+"seg": 9
+},
+{
+"w": "mi?",
+"start": 51.2,
+"end": 51.52,
+"seg": 9
+}
+]
+}

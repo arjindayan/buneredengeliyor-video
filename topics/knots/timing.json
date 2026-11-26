@@ -1,0 +1,1278 @@
+{
+"duration": 76.941,
+"words": [
+{
+"w": "47",
+"start": 0.0,
+"end": 0.72,
+"seg": 0
+},
+{
+"w": "feet.",
+"start": 0.88,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "That's",
+"start": 1.76,
+"end": 2.0,
+"seg": 0
+},
+{
+"w": "the",
+"start": 2.04,
+"end": 2.08,
+"seg": 0
+},
+{
+"w": "gap",
+"start": 2.16,
+"end": 2.4,
+"seg": 0
+},
+{
+"w": "between",
+"start": 2.56,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "the",
+"start": 2.76,
+"end": 2.8,
+"seg": 0
+},
+{
+"w": "knots",
+"start": 2.96,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "on",
+"start": 3.32,
+"end": 3.36,
+"seg": 0
+},
+{
+"w": "the",
+"start": 3.44,
+"end": 3.52,
+"seg": 0
+},
+{
+"w": "rope",
+"start": 3.6,
+"end": 3.92,
+"seg": 0
+},
+{
+"w": "sailors",
+"start": 4.0,
+"end": 4.4,
+"seg": 0
+},
+{
+"w": "used",
+"start": 4.48,
+"end": 4.64,
+"seg": 0
+},
+{
+"w": "to",
+"start": 4.72,
+"end": 4.76,
+"seg": 0
+},
+{
+"w": "measure",
+"start": 4.8,
+"end": 5.04,
+"seg": 0
+},
+{
+"w": "speed.",
+"start": 5.2,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "And",
+"start": 6.08,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "it's",
+"start": 6.2,
+"end": 6.32,
+"seg": 0
+},
+{
+"w": "why",
+"start": 6.44,
+"end": 6.56,
+"seg": 0
+},
+{
+"w": "ships",
+"start": 6.64,
+"end": 6.96,
+"seg": 0
+},
+{
+"w": "still",
+"start": 7.12,
+"end": 7.28,
+"seg": 0
+},
+{
+"w": "count",
+"start": 7.36,
+"end": 7.68,
+"seg": 0
+},
+{
+"w": "in",
+"start": 7.72,
+"end": 7.76,
+"seg": 0
+},
+{
+"w": "knots.",
+"start": 7.92,
+"end": 8.4,
+"seg": 0
+},
+{
+"w": "Here's",
+"start": 8.88,
+"end": 9.08,
+"seg": 1
+},
+{
+"w": "how",
+"start": 9.12,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "it",
+"start": 9.28,
+"end": 9.36,
+"seg": 1
+},
+{
+"w": "worked.",
+"start": 9.44,
+"end": 9.92,
+"seg": 1
+},
+{
+"w": "A",
+"start": 10.4,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "sailor",
+"start": 10.56,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "tossed",
+"start": 11.04,
+"end": 11.28,
+"seg": 1
+},
+{
+"w": "a",
+"start": 11.36,
+"end": 11.44,
+"seg": 1
+},
+{
+"w": "small",
+"start": 11.52,
+"end": 11.76,
+"seg": 1
+},
+{
+"w": "wooden",
+"start": 11.84,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "board,",
+"start": 12.24,
+"end": 12.72,
+"seg": 1
+},
+{
+"w": "tied",
+"start": 12.76,
+"end": 12.96,
+"seg": 1
+},
+{
+"w": "to",
+"start": 13.04,
+"end": 13.12,
+"seg": 1
+},
+{
+"w": "a",
+"start": 13.16,
+"end": 13.2,
+"seg": 1
+},
+{
+"w": "rope,",
+"start": 13.28,
+"end": 13.76,
+"seg": 1
+},
+{
+"w": "off",
+"start": 13.84,
+"end": 13.92,
+"seg": 1
+},
+{
+"w": "the",
+"start": 14.0,
+"end": 14.08,
+"seg": 1
+},
+{
+"w": "back",
+"start": 14.16,
+"end": 14.24,
+"seg": 1
+},
+{
+"w": "of",
+"start": 14.32,
+"end": 14.4,
+"seg": 1
+},
+{
+"w": "the",
+"start": 14.44,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "ship.",
+"start": 14.56,
+"end": 14.96,
+"seg": 1
+},
+{
+"w": "The",
+"start": 15.44,
+"end": 15.52,
+"seg": 1
+},
+{
+"w": "board",
+"start": 15.6,
+"end": 15.92,
+"seg": 1
+},
+{
+"w": "stayed",
+"start": 16.0,
+"end": 16.32,
+"seg": 1
+},
+{
+"w": "almost",
+"start": 16.4,
+"end": 16.8,
+"seg": 1
+},
+{
+"w": "in",
+"start": 16.88,
+"end": 16.96,
+"seg": 1
+},
+{
+"w": "place,",
+"start": 17.04,
+"end": 17.68,
+"seg": 1
+},
+{
+"w": "so",
+"start": 17.76,
+"end": 17.84,
+"seg": 1
+},
+{
+"w": "the",
+"start": 17.88,
+"end": 17.92,
+"seg": 1
+},
+{
+"w": "ship",
+"start": 18.0,
+"end": 18.24,
+"seg": 1
+},
+{
+"w": "sailed",
+"start": 18.32,
+"end": 18.64,
+"seg": 1
+},
+{
+"w": "away",
+"start": 18.76,
+"end": 18.88,
+"seg": 1
+},
+{
+"w": "from",
+"start": 18.96,
+"end": 19.04,
+"seg": 1
+},
+{
+"w": "it",
+"start": 19.12,
+"end": 19.28,
+"seg": 1
+},
+{
+"w": "and",
+"start": 19.36,
+"end": 19.52,
+"seg": 1
+},
+{
+"w": "pulled",
+"start": 19.56,
+"end": 19.76,
+"seg": 1
+},
+{
+"w": "the",
+"start": 19.84,
+"end": 19.88,
+"seg": 1
+},
+{
+"w": "rope",
+"start": 19.92,
+"end": 20.16,
+"seg": 1
+},
+{
+"w": "out.",
+"start": 20.24,
+"end": 20.88,
+"seg": 1
+},
+{
+"w": "Another",
+"start": 21.2,
+"end": 21.52,
+"seg": 2
+},
+{
+"w": "sailor",
+"start": 21.6,
+"end": 21.92,
+"seg": 2
+},
+{
+"w": "flipped",
+"start": 22.0,
+"end": 22.24,
+"seg": 2
+},
+{
+"w": "a",
+"start": 22.32,
+"end": 22.4,
+"seg": 2
+},
+{
+"w": "sand",
+"start": 22.48,
+"end": 22.72,
+"seg": 2
+},
+{
+"w": "glass",
+"start": 22.8,
+"end": 23.12,
+"seg": 2
+},
+{
+"w": "that",
+"start": 23.2,
+"end": 23.28,
+"seg": 2
+},
+{
+"w": "ran",
+"start": 23.36,
+"end": 23.6,
+"seg": 2
+},
+{
+"w": "for",
+"start": 23.64,
+"end": 23.68,
+"seg": 2
+},
+{
+"w": "about",
+"start": 23.76,
+"end": 24.0,
+"seg": 2
+},
+{
+"w": "half",
+"start": 24.08,
+"end": 24.32,
+"seg": 2
+},
+{
+"w": "a",
+"start": 24.4,
+"end": 24.44,
+"seg": 2
+},
+{
+"w": "minute.",
+"start": 24.48,
+"end": 24.96,
+"seg": 2
+},
+{
+"w": "The",
+"start": 25.44,
+"end": 25.52,
+"seg": 2
+},
+{
+"w": "rope",
+"start": 25.6,
+"end": 25.84,
+"seg": 2
+},
+{
+"w": "had",
+"start": 25.92,
+"end": 26.0,
+"seg": 2
+},
+{
+"w": "knots",
+"start": 26.16,
+"end": 26.48,
+"seg": 2
+},
+{
+"w": "tied",
+"start": 26.56,
+"end": 26.8,
+"seg": 2
+},
+{
+"w": "along",
+"start": 26.92,
+"end": 27.04,
+"seg": 2
+},
+{
+"w": "it,",
+"start": 27.12,
+"end": 27.36,
+"seg": 2
+},
+{
+"w": "evenly",
+"start": 27.44,
+"end": 27.84,
+"seg": 2
+},
+{
+"w": "spaced,",
+"start": 27.92,
+"end": 28.64,
+"seg": 2
+},
+{
+"w": "and",
+"start": 28.68,
+"end": 28.72,
+"seg": 2
+},
+{
+"w": "he",
+"start": 28.8,
+"end": 28.88,
+"seg": 2
+},
+{
+"w": "counted",
+"start": 29.0,
+"end": 29.36,
+"seg": 2
+},
+{
+"w": "every",
+"start": 29.52,
+"end": 29.68,
+"seg": 2
+},
+{
+"w": "knot",
+"start": 29.76,
+"end": 30.0,
+"seg": 2
+},
+{
+"w": "that",
+"start": 30.08,
+"end": 30.16,
+"seg": 2
+},
+{
+"w": "slipped",
+"start": 30.24,
+"end": 30.56,
+"seg": 2
+},
+{
+"w": "through",
+"start": 30.64,
+"end": 30.72,
+"seg": 2
+},
+{
+"w": "his",
+"start": 30.8,
+"end": 30.88,
+"seg": 2
+},
+{
+"w": "hands",
+"start": 31.04,
+"end": 31.2,
+"seg": 2
+},
+{
+"w": "before",
+"start": 31.28,
+"end": 31.6,
+"seg": 2
+},
+{
+"w": "the",
+"start": 31.64,
+"end": 31.68,
+"seg": 2
+},
+{
+"w": "sand",
+"start": 31.76,
+"end": 32.0,
+"seg": 2
+},
+{
+"w": "ran",
+"start": 32.08,
+"end": 32.24,
+"seg": 2
+},
+{
+"w": "out.",
+"start": 32.32,
+"end": 32.64,
+"seg": 2
+},
+{
+"w": "Those",
+"start": 33.2,
+"end": 33.44,
+"seg": 3
+},
+{
+"w": "gaps",
+"start": 33.52,
+"end": 33.76,
+"seg": 3
+},
+{
+"w": "weren't",
+"start": 33.92,
+"end": 34.16,
+"seg": 3
+},
+{
+"w": "random.",
+"start": 34.4,
+"end": 34.72,
+"seg": 3
+},
+{
+"w": "They",
+"start": 34.96,
+"end": 35.04,
+"seg": 3
+},
+{
+"w": "were",
+"start": 35.12,
+"end": 35.2,
+"seg": 3
+},
+{
+"w": "matched",
+"start": 35.28,
+"end": 35.6,
+"seg": 3
+},
+{
+"w": "to",
+"start": 35.64,
+"end": 35.68,
+"seg": 3
+},
+{
+"w": "the",
+"start": 35.76,
+"end": 35.84,
+"seg": 3
+},
+{
+"w": "nautical",
+"start": 35.92,
+"end": 36.32,
+"seg": 3
+},
+{
+"w": "mile",
+"start": 36.48,
+"end": 36.8,
+"seg": 3
+},
+{
+"w": "and",
+"start": 36.88,
+"end": 37.04,
+"seg": 3
+},
+{
+"w": "to",
+"start": 37.12,
+"end": 37.2,
+"seg": 3
+},
+{
+"w": "the",
+"start": 37.24,
+"end": 37.28,
+"seg": 3
+},
+{
+"w": "sand",
+"start": 37.36,
+"end": 37.6,
+"seg": 3
+},
+{
+"w": "glass.",
+"start": 37.68,
+"end": 38.32,
+"seg": 3
+},
+{
+"w": "So",
+"start": 38.56,
+"end": 38.64,
+"seg": 3
+},
+{
+"w": "the",
+"start": 38.68,
+"end": 38.72,
+"seg": 3
+},
+{
+"w": "number",
+"start": 38.8,
+"end": 38.96,
+"seg": 3
+},
+{
+"w": "of",
+"start": 39.04,
+"end": 39.12,
+"seg": 3
+},
+{
+"w": "knots",
+"start": 39.2,
+"end": 39.4,
+"seg": 3
+},
+{
+"w": "he",
+"start": 39.44,
+"end": 39.6,
+"seg": 3
+},
+{
+"w": "counted",
+"start": 39.76,
+"end": 40.08,
+"seg": 3
+},
+{
+"w": "was",
+"start": 40.24,
+"end": 40.4,
+"seg": 3
+},
+{
+"w": "the",
+"start": 40.44,
+"end": 40.48,
+"seg": 3
+},
+{
+"w": "speed",
+"start": 40.64,
+"end": 41.04,
+"seg": 3
+},
+{
+"w": "in",
+"start": 41.12,
+"end": 41.2,
+"seg": 3
+},
+{
+"w": "nautical",
+"start": 41.28,
+"end": 41.76,
+"seg": 3
+},
+{
+"w": "miles",
+"start": 41.84,
+"end": 42.08,
+"seg": 3
+},
+{
+"w": "per",
+"start": 42.16,
+"end": 42.24,
+"seg": 3
+},
+{
+"w": "hour.",
+"start": 42.32,
+"end": 42.92,
+"seg": 3
+},
+{
+"w": "The",
+"start": 43.2,
+"end": 43.28,
+"seg": 4
+},
+{
+"w": "earliest",
+"start": 43.36,
+"end": 43.68,
+"seg": 4
+},
+{
+"w": "description",
+"start": 43.76,
+"end": 44.24,
+"seg": 4
+},
+{
+"w": "in",
+"start": 44.28,
+"end": 44.32,
+"seg": 4
+},
+{
+"w": "print",
+"start": 44.48,
+"end": 44.8,
+"seg": 4
+},
+{
+"w": "comes",
+"start": 44.88,
+"end": 45.12,
+"seg": 4
+},
+{
+"w": "from",
+"start": 45.2,
+"end": 45.28,
+"seg": 4
+},
+{
+"w": "William",
+"start": 45.44,
+"end": 45.68,
+"seg": 4
+},
+{
+"w": "Bourne,",
+"start": 45.84,
+"end": 46.32,
+"seg": 4
+},
+{
+"w": "in",
+"start": 46.4,
+"end": 46.48,
+"seg": 4
+},
+{
+"w": "1574,",
+"start": 46.56,
+"end": 48.08,
+"seg": 4
+},
+{
+"w": "in",
+"start": 48.12,
+"end": 48.16,
+"seg": 4
+},
+{
+"w": "a",
+"start": 48.2,
+"end": 48.24,
+"seg": 4
+},
+{
+"w": "book",
+"start": 48.32,
+"end": 48.48,
+"seg": 4
+},
+{
+"w": "about",
+"start": 48.56,
+"end": 48.8,
+"seg": 4
+},
+{
+"w": "navigating",
+"start": 48.88,
+"end": 49.44,
+"seg": 4
+},
+{
+"w": "at",
+"start": 49.52,
+"end": 49.6,
+"seg": 4
+},
+{
+"w": "sea.",
+"start": 49.68,
+"end": 50.08,
+"seg": 4
+},
+{
+"w": "Today",
+"start": 50.56,
+"end": 50.96,
+"seg": 5
+},
+{
+"w": "ships",
+"start": 51.12,
+"end": 51.36,
+"seg": 5
+},
+{
+"w": "use",
+"start": 51.44,
+"end": 51.6,
+"seg": 5
+},
+{
+"w": "electronic",
+"start": 51.76,
+"end": 52.16,
+"seg": 5
+},
+{
+"w": "instruments,",
+"start": 52.24,
+"end": 52.96,
+"seg": 5
+},
+{
+"w": "but",
+"start": 53.0,
+"end": 53.04,
+"seg": 5
+},
+{
+"w": "the",
+"start": 53.12,
+"end": 53.2,
+"seg": 5
+},
+{
+"w": "unit",
+"start": 53.28,
+"end": 53.6,
+"seg": 5
+},
+{
+"w": "survived.",
+"start": 53.68,
+"end": 54.32,
+"seg": 5
+},
+{
+"w": "One",
+"start": 54.8,
+"end": 54.96,
+"seg": 5
+},
+{
+"w": "knot",
+"start": 55.04,
+"end": 55.28,
+"seg": 5
+},
+{
+"w": "is",
+"start": 55.36,
+"end": 55.44,
+"seg": 5
+},
+{
+"w": "exactly",
+"start": 55.52,
+"end": 56.16,
+"seg": 5
+},
+{
+"w": "one",
+"start": 56.32,
+"end": 56.48,
+"seg": 5
+},
+{
+"w": "nautical",
+"start": 56.56,
+"end": 56.96,
+"seg": 5
+},
+{
+"w": "mile",
+"start": 57.04,
+"end": 57.28,
+"seg": 5
+},
+{
+"w": "per",
+"start": 57.36,
+"end": 57.44,
+"seg": 5
+},
+{
+"w": "hour,",
+"start": 57.52,
+"end": 58.08,
+"seg": 5
+},
+{
+"w": "or",
+"start": 58.16,
+"end": 58.4,
+"seg": 5
+},
+{
+"w": "1.852",
+"start": 58.64,
+"end": 59.84,
+"seg": 5
+},
+{
+"w": "kilometers",
+"start": 60.0,
+"end": 60.56,
+"seg": 5
+},
+{
+"w": "per",
+"start": 60.64,
+"end": 60.72,
+"seg": 5
+},
+{
+"w": "hour.",
+"start": 60.84,
+"end": 61.04,
+"seg": 5
+},
+{
+"w": "And",
+"start": 61.52,
+"end": 61.68,
+"seg": 6
+},
+{
+"w": "never",
+"start": 61.76,
+"end": 62.0,
+"seg": 6
+},
+{
+"w": "say",
+"start": 62.08,
+"end": 62.24,
+"seg": 6
+},
+{
+"w": "knots",
+"start": 62.4,
+"end": 62.72,
+"seg": 6
+},
+{
+"w": "per",
+"start": 62.8,
+"end": 62.88,
+"seg": 6
+},
+{
+"w": "hour.",
+"start": 62.96,
+"end": 63.28,
+"seg": 6
+},
+{
+"w": "A",
+"start": 63.52,
+"end": 63.6,
+"seg": 6
+},
+{
+"w": "knot",
+"start": 63.68,
+"end": 64.0,
+"seg": 6
+},
+{
+"w": "already",
+"start": 64.24,
+"end": 64.48,
+"seg": 6
+},
+{
+"w": "means",
+"start": 64.64,
+"end": 64.8,
+"seg": 6
+},
+{
+"w": "per",
+"start": 64.88,
+"end": 64.96,
+"seg": 6
+},
+{
+"w": "hour.",
+"start": 65.04,
+"end": 65.44,
+"seg": 6
+},
+{
+"w": "So",
+"start": 65.84,
+"end": 65.92,
+"seg": 7
+},
+{
+"w": "next",
+"start": 66.04,
+"end": 66.16,
+"seg": 7
+},
+{
+"w": "time",
+"start": 66.24,
+"end": 66.32,
+"seg": 7
+},
+{
+"w": "you",
+"start": 66.4,
+"end": 66.48,
+"seg": 7
+},
+{
+"w": "hear",
+"start": 66.6,
+"end": 66.72,
+"seg": 7
+},
+{
+"w": "twenty",
+"start": 66.88,
+"end": 67.2,
+"seg": 7
+},
+{
+"w": "knots,",
+"start": 67.28,
+"end": 68.0,
+"seg": 7
+},
+{
+"w": "picture",
+"start": 68.16,
+"end": 68.32,
+"seg": 7
+},
+{
+"w": "a",
+"start": 68.4,
+"end": 68.44,
+"seg": 7
+},
+{
+"w": "sailor,",
+"start": 68.48,
+"end": 69.12,
+"seg": 7
+},
+{
+"w": "a",
+"start": 69.16,
+"end": 69.2,
+"seg": 7
+},
+{
+"w": "sand",
+"start": 69.28,
+"end": 69.52,
+"seg": 7
+},
+{
+"w": "glass,",
+"start": 69.6,
+"end": 70.16,
+"seg": 7
+},
+{
+"w": "and",
+"start": 70.2,
+"end": 70.24,
+"seg": 7
+},
+{
+"w": "a",
+"start": 70.32,
+"end": 70.36,
+"seg": 7
+},
+{
+"w": "rope",
+"start": 70.4,
+"end": 70.72,
+"seg": 7
+},
+{
+"w": "full",
+"start": 70.88,
+"end": 70.96,
+"seg": 7
+},
+{
+"w": "of",
+"start": 71.04,
+"end": 71.12,
+"seg": 7
+},
+{
+"w": "knots.",
+"start": 71.2,
+"end": 71.84,
+"seg": 7
+},
+{
+"w": "If",
+"start": 72.08,
+"end": 72.16,
+"seg": 7
+},
+{
+"w": "you",
+"start": 72.24,
+"end": 72.32,
+"seg": 7
+},
+{
+"w": "enjoyed",
+"start": 72.4,
+"end": 72.64,
+"seg": 7
+},
+{
+"w": "this,",
+"start": 72.72,
+"end": 73.2,
+"seg": 7
+},
+{
+"w": "like",
+"start": 73.28,
+"end": 73.52,
+"seg": 7
+},
+{
+"w": "and",
+"start": 73.68,
+"end": 73.76,
+"seg": 7
+},
+{
+"w": "follow",
+"start": 73.84,
+"end": 74.08,
+"seg": 7
+},
+{
+"w": "for",
+"start": 74.16,
+"end": 74.24,
+"seg": 7
+},
+{
+"w": "more.",
+"start": 74.32,
+"end": 74.88,
+"seg": 7
+}
+],
+"voice_end": 74.841
+}

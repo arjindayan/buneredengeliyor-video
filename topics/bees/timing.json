@@ -1,0 +1,911 @@
+{
+"duration": 56.554,
+"words": [
+{
+"w": "Bees",
+"start": 0.0,
+"end": 0.24,
+"seg": 0
+},
+{
+"w": "are",
+"start": 0.32,
+"end": 0.52,
+"seg": 0
+},
+{
+"w": "so",
+"start": 0.56,
+"end": 0.76,
+"seg": 0
+},
+{
+"w": "busy,",
+"start": 0.88,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "one",
+"start": 1.6,
+"end": 1.787,
+"seg": 0
+},
+{
+"w": "bee",
+"start": 1.84,
+"end": 2.027,
+"seg": 0
+},
+{
+"w": "must",
+"start": 2.08,
+"end": 2.29,
+"seg": 0
+},
+{
+"w": "make",
+"start": 2.32,
+"end": 2.58,
+"seg": 0
+},
+{
+"w": "tons",
+"start": 2.64,
+"end": 2.99,
+"seg": 0
+},
+{
+"w": "of",
+"start": 3.04,
+"end": 3.16,
+"seg": 0
+},
+{
+"w": "honey.",
+"start": 3.2,
+"end": 4.08,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 4.24,
+"end": 4.44,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 4.48,
+"end": 4.88,
+"seg": 0
+},
+{
+"w": "not",
+"start": 4.96,
+"end": 5.04,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 5.12,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 5.76,
+"end": 6.4,
+"seg": 0
+},
+{
+"w": "In",
+"start": 6.44,
+"end": 6.48,
+"seg": 0
+},
+{
+"w": "its",
+"start": 6.6,
+"end": 6.72,
+"seg": 0
+},
+{
+"w": "whole",
+"start": 6.8,
+"end": 7.04,
+"seg": 0
+},
+{
+"w": "life,",
+"start": 7.24,
+"end": 7.52,
+"seg": 0
+},
+{
+"w": "a",
+"start": 7.6,
+"end": 7.68,
+"seg": 0
+},
+{
+"w": "worker",
+"start": 7.84,
+"end": 8.0,
+"seg": 0
+},
+{
+"w": "bee",
+"start": 8.12,
+"end": 8.24,
+"seg": 0
+},
+{
+"w": "makes",
+"start": 8.36,
+"end": 8.48,
+"seg": 0
+},
+{
+"w": "about",
+"start": 8.68,
+"end": 8.88,
+"seg": 0
+},
+{
+"w": "one",
+"start": 8.96,
+"end": 9.04,
+"seg": 0
+},
+{
+"w": "twelfth",
+"start": 9.2,
+"end": 9.6,
+"seg": 0
+},
+{
+"w": "of",
+"start": 9.68,
+"end": 9.76,
+"seg": 0
+},
+{
+"w": "a",
+"start": 9.813,
+"end": 9.867,
+"seg": 0
+},
+{
+"w": "teaspoon.",
+"start": 9.92,
+"end": 10.8,
+"seg": 0
+},
+{
+"w": "So",
+"start": 10.88,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "to",
+"start": 11.04,
+"end": 11.12,
+"seg": 1
+},
+{
+"w": "fill",
+"start": 11.28,
+"end": 11.44,
+"seg": 1
+},
+{
+"w": "one",
+"start": 11.52,
+"end": 11.68,
+"seg": 1
+},
+{
+"w": "jar,",
+"start": 11.76,
+"end": 12.32,
+"seg": 1
+},
+{
+"w": "a",
+"start": 12.36,
+"end": 12.4,
+"seg": 1
+},
+{
+"w": "colony",
+"start": 12.48,
+"end": 12.88,
+"seg": 1
+},
+{
+"w": "visits",
+"start": 12.96,
+"end": 13.2,
+"seg": 1
+},
+{
+"w": "around",
+"start": 13.44,
+"end": 13.68,
+"seg": 1
+},
+{
+"w": "two",
+"start": 13.8,
+"end": 13.92,
+"seg": 1
+},
+{
+"w": "million",
+"start": 14.16,
+"end": 14.56,
+"seg": 1
+},
+{
+"w": "flowers.",
+"start": 14.64,
+"end": 15.52,
+"seg": 1
+},
+{
+"w": "And",
+"start": 15.6,
+"end": 15.68,
+"seg": 1
+},
+{
+"w": "together",
+"start": 15.76,
+"end": 16.24,
+"seg": 1
+},
+{
+"w": "they",
+"start": 16.36,
+"end": 16.48,
+"seg": 1
+},
+{
+"w": "fly",
+"start": 16.6,
+"end": 16.72,
+"seg": 1
+},
+{
+"w": "about",
+"start": 16.92,
+"end": 17.12,
+"seg": 1
+},
+{
+"w": "twice",
+"start": 17.2,
+"end": 17.52,
+"seg": 1
+},
+{
+"w": "around",
+"start": 17.6,
+"end": 17.84,
+"seg": 1
+},
+{
+"w": "the",
+"start": 17.88,
+"end": 17.92,
+"seg": 1
+},
+{
+"w": "Earth.",
+"start": 18.0,
+"end": 18.8,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 18.88,
+"end": 19.12,
+"seg": 2
+},
+{
+"w": "the",
+"start": 19.2,
+"end": 19.36,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 19.56,
+"end": 19.76,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 19.88,
+"end": 20.4,
+"seg": 2
+},
+{
+"w": "Bees",
+"start": 20.48,
+"end": 20.8,
+"seg": 2
+},
+{
+"w": "carry",
+"start": 20.96,
+"end": 21.12,
+"seg": 2
+},
+{
+"w": "nectar",
+"start": 21.24,
+"end": 21.52,
+"seg": 2
+},
+{
+"w": "in",
+"start": 21.56,
+"end": 21.6,
+"seg": 2
+},
+{
+"w": "a",
+"start": 21.68,
+"end": 21.84,
+"seg": 2
+},
+{
+"w": "second",
+"start": 22.0,
+"end": 22.16,
+"seg": 2
+},
+{
+"w": "stomach,",
+"start": 22.24,
+"end": 22.8,
+"seg": 2
+},
+{
+"w": "called",
+"start": 22.96,
+"end": 23.12,
+"seg": 2
+},
+{
+"w": "a",
+"start": 23.2,
+"end": 23.28,
+"seg": 2
+},
+{
+"w": "honey",
+"start": 23.32,
+"end": 23.52,
+"seg": 2
+},
+{
+"w": "stomach.",
+"start": 23.6,
+"end": 24.24,
+"seg": 2
+},
+{
+"w": "It's",
+"start": 24.32,
+"end": 24.48,
+"seg": 2
+},
+{
+"w": "basically",
+"start": 24.6,
+"end": 24.96,
+"seg": 2
+},
+{
+"w": "a",
+"start": 25.04,
+"end": 25.12,
+"seg": 2
+},
+{
+"w": "tiny",
+"start": 25.32,
+"end": 25.52,
+"seg": 2
+},
+{
+"w": "backpack",
+"start": 25.6,
+"end": 26.08,
+"seg": 2
+},
+{
+"w": "inside",
+"start": 26.24,
+"end": 26.4,
+"seg": 2
+},
+{
+"w": "their",
+"start": 26.48,
+"end": 26.56,
+"seg": 2
+},
+{
+"w": "body.",
+"start": 26.64,
+"end": 27.44,
+"seg": 2
+},
+{
+"w": "In",
+"start": 27.52,
+"end": 27.6,
+"seg": 3
+},
+{
+"w": "fact,",
+"start": 27.68,
+"end": 28.24,
+"seg": 3
+},
+{
+"w": "bees",
+"start": 28.32,
+"end": 28.56,
+"seg": 3
+},
+{
+"w": "tell",
+"start": 28.64,
+"end": 28.8,
+"seg": 3
+},
+{
+"w": "each",
+"start": 28.88,
+"end": 28.96,
+"seg": 3
+},
+{
+"w": "other",
+"start": 29.04,
+"end": 29.2,
+"seg": 3
+},
+{
+"w": "where",
+"start": 29.28,
+"end": 29.36,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.4,
+"end": 29.44,
+"seg": 3
+},
+{
+"w": "flowers",
+"start": 29.52,
+"end": 29.92,
+"seg": 3
+},
+{
+"w": "are",
+"start": 30.0,
+"end": 30.16,
+"seg": 3
+},
+{
+"w": "by",
+"start": 30.24,
+"end": 30.4,
+"seg": 3
+},
+{
+"w": "dancing.",
+"start": 30.48,
+"end": 31.28,
+"seg": 3
+},
+{
+"w": "The",
+"start": 31.32,
+"end": 31.36,
+"seg": 3
+},
+{
+"w": "direction",
+"start": 31.44,
+"end": 31.84,
+"seg": 3
+},
+{
+"w": "of",
+"start": 31.92,
+"end": 32.0,
+"seg": 3
+},
+{
+"w": "the",
+"start": 32.04,
+"end": 32.08,
+"seg": 3
+},
+{
+"w": "waggle",
+"start": 32.16,
+"end": 32.56,
+"seg": 3
+},
+{
+"w": "points",
+"start": 32.64,
+"end": 32.96,
+"seg": 3
+},
+{
+"w": "the",
+"start": 33.0,
+"end": 33.04,
+"seg": 3
+},
+{
+"w": "way,",
+"start": 33.12,
+"end": 33.6,
+"seg": 3
+},
+{
+"w": "and",
+"start": 33.64,
+"end": 33.68,
+"seg": 3
+},
+{
+"w": "its",
+"start": 33.76,
+"end": 33.84,
+"seg": 3
+},
+{
+"w": "length",
+"start": 34.0,
+"end": 34.32,
+"seg": 3
+},
+{
+"w": "tells",
+"start": 34.4,
+"end": 34.64,
+"seg": 3
+},
+{
+"w": "the",
+"start": 34.68,
+"end": 34.72,
+"seg": 3
+},
+{
+"w": "distance.",
+"start": 35.0,
+"end": 35.52,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 35.76,
+"end": 36.0,
+"seg": 4
+},
+{
+"w": "not",
+"start": 36.08,
+"end": 36.16,
+"seg": 4
+},
+{
+"w": "all.",
+"start": 36.24,
+"end": 36.64,
+"seg": 4
+},
+{
+"w": "Their",
+"start": 36.8,
+"end": 36.96,
+"seg": 4
+},
+{
+"w": "wings",
+"start": 37.04,
+"end": 37.36,
+"seg": 4
+},
+{
+"w": "beat",
+"start": 37.44,
+"end": 37.6,
+"seg": 4
+},
+{
+"w": "around",
+"start": 37.8,
+"end": 38.0,
+"seg": 4
+},
+{
+"w": "200",
+"start": 38.12,
+"end": 38.64,
+"seg": 4
+},
+{
+"w": "times",
+"start": 38.8,
+"end": 39.12,
+"seg": 4
+},
+{
+"w": "a",
+"start": 39.2,
+"end": 39.28,
+"seg": 4
+},
+{
+"w": "second.",
+"start": 39.36,
+"end": 39.84,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 40.16,
+"end": 40.36,
+"seg": 4
+},
+{
+"w": "the",
+"start": 40.4,
+"end": 40.48,
+"seg": 4
+},
+{
+"w": "buzz",
+"start": 40.6,
+"end": 40.72,
+"seg": 4
+},
+{
+"w": "you",
+"start": 40.76,
+"end": 40.8,
+"seg": 4
+},
+{
+"w": "hear.",
+"start": 40.88,
+"end": 41.44,
+"seg": 4
+},
+{
+"w": "And",
+"start": 41.52,
+"end": 41.6,
+"seg": 5
+},
+{
+"w": "honey",
+"start": 41.68,
+"end": 42.0,
+"seg": 5
+},
+{
+"w": "almost",
+"start": 42.08,
+"end": 42.48,
+"seg": 5
+},
+{
+"w": "never",
+"start": 42.64,
+"end": 42.88,
+"seg": 5
+},
+{
+"w": "spoils.",
+"start": 43.04,
+"end": 43.76,
+"seg": 5
+},
+{
+"w": "Archaeologists",
+"start": 43.92,
+"end": 44.72,
+"seg": 5
+},
+{
+"w": "have",
+"start": 44.8,
+"end": 44.88,
+"seg": 5
+},
+{
+"w": "found",
+"start": 45.0,
+"end": 45.12,
+"seg": 5
+},
+{
+"w": "honey",
+"start": 45.2,
+"end": 45.44,
+"seg": 5
+},
+{
+"w": "in",
+"start": 45.52,
+"end": 45.68,
+"seg": 5
+},
+{
+"w": "ancient",
+"start": 45.76,
+"end": 46.08,
+"seg": 5
+},
+{
+"w": "Egyptian",
+"start": 46.16,
+"end": 46.64,
+"seg": 5
+},
+{
+"w": "tombs,",
+"start": 46.72,
+"end": 47.36,
+"seg": 5
+},
+{
+"w": "thousands",
+"start": 47.44,
+"end": 47.92,
+"seg": 5
+},
+{
+"w": "of",
+"start": 47.96,
+"end": 48.0,
+"seg": 5
+},
+{
+"w": "years",
+"start": 48.08,
+"end": 48.32,
+"seg": 5
+},
+{
+"w": "old.",
+"start": 48.4,
+"end": 49.12,
+"seg": 5
+},
+{
+"w": "So",
+"start": 49.28,
+"end": 49.44,
+"seg": 6
+},
+{
+"w": "one",
+"start": 49.84,
+"end": 50.0,
+"seg": 6
+},
+{
+"w": "bee",
+"start": 50.08,
+"end": 50.32,
+"seg": 6
+},
+{
+"w": "makes",
+"start": 50.4,
+"end": 50.64,
+"seg": 6
+},
+{
+"w": "just",
+"start": 50.72,
+"end": 50.88,
+"seg": 6
+},
+{
+"w": "a",
+"start": 50.96,
+"end": 51.04,
+"seg": 6
+},
+{
+"w": "tiny",
+"start": 51.12,
+"end": 51.52,
+"seg": 6
+},
+{
+"w": "drop",
+"start": 51.6,
+"end": 51.84,
+"seg": 6
+},
+{
+"w": "of",
+"start": 51.92,
+"end": 52.0,
+"seg": 6
+},
+{
+"w": "honey.",
+"start": 52.04,
+"end": 52.52,
+"seg": 6
+},
+{
+"w": "But",
+"start": 52.72,
+"end": 52.8,
+"seg": 6
+},
+{
+"w": "together,",
+"start": 52.88,
+"end": 53.6,
+"seg": 6
+},
+{
+"w": "they",
+"start": 53.68,
+"end": 53.76,
+"seg": 6
+},
+{
+"w": "make",
+"start": 53.88,
+"end": 54.0,
+"seg": 6
+},
+{
+"w": "something",
+"start": 54.2,
+"end": 54.4,
+"seg": 6
+},
+{
+"w": "that",
+"start": 54.48,
+"end": 54.56,
+"seg": 6
+},
+{
+"w": "lasts",
+"start": 54.72,
+"end": 55.12,
+"seg": 6
+},
+{
+"w": "forever.",
+"start": 55.2,
+"end": 56.0,
+"seg": 6
+}
+]
+}

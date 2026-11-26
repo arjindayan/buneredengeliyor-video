@@ -1,0 +1,14 @@
+{
+  "title": "A day longer than a year?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "A day is always shorter than a year. Well, that's not exactly true. On Venus, a day is longer than its year."},
+    {"scene": "spin", "text": "Venus spins incredibly slowly. One full turn takes about {243|two hundred forty three} Earth days."},
+    {"scene": "orbit", "text": "But it goes around the sun in only {225|two hundred twenty five} days. So its year ends before a single spin is done."},
+    {"scene": "west", "text": "Here's the wild part. Venus spins backwards. If you stood there, the sun would rise in the west and set in the east."},
+    {"scene": "hot", "text": "In fact, Venus is the hottest planet, even hotter than Mercury, which is closer to the sun. Its thick clouds trap the heat like a blanket."},
+    {"scene": "bright", "text": "That's not all. After the moon, Venus is the brightest thing in our night sky. You've probably seen it and thought it was a star."},
+    {"scene": "son", "text": "So on Venus, you'd celebrate your birthday before the day was even over."}
+  ]
+}
