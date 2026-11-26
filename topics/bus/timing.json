@@ -1,0 +1,966 @@
+{
+"duration": 71.168,
+"words": [
+{
+"w": "Why",
+"start": 0.0,
+"end": 0.24,
+"seg": 0
+},
+{
+"w": "are",
+"start": 0.28,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "the",
+"start": 0.4,
+"end": 0.48,
+"seg": 0
+},
+{
+"w": "school",
+"start": 0.56,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "buses",
+"start": 0.88,
+"end": 1.2,
+"seg": 0
+},
+{
+"w": "in",
+"start": 1.28,
+"end": 1.44,
+"seg": 0
+},
+{
+"w": "every",
+"start": 1.52,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "movie",
+"start": 1.92,
+"end": 2.24,
+"seg": 0
+},
+{
+"w": "and",
+"start": 2.32,
+"end": 2.4,
+"seg": 0
+},
+{
+"w": "TV",
+"start": 2.48,
+"end": 2.8,
+"seg": 0
+},
+{
+"w": "show",
+"start": 2.88,
+"end": 3.2,
+"seg": 0
+},
+{
+"w": "always",
+"start": 3.28,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "yellow?",
+"start": 3.76,
+"end": 4.64,
+"seg": 0
+},
+{
+"w": "It's",
+"start": 4.72,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "not",
+"start": 5.04,
+"end": 5.12,
+"seg": 0
+},
+{
+"w": "a",
+"start": 5.2,
+"end": 5.24,
+"seg": 0
+},
+{
+"w": "coincidence.",
+"start": 5.28,
+"end": 6.2,
+"seg": 0
+},
+{
+"w": "It's",
+"start": 6.4,
+"end": 6.52,
+"seg": 0
+},
+{
+"w": "a",
+"start": 6.56,
+"end": 6.6,
+"seg": 0
+},
+{
+"w": "decision.",
+"start": 6.64,
+"end": 7.64,
+"seg": 0
+},
+{
+"w": "Early",
+"start": 8.0,
+"end": 8.24,
+"seg": 1
+},
+{
+"w": "school",
+"start": 8.32,
+"end": 8.56,
+"seg": 1
+},
+{
+"w": "buses",
+"start": 8.64,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "were",
+"start": 9.04,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "often",
+"start": 9.28,
+"end": 9.52,
+"seg": 1
+},
+{
+"w": "just",
+"start": 9.6,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "farm",
+"start": 9.92,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "wagons",
+"start": 10.32,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "with",
+"start": 10.8,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "benches,",
+"start": 10.96,
+"end": 11.92,
+"seg": 1
+},
+{
+"w": "and",
+"start": 12.0,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "America",
+"start": 12.32,
+"end": 12.56,
+"seg": 1
+},
+{
+"w": "had",
+"start": 12.68,
+"end": 12.8,
+"seg": 1
+},
+{
+"w": "no",
+"start": 12.88,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "national",
+"start": 13.12,
+"end": 13.52,
+"seg": 1
+},
+{
+"w": "standard",
+"start": 13.6,
+"end": 14.08,
+"seg": 1
+},
+{
+"w": "for",
+"start": 14.16,
+"end": 14.24,
+"seg": 1
+},
+{
+"w": "how",
+"start": 14.32,
+"end": 14.4,
+"seg": 1
+},
+{
+"w": "they",
+"start": 14.48,
+"end": 14.56,
+"seg": 1
+},
+{
+"w": "should",
+"start": 14.64,
+"end": 14.8,
+"seg": 1
+},
+{
+"w": "look.",
+"start": 14.88,
+"end": 15.52,
+"seg": 1
+},
+{
+"w": "Then,",
+"start": 15.84,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "in",
+"start": 16.36,
+"end": 16.48,
+"seg": 2
+},
+{
+"w": "April",
+"start": 16.56,
+"end": 16.88,
+"seg": 2
+},
+{
+"w": "1939,",
+"start": 16.96,
+"end": 18.32,
+"seg": 2
+},
+{
+"w": "a",
+"start": 18.4,
+"end": 18.44,
+"seg": 2
+},
+{
+"w": "professor",
+"start": 18.48,
+"end": 18.88,
+"seg": 2
+},
+{
+"w": "named",
+"start": 18.96,
+"end": 19.2,
+"seg": 2
+},
+{
+"w": "Frank",
+"start": 19.28,
+"end": 19.6,
+"seg": 2
+},
+{
+"w": "Cyr",
+"start": 19.68,
+"end": 20.16,
+"seg": 2
+},
+{
+"w": "gathered",
+"start": 20.24,
+"end": 20.52,
+"seg": 2
+},
+{
+"w": "officials",
+"start": 20.56,
+"end": 21.04,
+"seg": 2
+},
+{
+"w": "from",
+"start": 21.12,
+"end": 21.36,
+"seg": 2
+},
+{
+"w": "all",
+"start": 21.44,
+"end": 21.6,
+"seg": 2
+},
+{
+"w": "forty-eight",
+"start": 21.76,
+"end": 22.24,
+"seg": 2
+},
+{
+"w": "states,",
+"start": 22.32,
+"end": 23.04,
+"seg": 2
+},
+{
+"w": "bus",
+"start": 23.16,
+"end": 23.28,
+"seg": 2
+},
+{
+"w": "builders,",
+"start": 23.36,
+"end": 24.0,
+"seg": 2
+},
+{
+"w": "and",
+"start": 24.08,
+"end": 24.16,
+"seg": 2
+},
+{
+"w": "paint",
+"start": 24.32,
+"end": 24.56,
+"seg": 2
+},
+{
+"w": "experts",
+"start": 24.64,
+"end": 25.2,
+"seg": 2
+},
+{
+"w": "at",
+"start": 25.28,
+"end": 25.44,
+"seg": 2
+},
+{
+"w": "Columbia",
+"start": 25.52,
+"end": 26.0,
+"seg": 2
+},
+{
+"w": "University",
+"start": 26.08,
+"end": 26.72,
+"seg": 2
+},
+{
+"w": "for",
+"start": 26.88,
+"end": 27.04,
+"seg": 2
+},
+{
+"w": "a",
+"start": 27.08,
+"end": 27.12,
+"seg": 2
+},
+{
+"w": "week.",
+"start": 27.2,
+"end": 27.88,
+"seg": 2
+},
+{
+"w": "They",
+"start": 28.16,
+"end": 28.32,
+"seg": 3
+},
+{
+"w": "agreed",
+"start": 28.4,
+"end": 28.72,
+"seg": 3
+},
+{
+"w": "on",
+"start": 28.8,
+"end": 28.96,
+"seg": 3
+},
+{
+"w": "forty-four",
+"start": 29.12,
+"end": 29.84,
+"seg": 3
+},
+{
+"w": "national",
+"start": 29.92,
+"end": 30.32,
+"seg": 3
+},
+{
+"w": "standards.",
+"start": 30.4,
+"end": 31.32,
+"seg": 3
+},
+{
+"w": "One",
+"start": 31.6,
+"end": 31.68,
+"seg": 3
+},
+{
+"w": "of",
+"start": 31.76,
+"end": 31.84,
+"seg": 3
+},
+{
+"w": "them",
+"start": 31.92,
+"end": 32.08,
+"seg": 3
+},
+{
+"w": "was",
+"start": 32.24,
+"end": 32.4,
+"seg": 3
+},
+{
+"w": "the",
+"start": 32.44,
+"end": 32.48,
+"seg": 3
+},
+{
+"w": "color:",
+"start": 32.64,
+"end": 33.44,
+"seg": 3
+},
+{
+"w": "a",
+"start": 33.52,
+"end": 33.6,
+"seg": 3
+},
+{
+"w": "yellow-orange",
+"start": 33.68,
+"end": 34.48,
+"seg": 3
+},
+{
+"w": "called",
+"start": 34.56,
+"end": 34.88,
+"seg": 3
+},
+{
+"w": "National",
+"start": 35.12,
+"end": 35.52,
+"seg": 3
+},
+{
+"w": "School",
+"start": 35.6,
+"end": 35.84,
+"seg": 3
+},
+{
+"w": "Bus",
+"start": 35.92,
+"end": 36.16,
+"seg": 3
+},
+{
+"w": "Chrome.",
+"start": 36.24,
+"end": 37.0,
+"seg": 3
+},
+{
+"w": "The",
+"start": 37.28,
+"end": 37.36,
+"seg": 4
+},
+{
+"w": "reason",
+"start": 37.52,
+"end": 37.68,
+"seg": 4
+},
+{
+"w": "given?",
+"start": 37.76,
+"end": 38.36,
+"seg": 4
+},
+{
+"w": "Black",
+"start": 38.64,
+"end": 38.88,
+"seg": 4
+},
+{
+"w": "lettering",
+"start": 38.96,
+"end": 39.44,
+"seg": 4
+},
+{
+"w": "stands",
+"start": 39.52,
+"end": 39.84,
+"seg": 4
+},
+{
+"w": "out",
+"start": 39.92,
+"end": 40.08,
+"seg": 4
+},
+{
+"w": "best",
+"start": 40.16,
+"end": 40.48,
+"seg": 4
+},
+{
+"w": "on",
+"start": 40.56,
+"end": 40.64,
+"seg": 4
+},
+{
+"w": "yellow,",
+"start": 40.72,
+"end": 41.36,
+"seg": 4
+},
+{
+"w": "even",
+"start": 41.44,
+"end": 41.68,
+"seg": 4
+},
+{
+"w": "in",
+"start": 41.72,
+"end": 41.76,
+"seg": 4
+},
+{
+"w": "the",
+"start": 41.84,
+"end": 41.92,
+"seg": 4
+},
+{
+"w": "half-dark",
+"start": 42.0,
+"end": 42.64,
+"seg": 4
+},
+{
+"w": "of",
+"start": 42.72,
+"end": 42.8,
+"seg": 4
+},
+{
+"w": "dawn",
+"start": 42.88,
+"end": 43.2,
+"seg": 4
+},
+{
+"w": "and",
+"start": 43.28,
+"end": 43.44,
+"seg": 4
+},
+{
+"w": "dusk.",
+"start": 43.52,
+"end": 44.0,
+"seg": 4
+},
+{
+"w": "Right",
+"start": 44.48,
+"end": 44.72,
+"seg": 4
+},
+{
+"w": "when",
+"start": 44.8,
+"end": 44.88,
+"seg": 4
+},
+{
+"w": "children",
+"start": 44.96,
+"end": 45.28,
+"seg": 4
+},
+{
+"w": "are",
+"start": 45.36,
+"end": 45.44,
+"seg": 4
+},
+{
+"w": "waiting",
+"start": 45.64,
+"end": 45.84,
+"seg": 4
+},
+{
+"w": "at",
+"start": 45.88,
+"end": 45.92,
+"seg": 4
+},
+{
+"w": "the",
+"start": 46.0,
+"end": 46.04,
+"seg": 4
+},
+{
+"w": "roadside.",
+"start": 46.08,
+"end": 46.8,
+"seg": 4
+},
+{
+"w": "Today",
+"start": 47.44,
+"end": 47.76,
+"seg": 5
+},
+{
+"w": "that",
+"start": 47.92,
+"end": 48.08,
+"seg": 5
+},
+{
+"w": "color",
+"start": 48.16,
+"end": 48.4,
+"seg": 5
+},
+{
+"w": "has",
+"start": 48.48,
+"end": 48.64,
+"seg": 5
+},
+{
+"w": "an",
+"start": 48.68,
+"end": 48.72,
+"seg": 5
+},
+{
+"w": "official",
+"start": 48.8,
+"end": 49.2,
+"seg": 5
+},
+{
+"w": "name,",
+"start": 49.36,
+"end": 50.0,
+"seg": 5
+},
+{
+"w": "National",
+"start": 50.08,
+"end": 50.48,
+"seg": 5
+},
+{
+"w": "School",
+"start": 50.56,
+"end": 50.8,
+"seg": 5
+},
+{
+"w": "Bus",
+"start": 50.88,
+"end": 51.12,
+"seg": 5
+},
+{
+"w": "Glossy",
+"start": 51.28,
+"end": 51.6,
+"seg": 5
+},
+{
+"w": "Yellow,",
+"start": 51.76,
+"end": 52.48,
+"seg": 5
+},
+{
+"w": "and",
+"start": 52.56,
+"end": 52.72,
+"seg": 5
+},
+{
+"w": "a",
+"start": 52.76,
+"end": 52.8,
+"seg": 5
+},
+{
+"w": "federal",
+"start": 52.88,
+"end": 53.28,
+"seg": 5
+},
+{
+"w": "color",
+"start": 53.36,
+"end": 53.6,
+"seg": 5
+},
+{
+"w": "number:",
+"start": 53.68,
+"end": 54.4,
+"seg": 5
+},
+{
+"w": "13432.",
+"start": 54.48,
+"end": 56.36,
+"seg": 5
+},
+{
+"w": "So",
+"start": 56.72,
+"end": 56.88,
+"seg": 6
+},
+{
+"w": "the",
+"start": 57.04,
+"end": 57.12,
+"seg": 6
+},
+{
+"w": "yellow",
+"start": 57.2,
+"end": 57.44,
+"seg": 6
+},
+{
+"w": "bus",
+"start": 57.52,
+"end": 57.76,
+"seg": 6
+},
+{
+"w": "in",
+"start": 57.84,
+"end": 57.92,
+"seg": 6
+},
+{
+"w": "your",
+"start": 57.96,
+"end": 58.0,
+"seg": 6
+},
+{
+"w": "favorite",
+"start": 58.16,
+"end": 58.48,
+"seg": 6
+},
+{
+"w": "movie",
+"start": 58.56,
+"end": 58.96,
+"seg": 6
+},
+{
+"w": "isn't",
+"start": 59.12,
+"end": 59.44,
+"seg": 6
+},
+{
+"w": "a",
+"start": 59.48,
+"end": 59.52,
+"seg": 6
+},
+{
+"w": "director's",
+"start": 59.76,
+"end": 60.16,
+"seg": 6
+},
+{
+"w": "choice.",
+"start": 60.24,
+"end": 60.92,
+"seg": 6
+},
+{
+"w": "It's",
+"start": 61.2,
+"end": 61.44,
+"seg": 6
+},
+{
+"w": "the",
+"start": 61.48,
+"end": 61.52,
+"seg": 6
+},
+{
+"w": "legacy",
+"start": 61.6,
+"end": 62.08,
+"seg": 6
+},
+{
+"w": "of",
+"start": 62.16,
+"end": 62.24,
+"seg": 6
+},
+{
+"w": "one",
+"start": 62.4,
+"end": 62.56,
+"seg": 6
+},
+{
+"w": "week-long",
+"start": 62.72,
+"end": 63.12,
+"seg": 6
+},
+{
+"w": "meeting",
+"start": 63.2,
+"end": 63.68,
+"seg": 6
+},
+{
+"w": "in",
+"start": 63.76,
+"end": 63.92,
+"seg": 6
+},
+{
+"w": "1939.",
+"start": 64.0,
+"end": 65.92,
+"seg": 6
+},
+{
+"w": "If",
+"start": 66.0,
+"end": 66.08,
+"seg": 6
+},
+{
+"w": "you",
+"start": 66.16,
+"end": 66.2,
+"seg": 6
+},
+{
+"w": "enjoyed",
+"start": 66.24,
+"end": 66.64,
+"seg": 6
+},
+{
+"w": "this,",
+"start": 66.72,
+"end": 67.2,
+"seg": 6
+},
+{
+"w": "like",
+"start": 67.28,
+"end": 67.6,
+"seg": 6
+},
+{
+"w": "and",
+"start": 67.68,
+"end": 67.84,
+"seg": 6
+},
+{
+"w": "follow",
+"start": 68.0,
+"end": 68.24,
+"seg": 6
+},
+{
+"w": "for",
+"start": 68.32,
+"end": 68.48,
+"seg": 6
+},
+{
+"w": "more.",
+"start": 68.56,
+"end": 69.12,
+"seg": 6
+}
+],
+"voice_end": 69.068
+}

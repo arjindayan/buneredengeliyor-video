@@ -25,3 +25,4 @@
 | Clockwise (EN) | Pirinç usturlap gravürü, kadran dilim geçişi | Cormorant Garamond + Marcellus | Arjin paleti (koyu zemin) | gölge saat ibresine dönüşür |
 | Bless (EN) | ECG monitörü / fosfor CRT, tarama çubuğu geçişi | VT323 + IBM Plex Mono | Arjin paleti (koyu zemin) | kalp atışı izi, hapşırmada düzleşme |
 | Knots (EN) | Gemi seyir defteri, bükümlü ip + kum saati çizimleri | Kalam + Special Elite | Arjin paleti (açık sayfa) | düğümlü ip, düğüm sayacı |
+| Bus (EN) | 1939 trafik güvenliği afişi, tehlike şeridi geçişi | Bebas Neue + Libre Franklin | Arjin paleti (altın = otobüs sarısı) | altın otobüs, siyah SCHOOL BUS yazısı |
