@@ -1,0 +1,46 @@
+{
+ "title": "Hafta tatili neden pazar?",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Bu ülkede hafta sonu eskiden cumartesi ve pazar değildi."
+  },
+  {
+   "scene": "s2",
+   "text": "Evet, hafta tatili. {1924'te|bin dokuz yüz yirmi dörtte} çıkan kanunla Türkiye'de resmi tatil günü cumaydı."
+  },
+  {
+   "scene": "s3",
+   "text": "Ama dünyanın geri kalanı pazar günü kapanıyordu."
+  },
+  {
+   "scene": "s4",
+   "text": "Bankalar, limanlar ve ticaret ortakları Avrupa'ydı. Türkiye cuma tatil yapınca, haftanın iki günü dünyayla bağı kopuyordu."
+  },
+  {
+   "scene": "s5",
+   "text": "{1935'te|bin dokuz yüz otuz beşte} yeni bir kanun çıktı: Hafta tatili artık pazardı."
+  },
+  {
+   "scene": "s6",
+   "text": "Üstelik cumartesi öğleden sonrası da tatil sayıldı."
+  },
+  {
+   "scene": "s7",
+   "text": "Bu karar o dönem tartışma yarattı, ama ekonomiyi dünyayla aynı takvime soktu."
+  },
+  {
+   "scene": "s8",
+   "text": "Zamanla cumartesi de tamamen tatil oldu ve bugünkü hafta sonu doğdu."
+  },
+  {
+   "scene": "s9",
+   "text": "Yani pazar keyfinin arkasında, bir ticaret takvimi hesabı var."
+  },
+  {
+   "scene": "son",
+   "text": "Sen hafta sonunun en çok hangi gününü seversin?"
+  }
+ ]
+}

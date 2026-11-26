@@ -1,0 +1,875 @@
+{
+"duration": 54.882,
+"words": [
+{
+"w": "Why",
+"start": 0.0,
+"end": 0.24,
+"seg": 0
+},
+{
+"w": "does",
+"start": 0.32,
+"end": 0.4,
+"seg": 0
+},
+{
+"w": "ice",
+"start": 0.56,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "cold",
+"start": 0.88,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "water",
+"start": 1.2,
+"end": 1.44,
+"seg": 0
+},
+{
+"w": "taste",
+"start": 1.52,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "almost",
+"start": 1.92,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "sweet",
+"start": 2.48,
+"end": 2.8,
+"seg": 0
+},
+{
+"w": "on",
+"start": 2.88,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "a",
+"start": 3.04,
+"end": 3.08,
+"seg": 0
+},
+{
+"w": "hot",
+"start": 3.12,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "day?",
+"start": 3.36,
+"end": 3.76,
+"seg": 0
+},
+{
+"w": "There's",
+"start": 4.16,
+"end": 4.28,
+"seg": 0
+},
+{
+"w": "no",
+"start": 4.32,
+"end": 4.4,
+"seg": 0
+},
+{
+"w": "sugar",
+"start": 4.56,
+"end": 4.8,
+"seg": 0
+},
+{
+"w": "in",
+"start": 4.88,
+"end": 4.92,
+"seg": 0
+},
+{
+"w": "it.",
+"start": 4.96,
+"end": 5.28,
+"seg": 0
+},
+{
+"w": "So",
+"start": 5.44,
+"end": 5.52,
+"seg": 0
+},
+{
+"w": "what's",
+"start": 5.6,
+"end": 5.76,
+"seg": 0
+},
+{
+"w": "going",
+"start": 5.88,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "on?",
+"start": 6.08,
+"end": 6.6,
+"seg": 0
+},
+{
+"w": "Here's",
+"start": 6.88,
+"end": 7.12,
+"seg": 1
+},
+{
+"w": "the",
+"start": 7.2,
+"end": 7.28,
+"seg": 1
+},
+{
+"w": "twist.",
+"start": 7.32,
+"end": 7.76,
+"seg": 1
+},
+{
+"w": "Cold",
+"start": 8.16,
+"end": 8.64,
+"seg": 1
+},
+{
+"w": "actually",
+"start": 8.72,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "makes",
+"start": 9.2,
+"end": 9.36,
+"seg": 1
+},
+{
+"w": "things",
+"start": 9.44,
+"end": 9.68,
+"seg": 1
+},
+{
+"w": "taste",
+"start": 9.76,
+"end": 10.0,
+"seg": 1
+},
+{
+"w": "less",
+"start": 10.24,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "sweet.",
+"start": 10.56,
+"end": 10.96,
+"seg": 1
+},
+{
+"w": "Your",
+"start": 11.36,
+"end": 11.52,
+"seg": 2
+},
+{
+"w": "sweet",
+"start": 11.6,
+"end": 11.84,
+"seg": 2
+},
+{
+"w": "sensor",
+"start": 11.92,
+"end": 12.24,
+"seg": 2
+},
+{
+"w": "is",
+"start": 12.32,
+"end": 12.4,
+"seg": 2
+},
+{
+"w": "a",
+"start": 12.44,
+"end": 12.48,
+"seg": 2
+},
+{
+"w": "tiny",
+"start": 12.56,
+"end": 12.88,
+"seg": 2
+},
+{
+"w": "channel",
+"start": 12.96,
+"end": 13.28,
+"seg": 2
+},
+{
+"w": "called",
+"start": 13.36,
+"end": 13.6,
+"seg": 2
+},
+{
+"w": "TRPM5.",
+"start": 13.68,
+"end": 15.2,
+"seg": 2
+},
+{
+"w": "It",
+"start": 15.52,
+"end": 15.6,
+"seg": 2
+},
+{
+"w": "fires",
+"start": 15.68,
+"end": 16.0,
+"seg": 2
+},
+{
+"w": "harder",
+"start": 16.08,
+"end": 16.4,
+"seg": 2
+},
+{
+"w": "when",
+"start": 16.44,
+"end": 16.48,
+"seg": 2
+},
+{
+"w": "it's",
+"start": 16.56,
+"end": 16.72,
+"seg": 2
+},
+{
+"w": "warm,",
+"start": 16.8,
+"end": 17.28,
+"seg": 2
+},
+{
+"w": "and",
+"start": 17.32,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "slows",
+"start": 17.52,
+"end": 17.84,
+"seg": 2
+},
+{
+"w": "down",
+"start": 17.92,
+"end": 18.16,
+"seg": 2
+},
+{
+"w": "when",
+"start": 18.24,
+"end": 18.32,
+"seg": 2
+},
+{
+"w": "it's",
+"start": 18.36,
+"end": 18.48,
+"seg": 2
+},
+{
+"w": "cold.",
+"start": 18.56,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "That's",
+"start": 19.28,
+"end": 19.493,
+"seg": 2
+},
+{
+"w": "why",
+"start": 19.547,
+"end": 19.6,
+"seg": 2
+},
+{
+"w": "melted",
+"start": 19.76,
+"end": 20.0,
+"seg": 2
+},
+{
+"w": "ice",
+"start": 20.08,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "cream",
+"start": 20.32,
+"end": 20.48,
+"seg": 2
+},
+{
+"w": "tastes",
+"start": 20.56,
+"end": 20.88,
+"seg": 2
+},
+{
+"w": "way",
+"start": 21.12,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "too",
+"start": 21.36,
+"end": 21.52,
+"seg": 2
+},
+{
+"w": "sweet.",
+"start": 21.6,
+"end": 22.0,
+"seg": 2
+},
+{
+"w": "So",
+"start": 22.48,
+"end": 22.72,
+"seg": 3
+},
+{
+"w": "the",
+"start": 23.04,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "sweetness",
+"start": 23.2,
+"end": 23.68,
+"seg": 3
+},
+{
+"w": "is",
+"start": 23.76,
+"end": 23.84,
+"seg": 3
+},
+{
+"w": "in",
+"start": 23.92,
+"end": 24.0,
+"seg": 3
+},
+{
+"w": "your",
+"start": 24.08,
+"end": 24.16,
+"seg": 3
+},
+{
+"w": "brain.",
+"start": 24.24,
+"end": 24.72,
+"seg": 3
+},
+{
+"w": "In",
+"start": 25.2,
+"end": 25.28,
+"seg": 3
+},
+{
+"w": "1971,",
+"start": 25.36,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "a",
+"start": 26.6,
+"end": 26.64,
+"seg": 3
+},
+{
+"w": "scientist",
+"start": 26.72,
+"end": 27.2,
+"seg": 3
+},
+{
+"w": "named",
+"start": 27.28,
+"end": 27.44,
+"seg": 3
+},
+{
+"w": "Michel",
+"start": 27.52,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "Cabanac",
+"start": 28.0,
+"end": 28.56,
+"seg": 3
+},
+{
+"w": "showed",
+"start": 28.64,
+"end": 28.8,
+"seg": 3
+},
+{
+"w": "that",
+"start": 28.88,
+"end": 28.96,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.04,
+"end": 29.12,
+"seg": 3
+},
+{
+"w": "same",
+"start": 29.2,
+"end": 29.44,
+"seg": 3
+},
+{
+"w": "feeling",
+"start": 29.52,
+"end": 29.84,
+"seg": 3
+},
+{
+"w": "can",
+"start": 29.92,
+"end": 30.0,
+"seg": 3
+},
+{
+"w": "be",
+"start": 30.08,
+"end": 30.16,
+"seg": 3
+},
+{
+"w": "lovely",
+"start": 30.32,
+"end": 30.72,
+"seg": 3
+},
+{
+"w": "or",
+"start": 30.88,
+"end": 31.04,
+"seg": 3
+},
+{
+"w": "awful,",
+"start": 31.2,
+"end": 31.76,
+"seg": 3
+},
+{
+"w": "depending",
+"start": 31.96,
+"end": 32.16,
+"seg": 3
+},
+{
+"w": "on",
+"start": 32.2,
+"end": 32.24,
+"seg": 3
+},
+{
+"w": "what",
+"start": 32.32,
+"end": 32.4,
+"seg": 3
+},
+{
+"w": "your",
+"start": 32.48,
+"end": 32.56,
+"seg": 3
+},
+{
+"w": "body",
+"start": 32.68,
+"end": 32.8,
+"seg": 3
+},
+{
+"w": "needs.",
+"start": 32.88,
+"end": 33.52,
+"seg": 3
+},
+{
+"w": "Overheated?",
+"start": 33.76,
+"end": 34.52,
+"seg": 3
+},
+{
+"w": "Cold",
+"start": 34.72,
+"end": 35.04,
+"seg": 3
+},
+{
+"w": "feels",
+"start": 35.2,
+"end": 35.44,
+"seg": 3
+},
+{
+"w": "amazing.",
+"start": 35.52,
+"end": 36.32,
+"seg": 3
+},
+{
+"w": "Here's",
+"start": 36.8,
+"end": 37.0,
+"seg": 4
+},
+{
+"w": "the",
+"start": 37.04,
+"end": 37.12,
+"seg": 4
+},
+{
+"w": "wild",
+"start": 37.2,
+"end": 37.44,
+"seg": 4
+},
+{
+"w": "part.",
+"start": 37.52,
+"end": 37.84,
+"seg": 4
+},
+{
+"w": "Water",
+"start": 38.24,
+"end": 38.56,
+"seg": 4
+},
+{
+"w": "takes",
+"start": 38.76,
+"end": 38.96,
+"seg": 4
+},
+{
+"w": "tens",
+"start": 39.0,
+"end": 39.36,
+"seg": 4
+},
+{
+"w": "of",
+"start": 39.4,
+"end": 39.44,
+"seg": 4
+},
+{
+"w": "minutes",
+"start": 39.6,
+"end": 39.84,
+"seg": 4
+},
+{
+"w": "to",
+"start": 39.92,
+"end": 40.0,
+"seg": 4
+},
+{
+"w": "reach",
+"start": 40.12,
+"end": 40.24,
+"seg": 4
+},
+{
+"w": "your",
+"start": 40.28,
+"end": 40.32,
+"seg": 4
+},
+{
+"w": "blood.",
+"start": 40.4,
+"end": 40.92,
+"seg": 4
+},
+{
+"w": "But",
+"start": 41.12,
+"end": 41.2,
+"seg": 4
+},
+{
+"w": "your",
+"start": 41.28,
+"end": 41.36,
+"seg": 4
+},
+{
+"w": "brain",
+"start": 41.52,
+"end": 41.68,
+"seg": 4
+},
+{
+"w": "doesn't",
+"start": 41.76,
+"end": 42.0,
+"seg": 4
+},
+{
+"w": "wait.",
+"start": 42.16,
+"end": 42.56,
+"seg": 4
+},
+{
+"w": "Sensors",
+"start": 42.8,
+"end": 43.12,
+"seg": 4
+},
+{
+"w": "in",
+"start": 43.2,
+"end": 43.28,
+"seg": 4
+},
+{
+"w": "your",
+"start": 43.36,
+"end": 43.44,
+"seg": 4
+},
+{
+"w": "mouth",
+"start": 43.6,
+"end": 43.76,
+"seg": 4
+},
+{
+"w": "switch",
+"start": 43.84,
+"end": 44.08,
+"seg": 4
+},
+{
+"w": "off",
+"start": 44.16,
+"end": 44.32,
+"seg": 4
+},
+{
+"w": "your",
+"start": 44.4,
+"end": 44.48,
+"seg": 4
+},
+{
+"w": "thirst",
+"start": 44.56,
+"end": 44.8,
+"seg": 4
+},
+{
+"w": "neurons",
+"start": 44.88,
+"end": 45.28,
+"seg": 4
+},
+{
+"w": "almost",
+"start": 45.36,
+"end": 45.68,
+"seg": 4
+},
+{
+"w": "instantly.",
+"start": 45.84,
+"end": 46.72,
+"seg": 4
+},
+{
+"w": "In",
+"start": 46.8,
+"end": 46.96,
+"seg": 5
+},
+{
+"w": "mice,",
+"start": 47.0,
+"end": 47.6,
+"seg": 5
+},
+{
+"w": "cold",
+"start": 47.72,
+"end": 47.84,
+"seg": 5
+},
+{
+"w": "water",
+"start": 47.92,
+"end": 48.24,
+"seg": 5
+},
+{
+"w": "did",
+"start": 48.28,
+"end": 48.32,
+"seg": 5
+},
+{
+"w": "it",
+"start": 48.4,
+"end": 48.48,
+"seg": 5
+},
+{
+"w": "with",
+"start": 48.56,
+"end": 48.64,
+"seg": 5
+},
+{
+"w": "fewer",
+"start": 48.72,
+"end": 48.96,
+"seg": 5
+},
+{
+"w": "sips.",
+"start": 49.04,
+"end": 49.84,
+"seg": 5
+},
+{
+"w": "So",
+"start": 50.0,
+"end": 50.16,
+"seg": 6
+},
+{
+"w": "that",
+"start": 50.4,
+"end": 50.56,
+"seg": 6
+},
+{
+"w": "sweet",
+"start": 50.64,
+"end": 50.88,
+"seg": 6
+},
+{
+"w": "sip",
+"start": 51.04,
+"end": 51.28,
+"seg": 6
+},
+{
+"w": "isn't",
+"start": 51.36,
+"end": 51.6,
+"seg": 6
+},
+{
+"w": "sugar.",
+"start": 51.64,
+"end": 52.32,
+"seg": 6
+},
+{
+"w": "It's",
+"start": 52.36,
+"end": 52.48,
+"seg": 6
+},
+{
+"w": "your",
+"start": 52.56,
+"end": 52.64,
+"seg": 6
+},
+{
+"w": "brain",
+"start": 52.84,
+"end": 53.04,
+"seg": 6
+},
+{
+"w": "saying",
+"start": 53.08,
+"end": 53.36,
+"seg": 6
+},
+{
+"w": "thank",
+"start": 53.68,
+"end": 53.84,
+"seg": 6
+},
+{
+"w": "you.",
+"start": 53.92,
+"end": 54.32,
+"seg": 6
+}
+]
+}

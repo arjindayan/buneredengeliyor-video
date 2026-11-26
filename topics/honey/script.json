@@ -1,0 +1,14 @@
+{
+  "title": "Honey never goes bad?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Honey never goes bad. Well, that's almost true. Sealed honey can last for thousands of years, but there's one way to ruin it."},
+    {"scene": "sugar", "text": "Honey is mostly sugar and very little water. Germs need water to survive, so honey actually pulls the water right out of them."},
+    {"scene": "acid", "text": "In fact, honey is also acidic, about as sour as orange juice. Most bacteria simply can't live there."},
+    {"scene": "peroxide", "text": "Here's the wild part. Bees add an enzyme that slowly makes hydrogen peroxide. That's the same stuff used to clean cuts."},
+    {"scene": "crystal", "text": "And if your honey turns hard and cloudy, it hasn't spoiled. It just crystallized. Warm the jar gently and it turns liquid again."},
+    {"scene": "water", "text": "The one way to ruin it? Add water. Leave the lid open in a humid kitchen, and honey can start to ferment."},
+    {"scene": "son", "text": "So keep the lid on, and your honey might outlive you."}
+  ]
+}

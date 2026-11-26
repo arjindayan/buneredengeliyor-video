@@ -1,0 +1,15 @@
+{
+  "title": "Sloths are lazy?",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Sloths are lazy. Well, that's not exactly true. They're just saving energy."},
+    {"scene": "leaves", "text": "Sloths mostly eat leaves, and leaves give almost no energy. So their whole body runs in slow motion."},
+    {"scene": "stomach", "text": "Here's the wild part. A single meal can take weeks to move through their stomach."},
+    {"scene": "poop", "text": "They climb down from their tree only about once a week. Just to poop."},
+    {"scene": "algae", "text": "In fact, they move so little that algae grows in their fur. It turns them a bit green, which helps them hide."},
+    {"scene": "neck", "text": "That's not all. Some sloths can turn their head about {270°|two hundred seventy degrees.}"},
+    {"scene": "swim", "text": "And in water, sloths are surprisingly good swimmers. They move faster there than on land."},
+    {"scene": "son", "text": "So sloths aren't lazy. They're just running on leaf power."}
+  ]
+}

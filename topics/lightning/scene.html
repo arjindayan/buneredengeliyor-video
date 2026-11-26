@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: fırtınalı gece şehri, sevimli bulut + güvercin, mavi plan modu. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#151833}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:210px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 4px 0 rgba(10,12,30,.6)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#151833"/><stop offset=".6" stop-color="#2B3160"/><stop offset="1" stop-color="#3B4277"/></linearGradient>
+    <pattern id="izgara" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#3E7FB8" stroke-opacity=".28" stroke-width="2"/></pattern>
+    <clipPath id="dunyaKes"><circle cx="0" cy="0" r="300"/></clipPath>
+  </defs>
+  <g id="arka"></g>
+  <g id="plan"></g>
+  <g id="dunya"></g>
+  <g id="ust"></g>
+  <rect id="flas" width="1080" height="1920" fill="#EEF2FF" opacity="0"/>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+const GROUND = 1700, SPIRE = [540, 800];
+
+// ---------- çizim parçaları ----------
+function simsek(x0, y0, x1, y1, seed, w = 10, dal = true) {
+  const n = 11, pts = [];
+  for (let k = 0; k <= n; k++) {
+    const u = k / n, j = (k === 0 || k === n) ? 0 : (rastgele(seed * 31 + k) - 0.5) * 90 * (1 - u * 0.4);
+    pts.push([x0 + (x1 - x0) * u + j, y0 + (y1 - y0) * u]);
+  }
+  const d = 'M' + pts.map(p => p.map(f2).join(' ')).join('L');
+  let dallar = '';
+  if (dal) [3, 6].forEach((k, i) => {
+    const [bx, by] = pts[k], yon = rastgele(seed + i * 7) > .5 ? 1 : -1;
+    dallar += `M${f2(bx)} ${f2(by)} l${f2(yon * 50)} 40 l${f2(-yon * 15)} 30 l${f2(yon * 40)} 45`;
+  });
+  return `<path d="${d} ${dallar}" stroke="#FFF3B0" stroke-opacity=".28" stroke-width="${w * 4}" fill="none" stroke-linejoin="round" stroke-linecap="round"/>` +
+    `<path d="${d} ${dallar}" stroke="#FFF6C8" stroke-width="${w}" fill="none" stroke-linejoin="round" stroke-linecap="round"/>` +
+    `<path d="${d}" stroke="#fff" stroke-width="${w / 2.5}" fill="none" stroke-linejoin="round"/>`;
+}
+const TITRE = [1, .35, 1, .85, .5, .3, .15];
+const vurus = (f, fs) => (f >= fs && f < fs + TITRE.length) ? TITRE[f - fs] : 0;
+
+function bulut(x, y, s, t, ruh = 0, goz = 0) {
+  // ruh: 0 sinsi gülüş, 1 şaşkın; goz: 1 göz kırpma
+  const b = sin(t * 0.07) * 8;
+  let g = `<g transform="translate(${f2(x)},${f2(y + b)}) scale(${s})">`;
+  const P_ = [[-170, 30, 85], [-75, -35, 118], [65, -45, 125], [175, 25, 88], [0, 45, 120], [-110, 60, 80], [120, 60, 80]];
+  g += P_.map(([cx, cy, r]) => `<circle cx="${cx}" cy="${cy + 10}" r="${r}" fill="#5E6698"/>`).join('');
+  g += P_.map(([cx, cy, r]) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="#8F98C8"/>`).join('');
+  g += `<path d="M-120 -90 Q-60 -150 10 -140" stroke="#C3CAEB" stroke-width="18" fill="none" stroke-linecap="round" opacity=".7"/>`;
+  g += `<ellipse cx="-100" cy="70" rx="24" ry="13" fill="#FF9FB4" opacity=".5"/><ellipse cx="100" cy="70" rx="24" ry="13" fill="#FF9FB4" opacity=".5"/>`;
+  g += `<circle cx="-50" cy="35" r="17" fill="#1E2244"/>` + (goz ? `<path d="M30 38 q20 -14 40 0" stroke="#1E2244" stroke-width="7" fill="none" stroke-linecap="round"/>` : `<circle cx="50" cy="35" r="17" fill="#1E2244"/><circle cx="55" cy="29" r="5" fill="#fff"/>`);
+  g += `<circle cx="-45" cy="29" r="5" fill="#fff"/>`;
+  g += ruh ? `<ellipse cx="0" cy="88" rx="13" ry="17" fill="#1E2244"/>` : `<path d="M-30 78 q30 30 60 0" stroke="#1E2244" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M-80 0 l35 12 M80 0 l-35 12" stroke="#1E2244" stroke-width="7" stroke-linecap="round"/>`;
+  return g + '</g>';
+}
+
+function bina(plan, t, isik = 0) {
+  const katlar = [[300, 1700, 1300], [230, 1300, 1120], [160, 1120, 990], [96, 990, 930], [50, 930, 880]];
+  let g = '';
+  katlar.forEach(([w, y0, y1], i) => {
+    if (plan) { g += `<rect x="${540 - w / 2}" y="${y1}" width="${w}" height="${y0 - y1}" fill="rgba(120,205,255,.08)" stroke="#9BE1FF" stroke-width="4"/>`; return; }
+    g += `<rect x="${540 - w / 2}" y="${y1}" width="${w}" height="${y0 - y1}" fill="#3C4378"/><rect x="${540 + w / 2 - w * .28}" y="${y1}" width="${w * .28}" height="${y0 - y1}" fill="#30366A"/>`;
+    for (let yy = y1 + 22; yy < y0 - 20; yy += 34) for (let xx = 540 - w / 2 + 16; xx < 540 + w / 2 - 16; xx += 26) {
+      const r = rastgele(xx * 7 + yy * 13), lit = r > 0.55;
+      g += `<rect x="${xx}" y="${yy}" width="12" height="18" rx="2" fill="${lit ? '#FFD66B' : '#262B55'}" opacity="${lit ? f2(0.75 + 0.25 * sin(t * 0.05 + r * 9)) : 1}"/>`;
+    }
+  });
+  // anten / paratoner
+  g += plan ? `<path d="M540 880 V${SPIRE[1]}" stroke="#9BE1FF" stroke-width="6"/>` : `<path d="M540 880 V${SPIRE[1]}" stroke="#AEB6DC" stroke-width="9" stroke-linecap="round"/><circle cx="540" cy="${SPIRE[1]}" r="9" fill="${isik ? '#FFF6C8' : '#AEB6DC'}"/>`;
+  return g;
+}
+
+function guvercin(x, y, s, sur, t) {
+  const p = 1 + 0.25 * sur, bob = Math.abs(sin(t * 0.09)) * -6;
+  let g = `<g transform="translate(${f2(x)},${f2(y + bob)}) scale(${-s},${s})">`;
+  g += `<path d="M-40 10 L-85 -5 L-80 25Z" fill="#7C83A6"/>`;
+  g += `<ellipse cx="0" cy="0" rx="${f2(52 * p)}" ry="${f2(40 * p)}" fill="#B9BED6"/><ellipse cx="-10" cy="5" rx="${f2(34 * p)}" ry="${f2(22 * p)}" fill="#9EA4C4"/>`;
+  g += `<ellipse cx="30" cy="-18" rx="22" ry="20" fill="#7FB6A0" opacity=".8"/><circle cx="42" cy="-42" r="${f2(26 + sur * 3)}" fill="#C7CBE0"/>`;
+  g += `<circle cx="50" cy="-46" r="${f2(8 + sur * 4)}" fill="#fff"/><circle cx="52" cy="-46" r="${f2(5 + sur)}" fill="#1E2244"/>`;
+  g += `<path d="M66 -40 l18 5 l-18 6Z" fill="#F2A93B"/><path d="M-10 38 v14 M10 38 v14" stroke="#F28B6B" stroke-width="5" stroke-linecap="round"/>`;
+  if (sur > 0.3) g += `<text x="40" y="-90" class="lbl" font-size="56" fill="#FFC94A" stroke="#151833" stroke-width="8" transform="scale(-1,1) translate(-80,0)">!</text>`;
+  return g + '</g>';
+}
+
+function bekci(x, y, s, t, carp, gul) {
+  // carp: 0..1 çarpılma anı (şapka uçar, saçlar diken diken); gul: gülümseme
+  const sapka = -carp * 120;
+  let g = `<g transform="translate(${f2(x)},${f2(y)}) scale(${s})">`;
+  g += `<rect x="-55" y="-170" width="110" height="170" rx="50" fill="#5F8A48"/><rect x="-55" y="-60" width="110" height="18" fill="#3F5E30"/>`;
+  g += `<path d="M-20 0 v30 M20 0 v30" stroke="#3F5E30" stroke-width="22" stroke-linecap="round"/>`;
+  g += `<circle cx="0" cy="-215" r="62" fill="#F2C9A0"/>`;
+  if (carp > 0.05) for (let k = 0; k < 9; k++) { const a = -P * (0.1 + k * 0.1); g += `<path d="M${f2(cos(a) * 55)} ${f2(-215 + sin(a) * 55)} L${f2(cos(a) * (80 + carp * 20))} ${f2(-215 + sin(a) * (80 + carp * 20))}" stroke="#4A3426" stroke-width="9" stroke-linecap="round" opacity="${f2(carp)}"/>`; }
+  g += `<circle cx="-22" cy="-215" r="8" fill="#1E2244"/><circle cx="22" cy="-215" r="8" fill="#1E2244"/>`;
+  g += gul ? `<path d="M-22 -190 q22 22 44 0" stroke="#1E2244" stroke-width="6" fill="#fff" stroke-linecap="round"/>` : `<ellipse cx="0" cy="-185" rx="10" ry="13" fill="#1E2244"/>`;
+  g += `<ellipse cx="-38" cy="-195" rx="12" ry="7" fill="#FF9FB4" opacity=".6"/><ellipse cx="38" cy="-195" rx="12" ry="7" fill="#FF9FB4" opacity=".6"/>`;
+  g += `<g transform="translate(0,${f2(sapka)}) rotate(${f2(carp * 25)} 0 -265)"><ellipse cx="0" cy="-262" rx="92" ry="18" fill="#C9A46A"/><path d="M-45 -262 Q-40 -320 0 -322 Q40 -320 45 -262Z" fill="#D8B57A"/><path d="M-45 -272 h90" stroke="#7A5A30" stroke-width="8"/></g>`;
+  return g + '</g>';
+}
+
+const SIMSEK_IKON = 'M10 -30 L-12 4 H2 L-8 30 L16 -6 H2Z';
+
+// ---------- zaman çizelgesi ----------
+let K = null;
+function kur() {
+  const S = T.seg, c = cue, E = T.total;
+  const yirmi = c('hook', '20');
+  K = {
+    vurus: [c('hook', 'twice') + 4, ...[0, 1, 2, 3, 4, 5].map(k => yirmi + k * 7), c('rod', 'safe'), S.thunder.start + 2, c('son', 'prefers')],
+    bekciVurus: c('ranger', 'struck'),
+    cam: [[0, [540, 1180, 1]], [S.rod.start, [540, 1160, 1.05]], [S.rod.start + 18, [540, 950, 1.9]], [c('rod', 'path') - 4, [540, 950, 1.9]], [c('rod', 'path') + 14, [540, 1220, 1]],
+      [S.ranger.start + 4, [540, 1220, 1]], [S.ranger.start + 22, [300, 1480, 1.75]], [S.earth.start, [300, 1480, 1.75]], [S.earth.start + 16, [540, 1180, 1]], [E, [540, 1180, 1]]],
+    plan: [[0, 0], [c('rod', 'rod') - 8, 0], [c('rod', 'rod') + 4, 1], [S.hot.start - 2, 1], [S.hot.start + 10, 0]],
+    sicak: [[0, 0], [c('hot', 'bolt') - 6, 0], [c('hot', 'bolt') + 6, 1], [S.thunder.start - 6, 1], [S.thunder.start + 4, 0]],
+    kure: [[0, 0], [S.earth.start, 0], [S.earth.start + 12, 1], [S.son.start - 4, 1], [S.son.start + 8, 0]],
+  };
+}
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, c = cue, t = f;
+  let [cx, cy, s] = kf(f, K.cam);
+  // gök gürültüsü sarsıntısı
+  const boom = c('thunder', 'explode');
+  if (f >= boom && f < boom + 16) { const a = (1 - (f - boom) / 16) * 14; cx += sin(f * 2.3) * a; cy += cos(f * 1.7) * a; }
+
+  // ----- arka plan -----
+  const ps = 1 + (s - 1) * 0.3;
+  let a = `<rect width="1080" height="1920" fill="url(#gok)"/>`;
+  a += `<g transform="translate(540,1250) scale(${ps.toFixed(3)}) translate(${f2(-540 - (cx - 540) * .3)},${f2(-1250 - (cy - 1180) * .3)})">`;
+  [[120, 420, 1.1], [880, 360, 1.3], [520, 230, .9], [-40, 600, .8], [1100, 640, .9]].forEach(([x, y, k], i) => {
+    const dx = sin(t * 0.004 + i) * 30;
+    a += `<g transform="translate(${f2(x + dx)},${y}) scale(${k})" fill="#262B55" opacity=".85"><circle cx="-90" r="70"/><circle cx="0" cy="-30" r="95"/><circle cx="95" r="70"/><rect x="-160" y="0" width="320" height="70" rx="35"/></g>`;
+  });
+  // uzak şehir
+  for (let k = 0; k < 14; k++) { const w = 70 + rastgele(k) * 80, h = 180 + rastgele(k + 40) * 320, x = -120 + k * 95; a += `<rect x="${f2(x)}" y="${f2(1700 - h)}" width="${f2(w)}" height="${f2(h)}" fill="#20254A"/>`; }
+  a += '</g>';
+  // yağmur
+  for (let k = 0; k < 70; k++) { const x = (rastgele(k) * 1300 + t * 9) % 1300 - 110, y = (rastgele(k + 99) * 2100 + t * 38) % 2100 - 100; a += `<path d="M${f2(x)} ${f2(y)} l-10 34" stroke="#AFC3FF" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/>`; }
+  $('arka').innerHTML = a;
+
+  const X = kf(f, K.plan);
+  $('plan').innerHTML = X > 0.01 ? `<g opacity="${X.toFixed(3)}"><rect width="1080" height="1920" fill="#0A1C38"/><rect width="1080" height="1920" fill="url(#izgara)"/></g>` : '';
+
+  // ----- dünya -----
+  let w = '';
+  const aktifVurus = K.vurus.map(fs => vurus(f, fs)).reduce((m, v) => Math.max(m, v), 0);
+  // komşu binalar
+  w += `<g opacity="${(1 - X).toFixed(3)}">`;
+  [[150, 1380, 200], [330, 1480, 140], [770, 1330, 190], [940, 1440, 170]].forEach(([x, y, bw], i) => {
+    w += `<rect x="${x - bw / 2}" y="${y}" width="${bw}" height="${GROUND - y}" fill="#2D3363"/>`;
+    for (let yy = y + 24; yy < GROUND - 20; yy += 36) for (let xx = x - bw / 2 + 18; xx < x + bw / 2 - 18; xx += 30) if (rastgele(xx + yy * 3 + i) > .6) w += `<rect x="${xx}" y="${yy}" width="12" height="18" rx="2" fill="#FFD66B" opacity=".75"/>`;
+  });
+  w += `<rect x="-400" y="${GROUND}" width="1900" height="600" fill="#1C2042"/><rect x="-400" y="${GROUND}" width="1900" height="10" fill="#3A4170"/>`;
+  w += bina(false, t, aktifVurus) + '</g>';
+  if (X > 0.01) {
+    w += `<g opacity="${X.toFixed(3)}">${bina(true, t)}`;
+    // paratonerden yere iletken yol, akım aşağı akar
+    const yol = c('rod', 'path');
+    w += `<path d="M560 ${SPIRE[1] + 80} V${GROUND}" stroke="#FFE27A" stroke-width="7" stroke-dasharray="26 18" stroke-dashoffset="${f2(-t * 6)}" opacity="${f2(klamp((f - yol + 30) / 10))}"/>`;
+    w += `<path d="M380 ${GROUND + 4} H700" stroke="#9BE1FF" stroke-width="5"/>` + [0, 1, 2].map(k => `<path d="M${560 - 40 + k * 15} ${GROUND + 20 + k * 14} h${80 - k * 30}" stroke="#9BE1FF" stroke-width="5"/>`).join('');
+    w += '</g>';
+  }
+  // bulut karakteri binanın üstünde
+  const bulutX = kf(f, [[0, 540], [S.ranger.start, 540], [S.ranger.start + 20, 300], [S.earth.start + 10, 300], [S.earth.start + 30, 540]]);
+  const sasir = (f >= c('hot', 'sun') && f < c('hot', 'sun') + 20) || (f >= c('ranger', 'survived') && f < c('ranger', 'survived') + 24) ? 1 : 0;
+  const kirp = f >= c('son', 'prefers') + 8 && f < T.total - 10 ? 1 : 0;
+  w += bulut(bulutX, 520, 1, t, sasir, kirp);
+  // şimşekler
+  K.vurus.forEach((fs, i) => { const v = vurus(f, fs); if (v) w += `<g opacity="${v}">${simsek(540 + (rastgele(i) - .5) * 40, 600, SPIRE[0], SPIRE[1], i + 3, 12)}</g>`; });
+  // bekçi sahnesi
+  const bv = vurus(f, K.bekciVurus);
+  if (bv) w += `<g opacity="${bv}">${simsek(330, 600, 250, 1350, 77, 12, false)}</g>`;
+  const carp = kf(f, [[0, 0], [K.bekciVurus, 0], [K.bekciVurus + 4, 1], [c('ranger', 'survived'), 1], [c('ranger', 'survived') + 14, 0]]);
+  if (f >= S.ranger.start - 10 && f < S.earth.start + 14) {
+    const o = klamp((f - S.ranger.start + 10) / 10) * (1 - klamp((f - S.earth.start) / 14));
+    w += `<g opacity="${o.toFixed(2)}">${bekci(250, GROUND - 30, 1, t, carp, f >= c('ranger', 'survived'))}</g>`;
+    const yedi = c('ranger', 'seven');
+    for (let k = 0; k < 7; k++) { const p = backOut((f - yedi - k * 3) / 10) * (1 - klamp((f - S.earth.start) / 10)); if (p > 0) w += `<path d="${SIMSEK_IKON}" transform="translate(${100 + k * 50},1230) scale(${f2(1.3 * p)})" fill="#FFD66B" stroke="#151833" stroke-width="3"/>`; }
+    w += etiket('7 strikes. 7 survivals.', 260, 1170, f, c('ranger', 'survived'), S.ranger.end + 4, 44, '#FFF3DC');
+    if (carp > .2) for (let k = 0; k < 3; k++) { const u = ((t * .03 + k / 3) % 1); w += `<circle cx="${f2(250 + sin(k * 2 + t * .1) * 30)}" cy="${f2(GROUND - 300 - u * 160)}" r="${f2(20 + u * 30)}" fill="#8F98C8" opacity="${f2(carp * (1 - u) * .6)}"/>`; }
+  }
+  // güvercin (tepkici)
+  const gsur = Math.max(kf(f, [[0, 0], [K.vurus[0], 0], [K.vurus[0] + 3, 1], [K.vurus[0] + 30, 1], [K.vurus[0] + 40, 0]]),
+    kf(f, [[0, 0], [boom, 0], [boom + 3, 1], [boom + 30, 1], [boom + 40, 0]]));
+  w += `<g opacity="${(1 - X).toFixed(2)}">${guvercin(800, 1290, 0.9, gsur, t)}</g>`;
+  // etiketler
+  const yirmi = c('hook', '20');
+  if (f >= yirmi - 2 && f < S.rod.start + 6) { const n = Math.min(20, Math.max(1, Math.floor((f - yirmi) / 2) + 1)); w += etiket(`${n}× a year`, 800, 900, f, yirmi, S.rod.start, 72, '#FFD66B'); }
+  w += etiket('tall + pointy', 540, 760, f, c('rod', 'tall'), c('rod', 'rod') - 4, 30, '#FFF3DC');
+  w += etiket('lightning rod', 660, 830, f, c('rod', 'rod'), c('rod', 'path') - 2, 26, '#9BE1FF', 'start', '#0A1C38');
+  w += etiket('safe path ↓', 700, 1350, f, c('rod', 'path'), S.rod.end + 4, 54, '#FFE27A', 'start', '#0A1C38');
+
+  $('dunya').setAttribute('transform', `translate(540,1250) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  // ----- ekran katmanı: sıcaklık, gök gürültüsü, dünya -----
+  let u = '';
+  const H = kf(f, K.sicak);
+  if (H > 0.01) {
+    u += `<g opacity="${H.toFixed(3)}"><rect width="1080" height="1920" fill="#10132B" opacity=".75"/>${simsek(330, 520, 330, 1650, 12, 22, false)}`;
+    const gunes = c('hot', 'five'), bas = c('hot', 'thumb');
+    const p = backOut((f - gunes) / 12);
+    if (p > 0) u += `<g transform="translate(790,760) scale(${f2(p)})">` + [...Array(12)].map((_, k) => `<path d="M0 -150 L14 -118 L-14 -118Z" fill="#FFB547" transform="rotate(${k * 30 + t})"/>`).join('') + `<circle r="105" fill="#FFC94A"/><circle cx="-34" cy="-10" r="10" fill="#7A3B0C"/><circle cx="34" cy="-10" r="10" fill="#7A3B0C"/><path d="M-26 28 q26 22 52 0" stroke="#7A3B0C" stroke-width="7" fill="none" stroke-linecap="round"/></g>`;
+    u += etiket('bolt = 5× sun', 790, 960, f, gunes + 6, S.thunder.start - 6, 64, '#FFD66B');
+    const q = backOut((f - bas) / 12);
+    if (q > 0) u += `<g transform="translate(790,1300) scale(${f2(q)})"><rect x="-55" y="-130" width="110" height="260" rx="55" fill="#F2C9A0" stroke="#151833" stroke-width="7"/><rect x="-36" y="-112" width="72" height="80" rx="30" fill="#FBE3CC" stroke="#C99C75" stroke-width="5"/><path d="M-55 40 h110" stroke="#C99C75" stroke-width="5"/></g>` +
+      `<path d="M430 1300 H700" stroke="#FFF3DC" stroke-width="5" stroke-dasharray="14 10" opacity="${f2(klamp((f - bas - 6) / 8))}"/>`;
+    u += etiket('≈ 2 cm wide', 790, 1500, f, bas + 6, S.thunder.start - 6, 60, '#FFF3DC');
+    u += '</g>';
+  }
+  // gök gürültüsü: halkalar + BOOM, kronometre
+  if (f >= boom && f < S.ranger.start) {
+    for (let k = 0; k < 4; k++) { const v = klamp((f - boom - k * 5) / 34); if (v > 0 && v < 1) u += `<circle cx="540" cy="1150" r="${f2(60 + v * 600)}" fill="none" stroke="#DCE3FF" stroke-width="${f2(16 * (1 - v))}" opacity="${f2(1 - v)}"/>`; }
+    u += etiket('BOOM', 540, 1150, f, c('thunder', 'thunder'), c('thunder', 'count') - 2, 150, '#FFD66B');
+    const say = c('thunder', 'count'), bol = c('thunder', 'divide');
+    if (f >= say) {
+      const p = backOut((f - say) / 12) * (1 - klamp((f - S.ranger.start + 8) / 8)), n = Math.min(5, 1 + Math.floor((f - say) / Math.max(1, (bol - say) / 5)));
+      u += `<g transform="translate(540,1080) scale(${f2(p)})"><circle r="150" fill="#FFF3DC" stroke="#151833" stroke-width="12"/><rect x="-22" y="-200" width="44" height="40" rx="10" fill="#151833"/>` +
+        `<path d="M0 0 L${f2(sin(n / 5 * P * 2) * 110)} ${f2(-cos(n / 5 * P * 2) * 110)}" stroke="#E8505B" stroke-width="10" stroke-linecap="round"/><text class="lbl" text-anchor="middle" y="95" font-size="70" fill="#151833" stroke-width="0">${n} s</text></g>`;
+      u += etiket('5 seconds ≈ 1 mile', 540, 1340, f, c('thunder', 'miles'), S.ranger.start - 2, 66, '#FFD66B');
+    }
+  }
+  // dünya: saniyede 44 şimşek
+  const D = kf(f, K.kure);
+  if (D > 0.01) {
+    u += `<g opacity="${D.toFixed(3)}"><rect width="1080" height="1920" fill="#10132B" opacity=".85"/><g transform="translate(540,1150) scale(${f2(0.8 + 0.2 * D)}) rotate(${f2(t * 0.15)})">`;
+    u += `<circle r="300" fill="#3C7DD9"/><g clip-path="url(#dunyaKes)" fill="#6CC07A"><ellipse cx="-120" cy="-90" rx="110" ry="80"/><ellipse cx="-60" cy="110" rx="70" ry="120"/><ellipse cx="140" cy="-40" rx="120" ry="70"/><ellipse cx="170" cy="150" rx="60" ry="50"/><ellipse cx="20" cy="-250" rx="160" ry="40" fill="#EAF2FF"/></g>`;
+    for (let k = 0; k < 140; k++) {
+      const fs = S.earth.start + 6 + Math.floor(k * 0.9), v = vurus(f, fs); if (!v) continue;
+      const aa = rastgele(k * 3) * P * 2, rr = Math.sqrt(rastgele(k * 5)) * 270;
+      u += `<path d="${SIMSEK_IKON}" transform="translate(${f2(cos(aa) * rr)},${f2(sin(aa) * rr)}) scale(1.5)" fill="#FFF3B0" opacity="${v}"/><circle cx="${f2(cos(aa) * rr)}" cy="${f2(sin(aa) * rr)}" r="40" fill="#FFF3B0" opacity="${f2(v * .3)}"/>`;
+    }
+    u += `<circle r="300" fill="none" stroke="#151833" stroke-width="10"/></g>`;
+    u += etiket('44 flashes / second', 540, 1560, f, c('earth', '44'), S.son.start - 2, 70, '#FFD66B');
+    u += '</g>';
+  }
+  u += etiket('prefers it', 540, 470 + 400, f, c('son', 'prefers') + 6, T.total - 12, 64, '#FFD66B');
+  $('ust').innerHTML = u;
+
+  const fl = K.vurus.concat([K.bekciVurus]).map(fs => vurus(f, fs)).reduce((m, v) => Math.max(m, v), 0);
+  $('flas').setAttribute('opacity', (fl * 0.28).toFixed(3));
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

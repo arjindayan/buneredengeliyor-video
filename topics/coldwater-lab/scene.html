@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: 1971 fizyoloji laboratuvarı, şerit kaydedici kağıdı. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#EEF0E2}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:80px;right:80px;top:150px;font:700 62px/1.22 'Courier Prime';color:#1E2B4A;letter-spacing:-1px}
+  #alt span{padding-bottom:4px}
+  .ty{font-family:'Courier Prime';font-weight:400}
+  .tyb{font-family:'Courier Prime';font-weight:700}
+  .se{font-family:'Instrument Serif';font-style:normal}
+  .it{font-family:'Instrument Serif';font-style:italic}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <pattern id="ince" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0V30H0" fill="none" stroke="#A9C4B0" stroke-width="1"/></pattern>
+    <pattern id="kalin" width="150" height="150" patternUnits="userSpaceOnUse"><rect width="150" height="150" fill="url(#ince)"/><path d="M150 0V150H0" fill="none" stroke="#86AA92" stroke-width="2.2"/></pattern>
+    <filter id="gren" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .22  0 0 0 0 .15  0 0 0 .09 0"/></filter>
+  </defs>
+  <g id="kagit"></g><g id="cizim"></g><g id="kayit"></g>
+  <rect width="1080" height="1920" filter="url(#gren)"/>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['700 60px "Courier Prime"', '400 60px "Courier Prime"', '400 60px "Instrument Serif"', 'italic 400 60px "Instrument Serif"'];
+const c = cue, INK = '#1E2B4A', RED = '#C8252C', GRID = '#86AA92', ICE = '#8FBCD9', PAPER = '#EEF0E2';
+const PEN = 900, Y0 = 1420, Y1 = 1640; // kaydedici şeridi
+
+// kalemle çizilen yol: f0'dan itibaren d karede çizilir (pathLength=1)
+const ciz = (d, f, f0, dur = 18, o = {}) => {
+  if (f < f0) return '';
+  const u = EASE.kalem((f - f0) / dur);
+  return `<path d="${d}" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${(1 - u).toFixed(3)}" fill="${o.fill || 'none'}" stroke="${o.renk || INK}" stroke-width="${o.w || 5}" stroke-linecap="round" stroke-linejoin="round" opacity="${o.op || 1}"/>`;
+};
+// daktilo etiketi: harf harf değil, satır tek vuruşta basılır (2 kare)
+const yaz = (txt, x, y, f, f0, o = {}) => f < f0 ? '' : `<text x="${x}" y="${y}" class="${o.cls || 'ty'}" font-size="${o.s || 40}" fill="${o.renk || INK}" text-anchor="${o.a || 'start'}" opacity="${f2(klamp((f - f0) / 2))}" ${o.extra || ''}>${txt}</text>`;
+// mürekkep lekesi gibi beliren dolgu
+const dol = (ic, f, f0, d = 10) => f < f0 ? '' : `<g opacity="${f2(klamp((f - f0) / d))}">${ic}</g>`;
+
+function bardak(f, f0, x, y, s = 1) {
+  let g = ciz('M-150 -260 L-115 260 Q-110 290 -80 290 H80 Q110 290 115 260 L150 -260', f, f0, 22, { w: 6 });
+  const su = klamp((f - f0 - 10) / 20);
+  if (su > 0) g += `<path d="M${f2(-142 + 0)} ${f2(-170)} L-112 255 Q-108 280 -80 280 H80 Q108 280 112 255 L142 -170Z" fill="${ICE}" opacity="${f2(.45 * su)}"/>`;
+  g += ciz('M-142 -170 Q-70 -182 0 -170 T142 -170', f, f0 + 14, 14, { w: 4, renk: '#4F7FA3' });
+  return at(x, y, s, g);
+}
+function buz(f, f0, x, y, r) {
+  return at(x, y, 1, ciz('M-55 -50 L45 -62 L60 40 L-40 55Z M-55 -50 L-40 55', f, f0, 14, { w: 5, renk: '#4F7FA3' }) + dol(`<path d="M-55 -50 L45 -62 L60 40 L-40 55Z" fill="#fff" opacity=".55"/>`, f, f0 + 8), r);
+}
+function termometre(f, f0, x, y, deger, renk = RED) { // deger 0..1
+  let g = ciz('M-22 -260 V150 A50 50 0 1 0 22 150 V-260 A22 22 0 0 0 -22 -260Z', f, f0, 20, { w: 5 });
+  for (let k = 0; k < 8; k++) g += ciz(`M26 ${f2(-220 + k * 45)} H${k % 2 ? 44 : 56}`, f, f0 + 10 + k, 6, { w: 3 });
+  const h = 380 * deger * klamp((f - f0 - 16) / 20);
+  if (f > f0 + 12) g += `<circle cy="190" r="38" fill="${renk}"/><rect x="-10" y="${f2(170 - h)}" width="20" height="${f2(h + 20)}" fill="${renk}"/>`;
+  return at(x, y, 1, g);
+}
+function beyin(f, f0, x, y, s = 1, renk = INK) {
+  const d = 'M-150 40 C-190 -40 -150 -140 -60 -150 C-20 -200 80 -190 110 -130 C190 -110 200 -10 160 40 C170 100 100 140 40 120 C0 160 -90 150 -110 100 C-160 100 -170 70 -150 40Z M-40 -140 C-60 -80 0 -60 -10 -10 M60 -150 C40 -90 100 -60 80 0 M-120 20 C-60 10 -40 60 20 50 C70 40 90 80 140 60';
+  return at(x, y, s, ciz(d, f, f0, 30, { w: 5, renk }));
+}
+const not = (txt, x, y, f, f0, s = 64, renk = RED, r = -4) => f < f0 ? '' : at(x, y, 1, `<text class="it" font-size="${s}" fill="${renk}" text-anchor="middle" opacity="${f2(klamp((f - f0) / 6))}">${txt}</text>`, r);
+
+// kaydedici sinyali: her sahne ölçtüğü şeyi çizer
+function sinyal(fr) {
+  const S = T.seg, n = (rastgele(fr * 7 + 3) - .5) * .06;
+  const sp = (rate, seed) => rastgele(fr * 13 + seed) < rate ? .85 - rastgele(fr * 5) * .2 : n * 2;
+  if (fr < S.twist.start - 6) return .35 + .08 * sin(fr * .05) + n; // sıcak öğleden sonra
+  if (fr < S.sensor.start - 6) return lerp(fr, [c('twist', 'cold'), c('twist', 'less') + 20], [.35, -.55], EASE.dolly) + n; // tatlılık düşer
+  if (fr < S.pleasure.start - 6) return sp(fr < c('sensor', 'slows') ? .35 : .06, 1);
+  if (fr < S.thirst.start - 6) return lerp(fr, [c('pleasure', 'cold', 0), c('pleasure', 'amazing') + 16], [-.2, .75], EASE.dolly) + .05 * sin(fr * .2) + n;
+  if (fr < S.mice.start - 6) return fr < c('thirst', 'switch') + 6 ? sp(.45, 2) : n * .5;
+  if (fr < S.son.start - 6) return fr < c('mice', 'fewer') + 4 ? sp(.4, 3) : n * .5;
+  const k = c('son', 'thank'); return n * .5 + (fr > k && fr < k + 12 ? .5 * sin((fr - k) / 12 * P) : 0);
+}
+const KANAL = { hook: 'CH.1  air temp', twist: 'CH.1  sweetness', sensor: 'CH.1  TRPM5 firing', pleasure: 'CH.1  pleasure', thirst: 'CH.1  thirst neurons', mice: 'CH.1  thirst neurons', son: 'CH.1  calm', cta: 'END OF RECORD' };
+const SAHNE_SIRA = ['hook', 'twist', 'sensor', 'pleasure', 'thirst', 'mice', 'son', 'cta'];
+
+const FIG = {
+  hook: ['FIG. 1', 'A glass of ice water, a hot day'],
+  twist: ['FIG. 2', 'Sweetness vs. temperature'],
+  sensor: ['FIG. 3', 'Sweet taste cell'],
+  pleasure: ['FIG. 4', 'Cabanac, 1971'],
+  thirst: ['FIG. 5', 'Two clocks of thirst'],
+  mice: ['FIG. 6', 'Mice at the water spout'],
+  son: ['FIG. 7', 'The same glass'],
+  cta: ['', ''],
+};
+
+const SAHNE = {
+  hook(f) {
+    const h0 = 8;
+    let g = bardak(f, h0, 430, 960);
+    g += buz(f, c('hook', 'ice'), 380, 850, -8) + buz(f, c('hook', 'ice') + 6, 490, 900, 12);
+    for (let k = 0; k < 7; k++) g += dol(`<ellipse cx="${300 + rastgele(k) * 50}" cy="${f2(780 + k * 70)}" rx="5" ry="8" fill="#4F7FA3" opacity=".6"/>`, f, c('hook', 'cold') + k * 2);
+    g += termometre(f, c('hook', 'hot'), 860, 900, .85);
+    g += yaz('35 °C', 860, 1200, f, c('hook', 'day'), { a: 'middle', s: 44, cls: 'tyb', renk: RED });
+    g += not('sweet?', 210, 640, f, c('hook', 'sweet'), 92) + ciz('M250 660 C300 700 320 720 330 760', f, c('hook', 'sweet') + 4, 10, { renk: RED, w: 4 });
+    if (f >= c('hook', 'sugar')) g += at(430, 1330, 1, `<rect x="-280" y="-50" width="590" height="80" fill="${PAPER}" stroke="${INK}" stroke-width="3"/><text class="tyb" font-size="44" x="-235" y="8" fill="${INK}">SUGAR ........ 0.0 g</text>`, -2);
+    if (f >= c('hook', 'what')) g += `<text class="se" x="760" y="700" font-size="300" fill="${RED}" opacity="${f2(klamp((f - c('hook', 'what')) / 3))}">?</text>`;
+    return g;
+  },
+  twist(f) {
+    const f0 = T.seg.twist.start;
+    let g = ciz('M170 1260 V560 M170 1260 H930', f, f0, 18, { w: 5 });
+    g += yaz('temperature →', 930, 1310, f, f0 + 10, { a: 'end', s: 38 }) + `<g transform="translate(130,920) rotate(-90)">${yaz('sweetness', 0, 0, f, f0 + 10, { a: 'middle', s: 38 })}</g>`;
+    g += yaz('COLD', 200, 1310, f, c('twist', 'cold'), { s: 38, cls: 'tyb', renk: '#4F7FA3' }) + yaz('WARM', 680, 1240, f, c('twist', 'cold') + 4, { s: 38, cls: 'tyb', renk: RED });
+    g += ciz('M200 1180 C380 1170 520 1000 640 820 S820 640 900 620', f, c('twist', 'cold'), 26, { w: 7, renk: INK });
+    // nokta soğuk uca kayar
+    if (f >= c('twist', 'makes')) {
+      const u = EASE.dolly(klamp((f - c('twist', 'less')) / 18));
+      const x = 820 - 590 * u, y = 650 + 525 * u;
+      g += `<circle cx="${f2(x)}" cy="${f2(y)}" r="22" fill="${RED}"/>`;
+    }
+    g += not('less sweet', 380, 1110, f, c('twist', 'less') + 10, 76);
+    g += yaz('schematic', 930, 600, f, f0 + 10, { a: 'end', s: 30, renk: GRID });
+    return g;
+  },
+  sensor(f) {
+    const f0 = T.seg.sensor.start, mel = c('sensor', 'melted'), sol = f < mel ? 1 : 1 - .9 * klamp((f - mel) / 10);
+    let g = `<g opacity="${f2(sol)}">`;
+    // tat hücresi + zar + kanal
+    g += ciz('M300 580 C200 600 190 800 220 1000 C240 1180 320 1290 430 1290 C560 1290 620 1180 640 1000 C670 800 650 600 560 580 C490 560 380 560 300 580Z', f, f0, 26, { w: 6 });
+    g += ciz('M210 900 H660', f, c('sensor', 'tiny'), 14, { w: 3, op: .5 });
+    if (f >= c('sensor', 'channel')) g += dol(`<rect x="400" y="870" width="22" height="60" fill="${INK}"/><rect x="448" y="870" width="22" height="60" fill="${INK}"/>`, f, c('sensor', 'channel'), 6);
+    g += yaz('TRPM5', 690, 912, f, c('sensor', 'trpm5'), { s: 52, cls: 'tyb', renk: RED }) + ciz('M680 900 H490', f, c('sensor', 'trpm5'), 10, { w: 3, renk: RED });
+    // iyon akışı: sıcakta hızlı, soğukta yavaş
+    if (f >= c('sensor', 'fires')) {
+      const yavas = f >= c('sensor', 'slows'), hiz = yavas ? 2.2 : 9, n = yavas ? 3 : 9;
+      for (let k = 0; k < n; k++) { const y = 700 + ((f * hiz + k * 400 / n) % 420); g += `<circle cx="${435 + 6 * sin(k + y * .05)}" cy="${f2(y)}" r="9" fill="${yavas ? '#4F7FA3' : RED}"/>`; }
+      g += yaz(yavas ? 'cold: slow' : 'warm: fast', 690, 1010, f, c('sensor', 'fires'), { s: 40, renk: yavas ? '#4F7FA3' : RED });
+    }
+    g += '</g>';
+    // erimiş dondurma
+    if (f >= mel) {
+      let d = 'M-90 -40 L0 230 L90 -40 M-90 -40 L90 -40 M-30 30 L50 -30 M-60 -10 L30 70 M30 70 L-20 130';
+      let k = ciz(d, f, mel, 16, { w: 6, renk: '#8A5A34' });
+      k += ciz('M-110 -40 C-130 -160 -40 -210 0 -190 C60 -230 140 -150 110 -40 C110 0 100 60 90 110 M-110 -40 C-112 10 -100 60 -96 90', f, mel + 6, 20, { w: 6, renk: RED });
+      k += dol(`<path d="M-110 -40 C-130 -160 -40 -210 0 -190 C60 -230 140 -150 110 -40Z" fill="#F4C9C4" opacity=".7"/>`, f, mel + 14);
+      g += at(800, 980, 1.25, k, 6);
+      g += not('too sweet!', 800, 1310, f, c('sensor', 'too'), 80);
+    }
+    return g;
+  },
+  pleasure(f) {
+    const f0 = T.seg.pleasure.start;
+    let g = beyin(f, f0 + 2, 300, 720, .95);
+    if (f >= c('pleasure', '1971')) g += at(760, 690, 1, `<rect x="-230" y="-150" width="460" height="300" fill="#FBFAF2" stroke="${INK}" stroke-width="3"/><path d="M-230 -90 H230" stroke="${RED}" stroke-width="3"/>${[0, 1, 2, 3].map(k => `<path d="M-230 ${-40 + k * 50} H230" stroke="#A9C4B0" stroke-width="2"/>`).join('')}<text class="tyb" x="-205" y="-108" font-size="36" fill="${INK}">CABANAC, M.</text><text class="ty" x="-205" y="-50" font-size="32" fill="${INK}">Physiological role</text><text class="ty" x="-205" y="0" font-size="32" fill="${INK}">of pleasure.</text><text class="ty" x="-205" y="60" font-size="32" fill="${INK}">Science, 1971</text>`, 3, klamp((f - c('pleasure', '1971')) / 3));
+    // ölçek kadranı
+    const d0 = c('pleasure', 'same');
+    g += ciz('M240 1260 A300 300 0 0 1 840 1260', f, d0, 20, { w: 6 });
+    for (let k = 0; k <= 8; k++) { const a = P + k * P / 8; g += ciz(`M${f2(540 + 300 * cos(a))} ${f2(1260 + 300 * sin(a))} L${f2(540 + 270 * cos(a))} ${f2(1260 + 270 * sin(a))}`, f, d0 + 8 + k, 5, { w: 3 }); }
+    g += yaz('awful', 240, 1320, f, c('pleasure', 'awful'), { a: 'middle', s: 42, cls: 'tyb' }) + yaz('lovely', 840, 1320, f, c('pleasure', 'lovely'), { a: 'middle', s: 42, cls: 'tyb', renk: RED });
+    if (f >= d0 + 10) {
+      let a = -90 + 25 * sin((f - d0) * .09) * klamp(1 - (f - c('pleasure', 'overheated')) / 10);
+      a = lerp(f, [c('pleasure', 'amazing'), c('pleasure', 'amazing') + 14], [a, 62], EASE.dolly);
+      g += `<g transform="translate(540,1260) rotate(${f2(a)})"><path d="M0 0 V-250" stroke="${RED}" stroke-width="7" stroke-linecap="round"/></g><circle cx="540" cy="1260" r="16" fill="${INK}"/>`;
+    }
+    g += yaz('core temp ↑', 540, 1360, f, c('pleasure', 'overheated'), { a: 'middle', s: 40, renk: RED });
+    return g;
+  },
+  thirst(f) {
+    const f0 = T.seg.thirst.start, w0 = c('thirst', 'water');
+    // yavaş saat: ağız → kan
+    let g = ciz('M120 1240 H960', f, w0, 20, { w: 4, op: .7 }) + yaz('mouth', 120, 1300, f, w0, { s: 36 }) + yaz('blood', 960, 1300, f, w0 + 10, { s: 36, a: 'end' });
+    if (f >= w0) { const u = klamp((f - w0) / 400); g += `<path d="M${f2(140 + 780 * u)} 1200 q-18 26 0 36 q18 -10 0 -36Z" fill="#4F7FA3"/>`; }
+    g += yaz('tens of minutes', 540, 1190, f, c('thirst', 'tens'), { s: 40, a: 'middle', cls: 'tyb', renk: '#4F7FA3' });
+    // beyin + hızlı sinyal
+    g += beyin(f, c('thirst', 'brain'), 700, 760, .9);
+    if (f >= c('thirst', 'sensors')) {
+      g += ciz('M150 820 C200 760 260 760 280 800 C300 840 260 860 280 900 C300 940 250 980 200 990', f, c('thirst', 'sensors'), 14, { w: 6 });
+      g += yaz('mouth', 170, 1060, f, c('thirst', 'sensors'), { s: 36 });
+      g += ciz('M300 860 C400 860 480 800 600 780', f, c('thirst', 'mouth'), 6, { w: 6, renk: RED });
+      g += yaz('seconds', 450, 760, f, c('thirst', 'mouth') + 4, { s: 40, a: 'middle', cls: 'tyb', renk: RED });
+    }
+    // susuzluk nöronu: kaydedicide sıfırlanır
+    const kapat = c('thirst', 'switch');
+    if (f >= c('thirst', 'thirst')) g += `<circle cx="720" cy="770" r="${f2(f < kapat + 4 ? 20 + 6 * (rastgele(f) > .6) : 14)}" fill="${f < kapat + 4 ? RED : INK}" opacity="${f < kapat + 4 ? 1 : .35}"/>`;
+    g += yaz('OFF', 720, 680, f, kapat + 6, { s: 48, a: 'middle', cls: 'tyb' });
+    return g;
+  },
+  mice(f) {
+    const f0 = T.seg.mice.start;
+    // fare + şişe ucu
+    let g = ciz('M220 1000 C220 900 330 850 440 870 C520 880 580 920 610 960 L650 975 C620 1010 560 1020 520 1015 C460 1060 300 1070 240 1040 C200 1060 150 1050 130 1030 M300 870 C280 820 320 790 350 820 M520 1015 C540 1040 520 1060 500 1050 M240 1040 C180 1080 120 1110 90 1180', f, f0, 22, { w: 5 });
+    g += `<circle cx="560" cy="935" r="7" fill="${INK}" opacity="${f2(klamp((f - f0 - 16) / 4))}"/>`;
+    g += ciz('M620 560 H760 V820 L700 900 L690 960 M620 560 V820 L680 900 L690 960', f, f0 + 4, 18, { w: 5 });
+    g += dol(`<path d="M624 640 H756 V818 L698 896 L682 896 L624 818Z" fill="${ICE}" opacity=".5"/>`, f, f0 + 16);
+    const lick = Math.floor(f / 5) % 2; if (f > f0 + 20) g += `<circle cx="${lick ? 660 : 690}" cy="${lick ? 975 : 975}" r="7" fill="#4F7FA3"/>`;
+    // yalama sayacı
+    g += yaz('room temp', 160, 1170, f, f0 + 8, { s: 38 }) + yaz('cold', 160, 1250, f, c('mice', 'cold'), { s: 38, cls: 'tyb', renk: '#4F7FA3' });
+    const t0 = f0 + 10; for (let k = 0; k < 11; k++) g += ciz(`M${400 + k * 26} 1140 v40`, f, t0 + k * 2, 3, { w: 5 });
+    const t1 = c('mice', 'cold'); for (let k = 0; k < 5; k++) g += ciz(`M${400 + k * 26} 1220 v40`, f, t1 + k * 2, 3, { w: 5, renk: '#4F7FA3' });
+    g += not('fewer sips', 830, 1230, f, c('mice', 'fewer'), 76);
+    g += yaz('after Zimmerman et al., Nature 2016 · schematic', 540, 1320, f, f0 + 10, { s: 28, a: 'middle', renk: '#5D7A68' });
+    return g;
+  },
+  son(f) {
+    const f0 = T.seg.son.start;
+    let g = bardak(f, f0 - 6, 430, 960);
+    g += buz(f, f0, 380, 850, -8) + buz(f, f0 + 4, 490, 900, 12);
+    if (f >= c('son', 'sugar')) g += at(430, 1330, 1, `<rect x="-280" y="-50" width="590" height="80" fill="${PAPER}" stroke="${INK}" stroke-width="3"/><text class="tyb" font-size="44" x="-235" y="8" fill="${INK}">SUGAR ........ 0.0 g</text>`, -2);
+    g += beyin(f, c('son', 'brain'), 820, 760, .55, RED);
+    g += not('thank you', 820, 1000, f, c('son', 'thank'), 88);
+    g += ciz('M690 1030 C760 1020 860 1040 950 1020', f, c('son', 'thank') + 6, 10, { renk: RED, w: 4 });
+    return g;
+  },
+  cta(f) {
+    const f0 = sec(T.timing.voice_end) - 6;
+    let g = yaz('Enjoyed this?', 540, 760, f, f0 + 2, { s: 120, a: 'middle', cls: 'se' });
+    const kutu = (y, txt, k) => { const t = f0 + 14 + k * 14; return ciz(`M300 ${y - 40} h80 v80 h-80Z`, f, f0 + 6 + k * 4, 10, { w: 5 }) + yaz(txt, 420, y + 22, f, f0 + 8 + k * 4, { s: 72, cls: 'tyb' }) + ciz(`M310 ${y - 10} L338 ${y + 26} L392 ${y - 56}`, f, t, 8, { renk: RED, w: 9 }); };
+    g += kutu(980, 'Like', 0) + kutu(1130, 'Follow', 1);
+    g += yaz('for more lab notes on everyday things', 540, 1290, f, f0 + 30, { s: 34, a: 'middle', cls: 'it', renk: '#5D7A68' });
+    return g;
+  },
+};
+
+function sahneAralik(ad) {
+  const i = SAHNE_SIRA.indexOf(ad), sonraki = SAHNE_SIRA[i + 1];
+  const bas = ad === 'hook' ? 0 : ad === 'cta' ? sec(T.timing.voice_end) - 6 : T.seg[ad].start - 6;
+  const son = !sonraki ? T.total + 30 : sonraki === 'cta' ? sec(T.timing.voice_end) - 6 : T.seg[sonraki].start - 6;
+  return [bas, son];
+}
+
+window.renderFrame = function (f) {
+  // kağıt beslemesi: sahne değişince sayfa sola akar (14 kare, dolly)
+  let g = '', ofsKagit = 0;
+  SAHNE_SIRA.forEach(ad => {
+    const [bas, son] = sahneAralik(ad);
+    if (f < bas - 14 || f > son + 14) return;
+    const gir = ad === 'hook' ? 0 : 1080 * (1 - EASE.dolly(klamp((f - bas + 14) / 14)));
+    const cik = -1080 * EASE.dolly(klamp((f - son) / 14));
+    const x = gir + cik; if (Math.abs(x) >= 1080) return;
+    const [no, ad2] = FIG[ad];
+    let h = no ? `<text class="tyb" x="80" y="510" font-size="36" fill="${RED}">${no}</text><text class="se" x="220" y="512" font-size="58" fill="${INK}">${ad2}</text><path d="M80 540 H1000" stroke="${INK}" stroke-width="2"/>` : '';
+    g += `<g transform="translate(${f2(x)},0)">${h}${SAHNE[ad](f)}</g>`;
+  });
+  // kağıt ızgarası kayıt hızıyla akar
+  const kay = (f * 4) % 150;
+  $('kagit').innerHTML = `<rect width="1080" height="1920" fill="${PAPER}"/><rect x="${f2(-kay)}" y="0" width="1300" height="1920" fill="url(#kalin)" opacity=".55"/><rect x="0" y="0" width="1080" height="440" fill="${PAPER}" opacity=".88"/>`;
+  $('cizim').innerHTML = g;
+  // kaydedici şeridi (imza öğe): kırmızı kalem tüm video boyunca çizer
+  const yv = v => (Y0 + Y1) / 2 - v * (Y1 - Y0) / 2 * .9;
+  let pts = [];
+  for (let x = PEN; x >= 60; x -= 4) { const fr = f - (PEN - x) / 4; if (fr < 0) break; pts.push(`${x},${f2(yv(sinyal(Math.round(fr))))}`); }
+  const now = yv(sinyal(f)), aktif = SAHNE_SIRA.find(ad => { const [b, s] = sahneAralik(ad); return f >= b && f < s; }) || 'cta';
+  let k = `<rect x="40" y="${Y0 - 50}" width="1000" height="${Y1 - Y0 + 100}" fill="#F6F5EA" stroke="${INK}" stroke-width="3"/>`;
+  k += `<path d="M40 ${(Y0 + Y1) / 2} H1040" stroke="${GRID}" stroke-width="2" stroke-dasharray="6 8"/>`;
+  k += `<text class="tyb" x="62" y="${Y0 - 14}" font-size="30" fill="${INK}">${KANAL[aktif]}</text><text class="ty" x="1020" y="${Y0 - 14}" font-size="30" fill="${INK}" text-anchor="end">${(f / 30).toFixed(1).padStart(4, '0')} s</text>`;
+  if (pts.length > 1) k += `<polyline points="${pts.join(' ')}" fill="none" stroke="${RED}" stroke-width="4.5" stroke-linejoin="round"/>`;
+  k += `<path d="M${PEN} ${f2(now)} L${PEN + 110} ${f2(now - 60)} L${PEN + 120} ${f2(now - 44)}Z" fill="${INK}"/><circle cx="${PEN}" cy="${f2(now)}" r="7" fill="${RED}"/>`;
+  $('kayit').innerHTML = k;
+  altyazi2(f, $('alt'));
+};
+
+// altyazı: daktilo, söylenen kelimenin altı kırmızı mürekkeple çizili; gelecek kelimeler soluk
+function altyazi2(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || f >= sec(T.timing.voice_end) - 6) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.28' : tt < x.end + 0.05 ? `box-shadow:inset 0 -7px 0 ${RED}` : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: 1570'ler matbaası, kurşun harf blokları. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#EFE6D2}
+  #kagit{position:absolute;inset:0;width:1080px;height:1920px}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:90px;right:90px;top:120px;font:700 66px/1.2 'EB Garamond';color:#1B1A17}
+  .fe{font-family:'IM Fell English'}
+  .fi{font-family:'IM Fell English';font-style:italic}
+</style>
+</head>
+<body>
+<img id="kagit" src="img/paper.jpg">
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9B6AE"/><stop offset=".5" stop-color="#8E8B84"/><stop offset="1" stop-color="#5E5B55"/></linearGradient>
+    <linearGradient id="yuz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D8D5CC"/><stop offset="1" stop-color="#A7A39A"/></linearGradient>
+    <filter id="murekkep" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter>
+    <filter id="asinma" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="9" result="n"/><feDisplacementMap id="asD" in="SourceGraphic" in2="n" scale="0"/></filter>
+  </defs>
+  <g id="sahne"></g><g id="pres"></g>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 60px "IM Fell English"', 'italic 400 60px "IM Fell English"', '700 60px "EB Garamond"'];
+const INK = '#1B1A17', RED = '#A8322D';
+const c = cue, ac = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
+function cw(sc, kel, n = 0) { for (const w of T.seg[sc].words) if (w.w.toLowerCase().replace(/[^a-z0-9'óé]/g, '') === kel && n-- === 0) return sec(w.start); throw new Error(`ipucu yok: ${sc}/${kel}`); }
+const yazi = (txt, x, y, s, o = {}) => `<text x="${x}" y="${y}" class="${o.cls || 'fe'}" font-size="${s}" fill="${o.renk || INK}" text-anchor="${o.a || 'middle'}" opacity="${f2(o.op ?? 1)}" ${o.ink === false ? '' : 'filter="url(#murekkep)"'}>${txt}</text>`;
+// baskı: kağıda bastırılır gibi tek karede belirir, 4 karede mürekkep oturur
+const bas = (f, f0, ic) => f < f0 ? '' : `<g opacity="${f2(.55 + .45 * ac(f, f0, 4))}">${ic}</g>`;
+
+// kurşun harf bloğu (imza öğe)
+function harf(ch, w, renk = INK) {
+  if (ch === ' ') return `<rect x="${-w / 2}" y="-40" width="${w}" height="110" rx="3" fill="url(#metal)" opacity=".75"/>`;
+  return `<rect x="${-w / 2}" y="-70" width="${w}" height="150" rx="5" fill="url(#metal)"/><rect x="${-w / 2 + 6}" y="-64" width="${w - 12}" height="108" rx="3" fill="url(#yuz)"/><rect x="${-w / 2}" y="40" width="${w}" height="10" fill="#4B4843" opacity=".6"/>` +
+    `<text x="0" y="24" class="fe" font-size="96" fill="${renk}" text-anchor="middle">${ch}</text>`;
+}
+const GEN = ch => ch === ' ' ? 30 : ch === "'" ? 46 : /[mwMWG]/.test(ch) ? 104 : 86;
+// harf dizisi: her blok hangi aşamalarda var (vis[k]); s sürekli aşama; çıkan blok düşer, giren üstten iner
+function dizgi(tokens, s, cx, y, olcek = 1) {
+  const k = Math.min(Math.floor(s), tokens[0].vis.length - 1), u = s - k, k2 = Math.min(k + 1, tokens[0].vis.length - 1);
+  const v = tokens.map(t => t.vis[k] + (t.vis[k2] - t.vis[k]) * (k === k2 ? 0 : u));
+  const ws = tokens.map((t, i) => (GEN(t.ch) + 8) * Math.max(v[i], t.vis[k] && !t.vis[k2] ? v[i] : v[i]));
+  const top = ws.reduce((a, b) => a + b, 0);
+  if (olcek === 'fit') olcek = Math.min(1.6, 940 / top);
+  let x = cx - top * olcek / 2, g = '';
+  tokens.forEach((t, i) => {
+    const w = ws[i] * olcek, xm = x + w / 2; x += w;
+    if (v[i] <= 0.001) return;
+    const cikis = t.vis[k] && !t.vis[k2], dy = cikis ? 260 * (1 - v[i]) ** 2 : -200 * (1 - v[i]), r = cikis ? 50 * (1 - v[i]) : 0;
+    g += at(xm, y + dy, olcek, harf(t.ch, GEN(t.ch), t.renk), r, Math.min(1, v[i] * 1.6));
+  });
+  return g;
+}
+const asama = (f, cues, d = 10) => cues.reduce((a, q) => a + EASE.dolly(ac(f, q, d)), 0);
+
+const SAHNE = {
+  hook(f) {
+    let g = bas(f, 0, yazi('Goodbye.', 540, 1000, 230));
+    const co = c('hook', 'congratulations'), bl = c('hook', 'blessing'), fh = c('hook', 'four');
+    if (f >= co) g += `<path d="M150 1060 Q540 1110 930 1050" fill="none" stroke="${RED}" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${f2(1 - EASE.kalem(ac(f, co, 12)))}"/>`;
+    g += bas(f, bl, yazi('a blessing', 540, 760, 96, { cls: 'fi', renk: RED }));
+    g += bas(f, fh, at(800, 1300, 1, yazi('c. 1573', 0, 0, 80, { cls: 'fi', renk: RED }), -6));
+    g += bas(f, c('hook', 'say'), yazi('✠', 540, 600, 70, { renk: RED }));
+    return g;
+  },
+  orig(f) {
+    const d0 = c('orig', 'didn'), g1 = c('orig', 'god'), y2 = c('orig', 'ye');
+    let g = bas(f, c('orig', 'shakespeare'), yazi('c. 1600', 540, 600, 60, { cls: 'fi', renk: RED }));
+    g += bas(f, c('orig', 'goodbye'), yazi('goodbye', 540, 760, 110, { op: .8 }));
+    if (f >= c('orig', 'goodbye') + 6) g += `<path d="M330 735 L750 728" stroke="${RED}" stroke-width="10" stroke-linecap="round" opacity="${f2(ac(f, c('orig', 'goodbye') + 6, 4))}"/>`;
+    g += bas(f, g1, yazi('God be with you', 540, 980, 104, { cls: 'fi' }));
+    g += bas(f, c('orig', 'god', 1), yazi('God be with <tspan fill="' + RED + '">ye</tspan>', 540, 1180, 120, { cls: 'fi' }));
+    return g;
+  },
+  squeeze(f) {
+    const T0 = [1, 1, 1, 1], A = (...v) => v;
+    const tok = [
+      { ch: 'G', vis: A(1, 1, 1, 1) }, { ch: 'o', vis: A(1, 1, 1, 1) }, { ch: 'd', vis: A(1, 1, 1, 1) }, { ch: ' ', vis: A(1, 1, 1, 0) },
+      { ch: 'b', vis: A(1, 1, 1, 1) }, { ch: 'e', vis: A(1, 1, 0, 0) }, { ch: "'", vis: A(0, 0, 1, 0), renk: RED }, { ch: ' ', vis: A(1, 1, 0, 0) },
+      { ch: 'w', vis: A(1, 1, 1, 1) }, { ch: 'i', vis: A(1, 1, 0, 0) }, { ch: 't', vis: A(1, 0, 0, 0) }, { ch: 'h', vis: A(1, 0, 0, 0) },
+      { ch: "'", vis: A(0, 1, 0, 0), renk: RED }, { ch: ' ', vis: A(1, 1, 0, 0) }, { ch: 'y', vis: A(1, 1, 1, 1) }, { ch: 'e', vis: A(1, 1, 1, 1) },
+    ];
+    const s = asama(f, [cw('squeeze', "wi'"), cw('squeeze', "b'wye"), cw('squeeze', 'godbwye')]);
+    let g = dizgi(tok, s, 540, 1000, 'fit'); // dizgi kısaldıkça büyür
+    g += bas(f, c('squeeze', 'million'), yazi('× 1,000,000', 540, 700, 84, { cls: 'fi', renk: RED }));
+    g += bas(f, c('squeeze', 'squeezed'), yazi('squeezed', 540, 1300, 64, { cls: 'fi' }));
+    // baskı sonucu: dizginin altında okunur hali
+    const yaz = ['God be with ye', "God be wi' ye", "God b'wye", 'Godbwye'][Math.min(3, Math.round(s))];
+    if (f >= c('squeeze', 'squeezed')) g += yazi(yaz, 540, 1420, 70, { cls: 'fi', renk: RED });
+    return g;
+  },
+  letter(f) {
+    const f0 = T.seg.letter.start, y7 = cw('letter', '1573'), ga = c('letter', 'gallon'), gh = c('letter', 'gabriel');
+    let g = bas(f, y7, yazi('1573', 540, 640, 150, { renk: RED }));
+    let m = `<rect x="-380" y="-300" width="760" height="600" fill="#E6D7B4" stroke="#8C7550" stroke-width="3"/>`;
+    m += yazi('To requite your', -320, -180, 62, { cls: 'fi', a: 'start' });
+    m += yazi(`<tspan fill="${f >= ga ? RED : INK}">gallonde of godbwyes,</tspan>`, -320, -90, 62, { cls: 'fi', a: 'start' });
+    m += yazi('I regive you a pottle', -320, 0, 62, { cls: 'fi', a: 'start' });
+    m += yazi('of howdyes.', -320, 90, 62, { cls: 'fi', a: 'start' });
+    m += yazi('— G. Harvey', 320, 210, 54, { cls: 'fi', a: 'end', op: ac(f, gh) });
+    m += `<circle cx="300" cy="-230" r="48" fill="${RED}" opacity=".85"/>` + yazi('GH', 300, -212, 44, { renk: '#E6D7B4' });
+    if (f >= f0 + 4) g += at(540, 1060 + 30 * (1 - EASE.dolly(ac(f, f0 + 4, 12))), 1, m, -3, ac(f, f0 + 4, 6));
+    if (f >= ga) g += `<path d="M180 1000 Q400 1020 600 995" fill="none" stroke="${RED}" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${f2(1 - EASE.kalem(ac(f, ga, 10)))}"/>`;
+    g += bas(f, c('letter', 'scholar'), yazi('scholar, letter', 540, 1470, 54, { cls: 'fi' }));
+    return g;
+  },
+  good(f) {
+    const gd = cw('good', 'good');
+    const tok = [{ ch: 'G', vis: [1, 1] }, { ch: 'o', vis: [1, 1] }, { ch: 'o', vis: [0, 1], renk: RED }, { ch: 'd', vis: [1, 1] }];
+    let g = dizgi(tok, asama(f, [gd]), 540, 650, 1.4);
+    g += bas(f, cw('good', 'good', 1), yazi('good morning', 540, 960, 84, { cls: 'fi' }));
+    g += bas(f, cw('good', 'good', 2), yazi('good day', 540, 1070, 84, { cls: 'fi' }));
+    g += bas(f, cw('good', 'good', 3), yazi('good night', 540, 1180, 84, { cls: 'fi' }));
+    const gb = cw('good', 'goodbye');
+    if (f >= gb) g += at(540, 1320 - 60 * (1 - EASE.dolly(ac(f, gb, 10))), 1, yazi('goodbye', 0, 30, 110, { renk: RED }), 0, ac(f, gb, 6));
+    return g;
+  },
+  others(f) {
+    const en = c('others', 'english'), fr = c('others', 'adieu'), es = cw('others', 'adiós'), gd = c('others', 'god');
+    const satir = (y, a, b, t) => bas(f, t, yazi(a, 330, y, 100) + yazi('←', 590, y - 8, 70, { renk: RED }) + yazi(b, 650, y, 66, { cls: 'fi', a: 'start' }));
+    let g = satir(760, 'goodbye', 'God be with ye', en) + satir(1010, 'adieu', 'à Dieu', fr) + satir(1260, 'adiós', 'a Dios', es);
+    g += bas(f, gd, yazi('= “to God”', 540, 1480, 110, { cls: 'fi', renk: RED }));
+    return g;
+  },
+  son(f) {
+    const bl = c('son', 'blessing'), wo = c('son', 'worn');
+    let g = yazi('God be with ye', 540, 900, 110, { cls: 'fi', renk: RED, op: .5 * ac(f, bl, 12) * (1 - .6 * ac(f, wo, 50)) });
+    g += `<g filter="url(#asinma)">${yazi('goodbye', 540, 1080, 220, { ink: false })}</g>`;
+    g += bas(f, c('son', 'centuries'), yazi('1573 → today', 540, 1350, 64, { cls: 'fi' }));
+    return g;
+  },
+  cta(f) {
+    const f0 = sec(T.timing.voice_end) - 4;
+    let g = bas(f, f0, yazi('Enjoyed this?', 540, 720, 110, { cls: 'fi' }));
+    const kel = (w, t) => [...w].map(ch => ({ ch, vis: [0, 1] }));
+    g += dizgi(kel('LIKE'), asama(f, [f0 + 8], 12), 540, 960, 1.4);
+    g += dizgi(kel('FOLLOW'), asama(f, [f0 + 20], 12), 540, 1200, 1.4);
+    g += bas(f, f0 + 34, yazi('for more word origins', 540, 1400, 56, { cls: 'fi', renk: RED }));
+    return g;
+  },
+};
+const SIRA = Object.keys(SAHNE);
+const bsl = ad => ad === 'hook' ? 0 : ad === 'cta' ? sec(T.timing.voice_end) - 4 : T.seg[ad].start - 4;
+
+window.renderFrame = function (f) {
+  let aktif = 'hook'; SIRA.forEach(ad => { if (f >= bsl(ad)) aktif = ad; });
+  $('sahne').innerHTML = SAHNE[aktif](f);
+  // geçiş: baskı tablası iner (6 kare), sayfa değişir, kalkar (9 kare)
+  let p = '';
+  SIRA.forEach(ad => {
+    if (ad === 'hook') return; const b = bsl(ad);
+    let k = -1; if (f >= b - 6 && f < b) k = EASE.terk((f - b + 6) / 6); else if (f >= b && f < b + 9) k = 1 - EASE.dolly((f - b) / 9);
+    if (k > 0) { const y = -1960 + 1960 * k; p += `<rect x="0" y="${f2(y)}" width="1080" height="1940" fill="#2A2824"/><rect x="0" y="${f2(y + 1910)}" width="1080" height="30" fill="url(#metal)"/>`; }
+  });
+  $('pres').innerHTML = p;
+  // aşınma: son sahnede harfler yıpranır
+  if (T.seg.son) { const wo = c('son', 'worn'); $('asD').setAttribute('scale', f2(28 * ac(f, wo, 70))); }
+  altyazi6(f, $('alt'));
+};
+
+// altyazı: mürekkep siyahı, konturu yok; söylenen kelime rubrik kırmızısı
+function altyazi6(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || f >= sec(T.timing.voice_end) - 4) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.3' : tt < x.end + 0.05 ? `color:${RED}` : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>

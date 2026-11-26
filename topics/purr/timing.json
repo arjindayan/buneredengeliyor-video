@@ -1,0 +1,935 @@
+{
+"duration": 55.666,
+"words": [
+{
+"w": "Cats",
+"start": 0.0,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "purr",
+"start": 0.48,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "because",
+"start": 0.88,
+"end": 1.12,
+"seg": 0
+},
+{
+"w": "they're",
+"start": 1.2,
+"end": 1.36,
+"seg": 0
+},
+{
+"w": "happy.",
+"start": 1.56,
+"end": 1.84,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 2.4,
+"end": 2.96,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.04,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "not",
+"start": 3.36,
+"end": 3.44,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 3.52,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.24,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "They",
+"start": 5.04,
+"end": 5.12,
+"seg": 0
+},
+{
+"w": "also",
+"start": 5.2,
+"end": 5.44,
+"seg": 0
+},
+{
+"w": "purr",
+"start": 5.6,
+"end": 5.84,
+"seg": 0
+},
+{
+"w": "when",
+"start": 5.92,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "they're",
+"start": 6.04,
+"end": 6.24,
+"seg": 0
+},
+{
+"w": "scared,",
+"start": 6.32,
+"end": 6.96,
+"seg": 0
+},
+{
+"w": "hurt,",
+"start": 7.0,
+"end": 7.44,
+"seg": 0
+},
+{
+"w": "or",
+"start": 7.56,
+"end": 7.68,
+"seg": 0
+},
+{
+"w": "even",
+"start": 7.76,
+"end": 8.0,
+"seg": 0
+},
+{
+"w": "giving",
+"start": 8.107,
+"end": 8.32,
+"seg": 0
+},
+{
+"w": "birth.",
+"start": 8.52,
+"end": 9.28,
+"seg": 0
+},
+{
+"w": "The",
+"start": 9.36,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "purr",
+"start": 9.48,
+"end": 9.76,
+"seg": 1
+},
+{
+"w": "starts",
+"start": 9.84,
+"end": 10.16,
+"seg": 1
+},
+{
+"w": "in",
+"start": 10.2,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "the",
+"start": 10.32,
+"end": 10.4,
+"seg": 1
+},
+{
+"w": "voice",
+"start": 10.52,
+"end": 10.64,
+"seg": 1
+},
+{
+"w": "box.",
+"start": 10.72,
+"end": 11.52,
+"seg": 1
+},
+{
+"w": "Tiny",
+"start": 11.72,
+"end": 11.92,
+"seg": 1
+},
+{
+"w": "muscles",
+"start": 12.0,
+"end": 12.32,
+"seg": 1
+},
+{
+"w": "there",
+"start": 12.4,
+"end": 12.64,
+"seg": 1
+},
+{
+"w": "twitch",
+"start": 12.68,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "25",
+"start": 13.12,
+"end": 13.68,
+"seg": 1
+},
+{
+"w": "to",
+"start": 13.84,
+"end": 14.0,
+"seg": 1
+},
+{
+"w": "150",
+"start": 14.08,
+"end": 14.88,
+"seg": 1
+},
+{
+"w": "times",
+"start": 14.96,
+"end": 15.2,
+"seg": 1
+},
+{
+"w": "a",
+"start": 15.28,
+"end": 15.44,
+"seg": 1
+},
+{
+"w": "second,",
+"start": 15.52,
+"end": 16.16,
+"seg": 1
+},
+{
+"w": "and",
+"start": 16.24,
+"end": 16.32,
+"seg": 1
+},
+{
+"w": "the",
+"start": 16.4,
+"end": 16.48,
+"seg": 1
+},
+{
+"w": "air",
+"start": 16.64,
+"end": 16.8,
+"seg": 1
+},
+{
+"w": "buzzes",
+"start": 16.92,
+"end": 17.2,
+"seg": 1
+},
+{
+"w": "on",
+"start": 17.24,
+"end": 17.28,
+"seg": 1
+},
+{
+"w": "the",
+"start": 17.36,
+"end": 17.44,
+"seg": 1
+},
+{
+"w": "way",
+"start": 17.56,
+"end": 17.68,
+"seg": 1
+},
+{
+"w": "in",
+"start": 17.76,
+"end": 18.08,
+"seg": 1
+},
+{
+"w": "and",
+"start": 18.24,
+"end": 18.4,
+"seg": 1
+},
+{
+"w": "on",
+"start": 18.44,
+"end": 18.48,
+"seg": 1
+},
+{
+"w": "the",
+"start": 18.56,
+"end": 18.64,
+"seg": 1
+},
+{
+"w": "way",
+"start": 18.72,
+"end": 18.8,
+"seg": 1
+},
+{
+"w": "out.",
+"start": 18.88,
+"end": 19.6,
+"seg": 1
+},
+{
+"w": "That's",
+"start": 19.68,
+"end": 19.84,
+"seg": 2
+},
+{
+"w": "why",
+"start": 19.92,
+"end": 20.0,
+"seg": 2
+},
+{
+"w": "a",
+"start": 20.04,
+"end": 20.08,
+"seg": 2
+},
+{
+"w": "cat",
+"start": 20.16,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "can",
+"start": 20.4,
+"end": 20.56,
+"seg": 2
+},
+{
+"w": "purr",
+"start": 20.64,
+"end": 20.88,
+"seg": 2
+},
+{
+"w": "without",
+"start": 21.08,
+"end": 21.28,
+"seg": 2
+},
+{
+"w": "stopping",
+"start": 21.32,
+"end": 21.6,
+"seg": 2
+},
+{
+"w": "to",
+"start": 21.68,
+"end": 21.76,
+"seg": 2
+},
+{
+"w": "breathe.",
+"start": 21.8,
+"end": 22.8,
+"seg": 2
+},
+{
+"w": "Here's",
+"start": 22.92,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "the",
+"start": 23.2,
+"end": 23.36,
+"seg": 3
+},
+{
+"w": "wild",
+"start": 23.56,
+"end": 23.76,
+"seg": 3
+},
+{
+"w": "part.",
+"start": 23.88,
+"end": 24.48,
+"seg": 3
+},
+{
+"w": "Kittens",
+"start": 24.56,
+"end": 24.88,
+"seg": 3
+},
+{
+"w": "can",
+"start": 24.96,
+"end": 25.12,
+"seg": 3
+},
+{
+"w": "purr",
+"start": 25.16,
+"end": 25.36,
+"seg": 3
+},
+{
+"w": "when",
+"start": 25.44,
+"end": 25.52,
+"seg": 3
+},
+{
+"w": "they're",
+"start": 25.573,
+"end": 25.68,
+"seg": 3
+},
+{
+"w": "just",
+"start": 25.76,
+"end": 25.84,
+"seg": 3
+},
+{
+"w": "a",
+"start": 25.92,
+"end": 26.08,
+"seg": 3
+},
+{
+"w": "few",
+"start": 26.2,
+"end": 26.32,
+"seg": 3
+},
+{
+"w": "days",
+"start": 26.44,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "old.",
+"start": 26.64,
+"end": 27.36,
+"seg": 3
+},
+{
+"w": "They're",
+"start": 27.4,
+"end": 27.52,
+"seg": 3
+},
+{
+"w": "born",
+"start": 27.68,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "blind",
+"start": 28.08,
+"end": 28.32,
+"seg": 3
+},
+{
+"w": "and",
+"start": 28.4,
+"end": 28.56,
+"seg": 3
+},
+{
+"w": "deaf,",
+"start": 28.64,
+"end": 29.12,
+"seg": 3
+},
+{
+"w": "so",
+"start": 29.2,
+"end": 29.28,
+"seg": 3
+},
+{
+"w": "the",
+"start": 29.36,
+"end": 29.44,
+"seg": 3
+},
+{
+"w": "purr",
+"start": 29.48,
+"end": 29.76,
+"seg": 3
+},
+{
+"w": "tells",
+"start": 29.84,
+"end": 30.0,
+"seg": 3
+},
+{
+"w": "mom:",
+"start": 30.08,
+"end": 30.64,
+"seg": 3
+},
+{
+"w": "I'm",
+"start": 30.72,
+"end": 30.8,
+"seg": 3
+},
+{
+"w": "okay.",
+"start": 30.88,
+"end": 31.84,
+"seg": 3
+},
+{
+"w": "In",
+"start": 31.92,
+"end": 32.0,
+"seg": 4
+},
+{
+"w": "fact,",
+"start": 32.16,
+"end": 32.56,
+"seg": 4
+},
+{
+"w": "some",
+"start": 32.68,
+"end": 32.8,
+"seg": 4
+},
+{
+"w": "cats",
+"start": 32.96,
+"end": 33.12,
+"seg": 4
+},
+{
+"w": "have",
+"start": 33.16,
+"end": 33.2,
+"seg": 4
+},
+{
+"w": "a",
+"start": 33.36,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "special",
+"start": 33.68,
+"end": 33.84,
+"seg": 4
+},
+{
+"w": "feed",
+"start": 33.92,
+"end": 34.16,
+"seg": 4
+},
+{
+"w": "me",
+"start": 34.24,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "purr,",
+"start": 34.4,
+"end": 34.907,
+"seg": 4
+},
+{
+"w": "with",
+"start": 34.933,
+"end": 34.96,
+"seg": 4
+},
+{
+"w": "a",
+"start": 35.04,
+"end": 35.12,
+"seg": 4
+},
+{
+"w": "hidden",
+"start": 35.28,
+"end": 35.44,
+"seg": 4
+},
+{
+"w": "cry",
+"start": 35.6,
+"end": 35.76,
+"seg": 4
+},
+{
+"w": "inside",
+"start": 35.96,
+"end": 36.16,
+"seg": 4
+},
+{
+"w": "it.",
+"start": 36.24,
+"end": 36.853,
+"seg": 4
+},
+{
+"w": "It",
+"start": 36.907,
+"end": 36.96,
+"seg": 4
+},
+{
+"w": "sounds",
+"start": 37.08,
+"end": 37.2,
+"seg": 4
+},
+{
+"w": "a",
+"start": 37.28,
+"end": 37.36,
+"seg": 4
+},
+{
+"w": "bit",
+"start": 37.44,
+"end": 37.52,
+"seg": 4
+},
+{
+"w": "like",
+"start": 37.6,
+"end": 37.68,
+"seg": 4
+},
+{
+"w": "a",
+"start": 37.76,
+"end": 37.84,
+"seg": 4
+},
+{
+"w": "baby,",
+"start": 38.12,
+"end": 38.48,
+"seg": 4
+},
+{
+"w": "and",
+"start": 38.56,
+"end": 38.64,
+"seg": 4
+},
+{
+"w": "humans",
+"start": 38.72,
+"end": 39.04,
+"seg": 4
+},
+{
+"w": "find",
+"start": 39.12,
+"end": 39.28,
+"seg": 4
+},
+{
+"w": "it",
+"start": 39.4,
+"end": 39.52,
+"seg": 4
+},
+{
+"w": "really",
+"start": 39.68,
+"end": 39.84,
+"seg": 4
+},
+{
+"w": "hard",
+"start": 39.92,
+"end": 40.08,
+"seg": 4
+},
+{
+"w": "to",
+"start": 40.12,
+"end": 40.16,
+"seg": 4
+},
+{
+"w": "ignore.",
+"start": 40.24,
+"end": 41.28,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 41.36,
+"end": 41.52,
+"seg": 5
+},
+{
+"w": "not",
+"start": 41.6,
+"end": 41.68,
+"seg": 5
+},
+{
+"w": "all.",
+"start": 41.76,
+"end": 42.44,
+"seg": 5
+},
+{
+"w": "Some",
+"start": 42.48,
+"end": 42.72,
+"seg": 5
+},
+{
+"w": "scientists",
+"start": 42.88,
+"end": 43.28,
+"seg": 5
+},
+{
+"w": "think",
+"start": 43.36,
+"end": 43.44,
+"seg": 5
+},
+{
+"w": "those",
+"start": 43.52,
+"end": 43.76,
+"seg": 5
+},
+{
+"w": "low",
+"start": 43.88,
+"end": 44.0,
+"seg": 5
+},
+{
+"w": "vibrations",
+"start": 44.04,
+"end": 44.72,
+"seg": 5
+},
+{
+"w": "might",
+"start": 44.8,
+"end": 44.88,
+"seg": 5
+},
+{
+"w": "even",
+"start": 44.96,
+"end": 45.12,
+"seg": 5
+},
+{
+"w": "help",
+"start": 45.2,
+"end": 45.44,
+"seg": 5
+},
+{
+"w": "bones",
+"start": 45.64,
+"end": 45.84,
+"seg": 5
+},
+{
+"w": "heal.",
+"start": 45.88,
+"end": 46.6,
+"seg": 5
+},
+{
+"w": "It's",
+"start": 46.64,
+"end": 46.72,
+"seg": 5
+},
+{
+"w": "not",
+"start": 46.84,
+"end": 46.96,
+"seg": 5
+},
+{
+"w": "proven",
+"start": 47.04,
+"end": 47.36,
+"seg": 5
+},
+{
+"w": "yet,",
+"start": 47.52,
+"end": 47.76,
+"seg": 5
+},
+{
+"w": "but",
+"start": 47.84,
+"end": 47.92,
+"seg": 5
+},
+{
+"w": "it's",
+"start": 48.0,
+"end": 48.08,
+"seg": 5
+},
+{
+"w": "a",
+"start": 48.12,
+"end": 48.16,
+"seg": 5
+},
+{
+"w": "cool",
+"start": 48.24,
+"end": 48.4,
+"seg": 5
+},
+{
+"w": "idea.",
+"start": 48.48,
+"end": 49.52,
+"seg": 5
+},
+{
+"w": "So",
+"start": 49.68,
+"end": 49.84,
+"seg": 6
+},
+{
+"w": "cats",
+"start": 50.04,
+"end": 50.24,
+"seg": 6
+},
+{
+"w": "don't",
+"start": 50.32,
+"end": 50.56,
+"seg": 6
+},
+{
+"w": "just",
+"start": 50.68,
+"end": 50.8,
+"seg": 6
+},
+{
+"w": "purr",
+"start": 50.88,
+"end": 51.12,
+"seg": 6
+},
+{
+"w": "because",
+"start": 51.24,
+"end": 51.36,
+"seg": 6
+},
+{
+"w": "they're",
+"start": 51.44,
+"end": 51.52,
+"seg": 6
+},
+{
+"w": "happy.",
+"start": 51.6,
+"end": 52.4,
+"seg": 6
+},
+{
+"w": "Sometimes",
+"start": 52.68,
+"end": 52.96,
+"seg": 6
+},
+{
+"w": "a",
+"start": 53.0,
+"end": 53.04,
+"seg": 6
+},
+{
+"w": "purr",
+"start": 53.12,
+"end": 53.28,
+"seg": 6
+},
+{
+"w": "means:",
+"start": 53.36,
+"end": 54.08,
+"seg": 6
+},
+{
+"w": "stay",
+"start": 54.16,
+"end": 54.32,
+"seg": 6
+},
+{
+"w": "close.",
+"start": 54.4,
+"end": 55.12,
+"seg": 6
+}
+]
+}

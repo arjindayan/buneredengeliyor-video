@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: 1920'ler Art Deco havayolu afişi + telsiz halkaları. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#14213D}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:90px;right:90px;top:120px;font:700 62px/1.3 'Josefin Sans';color:#F2E8CF;letter-spacing:.5px}
+  #alt span{padding:0 6px;border-radius:6px}
+  .lm{font-family:'Limelight'}
+  .js{font-family:'Josefin Sans';font-weight:700}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="zemin" cx="50%" cy="80%" r="90%"><stop offset="0" stop-color="#22355E"/><stop offset="1" stop-color="#0C152A"/></radialGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#zemin)"/>
+  <g id="gunes"></g><g id="halka"></g><g id="sahne"></g><g id="cerceve"></g><g id="parazit"></g>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 60px Limelight', '700 60px "Josefin Sans"'];
+const NAVY = '#14213D', CREAM = '#F2E8CF', ORANGE = '#E86A33', TEAL = '#6BA3BE', GOLD = '#D9B44A';
+const ac = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
+// tam kelime ipucu (cue önek eşleştiriyor; S/SOS gibi kısa kelimeler için)
+function cw(sc, kel, n = 0) {
+  const ws = T.seg[sc].words;
+  for (const w of ws) if (w.w.toLowerCase().replace(/[^a-z0-9']/g, '') === kel && n-- === 0) return sec(w.start);
+  throw new Error(`ipucu yok: ${sc}/${kel}`);
+}
+const c = cue;
+const yazi = (txt, x, y, s, o = {}) => `<text x="${x}" y="${y}" class="${o.cls || 'lm'}" font-size="${s}" fill="${o.renk || CREAM}" text-anchor="${o.a || 'middle'}" letter-spacing="${o.ls || 0}" opacity="${f2(o.op ?? 1)}">${txt}</text>`;
+// afiş baskısı gibi: blok renk, kısa kayma girişi (yatay, deco hız çizgisi hissi)
+const gir2 = (f, f0, ic, d = 9, dx = -40) => f < f0 ? '' : `<g opacity="${f2(ac(f, f0, d * .6))}" transform="translate(${f2(dx * (1 - EASE.dolly(ac(f, f0, d))))},0)">${ic}</g>`;
+
+function ucak(x, y, s = 1, r = 0, renk = CREAM) {
+  const pr = (Math.floor(x + y) % 2) ? 'M58 -34 V34' : 'M58 -10 V10';
+  return at(x, y, s, `<path d="M-70 0 Q-60 -18 0 -16 L50 -12 Q60 0 50 12 L0 16 Q-60 18 -70 0Z" fill="${renk}"/><rect x="-14" y="-62" width="34" height="124" rx="6" fill="${renk}" opacity=".9"/><rect x="-8" y="-58" width="26" height="116" rx="5" fill="${renk}" transform="translate(-30,0)" opacity=".7"/><path d="M-70 0 L-92 -26 L-80 0 L-92 22Z" fill="${renk}"/><path d="${pr}" stroke="${renk}" stroke-width="5" stroke-linecap="round"/>`, r);
+}
+function kule(x, y, s = 1) {
+  return at(x, y, s, `<rect x="-60" y="-260" width="120" height="260" fill="${CREAM}"/><rect x="-100" y="-340" width="200" height="90" rx="8" fill="${CREAM}"/>${[0, 1, 2, 3].map(k => `<rect x="${-88 + k * 46}" y="-325" width="34" height="50" fill="${NAVY}"/>`).join('')}<path d="M0 -340 V-470 M-30 -440 H30 M-20 -410 H20" stroke="${CREAM}" stroke-width="7"/><circle cx="0" cy="-478" r="10" fill="${ORANGE}"/>${[0, 1, 2].map(k => `<rect x="-40" y="${-220 + k * 70}" width="80" height="12" fill="${NAVY}" opacity=".5"/>`).join('')}`);
+}
+
+const SAHNE = {
+  hook(f) {
+    let g = kule(540, 1420, 1.1);
+    g += gir2(f, cw('hook', '1923'), yazi('1923', 540, 760, 200, { renk: GOLD }));
+    g += gir2(f, c('hook', 'london'), yazi('LONDON', 540, 860, 60, { cls: 'js', ls: 14 }));
+    const m = cw('hook', 'mayday');
+    if (f >= m) { const s = 1 + .08 * Math.max(0, 1 - (f - m) / 10) * sin((f - m) * 2.5); g += at(540, 1590, s, yazi('MAYDAY', 0, 0, 190, { renk: ORANGE, ls: 4 })); }
+    return g;
+  },
+  radio(f) {
+    const f0 = T.seg.radio.start, mo = c('radio', 'morse'), vo = c('radio', 'voice');
+    let g = gir2(f, f0 + 4, `<rect x="160" y="560" width="760" height="200" fill="none" stroke="${GOLD}" stroke-width="5"/><rect x="176" y="576" width="728" height="168" fill="none" stroke="${GOLD}" stroke-width="2"/>` + yazi('F. S. MOCKFORD', 540, 680, 82));
+    g += gir2(f, c('radio', 'croydon'), yazi('RADIO OFFICER · CROYDON AIRPORT', 540, 820, 38, { cls: 'js', renk: GOLD, ls: 4 }));
+    if (f >= mo && f < vo + 6) {
+      const kod = '·−·· −−− ·−−· ·· ·−·· −− ···', n = Math.min(kod.length, Math.floor((f - mo) * .9));
+      g += yazi(kod.slice(0, n), 540, 1080, 80, { cls: 'js', op: 1 - ac(f, vo, 6) });
+    }
+    if (f >= vo) {
+      let d = 'M140 1060'; for (let x = 140; x <= 940; x += 10) d += ` L${x} ${f2(1060 + 60 * sin(x * .03 - f * .4) * sin((x - 140) / 800 * P) * ac(f, vo, 10))}`;
+      g += `<path d="${d}" fill="none" stroke="${ORANGE}" stroke-width="8" stroke-linejoin="round"/>`;
+      g += gir2(f, vo, at(540, 1330, 1, `<rect x="-55" y="-120" width="110" height="150" rx="55" fill="${CREAM}"/>${[0, 1, 2, 3].map(k => `<rect x="-40" y="${-95 + k * 30}" width="80" height="8" fill="${NAVY}"/>`).join('')}<path d="M0 30 V140 M-80 140 H80" stroke="${CREAM}" stroke-width="12" stroke-linecap="round"/>`));
+    }
+    g += yazi('Morse code', 260, 960, 42, { cls: 'js', renk: TEAL, a: 'start', op: ac(f, mo) * (1 - ac(f, vo)) }) + yazi('voice radio', 260, 960, 42, { cls: 'js', renk: ORANGE, a: 'start', op: ac(f, vo) });
+    return g;
+  },
+  sos(f) {
+    const so = cw('sos', 'sos'), cr = c('sos', 'crackly'), F = cw('sos', 'f');
+    let g = gir2(f, c('sos', 'distress'), yazi('THE OLD DISTRESS SIGNAL', 540, 760, 50, { cls: 'js', renk: GOLD, ls: 6 }));
+    if (f >= so) {
+      const tit = f >= cr ? (rastgele(f * 3) - .5) * 14 : 0;
+      const harf = (k, x) => { const flip = f >= F && Math.floor(f / 4) % 2 === 0 && k !== 1; return yazi(flip ? 'F' : k === 1 ? 'O' : 'S', x + tit, 1150 + tit * .5, 320, { renk: flip ? ORANGE : CREAM }); };
+      g += gir2(f, so, harf(0, 260) + harf(1, 540) + harf(2, 820));
+      g += gir2(f, so + 4, yazi('· · ·   − − −   · · ·', 540, 1290, 56, { cls: 'js', renk: TEAL }));
+    }
+    if (f >= cw('sos', 's')) g += yazi('S … or F?', 540, 1480, 90, { renk: ORANGE, op: ac(f, cw('sos', 's')) });
+    return g;
+  },
+  paris(f) {
+    const f0 = T.seg.paris.start, b = c('paris', 'between'), p = c('paris', 'paris'), fr = c('paris', 'french'), ma = c('paris', "m'aider"), hm = c('paris', 'help');
+    const L = [250, 640], P2 = [800, 1000];
+    let g = gir2(f, f0 + 2, `<circle cx="${L[0]}" cy="${L[1]}" r="18" fill="${GOLD}"/>` + yazi('LONDON', L[0], L[1] - 40, 56));
+    g += gir2(f, c('paris', 'paris') - 6, `<circle cx="${P2[0]}" cy="${P2[1]}" r="18" fill="${GOLD}"/>` + yazi('PARIS', P2[0], P2[1] + 80, 56));
+    const rota = `M${L[0]} ${L[1]} Q620 680 ${P2[0]} ${P2[1]}`;
+    if (f >= b) g += `<path d="${rota}" fill="none" stroke="${CREAM}" stroke-width="5" stroke-dasharray="14 14" opacity=".7"/>`;
+    const u = EASE.dolly(ac(f, b, p - b + 10)), t = u, x = (1 - t) ** 2 * L[0] + 2 * (1 - t) * t * 620 + t * t * P2[0], y = (1 - t) ** 2 * L[1] + 2 * (1 - t) * t * 680 + t * t * P2[1];
+    const dx = 2 * (1 - t) * (620 - L[0]) + 2 * t * (P2[0] - 620), dy = 2 * (1 - t) * (680 - L[1]) + 2 * t * (P2[1] - 680);
+    if (f >= b) g += ucak(x, y, .9, Math.atan2(dy, dx) * 180 / P, ORANGE);
+    if (f >= fr) g += gir2(f, fr, `<rect x="650" y="1120" width="40" height="16" fill="#2D4E8C"/><rect x="690" y="1120" width="40" height="16" fill="${CREAM}"/><rect x="730" y="1120" width="40" height="16" fill="#C3262D"/>`);
+    g += gir2(f, ma, yazi("M'AIDER", 540, 1400, 170, { renk: ORANGE }));
+    g += gir2(f, hm, yazi('= help me', 540, 1500, 64, { cls: 'js' }));
+    return g;
+  },
+  spell(f) {
+    const f0 = T.seg.spell.start, bc = c('spell', 'became'), mo = c('spell', 'month'), my = cw('spell', 'may');
+    let g = yazi("M'AIDER", 540, 780, 150, { renk: TEAL, op: 1 - .5 * ac(f, bc, 8) });
+    // harf harf dönüşüm: M'AIDER → MAYDAY
+    if (f >= c('spell', 'english')) g += `<path d="M540 830 V930 M510 900 L540 935 L570 900" stroke="${GOLD}" stroke-width="7" fill="none" opacity="${f2(ac(f, c('spell', 'english')))}"/>`;
+    if (f >= bc) { const k = Math.min(6, Math.floor((f - bc) / 2)); g += yazi('MAYDAY'.slice(0, k), 540, 1100, 170, { renk: ORANGE }); }
+    if (f >= mo) {
+      g += gir2(f, mo, at(540, 1370, 1, `<rect x="-120" y="-120" width="240" height="240" rx="12" fill="${CREAM}"/><rect x="-120" y="-120" width="240" height="70" rx="12" fill="${ORANGE}"/>` + yazi('MAY', 0, -68, 46, { cls: 'js', renk: CREAM, ls: 6 }) + yazi('1', 0, 80, 130, { renk: NAVY })), 18, 0);
+      if (f >= my) g += `<path d="M400 1230 L680 1510 M680 1230 L400 1510" stroke="${ORANGE}" stroke-width="18" stroke-linecap="round" opacity="${f2(ac(f, my, 4))}"/>`;
+    }
+    return g;
+  },
+  three(f) {
+    let g = gir2(f, c('three', 'three'), yazi('× 3', 900, 640, 90, { renk: GOLD }));
+    for (let k = 0; k < 3; k++) { const t = c('three', 'mayday', k); g += gir2(f, t, yazi('MAYDAY', 520, 820 + k * 210, 170, { renk: k === 2 ? ORANGE : CREAM }), 8, -60); }
+    const ta = c('three', 'talking');
+    if (f >= ta) g += gir2(f, ta, `<rect x="200" y="1430" width="680" height="120" rx="60" fill="none" stroke="${TEAL}" stroke-width="5"/><path d="M300 1550 L270 1600 L340 1550" fill="none" stroke="${TEAL}" stroke-width="5"/>` + yazi('“…about a mayday”', 540, 1508, 52, { cls: 'js', renk: TEAL }));
+    return g;
+  },
+  world(f) {
+    const f0 = T.seg.world.start, y7 = cw('world', '1927'), of = c('world', 'official');
+    let g = `<g opacity="${f2(ac(f, f0, 10))}"><circle cx="540" cy="1000" r="300" fill="none" stroke="${CREAM}" stroke-width="7"/>`;
+    for (let k = 0; k < 6; k++) { const rx = Math.abs(300 * cos((k * 30 + f * 1.5) * P / 180)); g += `<ellipse cx="540" cy="1000" rx="${f2(rx)}" ry="300" fill="none" stroke="${CREAM}" stroke-width="3" opacity=".55"/>`; }
+    for (let k = -2; k <= 2; k++) { const yy = 1000 + k * 110, rr = Math.sqrt(300 * 300 - (k * 110) ** 2); g += `<path d="M${f2(540 - rr)} ${yy} H${f2(540 + rr)}" stroke="${CREAM}" stroke-width="3" opacity=".55"/>`; }
+    g += '</g>';
+    g += gir2(f, y7, yazi('1927', 540, 610, 150, { renk: GOLD }));
+    if (f >= of) g += at(540, 1010, 1 + .3 * (1 - EASE.dolly(ac(f, of, 6))), `<rect x="-300" y="-70" width="600" height="130" fill="${ORANGE}"/>` + yazi('OFFICIAL', 0, 30, 90, { ls: 6 }), -8, ac(f, of, 4));
+    g += gir2(f, c('world', 'world'), yazi('distress call worldwide', 540, 1450, 54, { cls: 'js', renk: TEAL }));
+    return g;
+  },
+  pan(f) {
+    const pp = c('pan', 'panpan'), pn = cw('pan', 'panne'), bd = c('pan', 'breakdown'), se = c('pan', 'serious'), de = c('pan', 'deadly');
+    let g = gir2(f, c('pan', 'little'), yazi('little brother', 540, 620, 54, { cls: 'js', renk: GOLD }));
+    g += gir2(f, pp, yazi('PAN-PAN', 540, 800, 170, { renk: TEAL }));
+    g += gir2(f, pn, yazi('panne', 330, 1000, 80) + yazi('= breakdown', 700, 1000, 54, { cls: 'js', op: ac(f, bd) }));
+    // pervane: arızada bir kanadı düşer
+    if (f >= pn) {
+      const dus = ac(f, bd, 24), rot = f < bd ? f * 30 : bd * 30 + 20 * dus;
+      g += at(540, 1170, 1.8, `<g transform="rotate(${f2(rot)})"><rect x="-10" y="-90" width="20" height="90" rx="8" fill="${CREAM}"/></g><g transform="translate(0,${f2(200 * dus * dus)}) rotate(${f2(rot + 180 + 70 * dus)})"><rect x="-10" y="-90" width="20" height="90" rx="8" fill="${CREAM}" opacity="${f2(1 - ac(f, bd + 18, 6))}"/></g><circle r="18" fill="${GOLD}"/>`);
+    }
+    // ölçek: ciddi ama ölümcül değil
+    if (f >= se - 4) {
+      let s = `<rect x="160" y="1420" width="760" height="30" rx="15" fill="${TEAL}" opacity=".5"/><rect x="540" y="1420" width="380" height="30" rx="15" fill="${ORANGE}" opacity=".6"/>`;
+      s += yazi('serious', 160, 1500, 46, { cls: 'js', a: 'start' }) + yazi('deadly', 920, 1500, 46, { cls: 'js', a: 'end', renk: ORANGE, op: ac(f, de) });
+      const nx = 160 + 330 * EASE.dolly(ac(f, se, 14));
+      s += `<path d="M${f2(nx)} 1400 l-16 -26 h32Z" fill="${CREAM}"/>`;
+      g += gir2(f, se - 4, s, 8, 0);
+    }
+    return g;
+  },
+  son(f) {
+    const f0 = T.seg.son.start, mv = c('son', 'movies'), hm = c('son', 'help'), fr = c('son', 'french');
+    let g = gir2(f, f0, `<rect x="140" y="600" width="800" height="560" fill="#0A1224" stroke="${GOLD}" stroke-width="6"/><rect x="160" y="620" width="760" height="520" fill="none" stroke="${GOLD}" stroke-width="2"/>`, 8, 0);
+    if (f >= f0) g += ucak(260 + ((f - f0) * 7) % 700, 820 + 30 * sin(f * .08), 1.1, 6 * sin(f * .08), CREAM);
+    g += gir2(f, c('son', 'mayday'), `<rect x="300" y="1030" width="480" height="84" fill="#000" opacity=".6"/>` + yazi('MAYDAY!', 540, 1095, 70, { renk: ORANGE }), 6, 0);
+    g += gir2(f, mv, yazi('in the movies', 540, 1250, 50, { cls: 'js', renk: TEAL }));
+    g += gir2(f, hm, yazi('= help me', 540, 1400, 110, { renk: CREAM }));
+    if (f >= fr) g += gir2(f, fr, `<rect x="330" y="1450" width="140" height="22" fill="#2D4E8C"/><rect x="470" y="1450" width="140" height="22" fill="${CREAM}"/><rect x="610" y="1450" width="140" height="22" fill="#C3262D"/>`, 8, 0);
+    return g;
+  },
+  cta(f) {
+    const f0 = sec(T.timing.voice_end) - 4;
+    let g = gir2(f, f0, yazi('Enjoyed this?', 540, 760, 104, { renk: GOLD }));
+    // biniş kartı
+    const kart = (y, txt, t) => gir2(f, t, `<rect x="180" y="${y - 90}" width="720" height="170" rx="16" fill="${CREAM}"/><path d="M700 ${y - 90} V${y + 80}" stroke="${NAVY}" stroke-width="4" stroke-dasharray="10 10"/>` + yazi(txt, 440, y + 26, 84, { renk: NAVY, ls: 6 }) + ucak(800, y - 4, .55, 0, ORANGE), 10, -80);
+    g += kart(1000, 'LIKE', f0 + 10) + kart(1220, 'FOLLOW', f0 + 22);
+    g += gir2(f, f0 + 34, yazi('for more stories behind everyday words', 540, 1420, 42, { cls: 'js', renk: TEAL }));
+    return g;
+  },
+};
+const SIRA = Object.keys(SAHNE);
+const bas = ad => ad === 'hook' ? 0 : ad === 'cta' ? sec(T.timing.voice_end) - 4 : T.seg[ad].start - 6;
+
+window.renderFrame = function (f) {
+  // sert kesme + 6 karelik telsiz paraziti (geçiş)
+  let aktif = 'hook', gecis = -1;
+  SIRA.forEach(ad => { const b = bas(ad); if (f >= b) aktif = ad; if (ad !== 'hook' && f >= b - 3 && f < b + 3) gecis = f - (b - 3); });
+  const kay = gecis >= 0 ? (rastgele(f * 11) - .5) * 60 : 0;
+  $('sahne').innerHTML = `<g transform="translate(${f2(kay)},0)">${SAHNE[aktif](f)}</g>`;
+  let pz = '';
+  if (gecis >= 0) for (let k = 0; k < 70; k++) { const y = rastgele(f * 97 + k) * 1920; pz += `<rect x="0" y="${f2(y)}" width="1080" height="${f2(2 + rastgele(k * 7 + f) * 10)}" fill="${rastgele(k + f * 3) > .5 ? CREAM : '#000'}" opacity="${f2(.15 + .5 * rastgele(k * 3 + f))}"/>`; }
+  $('parazit').innerHTML = pz;
+  // deco güneş ışınları: aşağıdan yelpaze, çok yavaş döner
+  let gs = '';
+  for (let k = 0; k < 18; k++) { const a = (-90 + (k - 8.5) * 10 + sin(f * .01) * 2) * P / 180; gs += `<path d="M540 2100 L${f2(540 + 2600 * cos(a - .03))} ${f2(2100 + 2600 * sin(a - .03))} L${f2(540 + 2600 * cos(a + .03))} ${f2(2100 + 2600 * sin(a + .03))}Z" fill="#fff" opacity=".035"/>`; }
+  $('gunes').innerHTML = gs;
+  // imza: telsiz halkaları, her kelimede alttaki antenden yayılır
+  let h = '';
+  T.timing.words.forEach(w => { const t = f - sec(w.start); if (t >= 0 && t < 45) h += `<circle cx="540" cy="1900" r="${f2(40 + t * 26)}" fill="none" stroke="${/mayday/i.test(w.w) ? ORANGE : TEAL}" stroke-width="${f2(5 * (1 - t / 45))}" opacity="${f2(.45 * (1 - t / 45))}"/>`; });
+  $('halka').innerHTML = h;
+  // deco çerçeve
+  $('cerceve').innerHTML = `<rect x="34" y="34" width="1012" height="1852" fill="none" stroke="${GOLD}" stroke-width="4"/><rect x="48" y="48" width="984" height="1824" fill="none" stroke="${GOLD}" stroke-width="1.5"/>` + [[48, 48, 1], [1032, 48, -1]].map(([x, y, s]) => [0, 1, 2].map(k => `<path d="M${x} ${y + 40 + k * 18} H${x + s * (40 + k * 18)} V${y}" fill="none" stroke="${GOLD}" stroke-width="2"/>`).join('')).join('');
+  altyazi5(f, $('alt'));
+};
+
+// altyazı: krem, konturu yok; söylenen kelime turuncu kutuda lacivert
+function altyazi5(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || f >= sec(T.timing.voice_end) - 4) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.35' : tt < x.end + 0.05 ? `background:${ORANGE};color:${NAVY}` : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: Karadeniz yamaçları. Zümrüt yeşili + çay kırmızısı + sis beyazı; ince belli bardak maskotu, yağmur ve teras çizgileri; Fredoka. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0E3A2C}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:1500px;text-align:center;font:600 74px/1.15 'Fredoka';color:#F4F1E6;text-shadow:0 5px 0 rgba(4,24,18,.7)}
+  .lbl{paint-order:stroke;stroke-linejoin:round;font-weight:900}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FC6B8"/><stop offset=".55" stop-color="#2E7A5C"/><stop offset="1" stop-color="#0E3A2C"/></linearGradient>
+    <linearGradient id="cay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0402A"/><stop offset="1" stop-color="#8A1A10"/></linearGradient>
+    <linearGradient id="cam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".25" stop-color="#fff" stop-opacity=".08"/><stop offset=".8" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".3"/></linearGradient>
+    <linearGradient id="altband" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E3A2C" stop-opacity="0"/><stop offset=".25" stop-color="#0A2A20" stop-opacity=".85"/><stop offset="1" stop-color="#0A2A20" stop-opacity=".95"/></linearGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/tr.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['600 74px Fredoka', '700 80px Fredoka'];
+window.ETIKET_FONT = 'Fredoka';
+window.ALT = { soluk: 'rgba(244,241,230,.35)', aktif: '#FF7A5A', normal: '#F4F1E6' };
+const c = cue, INK = '#14231C', KIR = '#D8402A', KR = '#F4F1E6';
+const L = (txt, x, y, f, f0, f1, s = 80, r = KR) => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+
+// ince belli bardak: dolu 0..1
+function bardak(t, o = {}) {
+  const d = o.dolu === undefined ? 1 : o.dolu;
+  const yan = 'M-110 -260 C-110 -160 -40 -110 -50 -20 C-60 60 -120 120 -110 220 H110 C120 120 60 60 50 -20 C40 -110 110 -160 110 -260Z';
+  let g = `<ellipse cy="240" rx="230" ry="40" fill="#F4F1E6" stroke="${INK}" stroke-width="7"/><ellipse cy="232" rx="170" ry="24" fill="#E2DCC8"/>`;
+  g += `<clipPath id="bk${o.id || 0}"><path d="${yan}"/></clipPath>`;
+  g += `<path d="${yan}" fill="#fff" fill-opacity=".18"/>`;
+  g += `<g clip-path="url(#bk${o.id || 0})"><rect x="-130" y="${f2(220 - 470 * d)}" width="260" height="${f2(470 * d + 10)}" fill="url(#cay)"/><path d="M-130 ${f2(220 - 470 * d)} q65 ${f2(sin(t * .1) * 8)} 130 0 t130 0" fill="#F27A5A" opacity=".5"/></g>`;
+  g += `<path d="${yan}" fill="url(#cam)" stroke="${INK}" stroke-width="8"/>`;
+  if (o.buhar !== false && d > .5) for (let k = 0; k < 3; k++) { const u = ((t * .012) + k / 3) % 1; g += `<path d="M${(k - 1) * 40} ${f2(-290 - u * 180)} q24 -36 0 -72 t0 -72" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity="${f2(.6 * sin(u * P))}"/>`; }
+  if (o.kasik) g += `<path d="M60 -330 L-10 160" stroke="#C9C9C9" stroke-width="10" stroke-linecap="round"/>`;
+  if (o.yuz !== false) g += yuz(0, 90, .7, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, uzgun: o.uzgun, cizgi: '#fff', yanak: '#FFB0A0' });
+  return g;
+}
+function fincan(t, o = {}) {
+  return `<ellipse cy="120" rx="200" ry="34" fill="#F4F1E6" stroke="${INK}" stroke-width="7"/><path d="M-130 -100 H130 L110 90 C100 120 -100 120 -110 90Z" fill="#F4F1E6" stroke="${INK}" stroke-width="8"/><path d="M130 -60 C210 -60 210 40 120 40" stroke="${INK}" stroke-width="12" fill="none"/><ellipse cy="-100" rx="130" ry="22" fill="#3A2216" stroke="${INK}" stroke-width="6"/><path d="M-110 -40 H110" stroke="#3FA7A3" stroke-width="14"/>` + yuz(0, 20, .55, t, { seed: o.seed || 4, uzgun: o.uzgun, sur: o.sur, cizgi: INK });
+}
+// çay terası: yamaçta yeşil sıralar
+function teras(t, y0, n = 7, renk = '#2F8A55') {
+  let g = '';
+  for (let k = 0; k < n; k++) { const y = y0 + k * 90; let d = `M-40 ${y}`; for (let x = -40; x <= 1120; x += 40) d += ` Q${x + 20} ${f2(y - 30 - sin((x + k * 70) / 120) * 10)} ${x + 40} ${y}`; g += `<path d="${d} V${y + 90} H-40Z" fill="${mix(renk, '#14523A', k / n)}"/>`; }
+  return g;
+}
+function yagmur(t, op = .5) { let g = ''; for (let k = 0; k < 50; k++) { const u = ((t * .03) + rastgele(k)) % 1; const x = rastgele(k + 4) * 1080, y = u * 1500; g += `<path d="M${f2(x)} ${f2(y)} l-10 36" stroke="#DDF2EA" stroke-width="4" stroke-linecap="round" opacity="${op}"/>`; } return g; }
+
+const SAHNE = {
+  hook(f, S, t) {
+    // boş bardaklar dolup çoğalır
+    const n = Math.floor(kf(f, [[0, 1], [c('hook', 'bugün'), 1], [c('hook', 'milyonlarca') + 30, 11]]));
+    let g = '';
+    for (let k = 1; k < n; k++) { const col = (k - 1) % 5, row = Math.floor((k - 1) / 5); g += at(140 + col * 200, 520 + row * 250, .42 * pop(f, c('hook', 'bugün') + k * 3), bardak(t, { id: 100 + k, yuz: false, buhar: false })); }
+    const dolu = kf(f, [[0, 0], [c('hook', 'bugün'), 0], [c('hook', 'bugün') + 30, 1]]);
+    g += at(540, 1130, .95, bardak(t, { id: 1, dolu, uzgun: dolu < .2, sur: dolu > .8 && f < c('hook', 'milyonlarca') + 20 }));
+    g += L('100 yıl önce: ~0', 540, 520, f, c('hook', 'yüz'), c('hook', 'bugün') - 2, 72, '#BFE8D6');
+    return g;
+  },
+  s2(f, S, t) {
+    let g = at(330, 1100, .9, fincan(t, { seed: 2, sur: f >= c('s2', 'kahveydi') }));
+    g += at(780, 1060, .85, bardak(t, { id: 2, seed: 3 }));
+    g += L('ÇAY', 780, 600, f, c('s2', 'çay'), S.s3.start - 2, 110, '#FF7A5A');
+    g += L('ama önce: kahve', 330, 800, f, c('s2', 'osmanlı'), S.s3.start - 2, 64, KR);
+    return g;
+  },
+  s3(f, S, t) {
+    let g = '';
+    // harita parçası: Yemen kopar, fiyat etiketi zıplar
+    const k = gir(f, c('s3', 'yemen'), 30);
+    g += `<path d="M160 700 C300 640 520 660 640 720 C760 780 820 860 780 960 C700 1000 560 960 420 980 C300 1000 180 920 160 820Z" fill="#C9B57A" stroke="${INK}" stroke-width="7" opacity=".9"/><text text-anchor="middle" x="470" y="840" font-family="Fredoka" font-weight="700" font-size="56" fill="${INK}">OSMANLI</text>`;
+    g += at(720 + k * 160, 1140 + k * 120, 1, `<path d="M-120 -60 C-40 -100 80 -80 130 -20 C150 40 80 80 0 70 C-80 60 -140 20 -120 -60Z" fill="#E0C88A" stroke="${INK}" stroke-width="7"/><text class="lbl" text-anchor="middle" y="16" font-size="40" font-family="Fredoka" font-weight="700" fill="${INK}">YEMEN</text>`, k * 24);
+    g += `<path d="M640 980 l40 40 -30 30 40 40" stroke="${KIR}" stroke-width="8" fill="none" opacity="${f2(k)}"/>`;
+    g += at(330, 1260, .7, fincan(t, { seed: 5, uzgun: f > c('s3', 'pahalı') }));
+    if (f >= c('s3', 'pahalı')) g += at(330, 970, pop(f, c('s3', 'pahalı')), `<g transform="rotate(-10)"><path d="M-120 -50 H90 L130 0 L90 50 H-120Z" fill="#FFD25A" stroke="${INK}" stroke-width="7"/><circle cx="90" r="10" fill="${INK}"/><text class="lbl" text-anchor="middle" x="-10" y="18" font-size="52" font-family="Fredoka" font-weight="700" fill="${INK}">₺₺₺</text></g>`);
+    g += L('1. Dünya Savaşı', 540, 560, f, c('s3', 'birinci'), c('s3', 'yemen') - 2, 70, '#FFD25A');
+    return g;
+  },
+  s4(f, S, t) {
+    let g = teras(t, 820, 8);
+    g += yagmur(t, .55 * gir(f, c('s4', 'yağmurlu'), 12));
+    // bulutlar
+    for (let k = 0; k < 3; k++) g += `<g transform="translate(${f2(200 + k * 330 + sin(t * .01 + k) * 30)},${600 + (k % 2) * 60})" opacity=".85"><ellipse rx="150" ry="50" fill="#E8F2EE"/><ellipse cx="-60" cy="-30" rx="80" ry="56" fill="#E8F2EE"/><ellipse cx="60" cy="-40" rx="90" ry="64" fill="#E8F2EE"/></g>`;
+    g += L('KARADENİZ', 540, 780, f, c('s4', 'karadeniz'), S.s5.start - 2, 96, KR);
+    g += L('ucuz + yerli', 540, 780, f, c('s4', 'ucuz'), c('s4', 'gözler') - 2, 84, '#FFD25A');
+    return g;
+  },
+  s5(f, S, t) {
+    let g = teras(t, 1060, 5);
+    // kanun belgesi mühürlenir
+    g += at(540, 860, 1, `<g transform="rotate(-3)"><rect x="-260" y="-300" width="520" height="560" rx="10" fill="#F4F1E6" stroke="${INK}" stroke-width="8"/><text text-anchor="middle" y="-210" font-family="Fredoka" font-weight="700" font-size="54" fill="${INK}">KANUN</text><text text-anchor="middle" y="-140" font-family="Fredoka" font-weight="700" font-size="76" fill="${KIR}">1924</text>${[0, 1, 2, 3, 4, 5].map(i => `<rect x="-200" y="${-80 + i * 46}" width="${f2(400 - (i % 3) * 60)}" height="14" rx="7" fill="${INK}" opacity=".2"/>`).join('')}</g>`);
+    if (f >= c('s5', 'resmen')) { const p = pop(f, c('s5', 'resmen')); g += at(700, 1040, p * 1, `<circle r="90" fill="none" stroke="${KIR}" stroke-width="10"/><text text-anchor="middle" dy="16" font-family="Fredoka" font-weight="700" font-size="44" fill="${KIR}">RİZE</text>`, -14); }
+    return g;
+  },
+  s6(f, S, t) {
+    let g = teras(t, 1100, 5);
+    // Zihni Derin karikatürü + tohum çuvalları + köylülere tohum yayılır
+    g += at(300, 960, 1, `<path d="M-120 300 C-130 140 -90 80 0 80 C90 80 130 140 120 300Z" fill="#5A6A4A" stroke="${INK}" stroke-width="7"/><circle cy="-30" r="110" fill="#F2D2B0" stroke="${INK}" stroke-width="7"/><path d="M-120 -80 Q0 -200 120 -80 L130 -60 H-130Z" fill="#4A3A2A"/><rect x="-60" y="-20" width="50" height="34" rx="10" fill="none" stroke="${INK}" stroke-width="5"/><rect x="10" y="-20" width="50" height="34" rx="10" fill="none" stroke="${INK}" stroke-width="5"/><path d="M-50 60 q50 20 100 0" stroke="#EDEDED" stroke-width="18" fill="none" stroke-linecap="round"/>` + yuz(0, -10, .5, t, { seed: 6, cizgi: INK }));
+    g += L('Zihni Derin', 300, 700, f, c('s6', 'zihni'), S.s7.start - 2, 64, '#FFD25A');
+    const n = Math.floor(klamp((f - c('s6', 'tonlarca')) / 40) * 4);
+    for (let k = 0; k < n; k++) g += at(620 + (k % 2) * 200, 900 + Math.floor(k / 2) * 180, pop(f, c('s6', 'tonlarca') + k * 10) * .8, `<path d="M-90 -100 C-110 0 -110 80 -80 100 H80 C110 80 110 0 90 -100 C60 -130 -60 -130 -90 -100Z" fill="#C9A06A" stroke="${INK}" stroke-width="7"/><path d="M-60 -110 q60 30 120 0" stroke="${INK}" stroke-width="6" fill="none"/><text text-anchor="middle" y="30" font-family="Fredoka" font-weight="700" font-size="36" fill="${INK}">BATUM</text>`);
+    if (f >= c('s6', 'köylüye')) for (let k = 0; k < 24; k++) { const u = klamp((f - c('s6', 'köylüye') - k) / 40); g += `<circle cx="${f2(720 + (rastgele(k) - .5) * 900 * u)}" cy="${f2(1100 + rastgele(k + 7) * 240 * u)}" r="9" fill="#3A2A1A"/>`; }
+    return g;
+  },
+  s7(f, S, t) {
+    let g = teras(t, 1180, 4);
+    // fabrika kurulur, baca dumanı
+    const p = gir(f, c('s7', '1947'), 20);
+    g += at(540, 1180, p, `<rect x="-300" y="-260" width="600" height="260" fill="#E8E2D0" stroke="${INK}" stroke-width="8"/><path d="M-300 -260 l100 -80 v80 l100 -80 v80 l100 -80 v80 l100 -80 v80 l100 -80 v80Z" fill="#C9C1A8" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/><rect x="180" y="-480" width="60" height="230" fill="#B85A3A" stroke="${INK}" stroke-width="7"/>${[0, 1, 2, 3].map(i => `<rect x="${-240 + i * 120}" y="-180" width="70" height="80" rx="6" fill="#7FC6A8" stroke="${INK}" stroke-width="5"/>`).join('')}<rect x="-40" y="-100" width="80" height="100" fill="#5A3A2A"/>`);
+    for (let k = 0; k < 5; k++) { const u = ((t * .01) + k / 5) % 1; g += `<circle cx="${f2(750 + u * 120)}" cy="${f2(680 - u * 260)}" r="${f2(30 + u * 50)}" fill="#E8F2EE" opacity="${f2(p * .7 * (1 - u))}"/>`; }
+    g += L('kimse inanmadı', 540, 640, f, c('s7', 'başta'), c('s7', '1947') - 2, 72, '#BFE8D6');
+    if (f >= c('s7', '1947')) g += at(540, 640, pop(f, c('s7', '1947')), `<rect x="-280" y="-70" width="560" height="140" rx="70" fill="${KIR}" stroke="${INK}" stroke-width="7"/><text text-anchor="middle" dy="26" font-family="Fredoka" font-weight="700" font-size="70" fill="#fff">1947 · ilk fabrika</text>`);
+    return g;
+  },
+  s8(f, S, t) {
+    let g = '';
+    // çaydanlık (iki katlı) + bardak + demlik dizilir
+    const ci = (x, y, f0, ic) => f >= f0 ? at(x, y, pop(f, f0), ic) : '';
+    g += ci(260, 1120, c('s8', 'ince'), bardak(t, { id: 8, seed: 1 }).replace('', ''));
+    g += ci(560, 1150, c('s8', 'demlik'), `<path d="M-110 -40 C-130 80 -100 140 0 140 C100 140 130 80 110 -40Z" fill="#E8E2D0" stroke="${INK}" stroke-width="8"/><path d="M110 0 C170 -20 190 -80 200 -110" stroke="${INK}" stroke-width="16" fill="none"/><ellipse cy="-40" rx="110" ry="20" fill="#C9C1A8" stroke="${INK}" stroke-width="7"/><circle cy="-70" r="18" fill="${KIR}"/>${[0, 1, 2].map(i => `<circle cx="${-60 + i * 60}" cy="50" r="16" fill="${KIR}" opacity=".7"/>`).join('')}`);
+    g += ci(830, 1120, c('s8', 'çaydanlık'), `<path d="M-130 60 C-150 200 -110 260 0 260 C110 260 150 200 130 60Z" fill="#C9D1D6" stroke="${INK}" stroke-width="8"/><path d="M-90 -120 C-110 -10 -80 40 0 40 C80 40 110 -10 90 -120Z" fill="#E8E2D0" stroke="${INK}" stroke-width="7"/><path d="M130 140 C190 120 210 60 220 30" stroke="${INK}" stroke-width="16" fill="none"/><path d="M-160 80 C-220 0 -180 -140 -60 -150" stroke="${INK}" stroke-width="12" fill="none"/>`);
+    // günlük ritim: saat dilimleri
+    if (f >= c('s8', 'ritmi')) for (let k = 0; k < 8; k++) { const a = k * P / 4 - P / 2; g += at(540 + cos(a) * 360, 700 + sin(a) * 120, pop(f, c('s8', 'ritmi') + k * 4) * .22, bardak(t, { id: 80 + k, yuz: false, buhar: false })); }
+    g += L('günlük ritim', 540, 700, f, c('s8', 'ritmi'), S.s9.start - 2, 76, '#FFD25A');
+    return g;
+  },
+  s9(f, S, t) {
+    let g = '';
+    // kişi başı tüketim çubukları: Türkiye zirvede
+    const ver = [['Türkiye', 1, KIR], ['İrlanda', .66, '#8FD6A8'], ['İngiltere', .57, '#9FC6FF'], ['Rusya', .43, '#E0C88A']];
+    ver.forEach(([ad, v, r], k) => { const h = 560 * v * gir(f, S.s9.start + 4 + k * 4, 24), x = 210 + k * 220; g += `<rect x="${x - 70}" y="${f2(1360 - h)}" width="140" height="${f2(h)}" rx="18" fill="${r}" stroke="${INK}" stroke-width="7"/><text text-anchor="middle" x="${x}" y="1420" font-family="Fredoka" font-weight="700" font-size="44" fill="${KR}">${ad}</text>`; });
+    g += at(210, 1360 - 560 - 120, pop(f, c('s9', 'en')) * .5, bardak(t, { id: 9, sur: true }));
+    g += L('1 numara', 540, 640, f, c('s9', 'en'), S.son.start - 2, 92, '#FFD25A');
+    return g;
+  },
+  son(f, S, t) {
+    let g = at(540, 1050, 1.15, bardak(t, { id: 10, kasik: true, kapali: f > T.total - 26 }));
+    // sayaç: kaç bardak?
+    g += at(840, 640, pop(f, c('son', 'kaç')), `<circle r="100" fill="#FFD25A" stroke="${INK}" stroke-width="8"/><text text-anchor="middle" dy="30" font-family="Fredoka" font-weight="700" font-size="90" fill="${INK}">${1 + (Math.floor(Math.max(0, f - c('son', 'kaç')) / 6) % 9)}?</text>`);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#gok)"/>`;
+  // uzak dağ siluetleri + sis
+  a += `<path d="M-40 760 Q200 600 420 700 T840 640 T1120 700 V1920 H-40Z" fill="#3E8A6A" opacity=".5"/><path d="M-40 860 Q260 740 520 820 T1120 800 V1920 H-40Z" fill="#2A6E50" opacity=".6"/>`;
+  for (let k = 0; k < 3; k++) a += `<ellipse cx="${f2((f * (.6 + k * .2) + k * 400) % 1600 - 260)}" cy="${780 + k * 70}" rx="320" ry="40" fill="#E8F2EE" opacity=".25"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'));
+  $('ust').innerHTML = `<rect y="1420" width="1080" height="500" fill="url(#altband)"/>`;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

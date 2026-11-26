@@ -1,0 +1,8 @@
+# Lightning facts (sources)
+- Empire State Building struck ~20-25 times per year. (NOAA National Weather Service "Lightning Myths"; Encyclopaedia Britannica)
+- Tall, pointed, isolated objects are struck most; lightning rods give a low-resistance path to ground. (NWS; NFPA 780)
+- Bolt ~50,000 °F, about five times hotter than the Sun's surface. (NWS "How Hot Is Lightning?")
+- Channel diameter ~2-3 cm (about thumb width). (NWS; Rakov & Uman, "Lightning: Physics and Effects")
+- Thunder = rapid expansion of superheated air; 5 seconds ≈ 1 mile. (NWS "Thunder")
+- Roy Sullivan, US park ranger, struck 7 times between 1942 and 1977, survived all. (Guinness World Records; NPS Shenandoah)
+- ~44 flashes per second globally (≈1.4 billion/yr). (NOAA / NASA LIS-OTD climatology)

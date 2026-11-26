@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gölge oyunu perdesi. Arkadan aydınlatılmış kehribar perde + yarı saydam boyalı deri figürler + koyu ahşap çerçeve; Caveat altyazı. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#1A0E08}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:1490px;text-align:center;font:600 84px/1.1 'Caveat';color:#FFE9C2}
+  .lbl{paint-order:stroke;stroke-linejoin:round;font-weight:600}
+  .cv{font-family:'Caveat';font-weight:600}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="perde" cx=".5" cy=".5" r=".65"><stop offset="0" stop-color="#FFE7B0"/><stop offset=".6" stop-color="#F2B860"/><stop offset="1" stop-color="#B8742A"/></radialGradient>
+    <filter id="bulanik"><feGaussianBlur stdDeviation="3"/></filter>
+    <linearGradient id="altband" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A0E08" stop-opacity="0"/><stop offset=".2" stop-color="#1A0E08" stop-opacity=".92"/><stop offset="1" stop-color="#120804" stop-opacity="1"/></linearGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/tr.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['600 84px Caveat'];
+window.ETIKET_FONT = 'Caveat';
+window.ALT = { soluk: 'rgba(255,233,194,.32)', aktif: '#FFB04A', normal: '#FFE9C2' };
+const c = cue, INK = '#2A140A', KIR = '#B8321E', YES = '#2E7A4A', MAV = '#2A4A9A', SAR = '#E8A61E';
+const L = (txt, x, y, f, f0, f1, s = 96, r = '#2A140A') => etiket(txt, x, y, f, f0, f1, s, r, 'middle', '#FFE7B0');
+
+// deri figür: yarı saydam renkler, delik desenleri, çubuk; tip 'kg' (Karagöz) | 'hv' (Hacivat)
+function figur(t, tip, o = {}) {
+  const kg = tip === 'kg', a = o.sallan ? sin(t * .2) * 6 : sin(t * .05) * 2, ag = o.konus ? Math.abs(sin(t * .5)) * 10 : 0;
+  const govde = kg ? KIR : YES, kaftan = kg ? SAR : MAV;
+  let g = `<g transform="rotate(${f2(a)})" opacity="${o.op === undefined ? .92 : o.op}">`;
+  // çubuk
+  g += `<path d="M${kg ? 40 : -40} -120 L${kg ? 140 : -140} 360" stroke="#3A2A1A" stroke-width="10" opacity=".8"/>`;
+  // gövde (kaftan)
+  g += `<path d="M-110 300 C-130 120 -100 -20 -60 -60 H60 C100 -20 130 120 110 300Z" fill="${govde}" stroke="${INK}" stroke-width="6"/>`;
+  g += `<path d="M-60 -60 L0 300 L60 -60" fill="${kaftan}" opacity=".85" stroke="${INK}" stroke-width="4"/>`;
+  for (let k = 0; k < 7; k++) g += `<circle cx="${(k % 2 ? 1 : -1) * 70}" cy="${k * 40 - 20}" r="6" fill="#FFE7B0" opacity=".9"/>`;
+  // kol (oynar)
+  g += `<path d="M${kg ? 60 : -60} -40 L${kg ? 150 : -150} ${f2(40 - ag * 6)}" stroke="${govde}" stroke-width="34" stroke-linecap="round"/><path d="M${kg ? 60 : -60} -40 L${kg ? 150 : -150} ${f2(40 - ag * 6)}" stroke="${INK}" stroke-width="4" stroke-linecap="round" opacity=".4"/>`;
+  // baş: profil
+  const s = kg ? 1 : -1;
+  g += `<g transform="scale(${s},1)"><path d="M-40 -60 C-80 -100 -80 -190 -20 -220 C30 -240 80 -210 90 -160 L110 -140 L84 -126 C90 -110 84 -90 70 -84 L ${kg ? 70 : 60} ${f2(-70 + ag)} C40 -50 0 -50 -40 -60Z" fill="#F2C08A" stroke="${INK}" stroke-width="6"/>`;
+  g += kg ? `<path d="M-10 -80 C10 -40 70 -40 76 -70 C60 -60 20 -60 -10 -80Z" fill="${INK}"/><circle cx="40" cy="-170" r="18" fill="#fff" stroke="${INK}" stroke-width="4"/><circle cx="46" cy="-170" r="9" fill="${INK}"/>`
+    : `<path d="M10 -80 C20 -30 60 0 50 30 C80 -10 80 -60 64 -84Z" fill="#3A2A1A"/><path d="M30 -176 q14 -8 26 0" stroke="${INK}" stroke-width="6" fill="none"/><circle cx="44" cy="-166" r="7" fill="${INK}"/>`;
+  // kavuk
+  g += kg ? `<path d="M-70 -200 C-80 -260 40 -280 70 -220 C40 -210 -40 -200 -70 -200Z" fill="${INK}"/><path d="M-60 -220 C-40 -320 0 -330 10 -250" fill="${KIR}" stroke="${INK}" stroke-width="5"/>`
+    : `<path d="M-70 -200 C-70 -250 60 -260 80 -210 C40 -200 -40 -196 -70 -200Z" fill="#FFF6E2" stroke="${INK}" stroke-width="5"/><path d="M-40 -230 L-20 -380 L30 -380 L40 -236Z" fill="${MAV}" stroke="${INK}" stroke-width="5"/>`;
+  g += `</g>`;
+  if (o.kafes) g += `<path d="M-150 -300 H150 V320 H-150Z" fill="none" stroke="${INK}" stroke-width="6" stroke-dasharray="4 20"/>`;
+  return g + '</g>';
+}
+// perde nesneleri: cami (inşaat), sultan, deve, türbe
+function cami(t, ilerleme, o = {}) {
+  const h = 200 + ilerleme * 220;
+  let g = `<rect x="-260" y="${f2(-h)}" width="520" height="${f2(h)}" fill="#C9883A" stroke="${INK}" stroke-width="6" opacity=".9"/>`;
+  for (let k = 0; k < Math.floor(h / 50); k++) g += `<path d="M-260 ${-k * 50} H260" stroke="${INK}" stroke-width="3" opacity=".3"/>`;
+  if (ilerleme > .5) g += `<path d="M-180 ${f2(-h)} A180 160 0 0 1 180 ${f2(-h)}Z" fill="#C9883A" stroke="${INK}" stroke-width="6" opacity="${f2((ilerleme - .5) * 2)}"/>`;
+  g += `<path d="M300 0 V${f2(-h - 200)} M260 ${f2(-h - 100)} H420 M260 ${f2(-h)} H420 M400 0 V${f2(-h - 200)}" stroke="#7A4A1A" stroke-width="10"/>`;
+  return g;
+}
+function sultan(t, o = {}) {
+  return `<g opacity=".92"><path d="M-140 300 C-150 100 -110 0 0 0 C110 0 150 100 140 300Z" fill="#7A2A6A" stroke="${INK}" stroke-width="6"/><path d="M-40 0 L0 300 L40 0" fill="${SAR}" opacity=".8"/><circle cy="-80" r="80" fill="#F2C08A" stroke="${INK}" stroke-width="6"/><path d="M-90 -120 C-110 -220 110 -220 90 -120 C60 -140 -60 -140 -90 -120Z" fill="#FFF6E2" stroke="${INK}" stroke-width="6"/><path d="M-10 -200 q10 -50 30 -40 q-10 20 -10 40" fill="${KIR}"/><path d="M-50 -30 C-30 20 30 20 50 -30Z" fill="#3A2A1A"/><path d="M-40 -90 q12 -8 24 0 M16 -90 q12 -8 24 0" stroke="${INK}" stroke-width="6" fill="none"/>${o.uzgun ? `<path d="M-30 -60 q30 -14 60 0" stroke="${INK}" stroke-width="6" fill="none"/><path d="M-28 -78 v24" stroke="#5AA0E0" stroke-width="6" stroke-linecap="round"/>` : ''}</g>`;
+}
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = at(540, 1260, 1, cami(t, gir(f, c('hook', 'inşaatında'), 40) * .6));
+    g += at(330, 1080, .9, figur(t, 'kg', { konus: true }));
+    g += at(760, 1080, .9, figur(t, 'hv', { konus: f > c('hook', 'şakaları') }));
+    if (f >= c('hook', 'idam')) g += `<rect x="60" y="440" width="960" height="1000" fill="${INK}" opacity="${f2(gir(f, c('hook', 'idam'), 20) * .45)}"/>`;
+    return g;
+  },
+  s2(f, S, t) {
+    let g = at(330, 1080, 1, figur(t, 'kg', { sallan: true })) + at(760, 1080, 1, figur(t, 'hv', { sallan: true }));
+    g += L('Karagöz', 330, 600, f, c('s2', 'karagöz'), S.s3.start - 2, 92, KIR);
+    g += L('Hacivat', 760, 600, f, c('s2', 'hacivat'), S.s3.start - 2, 92, MAV);
+    if (f >= c('s2', 'bursa')) g += at(540, 1400, pop(f, c('s2', 'bursa')), `<text class="cv" text-anchor="middle" font-size="80" fill="${INK}">Bursa</text>`);
+    return g;
+  },
+  s3(f, S, t) {
+    let g = at(300, 1080, 1, figur(t, 'kg', { konus: f < c('s3', 'hacivat') }));
+    g += at(780, 1080, 1, figur(t, 'hv', { konus: f >= c('s3', 'hacivat') }));
+    // örs ve çekiç / mala ve tuğla
+    if (f >= c('s3', 'demirci')) g += at(300, 1400, pop(f, c('s3', 'demirci')) * .8, `<path d="M-100 -40 H100 L60 0 V40 H-60 V0Z" fill="#4A4A4A" stroke="${INK}" stroke-width="6"/><path d="M60 -140 L-20 -60" stroke="#7A4A1A" stroke-width="14"/><rect x="40" y="-180" width="70" height="44" rx="6" fill="#4A4A4A" transform="rotate(45 75 -158)"/>`);
+    if (f >= c('s3', 'duvar')) g += at(780, 1400, pop(f, c('s3', 'duvar')) * .8, `${[0, 1, 2].map(i => `<rect x="${-120 + i * 80}" y="-20" width="76" height="40" fill="#B8462A" stroke="${INK}" stroke-width="5"/>`).join('')}<path d="M100 -100 L160 -40 L130 -10 L70 -70Z" fill="#9A9A9A" stroke="${INK}" stroke-width="5"/>`);
+    g += L('demirci', 300, 600, f, c('s3', 'demirci'), S.s4.start - 2, 84, KIR);
+    g += L('duvar ustası', 780, 600, f, c('s3', 'duvar'), S.s4.start - 2, 84, MAV);
+    return g;
+  },
+  s4(f, S, t) {
+    let g = at(540, 1260, .8, cami(t, kf(f, [[0, .3], [c('s4', 'uzadı'), .3], [S.s5.start, .4]])));
+    g += at(260, 960, .65, figur(t, 'kg', { konus: true })) + at(820, 960, .65, figur(t, 'hv', { konus: true }));
+    // gülen işçiler
+    for (let k = 0; k < 4; k++) { const x = 220 + k * 210; g += at(x, 1280, pop(f, c('s4', 'işçiler') + k * 4) * .5, `<path d="M-60 140 C-70 40 -40 0 0 0 C40 0 70 40 60 140Z" fill="#8A6A4A" stroke="${INK}" stroke-width="6"/><circle cy="-40" r="44" fill="#F2C08A" stroke="${INK}" stroke-width="6"/><path d="M-20 -30 q20 22 40 0" fill="${INK}"/>`, sin(t * .4 + k) * 6); }
+    // takvim yaprakları uçar: uzadı
+    if (f >= c('s4', 'uzadı')) for (let k = 0; k < 6; k++) { const u = klamp((f - c('s4', 'uzadı') - k * 6) / 40); g += at(540 + (k - 2.5) * 120 * u, 700 - u * 160, 1, `<rect x="-40" y="-50" width="80" height="100" fill="#FFF6E2" stroke="${INK}" stroke-width="4"/>`, u * 120, 1 - u); }
+    g += L('ha ha ha!', 540, 600, f, c('s4', 'komikti'), c('s4', 'uzadı') - 2, 90, KIR);
+    return g;
+  },
+  s5(f, S, t) {
+    let g = at(540, 1050, 1, sultan(t));
+    // ferman
+    if (f >= c('s5', 'idamını')) g += at(540, 680, pop(f, c('s5', 'idamını')), `<rect x="-240" y="-90" width="480" height="180" rx="10" fill="#FFF6E2" stroke="${INK}" stroke-width="6"/><ellipse cx="-240" rx="22" ry="90" fill="#E8D6B0" stroke="${INK}" stroke-width="5"/><ellipse cx="240" rx="22" ry="90" fill="#E8D6B0" stroke="${INK}" stroke-width="5"/><text class="cv" text-anchor="middle" dy="24" font-size="80" fill="${KIR}">FERMAN</text>`);
+    return g;
+  },
+  s6(f, S, t) {
+    let g = at(540, 1050, 1, sultan(t, { uzgun: true }));
+    // boş perde köşelerinde soluk figürler
+    g += at(220, 1100, .6, figur(t, 'kg', { op: .25 })) + at(860, 1100, .6, figur(t, 'hv', { op: .25 }));
+    g += L('pişmanlık', 540, 600, f, c('s6', 'pişman'), S.s7.start - 2, 96, '#5A3A7A');
+    return g;
+  },
+  s7(f, S, t) {
+    let g = '';
+    // Şeyh Küşteri: deri, makas, boya, mum; figür kesilir
+    g += at(300, 1100, 1, `<g opacity=".92"><path d="M-130 300 C-140 100 -100 0 0 0 C100 0 140 100 130 300Z" fill="#4A6A3A" stroke="${INK}" stroke-width="6"/><circle cy="-80" r="76" fill="#F2C08A" stroke="${INK}" stroke-width="6"/><path d="M-80 -110 C-90 -200 90 -200 80 -110Z" fill="#2E5A2A" stroke="${INK}" stroke-width="6"/><path d="M-50 -30 C-30 60 30 60 50 -30Z" fill="#EDEDED" stroke="${INK}" stroke-width="4"/></g>`);
+    g += L('Şeyh Küşteri', 300, 640, f, c('s7', 'şeyh'), S.s8.start - 2, 84, '#2E5A2A');
+    // deve derisi parçası → figür
+    const kes = gir(f, c('s7', 'kesti'), 30);
+    g += at(760, 1000, .7, `<path d="M-200 -260 C-100 -300 120 -280 200 -240 C240 0 220 200 180 300 C40 320 -120 320 -200 280 C-240 100 -240 -100 -200 -260Z" fill="#E8C49A" stroke="${INK}" stroke-width="6" opacity="${f2(1 - kes)}"/>` + `<g opacity="${f2(kes)}">${figur(t, 'kg')}</g>`);
+    // mum ışığı
+    if (f >= c('s7', 'ışıkla')) { const p2 = gir(f, c('s7', 'ışıkla'), 16); g += `<circle cx="760" cy="1380" r="${f2(120 * p2)}" fill="#FFF0B0" opacity=".6"/><rect x="740" y="1360" width="40" height="80" fill="#FFF6E2" stroke="${INK}" stroke-width="4"/><path d="M760 1360 q14 -24 0 -44 q-14 20 0 44Z" fill="#FFB04A"/>`; }
+    if (f >= c('s7', 'boyayıp')) [KIR, YES, MAV, SAR].forEach((r, k) => { g += at(560 + k * 90, 1440, pop(f, c('s7', 'boyayıp') + k * 4) * .6, `<ellipse rx="40" ry="20" fill="${r}" stroke="${INK}" stroke-width="5"/>`); });
+    return g;
+  },
+  s8(f, S, t) {
+    let g = at(330, 1060, 1, figur(t, 'kg', { konus: true, sallan: true })) + at(760, 1060, 1, figur(t, 'hv', { konus: true, sallan: true }));
+    // seyirci başları silueti (alt kenarda)
+    for (let k = 0; k < 9; k++) g += `<circle cx="${80 + k * 115}" cy="${f2(1420 + sin(t * .3 + k) * (f > c('s8', 'güldürdü') ? 8 : 0))}" r="60" fill="${INK}"/>`;
+    g += L('gölge oyunu', 540, 600, f, c('s8', 'gölge'), c('s8', 'karagöz') - 2, 100, KIR);
+    g += L('yüzyıllarca', 540, 600, f, c('s8', 'yüzyıllar'), S.s9.start - 2, 92, INK);
+    return g;
+  },
+  s9(f, S, t) {
+    let g = '';
+    // türbe silueti + UNESCO rozeti
+    g += at(540, 1260, 1, `<g opacity=".9"><rect x="-200" y="-200" width="400" height="200" fill="#C9883A" stroke="${INK}" stroke-width="6"/><path d="M-160 -200 A160 140 0 0 1 160 -200Z" fill="#C9883A" stroke="${INK}" stroke-width="6"/><path d="M0 -340 V-380" stroke="${INK}" stroke-width="6"/><path d="M-50 0 V-100 a50 50 0 0 1 100 0 V0Z" fill="${INK}" opacity=".6"/></g>`);
+    g += L('Bursa · türbe', 540, 820, f, c('s9', 'türbe'), S.son.start - 2, 84, INK);
+    if (f >= c('s9', 'unesco')) g += at(820, 640, pop(f, c('s9', 'unesco')), `<circle r="110" fill="#2A4A9A" stroke="${INK}" stroke-width="6"/><text class="cv" text-anchor="middle" dy="20" font-size="58" fill="#FFF6E2">UNESCO</text><text class="cv" text-anchor="middle" y="70" font-size="34" fill="#FFF6E2">2009</text>`);
+    return g;
+  },
+  son(f, S, t) {
+    const sec = Math.floor(Math.max(0, f - c('son', 'karagöz')) / 18) % 2;
+    let g = at(330, 1060, 1, figur(t, 'kg', { konus: sec === 0 }), 0) + at(760, 1060, 1, figur(t, 'hv', { konus: sec === 1 }));
+    g += L('?', 540, 640, f, c('son', 'hangisi'), T.total, 160, KIR);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  // perde titrer: mum ışığı
+  const titre = .9 + .1 * sin(f * .37) * sin(f * .13);
+  let a = `<rect width="1080" height="1920" fill="#1A0E08"/>`;
+  a += `<rect x="60" y="440" width="960" height="1000" fill="url(#perde)" opacity="${f2(titre)}"/>`;
+  a += `<rect x="60" y="440" width="960" height="1000" fill="none" stroke="#5A2E14" stroke-width="40"/><rect x="40" y="420" width="1000" height="1040" fill="none" stroke="#8A4A1E" stroke-width="8"/>`;
+  for (let k = 0; k < 12; k++) a += `<path d="M${80 + k * 82} 420 l40 -40 l40 40" fill="#8A4A1E" stroke="#5A2E14" stroke-width="4"/>`;
+  a += `<text class="cv" x="540" y="320" text-anchor="middle" font-size="96" fill="#FFB04A">Hayâl Perdesi</text>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'), 540, 940, .03);
+  $('sahne').setAttribute('clip-path', 'url(#pk)');
+  $('ust').innerHTML = `<clipPath id="pk"><rect x="80" y="460" width="920" height="960"/></clipPath><rect y="1460" width="1080" height="460" fill="url(#altband)"/>`;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

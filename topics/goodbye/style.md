@@ -1,0 +1,12 @@
+# Stil kartı: goodbye (ozansihay-motion)
+- Tez: "Goodbye", yüzyıllarca hızlı söylenip aşınmış "God be with ye" duasıdır.
+- Yöntem: Sözcüğü olay yap + mekanizma; kelime kurşun harf bloklarıyla dizilir, her kısalmada bloklar düşer.
+- Malzeme: 1570'ler matbaası; kodla üretilmiş eski kâğıt (kagit.py), mürekkep pürüzü (feTurbulence), metal harf blokları.
+- Kadraj: basılı sayfa, ortalı tek satır; mektup sahnesi eğik kağıt.
+- Zaman: 30 fps; baskı = tek karede belirir, 4 karede mürekkep oturur; sahne geçişi = baskı tablası iner (6 kare) ve kalkar (9 kare).
+- Font: IM Fell English + italik (dönem matbaa harfi), EB Garamond 700 (altyazı). İlk kez kullanıldı.
+- Palet: kâğıt #EFE6D2, mürekkep #1B1A17, rubrik kırmızısı #A8322D, kurşun grisi #8E8B84.
+- İmza öğe: kurşun harf blokları; düşen harflerle "God be with ye → Godbwye", "God → Good", LIKE/FOLLOW dizgisi.
+- Altyazı: mürekkep siyahı, kontur yok; söylenen kelime rubrik kırmızısı.
+- Ses: Arjin klon sesi (eleven_v4) + bgpad -26 dB.
+- Kullanılmayanlar: lacivert/deco, yaldız, kil (son üç video), maskot, sarı karaoke.

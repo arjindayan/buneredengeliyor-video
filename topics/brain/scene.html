@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: pastel mor oda, sevimli beyin + ampul, tarama (MR) modu. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#241C45}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:210px;text-align:center;font:400 92px/1.08 'Patrick Hand';color:#FFF3DC;text-shadow:0 4px 0 rgba(20,14,40,.6)}
+  .lbl{font-family:'Fredoka';font-weight:600;paint-order:stroke;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="oda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#241C45"/><stop offset=".6" stop-color="#4A3A7A"/><stop offset="1" stop-color="#8A6AA8"/></linearGradient>
+    <pattern id="izgara" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#3E7FB8" stroke-opacity=".28" stroke-width="2"/></pattern>
+    <clipPath id="beyinKes"><path id="beyinYol" d="M-250 20 C-260 -120 -150 -220 -20 -215 C120 -230 250 -150 255 -20 C260 60 220 110 150 120 C120 160 60 165 20 140 C-30 170 -120 160 -160 120 C-230 110 -248 70 -250 20Z"/></clipPath>
+  </defs>
+  <g id="arka"></g>
+  <g id="tarama"></g>
+  <g id="dunya"></g>
+  <g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '600 80px Fredoka'];
+const BEYIN = 'M-250 20 C-260 -120 -150 -220 -20 -215 C120 -230 250 -150 255 -20 C260 60 220 110 150 120 C120 160 60 165 20 140 C-30 170 -120 160 -160 120 C-230 110 -248 70 -250 20Z';
+const KIVRIM = ['M-160 -130 q40 -30 80 0 t80 -10', 'M-60 -150 q30 30 70 0 t70 20', 'M60 -60 q40 -30 80 10', 'M120 40 q30 -30 70 0', 'M20 -10 q20 40 60 20', 'M10 80 q40 -20 80 0'];
+// tarama bölgeleri: [ad, renk, elips cx cy rx ry]
+const LOB = { see: ['#5FB8FF', 200, -30, 95, 130], move: ['#FFD166', -40, -150, 70, 120], talk: ['#C77DFF', -40, 80, 150, 60], remember: ['#FF9F5A', 30, 10, 70, 40], think: ['#6EE7B7', -180, -40, 110, 150], feel: ['#FF7AA2', 90, -150, 110, 80] };
+
+function beyin(o, t) {
+  // o: x y s, scan (0..1), lobes {ad: 0..1}, sleep, blink, wink, surprise, cap ('sleep'|'surgery'|null)
+  const nef = 1 + sin(t * 0.08) * 0.012, bob = sin(t * 0.06) * 10;
+  let g = `<g transform="translate(${f2(o.x)},${f2(o.y + bob)}) scale(${(o.s * nef).toFixed(3)})">`;
+  g += `<rect x="50" y="110" width="50" height="130" rx="25" fill="${o.scan > .5 ? 'none' : '#E77F9C'}" stroke="${o.scan > .5 ? '#9BE1FF' : 'none'}" stroke-width="4"/>`;
+  g += `<ellipse cx="160" cy="130" rx="80" ry="48" fill="${o.scan > .5 ? 'rgba(120,205,255,.1)' : '#F08AA6'}" stroke="${o.scan > .5 ? '#9BE1FF' : '#D9668A'}" stroke-width="5"/>`;
+  g += `<path d="${BEYIN}" fill="${mix('#FFA9C0', '#14294A', o.scan)}" stroke="${mix('#D9668A', '#9BE1FF', o.scan)}" stroke-width="7" stroke-linejoin="round"/>`;
+  // bölgeler
+  g += `<g clip-path="url(#beyinKes)">`;
+  for (const [ad, v] of Object.entries(o.lobes || {})) { if (v < .01) continue; const [c, cx, cy, rx, ry] = LOB[ad]; g += `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${c}" opacity="${f2(v * (0.75 + 0.2 * sin(t * .3 + cx)))}"/>`; }
+  g += `</g>`;
+  g += KIVRIM.map(d => `<path d="${d}" stroke="${mix('#D9668A', '#9BE1FF', o.scan)}" stroke-width="7" fill="none" stroke-linecap="round" opacity=".8"/>`).join('');
+  g += `<path d="M-180 -150 Q-120 -195 -50 -195" stroke="#FFD6E1" stroke-width="16" fill="none" stroke-linecap="round" opacity="${f2(.7 * (1 - o.scan))}"/>`;
+  // yüz (sola bakıyor)
+  const kapali = o.sleep > .5 || o.blink;
+  const goz = (x, kirp) => kirp ? `<path d="M${x - 18} -5 q18 14 36 0" stroke="#3A1430" stroke-width="7" fill="none" stroke-linecap="round"/>` :
+    `<circle cx="${x}" cy="-5" r="${o.surprise ? 26 : 22}" fill="#fff"/><circle cx="${x - 4}" cy="-3" r="${o.surprise ? 10 : 13}" fill="#3A1430"/><circle cx="${x - 9}" cy="-10" r="5" fill="#fff"/>`;
+  g += `<g opacity="${f2(1 - o.scan * .6)}">` + goz(-150, kapali) + goz(-60, kapali || o.wink);
+  g += `<ellipse cx="-185" cy="35" rx="20" ry="11" fill="#FF6F91" opacity=".5"/><ellipse cx="-25" cy="35" rx="20" ry="11" fill="#FF6F91" opacity=".5"/>`;
+  g += o.surprise ? `<ellipse cx="-105" cy="50" rx="12" ry="15" fill="#3A1430"/>` : o.sleep > .5 ? `<ellipse cx="-105" cy="48" rx="9" ry="6" fill="#3A1430"/>` : `<path d="M-128 40 q23 22 46 0" stroke="#3A1430" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+  g += '</g>';
+  if (o.cap === 'sleep') g += `<g transform="rotate(-12)"><path d="M-130 -190 Q-40 -330 140 -230 Q40 -230 -130 -190Z" fill="#6C8CFF"/><path d="M-140 -192 Q0 -235 150 -215" stroke="#fff" stroke-width="22" stroke-linecap="round" fill="none"/><circle cx="160" cy="-238" r="24" fill="#fff"/></g>`;
+  if (o.cap === 'surgery') g += `<path d="M-200 -150 Q-20 -290 200 -150 Q0 -205 -200 -150Z" fill="#7FD1C7" stroke="#3E9C92" stroke-width="5"/>`;
+  return g + '</g>';
+}
+
+function ampul(x, y, s, sur, t, isik = 0) {
+  const b = sin(t * 0.1 + 1) * 10;
+  let g = `<g transform="translate(${f2(x)},${f2(y + b)}) scale(${s})">`;
+  if (isik > .01) g += `<circle r="${f2(120 + 20 * sin(t * .3))}" fill="#FFE27A" opacity="${f2(isik * .25)}"/>`;
+  g += `<path d="M0 -80 C48 -80 74 -45 74 -8 C74 22 55 38 44 60 L-44 60 C-55 38 -74 22 -74 -8 C-74 -45 -48 -80 0 -80Z" fill="${mix('#FFF4C2', '#FFE27A', isik)}" stroke="#2A1F4A" stroke-width="6"/>`;
+  g += `<rect x="-40" y="60" width="80" height="44" rx="8" fill="#B8B3CC" stroke="#2A1F4A" stroke-width="6"/><path d="M-40 75 h80 M-40 90 h80" stroke="#2A1F4A" stroke-width="4"/>`;
+  g += `<circle cx="-22" cy="-12" r="${sur ? 12 : 9}" fill="#2A1F4A"/><circle cx="22" cy="-12" r="${sur ? 12 : 9}" fill="#2A1F4A"/>`;
+  g += sur ? `<ellipse cx="0" cy="22" rx="10" ry="13" fill="#2A1F4A"/>` : `<path d="M-14 18 q14 14 28 0" stroke="#2A1F4A" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  g += `<ellipse cx="-42" cy="8" rx="11" ry="7" fill="#FF9FB4" opacity=".7"/><ellipse cx="42" cy="8" rx="11" ry="7" fill="#FF9FB4" opacity=".7"/>`;
+  return g + '</g>';
+}
+
+function bar(x, y, w, oran, renk, yazi) {
+  return `<g transform="translate(${x},${y})"><rect x="${-w / 2}" y="-30" width="${w}" height="60" rx="30" fill="#2A1F4A" stroke="#FFF3DC" stroke-width="6"/>` +
+    `<rect x="${-w / 2 + 8}" y="-22" width="${f2(Math.max(0, (w - 16) * oran))}" height="44" rx="22" fill="${renk}"/>` +
+    `<text class="lbl" x="0" y="100" text-anchor="middle" font-size="64" fill="#FFF3DC" stroke="#241C45" stroke-width="10">${yazi}</text></g>`;
+}
+function pasta(x, y, r, oran, renk, ust, alt, p) {
+  const a = oran * P * 2, ex = sin(a) * r, ey = -cos(a) * r;
+  return `<g transform="translate(${x},${y}) scale(${f2(p)})"><circle r="${r}" fill="#3A2E66" stroke="#FFF3DC" stroke-width="6"/>` +
+    `<path d="M0 0 L0 ${-r} A${r} ${r} 0 ${oran > .5 ? 1 : 0} 1 ${f2(ex)} ${f2(ey)}Z" fill="${renk}"/>` +
+    `<text class="lbl" y="-${r + 30}" text-anchor="middle" font-size="64" fill="${renk}" stroke="#241C45" stroke-width="10">${ust}</text>` +
+    `<text class="lbl" y="${r + 70}" text-anchor="middle" font-size="48" fill="#FFF3DC" stroke="#241C45" stroke-width="9">${alt}</text></g>`;
+}
+
+let K = null;
+function kur() {
+  const S = T.seg, c = cue, E = T.total;
+  K = {
+    cam: [[0, [540, 1220, 1]], [S.scan.start, [540, 1220, 1.05]], [S.scan.start + 18, [540, 1240, 1.45]], [S.energy.start, [540, 1240, 1.45]], [S.energy.start + 16, [540, 1220, 1]],
+      [S.sleep.start, [540, 1220, 1]], [S.sleep.start + 16, [540, 1250, 1.3]], [S.pain.end, [540, 1250, 1.3]], [S.speed.start + 14, [540, 1220, 1]], [E, [540, 1220, 1]]],
+    scan: [[0, 0], [S.scan.start - 4, 0], [S.scan.start + 8, 1], [S.energy.start - 2, 1], [S.energy.start + 10, 0]],
+    gece: [[0, 0], [S.sleep.start - 6, 0], [S.sleep.start + 8, 1], [S.pain.start - 2, 1], [S.pain.start + 10, 0]],
+  };
+}
+
+window.renderFrame = function (f) {
+  if (!K) kur();
+  const S = T.seg, c = cue, t = f;
+  const [cx, cy, s] = kf(f, K.cam);
+  const N = kf(f, K.gece);
+
+  // ----- arka plan -----
+  let a = `<rect width="1080" height="1920" fill="url(#oda)"/><rect width="1080" height="1920" fill="#0C0A22" opacity="${f2(N * .55)}"/>`;
+  for (let k = 0; k < 26; k++) { const x = rastgele(k) * 1080, y = rastgele(k + 30) * 1700 + 150, r = 3 + rastgele(k + 60) * 6; a += `<circle cx="${f2(x + sin(t * .01 + k) * 20)}" cy="${f2(y + cos(t * .012 + k) * 20)}" r="${f2(r)}" fill="#FFE9F2" opacity="${f2(.15 + .25 * (0.5 + 0.5 * sin(t * .05 + k)))}"/>`; }
+  if (N > .01) a += `<g opacity="${f2(N)}"><circle cx="860" cy="560" r="70" fill="#FFF1C9"/><circle cx="890" cy="540" r="62" fill="#3A2E66" opacity=".95"/></g>`;
+  $('arka').innerHTML = a;
+  const X = kf(f, K.scan);
+  $('tarama').innerHTML = X > .01 ? `<g opacity="${X.toFixed(3)}"><rect width="1080" height="1920" fill="#0A1530"/><rect width="1080" height="1920" fill="url(#izgara)"/></g>` : '';
+
+  // ----- dünya -----
+  let w = '';
+  // minder
+  w += `<ellipse cx="540" cy="1530" rx="300" ry="54" fill="#2A1F4A" opacity=".35"/><path d="M270 1480 Q540 1420 810 1480 Q830 1540 540 1560 Q250 1540 270 1480Z" fill="#E07A9C" opacity="${f2(1 - X)}"/>`;
+  const lobes = {};
+  const yak = (k, f0) => kf(f, [[0, 0], [f0 - 2, 0], [f0 + 8, 1], [S.energy.start, 1], [S.energy.start + 8, 0]]);
+  lobes.see = yak('see', c('scan', 'seeing')); lobes.move = yak('move', c('scan', 'moving')); lobes.talk = yak('talk', c('scan', 'talking')); lobes.remember = yak('remember', c('scan', 'remembering'));
+  const gun = c('scan', 'single');
+  lobes.think = Math.max(yak('think', gun), kf(f, [[0, 0], [c('scan', 'brain'), 0], [c('scan', 'activity'), .6], [c('scan', 'different'), 0]]));
+  lobes.feel = yak('feel', gun + 8);
+  const son = c('son', 'all');
+  const tamam = kf(f, [[0, 0], [son - 2, 0], [son + 10, 1]]);
+  if (tamam > .01) Object.keys(LOB).forEach(k => lobes[k] = tamam * .6);
+  const blinkF = [50, 260, 600, 1000, 1280, 1420].some(b => f >= b && f < b + 6);
+  const sur = (f >= c('hook', 'well') && f < c('hook', 'well') + 26) || (f >= c('energy', 'terrible') && f < c('energy', 'terrible') + 20);
+  const cap = f >= S.sleep.start + 4 && f < S.pain.start + 6 ? 'sleep' : f >= c('pain', 'awake') && f < S.speed.start + 6 ? 'surgery' : null;
+  const wink = f >= c('son', 'right') + 4 && f < T.total - 8;
+  // beyin konumu: uyku ve hız sahnelerinde hafif kayma
+  const bx = 540, by = kf(f, [[0, 1250], [S.energy.start, 1250], [S.energy.start + 16, 1080], [S.sleep.start, 1080], [S.sleep.start + 16, 1250], [S.speed.start, 1250], [S.speed.start + 14, 1120], [S.son.start, 1120], [S.son.start + 16, 1250]]);
+  const bs = kf(f, [[0, 1], [S.energy.start, 1], [S.energy.start + 16, .72], [S.sleep.start, .72], [S.sleep.start + 16, 1], [S.speed.start, 1], [S.speed.start + 14, .8], [S.son.start, .8], [S.son.start + 16, 1]]);
+  w += beyin({ x: bx, y: by, s: bs, scan: X, lobes, sleep: N, blink: blinkF, wink, surprise: sur, cap }, t);
+
+  // tarama etiketleri
+  const lbl = (ad, txt, x, y) => w += etiket(txt, x, y, f, c('scan', ad), S.energy.start - 2, 50, LOB[{ seeing: 'see', moving: 'move', talking: 'talk', remembering: 'remember' }[ad]][0], 'middle', '#0A1530');
+  lbl('seeing', 'see', 820, 1150); lbl('moving', 'move', 470, 960); lbl('talking', 'talk', 380, 1420); lbl('remembering', 'remember', 690, 1430);
+  if (f >= gun && f < S.energy.start + 4) {
+    const p = backOut((f - gun) / 12) * (1 - klamp((f - S.energy.start + 4) / 8)), sa = (f - gun) * 12;
+    w += `<g transform="translate(300,960) scale(${f2(p * .8)})"><circle r="70" fill="#FFF3DC" stroke="#0A1530" stroke-width="8"/><path d="M0 0 V-48" stroke="#0A1530" stroke-width="8" stroke-linecap="round" transform="rotate(${sa})"/><path d="M0 0 H34" stroke="#E8505B" stroke-width="8" stroke-linecap="round" transform="rotate(${sa / 12})"/><text class="lbl" y="125" text-anchor="middle" font-size="44" fill="#FFF3DC" stroke="#0A1530" stroke-width="8">24 h</text></g>`;
+  }
+
+  // ampul (tepkici), tarama ve gece dışında
+  const ampulO = (1 - X) * (1 - N);
+  const isik = kf(f, [[0, 0], [c('hook', 'all') - 2, 0], [c('hook', 'all') + 8, 1], [S.scan.start, 1], [S.scan.start + 8, 0], [son, 0], [son + 10, 1]]);
+  if (ampulO > .01) w += `<g opacity="${f2(ampulO)}">${ampul(860, kf(f, [[0, 900], [S.pain.start - 4, 900], [S.pain.start + 8, 760], [S.speed.start, 760], [S.speed.start + 10, 900]]), .9, sur, t, isik)}</g>`;
+
+  // uyku: zzz, anı kartları, temizlik köpükleri
+  if (N > .01) {
+    for (let k = 0; k < 3; k++) { const u = ((t * .015 + k / 3) % 1); w += `<text class="lbl" x="${f2(330 - u * 120)}" y="${f2(1040 - u * 260)}" font-size="${f2(50 + u * 40)}" fill="#C9D4FF" stroke="#241C45" stroke-width="8" opacity="${f2(N * (1 - u))}">z</text>`; }
+    const kart = c('sleep', 'sorts');
+    for (let k = 0; k < 5; k++) {
+      const p = klamp((f - kart - k * 4) / 16); if (p <= 0) continue;
+      const x0 = 300 + rastgele(k) * 480, y0 = 1500 + rastgele(k + 5) * 120, x1 = 720 + (k % 2) * 90, y1 = 1500 - Math.floor(k / 2) * 26;
+      const col = ['#FFD166', '#5FB8FF', '#FF9F5A', '#6EE7B7', '#C77DFF'][k];
+      w += `<g transform="translate(${f2(x0 + (x1 - x0) * sm(p))},${f2(y0 + (y1 - y0) * sm(p))}) rotate(${f2((1 - p) * (k * 17 - 30))})" opacity="${f2(N)}"><rect x="-50" y="-34" width="100" height="68" rx="10" fill="#FFF3DC" stroke="#241C45" stroke-width="5"/><rect x="-36" y="-20" width="72" height="12" rx="6" fill="${col}"/><rect x="-36" y="2" width="50" height="10" rx="5" fill="#CFC6E6"/></g>`;
+    }
+    const tem = c('sleep', 'cleans');
+    for (let k = 0; k < 12; k++) { const u = klamp((f - tem - k * 2) / 30); if (u > 0 && u < 1) w += `<circle cx="${f2(300 + rastgele(k + 7) * 480)}" cy="${f2(1300 - u * 300)}" r="${f2(10 + rastgele(k) * 16)}" fill="none" stroke="#DFF4FF" stroke-width="4" opacity="${f2(N * (1 - u))}"/>`; }
+    w += etiket('sorting memories', 760, 1630, f, kart, tem - 2, 44, '#FFD166', 'middle', '#241C45');
+    w += etiket('cleaning up', 540, 950, f, tem, S.pain.start - 2, 56, '#DFF4FF', 'middle', '#241C45');
+  }
+  // acı: iğne dürter, beyin umursamaz
+  if (f >= S.pain.start - 4 && f < S.speed.start + 6) {
+    const no = c('pain', 'no'), o = klamp((f - S.pain.start + 4) / 8) * (1 - klamp((f - S.speed.start) / 6));
+    const it = kf(f, [[0, 0], [no, 0], [no + 10, 1], [no + 14, .85], [no + 18, 1], [no + 22, .85], [c('pain', 'which'), .85], [c('pain', 'which') + 10, 0]]);
+    w += `<g opacity="${f2(o)}" transform="translate(${f2(900 - it * 130)},${f2(1000 + it * 60)}) rotate(-28)"><rect x="0" y="-12" width="200" height="24" rx="12" fill="#C9D4FF" stroke="#241C45" stroke-width="5"/><path d="M0 -6 L-60 0 L0 6Z" fill="#E6EBFF" stroke="#241C45" stroke-width="4"/><circle cx="210" r="26" fill="#FF6F91" stroke="#241C45" stroke-width="5"/></g>`;
+    w += etiket('0 pain receptors', 540, 920, f, c('pain', 'pain'), c('pain', 'which'), 64, '#FFF3DC', 'middle', '#241C45');
+    w += etiket('awake brain surgery is real', 540, 1640, f, c('pain', 'awake'), S.pain.end + 4, 48, '#7FD1C7', 'middle', '#241C45');
+  }
+  $('dunya').setAttribute('transform', `translate(540,1250) scale(${s.toFixed(4)}) translate(${f2(-cx)},${f2(-cy)})`);
+  $('dunya').innerHTML = w;
+
+  // ----- ekran katmanı -----
+  let u = '';
+  // kanca: %10 çubuğu dolar
+  const h0 = c('hook', '10'), h1 = c('hook', 'all');
+  if (f >= h0 - 2 && f < S.scan.start + 6) {
+    const o = klamp((f - h0 + 2) / 6) * (1 - klamp((f - S.scan.start) / 6)), oran = kf(f, [[0, .1], [h1, .1], [h1 + 20, 1]]);
+    u += `<g opacity="${f2(o)}">${bar(540, 560, 620, oran, oran > .5 ? '#6EE7B7' : '#FF7AA2', `${Math.round(oran * 100)}% used`)}</g>`;
+  }
+  // enerji: iki pasta
+  const e0 = c('energy', '2'), e1 = c('energy', '20');
+  if (f >= e0 - 2 && f < S.sleep.start + 4) {
+    const k = 1 - klamp((f - S.sleep.start + 4) / 8);
+    u += pasta(300, 1500, 130, .02, '#FF7AA2', '2%', 'of your weight', backOut((f - e0) / 12) * k);
+    if (f >= e1) u += pasta(780, 1500, 130, .2, '#FFD166', '20%', 'of your energy', backOut((f - e1) / 12) * k);
+    u += etiket('terrible deal', 540, 860, f, c('energy', 'terrible'), S.energy.end + 4, 60, '#FF7AA2', 'middle', '#241C45');
+  }
+  // hız: sinir boyunca yarışan sinyal + hız göstergesi
+  if (f >= S.speed.start && f < S.son.start + 8) {
+    const o = klamp((f - S.speed.start) / 8) * (1 - klamp((f - S.son.start) / 8));
+    let d = 'M-40 1700'; for (let k = 0; k < 8; k++) d += ` q70 ${k % 2 ? 70 : -70} 150 0`;
+    u += `<g opacity="${f2(o)}"><path d="${d}" stroke="#FFD6E1" stroke-width="14" fill="none" stroke-linecap="round" opacity=".6"/>`;
+    for (let k = 0; k < 3; k++) { const v = ((t * .04 + k / 3) % 1), x = -40 + v * 1200, y = 1700 + sin(v * 8 * P) * -35; u += `<circle cx="${f2(x)}" cy="${f2(y)}" r="22" fill="#FFE27A"/><circle cx="${f2(x)}" cy="${f2(y)}" r="50" fill="#FFE27A" opacity=".25"/><path d="M${f2(x - 40)} ${f2(y)} h-120" stroke="#FFE27A" stroke-width="8" stroke-linecap="round" opacity=".5"/>`; }
+    const hz = c('speed', '250'), ib = kf(f, [[0, -120], [hz, -120], [hz + 18, 70]]);
+    u += '</g>';
+    u += etiket('250+ mph', 540, 1580, f, hz, S.speed.end + 4, 88, '#FFE27A', 'middle', '#241C45');
+  }
+  u += etiket('100% in use', 540, 560, f, son, T.total - 10, 72, '#6EE7B7', 'middle', '#241C45');
+  $('ust').innerHTML = u;
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

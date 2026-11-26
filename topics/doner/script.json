@@ -1,0 +1,46 @@
+{
+ "title": "Döner neden dikine döner?",
+ "voice": "uKigJX6jL7ZlAQRJHPGO",
+ "segments": [
+  {
+   "scene": "hook",
+   "text": "Dünyanın en bilinen Türk yemeği eskiden yan yatıyordu."
+  },
+  {
+   "scene": "yatay",
+   "text": "Evet, döner. Yüzyıllarca Anadolu'da et, şişe dizilip ateşin önünde yatay olarak çevrildi."
+  },
+  {
+   "scene": "sorun",
+   "text": "Ama yatay pişen et kendi yağında kalıyor, bir tarafı yanarken öbür tarafı çiğ kalabiliyordu."
+  },
+  {
+   "scene": "iskender",
+   "text": "Ailesinin anlattığına göre {1860'larda|bin sekiz yüz altmışlarda} Bursa'da İskender Efendi adında bir aşçı bir şey denedi: Şişi ayağa kaldırdı."
+  },
+  {
+   "scene": "dikey",
+   "text": "Et dikine dönünce yağ aşağı süzüldü, ateş eşit vurdu ve bıçak her seferinde ince, çıtır dilimler kesti."
+  },
+  {
+   "scene": "isim",
+   "text": "Adı da buradan geldi: Dönen et, döner."
+  },
+  {
+   "scene": "kebap",
+   "text": "Bursa'da tereyağı ve yoğurtla buluşunca İskender kebap doğdu."
+  },
+  {
+   "scene": "berlin",
+   "text": "Yıllar sonra Almanya'ya giden Türk işçiler döneri ekmeğin arasına koydu ve Berlin'de bir sokak lezzeti efsanesi başladı."
+  },
+  {
+   "scene": "dunya",
+   "text": "Bugün dünyanın dört bir yanında dönen her şiş, Bursa'daki o tek fikrin torunu."
+  },
+  {
+   "scene": "son",
+   "text": "Sen hangi taraftasın: Ekmek arası mı, porsiyon mu?"
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: 1939 trafik güvenliği afişi, düz şekiller; yalnız Arjin paleti + beyaz. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#28301C}
+  #zemin{position:absolute;inset:0;width:1080px;height:1920px}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:70px;right:70px;top:110px;font:700 54px/1.3 'Libre Franklin';color:#D2CF9A;text-align:center}
+  #alt span{padding:0 6px;border-radius:4px}
+  .bb{font-family:'Bebas Neue'}
+  .lf{font-family:'Libre Franklin';font-weight:700}
+</style>
+</head>
+<body>
+<img id="zemin" src="img/bg.jpg">
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <pattern id="nokta" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="11" cy="11" r="4" fill="#9A7E3B" opacity=".35"/></pattern>
+    <pattern id="serit" width="70" height="70" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="70" height="70" fill="#9A7E3B"/><rect width="35" height="70" fill="#28301C"/></pattern>
+    <g id="clips"></g>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#nokta)"/>
+  <g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 60px "Bebas Neue"', '700 60px "Libre Franklin"'];
+const INK = '#28301C', GREEN = '#323D25', GOLD = '#9A7E3B', KHAKI = '#D2CF9A', WHITE = '#FFFFFF';
+const c = cue, ac = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
+const yazi = (txt, x, y, s, o = {}) => `<text x="${f2(x)}" y="${f2(y)}" class="${o.cls || 'bb'}" font-size="${s}" fill="${o.renk || KHAKI}" text-anchor="${o.a || 'middle'}" letter-spacing="${o.ls ?? 3}" opacity="${f2(o.op ?? 1)}">${txt}</text>`;
+const kazi = (f, f0, ic, x = 540, y = 960, d = 8) => f < f0 ? '' : `<g opacity="${f2(ac(f, f0, d * .6))}" transform="translate(${x},${y}) scale(${(1 + .06 * (1 - EASE.dolly(ac(f, f0, d)))).toFixed(3)}) translate(${-x},${-y})">${ic}</g>`;
+const plaka = (f, f0, txt, x, y, s = 84, renk = GOLD, yr = INK, rot = 0) => f < f0 ? '' : kazi(f, f0, `<g transform="rotate(${rot} ${x} ${y})"><rect x="${f2(x - txt.length * s * .22 - 36)}" y="${f2(y - s * .8)}" width="${f2(txt.length * s * .44 + 72)}" height="${f2(s * 1.1)}" rx="10" fill="${renk}"/>${yazi(txt, x, y + s * .08, s, { renk: yr })}</g>`, x, y);
+const tekerlek = (x, y, r, a) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${INK}" stroke="${KHAKI}" stroke-width="6"/><circle cx="${x}" cy="${y}" r="${r * .45}" fill="${GOLD}" stroke="${INK}" stroke-width="5"/>` + [0, 1, 2, 3].map(k => { const t = a + k * P / 2; return `<path d="M${f2(x + r * .45 * cos(t))} ${f2(y + r * .45 * sin(t))} L${f2(x + r * .9 * cos(t))} ${f2(y + r * .9 * sin(t))}" stroke="${KHAKI}" stroke-width="5"/>`; }).join('');
+// okul otobüsü (imza öğe): altın gövde, mürekkep yazı, yan görünüş; w genişlik ~ 760
+function otobus(x, y, s, f, o = {}) {
+  let g = `<rect x="-380" y="-170" width="760" height="230" rx="40" fill="${GOLD}" stroke="${INK}" stroke-width="8"/><path d="M-380 -20 H380" stroke="${INK}" stroke-width="8"/><path d="M-380 -80 H380" stroke="${INK}" stroke-width="4" opacity=".6"/>`;
+  for (let k = 0; k < 6; k++) g += `<rect x="${-340 + k * 88}" y="-140" width="70" height="60" rx="8" fill="${KHAKI}" stroke="${INK}" stroke-width="5"/>`;
+  g += `<rect x="260" y="-140" width="95" height="150" rx="10" fill="${KHAKI}" stroke="${INK}" stroke-width="5"/><path d="M308 -140 V10" stroke="${INK}" stroke-width="4"/><rect x="360" y="-30" width="40" height="20" rx="8" fill="${WHITE}"/><rect x="-396" y="-50" width="26" height="90" rx="6" fill="${GREEN}" stroke="${INK}" stroke-width="5"/>`;
+  if (o.yazi !== false) g += yazi('SCHOOL BUS', -60, 40, 50, { renk: INK, ls: 6 });
+  g += tekerlek(-230, 70, 62, f * .12) + tekerlek(200, 70, 62, f * .12);
+  return at(x, y, s, g);
+}
+const kaldirim = y => `<path d="M-50 ${y} H1130" stroke="${KHAKI}" stroke-width="10"/><path d="M-50 ${y + 40} H1130" stroke="${GOLD}" stroke-width="4" stroke-dasharray="40 30"/>`;
+const cocuk = (x, y, s = 1, sal = 0) => at(x, y, s, `<circle cy="-92" r="26" fill="${KHAKI}"/><path d="M-30 0 Q-30 -64 0 -64 Q30 -64 30 0Z" fill="${KHAKI}"/><rect x="-8" y="-6" width="16" height="48" fill="${KHAKI}"/><path d="M26 -52 L${48 + sal} -90" stroke="${KHAKI}" stroke-width="10" stroke-linecap="round"/>`);
+
+const SAHNE = {
+  hook(f) {
+    const al = c('hook', 'always'), no = c('hook', 'not'), de = c('hook', 'decision');
+    const u = EASE.dolly(ac(f, 0, 26)), bx = 540 + 700 * (1 - u);
+    let g = kazi(f, c('hook', 'school'), yazi('ALWAYS YELLOW?', 540, 600, 150, { ls: 6 }), 540, 540);
+    g += kaldirim(1260) + otobus(bx, 1130, 1.18, f);
+    g += plaka(f, no, 'NOT A COINCIDENCE', 540, 1560, 96, KHAKI, INK, -2);
+    g += plaka(f, de, 'A DECISION', 540, 1700, 110, GOLD, INK, 2);
+    return g;
+  },
+  wagon(f) {
+    const fa = c('wagon', 'farm'), be = c('wagon', 'benches'), na = c('wagon', 'national'), lk = c('wagon', 'look');
+    const u = EASE.dolly(ac(f, 0, 30)), x = 540 + 500 * (1 - u);
+    let g = kaldirim(1260) + at(x, 1100, 1.2, `<rect x="-300" y="-110" width="560" height="150" fill="${GREEN}" stroke="${KHAKI}" stroke-width="8"/>` + [0, 1, 2].map(k => `<rect x="${-260 + k * 160}" y="-60" width="130" height="14" fill="${GOLD}"/><path d="M${-230 + k * 160} -46 V10 M${-160 + k * 160} -46 V10" stroke="${GOLD}" stroke-width="8"/>`).join('') + `<path d="M260 -30 L420 -50" stroke="${KHAKI}" stroke-width="10"/>` + tekerlek(-200, 70, 90, f * .05) + tekerlek(140, 70, 90, f * .05));
+    g += kazi(f, fa, yazi('FARM WAGON + BENCHES', 540, 600, 120), 540, 560);
+    g += kazi(f, na, yazi('NATIONAL STANDARD:', 540, 1500, 100, { renk: WHITE }), 540, 1480);
+    if (f >= lk) { const k = EASE.dolly(ac(f, lk, 12)); g += `<g transform="translate(540,1620) rotate(-6) scale(${(1 + .3 * (1 - k)).toFixed(3)})"><rect x="-190" y="-90" width="380" height="130" fill="${GOLD}"/>${yazi('NONE', 0, 20, 130, { renk: INK, ls: 8 })}</g>`; }
+    return g;
+  },
+  meeting(f) {
+    const ap = c('meeting', 'april'), pr = c('meeting', 'professor'), fo = c('meeting', 'fortyeight'), bb = c('meeting', 'bus'), pa = c('meeting', 'paint'), co = c('meeting', 'columbia'), we = c('meeting', 'week');
+    let g = kazi(f, ap, yazi('APRIL 1939', 540, 600, 150, { ls: 6 }), 540, 560);
+    g += kazi(f, co, yazi('COLUMBIA UNIVERSITY', 540, 700, 80, { renk: GOLD }), 540, 680);
+    // 48 eyalet: 8x6 kare, sırayla dolar
+    const t0 = fo - 4, n = Math.floor(klamp((f - t0) / 40) * 48);
+    for (let k = 0; k < 48; k++) { const x = 190 + (k % 8) * 100, y = 820 + Math.floor(k / 8) * 100; g += `<rect x="${x}" y="${y}" width="80" height="80" rx="8" fill="${k < n ? GOLD : 'none'}" stroke="${GOLD}" stroke-width="4" opacity="${k < n ? 1 : .35}"/>`; }
+    g += kazi(f, fo, yazi('48 STATES', 540, 1480, 110), 540, 1450);
+    g += kazi(f, pr, `<circle cx="200" cy="1640" r="40" fill="${KHAKI}"/><path d="M150 1740 Q150 1690 200 1690 Q250 1690 250 1740Z" fill="${KHAKI}"/>` + yazi('FRANK CYR', 300, 1660, 56, { a: 'start', renk: WHITE }) + yazi('PROFESSOR', 300, 1710, 44, { a: 'start', renk: GOLD }), 260, 1680);
+    g += kazi(f, bb, yazi('BUILDERS', 760, 1640, 52, { renk: WHITE }), 760, 1630) + kazi(f, pa, yazi('PAINT EXPERTS', 760, 1710, 52, { renk: GOLD }), 760, 1700);
+    if (f >= we) { g += `<g transform="translate(540,1840) scale(.9)">${[0, 1, 2, 3, 4, 5, 6].map(k => `<rect x="${-300 + k * 90}" y="-34" width="76" height="68" rx="8" fill="${k < Math.min(7, Math.floor((f - we) / 6) + 1) ? KHAKI : 'none'}" stroke="${KHAKI}" stroke-width="4"/>`).join('')}</g>`; }
+    return g;
+  },
+  rules(f) {
+    const ag = c('rules', 'agreed'), fo = c('rules', 'fortyfour'), co = c('rules', 'color'), ye = c('rules', 'yelloworange'), ch = c('rules', 'chrome');
+    let g = kazi(f, fo, yazi('44 STANDARDS', 540, 600, 150, { ls: 6 }), 540, 560);
+    const n = Math.floor(klamp((f - (ag + 2)) / 40) * 44), hl = f >= co;
+    for (let k = 0; k < 44; k++) { const x = 130 + (k % 11) * 78, y = 740 + Math.floor(k / 11) * 90, ac1 = k < n, sel = hl && k === 21; g += `<rect x="${x}" y="${y}" width="60" height="60" rx="6" fill="${sel ? GOLD : ac1 ? GREEN : 'none'}" stroke="${sel ? WHITE : GOLD}" stroke-width="${sel ? 8 : 4}" opacity="${ac1 || sel ? 1 : .35}"/>`; if (ac1) g += `<path d="M${x + 14} ${y + 32} l12 14 l22 -30" fill="none" stroke="${sel ? INK : KHAKI}" stroke-width="7" stroke-linecap="round"/>`; }
+    g += kazi(f, co, yazi('ONE OF THEM: COLOR', 540, 1180, 84, { renk: WHITE }), 540, 1170);
+    if (f >= ye) { const k = EASE.dolly(ac(f, ye, 14)); g += `<circle cx="540" cy="1420" r="${f2(150 * k)}" fill="${GOLD}" stroke="${INK}" stroke-width="8"/>`; }
+    g += plaka(f, ch, 'NATIONAL SCHOOL BUS CHROME', 540, 1700, 62, KHAKI, INK, -2);
+    return g;
+  },
+  why(f) {
+    const bl = c('why', 'black'), ye = c('why', 'yellow'), dawn = c('why', 'dawn'), ch = c('why', 'children'), rd = c('why', 'roadside');
+    const dim = .55 * ac(f, c('why', 'halfdark'), 20);
+    let g = kazi(f, bl, `<rect x="140" y="560" width="800" height="300" rx="16" fill="${GOLD}"/>` + yazi('SCHOOL BUS', 540, 750, 190, { renk: INK, ls: 8 }), 540, 710);
+    g += kazi(f, ye, `<rect x="140" y="920" width="800" height="300" rx="16" fill="${GREEN}" stroke="${GOLD}" stroke-width="4"/>` + yazi('SCHOOL BUS', 540, 1110, 190, { renk: INK, ls: 8, op: .5 }) + yazi('hard to read', 540, 1190, 56, { cls: 'lf', renk: KHAKI, ls: 1 }), 540, 1070);
+    g += kazi(f, bl, yazi('YELLOW', 540, 520, 90, { renk: WHITE }) + yazi('+ BLACK', 540, 905, 0, {}), 540, 520);
+    if (dim > 0) g += `<rect x="0" y="480" width="1080" height="800" fill="${INK}" opacity="${f2(dim)}"/>`;
+    g += kazi(f, dawn, yazi('DAWN & DUSK', 540, 1330, 100), 540, 1310);
+    if (f >= ch) { g += kaldirim(1790); [200, 340, 480].forEach((x, i) => g += cocuk(x, 1770, 1.15, 6 * sin(f * .2 + i))); }
+    g += kazi(f, rd, yazi('AT THE ROADSIDE', 760, 1620, 60, { renk: GOLD }), 760, 1620);
+    return g;
+  },
+  today(f) {
+    const na = c('today', 'national'), nu = c('today', '13432');
+    let g = kazi(f, c('today', 'today'), yazi('TODAY', 540, 600, 150, { ls: 8 }), 540, 560);
+    g += kazi(f, na, `<rect x="190" y="720" width="700" height="760" rx="24" fill="${KHAKI}" stroke="${WHITE}" stroke-width="6"/><rect x="230" y="760" width="620" height="400" rx="12" fill="${GOLD}"/>` + yazi('NATIONAL SCHOOL BUS', 540, 1250, 64, { renk: INK }) + yazi('GLOSSY YELLOW', 540, 1340, 92, { renk: INK }), 540, 1100, 14);
+    g += kazi(f, nu, `<rect x="250" y="1500" width="580" height="180" fill="${INK}" stroke="${GOLD}" stroke-width="6"/>` + yazi('FED. STD. 595', 540, 1570, 60, { renk: GOLD }) + yazi('13432', 540, 1650, 110, { renk: WHITE, ls: 8 }), 540, 1590);
+    return g;
+  },
+  son(f) {
+    const wk = c('son', 'weeklong'), li = c('son', 'like'), fo = c('son', 'follow');
+    const u = EASE.dolly(ac(f, 0, 40));
+    let g = kazi(f, c('son', 'legacy'), yazi('ONE WEEK. 1939.', 540, 600, 140, { ls: 6 }), 540, 560);
+    g += kaldirim(1260) + otobus(1000 - 460 * u, 1120, .9, f);
+    g += plaka(f, li, 'LIKE', 540, 1500, 100, GOLD, INK, -2) + plaka(f, fo, 'FOLLOW', 540, 1700, 100, KHAKI, INK, 2);
+    return g;
+  },
+};
+const SIRA = Object.keys(SAHNE);
+const aralik = ad => { const i = SIRA.indexOf(ad), b = a => a === 'hook' ? 0 : T.seg[a].start - 10; return [b(ad), SIRA[i + 1] ? b(SIRA[i + 1]) : T.total + 30]; };
+const W = 14;
+window.renderFrame = function (f) {
+  let g = '', clip = '', ust = '';
+  SIRA.forEach((ad, i) => {
+    const [b, s] = aralik(ad);
+    if (f < b || f > s + W) return;
+    // geçiş: çapraz tehlike şeridi soldan sağa süpürür (eğim 300 px); arkasında yeni sahne açılır
+    const ui = i ? EASE.dolly(klamp((f - b) / W)) : 1, uo = EASE.dolly(klamp((f - s) / W));
+    if (ui - uo <= 0) return;
+    const xo = -400 + 1880 * uo, xi = -400 + 1880 * ui;
+    clip += `<clipPath id="c${i}"><path d="M${f2(xo)} 0 H${f2(xi)} L${f2(xi - 300)} 1920 H${f2(xo - 300)}Z"/></clipPath>`;
+    g += `<g clip-path="url(#c${i})">${SAHNE[ad](f)}</g>`;
+    if (i && ui > 0 && ui < 1) ust += `<path d="M${f2(xi - 90)} 0 H${f2(xi + 30)} L${f2(xi - 270)} 1920 H${f2(xi - 390)}Z" fill="url(#serit)" stroke="${INK}" stroke-width="6"/>`;
+  });
+  $('clips').innerHTML = clip; $('sahne').innerHTML = g; $('ust').innerHTML = ust;
+  altyazi11(f, $('alt'));
+};
+function altyazi11(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || tt > T.timing.voice_end + .3) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.4' : tt < x.end + 0.05 ? `background:${GOLD};color:${INK}` : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>

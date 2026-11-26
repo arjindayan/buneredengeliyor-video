@@ -1,0 +1,815 @@
+{
+"duration": 47.751,
+"words": [
+{
+"w": "Goosebumps",
+"start": 0.0,
+"end": 0.64,
+"seg": 0
+},
+{
+"w": "are",
+"start": 0.72,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "completely",
+"start": 0.88,
+"end": 1.6,
+"seg": 0
+},
+{
+"w": "useless.",
+"start": 1.68,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 2.8,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 3.36,
+"end": 3.52,
+"seg": 0
+},
+{
+"w": "not",
+"start": 3.6,
+"end": 3.68,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 3.76,
+"end": 4.32,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.4,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "They're",
+"start": 5.2,
+"end": 5.307,
+"seg": 0
+},
+{
+"w": "a",
+"start": 5.333,
+"end": 5.36,
+"seg": 0
+},
+{
+"w": "leftover",
+"start": 5.44,
+"end": 5.92,
+"seg": 0
+},
+{
+"w": "from",
+"start": 6.0,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "when",
+"start": 6.24,
+"end": 6.32,
+"seg": 0
+},
+{
+"w": "our",
+"start": 6.4,
+"end": 6.48,
+"seg": 0
+},
+{
+"w": "ancestors",
+"start": 6.56,
+"end": 7.12,
+"seg": 0
+},
+{
+"w": "were",
+"start": 7.2,
+"end": 7.28,
+"seg": 0
+},
+{
+"w": "much",
+"start": 7.44,
+"end": 7.6,
+"seg": 0
+},
+{
+"w": "hairier.",
+"start": 7.68,
+"end": 8.16,
+"seg": 0
+},
+{
+"w": "Every",
+"start": 8.64,
+"end": 8.88,
+"seg": 1
+},
+{
+"w": "hair",
+"start": 8.96,
+"end": 9.12,
+"seg": 1
+},
+{
+"w": "on",
+"start": 9.2,
+"end": 9.28,
+"seg": 1
+},
+{
+"w": "your",
+"start": 9.36,
+"end": 9.44,
+"seg": 1
+},
+{
+"w": "body",
+"start": 9.6,
+"end": 9.76,
+"seg": 1
+},
+{
+"w": "has",
+"start": 9.84,
+"end": 9.92,
+"seg": 1
+},
+{
+"w": "a",
+"start": 9.96,
+"end": 10.0,
+"seg": 1
+},
+{
+"w": "tiny",
+"start": 10.08,
+"end": 10.4,
+"seg": 1
+},
+{
+"w": "muscle",
+"start": 10.48,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "attached",
+"start": 10.8,
+"end": 11.2,
+"seg": 1
+},
+{
+"w": "to",
+"start": 11.24,
+"end": 11.28,
+"seg": 1
+},
+{
+"w": "it.",
+"start": 11.36,
+"end": 11.52,
+"seg": 1
+},
+{
+"w": "When",
+"start": 11.92,
+"end": 12.0,
+"seg": 1
+},
+{
+"w": "you're",
+"start": 12.053,
+"end": 12.16,
+"seg": 1
+},
+{
+"w": "cold,",
+"start": 12.36,
+"end": 12.8,
+"seg": 1
+},
+{
+"w": "those",
+"start": 12.92,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "muscles",
+"start": 13.12,
+"end": 13.44,
+"seg": 1
+},
+{
+"w": "pull,",
+"start": 13.6,
+"end": 14.08,
+"seg": 1
+},
+{
+"w": "and",
+"start": 14.12,
+"end": 14.16,
+"seg": 1
+},
+{
+"w": "the",
+"start": 14.24,
+"end": 14.28,
+"seg": 1
+},
+{
+"w": "hair",
+"start": 14.32,
+"end": 14.56,
+"seg": 1
+},
+{
+"w": "stands",
+"start": 14.64,
+"end": 14.96,
+"seg": 1
+},
+{
+"w": "up.",
+"start": 15.04,
+"end": 15.28,
+"seg": 1
+},
+{
+"w": "For",
+"start": 15.76,
+"end": 15.84,
+"seg": 2
+},
+{
+"w": "furry",
+"start": 15.92,
+"end": 16.16,
+"seg": 2
+},
+{
+"w": "animals,",
+"start": 16.24,
+"end": 16.8,
+"seg": 2
+},
+{
+"w": "that",
+"start": 16.88,
+"end": 16.96,
+"seg": 2
+},
+{
+"w": "trick",
+"start": 17.0,
+"end": 17.12,
+"seg": 2
+},
+{
+"w": "is",
+"start": 17.2,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "great.",
+"start": 17.44,
+"end": 17.84,
+"seg": 2
+},
+{
+"w": "Raised",
+"start": 18.24,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "fur",
+"start": 18.72,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "traps",
+"start": 19.04,
+"end": 19.36,
+"seg": 2
+},
+{
+"w": "a",
+"start": 19.44,
+"end": 19.48,
+"seg": 2
+},
+{
+"w": "layer",
+"start": 19.52,
+"end": 19.76,
+"seg": 2
+},
+{
+"w": "of",
+"start": 19.84,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "warm",
+"start": 20.0,
+"end": 20.24,
+"seg": 2
+},
+{
+"w": "air,",
+"start": 20.32,
+"end": 20.72,
+"seg": 2
+},
+{
+"w": "like",
+"start": 20.8,
+"end": 20.88,
+"seg": 2
+},
+{
+"w": "a",
+"start": 20.92,
+"end": 20.96,
+"seg": 2
+},
+{
+"w": "puffy",
+"start": 21.0,
+"end": 21.2,
+"seg": 2
+},
+{
+"w": "jacket.",
+"start": 21.28,
+"end": 21.76,
+"seg": 2
+},
+{
+"w": "Here's",
+"start": 22.16,
+"end": 22.4,
+"seg": 3
+},
+{
+"w": "the",
+"start": 22.44,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "wild",
+"start": 22.64,
+"end": 22.96,
+"seg": 3
+},
+{
+"w": "part.",
+"start": 23.04,
+"end": 23.36,
+"seg": 3
+},
+{
+"w": "It",
+"start": 23.68,
+"end": 23.84,
+"seg": 3
+},
+{
+"w": "also",
+"start": 24.0,
+"end": 24.16,
+"seg": 3
+},
+{
+"w": "makes",
+"start": 24.24,
+"end": 24.4,
+"seg": 3
+},
+{
+"w": "animals",
+"start": 24.48,
+"end": 24.88,
+"seg": 3
+},
+{
+"w": "look",
+"start": 25.04,
+"end": 25.2,
+"seg": 3
+},
+{
+"w": "bigger.",
+"start": 25.28,
+"end": 25.84,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 26.08,
+"end": 26.293,
+"seg": 3
+},
+{
+"w": "why",
+"start": 26.347,
+"end": 26.4,
+"seg": 3
+},
+{
+"w": "a",
+"start": 26.48,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "scared",
+"start": 26.64,
+"end": 26.88,
+"seg": 3
+},
+{
+"w": "cat",
+"start": 26.96,
+"end": 27.2,
+"seg": 3
+},
+{
+"w": "puffs",
+"start": 27.28,
+"end": 27.52,
+"seg": 3
+},
+{
+"w": "up",
+"start": 27.6,
+"end": 27.68,
+"seg": 3
+},
+{
+"w": "its",
+"start": 27.76,
+"end": 27.84,
+"seg": 3
+},
+{
+"w": "tail.",
+"start": 28.0,
+"end": 28.24,
+"seg": 3
+},
+{
+"w": "In",
+"start": 28.64,
+"end": 28.8,
+"seg": 4
+},
+{
+"w": "fact,",
+"start": 28.88,
+"end": 29.36,
+"seg": 4
+},
+{
+"w": "the",
+"start": 29.44,
+"end": 29.6,
+"seg": 4
+},
+{
+"w": "same",
+"start": 29.72,
+"end": 29.84,
+"seg": 4
+},
+{
+"w": "alarm",
+"start": 30.0,
+"end": 30.16,
+"seg": 4
+},
+{
+"w": "system",
+"start": 30.24,
+"end": 30.56,
+"seg": 4
+},
+{
+"w": "fires",
+"start": 30.64,
+"end": 31.04,
+"seg": 4
+},
+{
+"w": "when",
+"start": 31.08,
+"end": 31.12,
+"seg": 4
+},
+{
+"w": "you",
+"start": 31.2,
+"end": 31.28,
+"seg": 4
+},
+{
+"w": "feel",
+"start": 31.36,
+"end": 31.44,
+"seg": 4
+},
+{
+"w": "strong",
+"start": 31.6,
+"end": 31.92,
+"seg": 4
+},
+{
+"w": "emotions.",
+"start": 32.0,
+"end": 32.84,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 33.04,
+"end": 33.253,
+"seg": 4
+},
+{
+"w": "why",
+"start": 33.307,
+"end": 33.36,
+"seg": 4
+},
+{
+"w": "a",
+"start": 33.44,
+"end": 33.52,
+"seg": 4
+},
+{
+"w": "great",
+"start": 33.6,
+"end": 33.84,
+"seg": 4
+},
+{
+"w": "song",
+"start": 34.0,
+"end": 34.32,
+"seg": 4
+},
+{
+"w": "can",
+"start": 34.4,
+"end": 34.48,
+"seg": 4
+},
+{
+"w": "give",
+"start": 34.56,
+"end": 34.64,
+"seg": 4
+},
+{
+"w": "you",
+"start": 34.72,
+"end": 34.8,
+"seg": 4
+},
+{
+"w": "chills.",
+"start": 34.88,
+"end": 35.68,
+"seg": 4
+},
+{
+"w": "That's",
+"start": 35.92,
+"end": 36.12,
+"seg": 5
+},
+{
+"w": "not",
+"start": 36.16,
+"end": 36.32,
+"seg": 5
+},
+{
+"w": "all.",
+"start": 36.44,
+"end": 36.8,
+"seg": 5
+},
+{
+"w": "Scientists",
+"start": 37.04,
+"end": 37.52,
+"seg": 5
+},
+{
+"w": "found",
+"start": 37.64,
+"end": 37.76,
+"seg": 5
+},
+{
+"w": "the",
+"start": 37.84,
+"end": 37.92,
+"seg": 5
+},
+{
+"w": "same",
+"start": 38.0,
+"end": 38.24,
+"seg": 5
+},
+{
+"w": "muscle",
+"start": 38.32,
+"end": 38.56,
+"seg": 5
+},
+{
+"w": "and",
+"start": 38.64,
+"end": 38.72,
+"seg": 5
+},
+{
+"w": "nerve",
+"start": 38.8,
+"end": 39.2,
+"seg": 5
+},
+{
+"w": "also",
+"start": 39.36,
+"end": 39.52,
+"seg": 5
+},
+{
+"w": "help",
+"start": 39.6,
+"end": 39.84,
+"seg": 5
+},
+{
+"w": "wake",
+"start": 39.92,
+"end": 40.0,
+"seg": 5
+},
+{
+"w": "up",
+"start": 40.08,
+"end": 40.16,
+"seg": 5
+},
+{
+"w": "the",
+"start": 40.24,
+"end": 40.32,
+"seg": 5
+},
+{
+"w": "cells",
+"start": 40.48,
+"end": 40.64,
+"seg": 5
+},
+{
+"w": "that",
+"start": 40.72,
+"end": 40.8,
+"seg": 5
+},
+{
+"w": "grow",
+"start": 40.88,
+"end": 41.04,
+"seg": 5
+},
+{
+"w": "new",
+"start": 41.12,
+"end": 41.28,
+"seg": 5
+},
+{
+"w": "hair.",
+"start": 41.44,
+"end": 42.08,
+"seg": 5
+},
+{
+"w": "So",
+"start": 42.16,
+"end": 42.32,
+"seg": 6
+},
+{
+"w": "goosebumps",
+"start": 42.48,
+"end": 42.96,
+"seg": 6
+},
+{
+"w": "aren't",
+"start": 43.04,
+"end": 43.28,
+"seg": 6
+},
+{
+"w": "useless.",
+"start": 43.36,
+"end": 44.16,
+"seg": 6
+},
+{
+"w": "They're",
+"start": 44.2,
+"end": 44.32,
+"seg": 6
+},
+{
+"w": "your",
+"start": 44.4,
+"end": 44.56,
+"seg": 6
+},
+{
+"w": "inner",
+"start": 44.72,
+"end": 44.88,
+"seg": 6
+},
+{
+"w": "fur,",
+"start": 44.96,
+"end": 45.52,
+"seg": 6
+},
+{
+"w": "still",
+"start": 45.68,
+"end": 45.84,
+"seg": 6
+},
+{
+"w": "trying",
+"start": 45.96,
+"end": 46.08,
+"seg": 6
+},
+{
+"w": "to",
+"start": 46.16,
+"end": 46.24,
+"seg": 6
+},
+{
+"w": "keep",
+"start": 46.32,
+"end": 46.4,
+"seg": 6
+},
+{
+"w": "you",
+"start": 46.48,
+"end": 46.56,
+"seg": 6
+},
+{
+"w": "warm.",
+"start": 46.64,
+"end": 47.2,
+"seg": 6
+}
+]
+}

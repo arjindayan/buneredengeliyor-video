@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: Paris seyahat afişi. Gece mavisi + gül pembesi + art deco altın; dantel kafesli kule maskotu, güvercin tepkici. Fraunces başlıklar. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#1B2550}
+  svg{position:absolute;inset:0}
+  #altyazi{position:absolute;left:60px;right:60px;top:190px;text-align:center;font:400 88px/1.08 'Patrick Hand';color:#FFF3E6;text-shadow:0 5px 0 rgba(10,14,40,.7)}
+  .lbl{font-family:'Fredoka';font-weight:700;paint-order:stroke;stroke-linejoin:round}
+  .fr{font-family:'Fraunces';font-weight:900}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1"><stop id="g1" offset="0" stop-color="#1B2550"/><stop id="g2" offset=".65" stop-color="#6A4C8C"/><stop id="g3" offset="1" stop-color="#F29E9E"/></linearGradient>
+    <linearGradient id="demir" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8A5A3C"/><stop offset=".5" stop-color="#C98A5A"/><stop offset="1" stop-color="#7A4A30"/></linearGradient>
+    <radialGradient id="sicak" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFB45A" stop-opacity=".6"/><stop offset="1" stop-color="#FFB45A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g id="arka"></g><g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="altyazi"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 80px "Patrick Hand"', '700 80px Fredoka', '900 80px Fraunces'];
+const c = cue, INK = '#1A1430', GOLD = '#F2C66B', GUL = '#F29E9E';
+const L = (txt, x, y, f, f0, f1, s = 80, r = GOLD) => etiket(txt, x, y, f, f0, f1, s, r, 'middle', INK);
+
+// kule: taban (0,0), yükseklik h; o.renk, o.egim (derece), o.uza (0..1 ısıl uzama), o.yuz
+function kule(t, o = {}) {
+  const h = 1000 * (1 + (o.uza || 0) * .06), r = o.renk || 'url(#demir)', eg = o.egim || 0;
+  const y = k => -h * k, w = k => 300 * (1 - k) ** 2.2 + 18;
+  let g = `<g transform="rotate(${f2(eg)})">`;
+  // ayaklar ve kemer
+  g += `<path d="M${-w(0)} 0 L${-w(.3)} ${y(.3)} L${w(.3)} ${y(.3)} L${w(0)} 0 L${w(0) - 70} 0 C${w(0) - 90} -140 ${-w(0) + 90} -140 ${-w(0) + 70} 0Z" fill="${r}" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/>`;
+  g += `<path d="M${-w(.3)} ${y(.3)} L${-w(.62)} ${y(.62)} L${w(.62)} ${y(.62)} L${w(.3)} ${y(.3)}Z" fill="${r}" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/>`;
+  g += `<path d="M${-w(.62)} ${y(.62)} L-10 ${y(.97)} L10 ${y(.97)} L${w(.62)} ${y(.62)}Z" fill="${r}" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/>`;
+  // kafes X'leri
+  for (let k = 0; k < 14; k++) { const a = k / 14 * .95, b = (k + 1) / 14 * .95; g += `<path d="M${f2(-w(a))} ${f2(y(a))} L${f2(w(b))} ${f2(y(b))} M${f2(w(a))} ${f2(y(a))} L${f2(-w(b))} ${f2(y(b))}" stroke="${INK}" stroke-width="3" opacity=".45"/>`; }
+  // platformlar
+  [.3, .62].forEach(k => { g += `<rect x="${f2(-w(k) - 30)}" y="${f2(y(k) - 26)}" width="${f2(2 * w(k) + 60)}" height="34" rx="6" fill="${o.renk2 || '#5A3A28'}" stroke="${INK}" stroke-width="6"/>`; });
+  g += `<rect x="-6" y="${f2(y(1.06))}" width="12" height="${f2(h * .09)}" fill="${INK}"/><circle cy="${f2(y(.97))}" r="18" fill="${GOLD}" stroke="${INK}" stroke-width="5"/>`;
+  if (o.yuz !== false) g += yuz(0, y(.18), .8, t, { seed: o.seed || 0, sur: o.sur, kapali: o.kapali, cizgi: INK, yanak: GUL });
+  return g + '</g>';
+}
+function gunes(x, y, s, t) { let g = `<circle r="200" fill="url(#sicak)"/>`; for (let k = 0; k < 10; k++) { const a = k * P / 5 + t * .01; g += `<path d="M${f2(cos(a) * 110)} ${f2(sin(a) * 110)} L${f2(cos(a) * 150)} ${f2(sin(a) * 150)}" stroke="#FFC75A" stroke-width="14" stroke-linecap="round"/>`; } return at(x, y, s, g + `<circle r="86" fill="#FFC75A" stroke="${INK}" stroke-width="7"/>` + yuz(0, 6, .6, t, { seed: 3, cizgi: INK })); }
+// metre cetveli
+function cetvel(x, y0, y1, etk) {
+  let g = `<path d="M${x} ${y0} V${y1}" stroke="${GOLD}" stroke-width="6"/>`;
+  for (let k = 0; k <= 10; k++) { const yy = y0 + (y1 - y0) * k / 10; g += `<path d="M${x} ${f2(yy)} h${k % 5 ? 20 : 40}" stroke="${GOLD}" stroke-width="5"/>`; }
+  return g;
+}
+
+const SAHNE = {
+  hook(f, S, t) {
+    let g = golge(540, 1720, 380, .35);
+    const u = gir(f, c('hook', 'taller'), 30);
+    g += at(540, 1720, 1, kule(t, { uza: u, sur: f >= c('hook', 'taller') && f < c('hook', 'taller') + 26 }));
+    g += cetvel(140, 1720, 660, '');
+    if (u > 0) g += `<path d="M180 ${f2(1720 - 1000 * (1 + u * .06) - 30)} H420" stroke="#FF8A6B" stroke-width="8" stroke-dasharray="14 10"/>`;
+    g += L('same height?', 540, 560, f, c('hook', 'same'), c('hook', 'well') + 6, 84);
+    g += L('summer = taller', 540, 560, f, c('hook', 'summer'), S.heat.start - 2, 84, '#FFB45A');
+    return g;
+  },
+  heat(f, S, t) {
+    let g = '';
+    // demir çubuk büyüteçte: atomlar ısınınca titreyip açılır
+    const s = gir(f, c('heat', 'heats'), 30);
+    g += `<rect x="150" y="720" width="${f2(780 + s * 60)}" height="200" rx="30" fill="${mix('#8A5A3C', '#E0603A', s)}" stroke="${INK}" stroke-width="9"/>`;
+    for (let k = 0; k < 10; k++) for (let r = 0; r < 2; r++) { const x = 210 + k * (74 + s * 6) + sin(t * (.4 + s) + k + r) * s * 6, y = 780 + r * 80 + cos(t * (.5 + s) + k) * s * 6; g += `<circle cx="${f2(x)}" cy="${f2(y)}" r="24" fill="${mix('#D9A27A', '#FFD27A', s)}" stroke="${INK}" stroke-width="5"/>`; }
+    g += `<path d="M${f2(930 + s * 60)} 820 l40 0 m-16 -16 l16 16 -16 16" stroke="#FFD27A" stroke-width="10" fill="none" stroke-linecap="round" opacity="${f2(s)}"/>`;
+    g += gunes(840, 1330, .9, t);
+    // termometre
+    g += at(260, 1330, 1, `<rect x="-30" y="-200" width="60" height="320" rx="30" fill="#fff" stroke="${INK}" stroke-width="7"/><circle cy="150" r="54" fill="#E0603A" stroke="${INK}" stroke-width="7"/><rect x="-14" y="${f2(-40 - s * 140)}" width="28" height="${f2(190 + s * 140)}" rx="14" fill="#E0603A"/>`);
+    g += L('iron expands', 540, 640, f, c('heat', 'expands'), c('heat', '15') - 2, 84, '#FFB45A');
+    if (f >= c('heat', '15')) g += at(540, 640, pop(f, c('heat', '15')), `<rect x="-230" y="-80" width="460" height="160" rx="30" fill="${GOLD}" stroke="${INK}" stroke-width="8"/><text class="fr" text-anchor="middle" dy="32" font-size="96" fill="${INK}">+15 cm</text>`);
+    return g;
+  },
+  lean(f, S, t) {
+    let g = golge(540, 1720, 380, .35);
+    // güneş soldan sağa geçer; kule ters yöne eğilir
+    const u = klamp((f - c('lean', 'sun')) / (S.temp.start - c('lean', 'sun'))), ax = 160 + u * 760, ay = 820 - sin(u * P) * 220;
+    g += gunes(ax, ay, .6, t);
+    const eg = (u - .5) * -2 * gir(f, c('lean', 'leans'), 20) * 4.5;
+    g += at(540, 1720, 1, kule(t, { egim: eg, seed: 2 }));
+    // sıcak taraf parıltısı
+    g += `<ellipse cx="${f2(540 + (ax < 540 ? -120 : 120))}" cy="1250" rx="160" ry="380" fill="#FFB45A" opacity="${f2(.18 * gir(f, c('lean', 'heats'), 20))}"/>`;
+    g += L('leans away', 540, 560, f, c('lean', 'leans'), S.temp.start - 2, 84);
+    return g;
+  },
+  temp(f, S, t) {
+    let g = '';
+    // 1889 fuarı afişi + 20 yıl izin belgesi
+    g += `<g transform="translate(540,1080) rotate(-2)"><rect x="-340" y="-440" width="680" height="880" rx="12" fill="#F6E7CF" stroke="${INK}" stroke-width="10"/><rect x="-310" y="-410" width="620" height="820" fill="none" stroke="${GUL}" stroke-width="6"/>`;
+    g += `<text class="fr" text-anchor="middle" y="-300" font-size="68" fill="${INK}">EXPOSITION</text><text class="fr" text-anchor="middle" y="-150" font-size="96" fill="#C8463A">1889</text>`;
+    g += at(0, 380, .5, kule(t, { renk: '#C98A5A', yuz: false }));
+    g += '</g>';
+    const izin = gir(f, c('temp', 'permit'), 16);
+    if (izin > 0) {
+      const yil = Math.min(20, Math.floor(Math.max(0, f - c('temp', 'twenty')) / 2));
+      g += at(780, 1500, pop(f, c('temp', 'permit')), `<g transform="rotate(8)"><rect x="-180" y="-120" width="360" height="240" rx="12" fill="#FFF8EC" stroke="${INK}" stroke-width="8"/><text class="lbl" text-anchor="middle" y="-50" font-size="44" fill="${INK}">PERMIT</text><text class="fr" text-anchor="middle" y="60" font-size="96" fill="#C8463A">${yil} yrs</text></g>`);
+    }
+    g += L('never meant to stay', 540, 560, f, c('temp', 'never'), c('temp', 'built') - 2, 76, GUL);
+    return g;
+  },
+  radio(f, S, t) {
+    let g = golge(540, 1720, 380, .35);
+    g += at(540, 1720, 1, kule(t, { seed: 4, sur: f >= c('radio', 'saved') && f < c('radio', 'saved') + 24 }));
+    // radyo dalgaları tepeden
+    const p = gir(f, c('radio', 'antenna'), 12);
+    for (let k = 0; k < 5; k++) { const u = ((f * .02) + k / 5) % 1; g += `<circle cx="540" cy="690" r="${f2(40 + u * 520)}" fill="none" stroke="${GOLD}" stroke-width="${f2(12 * (1 - u))}" opacity="${f2(p * (1 - u))}"/>`; }
+    g += L('SAVED by science', 540, 560, f, c('radio', 'saved'), c('radio', 'antenna') - 2, 80);
+    g += L('radio antenna', 540, 560, f, c('radio', 'antenna'), S.paint.start - 2, 84, '#9FE0FF');
+    return g;
+  },
+  paint(f, S, t) {
+    let g = golge(540, 1720, 380, .35);
+    // boya aşağıdan yukarı dolar
+    const p = klamp((f - c('paint', 'repainted')) / 120);
+    g += `<clipPath id="boyaK"><rect x="0" y="${f2(1720 - p * 1100)}" width="1080" height="1200"/></clipPath>`;
+    g += at(540, 1720, 1, kule(t, { seed: 5 }));
+    g += `<g clip-path="url(#boyaK)">${at(540, 1720, 1, kule(t, { seed: 5, renk: '#8E6E52', renk2: '#5E4632' }))}</g>`;
+    // fırça ve boyacı
+    const by = 1720 - p * 1100;
+    g += at(820, by, 1, `<rect x="-14" y="-120" width="28" height="140" rx="8" fill="#C9A06A" stroke="${INK}" stroke-width="5"/><rect x="-40" y="10" width="80" height="60" rx="8" fill="#8E6E52" stroke="${INK}" stroke-width="5"/>`, -30 + sin(t * .3) * 20);
+    if (f >= c('paint', 'sixty')) g += at(260, 1300, pop(f, c('paint', 'sixty')), `<path d="M-120 -100 h240 l-20 220 h-200Z" fill="#8E6E52" stroke="${INK}" stroke-width="8"/><ellipse cy="-100" rx="120" ry="30" fill="#6E5440" stroke="${INK}" stroke-width="8"/><text class="lbl" text-anchor="middle" y="40" font-size="56" fill="#FFF3E6">60 t</text>`);
+    g += L('every ~7 years', 540, 560, f, c('paint', 'every'), c('paint', 'sixty') - 2, 80);
+    g += L('by hand', 820, 980, f, c('paint', 'hand'), S.son.start - 2, 64, '#FFF3E6');
+    return g;
+  },
+  son(f, S, t) {
+    let g = golge(540, 1720, 380, .35);
+    const u = (sin((f - S.son.start) * .06) + 1) / 2;
+    g += at(540, 1720, 1, kule(t, { uza: u, seed: 6, kapali: f > T.total - 26 }));
+    g += cetvel(140, 1720, 660, '');
+    g += L('breathes with the seasons', 540, 560, f, c('son', 'breathes'), T.total, 70, GUL);
+    return g;
+  },
+};
+
+window.renderFrame = function (f) {
+  let a = `<rect width="1080" height="1920" fill="url(#gok)"/>`;
+  for (let k = 0; k < 40; k++) a += `<circle cx="${f2(rastgele(k) * 1080)}" cy="${f2(rastgele(k + 70) * 900)}" r="${f2(1.5 + rastgele(k + 5) * 2.5)}" fill="#fff" opacity="${f2(.25 + .4 * Math.abs(sin(f * .03 + k)))}"/>`;
+  // Paris çatıları silueti
+  let d = 'M0 1920 V1600'; for (let k = 0; k < 14; k++) { const x = k * 80, h = 1560 + rastgele(k + 3) * 80; d += ` L${x} ${f2(h)} L${x + 40} ${f2(h - 40)} L${x + 80} ${f2(h)}`; } d += ' V1920Z';
+  a += `<path d="${d}" fill="#2A2050" opacity=".9"/>`;
+  for (let k = 0; k < 18; k++) a += `<rect x="${f2(rastgele(k + 11) * 1060)}" y="${f2(1620 + rastgele(k + 22) * 200)}" width="16" height="22" fill="#F2C66B" opacity="${f2(.4 + .4 * (Math.floor(f / 40 + k) % 3 === 0))}"/>`;
+  $('arka').innerHTML = a;
+  vinyetler(f, SAHNE, $('sahne'), 540, 1300, .04);
+  altyazi(f, $('altyazi'));
+};
+</script>
+</body>
+</html>

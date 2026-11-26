@@ -1,0 +1,11 @@
+# Stil kartı: knots — gemi seyir defteri (ruled logbook, el yazısı)
+- Tez: Düğümlü ip + kum saati = hız; "knot" birimi bu ölçümden kalma.
+- Yöntem: mekanizma (gemi, tahta, ip, kum saati) + hesap kutuları; sayı kancası.
+- Malzeme: çizgili/sütunlu seyir defteri sayfası (haki kâğıt), mürekkep çizim, bükümlü ip (çift çizgi dash), pirinç/altın vurgu.
+- Kadraj: sayfa tam ekran, sayfa kenarı ve defter spirali; çizimler satır aralarına.
+- Zaman: 30 fps; geçiş = ip sayfa boyunca soldan sağa çekilir, arkasında yeni sayfa kalır (16 kare).
+- Font: Kalam 700 (el yazısı başlık/etiket), Special Elite (daktilo altyazı). İlk kez.
+- Palet: #D2CF9A sayfa, #28301C mürekkep, #323D25, #9A7E3B, beyaz.
+- İmza öğe: düğümlü ip; düğümler eline değdikçe sayaç artar.
+- Altyazı: mürekkep, söylenen kelime koyu yeşil kutuda beyaz (açık zemin).
+- Kullanılmayanlar: koyu zemin (son iki video), kadran, maskot.

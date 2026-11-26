@@ -1,0 +1,780 @@
+{
+"duration": 55.49,
+"words": [
+{
+"w": "Say",
+"start": 0.0,
+"end": 0.2,
+"seg": 0
+},
+{
+"w": "goodbye",
+"start": 0.24,
+"end": 0.72,
+"seg": 0
+},
+{
+"w": "out",
+"start": 0.8,
+"end": 1.067,
+"seg": 0
+},
+{
+"w": "loud.",
+"start": 1.12,
+"end": 1.6,
+"seg": 0
+},
+{
+"w": "Congratulations,",
+"start": 1.84,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "you",
+"start": 3.36,
+"end": 3.44,
+"seg": 0
+},
+{
+"w": "just",
+"start": 3.52,
+"end": 3.6,
+"seg": 0
+},
+{
+"w": "said",
+"start": 3.68,
+"end": 3.76,
+"seg": 0
+},
+{
+"w": "a",
+"start": 3.84,
+"end": 3.88,
+"seg": 0
+},
+{
+"w": "blessing",
+"start": 3.92,
+"end": 4.32,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 4.4,
+"end": 4.56,
+"seg": 0
+},
+{
+"w": "over",
+"start": 4.72,
+"end": 4.88,
+"seg": 0
+},
+{
+"w": "four",
+"start": 5.04,
+"end": 5.2,
+"seg": 0
+},
+{
+"w": "hundred",
+"start": 5.36,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "years",
+"start": 5.76,
+"end": 6.0,
+"seg": 0
+},
+{
+"w": "old.",
+"start": 6.08,
+"end": 6.8,
+"seg": 0
+},
+{
+"w": "In",
+"start": 6.88,
+"end": 6.96,
+"seg": 1
+},
+{
+"w": "Shakespeare's",
+"start": 7.04,
+"end": 7.52,
+"seg": 1
+},
+{
+"w": "time,",
+"start": 7.68,
+"end": 8.0,
+"seg": 1
+},
+{
+"w": "people",
+"start": 8.08,
+"end": 8.24,
+"seg": 1
+},
+{
+"w": "didn't",
+"start": 8.32,
+"end": 8.56,
+"seg": 1
+},
+{
+"w": "say",
+"start": 8.64,
+"end": 8.72,
+"seg": 1
+},
+{
+"w": "goodbye.",
+"start": 8.84,
+"end": 9.68,
+"seg": 1
+},
+{
+"w": "They",
+"start": 9.76,
+"end": 9.84,
+"seg": 1
+},
+{
+"w": "said",
+"start": 9.92,
+"end": 10.08,
+"seg": 1
+},
+{
+"w": "God",
+"start": 10.48,
+"end": 10.72,
+"seg": 1
+},
+{
+"w": "be",
+"start": 10.8,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "with",
+"start": 10.96,
+"end": 11.12,
+"seg": 1
+},
+{
+"w": "you.",
+"start": 11.2,
+"end": 11.76,
+"seg": 1
+},
+{
+"w": "Or,",
+"start": 11.88,
+"end": 12.12,
+"seg": 1
+},
+{
+"w": "the",
+"start": 12.24,
+"end": 12.32,
+"seg": 1
+},
+{
+"w": "old",
+"start": 12.44,
+"end": 12.56,
+"seg": 1
+},
+{
+"w": "way,",
+"start": 12.64,
+"end": 13.12,
+"seg": 1
+},
+{
+"w": "God",
+"start": 13.2,
+"end": 13.44,
+"seg": 1
+},
+{
+"w": "be",
+"start": 13.52,
+"end": 13.6,
+"seg": 1
+},
+{
+"w": "with",
+"start": 13.68,
+"end": 13.76,
+"seg": 1
+},
+{
+"w": "ye.",
+"start": 13.84,
+"end": 14.48,
+"seg": 1
+},
+{
+"w": "Say",
+"start": 14.56,
+"end": 14.72,
+"seg": 2
+},
+{
+"w": "that",
+"start": 14.84,
+"end": 14.96,
+"seg": 2
+},
+{
+"w": "fast",
+"start": 15.08,
+"end": 15.2,
+"seg": 2
+},
+{
+"w": "enough,",
+"start": 15.28,
+"end": 15.76,
+"seg": 2
+},
+{
+"w": "a",
+"start": 15.84,
+"end": 15.92,
+"seg": 2
+},
+{
+"w": "few",
+"start": 16.0,
+"end": 16.08,
+"seg": 2
+},
+{
+"w": "million",
+"start": 16.24,
+"end": 16.64,
+"seg": 2
+},
+{
+"w": "times,",
+"start": 16.88,
+"end": 17.28,
+"seg": 2
+},
+{
+"w": "and",
+"start": 17.32,
+"end": 17.36,
+"seg": 2
+},
+{
+"w": "it",
+"start": 17.4,
+"end": 17.44,
+"seg": 2
+},
+{
+"w": "gets",
+"start": 17.52,
+"end": 17.68,
+"seg": 2
+},
+{
+"w": "squeezed.",
+"start": 17.72,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "God",
+"start": 18.72,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "be",
+"start": 19.04,
+"end": 19.12,
+"seg": 2
+},
+{
+"w": "wi'",
+"start": 19.2,
+"end": 19.36,
+"seg": 2
+},
+{
+"w": "ye.",
+"start": 19.44,
+"end": 20.08,
+"seg": 2
+},
+{
+"w": "God",
+"start": 20.16,
+"end": 20.32,
+"seg": 2
+},
+{
+"w": "b'wye.",
+"start": 20.4,
+"end": 21.04,
+"seg": 2
+},
+{
+"w": "Godbwye.",
+"start": 21.12,
+"end": 22.08,
+"seg": 2
+},
+{
+"w": "One",
+"start": 22.16,
+"end": 22.24,
+"seg": 3
+},
+{
+"w": "of",
+"start": 22.28,
+"end": 22.32,
+"seg": 3
+},
+{
+"w": "the",
+"start": 22.4,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "oldest",
+"start": 22.56,
+"end": 22.88,
+"seg": 3
+},
+{
+"w": "written",
+"start": 22.96,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "examples",
+"start": 23.2,
+"end": 23.76,
+"seg": 3
+},
+{
+"w": "is",
+"start": 23.84,
+"end": 23.92,
+"seg": 3
+},
+{
+"w": "from",
+"start": 24.04,
+"end": 24.16,
+"seg": 3
+},
+{
+"w": "1573.",
+"start": 24.24,
+"end": 25.84,
+"seg": 3
+},
+{
+"w": "A",
+"start": 25.92,
+"end": 26.0,
+"seg": 3
+},
+{
+"w": "scholar",
+"start": 26.08,
+"end": 26.4,
+"seg": 3
+},
+{
+"w": "named",
+"start": 26.48,
+"end": 26.72,
+"seg": 3
+},
+{
+"w": "Gabriel",
+"start": 26.84,
+"end": 27.12,
+"seg": 3
+},
+{
+"w": "Harvey",
+"start": 27.2,
+"end": 27.68,
+"seg": 3
+},
+{
+"w": "joked",
+"start": 27.76,
+"end": 28.0,
+"seg": 3
+},
+{
+"w": "about",
+"start": 28.12,
+"end": 28.24,
+"seg": 3
+},
+{
+"w": "sending",
+"start": 28.32,
+"end": 28.56,
+"seg": 3
+},
+{
+"w": "a",
+"start": 28.64,
+"end": 28.72,
+"seg": 3
+},
+{
+"w": "whole",
+"start": 28.8,
+"end": 29.04,
+"seg": 3
+},
+{
+"w": "gallon",
+"start": 29.2,
+"end": 29.52,
+"seg": 3
+},
+{
+"w": "of",
+"start": 29.6,
+"end": 29.68,
+"seg": 3
+},
+{
+"w": "godbwyes.",
+"start": 29.72,
+"end": 30.8,
+"seg": 3
+},
+{
+"w": "Then",
+"start": 30.96,
+"end": 31.12,
+"seg": 4
+},
+{
+"w": "God",
+"start": 31.44,
+"end": 31.76,
+"seg": 4
+},
+{
+"w": "turned",
+"start": 31.84,
+"end": 32.08,
+"seg": 4
+},
+{
+"w": "into",
+"start": 32.2,
+"end": 32.32,
+"seg": 4
+},
+{
+"w": "good.",
+"start": 32.4,
+"end": 33.12,
+"seg": 4
+},
+{
+"w": "Why?",
+"start": 33.28,
+"end": 33.92,
+"seg": 4
+},
+{
+"w": "People",
+"start": 34.04,
+"end": 34.16,
+"seg": 4
+},
+{
+"w": "already",
+"start": 34.24,
+"end": 34.56,
+"seg": 4
+},
+{
+"w": "said",
+"start": 34.68,
+"end": 34.8,
+"seg": 4
+},
+{
+"w": "good",
+"start": 34.88,
+"end": 35.04,
+"seg": 4
+},
+{
+"w": "morning,",
+"start": 35.12,
+"end": 35.68,
+"seg": 4
+},
+{
+"w": "good",
+"start": 35.8,
+"end": 35.92,
+"seg": 4
+},
+{
+"w": "day",
+"start": 36.08,
+"end": 36.24,
+"seg": 4
+},
+{
+"w": "and",
+"start": 36.32,
+"end": 36.4,
+"seg": 4
+},
+{
+"w": "good",
+"start": 36.48,
+"end": 36.56,
+"seg": 4
+},
+{
+"w": "night.",
+"start": 36.64,
+"end": 37.28,
+"seg": 4
+},
+{
+"w": "Goodbye",
+"start": 37.4,
+"end": 37.84,
+"seg": 4
+},
+{
+"w": "just",
+"start": 37.92,
+"end": 38.16,
+"seg": 4
+},
+{
+"w": "fit",
+"start": 38.32,
+"end": 38.48,
+"seg": 4
+},
+{
+"w": "right",
+"start": 38.56,
+"end": 38.72,
+"seg": 4
+},
+{
+"w": "in.",
+"start": 38.8,
+"end": 39.44,
+"seg": 4
+},
+{
+"w": "And",
+"start": 39.52,
+"end": 39.6,
+"seg": 5
+},
+{
+"w": "English",
+"start": 39.8,
+"end": 40.0,
+"seg": 5
+},
+{
+"w": "isn't",
+"start": 40.08,
+"end": 40.24,
+"seg": 5
+},
+{
+"w": "alone.",
+"start": 40.44,
+"end": 41.04,
+"seg": 5
+},
+{
+"w": "French",
+"start": 41.12,
+"end": 41.52,
+"seg": 5
+},
+{
+"w": "adieu",
+"start": 41.68,
+"end": 42.08,
+"seg": 5
+},
+{
+"w": "and",
+"start": 42.24,
+"end": 42.4,
+"seg": 5
+},
+{
+"w": "Spanish",
+"start": 42.48,
+"end": 42.88,
+"seg": 5
+},
+{
+"w": "adi\u00f3s",
+"start": 42.96,
+"end": 43.52,
+"seg": 5
+},
+{
+"w": "both",
+"start": 43.68,
+"end": 43.92,
+"seg": 5
+},
+{
+"w": "literally",
+"start": 44.08,
+"end": 44.4,
+"seg": 5
+},
+{
+"w": "mean,",
+"start": 44.48,
+"end": 44.8,
+"seg": 5
+},
+{
+"w": "to",
+"start": 44.96,
+"end": 45.12,
+"seg": 5
+},
+{
+"w": "God.",
+"start": 45.2,
+"end": 46.0,
+"seg": 5
+},
+{
+"w": "So",
+"start": 46.12,
+"end": 46.24,
+"seg": 6
+},
+{
+"w": "every",
+"start": 46.4,
+"end": 46.64,
+"seg": 6
+},
+{
+"w": "goodbye",
+"start": 46.72,
+"end": 47.2,
+"seg": 6
+},
+{
+"w": "is",
+"start": 47.28,
+"end": 47.36,
+"seg": 6
+},
+{
+"w": "a",
+"start": 47.44,
+"end": 47.52,
+"seg": 6
+},
+{
+"w": "tiny",
+"start": 47.72,
+"end": 47.92,
+"seg": 6
+},
+{
+"w": "blessing,",
+"start": 48.0,
+"end": 48.72,
+"seg": 6
+},
+{
+"w": "worn",
+"start": 48.8,
+"end": 49.04,
+"seg": 6
+},
+{
+"w": "down",
+"start": 49.12,
+"end": 49.36,
+"seg": 6
+},
+{
+"w": "by",
+"start": 49.44,
+"end": 49.6,
+"seg": 6
+},
+{
+"w": "centuries",
+"start": 49.68,
+"end": 50.24,
+"seg": 6
+},
+{
+"w": "of",
+"start": 50.28,
+"end": 50.32,
+"seg": 6
+},
+{
+"w": "people",
+"start": 50.48,
+"end": 50.72,
+"seg": 6
+},
+{
+"w": "in",
+"start": 50.8,
+"end": 50.84,
+"seg": 6
+},
+{
+"w": "a",
+"start": 50.88,
+"end": 50.96,
+"seg": 6
+},
+{
+"w": "hurry.",
+"start": 51.067,
+"end": 51.52,
+"seg": 6
+}
+],
+"voice_end": 51.67
+}

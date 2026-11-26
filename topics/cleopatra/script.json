@@ -1,0 +1,14 @@
+{
+  "title": "Cleopatra and the pyramids",
+  "lang": "en",
+  "voice": "uKigJX6jL7ZlAQRJHPGO",
+  "segments": [
+    {"scene": "hook", "text": "Cleopatra lived around the time the pyramids were built. Well, that's not exactly true. She lived closer to the iPhone than to the pyramids."},
+    {"scene": "pyramid", "text": "The Great Pyramid was finished around {2560 BC.|twenty five sixty B C.}"},
+    {"scene": "cleo", "text": "Cleopatra was born about two and a half thousand years later. To her, the pyramids were already ancient ruins."},
+    {"scene": "phone", "text": "And from Cleopatra to the first iPhone in {2007,|two thousand seven,} it's only about two thousand years. A shorter gap."},
+    {"scene": "mammoth", "text": "Here's the wild part. When the pyramids were being built, woolly mammoths were still alive, on a remote island in the Arctic."},
+    {"scene": "oxford", "text": "In fact, Oxford University is older than the Aztec Empire. Students were studying there before the Aztecs founded their capital city."},
+    {"scene": "son", "text": "So history is much longer than it feels. And Cleopatra is closer to you than to the pyramids."}
+  ]
+}

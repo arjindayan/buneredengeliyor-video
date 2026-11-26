@@ -1,0 +1,1308 @@
+{
+"duration": 85.4,
+"words": [
+{
+"w": "Why",
+"start": 0.0,
+"end": 0.2,
+"seg": 0
+},
+{
+"w": "does",
+"start": 0.24,
+"end": 0.38,
+"seg": 0
+},
+{
+"w": "an",
+"start": 0.4,
+"end": 0.56,
+"seg": 0
+},
+{
+"w": "hour",
+"start": 0.64,
+"end": 0.92,
+"seg": 0
+},
+{
+"w": "have",
+"start": 0.96,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "60",
+"start": 1.36,
+"end": 1.68,
+"seg": 0
+},
+{
+"w": "minutes,",
+"start": 1.76,
+"end": 2.32,
+"seg": 0
+},
+{
+"w": "and",
+"start": 2.36,
+"end": 2.4,
+"seg": 0
+},
+{
+"w": "not",
+"start": 2.48,
+"end": 2.56,
+"seg": 0
+},
+{
+"w": "a",
+"start": 2.64,
+"end": 2.68,
+"seg": 0
+},
+{
+"w": "nice",
+"start": 2.72,
+"end": 2.88,
+"seg": 0
+},
+{
+"w": "round",
+"start": 2.96,
+"end": 3.2,
+"seg": 0
+},
+{
+"w": "hundred?",
+"start": 3.28,
+"end": 4.16,
+"seg": 0
+},
+{
+"w": "Blame",
+"start": 4.24,
+"end": 4.48,
+"seg": 0
+},
+{
+"w": "the",
+"start": 4.56,
+"end": 4.64,
+"seg": 0
+},
+{
+"w": "Babylonians,",
+"start": 4.693,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "and",
+"start": 5.64,
+"end": 5.68,
+"seg": 0
+},
+{
+"w": "a",
+"start": 5.72,
+"end": 5.76,
+"seg": 0
+},
+{
+"w": "counting",
+"start": 5.84,
+"end": 6.16,
+"seg": 0
+},
+{
+"w": "habit",
+"start": 6.24,
+"end": 6.56,
+"seg": 0
+},
+{
+"w": "over",
+"start": 6.72,
+"end": 6.88,
+"seg": 0
+},
+{
+"w": "4,000",
+"start": 6.96,
+"end": 7.76,
+"seg": 0
+},
+{
+"w": "years",
+"start": 7.88,
+"end": 8.0,
+"seg": 0
+},
+{
+"w": "old.",
+"start": 8.08,
+"end": 8.8,
+"seg": 0
+},
+{
+"w": "In",
+"start": 8.88,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "ancient",
+"start": 9.04,
+"end": 9.28,
+"seg": 1
+},
+{
+"w": "Mesopotamia,",
+"start": 9.36,
+"end": 10.24,
+"seg": 1
+},
+{
+"w": "people",
+"start": 10.36,
+"end": 10.48,
+"seg": 1
+},
+{
+"w": "counted",
+"start": 10.56,
+"end": 10.88,
+"seg": 1
+},
+{
+"w": "in",
+"start": 11.0,
+"end": 11.12,
+"seg": 1
+},
+{
+"w": "sixties,",
+"start": 11.2,
+"end": 11.84,
+"seg": 1
+},
+{
+"w": "not",
+"start": 11.96,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "tens.",
+"start": 12.12,
+"end": 12.96,
+"seg": 1
+},
+{
+"w": "They",
+"start": 13.04,
+"end": 13.12,
+"seg": 1
+},
+{
+"w": "pressed",
+"start": 13.2,
+"end": 13.44,
+"seg": 1
+},
+{
+"w": "their",
+"start": 13.52,
+"end": 13.6,
+"seg": 1
+},
+{
+"w": "numbers",
+"start": 13.76,
+"end": 13.92,
+"seg": 1
+},
+{
+"w": "into",
+"start": 14.0,
+"end": 14.24,
+"seg": 1
+},
+{
+"w": "wet",
+"start": 14.293,
+"end": 14.4,
+"seg": 1
+},
+{
+"w": "clay",
+"start": 14.56,
+"end": 14.8,
+"seg": 1
+},
+{
+"w": "with",
+"start": 14.88,
+"end": 14.96,
+"seg": 1
+},
+{
+"w": "a",
+"start": 15.0,
+"end": 15.04,
+"seg": 1
+},
+{
+"w": "reed.",
+"start": 15.12,
+"end": 15.72,
+"seg": 1
+},
+{
+"w": "Why",
+"start": 16.0,
+"end": 16.16,
+"seg": 2
+},
+{
+"w": "sixty?",
+"start": 16.24,
+"end": 17.04,
+"seg": 2
+},
+{
+"w": "Because",
+"start": 17.12,
+"end": 17.28,
+"seg": 2
+},
+{
+"w": "it",
+"start": 17.36,
+"end": 17.44,
+"seg": 2
+},
+{
+"w": "splits",
+"start": 17.6,
+"end": 18.0,
+"seg": 2
+},
+{
+"w": "beautifully.",
+"start": 18.16,
+"end": 19.12,
+"seg": 2
+},
+{
+"w": "By",
+"start": 19.24,
+"end": 19.36,
+"seg": 2
+},
+{
+"w": "two,",
+"start": 19.52,
+"end": 19.92,
+"seg": 2
+},
+{
+"w": "three,",
+"start": 20.12,
+"end": 20.56,
+"seg": 2
+},
+{
+"w": "four,",
+"start": 20.72,
+"end": 21.12,
+"seg": 2
+},
+{
+"w": "five,",
+"start": 21.32,
+"end": 21.76,
+"seg": 2
+},
+{
+"w": "six,",
+"start": 21.92,
+"end": 22.4,
+"seg": 2
+},
+{
+"w": "ten,",
+"start": 22.56,
+"end": 22.96,
+"seg": 2
+},
+{
+"w": "twelve,",
+"start": 23.04,
+"end": 23.68,
+"seg": 2
+},
+{
+"w": "fifteen,",
+"start": 23.72,
+"end": 24.4,
+"seg": 2
+},
+{
+"w": "twenty",
+"start": 24.56,
+"end": 24.72,
+"seg": 2
+},
+{
+"w": "and",
+"start": 24.96,
+"end": 25.2,
+"seg": 2
+},
+{
+"w": "thirty.",
+"start": 25.24,
+"end": 26.0,
+"seg": 2
+},
+{
+"w": "A",
+"start": 26.08,
+"end": 26.16,
+"seg": 2
+},
+{
+"w": "hundred",
+"start": 26.2,
+"end": 26.48,
+"seg": 2
+},
+{
+"w": "can't",
+"start": 26.56,
+"end": 26.68,
+"seg": 2
+},
+{
+"w": "even",
+"start": 26.72,
+"end": 26.88,
+"seg": 2
+},
+{
+"w": "be",
+"start": 26.92,
+"end": 26.96,
+"seg": 2
+},
+{
+"w": "split",
+"start": 27.04,
+"end": 27.28,
+"seg": 2
+},
+{
+"w": "into",
+"start": 27.4,
+"end": 27.52,
+"seg": 2
+},
+{
+"w": "three.",
+"start": 27.6,
+"end": 28.48,
+"seg": 2
+},
+{
+"w": "One",
+"start": 28.56,
+"end": 28.72,
+"seg": 3
+},
+{
+"w": "popular",
+"start": 28.8,
+"end": 29.12,
+"seg": 3
+},
+{
+"w": "theory:",
+"start": 29.2,
+"end": 29.92,
+"seg": 3
+},
+{
+"w": "use",
+"start": 30.0,
+"end": 30.16,
+"seg": 3
+},
+{
+"w": "your",
+"start": 30.24,
+"end": 30.4,
+"seg": 3
+},
+{
+"w": "thumb",
+"start": 30.48,
+"end": 30.72,
+"seg": 3
+},
+{
+"w": "to",
+"start": 30.8,
+"end": 30.88,
+"seg": 3
+},
+{
+"w": "count",
+"start": 30.96,
+"end": 31.04,
+"seg": 3
+},
+{
+"w": "the",
+"start": 31.12,
+"end": 31.2,
+"seg": 3
+},
+{
+"w": "twelve",
+"start": 31.28,
+"end": 31.52,
+"seg": 3
+},
+{
+"w": "finger",
+"start": 31.6,
+"end": 31.84,
+"seg": 3
+},
+{
+"w": "bones",
+"start": 31.92,
+"end": 32.16,
+"seg": 3
+},
+{
+"w": "on",
+"start": 32.24,
+"end": 32.32,
+"seg": 3
+},
+{
+"w": "one",
+"start": 32.4,
+"end": 32.48,
+"seg": 3
+},
+{
+"w": "hand.",
+"start": 32.56,
+"end": 33.28,
+"seg": 3
+},
+{
+"w": "Then",
+"start": 33.4,
+"end": 33.52,
+"seg": 3
+},
+{
+"w": "keep",
+"start": 33.68,
+"end": 33.76,
+"seg": 3
+},
+{
+"w": "track",
+"start": 33.84,
+"end": 34.08,
+"seg": 3
+},
+{
+"w": "of",
+"start": 34.16,
+"end": 34.24,
+"seg": 3
+},
+{
+"w": "each",
+"start": 34.32,
+"end": 34.4,
+"seg": 3
+},
+{
+"w": "dozen",
+"start": 34.56,
+"end": 34.88,
+"seg": 3
+},
+{
+"w": "on",
+"start": 34.92,
+"end": 34.96,
+"seg": 3
+},
+{
+"w": "the",
+"start": 35.04,
+"end": 35.12,
+"seg": 3
+},
+{
+"w": "five",
+"start": 35.2,
+"end": 35.36,
+"seg": 3
+},
+{
+"w": "fingers",
+"start": 35.44,
+"end": 35.76,
+"seg": 3
+},
+{
+"w": "of",
+"start": 35.8,
+"end": 35.84,
+"seg": 3
+},
+{
+"w": "the",
+"start": 35.88,
+"end": 35.92,
+"seg": 3
+},
+{
+"w": "other.",
+"start": 36.0,
+"end": 36.64,
+"seg": 3
+},
+{
+"w": "Twelve",
+"start": 36.72,
+"end": 36.88,
+"seg": 3
+},
+{
+"w": "times",
+"start": 36.96,
+"end": 37.2,
+"seg": 3
+},
+{
+"w": "five?",
+"start": 37.4,
+"end": 38.0,
+"seg": 3
+},
+{
+"w": "Sixty.",
+"start": 38.12,
+"end": 38.88,
+"seg": 3
+},
+{
+"w": "The",
+"start": 38.96,
+"end": 39.04,
+"seg": 4
+},
+{
+"w": "twenty",
+"start": 39.16,
+"end": 39.28,
+"seg": 4
+},
+{
+"w": "four",
+"start": 39.36,
+"end": 39.52,
+"seg": 4
+},
+{
+"w": "hours",
+"start": 39.72,
+"end": 39.92,
+"seg": 4
+},
+{
+"w": "came",
+"start": 40.04,
+"end": 40.16,
+"seg": 4
+},
+{
+"w": "from",
+"start": 40.24,
+"end": 40.32,
+"seg": 4
+},
+{
+"w": "Egypt.",
+"start": 40.4,
+"end": 41.12,
+"seg": 4
+},
+{
+"w": "Twelve",
+"start": 41.2,
+"end": 41.36,
+"seg": 4
+},
+{
+"w": "for",
+"start": 41.44,
+"end": 41.52,
+"seg": 4
+},
+{
+"w": "the",
+"start": 41.6,
+"end": 41.64,
+"seg": 4
+},
+{
+"w": "day,",
+"start": 41.68,
+"end": 42.24,
+"seg": 4
+},
+{
+"w": "twelve",
+"start": 42.32,
+"end": 42.48,
+"seg": 4
+},
+{
+"w": "for",
+"start": 42.56,
+"end": 42.64,
+"seg": 4
+},
+{
+"w": "the",
+"start": 42.667,
+"end": 42.693,
+"seg": 4
+},
+{
+"w": "night.",
+"start": 42.72,
+"end": 43.44,
+"seg": 4
+},
+{
+"w": "But",
+"start": 43.52,
+"end": 43.6,
+"seg": 4
+},
+{
+"w": "their",
+"start": 43.72,
+"end": 43.84,
+"seg": 4
+},
+{
+"w": "hours",
+"start": 44.04,
+"end": 44.24,
+"seg": 4
+},
+{
+"w": "stretched",
+"start": 44.32,
+"end": 44.72,
+"seg": 4
+},
+{
+"w": "and",
+"start": 44.84,
+"end": 44.96,
+"seg": 4
+},
+{
+"w": "shrank",
+"start": 45.0,
+"end": 45.28,
+"seg": 4
+},
+{
+"w": "with",
+"start": 45.36,
+"end": 45.44,
+"seg": 4
+},
+{
+"w": "the",
+"start": 45.52,
+"end": 45.6,
+"seg": 4
+},
+{
+"w": "seasons.",
+"start": 45.8,
+"end": 46.56,
+"seg": 4
+},
+{
+"w": "Greek",
+"start": 46.68,
+"end": 46.8,
+"seg": 5
+},
+{
+"w": "astronomers",
+"start": 46.88,
+"end": 47.44,
+"seg": 5
+},
+{
+"w": "made",
+"start": 47.52,
+"end": 47.76,
+"seg": 5
+},
+{
+"w": "every",
+"start": 47.92,
+"end": 48.08,
+"seg": 5
+},
+{
+"w": "hour",
+"start": 48.24,
+"end": 48.4,
+"seg": 5
+},
+{
+"w": "equal,",
+"start": 48.48,
+"end": 48.987,
+"seg": 5
+},
+{
+"w": "and",
+"start": 49.013,
+"end": 49.04,
+"seg": 5
+},
+{
+"w": "used",
+"start": 49.12,
+"end": 49.28,
+"seg": 5
+},
+{
+"w": "Babylon's",
+"start": 49.36,
+"end": 49.92,
+"seg": 5
+},
+{
+"w": "sixties",
+"start": 50.04,
+"end": 50.32,
+"seg": 5
+},
+{
+"w": "to",
+"start": 50.4,
+"end": 50.56,
+"seg": 5
+},
+{
+"w": "slice",
+"start": 50.68,
+"end": 50.8,
+"seg": 5
+},
+{
+"w": "them",
+"start": 50.88,
+"end": 50.96,
+"seg": 5
+},
+{
+"w": "up.",
+"start": 51.04,
+"end": 51.68,
+"seg": 5
+},
+{
+"w": "Here's",
+"start": 51.8,
+"end": 52.0,
+"seg": 6
+},
+{
+"w": "the",
+"start": 52.08,
+"end": 52.24,
+"seg": 6
+},
+{
+"w": "wild",
+"start": 52.44,
+"end": 52.64,
+"seg": 6
+},
+{
+"w": "part.",
+"start": 52.76,
+"end": 53.28,
+"seg": 6
+},
+{
+"w": "In",
+"start": 53.36,
+"end": 53.44,
+"seg": 6
+},
+{
+"w": "medieval",
+"start": 53.52,
+"end": 53.84,
+"seg": 6
+},
+{
+"w": "Latin,",
+"start": 54.04,
+"end": 54.48,
+"seg": 6
+},
+{
+"w": "one",
+"start": 54.6,
+"end": 54.72,
+"seg": 6
+},
+{
+"w": "sixtieth",
+"start": 54.8,
+"end": 55.28,
+"seg": 6
+},
+{
+"w": "was",
+"start": 55.36,
+"end": 55.44,
+"seg": 6
+},
+{
+"w": "the",
+"start": 55.52,
+"end": 55.6,
+"seg": 6
+},
+{
+"w": "pars",
+"start": 55.68,
+"end": 56.0,
+"seg": 6
+},
+{
+"w": "minuta",
+"start": 56.08,
+"end": 56.4,
+"seg": 6
+},
+{
+"w": "prima,",
+"start": 56.48,
+"end": 57.12,
+"seg": 6
+},
+{
+"w": "the",
+"start": 57.24,
+"end": 57.36,
+"seg": 6
+},
+{
+"w": "first",
+"start": 57.52,
+"end": 57.68,
+"seg": 6
+},
+{
+"w": "small",
+"start": 57.76,
+"end": 58.08,
+"seg": 6
+},
+{
+"w": "part.",
+"start": 58.44,
+"end": 58.88,
+"seg": 6
+},
+{
+"w": "That",
+"start": 58.96,
+"end": 59.2,
+"seg": 6
+},
+{
+"w": "became",
+"start": 59.28,
+"end": 59.52,
+"seg": 6
+},
+{
+"w": "the",
+"start": 59.6,
+"end": 59.68,
+"seg": 6
+},
+{
+"w": "minute.",
+"start": 59.84,
+"end": 60.48,
+"seg": 6
+},
+{
+"w": "Split",
+"start": 60.6,
+"end": 60.72,
+"seg": 6
+},
+{
+"w": "it",
+"start": 60.76,
+"end": 60.8,
+"seg": 6
+},
+{
+"w": "again,",
+"start": 60.88,
+"end": 61.467,
+"seg": 6
+},
+{
+"w": "and",
+"start": 61.493,
+"end": 61.52,
+"seg": 6
+},
+{
+"w": "you",
+"start": 61.6,
+"end": 61.64,
+"seg": 6
+},
+{
+"w": "get",
+"start": 61.68,
+"end": 61.76,
+"seg": 6
+},
+{
+"w": "the",
+"start": 61.84,
+"end": 61.92,
+"seg": 6
+},
+{
+"w": "pars",
+"start": 62.0,
+"end": 62.24,
+"seg": 6
+},
+{
+"w": "minuta",
+"start": 62.32,
+"end": 62.64,
+"seg": 6
+},
+{
+"w": "secunda,",
+"start": 62.72,
+"end": 63.44,
+"seg": 6
+},
+{
+"w": "the",
+"start": 63.52,
+"end": 63.68,
+"seg": 6
+},
+{
+"w": "second",
+"start": 63.84,
+"end": 64.0,
+"seg": 6
+},
+{
+"w": "small",
+"start": 64.08,
+"end": 64.32,
+"seg": 6
+},
+{
+"w": "part.",
+"start": 64.64,
+"end": 65.0,
+"seg": 6
+},
+{
+"w": "That's",
+"start": 65.04,
+"end": 65.36,
+"seg": 6
+},
+{
+"w": "literally",
+"start": 65.48,
+"end": 65.84,
+"seg": 6
+},
+{
+"w": "why",
+"start": 65.92,
+"end": 66.0,
+"seg": 6
+},
+{
+"w": "it's",
+"start": 66.04,
+"end": 66.16,
+"seg": 6
+},
+{
+"w": "called",
+"start": 66.28,
+"end": 66.4,
+"seg": 6
+},
+{
+"w": "a",
+"start": 66.48,
+"end": 66.64,
+"seg": 6
+},
+{
+"w": "second.",
+"start": 67.08,
+"end": 67.56,
+"seg": 6
+},
+{
+"w": "In",
+"start": 67.6,
+"end": 67.76,
+"seg": 7
+},
+{
+"w": "1793,",
+"start": 67.84,
+"end": 69.08,
+"seg": 7
+},
+{
+"w": "revolutionary",
+"start": 69.12,
+"end": 69.84,
+"seg": 7
+},
+{
+"w": "France",
+"start": 70.04,
+"end": 70.24,
+"seg": 7
+},
+{
+"w": "tried",
+"start": 70.28,
+"end": 70.56,
+"seg": 7
+},
+{
+"w": "decimal",
+"start": 70.76,
+"end": 70.96,
+"seg": 7
+},
+{
+"w": "time.",
+"start": 71.32,
+"end": 71.72,
+"seg": 7
+},
+{
+"w": "Ten",
+"start": 71.76,
+"end": 71.92,
+"seg": 7
+},
+{
+"w": "hours",
+"start": 72.04,
+"end": 72.16,
+"seg": 7
+},
+{
+"w": "a",
+"start": 72.2,
+"end": 72.24,
+"seg": 7
+},
+{
+"w": "day,",
+"start": 72.32,
+"end": 72.76,
+"seg": 7
+},
+{
+"w": "a",
+"start": 72.8,
+"end": 72.88,
+"seg": 7
+},
+{
+"w": "hundred",
+"start": 72.96,
+"end": 73.2,
+"seg": 7
+},
+{
+"w": "minutes",
+"start": 73.28,
+"end": 73.44,
+"seg": 7
+},
+{
+"w": "an",
+"start": 73.52,
+"end": 73.6,
+"seg": 7
+},
+{
+"w": "hour.",
+"start": 73.68,
+"end": 74.36,
+"seg": 7
+},
+{
+"w": "People",
+"start": 74.4,
+"end": 74.88,
+"seg": 7
+},
+{
+"w": "hated",
+"start": 74.96,
+"end": 75.2,
+"seg": 7
+},
+{
+"w": "it.",
+"start": 75.28,
+"end": 75.8,
+"seg": 7
+},
+{
+"w": "It",
+"start": 75.84,
+"end": 75.88,
+"seg": 7
+},
+{
+"w": "was",
+"start": 75.92,
+"end": 76.08,
+"seg": 7
+},
+{
+"w": "dropped",
+"start": 76.16,
+"end": 76.4,
+"seg": 7
+},
+{
+"w": "in",
+"start": 76.48,
+"end": 76.56,
+"seg": 7
+},
+{
+"w": "1795.",
+"start": 76.64,
+"end": 78.2,
+"seg": 7
+},
+{
+"w": "So",
+"start": 78.24,
+"end": 78.48,
+"seg": 8
+},
+{
+"w": "every",
+"start": 78.56,
+"end": 78.8,
+"seg": 8
+},
+{
+"w": "time",
+"start": 78.88,
+"end": 78.96,
+"seg": 8
+},
+{
+"w": "you",
+"start": 79.04,
+"end": 79.12,
+"seg": 8
+},
+{
+"w": "check",
+"start": 79.2,
+"end": 79.28,
+"seg": 8
+},
+{
+"w": "the",
+"start": 79.36,
+"end": 79.44,
+"seg": 8
+},
+{
+"w": "clock,",
+"start": 79.72,
+"end": 80.04,
+"seg": 8
+},
+{
+"w": "you're",
+"start": 80.08,
+"end": 80.24,
+"seg": 8
+},
+{
+"w": "reading",
+"start": 80.4,
+"end": 80.56,
+"seg": 8
+},
+{
+"w": "Babylonian",
+"start": 80.6,
+"end": 81.2,
+"seg": 8
+},
+{
+"w": "math.",
+"start": 81.28,
+"end": 81.84,
+"seg": 8
+}
+],
+"voice_end": 81.95
+}

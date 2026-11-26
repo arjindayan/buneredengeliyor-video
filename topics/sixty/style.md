@@ -1,0 +1,12 @@
+# Stil kartı: sixty (ozansihay-motion)
+- Tez: 60 dakikalık saat, 4.000 yıllık Babil alışkanlığı; "second" kelimesi bile "ikinci küçük parça".
+- Yöntem: Mekanizma çiz + sözcüğü olay yap; her sayı ıslak kile kamışla basılır.
+- Malzeme: kodla üretilmiş kil tablet dokusu (kil.py: fraktal yükseklik + sol üst ışık), oyuk efekti (SVG feOffset ışık/gölge).
+- Kadraj: tek dev nesne, tüm kare bir kil tablet; "TABLET I–IX" başlıkları, sola/sağa yaslı.
+- Zaman: 30 fps; basma = sert kesme (yumuşatma yok), kalem ardışık izler arasında seker; sahne geçişi = spatula kili yukarıdan aşağı düzler (14 kare dolly).
+- Font: Cinzel (oyma yazıt, başlık + sayılar), Spectral 700 (altyazı), Spectral italik (not). İlk kez kullanıldı.
+- Palet: pişmemiş kil #CEA076, oyuk kahvesi #6B4428, koyu #4A2C18, ışık kenarı #F6DDB6, tek vurgu İştar kapısı lacivert sırrı #2B4C9B.
+- İmza öğe: kamış kalem; söylenen her sayıyı o anda basar (çiviler, bölenler, boğumlar, LIKE/FOLLOW mühürleri).
+- Altyazı: koyu kahve dolgu, kontur yok; söylenen kelime lacivert, gelecek kelimeler soluk.
+- Ses: Arjin klon sesi (eleven_v4) + bgpad sakin ped -26 dB; sonda mühür basılan Like/Follow kapanışı (sesten 3,4 sn).
+- Kullanılmayanlar: maskot yüzleri, sarı karaoke, gradyan, pop/bounce girişleri, ortalanmış kart ızgarası.

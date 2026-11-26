@@ -1,0 +1,989 @@
+{
+"duration": 57.678,
+"words": [
+{
+"w": "Octopuses",
+"start": 0.0,
+"end": 0.72,
+"seg": 0
+},
+{
+"w": "have",
+"start": 0.8,
+"end": 0.96,
+"seg": 0
+},
+{
+"w": "one",
+"start": 1.12,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "heart.",
+"start": 1.36,
+"end": 1.76,
+"seg": 0
+},
+{
+"w": "Well,",
+"start": 2.24,
+"end": 2.72,
+"seg": 0
+},
+{
+"w": "that's",
+"start": 2.8,
+"end": 3.04,
+"seg": 0
+},
+{
+"w": "not",
+"start": 3.16,
+"end": 3.28,
+"seg": 0
+},
+{
+"w": "exactly",
+"start": 3.36,
+"end": 3.92,
+"seg": 0
+},
+{
+"w": "true.",
+"start": 4.0,
+"end": 4.48,
+"seg": 0
+},
+{
+"w": "They",
+"start": 4.64,
+"end": 4.72,
+"seg": 0
+},
+{
+"w": "have",
+"start": 4.8,
+"end": 4.96,
+"seg": 0
+},
+{
+"w": "three.",
+"start": 5.16,
+"end": 5.6,
+"seg": 0
+},
+{
+"w": "Two",
+"start": 5.84,
+"end": 5.92,
+"seg": 1
+},
+{
+"w": "of",
+"start": 6.0,
+"end": 6.08,
+"seg": 1
+},
+{
+"w": "them",
+"start": 6.16,
+"end": 6.24,
+"seg": 1
+},
+{
+"w": "pump",
+"start": 6.32,
+"end": 6.56,
+"seg": 1
+},
+{
+"w": "blood",
+"start": 6.64,
+"end": 6.88,
+"seg": 1
+},
+{
+"w": "through",
+"start": 6.96,
+"end": 7.04,
+"seg": 1
+},
+{
+"w": "the",
+"start": 7.08,
+"end": 7.12,
+"seg": 1
+},
+{
+"w": "gills.",
+"start": 7.2,
+"end": 7.76,
+"seg": 1
+},
+{
+"w": "The",
+"start": 8.0,
+"end": 8.08,
+"seg": 1
+},
+{
+"w": "third",
+"start": 8.24,
+"end": 8.4,
+"seg": 1
+},
+{
+"w": "one",
+"start": 8.48,
+"end": 8.64,
+"seg": 1
+},
+{
+"w": "pumps",
+"start": 8.72,
+"end": 8.96,
+"seg": 1
+},
+{
+"w": "it",
+"start": 9.0,
+"end": 9.04,
+"seg": 1
+},
+{
+"w": "to",
+"start": 9.12,
+"end": 9.2,
+"seg": 1
+},
+{
+"w": "the",
+"start": 9.24,
+"end": 9.28,
+"seg": 1
+},
+{
+"w": "rest",
+"start": 9.4,
+"end": 9.52,
+"seg": 1
+},
+{
+"w": "of",
+"start": 9.56,
+"end": 9.6,
+"seg": 1
+},
+{
+"w": "the",
+"start": 9.64,
+"end": 9.68,
+"seg": 1
+},
+{
+"w": "body.",
+"start": 9.76,
+"end": 10.32,
+"seg": 1
+},
+{
+"w": "Here's",
+"start": 10.56,
+"end": 10.8,
+"seg": 2
+},
+{
+"w": "the",
+"start": 10.88,
+"end": 10.96,
+"seg": 2
+},
+{
+"w": "wild",
+"start": 11.04,
+"end": 11.36,
+"seg": 2
+},
+{
+"w": "part.",
+"start": 11.44,
+"end": 11.76,
+"seg": 2
+},
+{
+"w": "When",
+"start": 12.08,
+"end": 12.16,
+"seg": 2
+},
+{
+"w": "an",
+"start": 12.24,
+"end": 12.32,
+"seg": 2
+},
+{
+"w": "octopus",
+"start": 12.44,
+"end": 12.8,
+"seg": 2
+},
+{
+"w": "swims,",
+"start": 12.88,
+"end": 13.6,
+"seg": 2
+},
+{
+"w": "that",
+"start": 13.72,
+"end": 13.84,
+"seg": 2
+},
+{
+"w": "third",
+"start": 14.0,
+"end": 14.16,
+"seg": 2
+},
+{
+"w": "heart",
+"start": 14.24,
+"end": 14.48,
+"seg": 2
+},
+{
+"w": "stops",
+"start": 14.64,
+"end": 14.96,
+"seg": 2
+},
+{
+"w": "beating.",
+"start": 15.04,
+"end": 15.6,
+"seg": 2
+},
+{
+"w": "Which",
+"start": 15.76,
+"end": 15.92,
+"seg": 2
+},
+{
+"w": "is",
+"start": 15.96,
+"end": 16.0,
+"seg": 2
+},
+{
+"w": "why",
+"start": 16.08,
+"end": 16.24,
+"seg": 2
+},
+{
+"w": "they'd",
+"start": 16.28,
+"end": 16.48,
+"seg": 2
+},
+{
+"w": "rather",
+"start": 16.6,
+"end": 16.72,
+"seg": 2
+},
+{
+"w": "crawl.",
+"start": 16.8,
+"end": 17.4,
+"seg": 2
+},
+{
+"w": "Swimming",
+"start": 17.6,
+"end": 18.08,
+"seg": 2
+},
+{
+"w": "literally",
+"start": 18.24,
+"end": 18.64,
+"seg": 2
+},
+{
+"w": "wears",
+"start": 18.72,
+"end": 18.96,
+"seg": 2
+},
+{
+"w": "them",
+"start": 19.04,
+"end": 19.12,
+"seg": 2
+},
+{
+"w": "out.",
+"start": 19.2,
+"end": 19.68,
+"seg": 2
+},
+{
+"w": "And",
+"start": 19.92,
+"end": 20.0,
+"seg": 3
+},
+{
+"w": "their",
+"start": 20.08,
+"end": 20.16,
+"seg": 3
+},
+{
+"w": "blood?",
+"start": 20.24,
+"end": 20.76,
+"seg": 3
+},
+{
+"w": "It's",
+"start": 20.96,
+"end": 21.12,
+"seg": 3
+},
+{
+"w": "blue.",
+"start": 21.2,
+"end": 21.8,
+"seg": 3
+},
+{
+"w": "Instead",
+"start": 22.0,
+"end": 22.32,
+"seg": 3
+},
+{
+"w": "of",
+"start": 22.4,
+"end": 22.48,
+"seg": 3
+},
+{
+"w": "iron,",
+"start": 22.56,
+"end": 23.04,
+"seg": 3
+},
+{
+"w": "it",
+"start": 23.08,
+"end": 23.12,
+"seg": 3
+},
+{
+"w": "uses",
+"start": 23.2,
+"end": 23.52,
+"seg": 3
+},
+{
+"w": "copper",
+"start": 23.6,
+"end": 23.92,
+"seg": 3
+},
+{
+"w": "to",
+"start": 24.0,
+"end": 24.08,
+"seg": 3
+},
+{
+"w": "carry",
+"start": 24.16,
+"end": 24.4,
+"seg": 3
+},
+{
+"w": "oxygen,",
+"start": 24.48,
+"end": 25.12,
+"seg": 3
+},
+{
+"w": "which",
+"start": 25.2,
+"end": 25.28,
+"seg": 3
+},
+{
+"w": "works",
+"start": 25.36,
+"end": 25.52,
+"seg": 3
+},
+{
+"w": "better",
+"start": 25.6,
+"end": 25.84,
+"seg": 3
+},
+{
+"w": "in",
+"start": 25.92,
+"end": 26.0,
+"seg": 3
+},
+{
+"w": "cold,",
+"start": 26.08,
+"end": 26.56,
+"seg": 3
+},
+{
+"w": "deep",
+"start": 26.68,
+"end": 26.8,
+"seg": 3
+},
+{
+"w": "water.",
+"start": 26.88,
+"end": 27.48,
+"seg": 3
+},
+{
+"w": "That's",
+"start": 27.76,
+"end": 27.96,
+"seg": 4
+},
+{
+"w": "not",
+"start": 28.0,
+"end": 28.16,
+"seg": 4
+},
+{
+"w": "all.",
+"start": 28.28,
+"end": 28.48,
+"seg": 4
+},
+{
+"w": "An",
+"start": 28.8,
+"end": 28.88,
+"seg": 4
+},
+{
+"w": "octopus",
+"start": 28.96,
+"end": 29.44,
+"seg": 4
+},
+{
+"w": "has",
+"start": 29.52,
+"end": 29.6,
+"seg": 4
+},
+{
+"w": "about",
+"start": 29.72,
+"end": 29.84,
+"seg": 4
+},
+{
+"w": "500 million",
+"start": 30.08,
+"end": 31.28,
+"seg": 4
+},
+{
+"w": "neurons,",
+"start": 31.36,
+"end": 32.08,
+"seg": 4
+},
+{
+"w": "and",
+"start": 32.16,
+"end": 32.24,
+"seg": 4
+},
+{
+"w": "two",
+"start": 32.32,
+"end": 32.4,
+"seg": 4
+},
+{
+"w": "thirds",
+"start": 32.56,
+"end": 32.76,
+"seg": 4
+},
+{
+"w": "of",
+"start": 32.8,
+"end": 32.88,
+"seg": 4
+},
+{
+"w": "them",
+"start": 32.96,
+"end": 33.04,
+"seg": 4
+},
+{
+"w": "aren't",
+"start": 33.12,
+"end": 33.36,
+"seg": 4
+},
+{
+"w": "in",
+"start": 33.4,
+"end": 33.44,
+"seg": 4
+},
+{
+"w": "its",
+"start": 33.52,
+"end": 33.6,
+"seg": 4
+},
+{
+"w": "head.",
+"start": 33.68,
+"end": 34.0,
+"seg": 4
+},
+{
+"w": "They're",
+"start": 34.32,
+"end": 34.44,
+"seg": 4
+},
+{
+"w": "in",
+"start": 34.48,
+"end": 34.52,
+"seg": 4
+},
+{
+"w": "its",
+"start": 34.56,
+"end": 34.72,
+"seg": 4
+},
+{
+"w": "arms.",
+"start": 34.8,
+"end": 35.6,
+"seg": 4
+},
+{
+"w": "Each",
+"start": 35.84,
+"end": 36.08,
+"seg": 5
+},
+{
+"w": "arm",
+"start": 36.16,
+"end": 36.32,
+"seg": 5
+},
+{
+"w": "can",
+"start": 36.4,
+"end": 36.64,
+"seg": 5
+},
+{
+"w": "taste",
+"start": 36.68,
+"end": 36.96,
+"seg": 5
+},
+{
+"w": "what",
+"start": 37.04,
+"end": 37.12,
+"seg": 5
+},
+{
+"w": "it",
+"start": 37.2,
+"end": 37.28,
+"seg": 5
+},
+{
+"w": "touches,",
+"start": 37.52,
+"end": 37.84,
+"seg": 5
+},
+{
+"w": "and",
+"start": 37.92,
+"end": 38.0,
+"seg": 5
+},
+{
+"w": "even",
+"start": 38.08,
+"end": 38.16,
+"seg": 5
+},
+{
+"w": "make",
+"start": 38.24,
+"end": 38.32,
+"seg": 5
+},
+{
+"w": "some",
+"start": 38.4,
+"end": 38.48,
+"seg": 5
+},
+{
+"w": "decisions",
+"start": 38.56,
+"end": 38.96,
+"seg": 5
+},
+{
+"w": "on",
+"start": 39.04,
+"end": 39.12,
+"seg": 5
+},
+{
+"w": "its",
+"start": 39.2,
+"end": 39.28,
+"seg": 5
+},
+{
+"w": "own.",
+"start": 39.36,
+"end": 39.6,
+"seg": 5
+},
+{
+"w": "In",
+"start": 40.0,
+"end": 40.08,
+"seg": 6
+},
+{
+"w": "fact,",
+"start": 40.16,
+"end": 40.56,
+"seg": 6
+},
+{
+"w": "they",
+"start": 40.64,
+"end": 40.72,
+"seg": 6
+},
+{
+"w": "can",
+"start": 40.8,
+"end": 40.88,
+"seg": 6
+},
+{
+"w": "change",
+"start": 41.04,
+"end": 41.2,
+"seg": 6
+},
+{
+"w": "color",
+"start": 41.28,
+"end": 41.52,
+"seg": 6
+},
+{
+"w": "in",
+"start": 41.6,
+"end": 41.68,
+"seg": 6
+},
+{
+"w": "a",
+"start": 41.76,
+"end": 41.84,
+"seg": 6
+},
+{
+"w": "split",
+"start": 42.0,
+"end": 42.16,
+"seg": 6
+},
+{
+"w": "second,",
+"start": 42.32,
+"end": 42.88,
+"seg": 6
+},
+{
+"w": "even",
+"start": 43.0,
+"end": 43.12,
+"seg": 6
+},
+{
+"w": "though",
+"start": 43.16,
+"end": 43.2,
+"seg": 6
+},
+{
+"w": "they're",
+"start": 43.28,
+"end": 43.44,
+"seg": 6
+},
+{
+"w": "probably",
+"start": 43.68,
+"end": 43.92,
+"seg": 6
+},
+{
+"w": "colorblind.",
+"start": 44.08,
+"end": 44.84,
+"seg": 6
+},
+{
+"w": "And",
+"start": 45.12,
+"end": 45.36,
+"seg": 7
+},
+{
+"w": "there",
+"start": 45.6,
+"end": 45.68,
+"seg": 7
+},
+{
+"w": "are",
+"start": 45.8,
+"end": 45.92,
+"seg": 7
+},
+{
+"w": "no",
+"start": 46.0,
+"end": 46.16,
+"seg": 7
+},
+{
+"w": "bones.",
+"start": 46.24,
+"end": 47.12,
+"seg": 7
+},
+{
+"w": "If",
+"start": 47.16,
+"end": 47.2,
+"seg": 7
+},
+{
+"w": "its",
+"start": 47.28,
+"end": 47.44,
+"seg": 7
+},
+{
+"w": "beak",
+"start": 47.48,
+"end": 47.68,
+"seg": 7
+},
+{
+"w": "fits",
+"start": 47.76,
+"end": 47.92,
+"seg": 7
+},
+{
+"w": "through",
+"start": 48.0,
+"end": 48.08,
+"seg": 7
+},
+{
+"w": "a",
+"start": 48.12,
+"end": 48.16,
+"seg": 7
+},
+{
+"w": "hole,",
+"start": 48.24,
+"end": 48.72,
+"seg": 7
+},
+{
+"w": "the",
+"start": 48.8,
+"end": 48.88,
+"seg": 7
+},
+{
+"w": "whole",
+"start": 48.96,
+"end": 49.2,
+"seg": 7
+},
+{
+"w": "octopus",
+"start": 49.28,
+"end": 49.76,
+"seg": 7
+},
+{
+"w": "fits",
+"start": 49.84,
+"end": 50.08,
+"seg": 7
+},
+{
+"w": "through.",
+"start": 50.2,
+"end": 50.8,
+"seg": 7
+},
+{
+"w": "So",
+"start": 50.96,
+"end": 51.12,
+"seg": 8
+},
+{
+"w": "next",
+"start": 51.2,
+"end": 51.36,
+"seg": 8
+},
+{
+"w": "time",
+"start": 51.48,
+"end": 51.6,
+"seg": 8
+},
+{
+"w": "someone",
+"start": 51.68,
+"end": 51.92,
+"seg": 8
+},
+{
+"w": "says",
+"start": 52.0,
+"end": 52.24,
+"seg": 8
+},
+{
+"w": "octopuses",
+"start": 52.32,
+"end": 52.96,
+"seg": 8
+},
+{
+"w": "have",
+"start": 53.08,
+"end": 53.2,
+"seg": 8
+},
+{
+"w": "one",
+"start": 53.28,
+"end": 53.36,
+"seg": 8
+},
+{
+"w": "heart,",
+"start": 53.44,
+"end": 54.0,
+"seg": 8
+},
+{
+"w": "tell",
+"start": 54.08,
+"end": 54.16,
+"seg": 8
+},
+{
+"w": "them",
+"start": 54.24,
+"end": 54.32,
+"seg": 8
+},
+{
+"w": "it's",
+"start": 54.36,
+"end": 54.48,
+"seg": 8
+},
+{
+"w": "three.",
+"start": 54.56,
+"end": 55.2,
+"seg": 8
+},
+{
+"w": "And",
+"start": 55.32,
+"end": 55.44,
+"seg": 8
+},
+{
+"w": "one",
+"start": 55.52,
+"end": 55.6,
+"seg": 8
+},
+{
+"w": "of",
+"start": 55.64,
+"end": 55.68,
+"seg": 8
+},
+{
+"w": "them",
+"start": 55.76,
+"end": 56.0,
+"seg": 8
+},
+{
+"w": "hates",
+"start": 56.08,
+"end": 56.4,
+"seg": 8
+},
+{
+"w": "swimming.",
+"start": 56.48,
+"end": 57.12,
+"seg": 8
+}
+]
+}

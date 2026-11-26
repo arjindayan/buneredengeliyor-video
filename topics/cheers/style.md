@@ -1,0 +1,12 @@
+# Stil kartı: cheers (ozansihay-motion) — Arjin paleti ile ilk video
+- Tez: Zehir efsanesinin kanıtı yok; gerçek tarih "toast" kelimesinde, tokuşmanın nedeni bilinmiyor.
+- Yöntem: Karşılaştır (efsane / gerçek) + mekanizma (ekmek kadehe düşer); efsane çürütme kancası.
+- Malzeme: linol baskı meyhane afişi; haki kâğıt dokusu (kagit.py, palete boyanmış), linol kenar pürüzü (feDisplacementMap 5), çapraz tarama deseni.
+- Kadraj: ortada iki dev kadeh; damga etiketleri eğik.
+- Zaman: 30 fps; baskı = tek kare + 4 karede oturma; geçiş = yeşil mürekkep merdanesi soldan sağa (14 kare).
+- Font: Alfa Slab One (ahşap harf afişi), Bitter 700 (altyazı + not). İlk kez kullanıldı.
+- Palet (Arjin kuralı, 2026-11-21): #28301C mürekkep, #323D25 yeşil, #9A7E3B altın, #D2CF9A haki + beyaz. Başka renk yok.
+- İmza öğe: tokuşan iki kadeh, sıvı hep yatay kalır, tokuşmada oyma bıçağı ışınları.
+- Altyazı: mürekkep rengi, kontur yok; söylenen kelime yeşil kutuda beyaz.
+- Ses: Arjin klon sesi (eleven_v4) + bgpad -26 dB.
+- Kullanılmayanlar: kırmızı/mavi vurgu, maskot yüzü, matbaa blokları (önceki video), gradyan.

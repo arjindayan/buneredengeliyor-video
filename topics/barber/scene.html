@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: berber dükkânı camına varak yaldız tabela. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0F3328}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:80px;right:80px;top:130px;font:800 66px/1.2 'Alegreya Sans';color:#F3EEE2;letter-spacing:-.5px}
+  #alt span{padding-bottom:6px}
+  .pf{font-family:'Playfair Display';font-weight:900}
+  .pi{font-family:'Playfair Display';font-style:italic;font-weight:700}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="cam" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#1D5242"/><stop offset=".65" stop-color="#11392D"/><stop offset="1" stop-color="#071C16"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBE6A0"/><stop offset=".35" stop-color="#D6A23C"/><stop offset=".55" stop-color="#F6D77E"/><stop offset="1" stop-color="#9A6A1E"/></linearGradient>
+    <linearGradient id="silindir" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset=".3" stop-color="#fff" stop-opacity=".28"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></linearGradient>
+    <pattern id="stR" width="1080" height="96" patternUnits="userSpaceOnUse"><rect width="1080" height="48" fill="#C3262D"/><rect y="48" width="1080" height="48" fill="#F3EEE2"/></pattern>
+    <pattern id="stB" width="1080" height="144" patternUnits="userSpaceOnUse"><rect width="1080" height="48" fill="#C3262D"/><rect y="48" width="1080" height="48" fill="#F3EEE2"/><rect y="96" width="1080" height="48" fill="#2D4E8C"/><rect y="144" width="1080" height="0" fill="#F3EEE2"/></pattern>
+    <pattern id="stW" width="1080" height="96" patternUnits="userSpaceOnUse"><rect width="1080" height="96" fill="#F3EEE2"/></pattern>
+    <filter id="varak" x="-10%" y="-10%" width="120%" height="120%"><feOffset in="SourceAlpha" dx="4" dy="5" result="o"/><feFlood flood-color="#03100C" flood-opacity=".7"/><feComposite in2="o" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="bul"><feGaussianBlur stdDeviation="30"/></filter>
+    <g id="clips"></g>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#cam)"/>
+  <g id="yansima"></g>
+  <g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['900 60px "Playfair Display"', 'italic 700 60px "Playfair Display"', '800 60px "Alegreya Sans"'];
+const c = cue, RED = '#C3262D', WHITE = '#F3EEE2', BLUE = '#2D4E8C', WOOD = '#8A5A2E', DARK = '#071C16';
+const G = 'url(#gold)';
+const ac = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
+const kaz = ic => `<g filter="url(#varak)">${ic}</g>`; // camdaki yaldızın gölgesi
+const yazi = (txt, x, y, s, o = {}) => `<text x="${x}" y="${y}" class="${o.cls || 'pf'}" font-size="${s}" fill="${o.renk || G}" text-anchor="${o.a || 'middle'}" letter-spacing="${o.ls || 0}" opacity="${f2(o.op ?? 1)}">${txt}</text>`;
+const cizgi = (d, f, f0, dur = 18, o = {}) => {
+  if (f < f0) return '';
+  const u = EASE.kalem((f - f0) / dur);
+  return `<path d="${d}" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${(1 - u).toFixed(3)}" fill="${o.fill || 'none'}" stroke="${o.renk || G}" stroke-width="${o.w || 8}" stroke-linecap="round" stroke-linejoin="round"/>`;
+};
+// beliren: aşağıdan hafif yükselerek (yaldız ustasının fırça darbesi kadar kısa)
+const belir = (f, f0, ic, d = 10) => f < f0 ? '' : `<g opacity="${f2(ac(f, f0, d))}" transform="translate(0,${f2(14 * (1 - EASE.dolly(ac(f, f0, d))))})">${ic}</g>`;
+
+// berber direği: x,y = merkez; h = gövde boyu; desen stR/stB/stW; dönme f'ye bağlı
+let PID = 0;
+function direk(f, x, y, h, o = {}) {
+  const w = o.w || 120, id = 'pc' + (PID++), d = o.desen || 'stR', off = (f * (o.hiz ?? 2.2)) % (d === 'stB' ? 144 : 96);
+  let g = `<clipPath id="${id}"><rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" rx="${w / 2.4}"/></clipPath>`;
+  g += `<g clip-path="url(#${id})"><rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" fill="${WHITE}"/>`;
+  if (o.kirmizi !== 0) g += `<rect x="${x - 600}" y="${y - h}" width="1200" height="${h * 2}" fill="url(#${d})" opacity="${f2(o.kirmizi ?? 1)}" transform="rotate(-28 ${x} ${y}) translate(0 ${f2(off)})"/>`;
+  g += `<rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" fill="url(#silindir)"/></g>`;
+  // yaldız başlıklar
+  g += `<rect x="${x - w / 2 - 18}" y="${y - h / 2 - 40}" width="${w + 36}" height="44" rx="10" fill="${G}"/><rect x="${x - w / 2 - 18}" y="${y + h / 2 - 4}" width="${w + 36}" height="44" rx="10" fill="${G}"/>`;
+  if (o.top !== false) g += `<circle cx="${x}" cy="${y - h / 2 - 72}" r="34" fill="${G}"/>`;
+  return kaz(g);
+}
+
+const SAHNE = {
+  hook(f) {
+    let g = direk(f, 540, 950, 680);
+    const bl = c('hook', 'bloodletting');
+    g += belir(f, bl, kaz(yazi('BLOODLETTING', 540, 1560, 104, { ls: 2 })));
+    g += belir(f, c('hook', 'ad'), kaz(yazi('an ad for', 540, 1450, 58, { cls: 'pi' })));
+    const un = c('hook', 'unsee');
+    if (f >= un) { const u = klamp((f - un) / 24); g += `<path d="M540 ${f2(620 + 300 * u * u)} q-22 34 0 46 q22 -12 0 -46Z" fill="${RED}" opacity="${f2(1 - klamp((f - un - 20) / 6))}"/>`; }
+    return g;
+  },
+  surgeon(f) {
+    let g = belir(f, c('surgeon', 'barber'), kaz(yazi('The Barber-Surgeon', 540, 560, 78, { cls: 'pi' })));
+    const pano = (x, y, ic, cap, f0) => belir(f, f0, kaz(`<rect x="${x - 210}" y="${y - 200}" width="420" height="400" rx="26" fill="none" stroke="${G}" stroke-width="6"/>` + at(x, y - 20, 1, ic) + yazi(cap, x, y + 165, 44, { cls: 'pi' })));
+    const makas = `<circle cx="-70" cy="70" r="36" fill="none" stroke="${G}" stroke-width="12"/><circle cx="70" cy="70" r="36" fill="none" stroke="${G}" stroke-width="12"/><path d="M-45 45 L80 -110 M45 45 L-80 -110" stroke="${G}" stroke-width="16" stroke-linecap="round"/>`;
+    const dis = `<path d="M-80 -90 C-40 -120 -10 -90 0 -90 C10 -90 40 -120 80 -90 C120 -50 90 20 70 60 C55 100 50 130 30 130 C10 130 10 70 0 70 C-10 70 -10 130 -30 130 C-50 130 -55 100 -70 60 C-90 20 -120 -50 -80 -90Z" fill="${WHITE}" stroke="${G}" stroke-width="8"/>`;
+    const kemik = `<path d="M-90 -30 a32 32 0 1 1 30 -40 L60 -70 a32 32 0 1 1 30 40 a32 32 0 1 1 -30 40 L-60 30 a32 32 0 1 1 -30 -40Z" transform="rotate(-30)" fill="${WHITE}" stroke="${G}" stroke-width="8"/>`;
+    const kan = `<path d="M0 -120 C40 -50 80 0 80 50 A80 80 0 0 1 -80 50 C-80 0 -40 -50 0 -120Z" fill="${RED}" stroke="${G}" stroke-width="8"/>`;
+    g += pano(300, 820, makas, 'hair', c('surgeon', 'cut'));
+    g += pano(780, 820, dis, 'teeth', c('surgeon', 'teeth'));
+    g += pano(300, 1280, kemik, 'bones', c('surgeon', 'bones'));
+    g += pano(780, 1280, kan, 'blood', c('surgeon', 'blood'));
+    return g;
+  },
+  theory(f) {
+    const f0 = T.seg.theory.start, s0 = c('theory', 'sickness'), b0 = c('theory', 'blood'), l0 = c('theory', 'let');
+    let sev = lerp(f, [s0, b0 + 10], [.35, .96], EASE.dolly);
+    if (f >= l0) sev = lerp(f, [l0 + 6, l0 + 40], [.96, .55], EASE.dolly);
+    const govde = 'M540 600 a95 95 0 1 1 -0.1 0Z M400 820 Q540 780 680 820 Q720 840 720 900 L720 1350 Q540 1390 360 1350 L360 900 Q360 840 400 820Z';
+    const top = 600, bot = 1360, yy = bot - (bot - top) * sev;
+    let g = `<clipPath id="kv"><path d="${govde}"/></clipPath><rect x="300" y="${f2(yy)}" width="480" height="900" fill="${RED}" clip-path="url(#kv)" opacity="${f2(ac(f, f0, 10))}"/>`;
+    g += kaz(`<path d="${govde}" fill="none" stroke="${G}" stroke-width="9"/>`);
+    g += belir(f, c('theory', 'too'), kaz(yazi('too much blood?', 540, 1500, 70, { cls: 'pi' })));
+    if (f >= l0) {
+      g += kaz(`<path d="M820 1380 h200 a100 70 0 0 1 -200 0Z" fill="none" stroke="${G}" stroke-width="8"/>`);
+      for (let k = 0; k < 4; k++) { const t = f - l0 - k * 8; if (t > 0 && t < 26) { const u = t / 26; g += `<path d="M${f2(720 + 200 * u)} ${f2(1100 + 260 * u * u)} q-14 22 0 30 q14 -8 0 -30Z" fill="${RED}"/>`; } }
+      g += `<rect x="830" y="${f2(1380 - 0)}" width="180" height="${f2(40 * ac(f, l0 + 20, 30))}" fill="${RED}" opacity=".9"/>`;
+    }
+    return g;
+  },
+  staff(f) {
+    const f0 = T.seg.staff.start, s1 = c('staff', 'staff', 1), p = c('staff', 'pole');
+    const kol = 1 - ac(f, s1, 12);
+    let g = '';
+    // kol + yumruk: yaldız çizgi
+    if (kol > 0) {
+      g += `<g opacity="${f2(kol)}">` + kaz(cizgi('M-20 930 L560 950 Q620 950 640 990 L640 1080 Q620 1120 560 1110 L-20 1090', f, f0, 22, { w: 9 }) + cizgi('M580 960 h70 M580 1010 h70 M580 1060 h70', f, f0 + 14, 12, { w: 8 }));
+      const v = c('staff', 'veins'), pp = c('staff', 'pop');
+      const kal = f < v ? 0 : 3 + 9 * backOut((f - pp) / 10);
+      if (f >= v) g += `<path d="M60 1000 C150 980 200 1030 300 1010 S430 990 520 1020 M120 1050 C220 1040 300 1065 420 1045" fill="none" stroke="${RED}" stroke-width="${f2(Math.max(3, kal))}" stroke-linecap="round" opacity="${f2(ac(f, v, 6))}"/>`;
+      g += belir(f, pp, kaz(yazi('pop!', 300, 900, 90, { cls: 'pi' })));
+      g += '</g>';
+    }
+    // değnek: tahta, sonra direğe dönüşür
+    const x = lerp(f, [s1, p], [660, 540], EASE.dolly), h = lerp(f, [s1, p], [820, 760], EASE.dolly);
+    const ws = ac(f, c('staff', 'wooden'), 8);
+    if (ws > 0) g += `<g opacity="${f2(ws * (1 - ac(f, p, 10)))}">` + kaz(`<rect x="${f2(x - 32)}" y="${f2(1020 - h / 2)}" width="64" height="${f2(h)}" rx="26" fill="${WOOD}" stroke="${G}" stroke-width="6"/><path d="M${f2(x - 10)} ${f2(1020 - h / 2 + 40)} V${f2(1020 + h / 2 - 40)}" stroke="#6B4320" stroke-width="5"/>`) + '</g>';
+    if (f >= p) g += `<g opacity="${f2(ac(f, p, 10))}">${direk(f, 540, 1020, 760)}</g>`;
+    return g;
+  },
+  colors(f) {
+    const r = c('colors', 'red'), w = c('colors', 'white'), hu = c('colors', 'hung'), tw = c('colors', 'twisting');
+    let g = direk(f, 250, 1000, 820, { kirmizi: ac(f, r, 10), hiz: f >= tw ? 4 : 2.2 });
+    g += belir(f, r, kaz(yazi('RED', 700, 700, 96, { renk: RED }) + yazi('= blood', 700, 770, 52, { cls: 'pi' })));
+    g += belir(f, w, kaz(yazi('WHITE', 700, 900, 96, { renk: WHITE }) + yazi('= bandages', 700, 970, 52, { cls: 'pi' })));
+    if (f >= hu - 6) {
+      g += kaz(cizgi('M440 1120 Q730 1170 1020 1120', f, hu - 6, 10, { w: 5 }));
+      for (let k = 0; k < 3; k++) {
+        const t0 = hu + k * 4, x0 = 540 + k * 170, y0 = 1140 + (k === 1 ? 10 : 4);
+        if (f < t0) continue;
+        const sal = 8 * sin(f * .18 + k), u = EASE.dolly(ac(f, tw + k * 5, 18));
+        const x = x0 + (250 - x0) * u, y = y0 + (700 + k * 200 - y0) * u, sc = 1 - .4 * u, op = 1 - ac(f, tw + k * 5 + 14, 6);
+        g += at(x, y, sc, `<path d="M-40 0 L40 0 L${f2(44 + sal)} 190 L${f2(-36 + sal)} 190Z" fill="${WHITE}"/><path d="M-12 70 q14 -12 28 0 q-4 22 -16 26 q-16 -6 -12 -26Z" fill="${RED}" opacity=".8"/>`, sal * .6 + u * 40, op);
+      }
+    }
+    return g;
+  },
+  basin(f) {
+    const ba = c('basin', 'basin'), bl = c('basin', 'blood');
+    let g = direk(f, 540, 1060, 700, { top: false });
+    const y = lerp(f, [ba - 12, ba + 4], [500, 610], EASE.terk);
+    g += `<g opacity="${f2(ac(f, ba - 12, 6))}">` + kaz(`<path d="M${540 - 130} ${f2(y)} h260 a130 95 0 0 1 -260 0Z" fill="${G}"/><rect x="520" y="${f2(y + 90)}" width="40" height="${f2(Math.max(0, 670 - y - 90))}" fill="${G}"/>`) + '</g>';
+    if (f >= bl - 18) { const u = klamp((f - bl + 18) / 18); if (u < 1) g += `<path d="M540 ${f2(300 + 300 * u * u)} q-20 32 0 42 q20 -10 0 -42Z" fill="${RED}"/>`; }
+    if (f >= bl) g += `<ellipse cx="540" cy="${f2(y + 12)}" rx="${f2(110 * ac(f, bl, 10))}" ry="16" fill="${RED}"/>`;
+    g += belir(f, c('basin', 'brass'), kaz(yazi('the brass basin', 540, 1530, 70, { cls: 'pi' })));
+    return g;
+  },
+  split(f) {
+    const y0 = c('split', '1745'), sp = c('split', 'split'), kp = c('split', 'kept');
+    let g = belir(f, y0, kaz(yazi('1745', 540, 640, 150)));
+    const u = EASE.dolly(ac(f, sp, 22));
+    const levha = (x, y, txt, r) => at(x, y, 1, `<rect x="-230" y="-80" width="460" height="160" rx="18" fill="${DARK}" stroke="${G}" stroke-width="7"/>` + yazi(txt, 0, 24, 66, { ls: 3 }), r);
+    if (f >= T.seg.split.start + 6) {
+      g += kaz(levha(540 - 250 * u - (1 - u) * 0, 950 + 330 * u, 'BARBERS', -4 * u));
+      g += kaz(levha(540 + 250 * u, 950 - 130 * u + 0, 'SURGEONS', 4 * u));
+      if (u < .5) g += `<rect x="300" y="1030" width="480" height="20" fill="url(#cam)" opacity="0"/>`;
+      g += yazi('company of barber-surgeons', 540, 1090, 40, { cls: 'pi', op: 1 - u });
+    }
+    if (f >= kp) g += `<g opacity="${f2(ac(f, kp, 8))}">${direk(f, 610, 1290, 360, { w: 70 })}</g>`;
+    g += belir(f, c('split', 'company'), kaz(yazi('Company of Surgeons', 790, 960, 38, { cls: 'pi' })));
+    return g;
+  },
+  blue(f) {
+    const b = c('blue', 'blue'), fl = c('blue', 'flag'), am = c('blue', 'america');
+    let g = direk(f, 330, 1000, 760, { desen: f >= b ? 'stB' : 'stR' });
+    g += belir(f, am, kaz(yazi('U.S.A.', 780, 760, 96)));
+    if (f >= fl - 4) {
+      let fg = '';
+      for (let k = 0; k < 7; k++) fg += `<rect x="-170" y="${-110 + k * 31.4}" width="340" height="16" fill="${RED}"/>`;
+      fg = `<rect x="-170" y="-110" width="340" height="220" fill="${WHITE}"/>${fg}<rect x="-170" y="-110" width="150" height="110" fill="${BLUE}"/>`;
+      for (let k = 0; k < 6; k++) fg += `<circle cx="${-145 + (k % 3) * 50}" cy="${-80 + Math.floor(k / 3) * 50}" r="8" fill="${WHITE}"/>`;
+      const s = backOut(ac(f, fl - 4, 12));
+      g += at(780, 1060, s, kaz(fg + `<rect x="-170" y="-110" width="340" height="220" fill="none" stroke="${G}" stroke-width="6"/>`), 4 * sin(f * .12));
+    }
+    g += belir(f, c('blue', 'likely'), kaz(yazi('most likely', 780, 1290, 54, { cls: 'pi' })));
+    return g;
+  },
+  son(f) {
+    const f0 = T.seg.son.start, gl = c('son', 'glad');
+    let g = direk(f, 840, 950, 640, { w: 100 });
+    // berber koltuğu
+    g += kaz(cizgi('M180 820 Q180 760 240 760 L470 760 Q520 760 520 820 L520 1000 M150 1000 L560 1000 L600 1060 L150 1060Z M330 1060 V1260 M220 1260 H440 M520 900 L620 900', f, f0, 26, { w: 9 }));
+    const sn = Math.floor((f - c('son', 'haircut')) / 6) % 2 === 0 ? 14 : -4;
+    if (f >= c('son', 'haircut')) g += at(380, 640, 1, `<circle cx="-40" cy="50" r="22" fill="none" stroke="${G}" stroke-width="9"/><circle cx="40" cy="50" r="22" fill="none" stroke="${G}" stroke-width="9"/><path d="M-26 34 L${50 + sn} -80 M26 34 L${-50 - sn} -80" stroke="${G}" stroke-width="11" stroke-linecap="round"/>`);
+    g += belir(f, gl, kaz(yazi('Just a haircut,', 540, 1430, 80, { cls: 'pi' }) + yazi('please.', 540, 1530, 80, { cls: 'pi' })));
+    return g;
+  },
+  cta(f) {
+    const f0 = sec(T.timing.voice_end) - 4;
+    let g = belir(f, f0, kaz(yazi('Enjoyed this?', 540, 760, 104, { cls: 'pi' })));
+    const plak = (y, txt, t) => belir(f, t, kaz(`<rect x="290" y="${y - 80}" width="500" height="150" rx="20" fill="${DARK}" stroke="${G}" stroke-width="8"/>` + yazi(txt, 540, y + 24, 86, { ls: 8 })));
+    g += plak(990, 'LIKE', f0 + 10) + plak(1190, 'FOLLOW', f0 + 22);
+    if (f >= f0 + 10) g += direk(f, 175, 1090, 380, { w: 64 }) + direk(f, 905, 1090, 380, { w: 64 });
+    g += belir(f, f0 + 34, yazi('for more stories behind everyday things', 540, 1400, 42, { cls: 'pi' }));
+    return g;
+  },
+};
+const SIRA = Object.keys(SAHNE);
+
+function aralik(ad) {
+  const i = SIRA.indexOf(ad), sonraki = SIRA[i + 1];
+  const b = a => a === 'hook' ? 0 : a === 'cta' ? sec(T.timing.voice_end) - 4 - 14 : T.seg[a].start - 10;
+  return [b(ad), sonraki ? b(sonraki) : T.total + 30];
+}
+
+const WIPE = 16, BANT = 240;
+window.renderFrame = function (f) {
+  PID = 0;
+  let g = '', clip = '', bant = '';
+  SIRA.forEach((ad, i) => {
+    const [b, s] = aralik(ad);
+    if (f < b || f > s + WIPE) return;
+    // geçiş (imza): kırmızı-beyaz direk şeridi aşağıdan yukarı süpürür; altında yeni sahne
+    const yb = i ? 2000 - 2200 * EASE.dolly(klamp((f - b) / WIPE)) : -200;
+    const ys = 2000 - 2200 * EASE.dolly(klamp((f - s) / WIPE));
+    const top = Math.max(-200, yb), bot = ys;
+    clip += `<clipPath id="c${i}"><rect x="0" y="${f2(top)}" width="1080" height="${f2(Math.max(0, bot - top))}"/></clipPath>`;
+    g += `<g clip-path="url(#c${i})">${SAHNE[ad](f)}</g>`;
+  });
+  SIRA.forEach((ad, i) => {
+    if (!i) return; const [b] = aralik(ad), u = (f - b) / WIPE;
+    if (u > 0 && u < 1) { const y = 2000 - 2200 * EASE.dolly(u); bant += `<g clip-path="url(#bantc)"><rect x="-600" y="${f2(y - BANT)}" width="2400" height="${BANT * 3}" fill="url(#stR)" transform="rotate(-28 540 ${f2(y)}) translate(0 ${f2((f * 6) % 96)})"/></g><clipPath id="bantc"><rect x="0" y="${f2(y - BANT / 2)}" width="1080" height="${BANT}"/></clipPath><rect x="0" y="${f2(y - BANT / 2 - 8)}" width="1080" height="10" fill="${G}"/><rect x="0" y="${f2(y + BANT / 2 - 2)}" width="1080" height="10" fill="${G}"/>`; }
+  });
+  $('clips').innerHTML = clip;
+  $('sahne').innerHTML = g;
+  $('ust').innerHTML = bant;
+  // cam yansıması: iki yumuşak çapraz ışık yavaşça kayar
+  const k = (f * 1.2) % 1800 - 400;
+  $('yansima').innerHTML = `<g filter="url(#bul)" opacity=".10"><rect x="${f2(k)}" y="-400" width="140" height="2800" fill="#fff" transform="rotate(24 540 960)"/><rect x="${f2(k + 260)}" y="-400" width="50" height="2800" fill="#fff" transform="rotate(24 540 960)"/></g>`;
+  altyazi4(f, $('alt'));
+};
+
+// altyazı: krem dolgu, konturu yok; söylenen kelimenin altında kırmızı-beyaz direk şeridi
+const SERIT = `background:repeating-linear-gradient(-45deg,${RED} 0 12px,${WHITE} 12px 24px) left bottom/100% 10px no-repeat`;
+function altyazi4(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || f >= sec(T.timing.voice_end) - 4) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.32' : tt < x.end + 0.05 ? SERIT : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>
