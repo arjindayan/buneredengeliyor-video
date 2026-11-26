@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../engine/fonts/fonts.css">
+<style>
+  /* STİL KARTI: gece ormanı kâğıt kesme katmanları; yalnız Arjin paleti + beyaz. Bkz. style.md */
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#28301C}
+  svg{position:absolute;inset:0}
+  #alt{position:absolute;left:70px;right:70px;top:110px;font:500 54px/1.3 'IBM Plex Sans';color:#D2CF9A;text-align:center}
+  #alt span{padding:0 6px;border-radius:6px}
+  .is{font-family:'Instrument Serif'}
+  .px{font-family:'IBM Plex Sans';font-weight:500}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <filter id="bulanik"><feGaussianBlur stdDeviation="9"/></filter>
+    <g id="clips"></g>
+  </defs>
+  <g id="sahne"></g><g id="ust"></g>
+</svg>
+<div id="alt"></div>
+<script src="../../engine/lib.js"></script>
+<script src="../../engine/cute.js"></script>
+<script src="../../engine/vinyet.js"></script>
+<script>
+window.FONTS = ['400 60px "Instrument Serif"', '500 60px "IBM Plex Sans"'];
+const INK = '#28301C', GREEN = '#323D25', GOLD = '#9A7E3B', KHAKI = '#D2CF9A', WHITE = '#FFFFFF';
+const c = cue, ac = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
+const yazi = (txt, x, y, s, o = {}) => `<text x="${f2(x)}" y="${f2(y)}" class="${o.cls || 'is'}" font-size="${s}" fill="${o.renk || KHAKI}" text-anchor="${o.a || 'middle'}" letter-spacing="${o.ls ?? 1}" opacity="${f2(o.op ?? 1)}" ${o.it === false ? '' : 'font-style="italic"'}>${txt}</text>`;
+const kazi = (f, f0, ic, x = 540, y = 960, d = 8) => f < f0 ? '' : `<g opacity="${f2(ac(f, f0, d * .6))}" transform="translate(${x},${y}) scale(${(1 + .06 * (1 - EASE.dolly(ac(f, f0, d)))).toFixed(3)}) translate(${-x},${-y})">${ic}</g>`;
+const plaka = (f, f0, txt, x, y, s = 84, renk = GOLD, yr = INK, rot = 0) => f < f0 ? '' : kazi(f, f0, `<g transform="rotate(${rot} ${x} ${y})"><rect x="${f2(x - txt.length * s * .2 - 40)}" y="${f2(y - s * .78)}" width="${f2(txt.length * s * .4 + 80)}" height="${f2(s * 1.1)}" rx="12" fill="${renk}"/>${yazi(txt, x, y + s * .06, s, { renk: yr, it: false, ls: 2 })}</g>`, x, y);
+
+// ---- ortak arka plan: gece, ay, kâğıt kesme çam katmanları (hafif paralaks) ----
+function cam(y, h, w, renk, seed, kayma, golge) {
+  let d = '';
+  for (let x = -60 + (seed % 7) * 11 - kayma % w; x < 1200; x += w) {
+    const hh = h * (.75 + .5 * rastgele(seed + Math.round(x)) );
+    for (let k = 0; k < 4; k++) { const yy = y - hh * k * .27, ww = w * (1 - k * .18); d += `M${f2(x - ww / 2)} ${f2(yy)} L${f2(x)} ${f2(yy - hh * .42)} L${f2(x + ww / 2)} ${f2(yy)}Z`; }
+  }
+  return (golge ? `<path d="${d}" transform="translate(0,14)" fill="${INK}" opacity=".55"/>` : '') + `<path d="${d}" fill="${renk}"/><rect x="0" y="${y - 4}" width="1080" height="${1920 - y + 4}" fill="${renk}"/>`;
+}
+function bg(f, ton = 0) {
+  let g = `<rect width="1080" height="1920" fill="${INK}"/>`;
+  for (let k = 0; k < 34; k++) { const x = 40 + rastgele(k * 3) * 1000, y = 180 + rastgele(k * 3 + 1) * 900, tw = .35 + .45 * Math.abs(sin(f * .04 + k)); g += `<circle cx="${f2(x)}" cy="${f2(y)}" r="${f2(2 + rastgele(k * 3 + 2) * 3)}" fill="${KHAKI}" opacity="${f2(tw)}"/>`; }
+  const mx = 870 - ton * 50, my = 400;
+  g += `<circle cx="${mx}" cy="${my}" r="190" fill="${GOLD}" opacity=".16"/><circle cx="${mx}" cy="${my}" r="150" fill="${GOLD}" opacity=".22"/><circle cx="${mx}" cy="${my}" r="110" fill="${KHAKI}"/><circle cx="${mx - 34}" cy="${my - 24}" r="20" fill="${GOLD}" opacity=".25"/><circle cx="${mx + 34}" cy="${my + 40}" r="16" fill="${GOLD}" opacity=".25"/>`;
+  g += cam(1330, 260, 150, GREEN, 5, f * .15, true) + cam(1520, 300, 210, INK, 11, f * .3, true);
+  return g;
+}
+
+// ---- baykuş (imza öğe): kâğıt kesme katmanları. o.head: derece, o.sil: siluet, o.glow: göz parlaması ----
+function bas(a, o) {
+  const r = a * P / 180, cs = cos(r), ox = sin(r) * 92;
+  const fill = o.sil ? INK : GOLD, ST = o.sil ? GOLD : INK;
+  let g = `<path d="M-115 -75 L-100 -150 L-50 -105Z M115 -75 L100 -150 L50 -105Z" fill="${fill}" stroke="${ST}" stroke-width="8" stroke-linejoin="round"/><ellipse rx="135" ry="115" fill="${fill}" stroke="${ST}" stroke-width="8"/>`;
+  if (cs > 0.02) {
+    const sx = cs;
+    g += `<g transform="translate(${f2(ox)},0) scale(${sx.toFixed(3)},1)">`;
+    if (!o.sil) g += `<circle cx="-58" r="80" fill="${KHAKI}"/><circle cx="58" r="80" fill="${KHAKI}"/>`;
+    for (const sg of [-1, 1]) {
+      const ex = sg * 56;
+      g += o.sil ? `<circle cx="${ex}" cy="-6" r="${o.glow ? 30 : 0}" fill="${KHAKI}" opacity="${f2(o.glow || 0)}"/>` :
+        `<circle cx="${ex}" cy="-6" r="48" fill="${GOLD}" stroke="${INK}" stroke-width="7"/><circle cx="${ex}" cy="-6" r="34" fill="${WHITE}"/><circle cx="${ex}" cy="-6" r="19" fill="${INK}"/><circle cx="${ex - 7}" cy="-14" r="6" fill="${WHITE}"/>`;
+    }
+    if (!o.sil) g += `<path d="M-17 22 L17 22 L0 64Z" fill="${KHAKI}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>`;
+    g += `</g>`;
+  } else if (!o.sil) {
+    g += [-60, -20, 20, 60].map(x => `<path d="M${x - 22} -40 L${x} -4 L${x + 22} -40" fill="none" stroke="${INK}" stroke-width="7" stroke-linecap="round" opacity=".7"/>`).join('') + `<path d="M-40 40 L0 74 L40 40" fill="none" stroke="${INK}" stroke-width="7" stroke-linecap="round" opacity=".7"/>`;
+  }
+  return g;
+}
+function owl(x, y, s, o = {}) {
+  const sil = o.sil, bod = sil ? INK : GOLD;
+  let g = `<path d="M-150 20 Q-175 140 -100 190 L-60 120Z M150 20 Q175 140 100 190 L60 120Z" fill="${sil ? INK : GREEN}" stroke="${sil ? GOLD : INK}" stroke-width="8" stroke-linejoin="round"/>`;
+  g += `<ellipse cy="10" rx="140" ry="185" fill="${bod}" stroke="${sil ? GOLD : INK}" stroke-width="8"/>`;
+  if (!sil) { g += `<ellipse cy="40" rx="88" ry="135" fill="${KHAKI}"/>`; for (let r = 0; r < 4; r++) for (let k = -1; k <= 1; k++) g += `<path d="M${k * 46 - 18} ${r * 52 - 10} l18 18 l18 -18" fill="none" stroke="${GOLD}" stroke-width="7" stroke-linecap="round"/>`; }
+  g += `<path d="M-60 190 l-12 30 M-60 190 l8 32 M-60 190 l28 26 M60 190 l12 30 M60 190 l-8 32 M60 190 l-28 26" stroke="${sil ? INK : KHAKI}" stroke-width="12" stroke-linecap="round"/>`;
+  g += `<g transform="translate(0,-175)">${bas(o.head || 0, o)}</g>`;
+  return at(x, y, s, g);
+}
+const dal = (y, x0 = -50, x1 = 1130) => `<path d="M${x0} ${y} H${x1}" stroke="${GREEN}" stroke-width="34" stroke-linecap="round"/><path d="M${x0} ${y - 12} H${x1}" stroke="${KHAKI}" stroke-width="4" opacity=".5"/>`;
+
+const SAHNE = {
+  hook(f) {
+    const mv = c('hook', 'move'), ye = c('hook', 'yet'), se = c('hook', 'sees'), wh = c('hook', 'which'), ow = c('hook', 'owl');
+    const gl = ac(f, c('hook', 'unbelievably'), 20) * (.55 + .25 * sin(f * .2));
+    let g = bg(f) + dal(1290) + owl(540, 1050, 1.0, { sil: f < ow, glow: gl, head: f < ow ? 0 : 0 });
+    const ph = f < ye ? 1 : f < wh ? 2 : 3;
+    if (ph === 1) g += kazi(f, mv - 10, yazi('CAN’T MOVE ITS EYES', 540, 620, 118, { renk: KHAKI }), 540, 590);
+    if (ph === 2) g += kazi(f, ye, yazi('YET IT SEES', 540, 580, 130, { renk: GOLD }) + yazi('EVERYTHING', 540, 730, 130, { renk: KHAKI }), 540, 640);
+    if (ph === 3) g += kazi(f, wh, yazi('WHICH ANIMAL?', 540, 640, 150, { renk: WHITE }), 540, 600);
+    g += plaka(f, ow, 'AN OWL.', 540, 1600, 130, GOLD, INK, -3);
+    return g;
+  },
+  tubes(f) {
+    const tu = c('tubes', 'tubes'), lo = c('tubes', 'locked'), ri = c('tubes', 'rings'), tn = c('tubes', 'turn');
+    const hd = f < tn ? 0 : 70 * sin((f - tn) * .09) * ac(f, tn, 10);
+    let g = bg(f, 1) + dal(1010) + owl(540, 780, .78, { head: hd });
+    g += kazi(f, c('tubes', 'round'), yazi('NOT BALLS', 540, 1170, 100, { renk: WHITE }), 540, 1150);
+    // röntgen paneli: yandan boru göz
+    if (f >= tu) {
+      const k = EASE.dolly(ac(f, tu, 14));
+      g += `<g opacity="${f2(k)}"><rect x="90" y="1250" width="900" height="480" rx="34" fill="${INK}" stroke="${GOLD}" stroke-width="6"/>`;
+      g += `<path d="M180 1380 H700 Q800 1380 800 1490 Q800 1600 700 1600 H180Z" fill="${GREEN}" stroke="${KHAKI}" stroke-width="7"/><circle cx="190" cy="1490" r="82" fill="${KHAKI}" stroke="${INK}" stroke-width="6"/><path d="M800 1420 Q830 1490 800 1560" fill="none" stroke="${GOLD}" stroke-width="12" stroke-linecap="round"/>`;
+      g += yazi('TUBE', 600, 1505, 90, { renk: KHAKI }) + yazi('LENS', 190, 1700, 44, { cls: 'px', it: false, renk: GOLD }) + yazi('RETINA', 800, 1655, 44, { cls: 'px', it: false, renk: GOLD });
+      if (f >= lo) for (let i = 0; i < 3; i++) { const x = 330 + i * 120, t = ac(f, ri + i * 4, 10); g += `<ellipse cx="${x}" cy="1490" rx="${f2(22 * t)}" ry="${f2(150 * t)}" fill="none" stroke="${WHITE}" stroke-width="9"/>`; }
+      if (f >= ri) g += yazi('BONE RINGS', 440, 1320, 54, { cls: 'px', it: false, renk: WHITE });
+      g += `</g>`;
+    }
+    return g;
+  },
+  twist(f) {
+    const tw = c('twist', 'twist'), n = c('twist', '270'), tr = c('twist', 'try'), ar = c('twist', 'arteries'), te = c('twist', 'tear');
+    const t = f - tw, hd = f < tw ? 0 : f < tr ? kf(t, [[0, 0], [20, 135], [48, -135], [78, 0]]) : 135 * sin(t * .06);
+    const num = Math.round(270 * EASE.dolly(ac(f, n, 24)));
+    let g = bg(f, 2) + dal(1230) + owl(540, 1010, .95, { head: f < tw ? 0 : kf(f - tw, [[0, 0], [20, 135], [46, -135], [74, 135], [100, 0]]) });
+    g += kazi(f, n, yazi(num + '°', 540, 610, 220, { renk: GOLD, it: false }), 540, 600);
+    if (f >= tr) {
+      const k = EASE.dolly(ac(f, tr, 14));
+      g += `<g opacity="${f2(k)}"><rect x="70" y="1330" width="940" height="460" rx="34" fill="${INK}" stroke="${KHAKI}" stroke-width="5"/>`;
+      // insan kafası: yan profil, 90° sınırı
+      g += `<circle cx="300" cy="1560" r="86" fill="${KHAKI}"/><path d="M${f < ar ? 380 : 388} 1550 l36 20 l-36 14" fill="${KHAKI}"/><rect x="262" y="1630" width="76" height="110" fill="${KHAKI}"/>`;
+      g += yazi('YOU: ~90°', 300, 1400, 70, { renk: KHAKI }) + yazi('NECK ARTERIES', 760, 1500, 60, { cls: 'px', it: false, renk: WHITE, op: ac(f, ar, 8) });
+      if (f >= te) { const s2 = 1 + .15 * sin((f - te) * .7); g += `<g transform="translate(300,1700) scale(${s2.toFixed(2)})"><path d="M-48 0 l24 -22 l20 24 l24 -26 l28 24" fill="none" stroke="${WHITE}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g>` + yazi('TEAR', 760, 1620, 110, { renk: WHITE }); }
+      g += `</g>`;
+    }
+    return g;
+  },
+  bones(f) {
+    const ow = c('bones', 'owls'), n14 = c('bones', '14'), tw = c('bones', 'twice'), sp = c('bones', 'special'), bk = c('bones', 'backup'), kp = c('bones', 'keep');
+    let g = bg(f, 3);
+    g += kazi(f, ow, yazi('NECK BONES', 540, 640, 120, { renk: WHITE }), 540, 610);
+    const col = (x, n, t0, renk, lab, num) => {
+      let s = '';
+      for (let i = 0; i < n; i++) { const t = ac(f, t0 + i * 3, 8); s += `<rect x="${x - 70}" y="${f2(1580 - i * (n > 8 ? 56 : 90) - 22 * (1 - EASE.dolly(t)))}" width="140" height="${n > 8 ? 46 : 74}" rx="18" fill="${renk}" stroke="${INK}" stroke-width="6" opacity="${f2(t)}"/>`; }
+      return s + yazi(num, x, 1760, 120, { renk: WHITE, it: false }) + yazi(lab, x, 1840, 56, { cls: 'px', it: false, renk: KHAKI, ls: 3 });
+    };
+    g += col(250, 7, tw - 6, KHAKI, 'YOU', '7') + col(830, 14, n14 - 4, GOLD, 'OWL', '14');
+    // özel damar + yedek havuzlar (sağ sütunun yanında), kan damlası akar
+    if (f >= sp) {
+      const k = ac(f, sp, 12);
+      g += `<g opacity="${f2(k)}"><path d="M540 1560 C540 1300 640 1300 640 1060" fill="none" stroke="${WHITE}" stroke-width="12" stroke-linecap="round" stroke-dasharray="1 0"/>`;
+      if (f >= bk) for (const [x, y] of [[560, 1440], [630, 1280], [560, 1140]]) g += `<circle cx="${x}" cy="${y}" r="${f2(34 * EASE.dolly(ac(f, bk, 12)))}" fill="${WHITE}" opacity=".9"/>`;
+      g += `</g>`;
+      if (f >= kp) for (let i = 0; i < 4; i++) { const u = ((f - kp) * .02 + i / 4) % 1, y = 1560 - 500 * u; g += `<circle cx="${f2(540 + (u > .5 ? 100 : 0) * Math.min(1, (u - .2) * 2.5 > 0 ? (u - .2) * 2.5 : 0))}" cy="${f2(y)}" r="12" fill="${GOLD}"/>`; }
+      g += yazi('BACKUP BLOOD', 540, 980, 76, { renk: WHITE });
+    }
+    return g;
+  },
+  close(f) {
+    const nb = c('close', 'nearly'), fe = c('close', 'feels'), be = c('close', 'beak');
+    const wig = f >= fe ? 6 * sin((f - fe) * .5) : 0;
+    let g = bg(f, 1) + dal(1500, -50, 1130) + owl(540, 1040, 1.5, { head: 0 }).replace('<g transform="translate(540,', '<g transform="translate(540,');
+    // bulanık yakın alan: gaganın altında küçük fare
+    g += `<g filter="url(#bulanik)" opacity="${f2(ac(f, nb, 12))}"><ellipse cx="540" cy="1330" rx="72" ry="44" fill="${KHAKI}"/></g>`;
+    g += kazi(f, nb, yazi('NEARLY BLIND UP CLOSE', 540, 620, 100, { renk: WHITE }), 540, 590);
+    if (f >= fe) { const k = ac(f, fe, 10); g += `<g opacity="${f2(k)}">` + [-1, 1].map(sg => [0, 1, 2].map(i => `<path d="M${540 + sg * 30} ${1090 + i * 10} q${sg * (60 + i * 22)} ${f2(20 + wig + i * 8)} ${sg * (110 + i * 30)} ${f2(66 + i * 22)}" fill="none" stroke="${WHITE}" stroke-width="7" stroke-linecap="round"/>`).join('')).join('') + `</g>`; }
+    g += plaka(f, fe, 'FEELS IT WITH FEATHERS', 540, 1700, 74, KHAKI, INK, -2);
+    return g;
+  },
+  ears(f) {
+    const he = c('ears', 'hearing'), on = c('ears', 'one'), hi = c('ears', 'higher'), sa = c('ears', 'satellite'), mo = c('ears', 'mouse'), dv = c('ears', 'dive');
+    const u = EASE.dolly(ac(f, dv, 26));
+    let g = bg(f, 2) + dal(1170, -50, 560);
+    g += kazi(f, he, yazi('SUPERPOWER: HEARING', 540, 620, 100, { renk: WHITE }), 540, 590);
+    // sol üst: kulak yüksekliği şeması
+    const ox = 250 + 460 * u, oy = 1010 + 390 * u * u;
+    const OW = owl(ox, oy, .7 - .1 * u, { head: 0 }); if (f < dv) g += OW;
+    if (f >= hi && f < dv) g += `<g opacity="${f2(ac(f, hi, 8))}"><circle cx="185" cy="800" r="16" fill="${WHITE}"/><circle cx="315" cy="845" r="16" fill="${WHITE}"/>` + yazi('EARS AT DIFFERENT HEIGHTS', 420, 850, 40, { cls: 'px', it: false, renk: WHITE, a: 'start' }) + `</g>`;
+    if (f >= sa && f < dv) g += `<circle cx="250" cy="895" r="${f2(125 + 10 * sin(f * .2))}" fill="none" stroke="${GOLD}" stroke-width="9" stroke-dasharray="14 12"/>` + yazi('FACE = SOUND DISH', 420, 920, 40, { cls: 'px', it: false, renk: GOLD, a: 'start' });
+    // kar kesiti
+    g += `<rect x="0" y="1180" width="1080" height="150" fill="${KHAKI}"/><rect x="0" y="1330" width="1080" height="590" fill="${GREEN}"/><path d="M0 1180 q90 -50 180 0 t180 0 t180 0 t180 0 t180 0 t180 0" fill="${KHAKI}"/>`;
+    g += `<path d="M120 1410 H860" stroke="${INK}" stroke-width="56" stroke-linecap="round"/>`;
+    const mxv = 700 - 90 * sin((f - mo) * .08) * (f >= mo ? 1 : 0);
+    g += `<g transform="translate(${f2(mxv)},1410)"><ellipse rx="44" ry="26" fill="${KHAKI}"/><circle cx="-40" cy="-8" r="14" fill="${KHAKI}"/><circle cx="-36" cy="-30" r="9" fill="${KHAKI}"/><path d="M44 0 q50 8 70 -16" fill="none" stroke="${KHAKI}" stroke-width="6"/></g>`;
+    if (f >= mo && f < dv + 10) for (let i = 0; i < 3; i++) { const r = ((f * 2 + i * 40) % 120) + 20, op = 1 - r / 150; g += `<path d="M${f2(mxv - 30 - r * .2)} ${1410 - r * 1.5} A ${f2(r * 2)} ${f2(r * 2)} 0 0 1 ${f2(mxv + 30 + r * .2)} ${1410 - r * 1.5}" fill="none" stroke="${WHITE}" stroke-width="6" opacity="${f2(op)}" transform="rotate(-10 ${f2(mxv)} 1410)"/>`; }
+    if (f >= dv) g += OW;
+    g += yazi('UNDER DEEP SNOW', 540, 1620, 80, { renk: KHAKI }) + yazi('GREAT GRAY OWL', 540, 1760, 64, { cls: 'px', it: false, renk: KHAKI, ls: 4, op: ac(f, c('ears', 'great'), 8) });
+    return g;
+  },
+  quiet(f) {
+    const nv = c('quiet', 'never'), cb = c('quiet', 'comb'), br = c('quiet', 'break'), si = c('quiet', 'silent'), en = c('quiet', 'engineers'), tb = c('quiet', 'turbines');
+    let g = bg(f, 1);
+    g += kazi(f, nv, yazi('YOU NEVER HEAR IT', 540, 620, 110, { renk: WHITE }), 540, 590);
+    // tüy: tarak kenarlı
+    let teeth = ''; for (let i = 0; i < 16; i++) teeth += `M${150 + i * 30} 920 l8 -${f >= cb ? f2(44 * ac(f, cb + i, 6)) : 0} l22 ${f >= cb ? f2(44 * ac(f, cb + i, 6)) : 0}`;
+    g += `<g transform="rotate(-8 540 900)"><path d="M130 960 Q500 760 960 880 Q620 1040 130 960Z" fill="${KHAKI}" stroke="${INK}" stroke-width="8"/><path d="M130 960 Q540 900 960 880" fill="none" stroke="${GOLD}" stroke-width="8"/><path d="${teeth}" fill="${KHAKI}" stroke="${INK}" stroke-width="3" transform="translate(-20,-60)" opacity="${f2(ac(f, cb, 6))}"/></g>`;
+    if (f >= br) for (let i = 0; i < 5; i++) { const x0 = 70 + ((f - br) * 7 + i * 60) % 280; g += `<path d="M${f2(x0)} ${760 + i * 36} q60 -30 120 0 t120 -4" fill="none" stroke="${WHITE}" stroke-width="5" opacity=".75"/>`; }
+    g += kazi(f, si, yazi('NEARLY SILENT', 540, 1120, 96, { renk: GOLD }), 540, 1090);
+    // rüzgâr türbini
+    if (f >= en) {
+      const k = ac(f, en, 14), a = (f - en) * .045;
+      let bl = ''; for (let i = 0; i < 3; i++) { const t = a + i * 2 * P / 3, ex = 540 + 230 * cos(t), ey = 1480 + 230 * sin(t); bl += `<path d="M540 1480 L${f2(ex)} ${f2(ey)}" stroke="${KHAKI}" stroke-width="${f >= tb ? 18 : 14}" stroke-linecap="round" ${f >= tb ? 'stroke-dasharray="26 8"' : ''}/>`; }
+      g += `<g opacity="${f2(k)}"><path d="M540 1480 L540 1850" stroke="${GOLD}" stroke-width="26" stroke-linecap="round"/>${bl}<circle cx="540" cy="1480" r="22" fill="${WHITE}"/></g>`;
+      g += plaka(f, tb, 'QUIETER TURBINES', 540, 1330, 66, GOLD, INK, -2);
+    }
+    return g;
+  },
+  son(f) {
+    const mo = c('son', 'move'), ev = c('son', 'everything'), li = c('son', 'like'), fo = c('son', 'follow');
+    const hd = f < ev ? 0 : 140 * sin((f - ev) * .07);
+    let g = bg(f, 0) + dal(1470) + owl(540, 1210, 1.05, { head: hd });
+    g += kazi(f, mo - 4, yazi('EYES FIXED.', 540, 620, 140, { renk: KHAKI }), 540, 590);
+    g += kazi(f, ev, yazi('EVERYTHING ELSE MOVES.', 540, 770, 96, { renk: GOLD }), 540, 740);
+    g += plaka(f, li, 'LIKE', 300, 1650, 96, GOLD, INK, -3) + plaka(f, fo, 'FOLLOW', 740, 1650, 96, KHAKI, INK, 3);
+    return g;
+  },
+};
+const SIRA = Object.keys(SAHNE);
+const aralik = ad => { const i = SIRA.indexOf(ad), b = a => a === 'hook' ? 0 : T.seg[a].start - 10; return [b(ad), SIRA[i + 1] ? b(SIRA[i + 1]) : T.total + 30]; };
+const W = 16;
+window.renderFrame = function (f) {
+  let g = '', clip = '', ust = '';
+  SIRA.forEach((ad, i) => {
+    const [b, s] = aralik(ad);
+    if (f < b || f > s + W) return;
+    // geçiş: ay konumundan büyüyen daire (iris); eski sahne altta kalır
+    const ui = i ? EASE.dolly(klamp((f - b) / W)) : 1;
+    if (ui <= 0) return;
+    const sonraki = SIRA[i + 1] && f > s;
+    const r = ui * 1900;
+    clip += `<clipPath id="c${i}"><circle cx="870" cy="400" r="${f2(r)}"/></clipPath>`;
+    g += `<g clip-path="url(#c${i})">${SAHNE[ad](f)}</g>`;
+    if (i && ui > 0 && ui < 1) ust += `<circle cx="870" cy="400" r="${f2(r)}" fill="none" stroke="${GOLD}" stroke-width="14"/><circle cx="870" cy="400" r="${f2(Math.max(0, r - 26))}" fill="none" stroke="${KHAKI}" stroke-width="4" opacity=".6"/>`;
+  });
+  $('clips').innerHTML = clip; $('sahne').innerHTML = g; $('ust').innerHTML = ust;
+  altyazi11(f, $('alt'));
+};
+function altyazi11(f, el) {
+  const cp = T.caption(f), tt = f / FPS;
+  if (!cp || tt > T.timing.voice_end + .3) { el.innerHTML = ''; return; }
+  const seg = T.timing.words.find(y => y.start >= cp.start - 0.01).seg;
+  const ws = T.timing.words.filter(x => x.start >= cp.start - 0.01 && x.start < cp.end && x.seg === seg);
+  let i = 0;
+  el.innerHTML = cp.lines.map(line => line.split(' ').map(() => {
+    const x = ws[i++]; if (!x) return '';
+    const st = tt < x.start ? 'opacity:.4' : tt < x.end + 0.05 ? `background:${GOLD};color:${INK}` : '';
+    return `<span style="${st}">${x.w}</span>`;
+  }).join(' ')).join('<br>');
+}
+</script>
+</body>
+</html>
