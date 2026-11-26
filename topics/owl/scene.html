@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="../../engine/fonts/fonts.css">
 <style>
   /* STİL KARTI: gece ormanı kâğıt kesme katmanları; yalnız Arjin paleti + beyaz. Bkz. style.md */
-  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#28301C}
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#151833}
   svg{position:absolute;inset:0}
-  #alt{position:absolute;left:70px;right:70px;top:110px;font:500 54px/1.3 'IBM Plex Sans';color:#D2CF9A;text-align:center}
+  #alt{position:absolute;left:70px;right:70px;top:110px;font:500 54px/1.3 'IBM Plex Sans';color:#FFF3DC;text-align:center}
   #alt span{padding:0 6px;border-radius:6px}
   .is{font-family:'Instrument Serif'}
   .px{font-family:'IBM Plex Sans';font-weight:500}
@@ -27,7 +27,8 @@
 <script src="../../engine/vinyet.js"></script>
 <script>
 window.FONTS = ['400 60px "Instrument Serif"', '500 60px "IBM Plex Sans"'];
-const INK = '#28301C', GREEN = '#323D25', GOLD = '#9A7E3B', KHAKI = '#D2CF9A', WHITE = '#FFFFFF';
+const INK = '#151833', GREEN = '#2B3380', GOLD = '#FFC94A', KHAKI = '#FFF3DC', WHITE = '#FFFFFF', BODY = '#B98A5A', WING = '#7A5C3E';
+const SKY = '#1D2260';
 const c = cue, ac = (f, f0, d = 8) => f < f0 ? 0 : klamp((f - f0) / d);
 const yazi = (txt, x, y, s, o = {}) => `<text x="${f2(x)}" y="${f2(y)}" class="${o.cls || 'is'}" font-size="${s}" fill="${o.renk || KHAKI}" text-anchor="${o.a || 'middle'}" letter-spacing="${o.ls ?? 1}" opacity="${f2(o.op ?? 1)}" ${o.it === false ? '' : 'font-style="italic"'}>${txt}</text>`;
 const kazi = (f, f0, ic, x = 540, y = 960, d = 8) => f < f0 ? '' : `<g opacity="${f2(ac(f, f0, d * .6))}" transform="translate(${x},${y}) scale(${(1 + .06 * (1 - EASE.dolly(ac(f, f0, d)))).toFixed(3)}) translate(${-x},${-y})">${ic}</g>`;
@@ -43,7 +44,7 @@ function cam(y, h, w, renk, seed, kayma, golge) {
   return (golge ? `<path d="${d}" transform="translate(0,14)" fill="${INK}" opacity=".55"/>` : '') + `<path d="${d}" fill="${renk}"/><rect x="0" y="${y - 4}" width="1080" height="${1920 - y + 4}" fill="${renk}"/>`;
 }
 function bg(f, ton = 0) {
-  let g = `<rect width="1080" height="1920" fill="${INK}"/>`;
+  let g = `<rect width="1080" height="1920" fill="${SKY}"/>`;
   for (let k = 0; k < 34; k++) { const x = 40 + rastgele(k * 3) * 1000, y = 180 + rastgele(k * 3 + 1) * 900, tw = .35 + .45 * Math.abs(sin(f * .04 + k)); g += `<circle cx="${f2(x)}" cy="${f2(y)}" r="${f2(2 + rastgele(k * 3 + 2) * 3)}" fill="${KHAKI}" opacity="${f2(tw)}"/>`; }
   const mx = 870 - ton * 50, my = 400;
   g += `<circle cx="${mx}" cy="${my}" r="190" fill="${GOLD}" opacity=".16"/><circle cx="${mx}" cy="${my}" r="150" fill="${GOLD}" opacity=".22"/><circle cx="${mx}" cy="${my}" r="110" fill="${KHAKI}"/><circle cx="${mx - 34}" cy="${my - 24}" r="20" fill="${GOLD}" opacity=".25"/><circle cx="${mx + 34}" cy="${my + 40}" r="16" fill="${GOLD}" opacity=".25"/>`;
@@ -54,7 +55,7 @@ function bg(f, ton = 0) {
 // ---- baykuş (imza öğe): kâğıt kesme katmanları. o.head: derece, o.sil: siluet, o.glow: göz parlaması ----
 function bas(a, o) {
   const r = a * P / 180, cs = cos(r), ox = sin(r) * 92;
-  const fill = o.sil ? INK : GOLD, ST = o.sil ? GOLD : INK;
+  const fill = o.sil ? INK : BODY, ST = o.sil ? GOLD : INK;
   let g = `<path d="M-115 -75 L-100 -150 L-50 -105Z M115 -75 L100 -150 L50 -105Z" fill="${fill}" stroke="${ST}" stroke-width="8" stroke-linejoin="round"/><ellipse rx="135" ry="115" fill="${fill}" stroke="${ST}" stroke-width="8"/>`;
   if (cs > 0.02) {
     const sx = cs;
@@ -63,7 +64,7 @@ function bas(a, o) {
     for (const sg of [-1, 1]) {
       const ex = sg * 56;
       g += o.sil ? `<circle cx="${ex}" cy="-6" r="${o.glow ? 30 : 0}" fill="${KHAKI}" opacity="${f2(o.glow || 0)}"/>` :
-        `<circle cx="${ex}" cy="-6" r="48" fill="${GOLD}" stroke="${INK}" stroke-width="7"/><circle cx="${ex}" cy="-6" r="34" fill="${WHITE}"/><circle cx="${ex}" cy="-6" r="19" fill="${INK}"/><circle cx="${ex - 7}" cy="-14" r="6" fill="${WHITE}"/>`;
+        `<circle cx="${ex}" cy="-6" r="48" fill="${BODY}" stroke="${INK}" stroke-width="7"/><circle cx="${ex}" cy="-6" r="34" fill="${WHITE}"/><circle cx="${ex}" cy="-6" r="19" fill="${INK}"/><circle cx="${ex - 7}" cy="-14" r="6" fill="${WHITE}"/>`;
     }
     if (!o.sil) g += `<path d="M-17 22 L17 22 L0 64Z" fill="${KHAKI}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>`;
     g += `</g>`;
@@ -73,10 +74,10 @@ function bas(a, o) {
   return g;
 }
 function owl(x, y, s, o = {}) {
-  const sil = o.sil, bod = sil ? INK : GOLD;
-  let g = `<path d="M-150 20 Q-175 140 -100 190 L-60 120Z M150 20 Q175 140 100 190 L60 120Z" fill="${sil ? INK : GREEN}" stroke="${sil ? GOLD : INK}" stroke-width="8" stroke-linejoin="round"/>`;
+  const sil = o.sil, bod = sil ? INK : BODY;
+  let g = `<path d="M-150 20 Q-175 140 -100 190 L-60 120Z M150 20 Q175 140 100 190 L60 120Z" fill="${sil ? INK : WING}" stroke="${sil ? GOLD : INK}" stroke-width="8" stroke-linejoin="round"/>`;
   g += `<ellipse cy="10" rx="140" ry="185" fill="${bod}" stroke="${sil ? GOLD : INK}" stroke-width="8"/>`;
-  if (!sil) { g += `<ellipse cy="40" rx="88" ry="135" fill="${KHAKI}"/>`; for (let r = 0; r < 4; r++) for (let k = -1; k <= 1; k++) g += `<path d="M${k * 46 - 18} ${r * 52 - 10} l18 18 l18 -18" fill="none" stroke="${GOLD}" stroke-width="7" stroke-linecap="round"/>`; }
+  if (!sil) { g += `<ellipse cy="40" rx="88" ry="135" fill="${KHAKI}"/>`; for (let r = 0; r < 4; r++) for (let k = -1; k <= 1; k++) g += `<path d="M${k * 46 - 18} ${r * 52 - 10} l18 18 l18 -18" fill="none" stroke="${BODY}" stroke-width="7" stroke-linecap="round"/>`; }
   g += `<path d="M-60 190 l-12 30 M-60 190 l8 32 M-60 190 l28 26 M60 190 l12 30 M60 190 l-8 32 M60 190 l-28 26" stroke="${sil ? INK : KHAKI}" stroke-width="12" stroke-linecap="round"/>`;
   g += `<g transform="translate(0,-175)">${bas(o.head || 0, o)}</g>`;
   return at(x, y, s, g);
