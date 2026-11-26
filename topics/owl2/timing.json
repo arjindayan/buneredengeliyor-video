@@ -1,0 +1,1247 @@
+{
+"duration": 83.121,
+"words": [
+{
+"w": "There's",
+"start": 0.0,
+"end": 0.24,
+"seg": 0
+},
+{
+"w": "a",
+"start": 0.28,
+"end": 0.32,
+"seg": 0
+},
+{
+"w": "bird",
+"start": 0.4,
+"end": 0.8,
+"seg": 0
+},
+{
+"w": "that,",
+"start": 0.88,
+"end": 1.28,
+"seg": 0
+},
+{
+"w": "unbelievably,",
+"start": 1.4,
+"end": 2.64,
+"seg": 0
+},
+{
+"w": "can't",
+"start": 2.76,
+"end": 3.04,
+"seg": 0
+},
+{
+"w": "move",
+"start": 3.12,
+"end": 3.2,
+"seg": 0
+},
+{
+"w": "its",
+"start": 3.28,
+"end": 3.44,
+"seg": 0
+},
+{
+"w": "eyes",
+"start": 3.52,
+"end": 3.76,
+"seg": 0
+},
+{
+"w": "at",
+"start": 3.88,
+"end": 4.0,
+"seg": 0
+},
+{
+"w": "all,",
+"start": 4.2,
+"end": 4.88,
+"seg": 0
+},
+{
+"w": "yet",
+"start": 5.04,
+"end": 5.2,
+"seg": 0
+},
+{
+"w": "it",
+"start": 5.28,
+"end": 5.36,
+"seg": 0
+},
+{
+"w": "sees",
+"start": 5.44,
+"end": 5.84,
+"seg": 0
+},
+{
+"w": "everything",
+"start": 5.92,
+"end": 6.4,
+"seg": 0
+},
+{
+"w": "around",
+"start": 6.6,
+"end": 6.8,
+"seg": 0
+},
+{
+"w": "it.",
+"start": 6.88,
+"end": 7.04,
+"seg": 0
+},
+{
+"w": "Which",
+"start": 7.6,
+"end": 7.84,
+"seg": 0
+},
+{
+"w": "animal",
+"start": 8.0,
+"end": 8.16,
+"seg": 0
+},
+{
+"w": "can",
+"start": 8.24,
+"end": 8.4,
+"seg": 0
+},
+{
+"w": "do",
+"start": 8.48,
+"end": 8.56,
+"seg": 0
+},
+{
+"w": "that?",
+"start": 8.64,
+"end": 9.44,
+"seg": 0
+},
+{
+"w": "An",
+"start": 9.92,
+"end": 10.0,
+"seg": 0
+},
+{
+"w": "owl.",
+"start": 10.24,
+"end": 10.72,
+"seg": 0
+},
+{
+"w": "Its",
+"start": 11.28,
+"end": 11.44,
+"seg": 1
+},
+{
+"w": "eyes",
+"start": 11.52,
+"end": 11.76,
+"seg": 1
+},
+{
+"w": "aren't",
+"start": 11.84,
+"end": 12.08,
+"seg": 1
+},
+{
+"w": "round",
+"start": 12.24,
+"end": 12.4,
+"seg": 1
+},
+{
+"w": "balls.",
+"start": 12.48,
+"end": 13.04,
+"seg": 1
+},
+{
+"w": "They're",
+"start": 13.28,
+"end": 13.52,
+"seg": 1
+},
+{
+"w": "tubes,",
+"start": 13.6,
+"end": 14.4,
+"seg": 1
+},
+{
+"w": "locked",
+"start": 14.48,
+"end": 14.72,
+"seg": 1
+},
+{
+"w": "in",
+"start": 14.8,
+"end": 14.88,
+"seg": 1
+},
+{
+"w": "place",
+"start": 14.96,
+"end": 15.2,
+"seg": 1
+},
+{
+"w": "by",
+"start": 15.28,
+"end": 15.44,
+"seg": 1
+},
+{
+"w": "rings",
+"start": 15.6,
+"end": 15.84,
+"seg": 1
+},
+{
+"w": "of",
+"start": 15.92,
+"end": 16.0,
+"seg": 1
+},
+{
+"w": "bone,",
+"start": 16.08,
+"end": 16.96,
+"seg": 1
+},
+{
+"w": "so",
+"start": 17.04,
+"end": 17.12,
+"seg": 1
+},
+{
+"w": "an",
+"start": 17.2,
+"end": 17.28,
+"seg": 1
+},
+{
+"w": "owl",
+"start": 17.36,
+"end": 17.6,
+"seg": 1
+},
+{
+"w": "has",
+"start": 17.68,
+"end": 17.84,
+"seg": 1
+},
+{
+"w": "to",
+"start": 17.92,
+"end": 18.0,
+"seg": 1
+},
+{
+"w": "turn",
+"start": 18.08,
+"end": 18.16,
+"seg": 1
+},
+{
+"w": "its",
+"start": 18.28,
+"end": 18.4,
+"seg": 1
+},
+{
+"w": "whole",
+"start": 18.48,
+"end": 18.72,
+"seg": 1
+},
+{
+"w": "head",
+"start": 18.8,
+"end": 19.12,
+"seg": 1
+},
+{
+"w": "to",
+"start": 19.16,
+"end": 19.2,
+"seg": 1
+},
+{
+"w": "look",
+"start": 19.28,
+"end": 19.44,
+"seg": 1
+},
+{
+"w": "around.",
+"start": 19.68,
+"end": 20.0,
+"seg": 1
+},
+{
+"w": "It",
+"start": 20.56,
+"end": 20.64,
+"seg": 2
+},
+{
+"w": "can",
+"start": 20.72,
+"end": 20.88,
+"seg": 2
+},
+{
+"w": "twist",
+"start": 20.92,
+"end": 21.12,
+"seg": 2
+},
+{
+"w": "that",
+"start": 21.2,
+"end": 21.36,
+"seg": 2
+},
+{
+"w": "head",
+"start": 21.48,
+"end": 21.6,
+"seg": 2
+},
+{
+"w": "up",
+"start": 21.84,
+"end": 22.0,
+"seg": 2
+},
+{
+"w": "to",
+"start": 22.12,
+"end": 22.24,
+"seg": 2
+},
+{
+"w": "270",
+"start": 22.32,
+"end": 23.48,
+"seg": 2
+},
+{
+"w": "degrees.",
+"start": 23.52,
+"end": 24.24,
+"seg": 2
+},
+{
+"w": "Try",
+"start": 24.8,
+"end": 24.96,
+"seg": 2
+},
+{
+"w": "that",
+"start": 25.04,
+"end": 25.12,
+"seg": 2
+},
+{
+"w": "yourself",
+"start": 25.24,
+"end": 25.68,
+"seg": 2
+},
+{
+"w": "and",
+"start": 25.92,
+"end": 26.0,
+"seg": 2
+},
+{
+"w": "the",
+"start": 26.08,
+"end": 26.16,
+"seg": 2
+},
+{
+"w": "arteries",
+"start": 26.24,
+"end": 26.64,
+"seg": 2
+},
+{
+"w": "in",
+"start": 26.68,
+"end": 26.72,
+"seg": 2
+},
+{
+"w": "your",
+"start": 26.8,
+"end": 26.88,
+"seg": 2
+},
+{
+"w": "neck",
+"start": 27.04,
+"end": 27.28,
+"seg": 2
+},
+{
+"w": "could",
+"start": 27.36,
+"end": 27.52,
+"seg": 2
+},
+{
+"w": "tear.",
+"start": 27.6,
+"end": 28.4,
+"seg": 2
+},
+{
+"w": "But",
+"start": 28.72,
+"end": 28.8,
+"seg": 3
+},
+{
+"w": "owls",
+"start": 28.88,
+"end": 29.2,
+"seg": 3
+},
+{
+"w": "have",
+"start": 29.28,
+"end": 29.52,
+"seg": 3
+},
+{
+"w": "14",
+"start": 29.6,
+"end": 30.16,
+"seg": 3
+},
+{
+"w": "neck",
+"start": 30.24,
+"end": 30.48,
+"seg": 3
+},
+{
+"w": "bones,",
+"start": 30.56,
+"end": 31.28,
+"seg": 3
+},
+{
+"w": "twice",
+"start": 31.36,
+"end": 31.68,
+"seg": 3
+},
+{
+"w": "as",
+"start": 31.72,
+"end": 31.76,
+"seg": 3
+},
+{
+"w": "many",
+"start": 31.84,
+"end": 32.0,
+"seg": 3
+},
+{
+"w": "as",
+"start": 32.08,
+"end": 32.16,
+"seg": 3
+},
+{
+"w": "you,",
+"start": 32.24,
+"end": 32.88,
+"seg": 3
+},
+{
+"w": "and",
+"start": 32.96,
+"end": 33.04,
+"seg": 3
+},
+{
+"w": "special",
+"start": 33.12,
+"end": 33.52,
+"seg": 3
+},
+{
+"w": "blood",
+"start": 33.6,
+"end": 33.76,
+"seg": 3
+},
+{
+"w": "vessels",
+"start": 33.84,
+"end": 34.24,
+"seg": 3
+},
+{
+"w": "with",
+"start": 34.32,
+"end": 34.4,
+"seg": 3
+},
+{
+"w": "backup",
+"start": 34.56,
+"end": 34.88,
+"seg": 3
+},
+{
+"w": "pools",
+"start": 34.96,
+"end": 35.36,
+"seg": 3
+},
+{
+"w": "that",
+"start": 35.6,
+"end": 35.76,
+"seg": 3
+},
+{
+"w": "keep",
+"start": 35.84,
+"end": 36.0,
+"seg": 3
+},
+{
+"w": "blood",
+"start": 36.08,
+"end": 36.32,
+"seg": 3
+},
+{
+"w": "flowing",
+"start": 36.48,
+"end": 36.8,
+"seg": 3
+},
+{
+"w": "to",
+"start": 36.88,
+"end": 36.96,
+"seg": 3
+},
+{
+"w": "the",
+"start": 37.04,
+"end": 37.12,
+"seg": 3
+},
+{
+"w": "brain",
+"start": 37.2,
+"end": 37.52,
+"seg": 3
+},
+{
+"w": "mid-twist.",
+"start": 37.6,
+"end": 38.72,
+"seg": 3
+},
+{
+"w": "Up",
+"start": 39.04,
+"end": 39.2,
+"seg": 4
+},
+{
+"w": "close,",
+"start": 39.36,
+"end": 39.6,
+"seg": 4
+},
+{
+"w": "though,",
+"start": 39.68,
+"end": 40.08,
+"seg": 4
+},
+{
+"w": "they're",
+"start": 40.16,
+"end": 40.32,
+"seg": 4
+},
+{
+"w": "nearly",
+"start": 40.4,
+"end": 40.56,
+"seg": 4
+},
+{
+"w": "blind.",
+"start": 40.72,
+"end": 41.28,
+"seg": 4
+},
+{
+"w": "So",
+"start": 41.84,
+"end": 42.0,
+"seg": 4
+},
+{
+"w": "an",
+"start": 42.08,
+"end": 42.16,
+"seg": 4
+},
+{
+"w": "owl",
+"start": 42.24,
+"end": 42.48,
+"seg": 4
+},
+{
+"w": "feels",
+"start": 42.64,
+"end": 42.96,
+"seg": 4
+},
+{
+"w": "its",
+"start": 43.04,
+"end": 43.12,
+"seg": 4
+},
+{
+"w": "food",
+"start": 43.2,
+"end": 43.52,
+"seg": 4
+},
+{
+"w": "with",
+"start": 43.6,
+"end": 43.68,
+"seg": 4
+},
+{
+"w": "fine",
+"start": 43.84,
+"end": 44.16,
+"seg": 4
+},
+{
+"w": "feathers",
+"start": 44.32,
+"end": 44.64,
+"seg": 4
+},
+{
+"w": "around",
+"start": 44.76,
+"end": 44.88,
+"seg": 4
+},
+{
+"w": "the",
+"start": 44.96,
+"end": 45.04,
+"seg": 4
+},
+{
+"w": "beak.",
+"start": 45.12,
+"end": 45.52,
+"seg": 4
+},
+{
+"w": "Its",
+"start": 46.08,
+"end": 46.24,
+"seg": 5
+},
+{
+"w": "real",
+"start": 46.32,
+"end": 46.56,
+"seg": 5
+},
+{
+"w": "superpower",
+"start": 46.72,
+"end": 47.28,
+"seg": 5
+},
+{
+"w": "is",
+"start": 47.6,
+"end": 47.68,
+"seg": 5
+},
+{
+"w": "hearing.",
+"start": 47.84,
+"end": 48.4,
+"seg": 5
+},
+{
+"w": "One",
+"start": 49.12,
+"end": 49.28,
+"seg": 5
+},
+{
+"w": "ear",
+"start": 49.36,
+"end": 49.6,
+"seg": 5
+},
+{
+"w": "sits",
+"start": 49.68,
+"end": 49.92,
+"seg": 5
+},
+{
+"w": "higher",
+"start": 50.0,
+"end": 50.24,
+"seg": 5
+},
+{
+"w": "than",
+"start": 50.32,
+"end": 50.4,
+"seg": 5
+},
+{
+"w": "the",
+"start": 50.48,
+"end": 50.56,
+"seg": 5
+},
+{
+"w": "other,",
+"start": 50.72,
+"end": 51.28,
+"seg": 5
+},
+{
+"w": "and",
+"start": 51.32,
+"end": 51.36,
+"seg": 5
+},
+{
+"w": "the",
+"start": 51.44,
+"end": 51.52,
+"seg": 5
+},
+{
+"w": "flat",
+"start": 51.6,
+"end": 51.84,
+"seg": 5
+},
+{
+"w": "disc",
+"start": 51.92,
+"end": 52.16,
+"seg": 5
+},
+{
+"w": "of",
+"start": 52.2,
+"end": 52.24,
+"seg": 5
+},
+{
+"w": "the",
+"start": 52.32,
+"end": 52.36,
+"seg": 5
+},
+{
+"w": "face",
+"start": 52.4,
+"end": 52.72,
+"seg": 5
+},
+{
+"w": "funnels",
+"start": 53.12,
+"end": 53.52,
+"seg": 5
+},
+{
+"w": "sound",
+"start": 53.6,
+"end": 54.0,
+"seg": 5
+},
+{
+"w": "like",
+"start": 54.16,
+"end": 54.32,
+"seg": 5
+},
+{
+"w": "a",
+"start": 54.36,
+"end": 54.4,
+"seg": 5
+},
+{
+"w": "satellite",
+"start": 54.56,
+"end": 55.04,
+"seg": 5
+},
+{
+"w": "dish.",
+"start": 55.12,
+"end": 55.76,
+"seg": 5
+},
+{
+"w": "A",
+"start": 56.08,
+"end": 56.16,
+"seg": 5
+},
+{
+"w": "great",
+"start": 56.24,
+"end": 56.48,
+"seg": 5
+},
+{
+"w": "gray",
+"start": 56.56,
+"end": 56.8,
+"seg": 5
+},
+{
+"w": "owl",
+"start": 56.88,
+"end": 57.2,
+"seg": 5
+},
+{
+"w": "can",
+"start": 57.28,
+"end": 57.36,
+"seg": 5
+},
+{
+"w": "hear",
+"start": 57.44,
+"end": 57.6,
+"seg": 5
+},
+{
+"w": "a",
+"start": 57.64,
+"end": 57.68,
+"seg": 5
+},
+{
+"w": "mouse",
+"start": 57.84,
+"end": 58.24,
+"seg": 5
+},
+{
+"w": "tunneling",
+"start": 58.4,
+"end": 58.8,
+"seg": 5
+},
+{
+"w": "under",
+"start": 58.88,
+"end": 59.12,
+"seg": 5
+},
+{
+"w": "deep",
+"start": 59.2,
+"end": 59.44,
+"seg": 5
+},
+{
+"w": "snow,",
+"start": 59.52,
+"end": 60.4,
+"seg": 5
+},
+{
+"w": "then",
+"start": 60.52,
+"end": 60.64,
+"seg": 5
+},
+{
+"w": "dive",
+"start": 60.8,
+"end": 61.12,
+"seg": 5
+},
+{
+"w": "in",
+"start": 61.2,
+"end": 61.36,
+"seg": 5
+},
+{
+"w": "to",
+"start": 61.44,
+"end": 61.52,
+"seg": 5
+},
+{
+"w": "catch",
+"start": 61.6,
+"end": 61.84,
+"seg": 5
+},
+{
+"w": "it.",
+"start": 61.92,
+"end": 62.08,
+"seg": 5
+},
+{
+"w": "And",
+"start": 62.64,
+"end": 62.72,
+"seg": 6
+},
+{
+"w": "you'd",
+"start": 62.8,
+"end": 63.04,
+"seg": 6
+},
+{
+"w": "never",
+"start": 63.12,
+"end": 63.36,
+"seg": 6
+},
+{
+"w": "hear",
+"start": 63.44,
+"end": 63.52,
+"seg": 6
+},
+{
+"w": "it",
+"start": 63.6,
+"end": 63.68,
+"seg": 6
+},
+{
+"w": "coming.",
+"start": 63.76,
+"end": 64.48,
+"seg": 6
+},
+{
+"w": "Comb-like",
+"start": 64.8,
+"end": 65.28,
+"seg": 6
+},
+{
+"w": "edges",
+"start": 65.36,
+"end": 65.68,
+"seg": 6
+},
+{
+"w": "on",
+"start": 65.72,
+"end": 65.76,
+"seg": 6
+},
+{
+"w": "its",
+"start": 65.84,
+"end": 65.92,
+"seg": 6
+},
+{
+"w": "wing",
+"start": 66.0,
+"end": 66.16,
+"seg": 6
+},
+{
+"w": "feathers",
+"start": 66.24,
+"end": 66.56,
+"seg": 6
+},
+{
+"w": "break",
+"start": 66.72,
+"end": 66.96,
+"seg": 6
+},
+{
+"w": "up",
+"start": 67.04,
+"end": 67.12,
+"seg": 6
+},
+{
+"w": "the",
+"start": 67.16,
+"end": 67.2,
+"seg": 6
+},
+{
+"w": "air,",
+"start": 67.28,
+"end": 67.92,
+"seg": 6
+},
+{
+"w": "making",
+"start": 68.0,
+"end": 68.24,
+"seg": 6
+},
+{
+"w": "flight",
+"start": 68.4,
+"end": 68.72,
+"seg": 6
+},
+{
+"w": "nearly",
+"start": 69.04,
+"end": 69.36,
+"seg": 6
+},
+{
+"w": "silent.",
+"start": 69.52,
+"end": 70.32,
+"seg": 6
+},
+{
+"w": "Engineers",
+"start": 70.64,
+"end": 71.2,
+"seg": 6
+},
+{
+"w": "now",
+"start": 71.28,
+"end": 71.36,
+"seg": 6
+},
+{
+"w": "copy",
+"start": 71.44,
+"end": 71.68,
+"seg": 6
+},
+{
+"w": "them",
+"start": 71.8,
+"end": 71.92,
+"seg": 6
+},
+{
+"w": "to",
+"start": 72.16,
+"end": 72.32,
+"seg": 6
+},
+{
+"w": "build",
+"start": 72.44,
+"end": 72.56,
+"seg": 6
+},
+{
+"w": "quieter",
+"start": 72.64,
+"end": 73.12,
+"seg": 6
+},
+{
+"w": "wind",
+"start": 73.2,
+"end": 73.44,
+"seg": 6
+},
+{
+"w": "turbines.",
+"start": 73.52,
+"end": 74.52,
+"seg": 6
+},
+{
+"w": "So",
+"start": 74.8,
+"end": 74.88,
+"seg": 7
+},
+{
+"w": "an",
+"start": 74.96,
+"end": 75.04,
+"seg": 7
+},
+{
+"w": "owl",
+"start": 75.12,
+"end": 75.36,
+"seg": 7
+},
+{
+"w": "can't",
+"start": 75.52,
+"end": 75.76,
+"seg": 7
+},
+{
+"w": "move",
+"start": 75.84,
+"end": 76.0,
+"seg": 7
+},
+{
+"w": "its",
+"start": 76.08,
+"end": 76.16,
+"seg": 7
+},
+{
+"w": "eyes.",
+"start": 76.24,
+"end": 76.96,
+"seg": 7
+},
+{
+"w": "It",
+"start": 77.2,
+"end": 77.36,
+"seg": 7
+},
+{
+"w": "just",
+"start": 77.44,
+"end": 77.6,
+"seg": 7
+},
+{
+"w": "moves",
+"start": 77.68,
+"end": 78.08,
+"seg": 7
+},
+{
+"w": "everything",
+"start": 78.16,
+"end": 78.56,
+"seg": 7
+},
+{
+"w": "else.",
+"start": 78.64,
+"end": 79.32,
+"seg": 7
+},
+{
+"w": "If",
+"start": 79.6,
+"end": 79.68,
+"seg": 7
+},
+{
+"w": "you",
+"start": 79.76,
+"end": 79.8,
+"seg": 7
+},
+{
+"w": "enjoyed",
+"start": 79.84,
+"end": 80.16,
+"seg": 7
+},
+{
+"w": "this,",
+"start": 80.24,
+"end": 80.8,
+"seg": 7
+},
+{
+"w": "like",
+"start": 80.88,
+"end": 81.12,
+"seg": 7
+},
+{
+"w": "and",
+"start": 81.2,
+"end": 81.36,
+"seg": 7
+},
+{
+"w": "follow",
+"start": 81.44,
+"end": 81.76,
+"seg": 7
+},
+{
+"w": "for",
+"start": 81.84,
+"end": 81.92,
+"seg": 7
+},
+{
+"w": "more.",
+"start": 82.08,
+"end": 82.56,
+"seg": 7
+}
+]
+}
