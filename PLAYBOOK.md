@@ -14,3 +14,14 @@ Her konu `topics/<konu>/` altında: `script.json`, `scene.html`, `style.md`, `re
 7. **Render** → `node engine/render.mjs topics/<konu>` → `topics/<konu>/out/video.mp4` (1080x1920, 30 fps, ses -15 LUFS).
 
 Gereken: node, ffmpeg, playwright (Chromium).
+
+## Gemini worker (`engine/gemini.py`)
+
+İkinci görüş ve yardımcı işler için Gemini (`GEMINI_API_KEY`, yalnız Python stdlib). Sonuçları kaynakla doğrula; Gemini'nin söylediği gerçek değildir, taslaktır.
+
+- Araştırma taslağı / karşı kontrol: `python3 engine/gemini.py "X'in kökeni hakkında iddiaları ve kaynaklarını listele"`
+- Metin alternatifleri: `python3 engine/gemini.py -s topics/<konu>/style.md "Bu metne 5 farklı kanca yaz" - < metin.txt`
+- Kare kontrolü (6. adımdan sonra): `python3 engine/gemini.py "Bu karelerde altyazı okunuyor mu, palet dışı renk var mı (#28301C #323D25 #9A7E3B #D2CF9A + beyaz)?" -f out/still_30.png -f out/still_300.png`
+- JSON çıktı: `--json` (şemayı istemde yaz). Python'dan: `from gemini import ask`.
+
+Model zinciri (`GEMINI_MODELS` ile değişir): gemini-3.8-flash → 3.5-flash → 3-flash-preview → 3.5-flash-lite. Ücretsiz katmanda Pro ve gemini-4-* kotası 0; Flash modelleri yoğunlukta 503 verir ya da asılı kalır, betik 60 sn sonra (`GEMINI_TIMEOUT`) sıradakine geçer. Dosya başı ~19 MB inline sınırı.
