@@ -1,0 +1,14 @@
+{
+  "title": "Why was Monopoly invented?",
+  "lang": "en",
+  "voice": "TX3LPaxmHKxFdv7VOQHJ",
+  "segments": [
+    {"scene": "hook", "text": "Monopoly was invented to celebrate getting rich. Not really. It was built to protest it."},
+    {"scene": "lizzie", "text": "In {1904,|nineteen oh four,} a woman named Lizzie Magie patented The Landlord's Game, to show how landlords get richer while renters get stuck."},
+    {"scene": "rules", "text": "She made two sets of rules. In one, everybody wins when anybody gets richer. In the other, you win by crushing everyone else."},
+    {"scene": "spread", "text": "Homemade copies spread through colleges. Quakers even renamed the streets after Atlantic City."},
+    {"scene": "darrow", "text": "In {1935,|nineteen thirty five,} Parker Brothers bought a version from a man named Charles Darrow, who said he invented it. Then they bought Lizzie's patent for five hundred dollars. No royalties."},
+    {"scene": "lost", "text": "Darrow was called the inventor for decades. Lizzie was nearly forgotten, until a {1973|nineteen seventy three} lawsuit over a game called Anti-Monopoly dug up her story."},
+    {"scene": "son", "text": "So Monopoly never taught you to love landlords. It was a warning. Follow for a weird everyday truth daily."}
+  ]
+}
